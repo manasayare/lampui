@@ -5,9 +5,9 @@
   "description": "LAMP Design System \u2014 tokens, primitives and LAMP object components for the enterprise AI operating environment.",
   "type": "module",
   "scripts": {
-    "build": "node tools/build-bundle.mjs",
+    "build": "node tools/build-system-theme.mjs && node tools/build-bundle.mjs",
     "assets": "node tools/vendor-assets.mjs",
-    "check": "node tools/build-bundle.mjs && node tools/check-system.mjs && npm run check:types",
+    "check": "npm run build && node tools/check-system.mjs && npm run check:types",
     "verify": "node tools/build-bundle.mjs && node tools/verify-browser.mjs",
     "test": "npm run check && node tools/verify-browser.mjs && node tools/verify-package.mjs",
     "dev": "node tools/build-bundle.mjs && vite --config tools/vite.config.mjs",
