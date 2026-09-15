@@ -1,5 +1,5 @@
 export interface KeyValueRow { key: string; value: string }
-export interface KeyValueInputProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface KeyValueInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   rows?: KeyValueRow[];
   onChange?: (rows: KeyValueRow[]) => void;
   keyPlaceholder?: string;

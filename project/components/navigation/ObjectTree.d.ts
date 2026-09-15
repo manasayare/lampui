@@ -8,7 +8,7 @@ export interface ObjectTreeNode {
   meta?: string;
   children?: ObjectTreeNode[];
 }
-export interface ObjectTreeProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ObjectTreeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   nodes: ObjectTreeNode[];
   selectedId?: string;
   expanded?: Record<string, boolean>;

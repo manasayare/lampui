@@ -1,3 +1,6 @@
+export type AgentRole =
+  | 'standard' | 'coordinator' | 'specialist' | 'humanSupervised' | 'system' | 'external';
+
 export type AgentState =
   /* composition */ 'idle' | 'hover' | 'selected' | 'multiSelected' | 'dragging' | 'compatible' | 'snapReady' | 'bonding' | 'bonded' | 'unconfigured' | 'disabled'
   /* runtime */ | 'queued' | 'starting' | 'running' | 'delegating' | 'waiting' | 'needsHuman' | 'retrying' | 'succeeded' | 'success' | 'warning' | 'failed' | 'error' | 'degraded' | 'paused' | 'killed';
@@ -9,7 +12,7 @@ export interface AgentHexProps extends React.HTMLAttributes<HTMLDivElement> {
   /** xs 36×31 · sm 48×42 · md 64×55 (canvas default) · lg 88×76 (hero) · xl 120×104 */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   state?: AgentState;
-  role?: 'standard' | 'coordinator' | 'specialist' | 'humanSupervised' | 'system' | 'external';
+  role?: AgentRole;
   /** Drives energy colour: draft = none, simulation = blue, live = gold. */
   environment?: 'draft' | 'simulation' | 'live';
   /** Semantic-zoom tier: glyph (<50%) · name (50–120%) · meta (>120%). */

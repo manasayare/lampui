@@ -1,7 +1,7 @@
 /**
  * @startingPoint section="Memory" subtitle="The four memory scopes as a filter or read-out" viewport="700x120"
  */
-export interface MemoryScopeBarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MemoryScopeBarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Selected scope. Clicking the active one clears it (onChange fires undefined). */
   value?: 'agent' | 'playbook' | 'genie' | 'lamp';
   /** Fact counts per scope: { agent: 12, genie: 140 }. */
@@ -16,6 +16,10 @@ export interface MemoryScopeBarProps extends React.HTMLAttributes<HTMLDivElement
   /** Restrict or reorder the scopes shown. Defaults to all four, narrow to broad. */
   scopes?: Array<'agent' | 'playbook' | 'genie' | 'lamp'>;
   showCounts?: boolean;
+  /** 'list' stacks one scope per row — the default when readOnly, and the only
+   *  layout that fits four scopes with counts in a 320px Inspector. 'bar' is the
+   *  segmented control, the default for a filter. */
+  layout?: 'bar' | 'list';
   /** Full scope names instead of the short form. */
   full?: boolean;
 }

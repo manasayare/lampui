@@ -59,18 +59,24 @@ const posix = (p) => relative(PROJECT, p).split('\\').join('/');
 const allFiles = walk(PROJECT);
 
 /**
- * Component sources: any PascalCase <Name>.jsx under components/.
+ * Bundled sources: every module under components/.
  *
- * A sibling <Name>.d.ts is what gives a component its props contract and
+ * PascalCase .jsx files are components. Lowercase modules (glyphs.js) are
+ * inlined too, because a component that imports one would otherwise resolve it
+ * to `undefined` at runtime — only their exports are lowercase, so they publish
+ * nothing to the namespace and stay reachable to their siblings through the
+ * shared scope.
+ *
+ * A sibling <Name>.d.ts gives a component its props contract and
  * starting-point eligibility — it is NOT what makes it bundle. Modules that
  * export only helpers (CanvasMotion) carry a .d.ts for documentation and
- * publish nothing to the namespace, because only capitalized exports are
- * published. ui_kits/ is excluded: those files attach to `window` themselves
- * and are loaded by the kit HTML, not through the bundle.
+ * publish nothing, because only capitalized exports are published. ui_kits/ is
+ * excluded: those files attach to `window` themselves and are loaded by the kit
+ * HTML, not through the bundle.
  */
 const componentFiles = allFiles
-  .filter((f) => f.endsWith('.jsx') && posix(f).startsWith('components/'))
-  .filter((f) => isPascal(f.slice(0, -4).split('/').pop()))
+  .filter((f) => /\.(jsx|js)$/.test(f) && posix(f).startsWith('components/'))
+  .filter((f) => !/\/index\.(jsx|js)$/.test(posix(f)))
   .sort();
 
 /** UI-kit sources are hashed for change detection but are not bundled — the kits

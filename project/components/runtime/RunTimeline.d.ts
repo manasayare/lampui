@@ -2,7 +2,7 @@ export type RunStepState = 'pending' | 'running' | 'success' | 'warning' | 'fail
 /**
  * @startingPoint section="Runtime" subtitle="Run and simulation step trace" viewport="700x300"
  */
-export interface RunStepProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface RunStepProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   index?: number;
   state?: RunStepState;
   title: React.ReactNode;

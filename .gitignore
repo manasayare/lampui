@@ -1,2 +1,4 @@
 node_modules/
 .vite/
+.treeshake-probe/
+examples/*/dist/

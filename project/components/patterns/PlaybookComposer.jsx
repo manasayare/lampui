@@ -176,7 +176,7 @@ export function PlaybookComposer({
         {agents.map((a) => (
           <span key={a.id || a.name} className="lamp-composer__agent">
             <Icon name="hexagon" size={13} />
-            {a.name}
+            {a.name || 'Unnamed Agent'}
             {a.role ? <span className="lamp-composer__role">{a.role}</span> : null}
           </span>
         ))}

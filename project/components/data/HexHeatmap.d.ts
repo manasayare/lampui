@@ -12,7 +12,7 @@ export interface HexHeatmapCell {
   selected?: boolean;
   key?: string | number;
 }
-export interface HexHeatmapProps extends React.SVGAttributes<SVGElement> {
+export interface HexHeatmapProps extends Omit<React.SVGAttributes<SVGElement>, 'onSelect'> {
   cells: HexHeatmapCell[];
   /** Hexagon width. */
   size?: number;

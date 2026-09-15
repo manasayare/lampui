@@ -1,4 +1,4 @@
-export interface SliderProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   min?: number;
   max?: number;
   step?: number;

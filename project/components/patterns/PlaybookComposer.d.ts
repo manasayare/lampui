@@ -22,8 +22,10 @@ export interface ComposedPlaybook {
  */
 export interface PlaybookComposerProps {
   open?: boolean;
-  /** The outlined selection. Drives the process match. */
-  agents: Array<{ id?: string; name: string; role?: string; skills?: string[]; tools?: string[] }>;
+  /** The outlined selection, exactly as SnapField hands it over. `name` is
+   *  optional because an Agent that has not been configured yet does not have
+   *  one; it renders as "Unnamed Agent" and still matches on its Tools. */
+  agents: Array<{ id?: string; name?: string; role?: string; skills?: string[]; tools?: string[] }>;
   /** Tools already connected, so connector rows can show real state.
    *  Entries are matched on `provider` (a Simple Icons slug). */
   availableTools?: Array<{ provider?: string; id?: string; name?: string; state?: string }>;

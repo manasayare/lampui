@@ -9,11 +9,21 @@ import React from 'react';
    questions that are actually LAMP's: which lattice slot is nearest, and is it
    free.
 
-   GSAP is loaded from CDN at first use rather than imported, because components
-   in this system import React and nothing else — the card HTML, the UI kits and
-   the templates all load the bundle as a plain script. A page that wants GSAP
-   present up front can include the two tags itself; the loader will see
-   window.gsap and skip the injection.
+   GSAP is resolved at first use rather than imported, in this order:
+
+     1. whatever was handed to setGsap()   — the React path
+     2. window.gsap / window.Draggable     — a page that loaded the tags itself
+     3. the CDN                            — the design-system cards and kits
+
+   It is deliberately NOT a static import. A library that imports gsap forces
+   the dependency on every consumer, including one who only wanted a Button, and
+   a bundler cannot tree-shake a dependency out of a dynamic import it must
+   still resolve at build time. Injection keeps gsap a true optional peer:
+
+     import gsap from 'gsap';
+     import { Draggable } from 'gsap/Draggable';
+     import { setGsap } from '@lamp/design-system';
+     setGsap({ gsap, Draggable });
 
    Everything degrades: if GSAP cannot load, drag is unavailable but the canvas
    still renders and every Agent is still movable from the keyboard. Composition
@@ -47,7 +57,25 @@ export const GSAP_DURATION = {
   ceremonial: 0.6,
 };
 
+let injected = null;
 let loading = null;
+
+/**
+ * Hand the canvas a GSAP instance you imported yourself. Call once, before the
+ * first canvas surface mounts. This is the path a bundled React app should use;
+ * it removes the CDN entirely and keeps gsap an optional peer dependency.
+ */
+export function setGsap(api) {
+  if (!api || !api.gsap || !api.Draggable) {
+    console.warn('[LAMP] setGsap needs { gsap, Draggable }');
+    return;
+  }
+  injected = { gsap: api.gsap, Draggable: api.Draggable };
+  if (typeof injected.gsap.registerPlugin === 'function') {
+    injected.gsap.registerPlugin(injected.Draggable);
+  }
+  loading = Promise.resolve(injected);
+}
 
 function injectScript(src) {
   return new Promise((done, fail) => {
@@ -69,6 +97,7 @@ function injectScript(src) {
 
 /** Resolves to { gsap, Draggable }, or null if GSAP is unavailable. */
 export function loadGsap() {
+  if (injected) return Promise.resolve(injected);
   if (typeof window === 'undefined' || typeof document === 'undefined') {
     return Promise.resolve(null);
   }
@@ -97,9 +126,10 @@ export function loadGsap() {
  */
 export function useGsap() {
   const [api, setApi] = React.useState(() =>
-    typeof window !== 'undefined' && window.gsap && window.Draggable
-      ? { gsap: window.gsap, Draggable: window.Draggable }
-      : null,
+    injected
+      || (typeof window !== 'undefined' && window.gsap && window.Draggable
+        ? { gsap: window.gsap, Draggable: window.Draggable }
+        : null),
   );
   React.useEffect(() => {
     if (api) return;

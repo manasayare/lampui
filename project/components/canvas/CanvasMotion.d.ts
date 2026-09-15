@@ -33,6 +33,19 @@ export declare const GSAP_DURATION: {
   ceremonial: number;
 };
 
+/**
+ * Hand the canvas a GSAP instance you imported yourself — the path a bundled
+ * React app should use. Call once, before the first canvas surface mounts.
+ *
+ *   import gsap from 'gsap';
+ *   import { Draggable } from 'gsap/Draggable';
+ *   setGsap({ gsap, Draggable });
+ *
+ * Without it the canvas falls back to window.gsap and then to the CDN, and if
+ * neither is available drag is unavailable while the keyboard path still works.
+ */
+export declare function setGsap(api: GsapApi): void;
+
 /** Resolves to the GSAP API, or null when it cannot be loaded. Never rejects. */
 export declare function loadGsap(): Promise<GsapApi | null>;
 

@@ -54,7 +54,12 @@
 .lamp-graph__swatch--hex{border-radius:1px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
 
 /* MemoryScopeBar — the four scopes, narrow to broad */
-.lamp-scopebar{display:flex;align-items:stretch;gap:2px;padding:2px;background:var(--surface-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md)}
+.lamp-scopebar{display:flex;gap:2px;padding:2px;background:var(--surface-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md)}
+.lamp-scopebar--bar{align-items:stretch}
+/* A read-out lists: four scopes with counts never fit across a 320px Inspector. */
+.lamp-scopebar--list{flex-direction:column;gap:0;padding:2px;background:transparent;border:none}
+.lamp-scopebar--list .lamp-scopebar__item{flex:none;width:100%;height:28px}
+.lamp-scopebar--list .lamp-scopebar__item+.lamp-scopebar__item{border-top:1px solid var(--border-subtle);border-radius:0}
 .lamp-scopebar__item{flex:1;min-width:0;display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;border:1px solid transparent;border-radius:var(--radius-sm);background:transparent;color:var(--text-secondary);font:500 12px/16px var(--font-sans);cursor:pointer;text-align:left;white-space:nowrap}
 .lamp-scopebar--static .lamp-scopebar__item{cursor:default}
 .lamp-scopebar__item:hover:not(.lamp-scopebar__item--active){background:var(--surface-hover)}
@@ -71,6 +76,8 @@
 .lamp-scopebar__item--inherited .lamp-scopebar__mark{opacity:.5}
 .lamp-scopebar__name{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .lamp-scopebar__count{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+.lamp-scopebar--list .lamp-scopebar__inherit,.lamp-scopebar--list .lamp-scopebar__owned{margin-left:6px;flex:none}
+.lamp-scopebar--bar .lamp-scopebar__inherit,.lamp-scopebar--bar .lamp-scopebar__owned{display:none}
 .lamp-scopebar__inherit{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
 
 /* MemoryConflict — two memories that cannot both be true */

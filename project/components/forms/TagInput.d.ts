@@ -1,4 +1,4 @@
-export interface TagInputProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   values?: string[];
   onChange?: (values: string[]) => void;
   placeholder?: string;

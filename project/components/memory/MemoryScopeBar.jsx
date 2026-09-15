@@ -10,17 +10,26 @@ import { MEMORY_SCOPES } from './MemoryBadge.jsx';
    always "further right". The step marks grow with scope (4 → 13px), matching
    MemoryScope's badge, so the shape carries the meaning and not just the label.
 
-   Two modes. As a filter it is a segmented control: click a scope to narrow a
-   memory list to it, and `inherited` dims the scopes the current object only
-   reads from rather than owns. As a read-out (`readOnly`) it is a static
-   summary with counts — what an Inspector shows for a selected Agent. */
+   Two modes, and two layouts, because they are different jobs.
+
+   As a FILTER it is a segmented control: click a scope to narrow a memory list
+   to it. Four segments across is right for a toolbar or a full-width panel.
+
+   As a READ-OUT (`readOnly`) it is a vertical list by default. Four scopes, each
+   with a count and possibly an "Inherited" mark, do not fit across a 320px
+   Inspector — the names get squeezed out entirely and the counts collide. A
+   list gives every scope a 28px row with its count right-aligned, which is the
+   same rhythm as PropertyRow beside it. Pass layout="bar" to force the
+   segmented look where there is room for it. */
 
 const ORDER = ['agent', 'playbook', 'genie', 'lamp'];
 
 export function MemoryScopeBar({
   value, counts = {}, inherited = [], owned, onChange, readOnly = false,
-  scopes = ORDER, showCounts = true, full = false, className = '', ...rest
+  scopes = ORDER, showCounts = true, full = false, layout, className = '', ...rest
 }) {
+  /* A read-out lists; a filter is a bar. Either can be forced. */
+  const asList = (layout || (readOnly ? 'list' : 'bar')) === 'list';
   /* An object owns one scope and reads from every broader one. Naming `owned` is
      enough to mark the rest inherited; `inherited` overrides it where the
      relationship is not simply positional. */
@@ -30,7 +39,12 @@ export function MemoryScopeBar({
 
   return (
     <div
-      className={['lamp-scopebar', readOnly && 'lamp-scopebar--static', className].filter(Boolean).join(' ')}
+      className={[
+        'lamp-scopebar',
+        asList ? 'lamp-scopebar--list' : 'lamp-scopebar--bar',
+        readOnly && 'lamp-scopebar--static',
+        className,
+      ].filter(Boolean).join(' ')}
       role={readOnly ? 'group' : 'radiogroup'}
       aria-label="Memory scope"
       {...rest}
@@ -53,7 +67,7 @@ export function MemoryScopeBar({
         const body = (
           <React.Fragment>
             <span className="lamp-scopebar__mark" />
-            <span className="lamp-scopebar__name">{full ? s.label : s.short}</span>
+            <span className="lamp-scopebar__name">{asList || full ? s.label : s.short}</span>
             {showCounts && count != null ? <span className="lamp-scopebar__count">{count}</span> : null}
             {isOwned ? <span className="lamp-scopebar__owned">Owns</span> : null}
             {dim ? <span className="lamp-scopebar__inherit">Inherited</span> : null}

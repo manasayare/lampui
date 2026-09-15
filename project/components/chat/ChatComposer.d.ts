@@ -8,7 +8,7 @@ export interface ChatQuickReply {
 /**
  * @startingPoint section="Chat" subtitle="Composer with scope, quick replies, voice and attachments" viewport="700x200"
  */
-export interface ChatComposerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChatComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   onChange?: (v: string) => void;
   onSend?: (v: string) => void;

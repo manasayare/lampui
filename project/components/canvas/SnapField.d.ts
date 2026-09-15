@@ -1,9 +1,20 @@
+import type { AgentState, AgentRole } from '../objects/AgentHex';
+
 export interface SnapFieldAgent {
   id: string;
   /** Lattice coordinates. SnapField writes these back through onChange. */
   col: number;
   row: number;
-  state?: string;
+  /** The Agent's runtime state, typed as AgentHex's — SnapField hands this
+   *  straight back to renderAgent, so a looser type here would force a cast at
+   *  every call site of the one pattern this component exists for. */
+  state?: AgentState;
+  /** Declared so a selection composes with PlaybookComposer without a cast —
+   *  the canvas hands its selection straight to the composer. */
+  name?: string;
+  role?: AgentRole;
+  skills?: string[];
+  tools?: string[];
   [key: string]: any;
 }
 
@@ -20,7 +31,7 @@ export interface SnapFieldFlags {
 /**
  * @startingPoint section="Canvas" subtitle="Drag Agents onto the hexagonal lattice" viewport="760x420"
  */
-export interface SnapFieldProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onSelect'> {
   agents: SnapFieldAgent[];
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /** Lattice gap. 0–2 for bonded compositions where the hexagons touch.

@@ -10,7 +10,7 @@ export interface ChartSeries {
 /**
  * @startingPoint section="Data" subtitle="Line and area — trends, telemetry, cost over time" viewport="700x260"
  */
-export interface LineChartProps extends React.SVGAttributes<SVGElement> {
+export interface LineChartProps extends Omit<React.SVGAttributes<SVGElement>, 'format'> {
   series: ChartSeries[];
   /** X labels; thinned automatically. */
   labels?: string[];

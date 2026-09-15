@@ -51,9 +51,17 @@
 .lamp-cmenu__kbd{margin-left:auto;color:var(--text-tertiary);font-family:var(--font-mono);font-size:11px}
 .lamp-cmenu__sep{height:1px;margin:4px 0;background:var(--border-subtle)}
 .lamp-cmenu__label{padding:6px 8px 2px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
-.lamp-snapfield__slot{outline:none}
-.lamp-snapfield__cell{position:absolute;left:50%;top:0;transform:translateX(-50%)}
-.lamp-snapfield--dragging{cursor:grabbing}
+/* The hexagon is the ONLY thing in a slot that takes the pointer. The slot box
+   and the centring wrapper are transparent to it, so a press in the gaps between
+   hexagons — or on an Agent's label — falls through to the field and starts a
+   marquee instead of dragging whatever happens to be nearest. This is the same
+   rule AgentHex states for hover and focus: the hexagon, never its bounding box,
+   never the label beside it. */
+.lamp-snapfield__slot{outline:none;pointer-events:none}
+.lamp-snapfield__cell{position:absolute;left:50%;top:0;transform:translateX(-50%);pointer-events:none}
+.lamp-snapfield__cell .lamp-agent__hex{pointer-events:auto;cursor:grab}
+.lamp-snapfield--readonly .lamp-snapfield__cell .lamp-agent__hex{cursor:default}
+.lamp-snapfield--dragging .lamp-agent__hex{cursor:grabbing}
 .lamp-snapfield--dragging .lamp-agent__hex{transition:none}
 
 /* SnapField — proximity and armed slot */

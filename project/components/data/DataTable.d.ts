@@ -14,7 +14,7 @@ export interface DataColumn<T = any> {
 /**
  * @startingPoint section="Tables" subtitle="Compact enterprise table — runs, agents, memory, audit" viewport="900x420"
  */
-export interface DataTableProps<T = any> extends React.HTMLAttributes<HTMLDivElement> {
+export interface DataTableProps<T = any> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   columns: DataColumn<T>[];
   rows: T[];
   /** compact 32 · default 40 · comfortable 48 */

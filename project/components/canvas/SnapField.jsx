@@ -366,6 +366,7 @@ export function SnapField({
       className={[
         'lamp-snapfield',
         dragId && 'lamp-snapfield--dragging',
+        readOnly && 'lamp-snapfield--readonly',
         snapState === 'proximity' && 'lamp-snapfield--proximity',
         snapState === 'snapReady' && 'lamp-snapfield--ready',
         className,
@@ -398,7 +399,7 @@ export function SnapField({
             key={a.id}
             ref={(el) => { if (el) nodes.current[a.id] = el; else delete nodes.current[a.id]; }}
             className="lamp-snapfield__slot"
-            style={{ position: 'absolute', left: p.x - hexW / 2, top: p.y - hexH / 2, width: hexW, height: hexH, zIndex: isDrag ? 5 : 1, cursor: readOnly ? 'default' : 'grab' }}
+            style={{ position: 'absolute', left: p.x - hexW / 2, top: p.y - hexH / 2, width: hexW, height: hexH, zIndex: isDrag ? 5 : 1 }}
             onKeyDown={onKeyDown(a)}
           >
             {/* The slot is exactly the hexagon — that is what GSAP transforms and

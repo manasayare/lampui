@@ -9,7 +9,7 @@ export interface CommandItemDef {
   danger?: boolean;
 }
 export interface CommandGroupDef { label: string; items: CommandItemDef[] }
-export interface CommandPaletteProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CommandPaletteProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   open?: boolean;
   query?: string;
   onQueryChange?: (q: string) => void;

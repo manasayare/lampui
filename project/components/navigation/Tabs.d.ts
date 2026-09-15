@@ -1,5 +1,5 @@
 export interface TabDef { id: string; label: string; icon?: string; count?: number; disabled?: boolean }
-export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   tabs: Array<string | TabDef>;
   value?: string;
   onChange?: (id: string) => void;

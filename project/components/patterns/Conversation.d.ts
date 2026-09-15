@@ -11,7 +11,7 @@ export interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 export declare function Message(props: MessageProps): JSX.Element;
 export declare function MessageList(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
-export interface ComposerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   placeholder?: string;
   value?: string;
   onChange?: (v: string) => void;

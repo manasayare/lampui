@@ -2,7 +2,7 @@ import type { ChartSeries } from './LineChart';
 /**
  * @startingPoint section="Data" subtitle="Bars — comparison, ranking, distribution, composition" viewport="700x260"
  */
-export interface BarChartProps extends React.SVGAttributes<SVGElement> {
+export interface BarChartProps extends Omit<React.SVGAttributes<SVGElement>, 'format'> {
   series: ChartSeries[];
   labels?: string[];
   width?: number;
