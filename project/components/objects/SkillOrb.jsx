@@ -4,7 +4,7 @@ import { StatusDot } from '../core/StatusBadge.jsx';
 
 export const SKILL_SIZES = { xs: 16, sm: 20, md: 28, lg: 36, xl: 48 };
 
-export function SkillOrb({ size = 'md', state = 'available', glyph = 'auto_awesome', name, label, onClick, className = '', style, ...rest }) {
+export function SkillOrb({ size = 'md', state = 'available', glyph = 'flare', name, label, onClick, className = '', style, ...rest }) {
   const px = SKILL_SIZES[size] || SKILL_SIZES.md;
   const orb = (
     <span className={['lamp-skill', 'lamp-skill--' + state, onClick && 'lamp-skill--interactive', className].filter(Boolean).join(' ')}

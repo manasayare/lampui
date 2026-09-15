@@ -33,7 +33,7 @@ export function ChatActivity({ items = [], max = 4, onSelect }) {
   const [open, setOpen] = React.useState(false);
   const shown = open ? items : items.slice(0, max);
   const rest = items.length - shown.length;
-  const glyph = (k) => (k === 'tool' ? 'square' : k === 'memory' ? 'database' : k === 'skill' ? 'auto_awesome' : k === 'human' ? 'how_to_reg' : 'bolt');
+  const glyph = (k) => (k === 'tool' ? 'square' : k === 'memory' ? 'database' : k === 'skill' ? 'flare' : k === 'human' ? 'how_to_reg' : 'bolt');
   return (
     <div className="lamp-act">
       {shown.map((a, i) => (

@@ -6,12 +6,23 @@ export function InspectorSection({ label, count, actions, collapsible = true, de
   const isOpen = collapsible ? open : true;
   return (
     <section className={['lamp-insp-sec', !collapsible && 'lamp-insp-sec--static', advanced && 'lamp-insp-sec--advanced', className].filter(Boolean).join(' ')} {...rest}>
-      <button type="button" className="lamp-insp-sec__head" onClick={() => collapsible && setOpen(!open)} aria-expanded={isOpen}>
-        <span className="lamp-insp-sec__label">{label}</span>
-        {count != null ? <span className="lamp-insp-sec__count">{count}</span> : null}
-        {actions ? <span style={{ marginLeft: 'auto', display: 'flex', gap: 2 }} onClick={(e) => e.stopPropagation()}>{actions}</span> : null}
-        {collapsible ? <span className={'lamp-insp-sec__twist' + (isOpen ? ' lamp-insp-sec__twist--open' : '')} style={actions ? { marginLeft: 4 } : undefined}><Icon name="keyboard_arrow_down" size={14} /></span> : null}
-      </button>
+      {/* The disclosure control and the section's actions are siblings, never
+          nested. Actions are IconButtons, and a button inside a button is
+          invalid HTML that breaks keyboard order and screen-reader output. */}
+      <div className="lamp-insp-sec__head">
+        <button
+          type="button"
+          className="lamp-insp-sec__toggle"
+          onClick={() => collapsible && setOpen(!open)}
+          aria-expanded={isOpen}
+          disabled={!collapsible}
+        >
+          <span className="lamp-insp-sec__label">{label}</span>
+          {count != null ? <span className="lamp-insp-sec__count">{count}</span> : null}
+          {collapsible ? <span className={'lamp-insp-sec__twist' + (isOpen ? ' lamp-insp-sec__twist--open' : '')}><Icon name="keyboard_arrow_down" size={14} /></span> : null}
+        </button>
+        {actions ? <span className="lamp-insp-sec__actions">{actions}</span> : null}
+      </div>
       {isOpen ? <div className="lamp-insp-sec__body">{children}</div> : null}
     </section>
   );

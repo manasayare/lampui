@@ -74,3 +74,82 @@
 .lamp-mobile__tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:56px;padding:8px 0;border:none;background:transparent;color:var(--text-tertiary);font:500 10px var(--font-sans);cursor:pointer}
 .lamp-mobile__tab--active{color:var(--text-primary)}
 .lamp-mobile__tab--active::before{content:"";position:absolute;margin-top:-8px;width:18px;height:2px;border-radius:1px;background:var(--gold-500)}
+
+/* ProcessProposal — a matched business process, offered not asserted */
+/* Quiet at rest: a proposal is a card, not a coloured panel. The violet belongs
+   to the 'LAMP thinks this is' line and its glyph, which is where the inference
+   semantics actually live — a large tint on every runner-up is noise. */
+.lamp-proposal{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--border-default);border-radius:var(--radius-card);background:var(--surface-primary)}
+.lamp-proposal--primary{border-color:var(--status-waiting-border,var(--border-default));background:var(--status-waiting-bg)}
+.lamp-proposal--selected{border-color:var(--gold-500);background:var(--surface-selected)}
+.lamp-proposal--compact{padding:8px 10px;gap:4px}
+.lamp-proposal__top{display:flex;align-items:center;gap:6px}
+.lamp-proposal__note{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.lamp-proposal__name{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary)}
+.lamp-proposal__aka{font-size:11px;font-weight:400;color:var(--text-tertiary)}
+.lamp-proposal__purpose{margin:0;font-size:13px;line-height:18px;color:var(--text-secondary)}
+.lamp-proposal__ev{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--text-tertiary)}
+.lamp-proposal__gap{margin:0;font-size:11px;color:var(--text-tertiary)}
+.lamp-proposal__actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+
+/* PlaybookComposer */
+.lamp-composer .lamp-modal__body{display:flex;flex-direction:column;gap:12px}
+.lamp-composer__selection{display:flex;flex-wrap:wrap;gap:4px}
+.lamp-composer__agent{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 8px;border:1px solid var(--border-default);border-radius:var(--radius-sm);background:var(--surface-secondary);font-size:12px;color:var(--text-primary);white-space:nowrap}
+.lamp-composer__role{color:var(--text-tertiary);font-size:11px}
+.lamp-composer__alts{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px;color:var(--text-tertiary)}
+.lamp-composer__alt{border:none;background:none;padding:0;font:inherit;color:var(--text-brand);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.lamp-composer__browse{display:flex;flex-direction:column;gap:6px;padding:10px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--surface-secondary)}
+.lamp-composer__browse-head{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.lamp-composer__browse-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px}
+.lamp-composer__browse-item{display:flex;flex-direction:column;gap:1px;padding:7px 9px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-primary);text-align:left;cursor:pointer}
+.lamp-composer__browse-item:hover{border-color:var(--border-strong)}
+.lamp-composer__browse-item--active{border-color:var(--gold-500);background:var(--surface-selected)}
+.lamp-composer__browse-name{font-size:12px;font-weight:500;color:var(--text-primary)}
+.lamp-composer__browse-domain{font-size:10px;color:var(--text-tertiary)}
+.lamp-composer__pane{display:flex;flex-direction:column;gap:8px}
+.lamp-composer__label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary);margin-top:4px}
+.lamp-composer__hint{margin:0;font-size:12px;line-height:17px;color:var(--text-secondary)}
+.lamp-composer__empty{margin:0;font-size:12px;color:var(--text-disabled)}
+.lamp-composer__chips{display:flex;flex-wrap:wrap;gap:4px}
+.lamp-composer__steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.lamp-composer__step{display:flex;align-items:center;gap:8px;height:28px;padding:0 8px;border-radius:var(--radius-sm);background:var(--surface-secondary);font-size:12px;color:var(--text-primary)}
+.lamp-composer__step--human{background:var(--status-waiting-bg)}
+.lamp-composer__step-n{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--border-default);font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+.lamp-composer__conn,.lamp-composer__outcome{display:flex;align-items:center;gap:8px;padding:7px 8px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--surface-primary)}
+.lamp-composer__conn-main,.lamp-composer__outcome-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.lamp-composer__conn-name,.lamp-composer__outcome-label{font-size:13px;color:var(--text-primary)}
+.lamp-composer__conn-why,.lamp-composer__outcome-measure{font-size:11px;color:var(--text-tertiary)}
+.lamp-composer__conn-state{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-tertiary);white-space:nowrap}
+.lamp-composer__conn-state--missing{color:var(--status-danger-text)}
+.lamp-composer__addrow{display:flex;gap:6px;align-items:center}
+.lamp-composer__addrow>:first-child{flex:1}
+.lamp-composer__genie{display:flex;flex-direction:column;gap:8px;padding:10px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--surface-secondary)}
+.lamp-composer__footnote{flex:1;min-width:0;font-size:11px;color:var(--text-tertiary)}
+.lamp-composer__blocker{display:inline-flex;align-items:center;gap:5px;color:var(--status-warning-text)}
+
+/* GenieBlueprint — everything that would be created, before it is */
+.lamp-blueprint{display:flex;flex-direction:column;gap:14px;padding:14px;border:1px solid var(--border-default);border-radius:var(--radius-card);background:var(--surface-primary)}
+.lamp-blueprint--compact{gap:10px;padding:10px}
+.lamp-blueprint__head{display:flex;align-items:flex-start;gap:10px}
+.lamp-blueprint__glyph{flex:none;display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);background:var(--surface-secondary)}
+.lamp-blueprint__titles{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lamp-blueprint__name{font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary)}
+.lamp-blueprint__purpose{font-size:12px;color:var(--text-secondary)}
+.lamp-blueprint__summary{display:flex;flex-wrap:wrap;gap:14px;padding:8px 10px;border-radius:var(--radius-sm);background:var(--surface-secondary);font-size:12px;color:var(--text-secondary)}
+.lamp-blueprint__summary b{font-family:var(--font-mono);color:var(--text-primary);font-weight:500}
+.lamp-blueprint__group{display:flex;flex-direction:column;gap:5px}
+.lamp-blueprint__label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.lamp-blueprint__pb{display:flex;align-items:center;gap:8px;padding:7px 8px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);color:var(--text-secondary)}
+.lamp-blueprint__pb--out{opacity:var(--opacity-disabled)}
+.lamp-blueprint__pb-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.lamp-blueprint__pb-name{font-size:13px;color:var(--text-primary)}
+.lamp-blueprint__pb-purpose{font-size:11px;color:var(--text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lamp-blueprint__conn{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)}
+.lamp-blueprint__conn-name{font-size:13px;color:var(--text-primary)}
+.lamp-blueprint__conn-used{margin-left:auto;font-size:11px;color:var(--text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lamp-blueprint__note{margin:2px 0 0;font-size:11px;color:var(--text-tertiary)}
+.lamp-blueprint__rules{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}
+.lamp-blueprint__rules li{display:flex;align-items:flex-start;gap:6px;font-size:12px;line-height:17px;color:var(--text-secondary)}
+.lamp-blueprint__rules li>span{flex:none;margin-top:2px;color:var(--text-tertiary)}
+.lamp-blueprint__foot{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding-top:4px;border-top:1px solid var(--border-subtle)}

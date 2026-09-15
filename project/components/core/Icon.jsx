@@ -1,10 +1,42 @@
 import React from 'react';
 
-/* Material Symbols Outlined (weight 400) — real SVG vectors, inlined so they inherit currentColor.
-   Never rendered as font ligatures or typed text. Repoint the base to serve vendored assets. */
-export const MATERIAL_SYMBOLS_BASE = 'https://cdn.jsdelivr.net/npm/@material-symbols/svg-400/outlined/';
-/* Official third-party brand marks; Simple Icons is the fallback when a provider mark is not vendored. */
-export const BRAND_ICON_BASE = 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/';
+/* Material Symbols Outlined (weight 400) — real SVG vectors, inlined so they inherit
+   currentColor. Never rendered as font ligatures or typed text.
+
+   Icons are vendored into assets/, not fetched from a CDN: an enterprise operating
+   console should not have a toolbar that empties when a CDN is unreachable, and a
+   blocked request renders a placeholder box where a control's meaning should be.
+
+   The asset root is derived from the bundle's own <script src>, so a card three
+   directories deep and a kit two directories deep both resolve correctly without
+   either of them configuring anything. Set window.LAMP_ASSET_BASE before the
+   bundle loads to serve the assets from somewhere else; the CDN is kept only as
+   the last resort when neither is available (a bundler-built app, say, where
+   there is no _ds_bundle.js script tag to read). */
+
+function assetRoot() {
+  try {
+    if (typeof window !== 'undefined' && window.LAMP_ASSET_BASE) return window.LAMP_ASSET_BASE;
+    if (typeof document === 'undefined') return null;
+    const tag = document.currentScript
+      || Array.prototype.slice.call(document.scripts).filter((s) => /_ds_bundle\.js/.test(s.src))[0];
+    if (tag && tag.src) return tag.src.replace(/_ds_bundle\.js.*$/, '') + 'assets/';
+  } catch (e) { /* no DOM, or a sandboxed document — fall through to the CDN */ }
+  return null;
+}
+
+const ASSETS = assetRoot();
+
+export const MATERIAL_SYMBOLS_BASE = ASSETS
+  ? ASSETS + 'icons/'
+  : 'https://cdn.jsdelivr.net/npm/@material-symbols/svg-400/outlined/';
+
+/* Official third-party brand marks; Simple Icons is the fallback when a provider
+   mark is not vendored. Simple Icons carries no Microsoft marks, so Outlook,
+   Excel and SharePoint fall back to the generic Tool glyph. */
+export const BRAND_ICON_BASE = ASSETS
+  ? ASSETS + 'brand/'
+  : 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/';
 
 const cache = new Map();
 

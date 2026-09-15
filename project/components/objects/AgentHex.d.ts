@@ -33,6 +33,12 @@ export interface AgentHexProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Passing onClick makes the hexagon itself focusable and hoverable — the label and
    *  bounding box are never part of the hit area. */
   onClick?: (e: React.MouseEvent) => void;
+  /** Caps the label, which by default may be wider than the hexagon (104px).
+   *  On a lattice the clearance rule is `labelWidth <= 0.5 * hexWidth + 2 * gap`
+   *  — at the 104px default that needs a gap of 36 or more at size md, because
+   *  odd columns sit half a row lower and their body lands in the label band.
+   *  Tighten this instead when the lattice must stay dense. */
+  labelWidth?: number;
 }
 export declare function AgentHex(props: AgentHexProps): JSX.Element;
 export declare const AGENT_SIZES: Record<string, [number, number]>;

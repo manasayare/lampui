@@ -1,9 +1,44 @@
-/* LAMP typefaces — Geist Sans + Geist Mono, served from Google Fonts.
-   SUBSTITUTION NOTE: no font binaries were supplied with the brief. Geist and Geist Mono
-   are the specified families and are available on Google Fonts, so they are linked rather
-   than self-hosted. Drop .woff2 files into assets/fonts/ and swap the @import for local
-   @font-face rules when self-hosting. */
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap");
+/* LAMP typefaces — Geist Sans + Geist Mono, self-hosted.
+   The binaries live in assets/fonts/ and are vendored by tools/vendor-assets.mjs
+   from the `geist` package. Weights 400/500/600 only: the brief rules out light
+   weights and calls 700 rare enough not to ship by default.
+   Paths are relative to this file, so the whole token closure moves as one. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("../assets/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../assets/fonts/Geist-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../assets/fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../assets/fonts/GeistMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../assets/fonts/GeistMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;

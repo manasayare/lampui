@@ -17,6 +17,13 @@ export interface CanvasSurfaceProps extends React.HTMLAttributes<HTMLDivElement>
   marquee?: { left: number; top: number; width: number; height: number };
   /** Alignment guides: { axis: 'x'|'y', at: number }. */
   guides?: Array<{ axis: 'x' | 'y'; at: number }>;
+  /** Enables space-and-drag panning on GSAP Draggable. Off by default, so a drag
+   *  on the canvas stays a marquee selection unless the operator asks to pan. */
+  pannable?: boolean;
+  /** Forces pan mode on without the space key — for a toolbar hand tool. */
+  panMode?: boolean;
+  /** Fires with the world offset during a pan. */
+  onPanChange?: (offset: { x: number; y: number }) => void;
 }
 export declare function CanvasSurface(props: CanvasSurfaceProps): JSX.Element;
 export interface SnapGuideProps {

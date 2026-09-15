@@ -197,9 +197,13 @@ Rules:
 - Object primitives are **not** icons: an Agent is a drawn hexagon, a Skill a circle, a Tool a square. Never substitute a glyph for an object.
 - **Third-party logos** use official provider marks, with [Simple Icons](https://simpleicons.org) as the fallback, rendered through `BrandIcon`. Inside a neutral ToolTile at 16–20px — the only place brand colour other than gold appears.
 
-Mapping used across the kits: Agent `hexagon`, Skill `circle`/capability glyph, Tool `square`, Playbook `layers`, Genie `hive`, LAMP `lightbulb`, Memory `database`, Simulation `science`, Live `bolt`, Pause `pause`, Safe stop `stop_circle`, Emergency `dangerous`, Approval `how_to_reg`, Run `play_arrow`/`history`, Learning `auto_awesome`, Policy `gavel`, Evidence `fact_check`, Cost `receipt`, Audit `receipt_long`, Tools `handyman`/`extension`, Safety `shield`.
+Mapping used across the kits: Agent `hexagon`, Skill `circle`/capability glyph, Tool `square`, Playbook `layers`, Genie `hive`, LAMP `lightbulb`, Memory `database`, Simulation `science`, Live `bolt`, Pause `pause`, Safe stop `stop_circle`, Emergency `dangerous`, Approval `how_to_reg`, Run `play_arrow`/`history`, Learning `flare`, Policy `gavel`, Evidence `fact_check`, Cost `receipt`, Audit `receipt_long`, Tools `handyman`/`extension`, Safety `shield`.
 
-Assets are CDN-loaded rather than vendored because no icon files were supplied — see `assets/README.md` for the one-line change that makes them local.
+Icons and webfonts are **vendored into `assets/`**, not CDN-loaded. An operating console should not have a toolbar that empties when a CDN is unreachable, and a blocked request renders a placeholder box where a control's meaning should be. `tools/vendor-assets.mjs` copies only the glyphs the system actually references (159 of the 7,000-icon set) plus the five Geist faces, and `npm run check` fails if any component names an icon that is not there.
+
+The `Icon` component derives the asset root from the bundle's own `<script src>`, so a card three directories deep and a kit two directories deep both resolve without configuring anything. Set `window.LAMP_ASSET_BASE` before the bundle loads to serve them elsewhere.
+
+**Simple Icons carries no Microsoft marks**, so Outlook, Excel and SharePoint fall back to the generic Tool glyph. That is a gap in the icon set, not in the system: a connector is a *category* ("Email"), and a business running Outlook still matches it.
 
 ## 6. Brand mark
 
@@ -248,16 +252,18 @@ Known contrast care points: gold on white fails for body text — use `text-bran
 | `components/forms/` | Field, TextInput, Textarea, SearchInput, NumberInput, Select, Checkbox, Radio, Switch, Slider, TagInput, KeyValueInput, PromptEditor, CodeFrame, SecretField, VariableToken. |
 | `components/navigation/` | GlobalHeader, Breadcrumb, SideNav, ObjectTree, Tabs, SegmentedControl, WorkspaceSwitcher, StatusBar. |
 | `components/objects/` | AgentHex, SkillOrb, ToolTile, PlaybookCluster, GenieCard, BondEdge, EntityChip, ObjectRow. |
-| `components/canvas/` | SnapField, CanvasSurface, CanvasToolbar, CanvasZoomControls, CanvasMinimap, CanvasObjectToolbar, CanvasContextMenu, SnapGuide. |
-| `components/inspector/` | InspectorPanel, InspectorHeader, InspectorTabs, InspectorSection, InspectorField, InspectorFooter. |
-| `components/memory/` | MemoryGraph, MemoryBadge, MemoryFact, MemoryScopeBar, MemoryConfidence, MemoryConflict, MemoryTimeline. |
-| `components/runtime/` | EnvironmentBanner, SimulationBar, SimulationStep, RunTimeline, RunSummary, LiveActivityIndicator, ApprovalCard, HumanCheckpoint, KillSwitch, CriticalConfirmation. |
-| `components/data/` | DataTable, MetricCard, Sparkline, BarChart, StackedBar, DonutChart, ContextBreakdown, ProgressBar, ChartFrame. |
+| `components/canvas/` | SnapField, CanvasSurface, CanvasToolbar, CanvasZoomControls, CanvasMinimap, CanvasObjectToolbar, CanvasContextMenu, SnapGuide, CanvasMotion (GSAP runtime). |
+| `components/inspector/` | InspectorPanel, InspectorHeader, InspectorTabs, InspectorSection, InspectorField, InspectorFooter, PropertyRow. |
+| `components/memory/` | MemoryGraph, MemoryBadge, MemoryFact, MemoryScope, MemoryScopeBar, MemoryConfidence, MemoryConflict, MemoryTimeline, MemoryUsageBar. |
+| `components/runtime/` | EnvironmentBanner, SimulationBar, SimulationStep, RunTimeline, RunStep, RunSummary, LiveActivityIndicator, ApprovalCard, HumanCheckpoint, KillSwitch, SafetyControls, ReadinessCheck. |
+| `components/data/` | Viz, DataTable, MetricCard, Sparkline, LineChart, BarChart, StackedBar, DonutChart, ScatterPlot, Heatmap, HexHeatmap, ContextBreakdown, ProgressBar, UsageMeter, ChartFrame. |
 | `components/feedback/` | Toast, InlineNotification, Banner, EmptyState, Skeleton, Spinner, Modal, Drawer, CommandPalette, ErrorState. |
 | `ui_kits/lamp-canvas/` | The builder: Genie canvas, bonded Playbook, Agent selection, Inspector, simulation, command palette. |
 | `ui_kits/lamp-operations/` | Operations: run history, Run Inspector, approval queue, safety centre, learned intelligence. |
 
+| `assets/` | Vendored icons (`icons/`), provider marks (`brand/`), Geist webfonts (`fonts/`) and `manifest.json`. Generated by `tools/vendor-assets.mjs`. |
 | `assets/README.md` | Asset inventory, absences, and the wordmark treatment. |
+| `../tools/` | `build-bundle.mjs` regenerates `_ds_bundle.js`; `check-system.mjs` and `verify-browser.mjs` are the two checks. See the repository README. |
 | `SKILL.md` | Agent Skills entry point. |
 | `thumbnail.html` | Homepage tile. |
 
@@ -275,13 +281,13 @@ Known contrast care points: gold on white fails for body text — use `text-bran
 
 **canvas** — `SnapField`, `CanvasSurface`, `SnapGuide`, `CanvasToolbar`, `CanvasZoomControls`, `CanvasObjectToolbar`, `CanvasMinimap`, `CanvasContextMenu`
 
-**inspector** — `InspectorPanel`, `InspectorSection`, `PropertyRow`
+**inspector** — `InspectorPanel`, `InspectorHeader`, `InspectorTabs`, `InspectorFooter`, `InspectorSection`, `InspectorField`, `PropertyRow`
 
-**memory** — `MemoryGraph`, `MemoryBadge`, `MemoryScope`, `MemoryConfidence`, `MemoryFact`, `MemoryUsageBar`, `MemoryTimeline`
+**memory** — `MemoryGraph`, `MemoryBadge`, `MemoryScope`, `MemoryScopeBar`, `MemoryConfidence`, `MemoryFact`, `MemoryConflict`, `MemoryUsageBar`, `MemoryTimeline`
 
-**runtime** — `EnvironmentBanner`, `SimulationBar`, `RunTimeline`, `RunStep`, `LiveActivityIndicator`, `RunSummary`, `ApprovalCard`, `HumanCheckpoint`, `KillSwitch`, `SafetyControls`, `ReadinessCheck`
+**runtime** — `EnvironmentBanner`, `SimulationBar`, `SimulationStep`, `RunTimeline`, `RunStep`, `LiveActivityIndicator`, `RunSummary`, `ApprovalCard`, `HumanCheckpoint`, `KillSwitch`, `SafetyControls`, `ReadinessCheck`
 
-**data** — `Viz`, `ChartFrame`, `ChartLegend`, `ChartTooltip`, `MetricCard`, `Sparkline`, `LineChart`, `BarChart`, `DonutChart`, `ScatterPlot`, `Heatmap`, `HexHeatmap`, `ProgressBar`, `UsageMeter`, `DataTable`
+**data** — `Viz`, `ChartFrame`, `ChartLegend`, `ChartTooltip`, `MetricCard`, `Sparkline`, `LineChart`, `BarChart`, `StackedBar`, `DonutChart`, `ScatterPlot`, `Heatmap`, `HexHeatmap`, `ContextBreakdown`, `ProgressBar`, `UsageMeter`, `DataTable`
 
 **feedback** — `InlineNotification`, `Toast`, `ToastStack`, `EmptyState`, `Skeleton`, `Spinner`, `Modal`, `CriticalConfirmation`, `Drawer`, `Popover`, `ErrorState`
 
@@ -289,9 +295,9 @@ Known contrast care points: gold on white fails for body text — use `text-bran
 
 **chat** — `AgentChat`, `ChatStatus`, `ChatMessage`, `ChatAvatar`, `ChatActivity`, `ChatCitation`, `ChatDayDivider`, `ChatComposer`, `ChatQuickReplies`
 
-**patterns** — `IntegrationCard`, `PermissionMatrix`, `PermissionCell`, `RoleBadge`, `LearnedPattern`, `ObservedProcess`, `Conversation`, `Message`, `MessageList`, `Composer`, `VoiceButton`, `VoiceWaveform`, `MobileShell`
+**patterns** — `IntegrationCard`, `PermissionMatrix`, `PermissionCell`, `RoleBadge`, `LearnedPattern`, `ObservedProcess`, `ProcessProposal`, `PlaybookComposer`, `GenieBlueprint`, `Conversation`, `Message`, `MessageList`, `Composer`, `VoiceButton`, `VoiceWaveform`, `MobileShell`
 
-Also exported for composition: `STATUS` (the status map), `AGENT_SIZES`, `SKILL_SIZES`, `TOOL_SIZES`, `FACT_TYPES`, `MEMORY_SCOPES`, `DATAVIZ`, `ChartFrame.seriesColor`, `Heatmap.heatColor`, `VIZ_TIERS`, `MATERIAL_SYMBOLS_BASE`, `BRAND_ICON_BASE`.
+Also exported for composition: `STATUS` (the status map), `AGENT_SIZES`, `SKILL_SIZES`, `TOOL_SIZES`, `FACT_TYPES`, `MEMORY_SCOPES`, `DATAVIZ`, `VIZ_TIERS`, `BUSINESS_PROCESSES`, `BLANK_PROCESS`, `MatchProcess`, `BuildGenie`, `GSAP_CDN`, `GSAP_EASE`, `GSAP_DURATION`, `MATERIAL_SYMBOLS_BASE`, `BRAND_ICON_BASE`.
 
 ### Intentional additions
 
@@ -299,6 +305,8 @@ Two components exist that no brief named, because the system needs them and cons
 
 - **`Icon` / `BrandIcon`** — the wrapper that guarantees Material Symbols arrive as real SVG vectors inheriting `currentColor`, and that provider marks stay monochrome inside neutral tiles.
 - **`HexLattice` / `HexCenter`** — the honeycomb layout maths. Without it every screen would hand-place hexagons and the snap lattice would drift.
+- **`CanvasMotion`** — the GSAP loader and the token-to-GSAP mapping. Exports no component; it exists so `SnapField` and `CanvasSurface` share one motion runtime instead of each loading their own.
+- **`BusinessProcess` / `PlaybookComposer` / `GenieBlueprint`** — the standard process library, the dialog that proposes from it, and the Genie it builds. Added because the brief's object model assumes a Playbook already has a purpose, connectors and expected outcomes, and never says where those come from. See §18.
 
 ## 11. Visualization architecture
 
@@ -369,9 +377,30 @@ Hover, focus and the click target are the **hexagon itself** — never its bound
 
 ## 16. Direct manipulation on the canvas
 
-`SnapField` owns drag-to-snap. Agents drag freely; inside the snap tolerance (34px by default) they drift magnetically toward the nearest **free** lattice slot, that slot shows as a dashed hexagonal guide, and release commits it. The lattice itself is never drawn — only the candidate slot, and only while a drag is in flight. `onSnapStateChange` emits `dragging` / `snapReady` / `idle` for the canvas status line, the bond preview and the sound hooks.
+`SnapField` owns drag-to-snap, and it runs on **GSAP Draggable**. GSAP owns the pointer maths — capture, touch-action, transforms, the pointer/touch/pen differences — so the component only answers the two questions that are actually LAMP's: which lattice slot is nearest, and is it free.
 
-**The keyboard equivalent is built in, not bolted on:** focus an Agent and the arrow keys move it one lattice cell at a time, refusing occupied cells. No composition in LAMP is pointer-only.
+**Agents cannot overlap, by construction.** Every position is a cell of the hexagonal lattice, and a cell holding another Agent is excluded *before* the distance search runs. An occupied slot can never be chosen, lit, or committed to; a drag that ends with no free cell in range returns the Agent where it came from. Because positions are cells rather than free pixels, two Agents cannot partially overlap either.
+
+**Legal cells are derived from the field's own box**, not a fixed window, so an Agent can never be dropped outside the canvas or half off its edge.
+
+**Two ranges, and both matter:**
+
+| Range | Default | What happens |
+| --- | --- | --- |
+| Proximity | 72px | The nearest free slot lights up. The Agent stays exactly under the pointer. *"There is something here."* |
+| Snap tolerance | 34px | The slot arms and the Agent drifts toward it — a partial pull, in the specified 2–6px band. *"Release and it lands here."* |
+
+That is the brief's bond lifecycle — proximity, then compatible proximity, then snap threshold — made literal. Remove the outer range and you get magnetism with no warning, which reads as the canvas glitching rather than helping.
+
+`onSnapStateChange` emits `dragging` → `proximity` → `snapReady` → `idle`. Drive the canvas status line, the bond preview and the sound hooks from that one source.
+
+**Selection.** With `selectable`, dragging on empty canvas draws a marquee; dragging on a hexagon still moves it. An Agent is caught when its **centre** falls inside the band — the same rule the lattice uses, so selection and snapping always agree about where an Agent is. Two or more selected draws the group outline and offers the action that opens `PlaybookComposer`.
+
+**Panning** is `CanvasSurface pannable` — space-and-drag, also on Draggable, with pan and zoom on separate nodes so GSAP and React never fight for the same transform.
+
+**The keyboard equivalent is built in, not bolted on:** focus an Agent and the arrow keys move it one lattice cell at a time, refusing occupied and out-of-bounds cells. That path never touches GSAP and works even if GSAP fails to load. No composition in LAMP is pointer-only — the drag is the enhancement, the keyboard is the guarantee.
+
+GSAP loads from CDN on first use (`CanvasMotion`), with `GSAP_EASE` and `GSAP_DURATION` mapping `tokens/motion.css` onto GSAP's API. `ease.magnetic` is the snap curve.
 
 ## 17. Memory as a graph
 
@@ -380,3 +409,31 @@ Hover, focus and the click target are the **hexagon itself** — never its bound
 - **Hover isolates a neighbourhood** — the hovered node and its direct links stay full strength, everything else drops to 18%. This is the interaction that makes the graph answer "what does this fact touch?" instead of being a hairball.
 - **Geometry carries type, not just colour** — hexagon = Agent, square = Tool, diamond = scope, circle = fact or entity. Dashed links are inferred or suggested; heavier red links are conflicts.
 - **It settles and stops.** The simulation decays over ~260 frames and freezes, and the layout is deterministically seeded so the same graph always looks the same. A memory graph at rest does not drift. Reduced motion runs the simulation synchronously and paints only the settled result.
+
+## 18. From a group of Agents to a defined Playbook
+
+The brief's object model assumes a Playbook already has a purpose, connectors and expected outcomes, and never says where those come from. In practice an operator draws a box around four hexagons knowing the Agents belong together, and cannot tell you cold what the process is called, which systems it has to touch, or what "working" would mean. Asking them on a blank form gets a blank form back — or worse, a Playbook running in production that nobody defined success for.
+
+So LAMP proposes. The flow is one path with three components behind it:
+
+```
+SnapField (marquee select → outline → Group into Playbook)
+  → PlaybookComposer   (proposes the process, pre-fills the definition)
+    → GenieBlueprint   (optional — the capability the process belongs to)
+```
+
+**`BUSINESS_PROCESSES`** is a library of eight processes present in essentially every business, under names that have been stable for decades: procure-to-pay, order-to-cash, record-to-report, hire-to-retire, lead-to-opportunity, issue-to-resolution, vendor onboarding, expense-to-reimbursement. Each carries its steps, its connector categories, its human checkpoints, the exceptions that actually happen, and — the part nobody writes down — its expected outcomes and how they are measured.
+
+**`MatchProcess`** scores a selection against the library and returns ranked candidates **with the evidence for each**: which of the usual roles it recognised, which signals fired. Confidence is reported as `High` / `Medium` / `Low` and never as a percentage; word overlap is a decent hint and a terrible measurement.
+
+**`PlaybookComposer`** opens already filled in, and enforces three rules:
+
+1. **Nothing is accepted silently.** Every pre-filled connector, outcome and checkpoint is a checkbox; unticked items never reach the result.
+2. **The proposal is never the only option.** Other matches are one click away, the library is browsable, and "Something else" starts blank.
+3. **Outcomes are required.** Create is disabled until at least one is chosen, and says why. *A Playbook with no expected outcome cannot be simulated against anything and cannot be said to have failed.*
+
+Connector rows show **live connection state**, so "this needs ERP write access and you do not hold it" surfaces before the Playbook exists rather than at the first failed run. A missing connector is a warning, not a blocker — a draft is allowed to name access it does not yet have.
+
+**`BuildGenie` / `GenieBlueprint`** set up the capability the process belongs to. A business running procure-to-pay almost always also runs record-to-report and expense claims; they share vendors, a ledger, an approval hierarchy and a definition of materiality. The blueprint lists **everything that would be created** — every Playbook, every Agent role, every access grant — before any of it exists, and suggested Playbooks can be dropped. "LAMP created eleven objects while you weren't looking" is the opposite of the trust this product needs.
+
+Everything produced by this flow is a **draft**. Creating a Genie authorizes no connector; each is granted separately, by a person. Guardrails are not optional: a Genie starts with its domain's safety posture already on — no external write without a human checkpoint, spend authority unset rather than unlimited, and a kill switch scoped to it from the moment it exists.

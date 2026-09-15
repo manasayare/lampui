@@ -23,7 +23,7 @@ const ROLE_GLYPH = { standard: 'smart_toy', coordinator: 'account_tree', special
 export function AgentHex({
   size = 'md', state = 'idle', role = 'standard', environment = 'draft', detail = 'name',
   name, roleLabel, glyph, status, badgeCount, memoryActive = false, authority, task, cost, confidence,
-  tools = 0, dashed = false, onClick, className = '', style, ...rest
+  tools = 0, dashed = false, labelWidth, onClick, className = '', style, ...rest
 }) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const border = STATE_BORDER[state] || STATE_BORDER.idle;
@@ -33,6 +33,7 @@ export function AgentHex({
   const energy = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-core)';
   const glyphSize = size === 'xs' ? 14 : size === 'sm' ? 16 : size === 'md' ? 18 : size === 'lg' ? 22 : 28;
   const label = (name || 'Agent') + (status ? ', ' + (STATUS[status] ? STATUS[status].label : status) : '');
+  const labelled = detail !== 'glyph' && !!(name || status);
   return (
     <div className={['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' ')} style={style} {...rest}>
       <div className="lamp-agent__hex" style={{ width: w, height: h }} onClick={onClick}
@@ -57,8 +58,14 @@ export function AgentHex({
           </span>
         ) : null}
       </div>
-      {detail !== 'glyph' && (name || status) ? (
-        <div className="lamp-agent__label">
+      {/* The label is wider than the hexagon, so on a lattice it can reach into
+          the neighbouring column and collide with the hexagon there — odd columns
+          sit half a row lower, which puts their body exactly in the label band.
+          The clearance rule is labelWidth <= 0.5 * hexWidth + 2 * gap; at the
+          default 104px cap that means a gap of at least 36 at size md. Pass
+          labelWidth to tighten the cap instead of opening the lattice. */}
+      {labelled ? (
+        <div className="lamp-agent__label" style={labelWidth ? { maxWidth: labelWidth } : undefined}>
           {name ? <span className="lamp-agent__name">{name}</span> : null}
           {status ? (
             <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'var(--text-secondary)' }}>

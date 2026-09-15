@@ -6,7 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'quiet' | 'brand' | 'danger' | 'danger-quiet';
   /** xs 24px · sm 28px · md 32px (default) · lg 40px */
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  /** Lucide name or a node. */
+  /** Material Symbol name (Outlined) or a node. */
   icon?: string | React.ReactNode;
   iconRight?: string | React.ReactNode;
   loading?: boolean;

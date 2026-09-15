@@ -45,7 +45,7 @@ export function ChatComposer({
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }} />
           <div className="lamp-cc__row">
             {onAttach ? <IconButton icon="attach_file" label="Attach a file" size="sm" onClick={onAttach} /> : null}
-            {onSlash ? <IconButton icon="slash" label="Commands" size="sm" onClick={onSlash} /> : null}
+            {onSlash ? <IconButton icon="terminal" label="Commands" size="sm" onClick={onSlash} /> : null}
             {onVoice ? <IconButton icon="mic" label="Record a voice message" size="sm" onClick={onVoice} /> : null}
             {hint ? <span className="lamp-cc__hint"><Kbd>Enter</Kbd> to send<Kbd keys={['Shift','Enter']} /> for a new line</span> : null}
           </div>

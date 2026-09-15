@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"}],"sourceHashes":{"components/canvas/CanvasContextMenu.jsx":"b5c1094ff109","components/canvas/CanvasSurface.jsx":"f06c146b668e","components/canvas/CanvasToolbar.jsx":"b0fe73df09cb","components/canvas/SnapField.jsx":"7f1a6a5ea801","components/chat/AgentChat.jsx":"69a5423e443b","components/chat/ChatComposer.jsx":"dae1db3312c9","components/chat/ChatMessage.jsx":"81056bbc0f4d","components/core/Badge.jsx":"1ecec0a83180","components/core/Button.jsx":"6b1d360e8f60","components/core/Card.jsx":"8240b832d4a5","components/core/Divider.jsx":"649783d96c1f","components/core/EnvironmentPill.jsx":"6652e40dc49d","components/core/Icon.jsx":"402e82fc31e5","components/core/IconButton.jsx":"c238d952b0a2","components/core/Kbd.jsx":"39456002f46e","components/core/Panel.jsx":"46526875e471","components/core/StatusBadge.jsx":"61d8048e1b7b","components/core/Tag.jsx":"e9bb486a0cdb","components/core/Tooltip.jsx":"040d331c61a2","components/dashboard/DashboardCard.jsx":"5f628e238982","components/dashboard/PageHeader.jsx":"e09fbf47e8d1","components/data/BarChart.jsx":"42b37da80ce6","components/data/ChartFrame.jsx":"925a77ed2a43","components/data/DataTable.jsx":"8ec8181865c5","components/data/DonutChart.jsx":"48ea51f1b3cf","components/data/Heatmap.jsx":"15e82a377538","components/data/HexHeatmap.jsx":"53bcd99e3dad","components/data/LineChart.jsx":"bcd6a02f1bc9","components/data/MetricCard.jsx":"b684de4a97df","components/data/ProgressBar.jsx":"74049ea54576","components/data/ScatterPlot.jsx":"738937432136","components/data/Sparkline.jsx":"0c2f9c31d8d4","components/data/Viz.jsx":"aa12701997d1","components/feedback/EmptyState.jsx":"8bf3b41e96d0","components/feedback/ErrorState.jsx":"cd96b0fe93c2","components/feedback/InlineNotification.jsx":"8ea7fc20ed7f","components/feedback/Modal.jsx":"796b7e12a09b","components/feedback/Skeleton.jsx":"c792eba33930","components/forms/Checkbox.jsx":"2710fb9bfec1","components/forms/CodeFrame.jsx":"8c09b84550f8","components/forms/Field.jsx":"bc873fd8de02","components/forms/KeyValueInput.jsx":"afed4aeb2172","components/forms/PromptEditor.jsx":"fdd70167a5d1","components/forms/Radio.jsx":"31e2d88bf290","components/forms/Select.jsx":"20e8b41f6f8d","components/forms/Slider.jsx":"498c2b49ec08","components/forms/Switch.jsx":"7194ded5f978","components/forms/TagInput.jsx":"6685515b180e","components/forms/TextInput.jsx":"a7a19e94c354","components/forms/Textarea.jsx":"58852516a804","components/inspector/InspectorPanel.jsx":"764930f4b61e","components/inspector/InspectorSection.jsx":"be8a97cb94d6","components/memory/MemoryBadge.jsx":"a96ca61d484a","components/memory/MemoryFact.jsx":"326ba2a78608","components/memory/MemoryGraph.jsx":"fe9ec1e842b2","components/memory/MemoryTimeline.jsx":"286ab23d4313","components/memory/MemoryUsageBar.jsx":"e965570ae5d1","components/navigation/AppShell.jsx":"3670fe5b1079","components/navigation/Breadcrumb.jsx":"28027e982d14","components/navigation/CommandPalette.jsx":"c1e1f1564d84","components/navigation/FilterBar.jsx":"50a135e9283e","components/navigation/GlobalHeader.jsx":"f6aa261ac07c","components/navigation/ObjectTree.jsx":"5568d4be4c44","components/navigation/SegmentedControl.jsx":"0dc1e7be4418","components/navigation/SideNav.jsx":"07f0a45507bd","components/navigation/StatusBar.jsx":"e0a7bd225092","components/navigation/Tabs.jsx":"ef16c1c5a5a8","components/navigation/WorkspaceSwitcher.jsx":"cedddb1d60bf","components/objects/AgentHex.jsx":"08a095f7ceb5","components/objects/AgentIsland.jsx":"304329f044c1","components/objects/BondEdge.jsx":"49ede7f7ec81","components/objects/EntityChip.jsx":"8e0c49cede9e","components/objects/GenieCard.jsx":"21056d75c7d5","components/objects/HexLattice.jsx":"9515ec693390","components/objects/ObjectRow.jsx":"dcf2888beea7","components/objects/PlaybookCluster.jsx":"ad6f654b4036","components/objects/SkillOrb.jsx":"efd4b7ff76f3","components/objects/ToolTile.jsx":"243f364ac60c","components/patterns/Conversation.jsx":"4621b54e56cd","components/patterns/IntegrationCard.jsx":"f1dce4398506","components/patterns/LearnedPattern.jsx":"4840b7021126","components/patterns/MobileShell.jsx":"0435b8c2f821","components/patterns/ObservedProcess.jsx":"90f83f4b5dc0","components/patterns/PermissionMatrix.jsx":"4497d683e5b8","components/patterns/VoiceButton.jsx":"51e9e6be76d5","components/runtime/ApprovalCard.jsx":"63306142c757","components/runtime/EnvironmentBanner.jsx":"0922fba2b38f","components/runtime/KillSwitch.jsx":"f3c32947adef","components/runtime/LiveActivityIndicator.jsx":"60462a5c5f1a","components/runtime/ReadinessCheck.jsx":"9566ed72c291","components/runtime/RunSummary.jsx":"db587b0bfe30","components/runtime/RunTimeline.jsx":"203580bcd98c","components/runtime/SimulationBar.jsx":"28607eb8f650","ui_kits/lamp-canvas/BuilderApp.jsx":"f50063adda7d","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-operations/OpsApp.jsx":"e85bab33de94"},"inlinedExternals":[],"unexposedExports":[{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"}]} */
+/* @ds-bundle: {"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"GSAP_CDN","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_EASE","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_DURATION","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"StackedBar","sourcePath":"components/data/StackedBar.jsx"},{"name":"ContextBreakdown","sourcePath":"components/data/ContextBreakdown.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"InspectorField","sourcePath":"components/inspector/InspectorField.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"InspectorHeader","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorTabs","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorFooter","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConflict","sourcePath":"components/memory/MemoryConflict.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryScopeBar","sourcePath":"components/memory/MemoryScopeBar.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"BUSINESS_PROCESSES","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"BLANK_PROCESS","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"MatchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"ProcessProposal","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"BuildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"GenieBlueprint","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PlaybookComposer","sourcePath":"components/patterns/PlaybookComposer.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"},{"name":"SimulationStep","sourcePath":"components/runtime/SimulationStep.jsx"}],"sourceHashes":{"components/canvas/CanvasContextMenu.jsx":"b5c1094ff109","components/canvas/CanvasMotion.jsx":"dde2f7137f60","components/canvas/CanvasSurface.jsx":"bc1a88c01127","components/canvas/CanvasToolbar.jsx":"b0fe73df09cb","components/canvas/SnapField.jsx":"7fd3dd59f86d","components/chat/AgentChat.jsx":"69a5423e443b","components/chat/ChatComposer.jsx":"efd836a57a78","components/chat/ChatMessage.jsx":"51fb8b9bed1e","components/core/Badge.jsx":"1ecec0a83180","components/core/Button.jsx":"6b1d360e8f60","components/core/Card.jsx":"8240b832d4a5","components/core/Divider.jsx":"649783d96c1f","components/core/EnvironmentPill.jsx":"6652e40dc49d","components/core/Icon.jsx":"ea8712ddf40c","components/core/IconButton.jsx":"c238d952b0a2","components/core/Kbd.jsx":"39456002f46e","components/core/Panel.jsx":"46526875e471","components/core/StatusBadge.jsx":"d457760c99c6","components/core/Tag.jsx":"e9bb486a0cdb","components/core/Tooltip.jsx":"040d331c61a2","components/dashboard/DashboardCard.jsx":"5f628e238982","components/dashboard/PageHeader.jsx":"e09fbf47e8d1","components/data/BarChart.jsx":"42b37da80ce6","components/data/ChartFrame.jsx":"925a77ed2a43","components/data/ContextBreakdown.jsx":"773cb0f00b7c","components/data/DataTable.jsx":"8ec8181865c5","components/data/DonutChart.jsx":"48ea51f1b3cf","components/data/Heatmap.jsx":"15e82a377538","components/data/HexHeatmap.jsx":"53bcd99e3dad","components/data/LineChart.jsx":"bcd6a02f1bc9","components/data/MetricCard.jsx":"b684de4a97df","components/data/ProgressBar.jsx":"74049ea54576","components/data/ScatterPlot.jsx":"738937432136","components/data/Sparkline.jsx":"0c2f9c31d8d4","components/data/StackedBar.jsx":"53fbb715e216","components/data/Viz.jsx":"aa12701997d1","components/feedback/EmptyState.jsx":"8bf3b41e96d0","components/feedback/ErrorState.jsx":"cd96b0fe93c2","components/feedback/InlineNotification.jsx":"8ea7fc20ed7f","components/feedback/Modal.jsx":"796b7e12a09b","components/feedback/Skeleton.jsx":"c792eba33930","components/forms/Checkbox.jsx":"2710fb9bfec1","components/forms/CodeFrame.jsx":"8c09b84550f8","components/forms/Field.jsx":"019a3cd12090","components/forms/KeyValueInput.jsx":"afed4aeb2172","components/forms/PromptEditor.jsx":"fdd70167a5d1","components/forms/Radio.jsx":"31e2d88bf290","components/forms/Select.jsx":"20e8b41f6f8d","components/forms/Slider.jsx":"498c2b49ec08","components/forms/Switch.jsx":"7194ded5f978","components/forms/TagInput.jsx":"6685515b180e","components/forms/Textarea.jsx":"58852516a804","components/forms/TextInput.jsx":"a7a19e94c354","components/inspector/InspectorField.jsx":"b0192b5db58b","components/inspector/InspectorPanel.jsx":"b8bf9e369608","components/inspector/InspectorSection.jsx":"25b56e7180db","components/memory/MemoryBadge.jsx":"e925491539ee","components/memory/MemoryConflict.jsx":"ae2853d07b38","components/memory/MemoryFact.jsx":"326ba2a78608","components/memory/MemoryGraph.jsx":"fe9ec1e842b2","components/memory/MemoryScopeBar.jsx":"9e49a281249d","components/memory/MemoryTimeline.jsx":"286ab23d4313","components/memory/MemoryUsageBar.jsx":"e965570ae5d1","components/navigation/AppShell.jsx":"3670fe5b1079","components/navigation/Breadcrumb.jsx":"28027e982d14","components/navigation/CommandPalette.jsx":"c1e1f1564d84","components/navigation/FilterBar.jsx":"50a135e9283e","components/navigation/GlobalHeader.jsx":"f6aa261ac07c","components/navigation/ObjectTree.jsx":"5568d4be4c44","components/navigation/SegmentedControl.jsx":"0dc1e7be4418","components/navigation/SideNav.jsx":"07f0a45507bd","components/navigation/StatusBar.jsx":"e0a7bd225092","components/navigation/Tabs.jsx":"ef16c1c5a5a8","components/navigation/WorkspaceSwitcher.jsx":"cedddb1d60bf","components/objects/AgentHex.jsx":"27ec4453de20","components/objects/AgentIsland.jsx":"304329f044c1","components/objects/BondEdge.jsx":"49ede7f7ec81","components/objects/EntityChip.jsx":"8e0c49cede9e","components/objects/GenieCard.jsx":"21056d75c7d5","components/objects/HexLattice.jsx":"9fca7ea4b576","components/objects/ObjectRow.jsx":"dcf2888beea7","components/objects/PlaybookCluster.jsx":"ad6f654b4036","components/objects/SkillOrb.jsx":"e4a3fa609572","components/objects/ToolTile.jsx":"243f364ac60c","components/patterns/BusinessProcess.jsx":"0ea6ddb2cd49","components/patterns/Conversation.jsx":"4621b54e56cd","components/patterns/GenieBlueprint.jsx":"64a118a81766","components/patterns/IntegrationCard.jsx":"f1dce4398506","components/patterns/LearnedPattern.jsx":"65eb1980fd12","components/patterns/MobileShell.jsx":"0435b8c2f821","components/patterns/ObservedProcess.jsx":"90f83f4b5dc0","components/patterns/PermissionMatrix.jsx":"4497d683e5b8","components/patterns/PlaybookComposer.jsx":"deb529767dd7","components/patterns/VoiceButton.jsx":"51e9e6be76d5","components/runtime/ApprovalCard.jsx":"63306142c757","components/runtime/EnvironmentBanner.jsx":"0922fba2b38f","components/runtime/KillSwitch.jsx":"f3c32947adef","components/runtime/LiveActivityIndicator.jsx":"60462a5c5f1a","components/runtime/ReadinessCheck.jsx":"9566ed72c291","components/runtime/RunSummary.jsx":"db587b0bfe30","components/runtime/RunTimeline.jsx":"203580bcd98c","components/runtime/SimulationBar.jsx":"28607eb8f650","components/runtime/SimulationStep.jsx":"523eee16b4cd","ui_kits/lamp-canvas/BuilderApp.jsx":"0921bf677a52","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-operations/OpsApp.jsx":"e7c0627e0660"},"inlinedExternals":[],"unexposedExports":[{"name":"buildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"loadGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"matchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"prefersReducedMotion","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"},{"name":"useGsap","sourcePath":"components/canvas/CanvasMotion.jsx"}]} */
 
 (() => {
 
@@ -8,128 +8,38 @@ const __ds_scope = {};
 
 (__ds_ns.__errors = __ds_ns.__errors || []);
 
-// components/canvas/CanvasSurface.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function CanvasSurface({
-  grid = 'dots',
-  zoom = 1,
-  environment = 'draft',
-  state = 'idle',
-  locked = false,
-  readOnly = false,
-  empty,
-  marquee,
-  guides = [],
-  children,
-  className = '',
-  style,
-  ...rest
-}) {
-  const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-canvas', 'lamp-canvas--' + gridClass, environment !== 'draft' && 'lamp-canvas--' + environment, state === 'panning' && 'lamp-canvas--panning', locked && 'lamp-canvas--locked', readOnly && 'lamp-canvas--readonly', className].filter(Boolean).join(' '),
-    style: style,
-    role: "application",
-    "aria-label": "LAMP canvas"
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-canvas__world",
-    style: {
-      transform: 'scale(' + zoom + ')'
-    }
-  }, children), guides.map((g, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: 'lamp-canvas__guide lamp-canvas__guide--' + (g.axis === 'x' ? 'v' : 'h'),
-    style: g.axis === 'x' ? {
-      left: g.at
-    } : {
-      top: g.at
-    }
-  })), marquee ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-canvas__marquee",
-    style: marquee
-  }) : null, empty ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-canvas__empty"
-  }, empty) : null);
-}
-function SnapGuide({
-  rect,
-  invalid = false,
-  kind = 'snap'
-}) {
-  return /*#__PURE__*/React.createElement("span", {
-    className: kind === 'drop' ? 'lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '') : 'lamp-canvas__snapguide',
-    style: rect
-  });
-}
-Object.assign(__ds_scope, { CanvasSurface, SnapGuide });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasSurface.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/Card.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Card({
-  padding = 'md',
-  raised = false,
-  interactive = false,
-  selected = false,
-  tone = 'default',
-  header,
-  footer,
-  title,
-  actions,
-  children,
-  className = '',
-  ...rest
-}) {
-  const structured = header || footer || title || actions;
-  const cls = ['lamp-card', !structured && padding === 'md' && 'lamp-card--pad', !structured && padding === 'sm' && 'lamp-card--pad-sm', raised && 'lamp-card--raised', interactive && 'lamp-card--interactive', selected && 'lamp-card--selected', tone === 'danger' && 'lamp-card--danger', className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cls
-  }, rest), structured && (header || title || actions) ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-card__head"
-  }, header || /*#__PURE__*/React.createElement("h3", {
-    className: "lamp-card__title"
-  }, title), actions ? /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 4
-    }
-  }, actions) : null) : null, structured ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-card__body"
-  }, children) : children, footer ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-card__foot"
-  }, footer) : null);
-}
-Object.assign(__ds_scope, { Card });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Card.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/Divider.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Divider({
-  orientation = 'horizontal',
-  label,
-  className = '',
-  ...rest
-}) {
-  if (label) return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'lamp-divider lamp-divider--label ' + className
-  }, rest), label);
-  return /*#__PURE__*/React.createElement("hr", _extends({
-    className: ['lamp-divider', orientation === 'vertical' && 'lamp-divider--v', className].filter(Boolean).join(' ')
-  }, rest));
-}
-Object.assign(__ds_scope, { Divider });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
-
 // components/core/Icon.jsx
 try { (() => {
-/* Material Symbols Outlined (weight 400) — real SVG vectors, inlined so they inherit currentColor.
-   Never rendered as font ligatures or typed text. Repoint the base to serve vendored assets. */
-const MATERIAL_SYMBOLS_BASE = 'https://cdn.jsdelivr.net/npm/@material-symbols/svg-400/outlined/';
-/* Official third-party brand marks; Simple Icons is the fallback when a provider mark is not vendored. */
-const BRAND_ICON_BASE = 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/';
+/* Material Symbols Outlined (weight 400) — real SVG vectors, inlined so they inherit
+   currentColor. Never rendered as font ligatures or typed text.
+
+   Icons are vendored into assets/, not fetched from a CDN: an enterprise operating
+   console should not have a toolbar that empties when a CDN is unreachable, and a
+   blocked request renders a placeholder box where a control's meaning should be.
+
+   The asset root is derived from the bundle's own <script src>, so a card three
+   directories deep and a kit two directories deep both resolve correctly without
+   either of them configuring anything. Set window.LAMP_ASSET_BASE before the
+   bundle loads to serve the assets from somewhere else; the CDN is kept only as
+   the last resort when neither is available (a bundler-built app, say, where
+   there is no _ds_bundle.js script tag to read). */
+
+function assetRoot() {
+  try {
+    if (typeof window !== 'undefined' && window.LAMP_ASSET_BASE) return window.LAMP_ASSET_BASE;
+    if (typeof document === 'undefined') return null;
+    const tag = document.currentScript || Array.prototype.slice.call(document.scripts).filter(s => /_ds_bundle\.js/.test(s.src))[0];
+    if (tag && tag.src) return tag.src.replace(/_ds_bundle\.js.*$/, '') + 'assets/';
+  } catch (e) {/* no DOM, or a sandboxed document — fall through to the CDN */}
+  return null;
+}
+const ASSETS = assetRoot();
+const MATERIAL_SYMBOLS_BASE = ASSETS ? ASSETS + 'icons/' : 'https://cdn.jsdelivr.net/npm/@material-symbols/svg-400/outlined/';
+
+/* Official third-party brand marks; Simple Icons is the fallback when a provider
+   mark is not vendored. Simple Icons carries no Microsoft marks, so Outlook,
+   Excel and SharePoint fall back to the generic Tool glyph. */
+const BRAND_ICON_BASE = ASSETS ? ASSETS + 'brand/' : 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/';
 const cache = new Map();
 
 /* A missing glyph renders a neutral placeholder so it is caught in review,
@@ -175,7 +85,7 @@ function Icon({
   ...rest
 }) {
   const ref = useSvg(MATERIAL_SYMBOLS_BASE + String(name).replace(/-/g, '_') + '.svg', size);
-  return React.createElement('span', {
+  return /*#__PURE__*/React.createElement('span', {
     ref,
     className,
     role: label ? 'img' : undefined,
@@ -202,7 +112,7 @@ function BrandIcon({
   ...rest
 }) {
   const ref = useSvg(BRAND_ICON_BASE + String(slug).toLowerCase() + '.svg', size);
-  return React.createElement('span', {
+  return /*#__PURE__*/React.createElement('span', {
     ref,
     className,
     role: label ? 'img' : undefined,
@@ -224,7 +134,15 @@ Object.assign(__ds_scope, { MATERIAL_SYMBOLS_BASE, BRAND_ICON_BASE, Icon, BrandI
 
 // components/canvas/CanvasContextMenu.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function CanvasContextMenu({
   x = 0,
   y = 0,
@@ -266,145 +184,288 @@ function CanvasContextMenu({
 Object.assign(__ds_scope, { CanvasContextMenu });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasContextMenu.jsx", error: String((e && e.message) || e) }); }
 
-// components/core/Badge.jsx
+// components/canvas/CanvasMotion.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Badge({
-  tone = 'neutral',
-  icon,
-  shape = 'pill',
-  micro = false,
-  count = false,
-  outline = false,
-  children,
-  className = '',
-  ...rest
-}) {
-  const cls = ['lamp-badge', 'lamp-badge--' + (outline ? 'outline' : tone), shape === 'square' && 'lamp-badge--square', micro && 'lamp-badge--micro', count && 'lamp-badge--count', className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: cls
-  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: 11
-  }) : icon : null, children);
-}
-Object.assign(__ds_scope, { Badge });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Badge.jsx", error: String((e && e.message) || e) }); }
+/* GSAP runtime for the canvas.
 
-// components/core/Button.jsx
+   Direct manipulation on the LAMP canvas runs on GSAP Draggable
+   (https://gsap.com/docs/v3/Plugins/Draggable/). Draggable owns the pointer
+   maths — capture, touch-action, transforms, bounds, the pointer/touch/pen
+   differences — so SnapField and CanvasSurface only have to answer the two
+   questions that are actually LAMP's: which lattice slot is nearest, and is it
+   free.
+
+   GSAP is loaded from CDN at first use rather than imported, because components
+   in this system import React and nothing else — the card HTML, the UI kits and
+   the templates all load the bundle as a plain script. A page that wants GSAP
+   present up front can include the two tags itself; the loader will see
+   window.gsap and skip the injection.
+
+   Everything degrades: if GSAP cannot load, drag is unavailable but the canvas
+   still renders and every Agent is still movable from the keyboard. Composition
+   in LAMP is never pointer-only, so the keyboard path is not a fallback — it is
+   the guaranteed path, and the drag is the enhancement. */
+
+const GSAP_CDN = {
+  core: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js',
+  draggable: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Draggable.min.js'
+};
+
+/* Token easings (tokens/motion.css) mapped to their nearest GSAP equivalent.
+   ease.magnetic cubic-bezier(.16,1,.3,1) is the snap ease — a hard decelerating
+   curve, which is what makes an Agent feel pulled rather than placed. */
+const GSAP_EASE = {
+  standard: 'power2.out',
+  enter: 'power2.out',
+  exit: 'power2.in',
+  magnetic: 'power4.out',
+  critical: 'power3.inOut'
+};
+
+/* Durations in seconds, mirroring tokens/motion.css which is authored in ms. */
+const GSAP_DURATION = {
+  instant: 0.08,
+  fast: 0.12,
+  standard: 0.18,
+  medium: 0.24,
+  slow: 0.36,
+  bond: 0.42,
+  ceremonial: 0.6
+};
+let loading = null;
+function injectScript(src) {
+  return new Promise((done, fail) => {
+    const existing = document.querySelector('script[src="' + src + '"]');
+    if (existing) {
+      if (existing.dataset.loaded) return done();
+      existing.addEventListener('load', () => done());
+      existing.addEventListener('error', () => fail(new Error('failed: ' + src)));
+      return;
+    }
+    const tag = document.createElement('script');
+    tag.src = src;
+    tag.crossOrigin = 'anonymous';
+    tag.addEventListener('load', () => {
+      tag.dataset.loaded = '1';
+      done();
+    });
+    tag.addEventListener('error', () => fail(new Error('failed: ' + src)));
+    document.head.appendChild(tag);
+  });
+}
+
+/** Resolves to { gsap, Draggable }, or null if GSAP is unavailable. */
+function loadGsap() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return Promise.resolve(null);
+  }
+  if (window.gsap && window.Draggable) {
+    return Promise.resolve({
+      gsap: window.gsap,
+      Draggable: window.Draggable
+    });
+  }
+  if (!loading) {
+    loading = injectScript(GSAP_CDN.core).then(() => injectScript(GSAP_CDN.draggable)).then(() => {
+      if (!window.gsap || !window.Draggable) return null;
+      window.gsap.registerPlugin(window.Draggable);
+      return {
+        gsap: window.gsap,
+        Draggable: window.Draggable
+      };
+    }).catch(e => {
+      console.warn('[LAMP] GSAP unavailable, canvas drag disabled (keyboard still works):', e.message);
+      return null;
+    });
+  }
+  return loading;
+}
+
+/**
+ * Returns { gsap, Draggable } once loaded, or null. Re-renders the caller when
+ * it arrives so Draggable instances can be created in a later effect.
+ */
+function useGsap() {
+  const [api, setApi] = React.useState(() => typeof window !== 'undefined' && window.gsap && window.Draggable ? {
+    gsap: window.gsap,
+    Draggable: window.Draggable
+  } : null);
+  React.useEffect(() => {
+    if (api) return;
+    let alive = true;
+    loadGsap().then(next => {
+      if (alive && next) setApi(next);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [api]);
+  return api;
+}
+
+/** True when the viewer has asked for reduced motion. Energy becomes state change. */
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+Object.assign(__ds_scope, { GSAP_CDN, GSAP_EASE, GSAP_DURATION, loadGsap, useGsap, prefersReducedMotion });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasMotion.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/CanvasSurface.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Button({
-  variant = 'secondary',
-  size = 'md',
-  icon,
-  iconRight,
-  loading = false,
-  disabled = false,
-  block = false,
-  shortcut,
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The canvas surface: grid, environment tint, guides, marquee, empty state, and
+   — when `pannable` — space-and-drag panning on GSAP Draggable.
+
+   Pan and zoom live on two different nodes on purpose. GSAP owns the transform
+   of `__world` (the pan) and React owns the transform of `__scale` (the zoom),
+   so neither clobbers the other on re-render. */
+
+function CanvasSurface({
+  grid = 'dots',
+  zoom = 1,
+  environment = 'draft',
+  state = 'idle',
+  locked = false,
+  readOnly = false,
+  empty,
+  marquee,
+  guides = [],
+  pannable = false,
+  panMode = false,
+  onPanChange,
   children,
   className = '',
+  style,
   ...rest
 }) {
-  const cls = ['lamp-btn', 'lamp-btn--' + variant, 'lamp-btn--' + size, block && 'lamp-btn--block', loading && 'lamp-btn--loading', className].filter(Boolean).join(' ');
-  const glyph = size === 'lg' ? 16 : 14;
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
+  const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
+  const api = __ds_scope.useGsap();
+  const hostRef = React.useRef(null);
+  const worldRef = React.useRef(null);
+
+  /* Space is held, or the caller has put the canvas in an explicit pan mode.
+     Held-key state rather than a toggle, so releasing space returns you to
+     selection without a second keystroke. */
+  const [spaceHeld, setSpaceHeld] = React.useState(false);
+  const panning = pannable && !locked && (panMode || spaceHeld);
+  const report = React.useRef(onPanChange);
+  report.current = onPanChange;
+  React.useEffect(() => {
+    if (!pannable || locked) return undefined;
+    const down = e => {
+      if (e.code !== 'Space' || e.repeat) return;
+      const el = e.target;
+      /* Space belongs to the focused control if there is one. */
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName))) return;
+      e.preventDefault();
+      setSpaceHeld(true);
+    };
+    const up = e => {
+      if (e.code === 'Space') setSpaceHeld(false);
+    };
+    const blur = () => setSpaceHeld(false);
+    window.addEventListener('keydown', down);
+    window.addEventListener('keyup', up);
+    window.addEventListener('blur', blur);
+    return () => {
+      window.removeEventListener('keydown', down);
+      window.removeEventListener('keyup', up);
+      window.removeEventListener('blur', blur);
+    };
+  }, [pannable, locked]);
+  const dragRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!api || !pannable || !worldRef.current) return undefined;
+    const [drag] = api.Draggable.create(worldRef.current, {
+      type: 'x,y',
+      trigger: hostRef.current,
+      cursor: 'grab',
+      activeCursor: 'grabbing',
+      allowContextMenu: true,
+      onDrag() {
+        const fn = report.current;
+        if (fn) fn({
+          x: this.x,
+          y: this.y
+        });
+      }
+    });
+    dragRef.current = drag || null;
+    return () => {
+      if (drag) drag.kill();
+      dragRef.current = null;
+    };
+  }, [api, pannable]);
+
+  /* Enabled only while panning, so a drag on the canvas is a marquee selection by
+     default and a pan only when the operator asks for one. */
+  React.useEffect(() => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    if (panning) drag.enable();else drag.disable();
+  }, [api, pannable, panning]);
+  const cls = ['lamp-canvas', 'lamp-canvas--' + gridClass, environment !== 'draft' && 'lamp-canvas--' + environment, (state === 'panning' || panning) && 'lamp-canvas--panning', locked && 'lamp-canvas--locked', readOnly && 'lamp-canvas--readonly', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: hostRef,
     className: cls,
-    disabled: disabled || loading,
-    "aria-busy": loading || undefined
-  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: glyph
-  }) : icon : null, children, iconRight ? typeof iconRight === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: iconRight,
-    size: glyph
-  }) : iconRight : null, shortcut ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-btn__kbd"
-  }, shortcut) : null, loading ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-btn__spin"
-  }, /*#__PURE__*/React.createElement("i", null)) : null);
+    style: style,
+    role: "application",
+    "aria-label": "LAMP canvas"
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    ref: worldRef,
+    className: "lamp-canvas__world"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-canvas__scale",
+    style: {
+      transform: 'scale(' + zoom + ')'
+    }
+  }, children)), guides.map((g, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: 'lamp-canvas__guide lamp-canvas__guide--' + (g.axis === 'x' ? 'v' : 'h'),
+    style: g.axis === 'x' ? {
+      left: g.at
+    } : {
+      top: g.at
+    }
+  })), marquee ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-canvas__marquee",
+    style: marquee
+  }) : null, empty ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-canvas__empty"
+  }, empty) : null);
 }
-function SplitButton({
-  variant = 'secondary',
-  size = 'md',
-  icon,
-  children,
-  onMenu,
-  menuLabel = 'More actions',
-  ...rest
+function SnapGuide({
+  rect,
+  invalid = false,
+  kind = 'snap'
 }) {
   return /*#__PURE__*/React.createElement("span", {
-    className: "lamp-split"
-  }, /*#__PURE__*/React.createElement(Button, _extends({
-    variant: variant,
-    size: size,
-    icon: icon
-  }, rest), children), /*#__PURE__*/React.createElement(Button, {
-    variant: variant,
-    size: size,
-    onClick: onMenu,
-    "aria-label": menuLabel,
-    icon: "keyboard_arrow_down"
-  }));
+    className: kind === 'drop' ? 'lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '') : 'lamp-canvas__snapguide',
+    style: rect
+  });
 }
-Object.assign(__ds_scope, { Button, SplitButton });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/EnvironmentPill.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const ENV = {
-  draft: {
-    icon: 'edit',
-    label: 'Draft'
-  },
-  simulation: {
-    icon: 'science',
-    label: 'Simulation'
-  },
-  live: {
-    icon: 'bolt',
-    label: 'Live'
-  },
-  paused: {
-    icon: 'pause',
-    label: 'Paused'
-  },
-  killed: {
-    icon: 'dangerous',
-    label: 'Emergency stopped'
-  }
-};
-function EnvironmentPill({
-  environment = 'draft',
-  label,
-  scope,
-  className = '',
-  ...rest
-}) {
-  const e = ENV[environment] || ENV.draft;
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: ['lamp-env', 'lamp-env--' + environment, className].filter(Boolean).join(' ')
-  }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: e.icon,
-    size: 12
-  }), label || e.label, scope ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      opacity: 0.7,
-      fontWeight: 500,
-      letterSpacing: 0,
-      textTransform: 'none'
-    }
-  }, scope) : null);
-}
-Object.assign(__ds_scope, { EnvironmentPill });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/EnvironmentPill.jsx", error: String((e && e.message) || e) }); }
+Object.assign(__ds_scope, { CanvasSurface, SnapGuide });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasSurface.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/IconButton.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function IconButton({
   icon,
   label,
@@ -431,9 +492,44 @@ function IconButton({
 Object.assign(__ds_scope, { IconButton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/IconButton.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/Divider.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Divider({
+  orientation = 'horizontal',
+  label,
+  className = '',
+  ...rest
+}) {
+  if (label) return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-divider lamp-divider--label ' + className
+  }, rest), label);
+  return /*#__PURE__*/React.createElement("hr", _extends({
+    className: ['lamp-divider', orientation === 'vertical' && 'lamp-divider--v', className].filter(Boolean).join(' ')
+  }, rest));
+}
+Object.assign(__ds_scope, { Divider });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
+
 // components/canvas/CanvasToolbar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function CanvasToolbar({
   position = 'floating',
   children,
@@ -523,519 +619,17 @@ function CanvasMinimap({
 Object.assign(__ds_scope, { CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasToolbar.jsx", error: String((e && e.message) || e) }); }
 
-// components/chat/ChatMessage.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const HEX_POINTS = '25,0 75,0 100,50 75,100 25,100 0,50';
-
-/** Hexagonal Agent identity — the chat's signature mark. */
-function ChatAvatar({
-  role = 'agent',
-  initials,
-  glyph,
-  state = 'idle',
-  size = 26
-}) {
-  if (role === 'user') {
-    return /*#__PURE__*/React.createElement("span", {
-      className: "lamp-cm__avatar lamp-cm__avatar--user",
-      style: {
-        width: size,
-        height: size
-      }
-    }, initials || 'You'.slice(0, 2));
-  }
-  if (role === 'system' || role === 'tool') {
-    return /*#__PURE__*/React.createElement("span", {
-      className: 'lamp-cm__avatar lamp-cm__avatar--' + role,
-      style: {
-        width: size,
-        height: size
-      }
-    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-      name: glyph || (role === 'tool' ? 'square' : 'info'),
-      size: 13
-    }));
-  }
-  const stroke = state === 'acting' ? 'var(--gold-500)' : state === 'failed' ? 'var(--status-danger)' : 'var(--border-strong)';
-  const fill = state === 'acting' ? 'var(--gold-100)' : 'var(--surface-secondary)';
-  return /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__avatar",
-    style: {
-      width: size,
-      height: size
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    className: "lamp-cm__hex",
-    viewBox: "0 0 100 100",
-    preserveAspectRatio: "none",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("polygon", {
-    points: HEX_POINTS,
-    fill: fill,
-    stroke: stroke,
-    strokeWidth: state === 'acting' ? 6 : 4,
-    vectorEffect: "non-scaling-stroke"
-  })), glyph ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: glyph,
-    size: 12,
-    className: "lamp-cm__ini"
-  }) : /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__ini"
-  }, initials || 'AG'));
-}
-
-/** Visible work: what the Agent called, read and used — never hidden behind a spinner. */
-function ChatActivity({
-  items = [],
-  max = 4,
-  onSelect
-}) {
-  const [open, setOpen] = React.useState(false);
-  const shown = open ? items : items.slice(0, max);
-  const rest = items.length - shown.length;
-  const glyph = k => k === 'tool' ? 'square' : k === 'memory' ? 'database' : k === 'skill' ? 'auto_awesome' : k === 'human' ? 'how_to_reg' : 'bolt';
-  return /*#__PURE__*/React.createElement("div", {
-    className: "lamp-act"
-  }, shown.map((a, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: ['lamp-act__chip', 'lamp-act__chip--' + (a.kind || 'tool'), a.state === 'running' && 'lamp-act__chip--running', a.state === 'failed' && 'lamp-act__chip--failed'].filter(Boolean).join(' '),
-    title: a.detail,
-    onClick: onSelect ? () => onSelect(a) : undefined,
-    style: onSelect ? {
-      cursor: 'pointer'
-    } : undefined
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: a.glyph || glyph(a.kind),
-    size: 11
-  }), a.label, a.duration ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-act__dur"
-  }, a.duration) : null)), rest > 0 ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-act__more",
-    onClick: () => setOpen(true)
-  }, '+' + rest + ' more') : null, open && items.length > max ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-act__more",
-    onClick: () => setOpen(false)
-  }, "Show less") : null);
-}
-
-/** Provenance you can open — replaces "trust me" with "here's where it came from". */
-function ChatCitation({
-  index,
-  source,
-  scope,
-  onClick
-}) {
-  return /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-cite",
-    onClick: onClick,
-    title: [source, scope].filter(Boolean).join(' · '),
-    "aria-label": 'Evidence ' + index + (source ? ': ' + source : '')
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "fact_check",
-    size: 9
-  }), index);
-}
-function ChatDayDivider({
-  label
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "lamp-chat__day"
-  }, /*#__PURE__*/React.createElement("span", null, label));
-}
-function ChatMessage({
-  role = 'agent',
-  author,
-  roleLabel,
-  initials,
-  glyph,
-  timestamp,
-  grouped = false,
-  state = 'idle',
-  status,
-  streaming = false,
-  activity = [],
-  citations = [],
-  attachment,
-  actions = true,
-  onRetry,
-  onCopy,
-  onInspect,
-  children,
-  className = '',
-  ...rest
-}) {
-  const failed = state === 'failed' || status === 'failed';
-  return /*#__PURE__*/React.createElement("article", _extends({
-    className: ['lamp-cm', 'lamp-cm--' + role, grouped && 'lamp-cm--grouped', state === 'acting' && 'lamp-cm--acting', failed && 'lamp-cm--failed', className].filter(Boolean).join(' ')
-  }, rest), /*#__PURE__*/React.createElement(ChatAvatar, {
-    role: role,
-    initials: initials,
-    glyph: glyph,
-    state: state
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__meta"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__who"
-  }, author || (role === 'user' ? 'You' : role === 'tool' ? 'Tool' : role === 'system' ? 'LAMP' : 'Agent')), roleLabel ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__role"
-  }, roleLabel) : null, timestamp ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__time"
-  }, timestamp) : null), activity.length ? /*#__PURE__*/React.createElement(ChatActivity, {
-    items: activity
-  }) : null, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__text"
-  }, children, citations.length ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 2
-    }
-  }, citations.map((c, i) => /*#__PURE__*/React.createElement(ChatCitation, {
-    key: i,
-    index: c.index || i + 1,
-    source: c.source,
-    scope: c.scope,
-    onClick: c.onClick
-  }))) : null, streaming ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cm__caret"
-  }) : null), attachment ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__attach"
-  }, attachment) : null, status && status !== 'failed' ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__status"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: status === 'sending' ? 'schedule' : 'check',
-    size: 11
-  }), status === 'sending' ? 'Sending' : status) : null, failed ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__status lamp-cm__status--failed"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "error",
-    size: 11
-  }), "Not delivered", onRetry ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-act__more",
-    onClick: onRetry
-  }, "Retry") : null) : null), actions ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cm__tools"
-  }, onInspect ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "open_in_new",
-    label: "Open in Inspector",
-    size: "xs",
-    onClick: onInspect
-  }) : null, onCopy ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "content_copy",
-    label: "Copy message",
-    size: "xs",
-    onClick: onCopy
-  }) : null) : null);
-}
-Object.assign(__ds_scope, { ChatAvatar, ChatActivity, ChatCitation, ChatDayDivider, ChatMessage });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatMessage.jsx", error: String((e && e.message) || e) }); }
-
-// components/chat/AgentChat.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/** What is happening right now, in words, with a way to stop it. */
-function ChatStatus({
-  state = 'idle',
-  author,
-  action,
-  detail,
-  tokens,
-  onStop,
-  onInspect
-}) {
-  if (state === 'idle') {
-    return /*#__PURE__*/React.createElement("div", {
-      className: "lamp-chat__status lamp-chat__status--idle"
-    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-      name: "check_circle",
-      size: 13
-    }), detail || 'Up to date. Nothing is running.');
-  }
-  return /*#__PURE__*/React.createElement("div", {
-    className: "lamp-chat__status",
-    role: "status"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__status-hex"
-  }, /*#__PURE__*/React.createElement(__ds_scope.ChatAvatar, {
-    role: "agent",
-    glyph: "bolt",
-    state: "acting",
-    size: 16
-  })), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", {
-    style: {
-      fontWeight: 600
-    }
-  }, author || 'Agent'), " ", action || 'is working'), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__dots",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null)), detail ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--text-tertiary)'
-    }
-  }, detail) : null, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__status-right"
-  }, tokens ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: 'var(--font-mono)',
-      fontSize: 11,
-      color: 'var(--text-tertiary)'
-    }
-  }, tokens) : null, onInspect ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
-    size: "xs",
-    variant: "quiet",
-    onClick: onInspect
-  }, "Open run") : null, onStop ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
-    size: "xs",
-    variant: "secondary",
-    icon: "stop_circle",
-    onClick: onStop
-  }, "Stop") : null));
-}
-function AgentChat({
-  title,
-  scope,
-  scopeGlyph = 'hive',
-  environment,
-  crew = [],
-  actions,
-  status,
-  composer,
-  flush = false,
-  autoScroll = true,
-  children,
-  className = '',
-  ...rest
-}) {
-  const threadRef = React.useRef(null);
-  React.useEffect(() => {
-    const el = threadRef.current;
-    if (autoScroll && el) el.scrollTop = el.scrollHeight;
-  }, [children, autoScroll]);
-  return /*#__PURE__*/React.createElement("section", _extends({
-    className: ['lamp-chat', flush && 'lamp-chat--flush', className].filter(Boolean).join(' '),
-    "aria-label": title || 'Conversation'
-  }, rest), /*#__PURE__*/React.createElement("header", {
-    className: "lamp-chat__head"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__id"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__title"
-  }, title), scope ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__scope"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: scopeGlyph,
-    size: 11
-  }), /*#__PURE__*/React.createElement("b", null, scope), environment ? /*#__PURE__*/React.createElement(React.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__crew",
-    title: crew.map(c => c.name).join(', ')
-  }, crew.slice(0, 4).map(c => /*#__PURE__*/React.createElement("span", {
-    key: c.name
-  }, /*#__PURE__*/React.createElement(__ds_scope.ChatAvatar, {
-    role: c.role || 'agent',
-    initials: c.initials,
-    glyph: c.glyph,
-    state: c.state,
-    size: 22
-  }))), crew.length > 4 ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 11,
-      color: 'var(--text-tertiary)',
-      marginLeft: 6
-    }
-  }, "+", crew.length - 4) : null) : null, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-chat__actions"
-  }, actions, /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "more_horiz",
-    label: "Conversation actions",
-    size: "sm"
-  }))), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-chat__thread",
-    ref: threadRef,
-    role: "log",
-    "aria-live": "polite"
-  }, children), status, composer);
-}
-Object.assign(__ds_scope, { ChatStatus, AgentChat });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/AgentChat.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/Kbd.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Kbd({
-  keys,
-  children,
-  className = '',
-  ...rest
-}) {
-  const list = keys || (typeof children === 'string' ? children.split('+') : null);
-  if (!list) return /*#__PURE__*/React.createElement("kbd", _extends({
-    className: 'lamp-kbd ' + className
-  }, rest), children);
-  return /*#__PURE__*/React.createElement("span", _extends({
-    style: {
-      display: 'inline-flex',
-      gap: 3,
-      alignItems: 'center'
-    }
-  }, rest), list.map((k, i) => /*#__PURE__*/React.createElement("kbd", {
-    key: i,
-    className: 'lamp-kbd ' + className
-  }, k)));
-}
-Object.assign(__ds_scope, { Kbd });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Kbd.jsx", error: String((e && e.message) || e) }); }
-
-// components/chat/ChatComposer.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/** Quick replies keep the common answer one tap away. */
-function ChatQuickReplies({
-  options = [],
-  onSelect
-}) {
-  if (!options.length) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cc__quick"
-  }, options.map(o => {
-    const label = typeof o === 'string' ? o : o.label;
-    const tone = typeof o === 'object' && o.tone;
-    return /*#__PURE__*/React.createElement(__ds_scope.Button, {
-      key: label,
-      size: "sm",
-      variant: tone === 'primary' ? 'primary' : tone === 'danger' ? 'danger-quiet' : 'secondary',
-      icon: typeof o === 'object' ? o.icon : undefined,
-      onClick: () => onSelect && onSelect(typeof o === 'string' ? {
-        label: o
-      } : o)
-    }, label);
-  }));
-}
-function ChatComposer({
-  value = '',
-  onChange,
-  onSend,
-  onAttach,
-  onVoice,
-  onSlash,
-  placeholder = 'Ask, instruct, or answer',
-  scope,
-  scopeGlyph = 'hive',
-  quickReplies = [],
-  disabled = false,
-  sending = false,
-  hint = true,
-  className = '',
-  ...rest
-}) {
-  const [focus, setFocus] = React.useState(false);
-  const send = () => {
-    if (!disabled && value.trim()) onSend && onSend(value);
-  };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-cc', disabled && 'lamp-cc--disabled', className].filter(Boolean).join(' ')
-  }, rest), /*#__PURE__*/React.createElement(ChatQuickReplies, {
-    options: quickReplies,
-    onSelect: o => o.onSelect ? o.onSelect() : onSend && onSend(o.label)
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cc__box"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: ['lamp-cc__field', focus && 'lamp-cc__field--focus'].filter(Boolean).join(' ')
-  }, scope ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cc__scope"
-  }, "Talking to", /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cc__scope-pill"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: scopeGlyph,
-    size: 11
-  }), scope)) : null, /*#__PURE__*/React.createElement("textarea", {
-    className: "lamp-cc__input",
-    rows: 1,
-    value: value,
-    placeholder: placeholder,
-    disabled: disabled,
-    onFocus: () => setFocus(true),
-    onBlur: () => setFocus(false),
-    onChange: e => onChange && onChange(e.target.value),
-    onKeyDown: e => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        send();
-      }
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cc__row"
-  }, onAttach ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "attach_file",
-    label: "Attach a file",
-    size: "sm",
-    onClick: onAttach
-  }) : null, onSlash ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "slash",
-    label: "Commands",
-    size: "sm",
-    onClick: onSlash
-  }) : null, onVoice ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "mic",
-    label: "Record a voice message",
-    size: "sm",
-    onClick: onVoice
-  }) : null, hint ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cc__hint"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Kbd, null, "Enter"), " to send", /*#__PURE__*/React.createElement(__ds_scope.Kbd, {
-    keys: ['Shift', 'Enter']
-  }), " for a new line") : null)), /*#__PURE__*/React.createElement(__ds_scope.Button, {
-    className: "lamp-cc__send",
-    size: "md",
-    variant: "primary",
-    icon: "send",
-    loading: sending,
-    disabled: disabled || !value.trim(),
-    onClick: send
-  }, "Send")));
-}
-Object.assign(__ds_scope, { ChatQuickReplies, ChatComposer });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatComposer.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/Panel.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Panel({
-  title,
-  actions,
-  flush = false,
-  width,
-  children,
-  className = '',
-  style,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("section", _extends({
-    className: ['lamp-panel', flush && 'lamp-panel--flush', className].filter(Boolean).join(' '),
-    style: {
-      width,
-      ...style
-    }
-  }, rest), title || actions ? /*#__PURE__*/React.createElement("header", {
-    className: "lamp-panel__head"
-  }, title ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-panel__title"
-  }, title) : null, actions ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-panel__actions"
-  }, actions) : null) : null, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-panel__body"
-  }, children));
-}
-Object.assign(__ds_scope, { Panel });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Panel.jsx", error: String((e && e.message) || e) }); }
-
 // components/core/StatusBadge.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /** Single source of truth for operational state → colour + icon + label. */
 const STATUS = {
   draft: {
@@ -1052,7 +646,7 @@ const STATUS = {
   },
   inferred: {
     tone: 'waiting',
-    icon: 'auto_awesome',
+    icon: 'flare',
     label: 'Inferred',
     color: 'var(--runtime-inferred)'
   },
@@ -1236,9 +830,1591 @@ function StatusBadge({
 Object.assign(__ds_scope, { STATUS, StatusDot, StatusBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/StatusBadge.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/Badge.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Badge({
+  tone = 'neutral',
+  icon,
+  shape = 'pill',
+  micro = false,
+  count = false,
+  outline = false,
+  children,
+  className = '',
+  ...rest
+}) {
+  const cls = ['lamp-badge', 'lamp-badge--' + (outline ? 'outline' : tone), shape === 'square' && 'lamp-badge--square', micro && 'lamp-badge--micro', count && 'lamp-badge--count', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("span", _extends({
+    className: cls
+  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: 11
+  }) : icon : null, children);
+}
+Object.assign(__ds_scope, { Badge });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Badge.jsx", error: String((e && e.message) || e) }); }
+
+// components/objects/AgentHex.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const AGENT_SIZES = {
+  xs: [36, 31],
+  sm: [48, 42],
+  md: [64, 55],
+  lg: [88, 76],
+  xl: [120, 104]
+};
+const STATE_BORDER = {
+  idle: 'var(--agent-border)',
+  hover: 'var(--agent-border-hover)',
+  selected: 'var(--agent-border-selected)',
+  multiSelected: 'var(--canvas-multiselect)',
+  dragging: 'var(--agent-border-selected)',
+  compatible: 'var(--agent-border-compatible)',
+  snapReady: 'var(--gold-500)',
+  bonding: 'var(--gold-500)',
+  bonded: 'var(--agent-border)',
+  running: 'var(--agent-border-running)',
+  delegating: 'var(--agent-border-running)',
+  waiting: 'var(--agent-border-waiting)',
+  needsHuman: 'var(--agent-border-waiting)',
+  success: 'var(--status-success)',
+  warning: 'var(--agent-border-warning)',
+  error: 'var(--agent-border-error)',
+  paused: 'var(--agent-border-paused)',
+  killed: 'var(--agent-border-killed)',
+  disabled: 'var(--agent-border)',
+  unconfigured: 'var(--border-strong)',
+  queued: 'var(--agent-border)',
+  retrying: 'var(--agent-border-warning)',
+  degraded: 'var(--agent-border-warning)'
+};
+const ACTIVE = {
+  selected: 1,
+  snapReady: 1,
+  bonding: 1,
+  running: 1,
+  delegating: 1,
+  error: 1,
+  failed: 1,
+  killed: 1,
+  multiSelected: 1,
+  succeeded: 1,
+  retrying: 1
+};
+/* States that earn a visible beat. Everything else is completely still. */
+const PULSE = {
+  starting: 1,
+  running: 1,
+  delegating: 1,
+  retrying: 1,
+  succeeded: 1,
+  paused: 1
+};
+const PULSE_COLOR = {
+  succeeded: 'var(--status-success)',
+  retrying: 'var(--status-warning)',
+  paused: 'var(--neutral-400)'
+};
+const ROLE_GLYPH = {
+  standard: 'smart_toy',
+  coordinator: 'account_tree',
+  specialist: 'target',
+  humanSupervised: 'supervisor_account',
+  system: 'settings',
+  external: 'cloud'
+};
+function AgentHex({
+  size = 'md',
+  state = 'idle',
+  role = 'standard',
+  environment = 'draft',
+  detail = 'name',
+  name,
+  roleLabel,
+  glyph,
+  status,
+  badgeCount,
+  memoryActive = false,
+  authority,
+  task,
+  cost,
+  confidence,
+  tools = 0,
+  dashed = false,
+  labelWidth,
+  onClick,
+  className = '',
+  style,
+  ...rest
+}) {
+  const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
+  const border = STATE_BORDER[state] || STATE_BORDER.idle;
+  const sw = ACTIVE[state] ? 1.5 : 1;
+  const fill = state === 'selected' || state === 'bonding' || state === 'snapReady' ? 'var(--agent-fill-selected)' : 'var(--agent-fill)';
+  const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map(p => p.join(',')).join(' ');
+  const energy = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-core)';
+  const glyphSize = size === 'xs' ? 14 : size === 'sm' ? 16 : size === 'md' ? 18 : size === 'lg' ? 22 : 28;
+  const label = (name || 'Agent') + (status ? ', ' + (__ds_scope.STATUS[status] ? __ds_scope.STATUS[status].label : status) : '');
+  const labelled = detail !== 'glyph' && !!(name || status);
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' '),
+    style: style
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agent__hex",
+    style: {
+      width: w,
+      height: h
+    },
+    onClick: onClick,
+    tabIndex: 0,
+    role: onClick ? 'button' : 'img',
+    "aria-label": label
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: w,
+    height: h,
+    viewBox: '0 0 ' + w + ' ' + h,
+    style: {
+      display: 'block',
+      overflow: 'visible'
+    }
+  }, /*#__PURE__*/React.createElement("polygon", {
+    points: pts,
+    fill: fill,
+    stroke: border,
+    strokeWidth: sw,
+    strokeDasharray: dashed || state === 'compatible' || state === 'unconfigured' ? '3 3' : undefined,
+    strokeLinejoin: "round"
+  })), PULSE[state] ? /*#__PURE__*/React.createElement("svg", {
+    className: "lamp-agent__pulse",
+    width: w,
+    height: h,
+    viewBox: '0 0 ' + w + ' ' + h,
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("polygon", {
+    points: pts,
+    fill: "none",
+    strokeWidth: 2,
+    stroke: PULSE_COLOR[state] || energy
+  })) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agent__glyph",
+    style: {
+      color: ACTIVE[state] ? 'var(--text-brand)' : 'var(--text-secondary)'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard,
+    size: glyphSize
+  })), badgeCount ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__badge"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: state === 'error' ? 'danger' : 'waiting',
+    count: true
+  }, badgeCount)) : null, (memoryActive || tools > 0) && detail !== 'glyph' && size !== 'xs' ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__pin"
+  }, memoryActive ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "database",
+    size: 10,
+    style: {
+      color: 'var(--memory-accent)'
+    }
+  }) : null, tools > 0 ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "handyman",
+    size: 10,
+    style: {
+      color: 'var(--text-tertiary)'
+    }
+  }) : null) : null), labelled ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agent__label",
+    style: labelWidth ? {
+      maxWidth: labelWidth
+    } : undefined
+  }, name ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__name"
+  }, name) : null, status ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 4,
+      fontSize: 11,
+      color: 'var(--text-secondary)'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
+    status: status,
+    pulse: status === 'running' || status === 'live'
+  }), __ds_scope.STATUS[status] ? __ds_scope.STATUS[status].label : status) : null, detail === 'meta' && roleLabel ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__role"
+  }, roleLabel) : null, detail === 'meta' && task ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__role"
+  }, task) : null, detail === 'meta' && (cost || confidence || authority) ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agent__meta"
+  }, [authority, confidence, cost].filter(Boolean).join(' · ')) : null) : null);
+}
+Object.assign(__ds_scope, { AGENT_SIZES, AgentHex });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/AgentHex.jsx", error: String((e && e.message) || e) }); }
+
+// components/objects/HexLattice.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* Honeycomb layout for flat-top hexagons. Column step = 0.75w; odd columns drop half a row. */
+function HexLattice({
+  size = 'md',
+  gap = 2,
+  cells = [],
+  overlay,
+  className = '',
+  style,
+  ...rest
+}) {
+  const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
+  const stepX = w * 0.75 + gap;
+  const stepY = h + gap;
+  let maxX = 0,
+    maxY = 0;
+  const placed = cells.map((c, i) => {
+    const x = c.col * stepX;
+    const y = c.row * stepY + (Math.abs(c.col % 2) ? stepY / 2 : 0);
+    if (x + w > maxX) maxX = x + w;
+    if (y + h > maxY) maxY = y + h;
+    return {
+      key: c.key == null ? i : c.key,
+      x,
+      y,
+      node: c.node
+    };
+  });
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-lattice ' + className,
+    style: {
+      width: maxX,
+      height: maxY,
+      ...style
+    }
+  }, rest), overlay, placed.map(p => /*#__PURE__*/React.createElement("div", {
+    key: p.key,
+    className: "lamp-lattice__cell",
+    style: {
+      left: p.x,
+      top: p.y,
+      width: w,
+      height: h
+    }
+  }, p.node)));
+}
+function hexCenter(col, row, size = 'md', gap = 2) {
+  const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
+  const stepX = w * 0.75 + gap;
+  const stepY = h + gap;
+  return {
+    x: col * stepX + w / 2,
+    y: row * stepY + (Math.abs(col % 2) ? stepY / 2 : 0) + h / 2
+  };
+}
+
+/* Capitalized alias so the helper is reachable on the design-system namespace. */
+function HexCenter(col, row, size = 'md', gap = 2) {
+  return hexCenter(col, row, size, gap);
+}
+Object.assign(__ds_scope, { HexLattice, hexCenter, HexCenter });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/HexLattice.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/SnapField.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* Drag-to-snap field, running on GSAP Draggable.
+
+   THE LATTICE
+   -----------
+   Every position an Agent can occupy is a cell of a flat-top hexagonal lattice,
+   and the set of legal cells is computed from the field's own size — not a fixed
+   window — so an Agent can never be dropped outside the field or half off its
+   edge. Each cell is reduced to a single pixel point (its centre) and snapping
+   is nothing more than "which of these points is nearest".
+
+   NO OVERLAP, EVER
+   ----------------
+   A cell holding another Agent is not a candidate. It is excluded before the
+   distance search, so an occupied slot cannot be chosen, cannot show a guide,
+   and cannot be committed to. If a drag ends with no free cell in range the
+   Agent returns to where it came from. Two Agents therefore cannot occupy one
+   cell by any sequence of drags, and because cells are a lattice they cannot
+   partially overlap either.
+
+   TWO RANGES
+   ----------
+   proximityRange (72px)  the nearest free slot lights up, the Agent does not
+                          move — "there is something here"
+   snapTolerance  (34px)  the slot is armed and the Agent drifts toward it —
+                          "release and it lands here"
+
+   That is the brief's bond lifecycle — proximity, then compatible proximity,
+   then snap threshold — made literal. Without the outer range the operator gets
+   no warning before the object starts moving on its own, which is what makes
+   magnetic snapping feel like a glitch rather than an affordance.
+
+   SELECTION
+   ---------
+   Dragging on empty canvas draws a marquee and selects the Agents it touches.
+   With two or more selected, `onGroup` is offered — that is the path into
+   PlaybookComposer. The marquee runs on pointer events rather than Draggable:
+   it is a rubber band, not an object with a transform, and giving it to
+   Draggable would mean fighting the per-Agent instances for the same press.
+
+   KEYBOARD
+   --------
+   Focus an Agent and the arrow keys move it one cell at a time, refusing
+   occupied and out-of-bounds cells. This path never touches GSAP and works even
+   if GSAP never loads. Composition in LAMP is not pointer-only. */
+
+const HEX_CLIP = 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)';
+
+/* How far toward the armed slot the Agent drifts. At the 34px default tolerance
+   this keeps the visible shift inside the specified 2–6px band for most of the
+   approach — a hint that it is about to land, not a decision made for you. */
+const PULL = 0.35;
+function SnapField({
+  agents = [],
+  size = 'md',
+  gap = 2,
+  width = 720,
+  height = 380,
+  snapTolerance = 34,
+  proximityRange = 72,
+  renderAgent,
+  bonds,
+  selectedId,
+  selectedIds,
+  onSelect,
+  onSelectionChange,
+  onChange,
+  onSnapStateChange,
+  onGroup,
+  groupLabel = 'Group into Playbook',
+  selectable = false,
+  origin = {
+    x: 40,
+    y: 40
+  },
+  readOnly = false,
+  className = '',
+  style,
+  ...rest
+}) {
+  const [hexW, hexH] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
+  const api = __ds_scope.useGsap();
+  const [dragId, setDragId] = React.useState(null);
+  const [snapState, setSnapState] = React.useState('idle');
+  const [marquee, setMarquee] = React.useState(null);
+  const nodes = React.useRef({});
+  const guideRef = React.useRef(null);
+  const fieldRef = React.useRef(null);
+  const multi = selectedIds || [];
+
+  /* Draggable callbacks outlive a render, so everything they read goes through
+     a ref rather than a closed-over prop. */
+  const live = React.useRef({});
+  live.current = {
+    agents,
+    origin,
+    size,
+    gap,
+    snapTolerance,
+    proximityRange,
+    onChange,
+    onSelect,
+    onSnapStateChange
+  };
+  const stepX = hexW * 0.75 + gap;
+  const stepY = hexH + gap;
+  const at = React.useCallback((col, row) => {
+    const {
+      origin: o,
+      size: s,
+      gap: g
+    } = live.current;
+    const c = __ds_scope.HexCenter(col, row, s, g);
+    return {
+      x: o.x + c.x,
+      y: o.y + c.y
+    };
+  }, []);
+
+  /* Legal cells, derived from the field's own box. A cell is legal when the whole
+     hexagon fits inside the field — this is what stops an Agent being dropped
+     half off the edge, and it is why the candidate search has no magic numbers. */
+  const bounds = React.useMemo(() => {
+    const minCol = Math.ceil(-origin.x / stepX);
+    const maxCol = Math.floor((width - hexW - origin.x) / stepX);
+    const minRow = Math.ceil(-origin.y / stepY);
+    const maxRow = Math.floor((height - hexH - origin.y) / stepY);
+    return {
+      minCol,
+      maxCol,
+      minRow,
+      maxRow
+    };
+  }, [origin.x, origin.y, width, height, hexW, hexH, stepX, stepY]);
+  const inBounds = React.useCallback((col, row) => {
+    if (col < bounds.minCol || col > bounds.maxCol) return false;
+    if (row < bounds.minRow) return false;
+    /* Odd columns sit half a row lower, so they lose the last row. */
+    const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
+    return row <= last;
+  }, [bounds]);
+
+  /**
+   * Every free lattice cell as a pixel point. Cells holding another Agent are
+   * left out entirely, which is the guarantee that a snap can never overlap.
+   * The Agent's own cell stays in — releasing where you started is a no-op, not
+   * a rejection.
+   */
+  const freePoints = React.useCallback(selfId => {
+    const taken = {};
+    live.current.agents.forEach(a => {
+      if (a.id !== selfId) taken[a.col + ':' + a.row] = true;
+    });
+    const points = [];
+    for (let col = bounds.minCol; col <= bounds.maxCol; col++) {
+      const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
+      for (let row = bounds.minRow; row <= last; row++) {
+        if (taken[col + ':' + row]) continue;
+        const p = at(col, row);
+        points.push({
+          col,
+          row,
+          x: p.x,
+          y: p.y
+        });
+      }
+    }
+    return points;
+  }, [bounds, at]);
+  const nearest = (points, px, py) => {
+    let best = null;
+    for (let i = 0; i < points.length; i++) {
+      const d = Math.hypot(points[i].x - px, points[i].y - py);
+      if (!best || d < best.d) best = {
+        ...points[i],
+        d
+      };
+    }
+    return best;
+  };
+  const emit = React.useCallback(state => {
+    setSnapState(was => was === state ? was : state);
+    const fn = live.current.onSnapStateChange;
+    if (fn) fn(state);
+  }, []);
+
+  /* Identity of the layout, not of the array — a parent re-render handing back an
+     equivalent agents array must not tear down every Draggable. */
+  const layoutKey = agents.map(a => a.id + ':' + a.col + ':' + a.row).join('|');
+
+  /* Committing a move changes an Agent's left/top. Zeroing the transform in a
+     layout effect — after the new left/top is in the DOM, before paint — is what
+     keeps the commit from flashing. */
+  React.useLayoutEffect(() => {
+    if (!api) return;
+    agents.forEach(a => {
+      const el = nodes.current[a.id];
+      if (el) api.gsap.set(el, {
+        x: 0,
+        y: 0
+      });
+    });
+  }, [api, layoutKey]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  React.useEffect(() => {
+    if (!api || readOnly) return undefined;
+    const {
+      gsap,
+      Draggable
+    } = api;
+    const guide = guideRef.current;
+    const instances = [];
+    agents.forEach(agent => {
+      const el = nodes.current[agent.id];
+      if (!el) return;
+      const home = at(agent.col, agent.row);
+      let points = [];
+      let armed = null;
+      const showGuide = (cell, ready) => {
+        if (!guide) return;
+        if (!cell) {
+          gsap.set(guide, {
+            autoAlpha: 0
+          });
+          return;
+        }
+        gsap.set(guide, {
+          x: cell.x - hexW / 2,
+          y: cell.y - hexH / 2,
+          autoAlpha: ready ? 1 : 0.45
+        });
+      };
+      const created = Draggable.create(el, {
+        type: 'x,y',
+        allowContextMenu: true,
+        cursor: 'grab',
+        activeCursor: 'grabbing',
+        liveSnap: {
+          points(point) {
+            const cx = home.x + point.x;
+            const cy = home.y + point.y;
+            const cell = nearest(points, cx, cy);
+            if (!cell) {
+              armed = null;
+              showGuide(null);
+              emit('dragging');
+              return point;
+            }
+            const {
+              snapTolerance: tol,
+              proximityRange: near
+            } = live.current;
+            if (cell.d <= tol) {
+              armed = cell;
+              showGuide(cell, true);
+              emit('snapReady');
+              /* Drift toward the slot — a hint, not a commitment. */
+              return {
+                x: point.x + (cell.x - cx) * PULL,
+                y: point.y + (cell.y - cy) * PULL
+              };
+            }
+            armed = null;
+            if (cell.d <= near) {
+              showGuide(cell, false);
+              emit('proximity');
+            } else {
+              showGuide(null);
+              emit('dragging');
+            }
+            return point;
+          }
+        },
+        onPress() {
+          const select = live.current.onSelect;
+          if (select) select(agent);
+        },
+        onDragStart() {
+          /* Recomputed per drag: which cells are free depends on where every
+             other Agent is right now. */
+          points = freePoints(agent.id);
+          armed = null;
+          setDragId(agent.id);
+          emit('dragging');
+        },
+        onRelease() {
+          const cell = armed;
+          armed = null;
+          showGuide(null);
+          setDragId(null);
+          emit('idle');
+          const commit = live.current.onChange;
+          if (!cell || !commit || cell.col === agent.col && cell.row === agent.row) {
+            gsap.to(el, {
+              x: 0,
+              y: 0,
+              duration: __ds_scope.GSAP_DURATION.standard,
+              ease: __ds_scope.GSAP_EASE.magnetic
+            });
+            return;
+          }
+          /* Settle onto the slot with the transform, then commit. The layout
+             effect re-homes the element to the same pixel, so nothing jumps. */
+          gsap.to(el, {
+            x: cell.x - home.x,
+            y: cell.y - home.y,
+            duration: __ds_scope.GSAP_DURATION.medium,
+            ease: __ds_scope.GSAP_EASE.magnetic,
+            onComplete() {
+              commit(live.current.agents.map(a => a.id === agent.id ? {
+                ...a,
+                col: cell.col,
+                row: cell.row
+              } : a));
+            }
+          });
+        }
+      })[0];
+      if (created) instances.push(created);
+    });
+    return () => instances.forEach(d => d.kill());
+  }, [api, readOnly, layoutKey, hexW, hexH, at, freePoints, emit]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /* ------------------------------------------------------------ marquee */
+
+  const marqueeFrom = React.useRef(null);
+  const localPoint = e => {
+    const box = fieldRef.current.getBoundingClientRect();
+    return {
+      x: e.clientX - box.left,
+      y: e.clientY - box.top
+    };
+  };
+  const rectOf = (a, b) => ({
+    left: Math.min(a.x, b.x),
+    top: Math.min(a.y, b.y),
+    width: Math.abs(a.x - b.x),
+    height: Math.abs(a.y - b.y)
+  });
+  const onFieldPointerDown = e => {
+    if (!selectable || readOnly || e.button !== 0) return;
+    /* Only a press on bare canvas starts a marquee; a press on an Agent is a drag. */
+    if (e.target !== fieldRef.current) return;
+    e.preventDefault();
+    fieldRef.current.setPointerCapture(e.pointerId);
+    marqueeFrom.current = localPoint(e);
+    setMarquee({
+      left: marqueeFrom.current.x,
+      top: marqueeFrom.current.y,
+      width: 0,
+      height: 0
+    });
+    if (onSelectionChange) onSelectionChange([]);
+  };
+  const onFieldPointerMove = e => {
+    if (!marqueeFrom.current) return;
+    setMarquee(rectOf(marqueeFrom.current, localPoint(e)));
+  };
+  const onFieldPointerUp = e => {
+    if (!marqueeFrom.current) return;
+    const rect = rectOf(marqueeFrom.current, localPoint(e));
+    marqueeFrom.current = null;
+    setMarquee(null);
+    if (!onSelectionChange) return;
+    /* A hexagon counts as caught when its centre is inside the band — the same
+       rule the lattice uses, so selection and snapping agree about where an
+       Agent "is". */
+    const hits = agents.filter(a => {
+      const p = at(a.col, a.row);
+      return p.x >= rect.left && p.x <= rect.left + rect.width && p.y >= rect.top && p.y <= rect.top + rect.height;
+    }).map(a => a.id);
+    onSelectionChange(hits);
+  };
+
+  /* Centroid of the selection, for placing the floating group action. */
+  const groupAnchor = React.useMemo(() => {
+    if (multi.length < 2) return null;
+    const picked = agents.filter(a => multi.indexOf(a.id) !== -1);
+    if (!picked.length) return null;
+    const pts = picked.map(a => at(a.col, a.row));
+    return {
+      x: pts.reduce((s, p) => s + p.x, 0) / pts.length,
+      y: Math.min.apply(null, pts.map(p => p.y)) - hexH / 2 - 12
+    };
+  }, [multi, agents, at, hexH]);
+
+  /* Outline enclosing the selection — the "outline into a Playbook" preview. */
+  const groupOutline = React.useMemo(() => {
+    if (multi.length < 2) return null;
+    const picked = agents.filter(a => multi.indexOf(a.id) !== -1);
+    if (!picked.length) return null;
+    const pts = picked.map(a => at(a.col, a.row));
+    const pad = 14;
+    /* Deeper at the bottom: the Agent name sits below the hexagon, and an outline
+       that cuts through the labels of the very Agents it is enclosing reads as a
+       clipping bug rather than a grouping. */
+    const padBottom = 36;
+    const left = Math.min.apply(null, pts.map(p => p.x)) - hexW / 2 - pad;
+    const top = Math.min.apply(null, pts.map(p => p.y)) - hexH / 2 - pad;
+    return {
+      left,
+      top,
+      width: Math.max.apply(null, pts.map(p => p.x)) + hexW / 2 + pad - left,
+      height: Math.max.apply(null, pts.map(p => p.y)) + hexH / 2 + padBottom - top
+    };
+  }, [multi, agents, at, hexW, hexH]);
+
+  /* ----------------------------------------------------------- keyboard */
+
+  const onKeyDown = a => e => {
+    if (readOnly || !onChange) return;
+    const step = {
+      ArrowLeft: [-1, 0],
+      ArrowRight: [1, 0],
+      ArrowUp: [0, -1],
+      ArrowDown: [0, 1]
+    }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const col = a.col + step[0];
+    const row = a.row + step[1];
+    if (!inBounds(col, row)) return;
+    if (agents.some(x => x.id !== a.id && x.col === col && x.row === row)) return;
+    onChange(agents.map(x => x.id === a.id ? {
+      ...x,
+      col,
+      row
+    } : x));
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: fieldRef,
+    className: ['lamp-snapfield', dragId && 'lamp-snapfield--dragging', snapState === 'proximity' && 'lamp-snapfield--proximity', snapState === 'snapReady' && 'lamp-snapfield--ready', className].filter(Boolean).join(' '),
+    style: {
+      position: 'relative',
+      width,
+      height,
+      touchAction: 'none',
+      ...style
+    },
+    onPointerDown: onFieldPointerDown,
+    onPointerMove: onFieldPointerMove,
+    onPointerUp: onFieldPointerUp,
+    onPointerCancel: onFieldPointerUp
+  }, rest), bonds ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-snapfield__bonds",
+    style: {
+      position: 'absolute',
+      left: origin.x,
+      top: origin.y,
+      pointerEvents: 'none'
+    }
+  }, bonds) : null, groupOutline ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-snapfield__outline",
+    style: groupOutline
+  }) : null, /*#__PURE__*/React.createElement("div", {
+    ref: guideRef,
+    className: "lamp-snapfield__guide",
+    style: {
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      width: hexW,
+      height: hexH,
+      opacity: 0,
+      visibility: 'hidden',
+      pointerEvents: 'none',
+      zIndex: 2
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.SnapGuide, {
+    rect: {
+      position: 'absolute',
+      inset: 0,
+      clipPath: HEX_CLIP
+    }
+  })), agents.map(a => {
+    const isDrag = dragId === a.id;
+    const p = at(a.col, a.row);
+    const state = isDrag && snapState !== 'idle' ? snapState : a.state;
+    return /*#__PURE__*/React.createElement("div", {
+      key: a.id,
+      ref: el => {
+        if (el) nodes.current[a.id] = el;else delete nodes.current[a.id];
+      },
+      className: "lamp-snapfield__slot",
+      style: {
+        position: 'absolute',
+        left: p.x - hexW / 2,
+        top: p.y - hexH / 2,
+        width: hexW,
+        height: hexH,
+        zIndex: isDrag ? 5 : 1,
+        cursor: readOnly ? 'default' : 'grab'
+      },
+      onKeyDown: onKeyDown(a)
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "lamp-snapfield__cell"
+    }, renderAgent(Object.assign({}, a, {
+      state
+    }), {
+      dragging: isDrag,
+      proximity: isDrag && snapState === 'proximity',
+      snapReady: isDrag && snapState === 'snapReady',
+      selected: selectedId === a.id,
+      multiSelected: multi.indexOf(a.id) !== -1
+    })));
+  }), marquee ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-canvas__marquee",
+    style: {
+      position: 'absolute',
+      ...marquee
+    }
+  }) : null, groupAnchor && onGroup ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-snapfield__group",
+    style: {
+      left: groupAnchor.x,
+      top: groupAnchor.y
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-snapfield__group-btn",
+    onClick: () => onGroup(multi)
+  }, groupLabel, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-snapfield__group-count"
+  }, multi.length))) : null);
+}
+Object.assign(__ds_scope, { SnapField });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/SnapField.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Button.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Button({
+  variant = 'secondary',
+  size = 'md',
+  icon,
+  iconRight,
+  loading = false,
+  disabled = false,
+  block = false,
+  shortcut,
+  children,
+  className = '',
+  ...rest
+}) {
+  const cls = ['lamp-btn', 'lamp-btn--' + variant, 'lamp-btn--' + size, block && 'lamp-btn--block', loading && 'lamp-btn--loading', className].filter(Boolean).join(' ');
+  const glyph = size === 'lg' ? 16 : 14;
+  return /*#__PURE__*/React.createElement("button", _extends({
+    type: "button",
+    className: cls,
+    disabled: disabled || loading,
+    "aria-busy": loading || undefined
+  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: glyph
+  }) : icon : null, children, iconRight ? typeof iconRight === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: iconRight,
+    size: glyph
+  }) : iconRight : null, shortcut ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-btn__kbd"
+  }, shortcut) : null, loading ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-btn__spin"
+  }, /*#__PURE__*/React.createElement("i", null)) : null);
+}
+function SplitButton({
+  variant = 'secondary',
+  size = 'md',
+  icon,
+  children,
+  onMenu,
+  menuLabel = 'More actions',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    className: "lamp-split"
+  }, /*#__PURE__*/React.createElement(Button, _extends({
+    variant: variant,
+    size: size,
+    icon: icon
+  }, rest), children), /*#__PURE__*/React.createElement(Button, {
+    variant: variant,
+    size: size,
+    onClick: onMenu,
+    "aria-label": menuLabel,
+    icon: "keyboard_arrow_down"
+  }));
+}
+Object.assign(__ds_scope, { Button, SplitButton });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
+
+// components/chat/ChatMessage.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const HEX_POINTS = '25,0 75,0 100,50 75,100 25,100 0,50';
+
+/** Hexagonal Agent identity — the chat's signature mark. */
+function ChatAvatar({
+  role = 'agent',
+  initials,
+  glyph,
+  state = 'idle',
+  size = 26
+}) {
+  if (role === 'user') {
+    return /*#__PURE__*/React.createElement("span", {
+      className: "lamp-cm__avatar lamp-cm__avatar--user",
+      style: {
+        width: size,
+        height: size
+      }
+    }, initials || 'You'.slice(0, 2));
+  }
+  if (role === 'system' || role === 'tool') {
+    return /*#__PURE__*/React.createElement("span", {
+      className: 'lamp-cm__avatar lamp-cm__avatar--' + role,
+      style: {
+        width: size,
+        height: size
+      }
+    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: glyph || (role === 'tool' ? 'square' : 'info'),
+      size: 13
+    }));
+  }
+  const stroke = state === 'acting' ? 'var(--gold-500)' : state === 'failed' ? 'var(--status-danger)' : 'var(--border-strong)';
+  const fill = state === 'acting' ? 'var(--gold-100)' : 'var(--surface-secondary)';
+  return /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__avatar",
+    style: {
+      width: size,
+      height: size
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    className: "lamp-cm__hex",
+    viewBox: "0 0 100 100",
+    preserveAspectRatio: "none",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("polygon", {
+    points: HEX_POINTS,
+    fill: fill,
+    stroke: stroke,
+    strokeWidth: state === 'acting' ? 6 : 4,
+    vectorEffect: "non-scaling-stroke"
+  })), glyph ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: glyph,
+    size: 12,
+    className: "lamp-cm__ini"
+  }) : /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__ini"
+  }, initials || 'AG'));
+}
+
+/** Visible work: what the Agent called, read and used — never hidden behind a spinner. */
+function ChatActivity({
+  items = [],
+  max = 4,
+  onSelect
+}) {
+  const [open, setOpen] = React.useState(false);
+  const shown = open ? items : items.slice(0, max);
+  const rest = items.length - shown.length;
+  const glyph = k => k === 'tool' ? 'square' : k === 'memory' ? 'database' : k === 'skill' ? 'flare' : k === 'human' ? 'how_to_reg' : 'bolt';
+  return /*#__PURE__*/React.createElement("div", {
+    className: "lamp-act"
+  }, shown.map((a, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: ['lamp-act__chip', 'lamp-act__chip--' + (a.kind || 'tool'), a.state === 'running' && 'lamp-act__chip--running', a.state === 'failed' && 'lamp-act__chip--failed'].filter(Boolean).join(' '),
+    title: a.detail,
+    onClick: onSelect ? () => onSelect(a) : undefined,
+    style: onSelect ? {
+      cursor: 'pointer'
+    } : undefined
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: a.glyph || glyph(a.kind),
+    size: 11
+  }), a.label, a.duration ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-act__dur"
+  }, a.duration) : null)), rest > 0 ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-act__more",
+    onClick: () => setOpen(true)
+  }, '+' + rest + ' more') : null, open && items.length > max ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-act__more",
+    onClick: () => setOpen(false)
+  }, "Show less") : null);
+}
+
+/** Provenance you can open — replaces "trust me" with "here's where it came from". */
+function ChatCitation({
+  index,
+  source,
+  scope,
+  onClick
+}) {
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-cite",
+    onClick: onClick,
+    title: [source, scope].filter(Boolean).join(' · '),
+    "aria-label": 'Evidence ' + index + (source ? ': ' + source : '')
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "fact_check",
+    size: 9
+  }), index);
+}
+function ChatDayDivider({
+  label
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "lamp-chat__day"
+  }, /*#__PURE__*/React.createElement("span", null, label));
+}
+function ChatMessage({
+  role = 'agent',
+  author,
+  roleLabel,
+  initials,
+  glyph,
+  timestamp,
+  grouped = false,
+  state = 'idle',
+  status,
+  streaming = false,
+  activity = [],
+  citations = [],
+  attachment,
+  actions = true,
+  onRetry,
+  onCopy,
+  onInspect,
+  children,
+  className = '',
+  ...rest
+}) {
+  const failed = state === 'failed' || status === 'failed';
+  return /*#__PURE__*/React.createElement("article", _extends({
+    className: ['lamp-cm', 'lamp-cm--' + role, grouped && 'lamp-cm--grouped', state === 'acting' && 'lamp-cm--acting', failed && 'lamp-cm--failed', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement(ChatAvatar, {
+    role: role,
+    initials: initials,
+    glyph: glyph,
+    state: state
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__meta"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__who"
+  }, author || (role === 'user' ? 'You' : role === 'tool' ? 'Tool' : role === 'system' ? 'LAMP' : 'Agent')), roleLabel ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__role"
+  }, roleLabel) : null, timestamp ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__time"
+  }, timestamp) : null), activity.length ? /*#__PURE__*/React.createElement(ChatActivity, {
+    items: activity
+  }) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__text"
+  }, children, citations.length ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 2
+    }
+  }, citations.map((c, i) => /*#__PURE__*/React.createElement(ChatCitation, {
+    key: i,
+    index: c.index || i + 1,
+    source: c.source,
+    scope: c.scope,
+    onClick: c.onClick
+  }))) : null, streaming ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cm__caret"
+  }) : null), attachment ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__attach"
+  }, attachment) : null, status && status !== 'failed' ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__status"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: status === 'sending' ? 'schedule' : 'check',
+    size: 11
+  }), status === 'sending' ? 'Sending' : status) : null, failed ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__status lamp-cm__status--failed"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "error",
+    size: 11
+  }), "Not delivered", onRetry ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-act__more",
+    onClick: onRetry
+  }, "Retry") : null) : null), actions ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cm__tools"
+  }, onInspect ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "open_in_new",
+    label: "Open in Inspector",
+    size: "xs",
+    onClick: onInspect
+  }) : null, onCopy ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "content_copy",
+    label: "Copy message",
+    size: "xs",
+    onClick: onCopy
+  }) : null) : null);
+}
+Object.assign(__ds_scope, { ChatAvatar, ChatActivity, ChatCitation, ChatDayDivider, ChatMessage });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatMessage.jsx", error: String((e && e.message) || e) }); }
+
+// components/chat/AgentChat.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/** What is happening right now, in words, with a way to stop it. */
+function ChatStatus({
+  state = 'idle',
+  author,
+  action,
+  detail,
+  tokens,
+  onStop,
+  onInspect
+}) {
+  if (state === 'idle') {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "lamp-chat__status lamp-chat__status--idle"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: "check_circle",
+      size: 13
+    }), detail || 'Up to date. Nothing is running.');
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    className: "lamp-chat__status",
+    role: "status"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__status-hex"
+  }, /*#__PURE__*/React.createElement(__ds_scope.ChatAvatar, {
+    role: "agent",
+    glyph: "bolt",
+    state: "acting",
+    size: 16
+  })), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", {
+    style: {
+      fontWeight: 600
+    }
+  }, author || 'Agent'), " ", action || 'is working'), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__dots",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null)), detail ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--text-tertiary)'
+    }
+  }, detail) : null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__status-right"
+  }, tokens ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-mono)',
+      fontSize: 11,
+      color: 'var(--text-tertiary)'
+    }
+  }, tokens) : null, onInspect ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "xs",
+    variant: "quiet",
+    onClick: onInspect
+  }, "Open run") : null, onStop ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "xs",
+    variant: "secondary",
+    icon: "stop_circle",
+    onClick: onStop
+  }, "Stop") : null));
+}
+function AgentChat({
+  title,
+  scope,
+  scopeGlyph = 'hive',
+  environment,
+  crew = [],
+  actions,
+  status,
+  composer,
+  flush = false,
+  autoScroll = true,
+  children,
+  className = '',
+  ...rest
+}) {
+  const threadRef = React.useRef(null);
+  React.useEffect(() => {
+    const el = threadRef.current;
+    if (autoScroll && el) el.scrollTop = el.scrollHeight;
+  }, [children, autoScroll]);
+  return /*#__PURE__*/React.createElement("section", _extends({
+    className: ['lamp-chat', flush && 'lamp-chat--flush', className].filter(Boolean).join(' '),
+    "aria-label": title || 'Conversation'
+  }, rest), /*#__PURE__*/React.createElement("header", {
+    className: "lamp-chat__head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__id"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__title"
+  }, title), scope ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__scope"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: scopeGlyph,
+    size: 11
+  }), /*#__PURE__*/React.createElement("b", null, scope), environment ? /*#__PURE__*/React.createElement(React.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__crew",
+    title: crew.map(c => c.name).join(', ')
+  }, crew.slice(0, 4).map(c => /*#__PURE__*/React.createElement("span", {
+    key: c.name
+  }, /*#__PURE__*/React.createElement(__ds_scope.ChatAvatar, {
+    role: c.role || 'agent',
+    initials: c.initials,
+    glyph: c.glyph,
+    state: c.state,
+    size: 22
+  }))), crew.length > 4 ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: 'var(--text-tertiary)',
+      marginLeft: 6
+    }
+  }, "+", crew.length - 4) : null) : null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-chat__actions"
+  }, actions, /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "more_horiz",
+    label: "Conversation actions",
+    size: "sm"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-chat__thread",
+    ref: threadRef,
+    role: "log",
+    "aria-live": "polite"
+  }, children), status, composer);
+}
+Object.assign(__ds_scope, { ChatStatus, AgentChat });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/AgentChat.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Kbd.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Kbd({
+  keys,
+  children,
+  className = '',
+  ...rest
+}) {
+  const list = keys || (typeof children === 'string' ? children.split('+') : null);
+  if (!list) return /*#__PURE__*/React.createElement("kbd", _extends({
+    className: 'lamp-kbd ' + className
+  }, rest), children);
+  return /*#__PURE__*/React.createElement("span", _extends({
+    style: {
+      display: 'inline-flex',
+      gap: 3,
+      alignItems: 'center'
+    }
+  }, rest), list.map((k, i) => /*#__PURE__*/React.createElement("kbd", {
+    key: i,
+    className: 'lamp-kbd ' + className
+  }, k)));
+}
+Object.assign(__ds_scope, { Kbd });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Kbd.jsx", error: String((e && e.message) || e) }); }
+
+// components/chat/ChatComposer.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/** Quick replies keep the common answer one tap away. */
+function ChatQuickReplies({
+  options = [],
+  onSelect
+}) {
+  if (!options.length) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cc__quick"
+  }, options.map(o => {
+    const label = typeof o === 'string' ? o : o.label;
+    const tone = typeof o === 'object' && o.tone;
+    return /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      key: label,
+      size: "sm",
+      variant: tone === 'primary' ? 'primary' : tone === 'danger' ? 'danger-quiet' : 'secondary',
+      icon: typeof o === 'object' ? o.icon : undefined,
+      onClick: () => onSelect && onSelect(typeof o === 'string' ? {
+        label: o
+      } : o)
+    }, label);
+  }));
+}
+function ChatComposer({
+  value = '',
+  onChange,
+  onSend,
+  onAttach,
+  onVoice,
+  onSlash,
+  placeholder = 'Ask, instruct, or answer',
+  scope,
+  scopeGlyph = 'hive',
+  quickReplies = [],
+  disabled = false,
+  sending = false,
+  hint = true,
+  className = '',
+  ...rest
+}) {
+  const [focus, setFocus] = React.useState(false);
+  const send = () => {
+    if (!disabled && value.trim()) onSend && onSend(value);
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-cc', disabled && 'lamp-cc--disabled', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement(ChatQuickReplies, {
+    options: quickReplies,
+    onSelect: o => o.onSelect ? o.onSelect() : onSend && onSend(o.label)
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cc__box"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: ['lamp-cc__field', focus && 'lamp-cc__field--focus'].filter(Boolean).join(' ')
+  }, scope ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cc__scope"
+  }, "Talking to", /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cc__scope-pill"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: scopeGlyph,
+    size: 11
+  }), scope)) : null, /*#__PURE__*/React.createElement("textarea", {
+    className: "lamp-cc__input",
+    rows: 1,
+    value: value,
+    placeholder: placeholder,
+    disabled: disabled,
+    onFocus: () => setFocus(true),
+    onBlur: () => setFocus(false),
+    onChange: e => onChange && onChange(e.target.value),
+    onKeyDown: e => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        send();
+      }
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cc__row"
+  }, onAttach ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "attach_file",
+    label: "Attach a file",
+    size: "sm",
+    onClick: onAttach
+  }) : null, onSlash ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "terminal",
+    label: "Commands",
+    size: "sm",
+    onClick: onSlash
+  }) : null, onVoice ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "mic",
+    label: "Record a voice message",
+    size: "sm",
+    onClick: onVoice
+  }) : null, hint ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cc__hint"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Kbd, null, "Enter"), " to send", /*#__PURE__*/React.createElement(__ds_scope.Kbd, {
+    keys: ['Shift', 'Enter']
+  }), " for a new line") : null)), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    className: "lamp-cc__send",
+    size: "md",
+    variant: "primary",
+    icon: "send",
+    loading: sending,
+    disabled: disabled || !value.trim(),
+    onClick: send
+  }, "Send")));
+}
+Object.assign(__ds_scope, { ChatQuickReplies, ChatComposer });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatComposer.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Card.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Card({
+  padding = 'md',
+  raised = false,
+  interactive = false,
+  selected = false,
+  tone = 'default',
+  header,
+  footer,
+  title,
+  actions,
+  children,
+  className = '',
+  ...rest
+}) {
+  const structured = header || footer || title || actions;
+  const cls = ['lamp-card', !structured && padding === 'md' && 'lamp-card--pad', !structured && padding === 'sm' && 'lamp-card--pad-sm', raised && 'lamp-card--raised', interactive && 'lamp-card--interactive', selected && 'lamp-card--selected', tone === 'danger' && 'lamp-card--danger', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: cls
+  }, rest), structured && (header || title || actions) ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-card__head"
+  }, header || /*#__PURE__*/React.createElement("h3", {
+    className: "lamp-card__title"
+  }, title), actions ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 4
+    }
+  }, actions) : null) : null, structured ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-card__body"
+  }, children) : children, footer ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-card__foot"
+  }, footer) : null);
+}
+Object.assign(__ds_scope, { Card });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Card.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/EnvironmentPill.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const ENV = {
+  draft: {
+    icon: 'edit',
+    label: 'Draft'
+  },
+  simulation: {
+    icon: 'science',
+    label: 'Simulation'
+  },
+  live: {
+    icon: 'bolt',
+    label: 'Live'
+  },
+  paused: {
+    icon: 'pause',
+    label: 'Paused'
+  },
+  killed: {
+    icon: 'dangerous',
+    label: 'Emergency stopped'
+  }
+};
+function EnvironmentPill({
+  environment = 'draft',
+  label,
+  scope,
+  className = '',
+  ...rest
+}) {
+  const e = ENV[environment] || ENV.draft;
+  return /*#__PURE__*/React.createElement("span", _extends({
+    className: ['lamp-env', 'lamp-env--' + environment, className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: e.icon,
+    size: 12
+  }), label || e.label, scope ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      opacity: 0.7,
+      fontWeight: 500,
+      letterSpacing: 0,
+      textTransform: 'none'
+    }
+  }, scope) : null);
+}
+Object.assign(__ds_scope, { EnvironmentPill });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/EnvironmentPill.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Panel.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Panel({
+  title,
+  actions,
+  flush = false,
+  width,
+  children,
+  className = '',
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("section", _extends({
+    className: ['lamp-panel', flush && 'lamp-panel--flush', className].filter(Boolean).join(' '),
+    style: {
+      width,
+      ...style
+    }
+  }, rest), title || actions ? /*#__PURE__*/React.createElement("header", {
+    className: "lamp-panel__head"
+  }, title ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-panel__title"
+  }, title) : null, actions ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-panel__actions"
+  }, actions) : null) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-panel__body"
+  }, children));
+}
+Object.assign(__ds_scope, { Panel });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Panel.jsx", error: String((e && e.message) || e) }); }
+
 // components/core/Tag.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Tag({
   icon,
   mono = false,
@@ -1267,7 +2443,15 @@ Object.assign(__ds_scope, { Tag });
 
 // components/core/Tooltip.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Tooltip({
   content,
   shortcut,
@@ -1294,7 +2478,15 @@ Object.assign(__ds_scope, { Tooltip });
 
 // components/dashboard/DashboardCard.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function DashboardCard({
   title,
   description,
@@ -1356,7 +2548,15 @@ Object.assign(__ds_scope, { DashboardCard, DashboardGrid, StatGrid });
 
 // components/dashboard/PageHeader.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function PageHeader({
   title,
   description,
@@ -1412,7 +2612,15 @@ Object.assign(__ds_scope, { PageHeader, DashboardPage, SectionHeader });
 
 // components/data/ChartFrame.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const DATAVIZ = ['var(--dataviz-1)', 'var(--dataviz-2)', 'var(--dataviz-3)', 'var(--dataviz-4)', 'var(--dataviz-5)', 'var(--dataviz-6)', 'var(--dataviz-7)', 'var(--dataviz-8)'];
 const seriesColor = i => DATAVIZ[i % DATAVIZ.length];
 function ChartLegend({
@@ -1542,7 +2750,15 @@ Object.assign(__ds_scope, { DATAVIZ, seriesColor, ChartLegend, ChartFrame, Chart
 
 // components/data/BarChart.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const niceTick = (v, max) => {
   if (max >= 1000) return Math.round(v / 100) * 100 >= 1000 ? Math.round(v / 100) / 10 + 'k' : String(Math.round(v));
   if (max >= 10) return String(Math.round(v));
@@ -1684,9 +2900,376 @@ function BarChart({
 Object.assign(__ds_scope, { BarChart });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/BarChart.jsx", error: String((e && e.message) || e) }); }
 
+// components/data/StackedBar.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* A single row of composition — "what is this made of", not "how did it change".
+
+   Distinct from <BarChart stacked>, which is a categorical chart with axes and
+   ticks across many groups. StackedBar is one bar: context windows, cost split
+   by Agent, authority split by scope, a Playbook's step outcomes. It fits on an
+   inspector row and inside a table cell, where a chart would not.
+
+   Values are absolute; the bar normalizes them. Segments below `minLabel` of the
+   total are still drawn but never labelled inline, because a 3px segment with a
+   number on it is noise. */
+
+function StackedBar({
+  segments = [],
+  total,
+  unit,
+  height = 8,
+  legend = false,
+  inlineValues = false,
+  showTotal = false,
+  minLabel = 0.08,
+  format,
+  label,
+  className = '',
+  ...rest
+}) {
+  const sum = total != null ? total : segments.reduce((a, s) => a + (s.value || 0), 0);
+  const fmt = format || (v => typeof v === 'number' ? v.toLocaleString() : v);
+  const colorOf = (s, i) => s.color || __ds_scope.seriesColor(i);
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-sbar ' + className
+  }, rest), label ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__label"
+  }, label) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-sbar__track",
+    style: {
+      height
+    },
+    role: "img",
+    "aria-label": (label ? label + ': ' : '') + segments.map(s => s.label + ' ' + fmt(s.value)).join(', ') + (sum ? '. Total ' + fmt(sum) + (unit ? ' ' + unit : '') : '')
+  }, segments.map((s, i) => {
+    const share = sum ? (s.value || 0) / sum : 0;
+    return /*#__PURE__*/React.createElement("span", {
+      key: s.key || s.label || i,
+      className: 'lamp-sbar__seg' + (s.muted ? ' lamp-sbar__seg--muted' : ''),
+      title: s.label + ': ' + fmt(s.value) + (unit ? ' ' + unit : ''),
+      style: {
+        width: share * 100 + '%',
+        background: colorOf(s, i)
+      }
+    }, inlineValues && share >= minLabel ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-sbar__inline"
+    }, fmt(s.value)) : null);
+  })), legend ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-sbar__legend"
+  }, segments.map((s, i) => /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__row",
+    key: s.key || s.label || i
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__swatch",
+    style: {
+      background: colorOf(s, i)
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__name"
+  }, s.label), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__val"
+  }, fmt(s.value)))), showTotal ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__total"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__name"
+  }, "Total"), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-sbar__val"
+  }, fmt(sum), unit ? ' ' + unit : '')) : null) : null);
+}
+Object.assign(__ds_scope, { StackedBar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/StackedBar.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/ContextBreakdown.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* What went into the context window for a run, by memory scope.
+
+   The brief's shape, exactly:
+
+     Context
+     Agent working memory     618
+     Playbook memory          402
+     Genie memory             771
+     LAMP memory              340
+     Retrieved evidence     1,281
+     ─────────────────────────────
+     Total                  3,412 tokens
+
+   Rows keep the scope order narrow → broad, so the reader sees inheritance in
+   the same direction everywhere in the product. The cache row is a saving, not a
+   cost, so it sits below the total and is never stacked into the bar.
+
+   This is an efficiency read-out, not a financial dashboard: no currency framing,
+   no trend arrows, no sparkline. Cost belongs on RunSummary. */
+
+const SCOPE_ORDER = ['agent', 'playbook', 'genie', 'lamp', 'evidence'];
+const DEFAULT_LABELS = {
+  agent: 'Agent working memory',
+  playbook: 'Playbook memory',
+  genie: 'Genie memory',
+  lamp: 'LAMP memory',
+  evidence: 'Retrieved evidence',
+  prompt: 'Instructions',
+  completion: 'Completion'
+};
+const SCOPE_COLOR = {
+  agent: 'var(--memory-accent)',
+  playbook: 'var(--purple-400)',
+  genie: 'var(--steel-500)',
+  lamp: 'var(--slate-500)',
+  evidence: 'var(--gold-500)',
+  prompt: 'var(--dataviz-neutral-3)',
+  completion: 'var(--dataviz-neutral-4)'
+};
+function ContextBreakdown({
+  segments,
+  context,
+  unit = 'tokens',
+  cached,
+  limit,
+  showBar = true,
+  title = 'Context',
+  className = '',
+  ...rest
+}) {
+  /* Accept either an explicit segments array or a { agent: 618, … } map. */
+  const rows = segments ? segments : SCOPE_ORDER.filter(k => context && context[k] != null).map(k => ({
+    key: k,
+    label: DEFAULT_LABELS[k],
+    value: context[k]
+  }));
+  const withColor = rows.map(r => ({
+    ...r,
+    color: r.color || SCOPE_COLOR[r.key] || undefined
+  }));
+  const total = withColor.reduce((a, r) => a + (r.value || 0), 0);
+  const fmt = v => v.toLocaleString();
+  const pctOfLimit = limit ? Math.round(total / limit * 100) : null;
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-ctxb ' + className
+  }, rest), title ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ctxb__title"
+  }, title) : null, showBar ? /*#__PURE__*/React.createElement(__ds_scope.StackedBar, {
+    segments: withColor,
+    total: total,
+    unit: unit,
+    height: 8
+  }) : null, /*#__PURE__*/React.createElement("table", {
+    className: "lamp-ctxb__table"
+  }, /*#__PURE__*/React.createElement("tbody", null, withColor.map((r, i) => /*#__PURE__*/React.createElement("tr", {
+    key: r.key || r.label || i
+  }, /*#__PURE__*/React.createElement("td", {
+    className: "lamp-ctxb__swatchcell"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ctxb__swatch",
+    style: {
+      background: r.color || 'var(--dataviz-neutral-3)'
+    }
+  })), /*#__PURE__*/React.createElement("td", {
+    className: "lamp-ctxb__name"
+  }, r.label), /*#__PURE__*/React.createElement("td", {
+    className: "lamp-ctxb__val"
+  }, fmt(r.value))))), /*#__PURE__*/React.createElement("tfoot", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null), /*#__PURE__*/React.createElement("td", {
+    className: "lamp-ctxb__name"
+  }, "Total"), /*#__PURE__*/React.createElement("td", {
+    className: "lamp-ctxb__val"
+  }, fmt(total), " ", unit)))), cached != null || limit ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-ctxb__meta"
+  }, cached != null ? /*#__PURE__*/React.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /*#__PURE__*/React.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
+}
+Object.assign(__ds_scope, { ContextBreakdown });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/ContextBreakdown.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Checkbox.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Checkbox({
+  label,
+  description,
+  indeterminate = false,
+  disabled = false,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("label", {
+    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    type: "checkbox",
+    disabled: disabled
+  }, rest)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__box"
+  }, indeterminate ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "remove",
+    size: 12
+  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "check",
+    size: 12
+  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__desc"
+  }, description) : null) : null);
+}
+Object.assign(__ds_scope, { Checkbox });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/DataTable.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* Presentation layer for TanStack Table. Logic (sorting, filtering, virtualization,
+   grouping, pagination) belongs to the table instance; this renders LAMP's surface. */
+function DataTable({
+  columns = [],
+  rows = [],
+  density = 'default',
+  variant = 'standard',
+  sort,
+  onSort,
+  selectable = false,
+  selected = [],
+  onSelect,
+  onSelectAll,
+  onRowClick,
+  rowKey = (r, i) => r.id || i,
+  toolbar,
+  bulkActions,
+  footerRow,
+  state = 'ready',
+  emptyState,
+  stickyHeader = true,
+  className = '',
+  ...rest
+}) {
+  const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-tablewrap ' + className
+  }, rest), toolbar ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-tabletoolbar"
+  }, toolbar) : null, selectable && selected.length > 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-tablebulk"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "check_circle",
+    size: 14
+  }), selected.length, " selected", /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto',
+      display: 'flex',
+      gap: 6
+    }
+  }, bulkActions)) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-tablewrap__scroll"
+  }, /*#__PURE__*/React.createElement("table", {
+    className: ['lamp-table', density !== 'default' && 'lamp-table--' + density, variant !== 'standard' && 'lamp-table--' + variant].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, selectable ? /*#__PURE__*/React.createElement("th", {
+    style: {
+      width: 34
+    },
+    "data-pinned": true
+  }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+    checked: allSelected,
+    indeterminate: selected.length > 0 && !allSelected,
+    onChange: () => onSelectAll && onSelectAll(!allSelected),
+    "aria-label": "Select all rows"
+  })) : null, columns.map(c => /*#__PURE__*/React.createElement("th", {
+    key: c.key,
+    "data-align": c.align,
+    "data-sortable": c.sortable ? '' : undefined,
+    "data-pinned": c.pinned ? '' : undefined,
+    style: c.width ? {
+      width: c.width
+    } : undefined,
+    onClick: c.sortable && onSort ? () => onSort(c.key) : undefined,
+    "aria-sort": sort && sort.key === c.key ? sort.dir === 'asc' ? 'ascending' : 'descending' : undefined
+  }, c.header, c.sortable ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-table__sort"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: sort && sort.key === c.key ? sort.dir === 'asc' ? 'arrow_upward' : 'arrow_downward' : 'unfold_more',
+    size: 12
+  })) : null)))), /*#__PURE__*/React.createElement("tbody", null, state === 'loading' ? Array.from({
+    length: 6
+  }, (_, i) => /*#__PURE__*/React.createElement("tr", {
+    key: i
+  }, /*#__PURE__*/React.createElement("td", {
+    colSpan: columns.length + (selectable ? 1 : 0)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-skel",
+    style: {
+      display: 'block',
+      height: 10,
+      width: '60%'
+    }
+  })))) : null, state === 'ready' ? rows.map((r, i) => {
+    const key = rowKey(r, i);
+    const isSel = selected.indexOf(key) !== -1;
+    return /*#__PURE__*/React.createElement("tr", {
+      key: key,
+      "data-selected": isSel ? '' : undefined,
+      onClick: onRowClick ? () => onRowClick(r) : undefined,
+      style: onRowClick ? {
+        cursor: 'pointer'
+      } : undefined
+    }, selectable ? /*#__PURE__*/React.createElement("td", {
+      "data-pinned": true,
+      onClick: e => e.stopPropagation()
+    }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+      checked: isSel,
+      onChange: () => onSelect && onSelect(key, !isSel),
+      "aria-label": "Select row"
+    })) : null, columns.map(c => /*#__PURE__*/React.createElement("td", {
+      key: c.key,
+      "data-align": c.align,
+      "data-mono": c.mono ? '' : undefined,
+      "data-pinned": c.pinned ? '' : undefined
+    }, c.render ? c.render(r) : r[c.key])));
+  }) : null), footerRow ? /*#__PURE__*/React.createElement("tfoot", null, /*#__PURE__*/React.createElement("tr", null, footerRow)) : null), state === 'empty' ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-table__empty"
+  }, emptyState) : null));
+}
+Object.assign(__ds_scope, { DataTable });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/DataTable.jsx", error: String((e && e.message) || e) }); }
+
 // components/data/DonutChart.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* Donut / radial gauge. Keep donuts small and never use more than 5 slices. */
 function DonutChart({
   data = [],
@@ -1757,7 +3340,15 @@ Object.assign(__ds_scope, { DonutChart });
 
 // components/data/Heatmap.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const RAMPS = {
   gold: ['var(--gold-50)', 'var(--gold-200)', 'var(--gold-400)', 'var(--gold-600)', 'var(--gold-800)'],
   blue: ['var(--blue-100)', 'var(--blue-300)', 'var(--blue-500)', 'var(--blue-600)', 'var(--blue-700)'],
@@ -1849,7 +3440,15 @@ Object.assign(__ds_scope, { heatColor, Heatmap });
 
 // components/data/HexHeatmap.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* LAMP-native hive visualization: a value per Agent slot on the hexagonal lattice.
    Production renderer: visx — this is product language, not a generic chart. */
 function HexHeatmap({
@@ -1916,7 +3515,15 @@ Object.assign(__ds_scope, { HexHeatmap });
 
 // components/data/LineChart.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const niceTick = (v, max) => {
   if (max >= 1000) return Math.round(v / 100) * 100 >= 1000 ? Math.round(v / 100) / 10 + 'k' : String(Math.round(v));
   if (max >= 10) return String(Math.round(v));
@@ -2028,7 +3635,15 @@ Object.assign(__ds_scope, { LineChart });
 
 // components/data/MetricCard.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function MetricCard({
   label,
   value,
@@ -2081,7 +3696,15 @@ Object.assign(__ds_scope, { MetricCard });
 
 // components/data/ProgressBar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function ProgressBar({
   value = 0,
   max = 100,
@@ -2145,7 +3768,15 @@ Object.assign(__ds_scope, { ProgressBar, UsageMeter });
 
 // components/data/ScatterPlot.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* Scatter / bubble. Large point counts belong on the ECharts tier with the same API. */
 function ScatterPlot({
   points = [],
@@ -2239,7 +3870,15 @@ Object.assign(__ds_scope, { ScatterPlot });
 
 // components/data/Sparkline.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Sparkline({
   data = [],
   width = 96,
@@ -2307,7 +3946,15 @@ Object.assign(__ds_scope, { Sparkline });
 
 // components/data/Viz.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* One visualization API for the whole product. The renderer tier is an implementation
    detail the user never sees:
      standard  -> shadcn Charts + Recharts      (line, area, bar, donut, scatter, sparkline)
@@ -2409,7 +4056,15 @@ Object.assign(__ds_scope, { VIZ_TIERS, Viz });
 
 // components/feedback/EmptyState.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function EmptyState({
   glyph = 'inbox',
   title,
@@ -2440,7 +4095,15 @@ Object.assign(__ds_scope, { EmptyState });
 
 // components/feedback/ErrorState.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function ErrorState({
   kind = 'recoverable',
   title,
@@ -2502,7 +4165,15 @@ Object.assign(__ds_scope, { ErrorState });
 
 // components/feedback/InlineNotification.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const TONE = {
   neutral: 'info',
   info: 'info',
@@ -2592,7 +4263,15 @@ Object.assign(__ds_scope, { InlineNotification, Toast, ToastStack });
 
 // components/feedback/Modal.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Modal({
   open = true,
   title,
@@ -2764,7 +4443,15 @@ Object.assign(__ds_scope, { Modal, CriticalConfirmation, Drawer, Popover });
 
 // components/feedback/Skeleton.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Skeleton({
   width = '100%',
   height = 10,
@@ -2822,155 +4509,17 @@ function Spinner({
 Object.assign(__ds_scope, { Skeleton, Spinner });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Skeleton.jsx", error: String((e && e.message) || e) }); }
 
-// components/forms/Checkbox.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Checkbox({
-  label,
-  description,
-  indeterminate = false,
-  disabled = false,
-  className = '',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "checkbox",
-    disabled: disabled
-  }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__box"
-  }, indeterminate ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "remove",
-    size: 12
-  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "check",
-    size: 12
-  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__desc"
-  }, description) : null) : null);
-}
-Object.assign(__ds_scope, { Checkbox });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
-
-// components/data/DataTable.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* Presentation layer for TanStack Table. Logic (sorting, filtering, virtualization,
-   grouping, pagination) belongs to the table instance; this renders LAMP's surface. */
-function DataTable({
-  columns = [],
-  rows = [],
-  density = 'default',
-  variant = 'standard',
-  sort,
-  onSort,
-  selectable = false,
-  selected = [],
-  onSelect,
-  onSelectAll,
-  onRowClick,
-  rowKey = (r, i) => r.id || i,
-  toolbar,
-  bulkActions,
-  footerRow,
-  state = 'ready',
-  emptyState,
-  stickyHeader = true,
-  className = '',
-  ...rest
-}) {
-  const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'lamp-tablewrap ' + className
-  }, rest), toolbar ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-tabletoolbar"
-  }, toolbar) : null, selectable && selected.length > 0 ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-tablebulk"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "check_circle",
-    size: 14
-  }), selected.length, " selected", /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 'auto',
-      display: 'flex',
-      gap: 6
-    }
-  }, bulkActions)) : null, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-tablewrap__scroll"
-  }, /*#__PURE__*/React.createElement("table", {
-    className: ['lamp-table', density !== 'default' && 'lamp-table--' + density, variant !== 'standard' && 'lamp-table--' + variant].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, selectable ? /*#__PURE__*/React.createElement("th", {
-    style: {
-      width: 34
-    },
-    "data-pinned": true
-  }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
-    checked: allSelected,
-    indeterminate: selected.length > 0 && !allSelected,
-    onChange: () => onSelectAll && onSelectAll(!allSelected),
-    "aria-label": "Select all rows"
-  })) : null, columns.map(c => /*#__PURE__*/React.createElement("th", {
-    key: c.key,
-    "data-align": c.align,
-    "data-sortable": c.sortable ? '' : undefined,
-    "data-pinned": c.pinned ? '' : undefined,
-    style: c.width ? {
-      width: c.width
-    } : undefined,
-    onClick: c.sortable && onSort ? () => onSort(c.key) : undefined,
-    "aria-sort": sort && sort.key === c.key ? sort.dir === 'asc' ? 'ascending' : 'descending' : undefined
-  }, c.header, c.sortable ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-table__sort"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: sort && sort.key === c.key ? sort.dir === 'asc' ? 'arrow_upward' : 'arrow_downward' : 'unfold_more',
-    size: 12
-  })) : null)))), /*#__PURE__*/React.createElement("tbody", null, state === 'loading' ? Array.from({
-    length: 6
-  }, (_, i) => /*#__PURE__*/React.createElement("tr", {
-    key: i
-  }, /*#__PURE__*/React.createElement("td", {
-    colSpan: columns.length + (selectable ? 1 : 0)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-skel",
-    style: {
-      display: 'block',
-      height: 10,
-      width: '60%'
-    }
-  })))) : null, state === 'ready' ? rows.map((r, i) => {
-    const key = rowKey(r, i);
-    const isSel = selected.indexOf(key) !== -1;
-    return /*#__PURE__*/React.createElement("tr", {
-      key: key,
-      "data-selected": isSel ? '' : undefined,
-      onClick: onRowClick ? () => onRowClick(r) : undefined,
-      style: onRowClick ? {
-        cursor: 'pointer'
-      } : undefined
-    }, selectable ? /*#__PURE__*/React.createElement("td", {
-      "data-pinned": true,
-      onClick: e => e.stopPropagation()
-    }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
-      checked: isSel,
-      onChange: () => onSelect && onSelect(key, !isSel),
-      "aria-label": "Select row"
-    })) : null, columns.map(c => /*#__PURE__*/React.createElement("td", {
-      key: c.key,
-      "data-align": c.align,
-      "data-mono": c.mono ? '' : undefined,
-      "data-pinned": c.pinned ? '' : undefined
-    }, c.render ? c.render(r) : r[c.key])));
-  }) : null), footerRow ? /*#__PURE__*/React.createElement("tfoot", null, /*#__PURE__*/React.createElement("tr", null, footerRow)) : null), state === 'empty' ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-table__empty"
-  }, emptyState) : null));
-}
-Object.assign(__ds_scope, { DataTable });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/DataTable.jsx", error: String((e && e.message) || e) }); }
-
 // components/forms/CodeFrame.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function CodeFrame({
   language = 'json',
   title,
@@ -3014,7 +4563,15 @@ Object.assign(__ds_scope, { CodeFrame });
 
 // components/forms/Field.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Field({
   label,
   htmlFor,
@@ -3033,7 +4590,7 @@ function Field({
 }) {
   const msg = error || warning || success;
   const msgTone = error ? 'error' : warning ? 'warning' : 'success';
-  const msgIcon = error ? 'circle-x' : warning ? 'triangle-alert' : 'circle-check';
+  const msgIcon = error ? 'cancel' : warning ? 'warning' : 'check_circle';
   return /*#__PURE__*/React.createElement("div", _extends({
     className: ['lamp-field', layout === 'row' && 'lamp-field--row', className].filter(Boolean).join(' ')
   }, rest), label ? /*#__PURE__*/React.createElement("div", {
@@ -3061,246 +4618,17 @@ function Field({
 Object.assign(__ds_scope, { Field });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Field.jsx", error: String((e && e.message) || e) }); }
 
-// components/forms/PromptEditor.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function VariableToken({
-  name,
-  kind = 'variable',
-  children,
-  ...rest
-}) {
-  const label = children || name;
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: 'lamp-vartoken' + (kind === 'entity' ? ' lamp-vartoken--entity' : kind === 'missing' ? ' lamp-vartoken--missing' : '')
-  }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: kind === 'entity' ? 'alternate_email' : kind === 'missing' ? 'warning' : 'data_object',
-    size: 10
-  }), label);
-}
-function PromptEditor({
-  label = 'Instructions',
-  children,
-  tokens = [],
-  footer,
-  onInsert,
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: "lamp-prompt"
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-prompt__bar"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-prompt__label"
-  }, label), /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 'auto',
-      display: 'flex',
-      gap: 4
-    }
-  }, tokens.map(t => /*#__PURE__*/React.createElement(__ds_scope.Button, {
-    key: t,
-    variant: "quiet",
-    size: "xs",
-    onClick: () => onInsert && onInsert(t)
-  }, '{{' + t + '}}')))), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-prompt__body",
-    contentEditable: false,
-    suppressContentEditableWarning: true
-  }, children), footer ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-prompt__foot"
-  }, footer) : null);
-}
-Object.assign(__ds_scope, { VariableToken, PromptEditor });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/PromptEditor.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Radio.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Radio({
-  label,
-  description,
-  disabled = false,
-  className = '',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "radio",
-    disabled: disabled
-  }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__box lamp-check__box--radio"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__radio-dot"
-  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__desc"
-  }, description) : null) : null);
-}
-function RadioGroup({
-  name,
-  options = [],
-  value,
-  onChange,
-  direction = 'column',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    role: "radiogroup",
-    style: {
-      display: 'flex',
-      flexDirection: direction,
-      gap: direction === 'row' ? 16 : 8
-    }
-  }, rest), options.map(o => {
-    const v = typeof o === 'string' ? o : o.value;
-    const l = typeof o === 'string' ? o : o.label;
-    return /*#__PURE__*/React.createElement(Radio, {
-      key: v,
-      name: name,
-      value: v,
-      label: l,
-      description: typeof o === 'object' ? o.description : undefined,
-      checked: value === v,
-      onChange: () => onChange && onChange(v)
-    });
-  }));
-}
-Object.assign(__ds_scope, { Radio, RadioGroup });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Radio.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Select.jsx
-try { (() => {
-function Select({
-  options = [],
-  size = 'md',
-  placeholder,
-  className = '',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: ['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("select", rest, placeholder ? /*#__PURE__*/React.createElement("option", {
-    value: ""
-  }, placeholder) : null, options.map(o => {
-    const v = typeof o === 'string' ? o : o.value;
-    const l = typeof o === 'string' ? o : o.label;
-    return /*#__PURE__*/React.createElement("option", {
-      key: v,
-      value: v,
-      disabled: typeof o === 'object' && o.disabled
-    }, l);
-  })), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-select__chev"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "keyboard_arrow_down",
-    size: 14
-  })));
-}
-Object.assign(__ds_scope, { Select });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Slider.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Slider({
-  min = 0,
-  max = 100,
-  step = 1,
-  value,
-  onChange,
-  format,
-  showValue = true,
-  ...rest
-}) {
-  const v = value == null ? min : value;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "lamp-slider"
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "range",
-    min: min,
-    max: max,
-    step: step,
-    value: v,
-    onChange: e => onChange && onChange(Number(e.target.value))
-  }, rest)), showValue ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-slider__val"
-  }, format ? format(v) : v) : null);
-}
-Object.assign(__ds_scope, { Slider });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Slider.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Switch.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Switch({
-  label,
-  tone = 'default',
-  disabled = false,
-  className = '',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: ['lamp-switch', tone === 'brand' && 'lamp-switch--brand', disabled && 'lamp-switch--disabled', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "checkbox",
-    role: "switch",
-    disabled: disabled
-  }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-switch__track"
-  }), label ? /*#__PURE__*/React.createElement("span", null, label) : null);
-}
-Object.assign(__ds_scope, { Switch });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/TagInput.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function TagInput({
-  values = [],
-  onChange,
-  placeholder = 'Add…',
-  mono = false,
-  ...rest
-}) {
-  const [focus, setFocus] = React.useState(false);
-  const [draft, setDraft] = React.useState('');
-  const commit = () => {
-    const t = draft.trim();
-    if (!t) return;
-    onChange && onChange([...values, t]);
-    setDraft('');
-  };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-taginput', focus && 'lamp-taginput--focus'].filter(Boolean).join(' ')
-  }, rest), values.map((v, i) => /*#__PURE__*/React.createElement(__ds_scope.Tag, {
-    key: v + i,
-    mono: mono,
-    onRemove: () => onChange && onChange(values.filter((_, j) => j !== i))
-  }, v)), /*#__PURE__*/React.createElement("input", {
-    value: draft,
-    placeholder: placeholder,
-    onFocus: () => setFocus(true),
-    onBlur: () => {
-      setFocus(false);
-      commit();
-    },
-    onChange: e => setDraft(e.target.value),
-    onKeyDown: e => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        commit();
-      }
-      if (e.key === 'Backspace' && !draft && values.length) onChange && onChange(values.slice(0, -1));
-    }
-  }));
-}
-Object.assign(__ds_scope, { TagInput });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
-
 // components/forms/TextInput.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function TextInput({
   size = 'md',
   icon,
@@ -3403,7 +4731,15 @@ Object.assign(__ds_scope, { TextInput, SearchInput, NumberInput, SecretField });
 
 // components/forms/KeyValueInput.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function KeyValueInput({
   rows = [],
   onChange,
@@ -3458,9 +4794,294 @@ function KeyValueInput({
 Object.assign(__ds_scope, { KeyValueInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/KeyValueInput.jsx", error: String((e && e.message) || e) }); }
 
+// components/forms/PromptEditor.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function VariableToken({
+  name,
+  kind = 'variable',
+  children,
+  ...rest
+}) {
+  const label = children || name;
+  return /*#__PURE__*/React.createElement("span", _extends({
+    className: 'lamp-vartoken' + (kind === 'entity' ? ' lamp-vartoken--entity' : kind === 'missing' ? ' lamp-vartoken--missing' : '')
+  }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: kind === 'entity' ? 'alternate_email' : kind === 'missing' ? 'warning' : 'data_object',
+    size: 10
+  }), label);
+}
+function PromptEditor({
+  label = 'Instructions',
+  children,
+  tokens = [],
+  footer,
+  onInsert,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: "lamp-prompt"
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-prompt__bar"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-prompt__label"
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto',
+      display: 'flex',
+      gap: 4
+    }
+  }, tokens.map(t => /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    key: t,
+    variant: "quiet",
+    size: "xs",
+    onClick: () => onInsert && onInsert(t)
+  }, '{{' + t + '}}')))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-prompt__body",
+    contentEditable: false,
+    suppressContentEditableWarning: true
+  }, children), footer ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-prompt__foot"
+  }, footer) : null);
+}
+Object.assign(__ds_scope, { VariableToken, PromptEditor });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/PromptEditor.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Radio.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Radio({
+  label,
+  description,
+  disabled = false,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("label", {
+    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    type: "radio",
+    disabled: disabled
+  }, rest)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__box lamp-check__box--radio"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__radio-dot"
+  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__desc"
+  }, description) : null) : null);
+}
+function RadioGroup({
+  name,
+  options = [],
+  value,
+  onChange,
+  direction = 'column',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    role: "radiogroup",
+    style: {
+      display: 'flex',
+      flexDirection: direction,
+      gap: direction === 'row' ? 16 : 8
+    }
+  }, rest), options.map(o => {
+    const v = typeof o === 'string' ? o : o.value;
+    const l = typeof o === 'string' ? o : o.label;
+    return /*#__PURE__*/React.createElement(Radio, {
+      key: v,
+      name: name,
+      value: v,
+      label: l,
+      description: typeof o === 'object' ? o.description : undefined,
+      checked: value === v,
+      onChange: () => onChange && onChange(v)
+    });
+  }));
+}
+Object.assign(__ds_scope, { Radio, RadioGroup });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Radio.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Select.jsx
+try { (() => {
+function Select({
+  options = [],
+  size = 'md',
+  placeholder,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: ['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("select", rest, placeholder ? /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, placeholder) : null, options.map(o => {
+    const v = typeof o === 'string' ? o : o.value;
+    const l = typeof o === 'string' ? o : o.label;
+    return /*#__PURE__*/React.createElement("option", {
+      key: v,
+      value: v,
+      disabled: typeof o === 'object' && o.disabled
+    }, l);
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-select__chev"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "keyboard_arrow_down",
+    size: 14
+  })));
+}
+Object.assign(__ds_scope, { Select });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Slider.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Slider({
+  min = 0,
+  max = 100,
+  step = 1,
+  value,
+  onChange,
+  format,
+  showValue = true,
+  ...rest
+}) {
+  const v = value == null ? min : value;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "lamp-slider"
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    type: "range",
+    min: min,
+    max: max,
+    step: step,
+    value: v,
+    onChange: e => onChange && onChange(Number(e.target.value))
+  }, rest)), showValue ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-slider__val"
+  }, format ? format(v) : v) : null);
+}
+Object.assign(__ds_scope, { Slider });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Slider.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Switch.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Switch({
+  label,
+  tone = 'default',
+  disabled = false,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("label", {
+    className: ['lamp-switch', tone === 'brand' && 'lamp-switch--brand', disabled && 'lamp-switch--disabled', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    type: "checkbox",
+    role: "switch",
+    disabled: disabled
+  }, rest)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-switch__track"
+  }), label ? /*#__PURE__*/React.createElement("span", null, label) : null);
+}
+Object.assign(__ds_scope, { Switch });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/TagInput.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function TagInput({
+  values = [],
+  onChange,
+  placeholder = 'Add…',
+  mono = false,
+  ...rest
+}) {
+  const [focus, setFocus] = React.useState(false);
+  const [draft, setDraft] = React.useState('');
+  const commit = () => {
+    const t = draft.trim();
+    if (!t) return;
+    onChange && onChange([...values, t]);
+    setDraft('');
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-taginput', focus && 'lamp-taginput--focus'].filter(Boolean).join(' ')
+  }, rest), values.map((v, i) => /*#__PURE__*/React.createElement(__ds_scope.Tag, {
+    key: v + i,
+    mono: mono,
+    onRemove: () => onChange && onChange(values.filter((_, j) => j !== i))
+  }, v)), /*#__PURE__*/React.createElement("input", {
+    value: draft,
+    placeholder: placeholder,
+    onFocus: () => setFocus(true),
+    onBlur: () => {
+      setFocus(false);
+      commit();
+    },
+    onChange: e => setDraft(e.target.value),
+    onKeyDown: e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        commit();
+      }
+      if (e.key === 'Backspace' && !draft && values.length) onChange && onChange(values.slice(0, -1));
+    }
+  }));
+}
+Object.assign(__ds_scope, { TagInput });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
+
 // components/forms/Textarea.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Textarea({
   mono = false,
   state = 'default',
@@ -3477,9 +5098,224 @@ function Textarea({
 Object.assign(__ds_scope, { Textarea });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
 
+// components/inspector/InspectorField.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* A labelled, editable field at Inspector density.
+
+   The difference from forms/Field is the axis and the weight. Field stacks a
+   label above a control for a form the operator is filling in. InspectorField
+   puts a 104px label column beside the control — the same column PropertyRow
+   uses — so a section can mix read-only rows and editable rows without the
+   labels stepping out of line. That alignment is the whole point; an Inspector
+   where half the labels sit in a different place reads as two panels.
+
+   `inherited` marks a value coming from a broader scope, and `overridden` marks
+   one this object has set for itself. Both are stated in words next to the
+   value, not implied by a tint. `advanced` dims the label for configuration that
+   most operators should not need to touch. */
+
+function InspectorField({
+  label,
+  htmlFor,
+  hint,
+  helper,
+  error,
+  warning,
+  required = false,
+  optional = false,
+  inherited = false,
+  inheritedFrom,
+  overridden = false,
+  advanced = false,
+  stack = false,
+  action,
+  children,
+  className = '',
+  ...rest
+}) {
+  const msg = error || warning;
+  const tone = error ? 'error' : 'warning';
+  const cls = ['lamp-ifield', stack && 'lamp-ifield--stack', advanced && 'lamp-ifield--advanced', inherited && 'lamp-ifield--inherited', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: cls
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-ifield__labelcol"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "lamp-ifield__label",
+    htmlFor: htmlFor
+  }, label, required ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ifield__req"
+  }, " *") : null), optional ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ifield__opt"
+  }, "Optional") : null, hint ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ifield__hint",
+    title: hint
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "help",
+    size: 12,
+    label: hint
+  })) : null), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-ifield__control"
+  }, children, inherited || overridden ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ifield__origin"
+  }, inherited ? 'Inherited' + (inheritedFrom ? ' from ' + inheritedFrom : '') : 'Overridden here') : null, msg ? /*#__PURE__*/React.createElement("span", {
+    className: 'lamp-ifield__msg lamp-ifield__msg--' + tone
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: error ? 'cancel' : 'warning',
+    size: 12
+  }), msg) : helper ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-ifield__helper"
+  }, helper) : null), action ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-ifield__action"
+  }, action) : null);
+}
+Object.assign(__ds_scope, { InspectorField });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/inspector/InspectorField.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/Tabs.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function Tabs({
+  tabs = [],
+  value,
+  onChange,
+  variant = 'underline',
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-tabs', variant === 'pill' && 'lamp-tabs--pill', className].filter(Boolean).join(' '),
+    role: "tablist"
+  }, rest), tabs.map(t => {
+    const id = typeof t === 'string' ? t : t.id;
+    const label = typeof t === 'string' ? t : t.label;
+    const active = value === id;
+    return /*#__PURE__*/React.createElement("button", {
+      key: id,
+      type: "button",
+      role: "tab",
+      "aria-selected": active,
+      disabled: typeof t === 'object' && t.disabled,
+      className: 'lamp-tabs__tab' + (active ? ' lamp-tabs__tab--active' : ''),
+      onClick: () => onChange && onChange(id)
+    }, typeof t === 'object' && t.icon ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: t.icon,
+      size: 14
+    }) : null, label, typeof t === 'object' && t.count != null ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-tabs__count"
+    }, t.count) : null);
+  }));
+}
+Object.assign(__ds_scope, { Tabs });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Tabs.jsx", error: String((e && e.message) || e) }); }
+
 // components/inspector/InspectorPanel.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The Inspector's anatomy, as separate parts.
+
+   InspectorPanel still takes `title`, `tabs` and `footer` as props — that is the
+   short path, and most surfaces should keep using it. The parts exist for the
+   cases the props can't reach: a header with a custom identity block, a footer
+   that scrolls with the body, tabs driven by something other than the panel.
+   They are the same implementation, so a composed Inspector and a prop-driven
+   one are pixel-identical. */
+
+function InspectorHeader({
+  title,
+  subtitle,
+  glyph,
+  badges,
+  actions,
+  onClose,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("header", _extends({
+    className: 'lamp-insp__head ' + className
+  }, rest), glyph ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__glyph"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: glyph,
+    size: 16
+  })) : null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__titles"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__title"
+  }, title), subtitle ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__sub"
+  }, subtitle) : null, badges ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__badges"
+  }, badges) : null), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp__actions"
+  }, actions, onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "close",
+    label: "Close inspector",
+    size: "sm",
+    onClick: onClose
+  }) : null));
+}
+
+/* Inspector tabs sit flush under the header and use the underline variant, so the
+   panel reads as one surface rather than a card stack. Keep them to the object's
+   own facets — Purpose, Skills, Tools, Memory, Runtime — never app navigation. */
+function InspectorTabs({
+  tabs = [],
+  value,
+  onChange,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: 'lamp-insp__tabs ' + className
+  }, /*#__PURE__*/React.createElement(__ds_scope.Tabs, _extends({
+    tabs: tabs,
+    value: value,
+    onChange: onChange,
+    variant: "underline"
+  }, rest)));
+}
+
+/* Sticky by default: the Inspector's commit actions must stay reachable however
+   long the body runs. `align="split"` pushes the first child left and the rest
+   right — the usual Cancel / Apply shape. */
+function InspectorFooter({
+  sticky = true,
+  align = 'end',
+  children,
+  className = '',
+  ...rest
+}) {
+  const cls = ['lamp-insp__foot', sticky && 'lamp-insp__foot--sticky', align !== 'end' && 'lamp-insp__foot--' + align, className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("footer", _extends({
+    className: cls
+  }, rest), children);
+}
 function InspectorPanel({
   title,
   subtitle,
@@ -3497,45 +5333,33 @@ function InspectorPanel({
   return /*#__PURE__*/React.createElement("aside", _extends({
     className: 'lamp-insp ' + className,
     "aria-label": "Inspector"
-  }, rest), title ? /*#__PURE__*/React.createElement("header", {
-    className: "lamp-insp__head"
-  }, glyph ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-insp__glyph"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: glyph,
-    size: 16
-  })) : null, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-insp__titles"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-insp__title"
-  }, title), subtitle ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-insp__sub"
-  }, subtitle) : null, badges ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: 'flex',
-      gap: 4,
-      marginTop: 4,
-      flexWrap: 'wrap'
-    }
-  }, badges) : null), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-insp__actions"
-  }, actions, onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "close",
-    label: "Close inspector",
-    size: "sm",
-    onClick: onClose
-  }) : null)) : null, tabs, /*#__PURE__*/React.createElement("div", {
+  }, rest), title ? /*#__PURE__*/React.createElement(InspectorHeader, {
+    title: title,
+    subtitle: subtitle,
+    glyph: glyph,
+    badges: badges,
+    actions: actions,
+    onClose: onClose
+  }) : null, tabs, /*#__PURE__*/React.createElement("div", {
     className: "lamp-insp__body"
-  }, children), footer ? /*#__PURE__*/React.createElement("footer", {
-    className: 'lamp-insp__foot' + (stickyFooter ? ' lamp-insp__foot--sticky' : '')
+  }, children), footer ? /*#__PURE__*/React.createElement(InspectorFooter, {
+    sticky: stickyFooter
   }, footer) : null);
 }
-Object.assign(__ds_scope, { InspectorPanel });
+Object.assign(__ds_scope, { InspectorHeader, InspectorTabs, InspectorFooter, InspectorPanel });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/inspector/InspectorPanel.jsx", error: String((e && e.message) || e) }); }
 
 // components/inspector/InspectorSection.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function InspectorSection({
   label,
   count,
@@ -3551,31 +5375,26 @@ function InspectorSection({
   const isOpen = collapsible ? open : true;
   return /*#__PURE__*/React.createElement("section", _extends({
     className: ['lamp-insp-sec', !collapsible && 'lamp-insp-sec--static', advanced && 'lamp-insp-sec--advanced', className].filter(Boolean).join(' ')
-  }, rest), /*#__PURE__*/React.createElement("button", {
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-insp-sec__head"
+  }, /*#__PURE__*/React.createElement("button", {
     type: "button",
-    className: "lamp-insp-sec__head",
+    className: "lamp-insp-sec__toggle",
     onClick: () => collapsible && setOpen(!open),
-    "aria-expanded": isOpen
+    "aria-expanded": isOpen,
+    disabled: !collapsible
   }, /*#__PURE__*/React.createElement("span", {
     className: "lamp-insp-sec__label"
   }, label), count != null ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-insp-sec__count"
-  }, count) : null, actions ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 'auto',
-      display: 'flex',
-      gap: 2
-    },
-    onClick: e => e.stopPropagation()
-  }, actions) : null, collapsible ? /*#__PURE__*/React.createElement("span", {
-    className: 'lamp-insp-sec__twist' + (isOpen ? ' lamp-insp-sec__twist--open' : ''),
-    style: actions ? {
-      marginLeft: 4
-    } : undefined
+  }, count) : null, collapsible ? /*#__PURE__*/React.createElement("span", {
+    className: 'lamp-insp-sec__twist' + (isOpen ? ' lamp-insp-sec__twist--open' : '')
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "keyboard_arrow_down",
     size: 14
-  })) : null), isOpen ? /*#__PURE__*/React.createElement("div", {
+  })) : null), actions ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-insp-sec__actions"
+  }, actions) : null), isOpen ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-insp-sec__body"
   }, children) : null);
 }
@@ -3608,7 +5427,15 @@ Object.assign(__ds_scope, { InspectorSection, PropertyRow });
 
 // components/memory/MemoryBadge.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /** Memory fact types — distinguished by glyph + label, not colour alone. */
 const FACT_TYPES = {
   explicitFact: {
@@ -3623,7 +5450,7 @@ const FACT_TYPES = {
   },
   inferredPattern: {
     label: 'Inferred',
-    glyph: 'auto_awesome',
+    glyph: 'flare',
     tone: 'waiting'
   },
   policy: {
@@ -3746,9 +5573,145 @@ function MemoryConfidence({
 Object.assign(__ds_scope, { FACT_TYPES, MEMORY_SCOPES, MemoryBadge, MemoryScope, MemoryConfidence });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryBadge.jsx", error: String((e && e.message) || e) }); }
 
+// components/memory/MemoryConflict.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* Two remembered things that cannot both be true.
+
+   A conflict is presented as a choice between claims, never as an error. LAMP
+   does not know which one is right — that is the entire reason the card exists —
+   so it shows both with their evidence side by side and lets the operator
+   decide. Each side carries where it came from, how many times it was seen and
+   when it was last confirmed, because that is what the decision actually turns
+   on.
+
+   Scope is shown per claim: a narrower scope contradicting a broader one is the
+   common case (a Playbook has learnt an exception to a LAMP-level policy), and
+   the resolution there is usually "keep both, scoped" rather than picking a
+   winner — which is why `onKeepBoth` exists alongside the two picks.
+
+   Never auto-resolve. Never hide the losing claim; resolving records the
+   decision, and the audit trail keeps both. */
+
+function Claim({
+  claim,
+  index,
+  selected,
+  onPick,
+  pickLabel,
+  readOnly
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: ['lamp-conflict__claim', selected && 'lamp-conflict__claim--picked'].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-conflict__claim-top"
+  }, claim.type ? /*#__PURE__*/React.createElement(__ds_scope.MemoryBadge, {
+    type: claim.type
+  }) : null, claim.scope ? /*#__PURE__*/React.createElement(__ds_scope.MemoryScope, {
+    scope: claim.scope
+  }) : null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.MemoryConfidence, {
+    level: claim.confidence || 'medium',
+    value: claim.confidenceValue
+  }))), /*#__PURE__*/React.createElement("p", {
+    className: "lamp-conflict__text"
+  }, claim.fact), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-conflict__ev"
+  }, claim.evidenceCount != null ? /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "fact_check",
+    size: 12
+  }), /*#__PURE__*/React.createElement("b", null, claim.evidenceCount), " pieces of evidence") : null, claim.occurrences != null ? /*#__PURE__*/React.createElement("span", null, "Seen ", /*#__PURE__*/React.createElement("b", null, claim.occurrences), " times") : null, claim.source ? /*#__PURE__*/React.createElement("span", null, claim.source) : null, claim.lastConfirmed ? /*#__PURE__*/React.createElement("span", null, "Last confirmed ", /*#__PURE__*/React.createElement("b", null, claim.lastConfirmed)) : null), !readOnly && onPick ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: selected ? 'brand' : 'secondary',
+    icon: selected ? 'check' : undefined,
+    onClick: () => onPick(claim.id != null ? claim.id : index)
+  }, pickLabel || 'Keep this') : null);
+}
+function MemoryConflict({
+  claims = [],
+  title = 'Two memories disagree',
+  detail,
+  resolved = false,
+  resolution,
+  picked,
+  onPick,
+  onKeepBoth,
+  onInvestigate,
+  readOnly = false,
+  actions,
+  className = '',
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("article", _extends({
+    className: ['lamp-conflict', resolved && 'lamp-conflict--resolved', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement("header", {
+    className: "lamp-conflict__head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-conflict__glyph"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: resolved ? 'check_circle' : 'warning',
+    size: 14
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-conflict__titles"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-conflict__title"
+  }, title), detail ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-conflict__detail"
+  }, detail) : null), resolved ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "success",
+    icon: "check",
+    micro: true
+  }, "Resolved") : null), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-conflict__claims"
+  }, claims.map((c, i) => /*#__PURE__*/React.createElement(Claim, {
+    key: c.id != null ? c.id : i,
+    claim: c,
+    index: i,
+    selected: picked != null && picked === (c.id != null ? c.id : i),
+    onPick: resolved ? undefined : onPick,
+    pickLabel: c.pickLabel,
+    readOnly: readOnly || resolved
+  }))), resolved && resolution ? /*#__PURE__*/React.createElement("p", {
+    className: "lamp-conflict__resolution"
+  }, resolution) : null, !resolved && !readOnly && (onKeepBoth || onInvestigate || actions) ? /*#__PURE__*/React.createElement("footer", {
+    className: "lamp-conflict__foot"
+  }, actions, onKeepBoth ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "secondary",
+    icon: "call_split",
+    onClick: onKeepBoth
+  }, "Keep both, scoped") : null, onInvestigate ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "quiet",
+    icon: "search",
+    onClick: onInvestigate
+  }, "See the evidence") : null) : null);
+}
+Object.assign(__ds_scope, { MemoryConflict });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryConflict.jsx", error: String((e && e.message) || e) }); }
+
 // components/memory/MemoryFact.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function MemoryFact({
   type = 'explicitFact',
   scope = 'genie',
@@ -3835,7 +5798,15 @@ Object.assign(__ds_scope, { MemoryFact });
 
 // components/memory/MemoryGraph.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* LAMP memory topology — an Obsidian-style force graph over what LAMP knows.
    Node geometry follows the product grammar: hexagon = Agent, circle = fact or Skill,
    square = Tool, diamond = Genie/Playbook scope. Colour carries kind, size carries weight.
@@ -4099,9 +6070,105 @@ function MemoryGraph({
 Object.assign(__ds_scope, { MemoryGraph });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryGraph.jsx", error: String((e && e.message) || e) }); }
 
+// components/memory/MemoryScopeBar.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The four memory scopes, narrow → broad, as one selectable bar.
+
+   Agent working memory → Playbook memory → Genie memory → LAMP memory.
+
+   Reading order is the inheritance order, and it never changes — every surface
+   that shows scope shows it left-to-right in this sequence, so "broader" is
+   always "further right". The step marks grow with scope (4 → 13px), matching
+   MemoryScope's badge, so the shape carries the meaning and not just the label.
+
+   Two modes. As a filter it is a segmented control: click a scope to narrow a
+   memory list to it, and `inherited` dims the scopes the current object only
+   reads from rather than owns. As a read-out (`readOnly`) it is a static
+   summary with counts — what an Inspector shows for a selected Agent. */
+
+const ORDER = ['agent', 'playbook', 'genie', 'lamp'];
+function MemoryScopeBar({
+  value,
+  counts = {},
+  inherited = [],
+  owned,
+  onChange,
+  readOnly = false,
+  scopes = ORDER,
+  showCounts = true,
+  full = false,
+  className = '',
+  ...rest
+}) {
+  /* An object owns one scope and reads from every broader one. Naming `owned` is
+     enough to mark the rest inherited; `inherited` overrides it where the
+     relationship is not simply positional. */
+  const ownedAt = owned ? scopes.indexOf(owned) : -1;
+  const isInherited = k => inherited.indexOf(k) !== -1 || ownedAt >= 0 && scopes.indexOf(k) > ownedAt;
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-scopebar', readOnly && 'lamp-scopebar--static', className].filter(Boolean).join(' '),
+    role: readOnly ? 'group' : 'radiogroup',
+    "aria-label": "Memory scope"
+  }, rest), scopes.map(k => {
+    const s = __ds_scope.MEMORY_SCOPES[k];
+    if (!s) return null;
+    const active = value === k;
+    const dim = isInherited(k);
+    const count = counts[k];
+    const isOwned = owned === k;
+    const cls = ['lamp-scopebar__item', 'lamp-scopebar__item--' + k, active && 'lamp-scopebar__item--active', isOwned && 'lamp-scopebar__item--owned', dim && 'lamp-scopebar__item--inherited'].filter(Boolean).join(' ');
+    const body = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-scopebar__mark"
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-scopebar__name"
+    }, full ? s.label : s.short), showCounts && count != null ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-scopebar__count"
+    }, count) : null, isOwned ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-scopebar__owned"
+    }, "Owns") : null, dim ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-scopebar__inherit"
+    }, "Inherited") : null);
+    if (readOnly) {
+      return /*#__PURE__*/React.createElement("span", {
+        key: k,
+        className: cls,
+        title: s.label
+      }, body);
+    }
+    return /*#__PURE__*/React.createElement("button", {
+      key: k,
+      type: "button",
+      role: "radio",
+      "aria-checked": active,
+      className: cls,
+      title: s.label,
+      onClick: () => onChange && onChange(active ? undefined : k)
+    }, body);
+  }));
+}
+Object.assign(__ds_scope, { MemoryScopeBar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryScopeBar.jsx", error: String((e && e.message) || e) }); }
+
 // components/memory/MemoryTimeline.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function MemoryTimeline({
   items = [],
   className = '',
@@ -4136,7 +6203,15 @@ Object.assign(__ds_scope, { MemoryTimeline });
 
 // components/memory/MemoryUsageBar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const SCOPE_COLOR = {
   agent: 'var(--memory-accent)',
   playbook: 'var(--purple-400)',
@@ -4194,7 +6269,15 @@ Object.assign(__ds_scope, { MemoryUsageBar });
 
 // components/navigation/AppShell.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function AppShell({
   header,
   rail,
@@ -4233,7 +6316,15 @@ Object.assign(__ds_scope, { AppShell });
 
 // components/navigation/Breadcrumb.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Breadcrumb({
   items = [],
   maxVisible = 5,
@@ -4271,7 +6362,15 @@ Object.assign(__ds_scope, { Breadcrumb });
 
 // components/navigation/CommandPalette.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function CommandPalette({
   open = true,
   query = '',
@@ -4349,7 +6448,15 @@ Object.assign(__ds_scope, { CommandPalette });
 
 // components/navigation/FilterBar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function FilterBar({
   children,
   activeCount = 0,
@@ -4411,7 +6518,15 @@ Object.assign(__ds_scope, { FilterBar, Pagination });
 
 // components/navigation/GlobalHeader.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function GlobalHeader({
   brand,
   center,
@@ -4437,7 +6552,15 @@ Object.assign(__ds_scope, { GlobalHeader });
 
 // components/navigation/ObjectTree.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function ObjectTree({
   nodes = [],
   selectedId,
@@ -4494,7 +6617,15 @@ Object.assign(__ds_scope, { ObjectTree });
 
 // components/navigation/SegmentedControl.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function SegmentedControl({
   options = [],
   value,
@@ -4527,7 +6658,15 @@ Object.assign(__ds_scope, { SegmentedControl });
 
 // components/navigation/SideNav.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function SideNav({
   children,
   collapsed = false,
@@ -4593,7 +6732,15 @@ Object.assign(__ds_scope, { SideNav, NavSection, NavItem });
 
 // components/navigation/StatusBar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function StatusBar({
   items = [],
   right = [],
@@ -4617,46 +6764,17 @@ function StatusBar({
 Object.assign(__ds_scope, { StatusBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/StatusBar.jsx", error: String((e && e.message) || e) }); }
 
-// components/navigation/Tabs.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function Tabs({
-  tabs = [],
-  value,
-  onChange,
-  variant = 'underline',
-  className = '',
-  ...rest
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-tabs', variant === 'pill' && 'lamp-tabs--pill', className].filter(Boolean).join(' '),
-    role: "tablist"
-  }, rest), tabs.map(t => {
-    const id = typeof t === 'string' ? t : t.id;
-    const label = typeof t === 'string' ? t : t.label;
-    const active = value === id;
-    return /*#__PURE__*/React.createElement("button", {
-      key: id,
-      type: "button",
-      role: "tab",
-      "aria-selected": active,
-      disabled: typeof t === 'object' && t.disabled,
-      className: 'lamp-tabs__tab' + (active ? ' lamp-tabs__tab--active' : ''),
-      onClick: () => onChange && onChange(id)
-    }, typeof t === 'object' && t.icon ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-      name: t.icon,
-      size: 14
-    }) : null, label, typeof t === 'object' && t.count != null ? /*#__PURE__*/React.createElement("span", {
-      className: "lamp-tabs__count"
-    }, t.count) : null);
-  }));
-}
-Object.assign(__ds_scope, { Tabs });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Tabs.jsx", error: String((e && e.message) || e) }); }
-
 // components/navigation/WorkspaceSwitcher.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function WorkspaceSwitcher({
   name,
   subtitle,
@@ -4693,202 +6811,17 @@ function WorkspaceSwitcher({
 Object.assign(__ds_scope, { WorkspaceSwitcher });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/WorkspaceSwitcher.jsx", error: String((e && e.message) || e) }); }
 
-// components/objects/AgentHex.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const AGENT_SIZES = {
-  xs: [36, 31],
-  sm: [48, 42],
-  md: [64, 55],
-  lg: [88, 76],
-  xl: [120, 104]
-};
-const STATE_BORDER = {
-  idle: 'var(--agent-border)',
-  hover: 'var(--agent-border-hover)',
-  selected: 'var(--agent-border-selected)',
-  multiSelected: 'var(--canvas-multiselect)',
-  dragging: 'var(--agent-border-selected)',
-  compatible: 'var(--agent-border-compatible)',
-  snapReady: 'var(--gold-500)',
-  bonding: 'var(--gold-500)',
-  bonded: 'var(--agent-border)',
-  running: 'var(--agent-border-running)',
-  delegating: 'var(--agent-border-running)',
-  waiting: 'var(--agent-border-waiting)',
-  needsHuman: 'var(--agent-border-waiting)',
-  success: 'var(--status-success)',
-  warning: 'var(--agent-border-warning)',
-  error: 'var(--agent-border-error)',
-  paused: 'var(--agent-border-paused)',
-  killed: 'var(--agent-border-killed)',
-  disabled: 'var(--agent-border)',
-  unconfigured: 'var(--border-strong)',
-  queued: 'var(--agent-border)',
-  retrying: 'var(--agent-border-warning)',
-  degraded: 'var(--agent-border-warning)'
-};
-const ACTIVE = {
-  selected: 1,
-  snapReady: 1,
-  bonding: 1,
-  running: 1,
-  delegating: 1,
-  error: 1,
-  failed: 1,
-  killed: 1,
-  multiSelected: 1,
-  succeeded: 1,
-  retrying: 1
-};
-/* States that earn a visible beat. Everything else is completely still. */
-const PULSE = {
-  starting: 1,
-  running: 1,
-  delegating: 1,
-  retrying: 1,
-  succeeded: 1,
-  paused: 1
-};
-const PULSE_COLOR = {
-  succeeded: 'var(--status-success)',
-  retrying: 'var(--status-warning)',
-  paused: 'var(--neutral-400)'
-};
-const ROLE_GLYPH = {
-  standard: 'smart_toy',
-  coordinator: 'account_tree',
-  specialist: 'target',
-  humanSupervised: 'supervisor_account',
-  system: 'settings',
-  external: 'cloud'
-};
-function AgentHex({
-  size = 'md',
-  state = 'idle',
-  role = 'standard',
-  environment = 'draft',
-  detail = 'name',
-  name,
-  roleLabel,
-  glyph,
-  status,
-  badgeCount,
-  memoryActive = false,
-  authority,
-  task,
-  cost,
-  confidence,
-  tools = 0,
-  dashed = false,
-  onClick,
-  className = '',
-  style,
-  ...rest
-}) {
-  const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
-  const border = STATE_BORDER[state] || STATE_BORDER.idle;
-  const sw = ACTIVE[state] ? 1.5 : 1;
-  const fill = state === 'selected' || state === 'bonding' || state === 'snapReady' ? 'var(--agent-fill-selected)' : 'var(--agent-fill)';
-  const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map(p => p.join(',')).join(' ');
-  const energy = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-core)';
-  const glyphSize = size === 'xs' ? 14 : size === 'sm' ? 16 : size === 'md' ? 18 : size === 'lg' ? 22 : 28;
-  const label = (name || 'Agent') + (status ? ', ' + (__ds_scope.STATUS[status] ? __ds_scope.STATUS[status].label : status) : '');
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' '),
-    style: style
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-agent__hex",
-    style: {
-      width: w,
-      height: h
-    },
-    onClick: onClick,
-    tabIndex: 0,
-    role: onClick ? 'button' : 'img',
-    "aria-label": label
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: w,
-    height: h,
-    viewBox: '0 0 ' + w + ' ' + h,
-    style: {
-      display: 'block',
-      overflow: 'visible'
-    }
-  }, /*#__PURE__*/React.createElement("polygon", {
-    points: pts,
-    fill: fill,
-    stroke: border,
-    strokeWidth: sw,
-    strokeDasharray: dashed || state === 'compatible' || state === 'unconfigured' ? '3 3' : undefined,
-    strokeLinejoin: "round"
-  })), PULSE[state] ? /*#__PURE__*/React.createElement("svg", {
-    className: "lamp-agent__pulse",
-    width: w,
-    height: h,
-    viewBox: '0 0 ' + w + ' ' + h,
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("polygon", {
-    points: pts,
-    fill: "none",
-    strokeWidth: 2,
-    stroke: PULSE_COLOR[state] || energy
-  })) : null, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-agent__glyph",
-    style: {
-      color: ACTIVE[state] ? 'var(--text-brand)' : 'var(--text-secondary)'
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard,
-    size: glyphSize
-  })), badgeCount ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__badge"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Badge, {
-    tone: state === 'error' ? 'danger' : 'waiting',
-    count: true
-  }, badgeCount)) : null, (memoryActive || tools > 0) && detail !== 'glyph' && size !== 'xs' ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__pin"
-  }, memoryActive ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "database",
-    size: 10,
-    style: {
-      color: 'var(--memory-accent)'
-    }
-  }) : null, tools > 0 ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "handyman",
-    size: 10,
-    style: {
-      color: 'var(--text-tertiary)'
-    }
-  }) : null) : null), detail !== 'glyph' && (name || status) ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-agent__label"
-  }, name ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__name"
-  }, name) : null, status ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 4,
-      fontSize: 11,
-      color: 'var(--text-secondary)'
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
-    status: status,
-    pulse: status === 'running' || status === 'live'
-  }), __ds_scope.STATUS[status] ? __ds_scope.STATUS[status].label : status) : null, detail === 'meta' && roleLabel ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__role"
-  }, roleLabel) : null, detail === 'meta' && task ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__role"
-  }, task) : null, detail === 'meta' && (cost || confidence || authority) ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-agent__meta"
-  }, [authority, confidence, cost].filter(Boolean).join(' · ')) : null) : null);
-}
-Object.assign(__ds_scope, { AGENT_SIZES, AgentHex });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/AgentHex.jsx", error: String((e && e.message) || e) }); }
-
 // components/objects/AgentIsland.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 /* A group inside a Playbook section: one bonded cluster, or a single Agent working alone.
    Bonds exist only inside an island; membership in the Playbook is carried by the frame. */
 function AgentIsland({
@@ -4935,7 +6868,15 @@ Object.assign(__ds_scope, { AgentIsland });
 
 // components/objects/BondEdge.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const BOND_STROKE = {
   valid: 'var(--bond-edge-confirmed)',
   incomplete: 'var(--bond-edge)',
@@ -5041,7 +6982,15 @@ Object.assign(__ds_scope, { BondEdge, BondLayer });
 
 // components/objects/EntityChip.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const ENTITY_GLYPH = {
   person: 'person',
   team: 'groups',
@@ -5096,7 +7045,15 @@ Object.assign(__ds_scope, { EntityChip });
 
 // components/objects/GenieCard.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function GenieCard({
   name,
   purpose,
@@ -5154,278 +7111,17 @@ function GenieCard({
 Object.assign(__ds_scope, { GenieCard });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/GenieCard.jsx", error: String((e && e.message) || e) }); }
 
-// components/objects/HexLattice.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* Honeycomb layout for flat-top hexagons. Column step = 0.75w; odd columns drop half a row. */
-function HexLattice({
-  size = 'md',
-  gap = 2,
-  cells = [],
-  overlay,
-  className = '',
-  style,
-  ...rest
-}) {
-  const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
-  const stepX = w * 0.75 + gap;
-  const stepY = h + gap;
-  let maxX = 0,
-    maxY = 0;
-  const placed = cells.map((c, i) => {
-    const x = c.col * stepX;
-    const y = c.row * stepY + (Math.abs(c.col % 2) ? stepY / 2 : 0);
-    if (x + w > maxX) maxX = x + w;
-    if (y + h > maxY) maxY = y + h;
-    return {
-      key: c.key == null ? i : c.key,
-      x,
-      y,
-      node: c.node
-    };
-  });
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'lamp-lattice ' + className,
-    style: {
-      width: maxX,
-      height: maxY,
-      ...style
-    }
-  }, rest), overlay, placed.map(p => /*#__PURE__*/React.createElement("div", {
-    key: p.key,
-    className: "lamp-lattice__cell",
-    style: {
-      left: p.x,
-      top: p.y
-    }
-  }, p.node)));
-}
-function hexCenter(col, row, size = 'md', gap = 2) {
-  const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
-  const stepX = w * 0.75 + gap;
-  const stepY = h + gap;
-  return {
-    x: col * stepX + w / 2,
-    y: row * stepY + (Math.abs(col % 2) ? stepY / 2 : 0) + h / 2
-  };
-}
-
-/* Capitalized alias so the helper is reachable on the design-system namespace. */
-function HexCenter(col, row, size = 'md', gap = 2) {
-  return hexCenter(col, row, size, gap);
-}
-Object.assign(__ds_scope, { HexLattice, hexCenter, HexCenter });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/HexLattice.jsx", error: String((e && e.message) || e) }); }
-
-// components/canvas/SnapField.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* Drag-to-snap field. Agents are dragged freely; on release they snap to the nearest
-   free cell of the hexagonal lattice. The lattice is invisible — only the candidate
-   slot shows, and only while a drag is in flight.
-   Every drag has a keyboard equivalent: select an Agent, then arrow keys move it one
-   cell at a time and Enter commits. See guidelines/bonding.md. */
-
-const ROUND = v => Math.round(v * 100) / 100;
-function SnapField({
-  agents = [],
-  size = 'md',
-  gap = 2,
-  width = 720,
-  height = 380,
-  snapTolerance = 34,
-  renderAgent,
-  bonds,
-  selectedId,
-  onSelect,
-  onChange,
-  onSnapStateChange,
-  origin = {
-    x: 40,
-    y: 40
-  },
-  readOnly = false,
-  className = '',
-  style,
-  ...rest
-}) {
-  const [hexW, hexH] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
-  const [drag, setDrag] = React.useState(null);
-  const ref = React.useRef(null);
-  const at = (col, row) => {
-    const c = __ds_scope.HexCenter(col, row, size, gap);
-    return {
-      x: origin.x + c.x,
-      y: origin.y + c.y
-    };
-  };
-  const occupied = React.useMemo(() => {
-    const m = {};
-    agents.forEach(a => {
-      m[a.col + ':' + a.row] = a.id;
-    });
-    return m;
-  }, [agents]);
-
-  /* Nearest lattice cell to a pixel point, searching a small window around the
-     Agent's current cell — enough for a drag, cheap enough for every pointer move. */
-  const nearestCell = (px, py, self) => {
-    let best = null;
-    for (let col = -2; col <= 10; col++) {
-      for (let row = -2; row <= 6; row++) {
-        const p = at(col, row);
-        const d = Math.hypot(p.x - px, p.y - py);
-        const taken = occupied[col + ':' + row];
-        if (taken && taken !== self) continue;
-        if (!best || d < best.d) best = {
-          col,
-          row,
-          d,
-          x: p.x,
-          y: p.y
-        };
-      }
-    }
-    return best;
-  };
-  const pointerPos = e => {
-    const box = ref.current.getBoundingClientRect();
-    return {
-      x: e.clientX - box.left,
-      y: e.clientY - box.top
-    };
-  };
-  const onDown = a => e => {
-    onSelect && onSelect(a);
-    if (readOnly || e.button !== 0) return;
-    e.preventDefault();
-    e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId);
-    const p = pointerPos(e);
-    const home = at(a.col, a.row);
-    setDrag({
-      id: a.id,
-      dx: p.x - home.x,
-      dy: p.y - home.y,
-      x: home.x,
-      y: home.y,
-      cell: null,
-      ready: false
-    });
-  };
-  const onMove = e => {
-    if (!drag) return;
-    const p = pointerPos(e);
-    const x = p.x - drag.dx,
-      y = p.y - drag.dy;
-    const cell = nearestCell(x, y, drag.id);
-    const ready = !!cell && cell.d <= snapTolerance;
-    // Magnetic pull: inside the tolerance the object drifts toward the slot.
-    const mx = ready ? x + (cell.x - x) * 0.35 : x;
-    const my = ready ? y + (cell.y - y) * 0.35 : y;
-    if (ready !== drag.ready) onSnapStateChange && onSnapStateChange(ready ? 'snapReady' : 'dragging');
-    setDrag({
-      ...drag,
-      x: ROUND(mx),
-      y: ROUND(my),
-      cell,
-      ready
-    });
-  };
-  const onUp = () => {
-    if (!drag) return;
-    if (drag.cell && drag.ready && onChange) {
-      onChange(agents.map(a => a.id === drag.id ? {
-        ...a,
-        col: drag.cell.col,
-        row: drag.cell.row
-      } : a));
-    }
-    onSnapStateChange && onSnapStateChange('idle');
-    setDrag(null);
-  };
-  const onKeyDown = a => e => {
-    if (readOnly || !onChange) return;
-    const step = {
-      ArrowLeft: [-1, 0],
-      ArrowRight: [1, 0],
-      ArrowUp: [0, -1],
-      ArrowDown: [0, 1]
-    }[e.key];
-    if (!step) return;
-    e.preventDefault();
-    const col = a.col + step[0],
-      row = a.row + step[1];
-    if (occupied[col + ':' + row]) return;
-    onChange(agents.map(x => x.id === a.id ? {
-      ...x,
-      col,
-      row
-    } : x));
-  };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: ['lamp-snapfield', drag && 'lamp-snapfield--dragging', className].filter(Boolean).join(' '),
-    style: {
-      position: 'relative',
-      width,
-      height,
-      touchAction: 'none',
-      ...style
-    },
-    onPointerMove: onMove,
-    onPointerUp: onUp,
-    onPointerCancel: onUp
-  }, rest), bonds ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-snapfield__bonds",
-    style: {
-      position: 'absolute',
-      left: origin.x,
-      top: origin.y,
-      pointerEvents: 'none'
-    }
-  }, bonds) : null, drag && drag.cell && drag.ready ? /*#__PURE__*/React.createElement(__ds_scope.SnapGuide, {
-    rect: {
-      position: 'absolute',
-      left: drag.cell.x - hexW / 2,
-      top: drag.cell.y - hexH / 2,
-      width: hexW,
-      height: hexH,
-      clipPath: 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)'
-    }
-  }) : null, agents.map(a => {
-    const isDrag = drag && drag.id === a.id;
-    const p = isDrag ? {
-      x: drag.x,
-      y: drag.y
-    } : at(a.col, a.row);
-    const state = isDrag ? drag.ready ? 'snapReady' : 'dragging' : a.state;
-    return /*#__PURE__*/React.createElement("div", {
-      key: a.id,
-      className: "lamp-snapfield__slot",
-      style: {
-        position: 'absolute',
-        left: p.x - hexW / 2,
-        top: p.y - hexH / 2,
-        zIndex: isDrag ? 5 : 1,
-        cursor: readOnly ? 'default' : isDrag ? 'grabbing' : 'grab'
-      },
-      onPointerDown: onDown(a),
-      onKeyDown: onKeyDown(a)
-    }, renderAgent(Object.assign({}, a, {
-      state
-    }), {
-      dragging: !!isDrag,
-      snapReady: !!(isDrag && drag.ready),
-      selected: selectedId === a.id
-    }));
-  }));
-}
-Object.assign(__ds_scope, { SnapField });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/SnapField.jsx", error: String((e && e.message) || e) }); }
-
 // components/objects/ObjectRow.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const KIND_GLYPH = {
   agent: 'hexagon',
   skill: 'circle',
@@ -5513,7 +7209,15 @@ Object.assign(__ds_scope, { ObjectRow, ObjectList });
 
 // components/objects/PlaybookCluster.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const STATE_STATUS = {
   observed: 'observed',
   inferred: 'inferred',
@@ -5597,7 +7301,15 @@ Object.assign(__ds_scope, { PlaybookCluster });
 
 // components/objects/SkillOrb.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const SKILL_SIZES = {
   xs: 16,
   sm: 20,
@@ -5608,7 +7320,7 @@ const SKILL_SIZES = {
 function SkillOrb({
   size = 'md',
   state = 'available',
-  glyph = 'auto_awesome',
+  glyph = 'flare',
   name,
   label,
   onClick,
@@ -5649,7 +7361,15 @@ Object.assign(__ds_scope, { SKILL_SIZES, SkillOrb });
 
 // components/objects/ToolTile.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const TOOL_SIZES = {
   sm: 24,
   md: 32,
@@ -5769,9 +7489,758 @@ function ToolRow({
 Object.assign(__ds_scope, { TOOL_SIZES, ToolTile, ToolRow });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/ToolTile.jsx", error: String((e && e.message) || e) }); }
 
+// components/patterns/BusinessProcess.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The standard business process library.
+
+   Operators do not arrive knowing how to specify a Playbook. Asking someone to
+   name a process, list its connectors and define its expected outcomes on a
+   blank form gets you a blank form back — or worse, a Playbook that runs without
+   anyone having decided what "done" means. So LAMP proposes.
+
+   Every entry here is a process that exists in essentially every business, under
+   names that have been stable for decades: procure-to-pay, order-to-cash,
+   record-to-report, hire-to-retire. Each carries the steps, the connector
+   categories, the human checkpoints, the exceptions that actually happen, and —
+   the part nobody writes down — the expected outcomes and how they are measured.
+
+   MatchProcess scores a set of Agents against the library and returns ranked
+   candidates with the evidence for each, so the proposal can be argued with
+   rather than merely accepted. Nothing here is auto-applied: a match is a
+   suggestion with its reasoning shown, and the operator confirms.
+
+   This is deliberately not an ontology of every process a business can have. It
+   is the set LAMP can recognise from a handful of Agents with reasonable
+   confidence. Everything else is authored by hand, starting from `blank`.
+
+   A note on `providers`: these are Simple Icons slugs, and Simple Icons carries
+   no Microsoft marks, so Outlook, Excel and SharePoint are absent from the
+   candidate lists despite being extremely common in these processes. The
+   connector is the CATEGORY ("Email", "Spreadsheets"); providers only decide
+   which mark is drawn on the tile. A business running Outlook still matches the
+   Email connector — it just renders with the generic glyph until a real mark is
+   vendored into assets/brand/. */
+
+const BUSINESS_PROCESSES = [{
+  id: 'procure-to-pay',
+  name: 'Procure to pay',
+  domain: 'Finance',
+  aka: ['P2P', 'Accounts payable', 'Vendor payment'],
+  purpose: 'Take a purchase from requisition through to a paid, reconciled invoice.',
+  trigger: 'A purchase requisition is raised, or a supplier invoice arrives.',
+  steps: [{
+    name: 'Receive requisition',
+    kind: 'agent'
+  }, {
+    name: 'Verify vendor and terms',
+    kind: 'agent'
+  }, {
+    name: 'Match invoice to PO and receipt',
+    kind: 'agent'
+  }, {
+    name: 'Resolve exceptions',
+    kind: 'agent'
+  }, {
+    name: 'Approve payment',
+    kind: 'human'
+  }, {
+    name: 'Post and schedule payment',
+    kind: 'agent'
+  }, {
+    name: 'Reconcile',
+    kind: 'agent'
+  }],
+  roles: ['Invoice Matcher', 'Vendor Verifier', 'Exception Handler', 'Payment Approver'],
+  connectors: [{
+    category: 'ERP',
+    providers: ['sap', 'oracle', 'xero'],
+    permission: 'Write',
+    why: 'Post invoices and payment runs.'
+  }, {
+    category: 'Email',
+    providers: ['gmail'],
+    permission: 'Read',
+    why: 'Invoices arrive as attachments.'
+  }, {
+    category: 'Document storage',
+    providers: ['googledrive', 'dropbox'],
+    permission: 'Read',
+    why: 'Contracts and purchase orders.'
+  }, {
+    category: 'Messaging',
+    providers: ['slack', 'whatsapp'],
+    permission: 'Write',
+    why: 'Chase approvals where they actually happen.'
+  }],
+  outcomes: [{
+    label: 'Invoices matched without human touch',
+    measure: 'Share of runs with no intervention',
+    target: '85%'
+  }, {
+    label: 'Payment made within terms',
+    measure: 'Days to pay against agreed terms',
+    target: 'On or before'
+  }, {
+    label: 'No duplicate payments',
+    measure: 'Duplicates detected before posting',
+    target: '100%'
+  }, {
+    label: 'Exceptions explained',
+    measure: 'Every held invoice carries a reason',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Approve payment',
+    when: 'Above the authority limit, or any new vendor.'
+  }, {
+    name: 'Confirm vendor bank change',
+    when: 'Always. Bank detail changes are the fraud surface.'
+  }],
+  exceptions: ['Invoice with no purchase order', 'Quantity mismatch on receipt', 'Duplicate invoice number', 'Vendor not on file', 'Currency or tax mismatch'],
+  signals: ['invoice', 'vendor', 'supplier', 'payment', 'purchase', 'procure', 'po', 'ap', 'payable', 'sap', 'reconcile', 'approve']
+}, {
+  id: 'order-to-cash',
+  name: 'Order to cash',
+  domain: 'Finance',
+  aka: ['O2C', 'Accounts receivable', 'Billing'],
+  purpose: 'Take a customer order through fulfilment, invoicing and collection to cash received.',
+  trigger: 'An order is placed, or a billing period closes.',
+  steps: [{
+    name: 'Validate order and credit',
+    kind: 'agent'
+  }, {
+    name: 'Confirm fulfilment',
+    kind: 'agent'
+  }, {
+    name: 'Raise invoice',
+    kind: 'agent'
+  }, {
+    name: 'Send and track',
+    kind: 'agent'
+  }, {
+    name: 'Chase overdue',
+    kind: 'agent'
+  }, {
+    name: 'Escalate or write off',
+    kind: 'human'
+  }, {
+    name: 'Apply cash and reconcile',
+    kind: 'agent'
+  }],
+  roles: ['Order Validator', 'Invoice Raiser', 'Collections Agent', 'Cash Applier'],
+  connectors: [{
+    category: 'CRM',
+    providers: ['salesforce', 'hubspot'],
+    permission: 'Read',
+    why: 'Customer, contract and order records.'
+  }, {
+    category: 'ERP',
+    providers: ['sap', 'xero'],
+    permission: 'Write',
+    why: 'Raise invoices and apply cash.'
+  }, {
+    category: 'Email',
+    providers: ['gmail'],
+    permission: 'Write',
+    why: 'Send invoices and chase.'
+  }, {
+    category: 'Payments',
+    providers: ['stripe'],
+    permission: 'Read',
+    why: 'Match settlements to invoices.'
+  }],
+  outcomes: [{
+    label: 'Invoice raised same day as fulfilment',
+    measure: 'Lag between fulfilment and invoice',
+    target: '< 1 day'
+  }, {
+    label: 'Days sales outstanding falling',
+    measure: 'Rolling 90-day DSO',
+    target: 'Down on quarter'
+  }, {
+    label: 'Every chase is accurate',
+    measure: 'Chases sent against already-paid invoices',
+    target: '0'
+  }, {
+    label: 'Disputes routed to a person quickly',
+    measure: 'Time to human on a disputed invoice',
+    target: '< 2 hours'
+  }],
+  checkpoints: [{
+    name: 'Escalate or write off',
+    when: 'Before any write-off, and before legal escalation.'
+  }, {
+    name: 'Credit hold',
+    when: 'Before releasing an order for a customer over their limit.'
+  }],
+  exceptions: ['Customer disputes the amount', 'Partial payment received', 'Credit limit exceeded', 'Order fulfilled but not confirmed'],
+  signals: ['order', 'customer', 'invoice', 'billing', 'receivable', 'ar', 'collections', 'dunning', 'cash', 'salesforce', 'dso']
+}, {
+  id: 'record-to-report',
+  name: 'Record to report',
+  domain: 'Finance',
+  aka: ['R2R', 'Month-end close', 'Financial close'],
+  purpose: 'Close the books for a period and produce reviewed, explainable statements.',
+  trigger: 'A period ends.',
+  steps: [{
+    name: 'Freeze the period',
+    kind: 'agent'
+  }, {
+    name: 'Reconcile accounts',
+    kind: 'agent'
+  }, {
+    name: 'Post accruals and adjustments',
+    kind: 'agent'
+  }, {
+    name: 'Investigate variances',
+    kind: 'agent'
+  }, {
+    name: 'Review and sign off',
+    kind: 'human'
+  }, {
+    name: 'Publish statements',
+    kind: 'agent'
+  }],
+  roles: ['Reconciler', 'Variance Analyst', 'Accrual Poster', 'Close Coordinator'],
+  connectors: [{
+    category: 'ERP',
+    providers: ['sap', 'oracle', 'quickbooks'],
+    permission: 'Write',
+    why: 'Ledger, journals and trial balance.'
+  }, {
+    category: 'Spreadsheets',
+    providers: ['googlesheets'],
+    permission: 'Write',
+    why: 'Close schedules still live here.'
+  }, {
+    category: 'Banking',
+    providers: [],
+    permission: 'Read',
+    why: 'Statement lines for reconciliation.'
+  }],
+  outcomes: [{
+    label: 'Close completed on schedule',
+    measure: 'Working days to close',
+    target: '≤ 5'
+  }, {
+    label: 'Every variance has an explanation',
+    measure: 'Unexplained variances at sign-off',
+    target: '0'
+  }, {
+    label: 'Reconciliations clean',
+    measure: 'Accounts reconciled without manual entry',
+    target: '90%'
+  }, {
+    label: 'Audit trail complete',
+    measure: 'Journals with evidence attached',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Review and sign off',
+    when: 'Always. A close is not a close until a person signs it.'
+  }, {
+    name: 'Material adjustment',
+    when: 'Any journal above the materiality threshold.'
+  }],
+  exceptions: ['Unreconciled bank line', 'Late invoice after freeze', 'Intercompany mismatch', 'FX revaluation dispute'],
+  signals: ['close', 'month-end', 'reconcile', 'ledger', 'journal', 'accrual', 'variance', 'statement', 'audit', 'period', 'balance']
+}, {
+  id: 'hire-to-retire',
+  name: 'Hire to retire',
+  domain: 'People',
+  aka: ['H2R', 'Recruitment', 'Employee lifecycle'],
+  purpose: 'Take a role from opening through hiring and onboarding to a productive employee.',
+  trigger: 'A role is approved, or an application arrives.',
+  steps: [{
+    name: 'Open and publish the role',
+    kind: 'agent'
+  }, {
+    name: 'Screen applications',
+    kind: 'agent'
+  }, {
+    name: 'Schedule interviews',
+    kind: 'agent'
+  }, {
+    name: 'Collect feedback',
+    kind: 'agent'
+  }, {
+    name: 'Decide and offer',
+    kind: 'human'
+  }, {
+    name: 'Run onboarding',
+    kind: 'agent'
+  }],
+  roles: ['Screener', 'Scheduler', 'Feedback Collector', 'Onboarding Coordinator'],
+  connectors: [{
+    category: 'ATS',
+    providers: ['greenhouse', 'personio'],
+    permission: 'Write',
+    why: 'Candidate records and stages.'
+  }, {
+    category: 'Calendar',
+    providers: ['googlecalendar'],
+    permission: 'Write',
+    why: 'Interview scheduling.'
+  }, {
+    category: 'Email',
+    providers: ['gmail'],
+    permission: 'Write',
+    why: 'Candidate correspondence.'
+  }, {
+    category: 'Identity',
+    providers: ['okta'],
+    permission: 'Admin',
+    why: 'Provision accounts on day one.'
+  }],
+  outcomes: [{
+    label: 'Time to first interview falling',
+    measure: 'Days from application to first interview',
+    target: '< 5'
+  }, {
+    label: 'Every candidate gets an answer',
+    measure: 'Applications closed without response',
+    target: '0'
+  }, {
+    label: 'Onboarding ready on day one',
+    measure: 'Accounts and access provisioned before start',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Decide and offer',
+    when: 'Always. Hiring decisions are not delegated to an Agent.'
+  }, {
+    name: 'Reject at screening',
+    when: 'Where the Agent is below confidence on a borderline application.'
+  }],
+  exceptions: ['Candidate withdraws', 'Interviewer unavailable', 'Offer declined', 'Right-to-work check fails'],
+  signals: ['candidate', 'applicant', 'interview', 'recruit', 'hire', 'onboard', 'role', 'cv', 'resume', 'offer', 'screening']
+}, {
+  id: 'lead-to-opportunity',
+  name: 'Lead to opportunity',
+  domain: 'Sales',
+  aka: ['Lead qualification', 'Inbound routing'],
+  purpose: 'Turn inbound interest into a qualified, routed, owned opportunity.',
+  trigger: 'A lead arrives from a form, an event or an inbox.',
+  steps: [{
+    name: 'Capture and deduplicate',
+    kind: 'agent'
+  }, {
+    name: 'Enrich the record',
+    kind: 'agent'
+  }, {
+    name: 'Qualify against criteria',
+    kind: 'agent'
+  }, {
+    name: 'Route to an owner',
+    kind: 'agent'
+  }, {
+    name: 'Confirm ownership',
+    kind: 'human'
+  }],
+  roles: ['Lead Capturer', 'Enrichment Agent', 'Qualifier', 'Router'],
+  connectors: [{
+    category: 'CRM',
+    providers: ['salesforce', 'hubspot'],
+    permission: 'Write',
+    why: 'Lead and opportunity records.'
+  }, {
+    category: 'Email',
+    providers: ['gmail'],
+    permission: 'Read',
+    why: 'Inbound enquiries.'
+  }, {
+    category: 'Messaging',
+    providers: ['slack'],
+    permission: 'Write',
+    why: 'Notify the owner where they work.'
+  }],
+  outcomes: [{
+    label: 'Lead answered quickly',
+    measure: 'Time from arrival to first response',
+    target: '< 30 min'
+  }, {
+    label: 'No duplicate records created',
+    measure: 'Duplicates merged before routing',
+    target: '100%'
+  }, {
+    label: 'Routing accepted by owners',
+    measure: 'Leads reassigned after routing',
+    target: '< 10%'
+  }],
+  checkpoints: [{
+    name: 'Confirm ownership',
+    when: 'Where the routing rule is ambiguous or the account is strategic.'
+  }],
+  exceptions: ['Existing customer submits as a new lead', 'Competitor or spam submission', 'No owner for the territory'],
+  signals: ['lead', 'prospect', 'enquiry', 'inbound', 'qualify', 'route', 'crm', 'salesforce', 'hubspot', 'opportunity', 'enrich']
+}, {
+  id: 'issue-to-resolution',
+  name: 'Issue to resolution',
+  domain: 'Customer operations',
+  aka: ['Support ticket', 'Incident handling'],
+  purpose: 'Take a reported problem to a resolution the customer accepts.',
+  trigger: 'A ticket, email or message reports a problem.',
+  steps: [{
+    name: 'Triage and classify',
+    kind: 'agent'
+  }, {
+    name: 'Gather context',
+    kind: 'agent'
+  }, {
+    name: 'Attempt resolution',
+    kind: 'agent'
+  }, {
+    name: 'Escalate if unresolved',
+    kind: 'human'
+  }, {
+    name: 'Confirm and close',
+    kind: 'agent'
+  }],
+  roles: ['Triager', 'Context Gatherer', 'Resolver', 'Escalation Handler'],
+  connectors: [{
+    category: 'Helpdesk',
+    providers: ['zendesk', 'intercom'],
+    permission: 'Write',
+    why: 'Tickets and conversations.'
+  }, {
+    category: 'CRM',
+    providers: ['salesforce'],
+    permission: 'Read',
+    why: 'Who the customer is and what they bought.'
+  }, {
+    category: 'Messaging',
+    providers: ['slack', 'whatsapp'],
+    permission: 'Write',
+    why: 'Reach the customer and the escalation path.'
+  }],
+  outcomes: [{
+    label: 'First response fast',
+    measure: 'Time to first substantive reply',
+    target: '< 15 min'
+  }, {
+    label: 'Resolved without escalation',
+    measure: 'Share closed by the Agent',
+    target: '60%'
+  }, {
+    label: 'No unanswered customer',
+    measure: 'Tickets with no reply past SLA',
+    target: '0'
+  }, {
+    label: 'Escalations carry context',
+    measure: 'Escalations with a written summary',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Escalate if unresolved',
+    when: 'Past the SLA, or where the customer asks for a person.'
+  }, {
+    name: 'Offer compensation',
+    when: 'Always. Credits and refunds are a human decision.'
+  }],
+  exceptions: ['Customer is angry or threatens to leave', 'Problem is a known outage', 'Duplicate of an open ticket', 'Out of support scope'],
+  signals: ['ticket', 'support', 'issue', 'incident', 'customer', 'triage', 'escalate', 'resolve', 'sla', 'zendesk', 'helpdesk']
+}, {
+  id: 'vendor-onboarding',
+  name: 'Vendor onboarding',
+  domain: 'Procurement',
+  aka: ['Supplier onboarding', 'Third-party due diligence'],
+  purpose: 'Take a new supplier from first contact to approved, compliant and payable.',
+  trigger: 'Someone wants to buy from a supplier who is not on file.',
+  steps: [{
+    name: 'Collect supplier details',
+    kind: 'agent'
+  }, {
+    name: 'Verify identity and bank details',
+    kind: 'agent'
+  }, {
+    name: 'Run compliance checks',
+    kind: 'agent'
+  }, {
+    name: 'Review risk',
+    kind: 'human'
+  }, {
+    name: 'Create the vendor record',
+    kind: 'agent'
+  }],
+  roles: ['Detail Collector', 'Identity Verifier', 'Compliance Checker', 'Record Creator'],
+  connectors: [{
+    category: 'ERP',
+    providers: ['sap'],
+    permission: 'Write',
+    why: 'Create the vendor master record.'
+  }, {
+    category: 'Document storage',
+    providers: ['googledrive'],
+    permission: 'Read',
+    why: 'Certificates, insurance, contracts.'
+  }, {
+    category: 'Messaging',
+    providers: ['whatsapp', 'slack'],
+    permission: 'Write',
+    why: 'Suppliers often answer here first.'
+  }],
+  outcomes: [{
+    label: 'Bank details independently verified',
+    measure: 'Records created without callback verification',
+    target: '0'
+  }, {
+    label: 'Onboarding completed quickly',
+    measure: 'Days from request to payable',
+    target: '< 5'
+  }, {
+    label: 'Compliance evidence on file',
+    measure: 'Vendors with complete documentation',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Review risk',
+    when: 'Always for a new vendor; again for any high-risk jurisdiction.'
+  }, {
+    name: 'Confirm bank details',
+    when: 'Always, by callback on a known number. Never from the document alone.'
+  }],
+  exceptions: ['Supplier already exists under another name', 'Sanctions or adverse media hit', 'Incomplete documentation', 'Bank details change mid-process'],
+  signals: ['vendor', 'supplier', 'onboard', 'compliance', 'due diligence', 'kyc', 'sanctions', 'bank', 'verify', 'master', 'record']
+}, {
+  id: 'expense-to-reimbursement',
+  name: 'Expense to reimbursement',
+  domain: 'Finance',
+  aka: ['Expense claims', 'T&E'],
+  purpose: 'Take a submitted expense through policy check and approval to reimbursement.',
+  trigger: 'An employee submits a claim or a receipt.',
+  steps: [{
+    name: 'Read the receipt',
+    kind: 'agent'
+  }, {
+    name: 'Check against policy',
+    kind: 'agent'
+  }, {
+    name: 'Query the submitter',
+    kind: 'agent'
+  }, {
+    name: 'Approve',
+    kind: 'human'
+  }, {
+    name: 'Post and reimburse',
+    kind: 'agent'
+  }],
+  roles: ['Receipt Reader', 'Policy Checker', 'Reimbursement Poster'],
+  connectors: [{
+    category: 'Expense system',
+    providers: [],
+    permission: 'Write',
+    why: 'Claims and reimbursement runs.'
+  }, {
+    category: 'Email',
+    providers: ['gmail'],
+    permission: 'Read',
+    why: 'Receipts forwarded by employees.'
+  }, {
+    category: 'Messaging',
+    providers: ['slack'],
+    permission: 'Write',
+    why: 'Query a claim without an email thread.'
+  }],
+  outcomes: [{
+    label: 'Claims settled quickly',
+    measure: 'Days from submission to payment',
+    target: '< 7'
+  }, {
+    label: 'Policy applied consistently',
+    measure: 'Claims approved outside policy',
+    target: '0'
+  }, {
+    label: 'Queries are specific',
+    measure: 'Queries that name the exact problem',
+    target: '100%'
+  }],
+  checkpoints: [{
+    name: 'Approve',
+    when: 'Above the auto-approval threshold, or any policy exception.'
+  }],
+  exceptions: ['Receipt unreadable', 'Claim outside policy', 'Duplicate submission', 'Personal expense mixed with business'],
+  signals: ['expense', 'receipt', 'claim', 'reimburse', 'policy', 'travel', 'mileage', 'per diem']
+}];
+
+/** The blank slate. Offered alongside every match so a proposal is never the only option. */
+const BLANK_PROCESS = {
+  id: 'blank',
+  name: 'Something else',
+  domain: 'Custom',
+  purpose: '',
+  trigger: '',
+  steps: [],
+  roles: [],
+  connectors: [],
+  outcomes: [],
+  checkpoints: [],
+  exceptions: [],
+  signals: []
+};
+const words = s => String(s || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+
+/**
+ * Score a set of Agents against the library.
+ *
+ * Returns ranked candidates, each with the evidence for the score, so the
+ * proposal can be argued with. Confidence is deliberately coarse — a word-overlap
+ * match is a decent hint and a terrible measurement, so it is reported as
+ * high / medium / low and never as a percentage on an end-user surface.
+ */
+function MatchProcess(context = {}) {
+  const {
+    agents = [],
+    tools = [],
+    notes = ''
+  } = context;
+  const haystack = [];
+  agents.forEach(a => {
+    haystack.push.apply(haystack, words(a.name));
+    haystack.push.apply(haystack, words(a.role));
+    (a.skills || []).forEach(s => haystack.push.apply(haystack, words(s)));
+    (a.tools || []).forEach(t => haystack.push.apply(haystack, words(t)));
+  });
+  tools.forEach(t => haystack.push.apply(haystack, words(typeof t === 'string' ? t : t.name || t.provider)));
+  haystack.push.apply(haystack, words(notes));
+  const bag = {};
+  haystack.forEach(w => {
+    bag[w] = (bag[w] || 0) + 1;
+  });
+  const scored = BUSINESS_PROCESSES.map(process => {
+    const hits = process.signals.filter(sig => {
+      const parts = words(sig);
+      return parts.every(p => bag[p]);
+    });
+
+    /* Which of the process's own roles look like Agents that are present. */
+    const roleHits = process.roles.filter(role => agents.some(a => {
+      const rw = words(role);
+      const aw = words(a.name).concat(words(a.role));
+      return rw.some(w => aw.indexOf(w) !== -1);
+    }));
+    const score = hits.length * 2 + roleHits.length * 3;
+    const coverage = process.roles.length ? roleHits.length / process.roles.length : 0;
+    const confidence = score >= 10 ? 'high' : score >= 5 ? 'medium' : 'low';
+    const evidence = [];
+    if (roleHits.length) {
+      evidence.push(roleHits.length + ' of the ' + process.roles.length + ' usual roles are here: ' + roleHits.join(', '));
+    }
+    if (hits.length) evidence.push('Matches on ' + hits.slice(0, 5).join(', '));
+    if (agents.length) evidence.push(agents.length + ' Agents selected');
+    return {
+      process,
+      score,
+      hits,
+      roleHits,
+      coverage,
+      confidence,
+      evidence
+    };
+  });
+  return scored.filter(m => m.score > 0).sort((a, b) => b.score - a.score);
+}
+
+/* Lowercase alias for sibling modules; MatchProcess is the published name. */
+const matchProcess = MatchProcess;
+
+/**
+ * A matched process, offered as a proposal rather than a result.
+ *
+ * Same grammar as LearnedPattern: what LAMP thinks, what it is going on, and
+ * three ways out — use it, look closer, or dismiss it.
+ */
+function ProcessProposal({
+  match,
+  selected = false,
+  primary = false,
+  onUse,
+  onReview,
+  onDismiss,
+  compact = false,
+  className = '',
+  ...rest
+}) {
+  if (!match) return null;
+  const {
+    process,
+    confidence,
+    evidence = [],
+    roleHits = []
+  } = match;
+  return /*#__PURE__*/React.createElement("article", _extends({
+    className: ['lamp-proposal', primary && 'lamp-proposal--primary', selected && 'lamp-proposal--selected', compact && 'lamp-proposal--compact', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-proposal__top"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "flare",
+    size: 14,
+    style: {
+      color: 'var(--status-waiting-text)'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-proposal__note"
+  }, "LAMP thinks this is"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.MemoryConfidence, {
+    level: confidence
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-proposal__name"
+  }, process.name, /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true,
+    micro: true
+  }, process.domain), process.aka && process.aka.length ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-proposal__aka"
+  }, process.aka[0]) : null), /*#__PURE__*/React.createElement("p", {
+    className: "lamp-proposal__purpose"
+  }, process.purpose), !compact && evidence.length ? /*#__PURE__*/React.createElement("ul", {
+    className: "lamp-proposal__ev"
+  }, evidence.map(e => /*#__PURE__*/React.createElement("li", {
+    key: e
+  }, e))) : null, !compact && roleHits.length < process.roles.length ? /*#__PURE__*/React.createElement("p", {
+    className: "lamp-proposal__gap"
+  }, "Usually also has: ", process.roles.filter(r => roleHits.indexOf(r) === -1).join(', ')) : null, onUse || onReview || onDismiss ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-proposal__actions"
+  }, onUse ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: selected ? 'brand' : 'primary',
+    icon: selected ? 'check' : undefined,
+    onClick: () => onUse(process)
+  }, selected ? 'Selected' : 'Use this process') : null, onReview ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "secondary",
+    icon: "visibility",
+    onClick: () => onReview(process)
+  }, "Review steps") : null, onDismiss ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "quiet",
+    onClick: () => onDismiss(process)
+  }, "Not this") : null) : null);
+}
+Object.assign(__ds_scope, { BUSINESS_PROCESSES, BLANK_PROCESS, MatchProcess, matchProcess, ProcessProposal });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/BusinessProcess.jsx", error: String((e && e.message) || e) }); }
+
 // components/patterns/Conversation.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function Message({
   role = 'agent',
   author,
@@ -5935,9 +8404,264 @@ function Conversation({
 Object.assign(__ds_scope, { Message, MessageList, Composer, Conversation });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/Conversation.jsx", error: String((e && e.message) || e) }); }
 
+// components/patterns/GenieBlueprint.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* Auto-creating a Genie from a standard business process.
+
+   A Genie is a business capability — Finance, Sales, Customer Operations — and
+   the processes inside it are not a random collection. A business that runs
+   procure-to-pay almost always also runs record-to-report and expense claims;
+   they share vendors, a ledger, an approval hierarchy and a definition of
+   materiality. So when an operator defines one of them, LAMP can set up the
+   whole capability around it rather than leaving them to discover the other
+   three later.
+
+   Everything created this way is a DRAFT. Nothing is live, nothing is
+   connected, nothing runs. The blueprint is shown in full before it is
+   committed — every Playbook, every Agent, every access grant — because
+   "LAMP created eleven things while you weren't looking" is the opposite of the
+   trust this product needs. The operator sees the list and can drop any of it.
+
+   Guardrails are not optional and are not a suggestion. A Genie created here
+   starts with the safety posture its domain requires: nothing external writes
+   without an approval, spend authority is unset rather than unlimited, and the
+   kill switch is scoped to the Genie from the moment it exists. */
+
+const DOMAIN_GLYPH = {
+  Finance: 'account_balance',
+  Sales: 'trending_up',
+  People: 'groups',
+  Procurement: 'inventory_2',
+  'Customer operations': 'forum',
+  Custom: 'hive'
+};
+
+/* Guardrails every auto-created Genie starts with, before anything domain-specific. */
+const BASE_GUARDRAILS = ['No external write action without an approved human checkpoint.', 'Spend authority starts unset. An Agent cannot commit money until a limit is set deliberately.', 'Every run records its evidence, its Tool calls and its cost.', 'Emergency stop is scoped to this Genie and available from the moment it exists.'];
+const DOMAIN_GUARDRAILS = {
+  Finance: ['Bank detail changes always require callback verification on a known number.', 'Journals above the materiality threshold require a named approver.'],
+  Procurement: ['New vendors cannot be made payable without a completed risk review.'],
+  People: ['Hiring and rejection decisions are never delegated to an Agent.'],
+  'Customer operations': ['Credits, refunds and compensation are a human decision.'],
+  Sales: ['Discounts beyond the standard schedule require approval.']
+};
+
+/**
+ * Build the Genie a process belongs to.
+ *
+ * Returns a plain object describing everything that would be created. It is
+ * deliberately inert — nothing is written, nothing is connected — so a caller
+ * can render it, diff it, edit it or throw it away.
+ */
+function BuildGenie(businessProcess, options = {}) {
+  if (!businessProcess || !businessProcess.domain) return null;
+  const {
+    includeSiblings = true,
+    agents = [],
+    name
+  } = options;
+  const siblings = includeSiblings ? __ds_scope.BUSINESS_PROCESSES.filter(p => p.domain === businessProcess.domain && p.id !== businessProcess.id) : [];
+  const playbooks = [{
+    process: businessProcess,
+    primary: true,
+    agents,
+    state: 'draft'
+  }].concat(siblings.map(p => ({
+    process: p,
+    primary: false,
+    agents: [],
+    state: 'suggested'
+  })));
+
+  /* Connector categories de-duplicated across the capability, keeping the
+     broadest permission any of its processes needs — so the access list the
+     operator approves is the real one, not a per-Playbook fragment. */
+  const rank = {
+    Read: 1,
+    Write: 2,
+    Admin: 3
+  };
+  const connectorMap = {};
+  playbooks.forEach(pb => {
+    (pb.process.connectors || []).forEach(c => {
+      const existing = connectorMap[c.category];
+      if (!existing || rank[c.permission] > rank[existing.permission]) {
+        connectorMap[c.category] = {
+          ...c,
+          usedBy: existing ? existing.usedBy.concat([pb.process.name]) : [pb.process.name]
+        };
+      } else {
+        existing.usedBy = existing.usedBy.concat([pb.process.name]);
+      }
+    });
+  });
+  const connectors = Object.keys(connectorMap).map(k => connectorMap[k]);
+  const roles = [];
+  playbooks.forEach(pb => {
+    if (!pb.primary) return;
+    (pb.process.roles || []).forEach(r => {
+      if (roles.indexOf(r) === -1) roles.push(r);
+    });
+  });
+  return {
+    name: name || businessProcess.domain,
+    domain: businessProcess.domain,
+    purpose: 'The ' + businessProcess.domain.toLowerCase() + ' capability, starting from ' + businessProcess.name.toLowerCase() + '.',
+    glyph: DOMAIN_GLYPH[businessProcess.domain] || 'hive',
+    state: 'draft',
+    playbooks,
+    connectors,
+    roles,
+    agents,
+    guardrails: BASE_GUARDRAILS.concat(DOMAIN_GUARDRAILS[businessProcess.domain] || []),
+    memory: {
+      scopes: ['agent', 'playbook', 'genie', 'lamp'],
+      seeded: [businessProcess.domain + ' policies and approval thresholds', 'The entities this capability deals with — ' + (businessProcess.domain === 'Finance' ? 'vendors, customers, accounts' : 'the people, systems and records it touches'), 'Exceptions observed in runs, so the Playbook learns what actually happens']
+    }
+  };
+}
+const buildGenie = BuildGenie;
+
+/** Everything that would be created, shown before it is created. */
+function GenieBlueprint({
+  blueprint,
+  onCreate,
+  onCancel,
+  onTogglePlaybook,
+  excluded = [],
+  compact = false,
+  className = '',
+  ...rest
+}) {
+  if (!blueprint) return null;
+  const isOut = id => excluded.indexOf(id) !== -1;
+  const included = blueprint.playbooks.filter(pb => !isOut(pb.process.id));
+  return /*#__PURE__*/React.createElement("section", _extends({
+    className: ['lamp-blueprint', compact && 'lamp-blueprint--compact', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement("header", {
+    className: "lamp-blueprint__head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__glyph"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: blueprint.glyph,
+    size: 18
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__titles"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__name"
+  }, blueprint.name, " Genie"), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__purpose"
+  }, blueprint.purpose)), /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "neutral",
+    icon: "edit_note",
+    micro: true
+  }, "Draft")), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-blueprint__summary"
+  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, included.length), " Playbooks"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, blueprint.roles.length), " Agent roles"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, blueprint.connectors.length), " connectors"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, blueprint.guardrails.length), " guardrails")), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-blueprint__group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__label"
+  }, "Playbooks"), blueprint.playbooks.map(pb => /*#__PURE__*/React.createElement("div", {
+    key: pb.process.id,
+    className: ['lamp-blueprint__pb', isOut(pb.process.id) && 'lamp-blueprint__pb--out'].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "layers",
+    size: 14
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__pb-main"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__pb-name"
+  }, pb.process.name), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__pb-purpose"
+  }, pb.process.purpose)), pb.primary ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "brand",
+    micro: true
+  }, "The one you just made") : /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true,
+    micro: true
+  }, "Suggested"), onTogglePlaybook && !pb.primary ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "xs",
+    variant: "quiet",
+    onClick: () => onTogglePlaybook(pb.process.id)
+  }, isOut(pb.process.id) ? 'Include' : 'Skip') : null))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-blueprint__group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__label"
+  }, "Access this Genie will ask for"), blueprint.connectors.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c.category,
+    className: "lamp-blueprint__conn"
+  }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
+    status: "blocked"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__conn-name"
+  }, c.category), /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true,
+    micro: true
+  }, c.permission), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__conn-used"
+  }, "Used by ", c.usedBy.join(', ')))), /*#__PURE__*/React.createElement("p", {
+    className: "lamp-blueprint__note"
+  }, "Nothing is authorized by creating the Genie. Each connector is granted separately, by you.")), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-blueprint__group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__label"
+  }, "Guardrails it starts with"), /*#__PURE__*/React.createElement("ul", {
+    className: "lamp-blueprint__rules"
+  }, blueprint.guardrails.map(g => /*#__PURE__*/React.createElement("li", {
+    key: g
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "shield",
+    size: 12
+  }), g)))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-blueprint__group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-blueprint__label"
+  }, "Memory"), /*#__PURE__*/React.createElement(__ds_scope.MemoryScopeBar, {
+    readOnly: true,
+    owned: "genie",
+    full: false,
+    showCounts: false
+  }), /*#__PURE__*/React.createElement("ul", {
+    className: "lamp-blueprint__rules"
+  }, blueprint.memory.seeded.map(m => /*#__PURE__*/React.createElement("li", {
+    key: m
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "database",
+    size: 12
+  }), m)))), onCreate || onCancel ? /*#__PURE__*/React.createElement("footer", {
+    className: "lamp-blueprint__foot"
+  }, onCancel ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    variant: "quiet",
+    onClick: onCancel
+  }, "Just the Playbook") : null, onCreate ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    variant: "primary",
+    icon: "check",
+    onClick: () => onCreate(blueprint, excluded)
+  }, "Create ", included.length, " Playbooks as drafts") : null) : null);
+}
+Object.assign(__ds_scope, { BuildGenie, buildGenie, GenieBlueprint });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/GenieBlueprint.jsx", error: String((e && e.message) || e) }); }
+
 // components/patterns/IntegrationCard.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const STATE = {
   connected: {
     status: 'success',
@@ -6073,7 +8797,15 @@ Object.assign(__ds_scope, { IntegrationCard });
 
 // components/patterns/LearnedPattern.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function LearnedPattern({
   kind = 'observed',
   observation,
@@ -6096,7 +8828,7 @@ function LearnedPattern({
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-learn__top"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "auto_awesome",
+    name: "flare",
     size: 14,
     style: {
       color: 'var(--status-waiting-text)'
@@ -6140,7 +8872,15 @@ Object.assign(__ds_scope, { LearnedPattern });
 
 // components/patterns/MobileShell.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function MobileShell({
   title,
   leading,
@@ -6185,7 +8925,15 @@ Object.assign(__ds_scope, { MobileShell });
 
 // components/patterns/ObservedProcess.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function ObservedProcess({
   steps = [],
   showLinks = true,
@@ -6240,7 +8988,15 @@ Object.assign(__ds_scope, { ObservedProcess });
 
 // components/patterns/PermissionMatrix.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const CELL = {
   granted: {
     glyph: 'check',
@@ -6340,9 +9096,430 @@ function RoleBadge({
 Object.assign(__ds_scope, { PermissionCell, PermissionMatrix, RoleBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/PermissionMatrix.jsx", error: String((e && e.message) || e) }); }
 
+// components/patterns/PlaybookComposer.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* What opens when Agents are outlined into a Playbook.
+
+   The operator has just drawn a box round four hexagons. They know these Agents
+   belong together. They almost certainly cannot tell you, cold, what the
+   business process is called, which systems it has to touch, or what "working"
+   would look like — and a blank form asking for exactly that is how you end up
+   with a Playbook running in production that nobody has defined success for.
+
+   So the dialog opens already filled in. LAMP matches the selection against the
+   standard process library, proposes the best fit with its reasoning visible,
+   and pre-fills the name, purpose, trigger, connectors, expected outcomes and
+   human checkpoints from that process. The operator's job becomes reviewing and
+   correcting rather than authoring — which is a job people can actually do.
+
+   Three rules hold this together:
+
+   1. NOTHING IS ACCEPTED SILENTLY. Every pre-filled outcome and connector is a
+      checkbox, unticked items are dropped, and the proposal shows what it matched
+      on so it can be argued with.
+   2. THE PROPOSAL IS NEVER THE ONLY OPTION. Other matches are listed, the whole
+      library is browsable, and "Something else" starts blank.
+   3. OUTCOMES ARE NOT OPTIONAL. A Playbook with no expected outcome cannot be
+      simulated against anything and cannot be said to have failed. The dialog
+      says so rather than letting it through quietly.
+
+   Connectors show live connection state, so "this process needs SAP write access
+   and you do not have it" is visible here — before the Playbook exists — rather
+   than at the first failed run. */
+
+const STEP_GLYPH = {
+  agent: 'hexagon',
+  human: 'how_to_reg',
+  tool: 'square',
+  decision: 'call_split'
+};
+function keyOf(list) {
+  const map = {};
+  list.forEach((item, i) => {
+    map[item.id != null ? item.id : i] = true;
+  });
+  return map;
+}
+function PlaybookComposer({
+  open = true,
+  agents = [],
+  availableTools = [],
+  suggestions,
+  onCreate,
+  onCancel,
+  onPreviewGenie,
+  allowGenie = true,
+  className = '',
+  ...rest
+}) {
+  /* Matches are derived from the selection, not held in state — reselecting on
+     the canvas must not leave a stale proposal behind. */
+  const matches = React.useMemo(() => suggestions || __ds_scope.MatchProcess({
+    agents,
+    tools: availableTools
+  }), [suggestions, agents, availableTools]);
+  const best = matches[0] || null;
+  const [chosen, setChosen] = React.useState(() => best ? best.process : __ds_scope.BLANK_PROCESS);
+  const [tab, setTab] = React.useState('process');
+  const [browsing, setBrowsing] = React.useState(false);
+  const [name, setName] = React.useState(chosen.name === __ds_scope.BLANK_PROCESS.name ? '' : chosen.name);
+  const [purpose, setPurpose] = React.useState(chosen.purpose);
+  const [trigger, setTrigger] = React.useState(chosen.trigger);
+  const [outcomes, setOutcomes] = React.useState(() => keyOf(chosen.outcomes || []));
+  const [connectors, setConnectors] = React.useState(() => keyOf(chosen.connectors || []));
+  const [checkpoints, setCheckpoints] = React.useState(() => keyOf(chosen.checkpoints || []));
+  const [extraOutcome, setExtraOutcome] = React.useState('');
+  const [extras, setExtras] = React.useState([]);
+  const [makeGenie, setMakeGenie] = React.useState(false);
+
+  /* Picking a different process refills the form. Anything the operator has
+     already typed into name/purpose is theirs and is left alone. */
+  const pick = process => {
+    setChosen(process);
+    setBrowsing(false);
+    setName(prev => prev && prev !== chosen.name ? prev : process.name === __ds_scope.BLANK_PROCESS.name ? '' : process.name);
+    setPurpose(prev => prev && prev !== chosen.purpose ? prev : process.purpose);
+    setTrigger(prev => prev && prev !== chosen.trigger ? prev : process.trigger);
+    setOutcomes(keyOf(process.outcomes || []));
+    setConnectors(keyOf(process.connectors || []));
+    setCheckpoints(keyOf(process.checkpoints || []));
+  };
+  const toggle = setter => key => setter(m => ({
+    ...m,
+    [key]: !m[key]
+  }));
+  const connectionFor = connector => {
+    const provider = (connector.providers || []).find(p => availableTools.some(t => (t.provider || t.id || t) === p));
+    if (!provider) return {
+      state: 'missing',
+      label: 'Not connected',
+      provider: (connector.providers || [])[0]
+    };
+    const tool = availableTools.find(t => (t.provider || t.id || t) === provider);
+    const state = tool && tool.state || 'connected';
+    return {
+      state,
+      provider,
+      label: state === 'connected' || state === 'healthy' ? 'Connected' : state === 'authorizationRequired' ? 'Needs authorization' : state === 'expired' ? 'Credentials expired' : state
+    };
+  };
+  const chosenOutcomes = (chosen.outcomes || []).filter((o, i) => outcomes[o.id != null ? o.id : i]).concat(extras.map(label => ({
+    label,
+    measure: 'Defined by you',
+    target: ''
+  })));
+  const chosenConnectors = (chosen.connectors || []).filter((c, i) => connectors[c.id != null ? c.id : i]);
+  const chosenCheckpoints = (chosen.checkpoints || []).filter((c, i) => checkpoints[c.id != null ? c.id : i]);
+  const blockers = [];
+  if (!name.trim()) blockers.push('Give the Playbook a name.');
+  if (!chosenOutcomes.length) blockers.push('Choose at least one expected outcome — without one the Playbook cannot be simulated or judged.');
+  const missingConnectors = chosenConnectors.filter(c => connectionFor(c).state === 'missing');
+  const build = () => ({
+    name: name.trim(),
+    purpose,
+    trigger,
+    processId: chosen.id,
+    processName: chosen.name,
+    domain: chosen.domain,
+    agents,
+    steps: chosen.steps || [],
+    outcomes: chosenOutcomes,
+    connectors: chosenConnectors,
+    checkpoints: chosenCheckpoints,
+    exceptions: chosen.exceptions || [],
+    createGenie: makeGenie
+  });
+  const tabs = [{
+    id: 'process',
+    label: 'Process'
+  }, {
+    id: 'connectors',
+    label: 'Connectors',
+    count: chosenConnectors.length
+  }, {
+    id: 'outcomes',
+    label: 'Outcomes',
+    count: chosenOutcomes.length
+  }];
+  return /*#__PURE__*/React.createElement(__ds_scope.Modal, _extends({
+    open: open,
+    size: "lg",
+    glyph: "layers",
+    title: "Make these Agents a Playbook",
+    subtitle: agents.length + ' Agents selected. LAMP has suggested what this process is — correct anything that is wrong.',
+    onClose: onCancel,
+    className: 'lamp-composer ' + className,
+    footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__footnote"
+    }, blockers.length ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__blocker"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: "warning",
+      size: 13
+    }), blockers[0]) : missingConnectors.length ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__blocker"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: "link_off",
+      size: 13
+    }), missingConnectors.length, " connector", missingConnectors.length > 1 ? 's' : '', " still need authorizing. The Playbook can be drafted without them.") : /*#__PURE__*/React.createElement("span", null, "Draft only. Nothing runs until you simulate it.")), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      variant: "quiet",
+      onClick: onCancel
+    }, "Cancel"), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      variant: "primary",
+      icon: "check",
+      disabled: !!blockers.length,
+      onClick: () => onCreate && onCreate(build())
+    }, makeGenie ? 'Create Playbook and Genie' : 'Create Playbook'))
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__selection"
+  }, agents.map(a => /*#__PURE__*/React.createElement("span", {
+    key: a.id || a.name,
+    className: "lamp-composer__agent"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "hexagon",
+    size: 13
+  }), a.name, a.role ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__role"
+  }, a.role) : null))), best && !browsing ? /*#__PURE__*/React.createElement(__ds_scope.ProcessProposal, {
+    primary: true,
+    match: best,
+    selected: chosen.id === best.process.id,
+    onUse: pick,
+    onDismiss: () => setBrowsing(true)
+  }) : null, browsing || !best ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__browse"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__browse-head"
+  }, /*#__PURE__*/React.createElement("span", null, "Pick the process this is"), best ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "xs",
+    variant: "quiet",
+    onClick: () => setBrowsing(false)
+  }, "Back to the suggestion") : null), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__browse-list"
+  }, __ds_scope.BUSINESS_PROCESSES.concat([__ds_scope.BLANK_PROCESS]).map(p => /*#__PURE__*/React.createElement("button", {
+    key: p.id,
+    type: "button",
+    className: 'lamp-composer__browse-item' + (chosen.id === p.id ? ' lamp-composer__browse-item--active' : ''),
+    onClick: () => pick(p)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__browse-name"
+  }, p.name), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__browse-domain"
+  }, p.domain))))) : null, matches.length > 1 && !browsing ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__alts"
+  }, /*#__PURE__*/React.createElement("span", null, "Or:"), matches.slice(1, 4).map(m => /*#__PURE__*/React.createElement("button", {
+    key: m.process.id,
+    type: "button",
+    className: "lamp-composer__alt",
+    onClick: () => pick(m.process)
+  }, m.process.name)), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-composer__alt",
+    onClick: () => setBrowsing(true)
+  }, "Something else")) : null, /*#__PURE__*/React.createElement(__ds_scope.Tabs, {
+    tabs: tabs,
+    value: tab,
+    onChange: setTab
+  }), tab === 'process' ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__pane"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "lamp-composer__label",
+    htmlFor: "pb-name"
+  }, "Name"), /*#__PURE__*/React.createElement(__ds_scope.TextInput, {
+    id: "pb-name",
+    value: name,
+    placeholder: "Vendor payment",
+    onChange: e => setName(e.target.value)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-composer__label",
+    htmlFor: "pb-purpose"
+  }, "Purpose"), /*#__PURE__*/React.createElement(__ds_scope.Textarea, {
+    id: "pb-purpose",
+    rows: 2,
+    value: purpose,
+    placeholder: "What this process is for, in one sentence.",
+    onChange: e => setPurpose(e.target.value)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-composer__label",
+    htmlFor: "pb-trigger"
+  }, "Trigger"), /*#__PURE__*/React.createElement(__ds_scope.TextInput, {
+    id: "pb-trigger",
+    value: trigger,
+    placeholder: "What starts a run.",
+    onChange: e => setTrigger(e.target.value)
+  }), chosen.steps && chosen.steps.length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__label"
+  }, "Usual shape of this process"), /*#__PURE__*/React.createElement("ol", {
+    className: "lamp-composer__steps"
+  }, chosen.steps.map((s, i) => /*#__PURE__*/React.createElement("li", {
+    key: s.name,
+    className: 'lamp-composer__step lamp-composer__step--' + s.kind
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__step-n"
+  }, i + 1), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: STEP_GLYPH[s.kind] || 'hexagon',
+    size: 13
+  }), /*#__PURE__*/React.createElement("span", null, s.name), s.kind === 'human' ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "waiting",
+    micro: true
+  }, "Human") : null))), /*#__PURE__*/React.createElement("p", {
+    className: "lamp-composer__hint"
+  }, "Execution order lives in the runtime, not in how the Agents are arranged on the canvas. You can change this later in the Inspector.")) : null, chosen.exceptions && chosen.exceptions.length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__label"
+  }, "What usually goes wrong"), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__chips"
+  }, chosen.exceptions.map(e => /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    key: e,
+    tone: "warning",
+    icon: "report",
+    micro: true
+  }, e)))) : null) : null, tab === 'connectors' ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__pane"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "lamp-composer__hint"
+  }, "The systems this process has to touch. Untick anything it does not need \u2014 each one is an access grant."), (chosen.connectors || []).length === 0 ? /*#__PURE__*/React.createElement("p", {
+    className: "lamp-composer__empty"
+  }, "No connectors suggested. Add Tools to the Agents and they will appear here.") : null, (chosen.connectors || []).map((c, i) => {
+    const key = c.id != null ? c.id : i;
+    const conn = connectionFor(c);
+    return /*#__PURE__*/React.createElement("div", {
+      key: key,
+      className: "lamp-composer__conn"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+      checked: !!connectors[key],
+      onChange: () => toggle(setConnectors)(key)
+    }), /*#__PURE__*/React.createElement(__ds_scope.ToolTile, {
+      size: "sm",
+      provider: conn.provider,
+      state: conn.state === 'missing' ? 'available' : conn.state,
+      name: c.category
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__conn-main"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__conn-name"
+    }, c.category), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__conn-why"
+    }, c.why)), /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+      outline: true,
+      micro: true
+    }, c.permission), /*#__PURE__*/React.createElement("span", {
+      className: 'lamp-composer__conn-state lamp-composer__conn-state--' + conn.state
+    }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
+      status: conn.state === 'missing' ? 'blocked' : conn.state === 'connected' || conn.state === 'healthy' ? 'success' : 'attention'
+    }), conn.label));
+  })) : null, tab === 'outcomes' ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__pane"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "lamp-composer__hint"
+  }, "What this Playbook is supposed to achieve, and how you would know. Simulation is judged against these, so a Playbook with none cannot pass or fail."), (chosen.outcomes || []).map((o, i) => {
+    const key = o.id != null ? o.id : i;
+    return /*#__PURE__*/React.createElement("div", {
+      key: key,
+      className: "lamp-composer__outcome"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+      checked: !!outcomes[key],
+      onChange: () => toggle(setOutcomes)(key)
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-main"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-label"
+    }, o.label), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-measure"
+    }, o.measure)), o.target ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+      outline: true,
+      micro: true
+    }, o.target) : null);
+  }), extras.map(label => /*#__PURE__*/React.createElement("div", {
+    key: label,
+    className: "lamp-composer__outcome"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+    checked: true,
+    readOnly: true
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__outcome-main"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__outcome-label"
+  }, label), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__outcome-measure"
+  }, "Added by you")), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "xs",
+    variant: "quiet",
+    onClick: () => setExtras(extras.filter(x => x !== label))
+  }, "Remove"))), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__addrow"
+  }, /*#__PURE__*/React.createElement(__ds_scope.TextInput, {
+    value: extraOutcome,
+    placeholder: "Add an outcome of your own",
+    onChange: e => setExtraOutcome(e.target.value),
+    onKeyDown: e => {
+      if (e.key !== 'Enter' || !extraOutcome.trim()) return;
+      e.preventDefault();
+      setExtras(extras.concat([extraOutcome.trim()]));
+      setExtraOutcome('');
+    }
+  }), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "secondary",
+    icon: "add",
+    disabled: !extraOutcome.trim(),
+    onClick: () => {
+      setExtras(extras.concat([extraOutcome.trim()]));
+      setExtraOutcome('');
+    }
+  }, "Add")), (chosen.checkpoints || []).length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-composer__label"
+  }, "Where a person decides"), (chosen.checkpoints || []).map((c, i) => {
+    const key = c.id != null ? c.id : i;
+    return /*#__PURE__*/React.createElement("div", {
+      key: key,
+      className: "lamp-composer__outcome"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+      checked: !!checkpoints[key],
+      onChange: () => toggle(setCheckpoints)(key)
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-main"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-label"
+    }, c.name), /*#__PURE__*/React.createElement("span", {
+      className: "lamp-composer__outcome-measure"
+    }, c.when)));
+  })) : null) : null, allowGenie && chosen.id !== __ds_scope.BLANK_PROCESS.id ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-composer__genie"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+    checked: makeGenie,
+    onChange: () => setMakeGenie(!makeGenie),
+    label: 'Also create a ' + chosen.domain + ' Genie',
+    description: 'Sets up the Genie this process belongs to, with its memory, guardrails and the other Playbooks it usually contains — as drafts.'
+  }), makeGenie && onPreviewGenie ? /*#__PURE__*/React.createElement(__ds_scope.Button, {
+    size: "sm",
+    variant: "secondary",
+    icon: "visibility",
+    onClick: () => onPreviewGenie(chosen)
+  }, "Preview what gets created") : null) : null);
+}
+Object.assign(__ds_scope, { PlaybookComposer });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/PlaybookComposer.jsx", error: String((e && e.message) || e) }); }
+
 // components/patterns/VoiceButton.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function VoiceWaveform({
   levels = [],
   bars = 18,
@@ -6407,7 +9584,15 @@ Object.assign(__ds_scope, { VoiceWaveform, VoiceButton });
 
 // components/runtime/ApprovalCard.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function ApprovalCard({
   question,
   amount,
@@ -6508,7 +9693,15 @@ Object.assign(__ds_scope, { ApprovalCard, HumanCheckpoint });
 
 // components/runtime/EnvironmentBanner.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const ENV = {
   draft: {
     glyph: 'edit',
@@ -6568,7 +9761,15 @@ Object.assign(__ds_scope, { EnvironmentBanner });
 
 // components/runtime/KillSwitch.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function KillSwitch({
   scope = 'this Genie',
   consequences,
@@ -6666,7 +9867,15 @@ Object.assign(__ds_scope, { KillSwitch, SafetyControls });
 
 // components/runtime/LiveActivityIndicator.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function LiveActivityIndicator({
   mode = 'live',
   label,
@@ -6693,7 +9902,15 @@ Object.assign(__ds_scope, { LiveActivityIndicator });
 
 // components/runtime/ReadinessCheck.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const TONE = {
   passed: {
     glyph: 'check_circle',
@@ -6742,7 +9959,15 @@ Object.assign(__ds_scope, { ReadinessCheck });
 
 // components/runtime/RunSummary.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function RunSummary({
   runId,
   status = 'success',
@@ -6785,7 +10010,15 @@ Object.assign(__ds_scope, { RunSummary });
 
 // components/runtime/RunTimeline.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 const STEP = {
   pending: {
     glyph: null,
@@ -6893,7 +10126,15 @@ Object.assign(__ds_scope, { RunStep, RunTimeline });
 
 // components/runtime/SimulationBar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
 function SimulationBar({
   mode = 'simulation',
   state = 'idle',
@@ -6980,2166 +10221,130 @@ function SimulationBar({
 Object.assign(__ds_scope, { SimulationBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/SimulationBar.jsx", error: String((e && e.message) || e) }); }
 
-// ui_kits/lamp-canvas/BuilderApp.jsx
+// components/runtime/SimulationStep.jsx
 try { (() => {
-const L = window.LAMPDesignSystem_980d6d;
-function BuilderApp() {
-  const {
-    AppShell,
-    GlobalHeader,
-    WorkspaceSwitcher,
-    Breadcrumb,
-    EnvironmentPill,
-    Button,
-    IconButton,
-    SideNav,
-    NavSection,
-    NavItem,
-    ObjectTree,
-    StatusBar,
-    CanvasSurface,
-    CanvasToolbar,
-    CanvasZoomControls,
-    CanvasObjectToolbar,
-    CanvasMinimap,
-    SnapGuide,
-    AgentHex,
-    HexLattice,
-    HexCenter,
-    BondEdge,
-    BondLayer,
-    PlaybookCluster,
-    AgentIsland,
-    InspectorPanel,
-    Tabs,
-    StatusBadge,
-    Badge,
-    Divider,
-    SimulationBar,
-    EnvironmentBanner,
-    LiveActivityIndicator,
-    CommandPalette,
-    SearchInput,
-    Tooltip,
-    EmptyState
-  } = L;
-  const [selected, setSelected] = React.useState('matcher');
-  const [tab, setTab] = React.useState('purpose');
-  const [treeSel, setTreeSel] = React.useState('vp');
-  const [environment, setEnvironment] = React.useState('live');
-  const [zoom, setZoom] = React.useState(1);
-  const [bondMode, setBondMode] = React.useState(false);
-  const [palette, setPalette] = React.useState(false);
-  const [simState, setSimState] = React.useState('idle');
-  const [progress, setProgress] = React.useState(0);
-  React.useEffect(() => {
-    const onKey = e => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        setPalette(true);
-      }
-      if (e.key === 'Escape') {
-        setPalette(false);
-        setBondMode(false);
-      }
-      if (e.key.toLowerCase() === 'b' && !e.metaKey && !e.ctrlKey) setBondMode(v => !v);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
-  React.useEffect(() => {
-    if (simState !== 'running') return;
-    const t = setInterval(() => setProgress(p => p >= 1 ? (clearInterval(t), 1) : p + 0.08), 420);
-    return () => clearInterval(t);
-  }, [simState]);
-  const agents = window.AGENTS;
-  const byId = {};
-  agents.forEach(a => {
-    byId[a.id] = a;
-  });
-  const agent = byId[selected];
-  const size = zoom < 0.55 ? 'sm' : 'md';
-  const detail = zoom < 0.55 ? 'glyph' : zoom < 1.2 ? 'name' : 'meta';
-  const inSim = environment === 'simulation';
-  const gap = detail === 'glyph' ? 2 : 22;
-  const runState = a => {
-    if (selected === a.id) return 'selected';
-    if (bondMode && a.state === 'compatible') return 'compatible';
-    if (simState === 'running' && a.state === 'running') return 'running';
-    if (simState === 'idle' && a.state === 'running') return 'succeeded';
-    return a.state;
-  };
-  const renderAgent = a => /*#__PURE__*/React.createElement(AgentHex, {
-    key: a.id,
-    size: size,
-    detail: detail,
-    role: a.role,
-    roleLabel: a.roleLabel,
-    name: a.name,
-    status: detail === 'glyph' ? undefined : a.status,
-    state: runState(a),
-    environment: environment === 'simulation' ? 'simulation' : a.state === 'running' ? 'live' : 'draft',
-    memoryActive: a.memory > 6,
-    tools: a.tools.length,
-    cost: "$0.04",
-    badgeCount: a.status === 'needsHuman' ? 1 : undefined,
-    onClick: () => {
-      setSelected(a.id);
-      setTab('purpose');
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
-  });
-  const coreIds = ['intake', 'matcher', 'verifier'];
-  const coreCells = coreIds.map((id, i) => ({
-    col: i,
-    row: 0,
-    key: id,
-    node: renderAgent(byId[id])
-  }));
-  const c = id => HexCenter(coreIds.indexOf(id), 0, size, gap);
-  const coreBonds = [['intake', 'matcher', 'valid'], ['matcher', 'verifier', 'valid']];
-  const coreW = coreIds.length * ((size === 'md' ? 64 : 48) * 0.75 + gap) + 48;
-  const coreH = (size === 'md' ? 55 : 42) + 48;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(AppShell, {
-    header: /*#__PURE__*/React.createElement(GlobalHeader, {
-      brand: /*#__PURE__*/React.createElement(WorkspaceSwitcher, {
-        name: "Northwind Trading",
-        subtitle: "Operations LAMP",
-        onClick: () => setPalette(true)
-      }),
-      center: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Breadcrumb, {
-        items: [{
-          label: 'Northwind'
-        }, {
-          label: 'Operations LAMP'
-        }, {
-          label: 'Finance Genie',
-          icon: 'hive'
-        }, {
-          label: 'Vendor payment'
-        }]
-      }), /*#__PURE__*/React.createElement(EnvironmentPill, {
-        environment: environment,
-        scope: "Finance Genie"
-      })),
-      right: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SearchInput, {
-        size: "sm",
-        placeholder: "Search LAMP",
-        shortcut: "/",
-        style: {
-          width: 180
-        }
-      }), /*#__PURE__*/React.createElement(Tooltip, {
-        content: "Command palette",
-        shortcut: "\u2318K"
-      }, /*#__PURE__*/React.createElement(IconButton, {
-        icon: "bolt",
-        label: "Command palette",
-        size: "lg",
-        onClick: () => setPalette(true)
-      })), /*#__PURE__*/React.createElement(Divider, {
-        orientation: "vertical"
-      }), inSim ? /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary",
-        icon: "stop_circle",
-        onClick: () => {
-          setEnvironment('live');
-          setSimState('idle');
-          setProgress(0);
-        }
-      }, "Exit simulation") : /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary",
-        icon: "science",
-        shortcut: "S",
-        onClick: () => {
-          setEnvironment('simulation');
-          setSimState('running');
-          setProgress(0.08);
-        }
-      }, "Simulate"), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "brand",
-        icon: "bolt",
-        disabled: inSim
-      }, "Go live"), /*#__PURE__*/React.createElement(IconButton, {
-        icon: "account_circle",
-        label: "Account",
-        size: "lg"
-      }))
-    }),
-    rail: /*#__PURE__*/React.createElement(SideNav, {
-      footer: /*#__PURE__*/React.createElement(NavItem, {
-        icon: "settings",
-        label: "Settings"
-      })
-    }, /*#__PURE__*/React.createElement(NavSection, {
-      label: "Operate"
-    }, /*#__PURE__*/React.createElement(NavItem, {
-      icon: "how_to_reg",
-      label: "Approvals",
-      meta: "7",
-      badge: /*#__PURE__*/React.createElement(Badge, {
-        count: true,
-        tone: "waiting"
-      }, "7")
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "history",
-      label: "Runs"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "bolt",
-      label: "Activity"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "shield",
-      label: "Safety"
-    })), /*#__PURE__*/React.createElement(NavSection, {
-      label: "Structure",
-      actions: /*#__PURE__*/React.createElement(IconButton, {
-        icon: "add",
-        label: "New Genie",
-        size: "xs"
-      })
-    }, /*#__PURE__*/React.createElement(ObjectTree, {
-      nodes: window.TREE,
-      selectedId: treeSel,
-      onSelect: n => setTreeSel(n.id)
-    })), /*#__PURE__*/React.createElement(NavSection, {
-      label: "Business"
-    }, /*#__PURE__*/React.createElement(NavItem, {
-      icon: "database",
-      label: "Memory",
-      meta: "1.2k"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "extension",
-      label: "Tools",
-      meta: "9"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "groups",
-      label: "Context"
-    }))),
-    dock: /*#__PURE__*/React.createElement(InspectorPanel, {
-      title: agent.name,
-      subtitle: 'Finance Genie / Vendor payment',
-      glyph: "hexagon",
-      badges: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StatusBadge, {
-        status: agent.status
-      }), /*#__PURE__*/React.createElement(Badge, {
-        outline: true
-      }, agent.roleLabel), inSim ? /*#__PURE__*/React.createElement(Badge, {
-        tone: "info",
-        icon: "science"
-      }, "Simulation") : null),
-      actions: /*#__PURE__*/React.createElement(IconButton, {
-        icon: "more_horiz",
-        label: "Agent actions",
-        size: "sm"
-      }),
-      tabs: /*#__PURE__*/React.createElement(Tabs, {
-        value: tab,
-        onChange: setTab,
-        tabs: [{
-          id: 'purpose',
-          label: 'Configure'
-        }, {
-          id: 'memory',
-          label: 'Memory',
-          count: agent.memory
-        }, {
-          id: 'runtime',
-          label: 'Runtime'
-        }]
-      }),
-      footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "ghost",
-        icon: "science"
-      }, "Test Agent"), /*#__PURE__*/React.createElement("span", {
-        style: {
-          flex: 1
-        }
-      }), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary"
-      }, "Discard"), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "primary"
-      }, "Save"))
-    }, /*#__PURE__*/React.createElement(window.InspectorBody, {
-      agent: agent,
-      tab: tab,
-      environment: environment
-    })),
-    bottom: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(CanvasToolbar, {
-      position: "floating",
-      style: {
-        position: 'static',
-        transform: 'none',
-        border: 'none',
-        boxShadow: 'none',
-        background: 'transparent',
-        padding: 0
-      }
-    }, /*#__PURE__*/React.createElement(IconButton, {
-      icon: "near_me",
-      label: "Select",
-      bordered: true,
-      active: true
-    }), /*#__PURE__*/React.createElement(IconButton, {
-      icon: "pan_tool",
-      label: "Pan",
-      bordered: true
-    }), /*#__PURE__*/React.createElement(IconButton, {
-      icon: "add",
-      label: "Add Agent",
-      bordered: true
-    }), /*#__PURE__*/React.createElement(IconButton, {
-      icon: "link",
-      label: "Bond mode",
-      bordered: true,
-      active: bondMode,
-      onClick: () => setBondMode(!bondMode)
-    })), /*#__PURE__*/React.createElement(Divider, {
-      orientation: "vertical"
-    }), /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontSize: 11,
-        color: 'var(--text-tertiary)'
-      }
-    }, bondMode ? 'Bond mode — pick a compatible Agent, or press Esc' : 'Space + drag to pan · B to bond · F to fit'), /*#__PURE__*/React.createElement("span", {
-      style: {
-        marginLeft: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        gap: 8
-      }
-    }, /*#__PURE__*/React.createElement(LiveActivityIndicator, {
-      mode: inSim ? 'simulation' : 'live',
-      count: inSim ? 3 : 7
-    }))),
-    statusBar: /*#__PURE__*/React.createElement(StatusBar, {
-      items: [{
-        icon: inSim ? 'science' : 'bolt',
-        label: inSim ? 'Simulation' : 'Live'
-      }, {
-        label: 'Zoom',
-        value: Math.round(zoom * 100) + '%'
-      }, {
-        label: 'Selected',
-        value: 1
-      }, {
-        label: 'Agents',
-        value: agents.length
-      }],
-      right: [{
-        icon: 'cloud_done',
-        label: 'Saved 12s ago'
-      }, {
-        label: 'Tools',
-        value: '8/9 healthy'
-      }, {
-        label: 'Run cost',
-        value: '$0.42'
-      }]
-    })
-  }, inSim ? /*#__PURE__*/React.createElement(SimulationBar, {
-    mode: "simulation",
-    state: simState,
-    progress: progress,
-    step: Math.max(1, Math.round(progress * 10)),
-    stepCount: 10,
-    scenario: "March invoices (120 cases)",
-    elapsed: "00:06.2",
-    cost: "$0.18",
-    onRun: () => setSimState('running'),
-    onPause: () => setSimState('paused'),
-    onStop: () => {
-      setSimState('idle');
-      setProgress(0);
-    },
-    onReplay: () => setProgress(0)
-  }) : /*#__PURE__*/React.createElement(EnvironmentBanner, {
-    environment: "live",
-    scope: "Finance Genie",
-    actions: /*#__PURE__*/React.createElement(Button, {
-      size: "sm",
-      variant: "danger-quiet",
-      icon: "pause"
-    }, "Pause Genie")
-  }), /*#__PURE__*/React.createElement(CanvasSurface, {
-    zoom: zoom,
-    environment: inSim ? 'simulation' : 'live',
-    style: {
-      minHeight: 0
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      left: 56,
-      top: 40
-    }
-  }, /*#__PURE__*/React.createElement(PlaybookCluster, {
-    name: "Vendor payment",
-    state: inSim ? 'simulation' : 'live',
-    agents: agents.length,
-    layout: "free",
-    resizable: true,
-    width: detail === 'glyph' ? 560 : 730,
-    height: detail === 'glyph' ? 168 : 214,
-    meta: ['Last run 4m ago', '98% success over 120 runs', '2 human checkpoints', '3 Tools'],
-    actions: /*#__PURE__*/React.createElement(Badge, {
-      outline: true,
-      icon: "schedule"
-    }, "Daily 06:00")
-  }, /*#__PURE__*/React.createElement(AgentIsland, {
-    name: "Intake and matching",
-    note: "bonded",
-    x: 0,
-    y: 0
-  }, /*#__PURE__*/React.createElement(HexLattice, {
-    size: size,
-    gap: gap,
-    cells: coreCells,
-    overlay: /*#__PURE__*/React.createElement(BondLayer, {
-      width: coreW,
-      height: coreH
-    }, coreBonds.map(b => /*#__PURE__*/React.createElement(BondEdge, {
-      key: b[0] + b[1],
-      from: c(b[0]),
-      to: c(b[1]),
-      state: b[2],
-      energy: !!(simState === 'running' && b[2] === 'valid'),
-      environment: inSim ? 'simulation' : 'live'
-    })))
-  })), /*#__PURE__*/React.createElement(AgentIsland, {
-    name: "Approval",
-    note: "human checkpoint",
-    outlined: true,
-    x: detail === 'glyph' ? 200 : 268,
-    y: 0
-  }, renderAgent(byId.approver)), /*#__PURE__*/React.createElement(AgentIsland, {
-    solo: true,
-    name: "Ledger Sync",
-    note: "after settlement",
-    x: detail === 'glyph' ? 300 : 412,
-    y: 4
-  }, renderAgent(byId.ledger)), /*#__PURE__*/React.createElement(AgentIsland, {
-    solo: true,
-    name: "Vendor Notifier",
-    note: "not configured",
-    x: detail === 'glyph' ? 400 : 556,
-    y: 4
-  }, renderAgent(byId.notifier)))), bondMode ? /*#__PURE__*/React.createElement(SnapGuide, {
-    rect: {
-      left: 56 + 24 + 3 * (64 * 0.75 + gap),
-      top: 40 + 24 + 55 + gap + 28,
-      width: 72,
-      height: 62
-    }
-  }) : null, /*#__PURE__*/React.createElement(CanvasObjectToolbar, {
-    x: 320,
-    y: 34
-  }, /*#__PURE__*/React.createElement(IconButton, {
-    icon: "link",
-    label: "Bond",
-    size: "sm",
-    onClick: () => setBondMode(true)
-  }), /*#__PURE__*/React.createElement(IconButton, {
-    icon: "content_copy",
-    label: "Duplicate",
-    size: "sm"
-  }), /*#__PURE__*/React.createElement(IconButton, {
-    icon: "science",
-    label: "Test",
-    size: "sm"
-  }), /*#__PURE__*/React.createElement(Divider, {
-    orientation: "vertical"
-  }), /*#__PURE__*/React.createElement(IconButton, {
-    icon: "delete",
-    label: "Delete Agent",
-    size: "sm",
-    tone: "danger"
-  })), /*#__PURE__*/React.createElement(CanvasZoomControls, {
-    zoom: zoom,
-    onZoomIn: () => setZoom(z => Math.min(1.8, z + 0.2)),
-    onZoomOut: () => setZoom(z => Math.max(0.3, z - 0.2)),
-    onFit: () => setZoom(1),
-    onReset: () => setZoom(1)
-  }), /*#__PURE__*/React.createElement(CanvasMinimap, {
-    viewport: {
-      left: 16,
-      top: 14,
-      width: 84,
-      height: 56
-    },
-    blips: agents.map((a, i) => ({
-      x: 26 + a.col * 14,
-      y: 26 + a.row * 12,
-      w: 6,
-      h: 5,
-      tone: a.status === 'error' ? 'error' : a.status === 'running' ? 'live' : undefined
-    }))
-  }))), /*#__PURE__*/React.createElement(CommandPalette, {
-    open: palette,
-    query: "",
-    onClose: () => setPalette(false),
-    activeId: "sim",
-    onSelect: it => {
-      setPalette(false);
-      if (it.id === 'sim') {
-        setEnvironment('simulation');
-        setSimState('running');
-        setProgress(0.08);
-      }
-    },
-    groups: [{
-      label: 'Create',
-      items: [{
-        id: 'na',
-        label: 'Create Agent',
-        icon: 'add',
-        shortcut: ['A']
-      }, {
-        id: 'np',
-        label: 'Create Playbook',
-        icon: 'layers'
-      }, {
-        id: 'ns',
-        label: 'Create Skill',
-        icon: 'auto_awesome'
-      }]
-    }, {
-      label: 'Run',
-      items: [{
-        id: 'sim',
-        label: 'Run simulation',
-        icon: 'science',
-        context: 'Vendor payment',
-        shortcut: ['S']
-      }, {
-        id: 'live',
-        label: 'Go live',
-        icon: 'bolt',
-        context: 'Vendor payment'
-      }]
-    }, {
-      label: 'Navigate',
-      items: [{
-        id: 'g1',
-        label: 'Finance Genie',
-        icon: 'hive',
-        context: 'Operations LAMP'
-      }, {
-        id: 'm1',
-        label: 'Inspect memory',
-        icon: 'database',
-        context: 'Genie memory'
-      }]
-    }, {
-      label: 'Safety',
-      items: [{
-        id: 'pause',
-        label: 'Pause Finance Genie',
-        icon: 'pause',
-        danger: true
-      }, {
-        id: 'kill',
-        label: 'Emergency stop Finance Genie',
-        icon: 'dangerous',
-        danger: true
-      }]
-    }]
-  }));
+    return n;
+  }, _extends.apply(null, arguments);
 }
-window.BuilderApp = BuilderApp;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/lamp-canvas/BuilderApp.jsx", error: String((e && e.message) || e) }); }
+/* One step of a simulation run.
 
-// ui_kits/lamp-canvas/InspectorBody.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const L = window.LAMPDesignSystem_980d6d;
-function InspectorBody({
-  agent,
-  tab,
-  environment
+   A simulated step is not a live step wearing a different colour. Two things are
+   true of simulation and of nothing else, and the component makes both
+   unmissable:
+
+     MOCKED    the Tool was never called; the value shown is a stand-in
+     BLOCKED   the step would have written externally and simulation stopped it
+
+   Both are stamped as micro uppercase labels rather than a tint, because an
+   operator reading a timeline needs to know which numbers are real without
+   having learnt a colour code. `divergence` marks a step whose simulated
+   outcome differs from the recorded live behaviour it is being compared with —
+   the whole point of running the simulation.
+
+   Everything else — chips, durations, token counts — is RunStep, so a
+   simulation timeline and a live timeline line up column for column. */
+
+const SIM_NOTE = {
+  mocked: {
+    label: 'Mocked',
+    glyph: 'inventory_2',
+    tone: 'neutral'
+  },
+  blocked: {
+    label: 'Blocked',
+    glyph: 'block',
+    tone: 'warning'
+  },
+  waitingHuman: {
+    label: 'Awaiting approval',
+    glyph: 'how_to_reg',
+    tone: 'waiting'
+  },
+  skipped: {
+    label: 'Skipped',
+    glyph: 'remove',
+    tone: 'neutral'
+  }
+};
+function SimulationStep({
+  state = 'pending',
+  mockedValue,
+  blockedReason,
+  divergence,
+  expected,
+  scenario,
+  children,
+  className = '',
+  ...rest
 }) {
-  const {
-    InspectorSection,
-    PropertyRow,
-    SkillOrb,
-    ToolTile,
-    EntityChip,
-    MemoryScope,
-    MemoryFact,
-    Switch,
-    Badge,
-    Button,
-    IconButton,
-    StatusBadge,
-    RunTimeline,
-    MemoryUsageBar,
-    ErrorState,
-    Textarea
-  } = L;
-  if (tab === 'memory') {
-    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Working memory",
-      count: agent.memory
-    }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: 'flex',
-        gap: 6,
-        flexWrap: 'wrap'
-      }
-    }, /*#__PURE__*/React.createElement(MemoryScope, {
-      scope: "agent"
-    }), /*#__PURE__*/React.createElement(MemoryScope, {
-      scope: "playbook"
-    }), /*#__PURE__*/React.createElement(MemoryScope, {
-      scope: "genie"
-    }), /*#__PURE__*/React.createElement(MemoryScope, {
-      scope: "lamp"
-    })), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Retrieval",
-      value: "On demand, evidence-first"
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Last retrieval",
-      value: "14:32:04",
-      mono: true
-    })), /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Context used",
-      count: "3,412"
-    }, /*#__PURE__*/React.createElement(MemoryUsageBar, {
-      segments: [{
-        key: 'agent',
-        label: 'Agent working memory',
-        value: 618
-      }, {
-        key: 'playbook',
-        label: 'Playbook memory',
-        value: 402
-      }, {
-        key: 'genie',
-        label: 'Genie memory',
-        value: 771
-      }, {
-        key: 'lamp',
-        label: 'LAMP memory',
-        value: 340
-      }, {
-        key: 'evidence',
-        label: 'Retrieved evidence',
-        value: 1281
-      }]
-    })), /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Facts in scope",
-      count: window.MEMORY.length
-    }, window.MEMORY.slice(0, 2).map(m => /*#__PURE__*/React.createElement(MemoryFact, _extends({
-      key: m.fact
-    }, m, {
-      onConfirm: () => {},
-      onCorrect: () => {}
-    })))));
-  }
-  if (tab === 'runtime') {
-    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Runtime",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "State",
-      value: /*#__PURE__*/React.createElement(StatusBadge, {
-        status: agent.status
-      })
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Current task",
-      value: agent.task
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Environment",
-      value: environment === 'simulation' ? 'Simulation' : 'Live'
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Runs today",
-      value: "412",
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "p95 duration",
-      value: "6.2s",
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Cost / run",
-      value: "$0.04",
-      mono: true
-    })), agent.status === 'error' ? /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Last failure",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(ErrorState, {
-      title: "Salesforce write failed",
-      happened: "The connection was rejected after 3 attempts.",
-      notHappened: "No opportunity records were created or modified.",
-      impact: "4 invoices are waiting in this Playbook.",
-      recovery: "Reconnect the Salesforce account, then retry the run.",
-      code: "tool_auth_expired",
-      onRetry: () => {}
-    })) : null, /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Recent steps"
-    }, /*#__PURE__*/React.createElement(RunTimeline, {
-      steps: [{
-        state: 'success',
-        title: 'Invoice extracted',
-        tools: ['Google Drive'],
-        duration: '1.2s',
-        tokens: '812'
-      }, {
-        state: 'success',
-        title: 'Matched to PO-9921',
-        memory: 'Genie memory',
-        duration: '0.6s'
-      }, {
-        state: agent.status === 'error' ? 'failed' : 'running',
-        title: agent.status === 'error' ? 'Ledger write failed' : 'Verifying vendor',
-        tools: ['SAP'],
-        duration: '3.1s'
-      }]
-    })));
-  }
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Purpose",
-    collapsible: false
-  }, /*#__PURE__*/React.createElement(Textarea, {
-    rows: 3,
-    defaultValue: agent.purpose
-  })), /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Skills",
-    count: agent.skills.length,
-    actions: /*#__PURE__*/React.createElement(IconButton, {
-      icon: "add",
-      label: "Add Skill",
-      size: "xs"
-    })
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 10,
-      flexWrap: 'wrap'
-    }
-  }, agent.skills.map(s => /*#__PURE__*/React.createElement(SkillOrb, {
-    key: s[0],
-    name: s[0],
-    glyph: s[1],
-    state: agent.status === 'running' ? 'active' : 'attached',
-    label: true
-  })))), /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Tools",
-    count: agent.tools.length,
-    actions: /*#__PURE__*/React.createElement(IconButton, {
-      icon: "add",
-      label: "Connect Tool",
-      size: "xs"
-    })
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 8,
-      flexWrap: 'wrap'
-    }
-  }, agent.tools.map(t => /*#__PURE__*/React.createElement(ToolTile, {
-    key: t[1],
-    provider: t[0],
-    name: t[1],
-    state: agent.status === 'error' ? 'error' : 'connected'
-  })))), /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Authority"
-  }, /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Approval limit",
-    value: agent.limit,
-    mono: true
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Escalation",
-    value: /*#__PURE__*/React.createElement(EntityChip, {
-      type: "person",
-      name: "Asha Rao",
-      initials: "AR"
-    })
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "External writes",
-    inherited: true,
-    value: "Allowed"
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Delegation",
-    value: /*#__PURE__*/React.createElement(Switch, {
-      defaultChecked: agent.role === 'coordinator'
-    })
-  })), /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Guardrails",
-    count: 3
-  }, /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Max spend / run",
-    value: "\u20B9250,000",
-    mono: true
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Blocked actions",
-    value: /*#__PURE__*/React.createElement(Badge, {
-      tone: "danger",
-      icon: "block"
-    }, "Delete records")
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Human checkpoint",
-    value: "Above authority limit"
-  })), /*#__PURE__*/React.createElement(InspectorSection, {
-    label: "Advanced",
-    advanced: true
-  }, /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Model",
-    value: "Default routing"
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Retry policy",
-    value: "3 attempts, exponential"
-  }), /*#__PURE__*/React.createElement(PropertyRow, {
-    label: "Agent ID",
-    value: "ag_4b21c9",
-    mono: true
-  })));
+  const note = SIM_NOTE[state];
+  return /*#__PURE__*/React.createElement(__ds_scope.RunStep, _extends({
+    state: state,
+    className: ['lamp-simstep', 'lamp-simstep--' + state, divergence && 'lamp-simstep--diverged', className].filter(Boolean).join(' ')
+  }, rest), note || divergence || scenario ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__chips"
+  }, note ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: note.tone,
+    icon: note.glyph,
+    micro: true
+  }, note.label) : null, scenario ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true,
+    icon: "science",
+    micro: true
+  }, scenario) : null, divergence ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "warning",
+    icon: "swap_horiz",
+    micro: true
+  }, "Differs from live") : null) : null, state === 'mocked' && mockedValue ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__mock"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "inventory_2",
+    size: 12
+  }), /*#__PURE__*/React.createElement("span", null, "Stand-in value: ", /*#__PURE__*/React.createElement("b", null, mockedValue))) : null, state === 'blocked' && blockedReason ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__blocked"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "block",
+    size: 12
+  }), /*#__PURE__*/React.createElement("span", null, blockedReason)) : null, divergence && expected ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__diverge"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__diverge-row"
+  }, /*#__PURE__*/React.createElement("span", null, "Live"), /*#__PURE__*/React.createElement("b", null, expected)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-simstep__diverge-row"
+  }, /*#__PURE__*/React.createElement("span", null, "Simulated"), /*#__PURE__*/React.createElement("b", null, divergence))) : null, children);
 }
-window.InspectorBody = InspectorBody;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/lamp-canvas/InspectorBody.jsx", error: String((e && e.message) || e) }); }
+Object.assign(__ds_scope, { SimulationStep });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/SimulationStep.jsx", error: String((e && e.message) || e) }); }
 
-// ui_kits/lamp-canvas/data.jsx
-try { (() => {
-const AGENTS = [{
-  id: 'intake',
-  name: 'Invoice Intake',
-  role: 'coordinator',
-  roleLabel: 'Coordinator',
-  col: 0,
-  row: 0,
-  status: 'success',
-  state: 'bonded',
-  purpose: 'Watch the shared inbox and Drive folder for new vendor invoices, then start the Playbook.',
-  skills: [['Extract', 'content_paste'], ['Classify', 'category']],
-  tools: [['googledrive', 'Google Drive'], ['gmail', 'Gmail']],
-  limit: '—',
-  memory: 4,
-  task: 'Idle'
-}, {
-  id: 'matcher',
-  name: 'Invoice Matcher',
-  role: 'specialist',
-  roleLabel: 'Specialist',
-  col: 1,
-  row: 0,
-  status: 'running',
-  state: 'running',
-  purpose: 'Match each invoice to its purchase order and flag any mismatch above tolerance.',
-  skills: [['Reconcile', 'rule'], ['Verify', 'fact_check']],
-  tools: [['sap', 'SAP']],
-  limit: '₹0',
-  memory: 12,
-  task: 'Matching INV-20418'
-}, {
-  id: 'verifier',
-  name: 'Vendor Verifier',
-  role: 'specialist',
-  roleLabel: 'Specialist',
-  col: 2,
-  row: 0,
-  status: 'waiting',
-  state: 'bonded',
-  purpose: 'Confirm the vendor is approved, active and has current banking details.',
-  skills: [['Search', 'search'], ['Verify', 'fact_check']],
-  tools: [['salesforce', 'Salesforce']],
-  limit: '₹0',
-  memory: 7,
-  task: 'Waiting for Matcher'
-}, {
-  id: 'approver',
-  name: 'Payment Approver',
-  role: 'humanSupervised',
-  roleLabel: 'Human-supervised',
-  col: 1,
-  row: 1,
-  status: 'needsHuman',
-  state: 'needsHuman',
-  purpose: 'Approve payments within the authority limit and escalate anything above it.',
-  skills: [['Summarize', 'summarize']],
-  tools: [['sap', 'SAP']],
-  limit: '₹50,000',
-  memory: 9,
-  task: 'Awaiting approval · ₹184,200'
-}, {
-  id: 'ledger',
-  name: 'Ledger Sync',
-  role: 'standard',
-  roleLabel: 'Worker',
-  col: 3,
-  row: 0,
-  status: 'error',
-  state: 'error',
-  purpose: 'Write settled payments back to the ledger and reconcile the daily statement.',
-  skills: [['Reconcile', 'rule']],
-  tools: [['salesforce', 'Salesforce']],
-  limit: '—',
-  memory: 3,
-  task: 'Salesforce write failed'
-}, {
-  id: 'notifier',
-  name: 'Vendor Notifier',
-  role: 'standard',
-  roleLabel: 'Worker',
-  col: 2,
-  row: 1,
-  status: 'draft',
-  state: 'compatible',
-  purpose: 'Tell the vendor when a payment is scheduled, in their preferred channel.',
-  skills: [['Translate', 'translate']],
-  tools: [['whatsapp', 'WhatsApp']],
-  limit: '—',
-  memory: 2,
-  task: 'Not configured'
-}];
-const BONDS = [['intake', 'matcher', 'valid'], ['matcher', 'verifier', 'valid'], ['matcher', 'approver', 'valid'], ['verifier', 'ledger', 'requiresConfig'], ['approver', 'notifier', 'suggested']];
-const TREE = [{
-  id: 'fin',
-  label: 'Finance Genie',
-  icon: 'hive',
-  status: 'live',
-  children: [{
-    id: 'vp',
-    label: 'Vendor payment',
-    icon: 'layers',
-    status: 'live',
-    meta: '6'
-  }, {
-    id: 'mc',
-    label: 'Month-end close',
-    icon: 'layers',
-    status: 'simulation',
-    meta: '11'
-  }, {
-    id: 'rc',
-    label: 'Reconciliation',
-    icon: 'layers',
-    status: 'validated',
-    meta: '4'
-  }]
-}, {
-  id: 'cops',
-  label: 'Customer Ops Genie',
-  icon: 'hive',
-  status: 'live',
-  children: [{
-    id: 'tick',
-    label: 'Ticket triage',
-    icon: 'layers',
-    status: 'live',
-    meta: '7'
-  }]
-}, {
-  id: 'rec',
-  label: 'Recruitment Genie',
-  icon: 'hive',
-  status: 'draft',
-  children: [{
-    id: 'scr',
-    label: 'CV screening',
-    icon: 'layers',
-    status: 'inferred',
-    meta: '3'
-  }]
-}];
-const MEMORY = [{
-  type: 'policy',
-  scope: 'lamp',
-  confidence: 'veryHigh',
-  fact: 'Payments above ₹50,000 require a second approver.',
-  source: 'Finance policy v4',
-  evidenceCount: 1,
-  lastConfirmed: '12 Sep',
-  access: 'Shared'
-}, {
-  type: 'observedPattern',
-  scope: 'genie',
-  confidence: 'high',
-  fact: 'Vendor approvals usually happen through WhatsApp before they are entered in SAP.',
-  source: 'WhatsApp threads, SAP records',
-  evidenceCount: 23,
-  lastConfirmed: '2 days ago',
-  owner: 'Finance'
-}, {
-  type: 'exception',
-  scope: 'playbook',
-  confidence: 'medium',
-  fact: 'Meridian Supplies invoices arrive without a PO reference in about one case in five.',
-  source: 'Invoice history',
-  evidenceCount: 9,
-  lastConfirmed: '4 days ago',
-  contradictions: 1
-}, {
-  type: 'preference',
-  scope: 'agent',
-  confidence: 'high',
-  fact: 'Asha Rao prefers approval requests batched at 09:00 rather than sent individually.',
-  source: 'Approval timing',
-  evidenceCount: 14,
-  freshness: 'today'
-}];
-Object.assign(window, {
-  AGENTS,
-  BONDS,
-  TREE,
-  MEMORY
-});
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/lamp-canvas/data.jsx", error: String((e && e.message) || e) }); }
+__ds_ns.MATERIAL_SYMBOLS_BASE = __ds_scope.MATERIAL_SYMBOLS_BASE;
 
-// ui_kits/lamp-operations/OpsApp.jsx
-try { (() => {
-const L = window.LAMPDesignSystem_980d6d;
-const RUNS = [{
-  id: 'run_8f21c4',
-  playbook: 'Vendor payment',
-  genie: 'Finance',
-  status: 'error',
-  started: '06:00:02',
-  dur: '6.2s',
-  agents: 9,
-  tools: 14,
-  tokens: '3,412',
-  cost: '$0.14',
-  human: 1
-}, {
-  id: 'run_8f20a1',
-  playbook: 'Month-end close',
-  genie: 'Finance',
-  status: 'success',
-  started: '05:58:41',
-  dur: '12.8s',
-  agents: 11,
-  tools: 22,
-  tokens: '8,104',
-  cost: '$0.31',
-  human: 0
-}, {
-  id: 'run_8f1f77',
-  playbook: 'Reconciliation',
-  genie: 'Finance',
-  status: 'needsHuman',
-  started: '05:55:10',
-  dur: '2.1s',
-  agents: 4,
-  tools: 5,
-  tokens: '1,210',
-  cost: '$0.04',
-  human: 1
-}, {
-  id: 'run_8f1e02',
-  playbook: 'Ticket triage',
-  genie: 'Customer Ops',
-  status: 'success',
-  started: '05:52:00',
-  dur: '5.9s',
-  agents: 7,
-  tools: 9,
-  tokens: '2,880',
-  cost: '$0.12',
-  human: 0
-}, {
-  id: 'run_8f1d55',
-  playbook: 'Vendor payment',
-  genie: 'Finance',
-  status: 'success',
-  started: '05:49:33',
-  dur: '5.4s',
-  agents: 9,
-  tools: 13,
-  tokens: '3,180',
-  cost: '$0.13',
-  human: 0
-}, {
-  id: 'run_8f1c18',
-  playbook: 'CV screening',
-  genie: 'Recruitment',
-  status: 'skipped',
-  started: '05:44:07',
-  dur: '0.4s',
-  agents: 3,
-  tools: 2,
-  tokens: '180',
-  cost: '$0.01',
-  human: 0
-}];
-function OpsApp() {
-  const {
-    AppShell,
-    GlobalHeader,
-    WorkspaceSwitcher,
-    Breadcrumb,
-    EnvironmentPill,
-    Button,
-    IconButton,
-    SideNav,
-    NavSection,
-    NavItem,
-    StatusBar,
-    StatusBadge,
-    Badge,
-    Divider,
-    Tabs,
-    SegmentedControl,
-    FilterBar,
-    Pagination,
-    Select,
-    SearchInput,
-    DataTable,
-    MetricCard,
-    Sparkline,
-    ChartFrame,
-    LineChart,
-    BarChart,
-    HexHeatmap,
-    Heatmap,
-    DonutChart,
-    UsageMeter,
-    RunTimeline,
-    RunSummary,
-    ErrorState,
-    ApprovalCard,
-    KillSwitch,
-    SafetyControls,
-    ReadinessCheck,
-    EnvironmentBanner,
-    LiveActivityIndicator,
-    InspectorPanel,
-    InspectorSection,
-    PropertyRow,
-    MemoryUsageBar,
-    MemoryFact,
-    LearnedPattern,
-    ObservedProcess,
-    IntegrationCard,
-    EntityChip,
-    InlineNotification,
-    EmptyState,
-    Panel,
-    Card,
-    ObjectRow,
-    ObjectList,
-    ToolRow
-  } = L;
-  const [view, setView] = React.useState('runs');
-  const [runTab, setRunTab] = React.useState('overview');
-  const [selectedRun, setSelectedRun] = React.useState('run_8f21c4');
-  const [killOpen, setKillOpen] = React.useState(false);
-  const [sel, setSel] = React.useState([]);
-  const run = RUNS.find(r => r.id === selectedRun) || RUNS[0];
-  const days = ['1', '5', '10', '15', '20', '25', '30'];
-  const cells = [];
-  for (let c = 0; c < 8; c++) for (let r = 0; r < 3; r++) cells.push({
-    col: c,
-    row: r,
-    value: Math.round(Math.abs(Math.sin(c * 1.4 + r * 0.7)) * 40),
-    label: 'Agent ' + (c * 3 + r + 1)
-  });
-  const runColumns = [{
-    key: 'id',
-    header: 'Run',
-    mono: true,
-    pinned: true,
-    width: 116
-  }, {
-    key: 'playbook',
-    header: 'Playbook',
-    sortable: true
-  }, {
-    key: 'genie',
-    header: 'Genie'
-  }, {
-    key: 'status',
-    header: 'Status',
-    render: r => /*#__PURE__*/React.createElement(StatusBadge, {
-      status: r.status
-    })
-  }, {
-    key: 'started',
-    header: 'Started',
-    mono: true,
-    align: 'right'
-  }, {
-    key: 'dur',
-    header: 'Duration',
-    mono: true,
-    align: 'right',
-    sortable: true
-  }, {
-    key: 'tokens',
-    header: 'Tokens',
-    mono: true,
-    align: 'right'
-  }, {
-    key: 'cost',
-    header: 'Cost',
-    mono: true,
-    align: 'right',
-    sortable: true
-  }, {
-    key: 'human',
-    header: 'Human',
-    mono: true,
-    align: 'right'
-  }];
-  const body = () => {
-    if (view === 'approvals') {
-      return /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'grid',
-          gridTemplateColumns: '1.4fr 1fr',
-          gap: 16,
-          padding: 16,
-          overflow: 'auto'
-        }
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, /*#__PURE__*/React.createElement(ApprovalCard, {
-        tone: "financial",
-        question: "Approve payment to Meridian Supplies?",
-        amount: "\u20B9184,200",
-        requestedBy: "Payment Approver",
-        playbook: "Vendor payment",
-        dueIn: "Due in 2h",
-        facts: [{
-          label: 'Invoice',
-          value: 'INV-20418'
-        }, {
-          label: 'Matched PO',
-          value: 'PO-9921'
-        }, {
-          label: 'Authority limit',
-          value: '₹50,000'
-        }, {
-          label: 'Vendor',
-          value: /*#__PURE__*/React.createElement(EntityChip, {
-            type: "vendor",
-            name: "Meridian Supplies"
-          })
-        }],
-        evidence: /*#__PURE__*/React.createElement(MemoryFact, {
-          type: "exception",
-          scope: "playbook",
-          confidence: "medium",
-          evidenceCount: 9,
-          fact: "Meridian invoices arrive without a PO reference in about one case in five.",
-          source: "Invoice history"
-        }),
-        onApprove: () => {},
-        onEdit: () => {},
-        onReject: () => {},
-        onEscalate: () => {}
-      }), /*#__PURE__*/React.createElement(ApprovalCard, {
-        question: "Which vendor record should LAMP treat as canonical?",
-        kind: "choice",
-        requestedBy: "Vendor Verifier",
-        playbook: "Vendor payment",
-        facts: [{
-          label: 'Conflict',
-          value: 'Two active records with different banking details'
-        }],
-        options: [{
-          id: 'a',
-          label: 'Use SAP record',
-          primary: true
-        }, {
-          id: 'b',
-          label: 'Use Salesforce record'
-        }, {
-          id: 'c',
-          label: 'Merge and review'
-        }]
-      }), /*#__PURE__*/React.createElement(ApprovalCard, {
-        tone: "critical",
-        question: "Delete 1,204 duplicate vendor records?",
-        requestedBy: "Ledger Sync",
-        playbook: "Reconciliation",
-        facts: [{
-          label: 'Scope',
-          value: 'Salesforce · Vendors'
-        }, {
-          label: 'Reversible',
-          value: 'No'
-        }],
-        onApprove: () => {},
-        onReject: () => {}
-      })), /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, /*#__PURE__*/React.createElement(Panel, {
-        title: "Queue",
-        actions: /*#__PURE__*/React.createElement(Badge, {
-          count: true,
-          tone: "waiting"
-        }, "7")
-      }, /*#__PURE__*/React.createElement(ObjectList, null, /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "approval",
-        name: "\u20B9184,200 to Meridian",
-        secondary: "Vendor payment \xB7 Finance",
-        status: "needsHuman",
-        timestamp: "2h",
-        selected: true
-      }), /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "approval",
-        name: "Canonical vendor record",
-        secondary: "Vendor payment \xB7 Finance",
-        status: "waiting",
-        timestamp: "3h"
-      }), /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "approval",
-        name: "Delete duplicates",
-        secondary: "Reconciliation \xB7 Finance",
-        status: "attention",
-        timestamp: "5h"
-      }), /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "approval",
-        name: "Offer approval \u2014 2 candidates",
-        secondary: "CV screening \xB7 Recruitment",
-        status: "waiting",
-        timestamp: "1d"
-      }))), /*#__PURE__*/React.createElement(Panel, {
-        title: "This week"
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          padding: 12,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 10
-        }
-      }, /*#__PURE__*/React.createElement(MetricCard, {
-        flush: true,
-        size: "sm",
-        label: "Human touches",
-        value: "11",
-        delta: "+3",
-        deltaTone: "negative",
-        deltaLabel: "more than usual",
-        spark: /*#__PURE__*/React.createElement(Sparkline, {
-          data: [2, 1, 3, 2, 4, 6, 11],
-          variant: "bar"
-        })
-      }), /*#__PURE__*/React.createElement(MetricCard, {
-        flush: true,
-        size: "sm",
-        label: "Median decision time",
-        value: "42m",
-        delta: "-12m",
-        deltaTone: "positive"
-      }), /*#__PURE__*/React.createElement(UsageMeter, {
-        label: "Approvals answered",
-        used: 38,
-        limit: 49,
-        unit: "this week"
-      })))));
-    }
-    if (view === 'safety') {
-      return /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 16,
-          padding: 16,
-          overflow: 'auto',
-          alignContent: 'start'
-        }
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, /*#__PURE__*/React.createElement(InlineNotification, {
-        tone: "critical",
-        title: "Recruitment Genie is emergency stopped",
-        actions: /*#__PURE__*/React.createElement(Button, {
-          size: "sm",
-          variant: "secondary",
-          icon: "play_arrow"
-        }, "Review and resume")
-      }, "Stopped by Asha Rao at 04:12. External writes are blocked; 2 runs were isolated mid-task."), /*#__PURE__*/React.createElement(Panel, {
-        title: "Genies"
-      }, /*#__PURE__*/React.createElement(ObjectList, null, /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "genie",
-        name: "Finance",
-        secondary: "6 Playbooks \xB7 23 Agents",
-        status: "live",
-        actions: /*#__PURE__*/React.createElement(SafetyControls, {
-          state: "live",
-          onEmergency: () => setKillOpen(true)
-        })
-      }), /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "genie",
-        name: "Customer Ops",
-        secondary: "4 Playbooks \xB7 17 Agents",
-        status: "live",
-        actions: /*#__PURE__*/React.createElement(SafetyControls, {
-          state: "live",
-          onEmergency: () => setKillOpen(true)
-        })
-      }), /*#__PURE__*/React.createElement(ObjectRow, {
-        kind: "genie",
-        name: "Recruitment",
-        secondary: "2 Playbooks \xB7 6 Agents",
-        status: "killed",
-        actions: /*#__PURE__*/React.createElement(Button, {
-          size: "sm",
-          variant: "secondary",
-          icon: "play_arrow"
-        }, "Resume")
-      }))), /*#__PURE__*/React.createElement(Panel, {
-        title: "Go-live readiness \u2014 Month-end close"
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          padding: 12
-        }
-      }, /*#__PURE__*/React.createElement(ReadinessCheck, {
-        checks: [{
-          label: 'Simulation passed on 120 historical cases',
-          state: 'passed',
-          detail: '98% match'
-        }, {
-          label: 'Salesforce authorization',
-          state: 'failed',
-          detail: 'Credentials expired',
-          action: /*#__PURE__*/React.createElement(Button, {
-            size: "xs",
-            variant: "secondary"
-          }, "Reconnect")
-        }, {
-          label: 'Human checkpoints defined',
-          state: 'warning',
-          detail: 'No escalation owner'
-        }, {
-          label: 'Spend limits set',
-          state: 'passed',
-          detail: '₹250,000 / run'
-        }, {
-          label: 'Audit logging',
-          state: 'passed'
-        }]
-      })))), /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, killOpen ? /*#__PURE__*/React.createElement(KillSwitch, {
-        scope: "Finance Genie",
-        activeRuns: 4,
-        onCancel: () => setKillOpen(false),
-        onConfirm: () => setKillOpen(false)
-      }) : /*#__PURE__*/React.createElement(Card, {
-        title: "Emergency stop",
-        actions: /*#__PURE__*/React.createElement(Badge, {
-          tone: "danger",
-          micro: true
-        }, "High risk")
-      }, /*#__PURE__*/React.createElement("p", {
-        style: {
-          margin: 0,
-          fontSize: 13,
-          lineHeight: '19px',
-          color: 'var(--text-secondary)'
-        }
-      }, "Stopping a Genie blocks new external write actions, stops new runs and isolates active tasks. Completed steps are not reversed."), /*#__PURE__*/React.createElement("div", {
-        style: {
-          marginTop: 10
-        }
-      }, /*#__PURE__*/React.createElement(Button, {
-        size: "md",
-        variant: "danger",
-        icon: "dangerous",
-        onClick: () => setKillOpen(true)
-      }, "Emergency stop a Genie"))), /*#__PURE__*/React.createElement(IntegrationCard, {
-        name: "Salesforce",
-        provider: "salesforce",
-        account: "finance@northwind.com",
-        state: "expired",
-        permission: "Write",
-        risk: "High",
-        expiry: "expired 2 days ago",
-        usedBy: ['Vendor Verifier', 'Ledger Sync'],
-        scopes: [{
-          label: 'Read accounts and opportunities'
-        }, {
-          label: 'Create and update opportunities',
-          write: true
-        }],
-        onReconnect: () => {},
-        onTest: () => {},
-        onDisconnect: () => {}
-      }), /*#__PURE__*/React.createElement(Panel, {
-        title: "Tool health"
-      }, /*#__PURE__*/React.createElement(ToolRow, {
-        provider: "sap",
-        name: "SAP",
-        account: "northwind-prod",
-        state: "connected",
-        permission: "Write",
-        usedBy: 4,
-        health: "99.4%",
-        risk: "High"
-      }), /*#__PURE__*/React.createElement(ToolRow, {
-        provider: "gmail",
-        name: "Gmail",
-        account: "ap@northwind.com",
-        state: "connected",
-        permission: "Read",
-        usedBy: 2,
-        health: "100%",
-        risk: "Low"
-      }), /*#__PURE__*/React.createElement(ToolRow, {
-        provider: "whatsapp",
-        name: "WhatsApp Business",
-        account: "+91 \u2022\u2022\u2022 4821",
-        state: "degraded",
-        permission: "Write",
-        usedBy: 1,
-        health: "92.1%",
-        risk: "Medium"
-      }))));
-    }
-    if (view === 'intelligence') {
-      return /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'grid',
-          gridTemplateColumns: '1.2fr 1fr',
-          gap: 16,
-          padding: 16,
-          overflow: 'auto',
-          alignContent: 'start'
-        }
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, /*#__PURE__*/React.createElement(LearnedPattern, {
-        kind: "observed",
-        occurrences: 23,
-        period: "6 weeks",
-        confidence: "high",
-        observation: "Vendor approvals usually happen through WhatsApp before they are entered in SAP.",
-        evidence: ['WhatsApp · 23 threads', 'SAP · 21 matching records', '3 people involved'],
-        entities: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(EntityChip, {
-          type: "vendor",
-          name: "Meridian Supplies"
-        }), /*#__PURE__*/React.createElement(EntityChip, {
-          type: "person",
-          name: "Asha Rao",
-          initials: "AR"
-        }), /*#__PURE__*/React.createElement(EntityChip, {
-          type: "system",
-          name: "SAP"
-        })),
-        onUse: () => {},
-        onReview: () => {},
-        onIgnore: () => {}
-      }), /*#__PURE__*/React.createElement(Panel, {
-        title: "Observed process \u2014 vendor payment"
-      }, /*#__PURE__*/React.createElement("div", {
-        style: {
-          padding: 12
-        }
-      }, /*#__PURE__*/React.createElement(ObservedProcess, {
-        steps: [{
-          title: 'Vendor sends invoice',
-          actor: 'Meridian',
-          channel: 'Email',
-          frequency: '100%'
-        }, {
-          title: 'Informal approval',
-          actor: 'Asha Rao',
-          channel: 'WhatsApp',
-          kind: 'approval',
-          frequency: '92%',
-          duration: '4h'
-        }, {
-          title: 'Entered into SAP',
-          actor: 'Ravi K',
-          tool: 'SAP',
-          frequency: '100%',
-          duration: '11m'
-        }, {
-          title: 'Handoff to payments',
-          kind: 'handoff',
-          frequency: '100%',
-          duration: '1h'
-        }, {
-          title: 'Correction after mismatch',
-          kind: 'rework',
-          frequency: '18%',
-          duration: '1d'
-        }, {
-          title: 'Missing PO reference',
-          kind: 'exception',
-          frequency: '19%',
-          duration: '2d'
-        }]
-      })))), /*#__PURE__*/React.createElement("div", {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12
-        }
-      }, /*#__PURE__*/React.createElement(ChartFrame, {
-        title: "Memory retrieval",
-        subtitle: "By scope, last 30 days",
-        legend: [{
-          label: 'Genie',
-          color: 'var(--dataviz-8)'
-        }, {
-          label: 'LAMP',
-          color: 'var(--dataviz-4)'
-        }]
-      }, /*#__PURE__*/React.createElement(BarChart, {
-        height: 132,
-        stacked: true,
-        labels: days,
-        series: [{
-          data: [22, 28, 24, 31, 35, 30, 38],
-          color: 'var(--dataviz-8)'
-        }, {
-          data: [8, 9, 12, 10, 14, 12, 16],
-          color: 'var(--dataviz-4)'
-        }]
-      })), /*#__PURE__*/React.createElement(ChartFrame, {
-        title: "Confidence distribution",
-        subtitle: "Memory facts in Finance Genie",
-        footnote: "Facts below medium confidence are never used without a human checkpoint."
-      }, /*#__PURE__*/React.createElement(BarChart, {
-        height: 120,
-        labels: ['Low', 'Medium', 'High', 'Very high'],
-        series: [{
-          data: [14, 38, 96, 42]
-        }]
-      })), /*#__PURE__*/React.createElement(MemoryFact, {
-        type: "policy",
-        scope: "lamp",
-        confidence: "veryHigh",
-        fact: "Payments above \u20B950,000 require a second approver.",
-        source: "Finance policy v4",
-        evidenceCount: 1,
-        lastConfirmed: "12 Sep",
-        access: "Shared"
-      })));
-    }
-    return /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: 'grid',
-        gridTemplateColumns: '1fr 400px',
-        minHeight: 0,
-        flex: 1
-      }
-    }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: 'flex',
-        flexDirection: 'column',
-        minWidth: 0,
-        padding: 16,
-        gap: 12,
-        overflow: 'auto'
-      }
-    }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: 'flex',
-        gap: 12,
-        flexWrap: 'wrap'
-      }
-    }, /*#__PURE__*/React.createElement(MetricCard, {
-      label: "Runs today",
-      value: "412",
-      delta: "+38",
-      deltaLabel: "vs yesterday",
-      spark: /*#__PURE__*/React.createElement(Sparkline, {
-        data: [18, 24, 21, 32, 28, 41, 38]
-      })
-    }), /*#__PURE__*/React.createElement(MetricCard, {
-      label: "Automation rate",
-      value: "94.2",
-      unit: "%",
-      delta: "+2.1%",
-      deltaLabel: "vs last 7 days"
-    }), /*#__PURE__*/React.createElement(MetricCard, {
-      label: "Cost per outcome",
-      value: "$0.14",
-      delta: "-9%",
-      deltaTone: "positive",
-      deltaLabel: "vs last 7 days"
-    }), /*#__PURE__*/React.createElement(MetricCard, {
-      label: "Failed runs",
-      value: "6",
-      delta: "+4",
-      deltaTone: "negative",
-      deltaLabel: "Salesforce auth"
-    })), /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: 'grid',
-        gridTemplateColumns: '1.3fr 1fr',
-        gap: 12
-      }
-    }, /*#__PURE__*/React.createElement(ChartFrame, {
-      title: "Execution outcomes",
-      subtitle: "Last 30 days \xB7 Live only",
-      legend: [{
-        label: 'Success',
-        color: 'var(--dataviz-3)'
-      }, {
-        label: 'Needs human',
-        color: 'var(--dataviz-4)'
-      }, {
-        label: 'Failed',
-        color: 'var(--chart-failure)'
-      }]
-    }, /*#__PURE__*/React.createElement(BarChart, {
-      height: 140,
-      stacked: true,
-      labels: days,
-      series: [{
-        data: [280, 310, 296, 340, 352, 380, 396],
-        color: 'var(--dataviz-3)'
-      }, {
-        data: [14, 11, 18, 9, 12, 8, 11],
-        color: 'var(--dataviz-4)'
-      }, {
-        data: [3, 2, 5, 2, 4, 3, 6],
-        color: 'var(--chart-failure)'
-      }]
-    })), /*#__PURE__*/React.createElement(ChartFrame, {
-      title: "Agent workload",
-      subtitle: "Runs today \xB7 all Genies",
-      footnote: "One hexagon per Agent slot."
-    }, /*#__PURE__*/React.createElement(HexHeatmap, {
-      cells: cells,
-      size: 28
-    }))), /*#__PURE__*/React.createElement(FilterBar, {
-      activeCount: 1,
-      onClear: () => {},
-      right: /*#__PURE__*/React.createElement(Pagination, {
-        page: 1,
-        pageCount: 38,
-        range: "1\u20136 of 412"
-      })
-    }, /*#__PURE__*/React.createElement(Select, {
-      size: "sm",
-      options: ['All Genies', 'Finance', 'Customer Ops', 'Recruitment']
-    }), /*#__PURE__*/React.createElement(Select, {
-      size: "sm",
-      options: ['All statuses', 'Failed', 'Needs human'],
-      defaultValue: "All statuses"
-    }), /*#__PURE__*/React.createElement(Select, {
-      size: "sm",
-      options: ['Today', 'Last 7 days', 'Last 30 days']
-    })), /*#__PURE__*/React.createElement(DataTable, {
-      density: "compact",
-      columns: runColumns,
-      rows: RUNS,
-      rowKey: r => r.id,
-      selectable: true,
-      selected: sel,
-      onSelect: (k, next) => setSel(next ? sel.concat([k]) : sel.filter(x => x !== k)),
-      onSelectAll: next => setSel(next ? RUNS.map(r => r.id) : []),
-      onRowClick: r => {
-        setSelectedRun(r.id);
-        setRunTab('overview');
-      },
-      sort: {
-        key: 'dur',
-        dir: 'desc'
-      },
-      toolbar: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SearchInput, {
-        size: "sm",
-        placeholder: "Search runs"
-      }), /*#__PURE__*/React.createElement("span", {
-        style: {
-          flex: 1
-        }
-      }), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary",
-        icon: "download"
-      }, "Export")),
-      bulkActions: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
-        size: "xs",
-        variant: "secondary",
-        icon: "replay"
-      }, "Retry"), /*#__PURE__*/React.createElement(Button, {
-        size: "xs",
-        variant: "quiet",
-        onClick: () => setSel([])
-      }, "Clear"))
-    })), /*#__PURE__*/React.createElement("div", {
-      style: {
-        borderLeft: '1px solid var(--border-default)',
-        minWidth: 0,
-        background: 'var(--surface-primary)'
-      }
-    }, /*#__PURE__*/React.createElement(InspectorPanel, {
-      title: run.playbook,
-      subtitle: run.id + ' · ' + run.genie + ' Genie',
-      glyph: "history",
-      badges: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StatusBadge, {
-        status: run.status
-      }), /*#__PURE__*/React.createElement(Badge, {
-        outline: true,
-        icon: "schedule"
-      }, "Schedule")),
-      actions: /*#__PURE__*/React.createElement(IconButton, {
-        icon: "more_horiz",
-        label: "Run actions",
-        size: "sm"
-      }),
-      tabs: /*#__PURE__*/React.createElement(Tabs, {
-        value: runTab,
-        onChange: setRunTab,
-        tabs: [{
-          id: 'overview',
-          label: 'Overview'
-        }, {
-          id: 'timeline',
-          label: 'Timeline'
-        }, {
-          id: 'cost',
-          label: 'Cost'
-        }]
-      }),
-      footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary",
-        icon: "replay"
-      }, "Replay"), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "primary",
-        icon: "refresh"
-      }, "Retry run"))
-    }, runTab === 'overview' ? /*#__PURE__*/React.createElement(React.Fragment, null, run.status === 'error' ? /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Failure",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(ErrorState, {
-      title: "Salesforce write failed",
-      happened: "The connection was rejected after 3 attempts.",
-      notHappened: "No opportunity records were created or modified.",
-      impact: "4 invoices are waiting in Vendor payment.",
-      recovery: "Reconnect the Salesforce account, then retry the run.",
-      code: 'tool_auth_expired · ' + run.id,
-      onRetry: () => {},
-      onReport: () => {}
-    })) : null, /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Overview",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(RunSummary, {
-      runId: run.id,
-      status: run.status,
-      environment: "Live",
-      trigger: "Schedule \xB7 06:00 IST",
-      started: run.started,
-      duration: run.dur,
-      agents: run.agents,
-      toolCalls: run.tools,
-      llmCalls: 11,
-      cacheRate: "62%",
-      tokens: run.tokens,
-      cost: run.cost,
-      interventions: run.human
-    })), /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Agents",
-      count: run.agents
-    }, /*#__PURE__*/React.createElement(ObjectRow, {
-      kind: "agent",
-      name: "Invoice Matcher",
-      secondary: "Specialist",
-      status: "success",
-      compact: true,
-      meta: "1.8s"
-    }), /*#__PURE__*/React.createElement(ObjectRow, {
-      kind: "agent",
-      name: "Payment Approver",
-      secondary: "Human-supervised",
-      status: "needsHuman",
-      compact: true,
-      meta: "42m"
-    }), /*#__PURE__*/React.createElement(ObjectRow, {
-      kind: "agent",
-      name: "Ledger Sync",
-      secondary: "Worker",
-      status: "error",
-      compact: true,
-      meta: "3.1s"
-    }))) : null, runTab === 'timeline' ? /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Execution trace",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(RunTimeline, {
-      steps: [{
-        state: 'success',
-        title: 'Invoice extracted',
-        actor: 'Invoice Intake',
-        tools: ['Google Drive'],
-        duration: '1.2s',
-        tokens: '812'
-      }, {
-        state: 'success',
-        title: 'Matched to PO-9921',
-        actor: 'Invoice Matcher',
-        memory: 'Genie memory',
-        duration: '0.6s',
-        tokens: '1,104'
-      }, {
-        state: 'warning',
-        title: 'Vendor banking details differ',
-        actor: 'Vendor Verifier',
-        tools: ['Salesforce'],
-        duration: '0.9s'
-      }, {
-        state: 'waitingHuman',
-        title: 'Approval required',
-        detail: '₹184,200 is above the Agent authority limit.',
-        actor: 'Payment Approver',
-        duration: '42m'
-      }, {
-        state: 'failed',
-        title: 'Salesforce write failed',
-        detail: 'Credentials expired. No records were created.',
-        actor: 'Ledger Sync',
-        tools: ['Salesforce'],
-        duration: '3.1s'
-      }, {
-        state: 'skipped',
-        title: 'Notify vendor',
-        detail: 'Skipped because the write failed.',
-        actor: 'Vendor Notifier'
-      }]
-    })) : null, runTab === 'cost' ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Context breakdown",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(MemoryUsageBar, {
-      segments: [{
-        key: 'agent',
-        label: 'Agent working memory',
-        value: 618
-      }, {
-        key: 'playbook',
-        label: 'Playbook memory',
-        value: 402
-      }, {
-        key: 'genie',
-        label: 'Genie memory',
-        value: 771
-      }, {
-        key: 'lamp',
-        label: 'LAMP memory',
-        value: 340
-      }, {
-        key: 'evidence',
-        label: 'Retrieved evidence',
-        value: 1281
-      }]
-    })), /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Inference",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "LLM calls",
-      value: "11",
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Cached tokens",
-      value: "2,116 (62%)",
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Tool calls",
-      value: String(run.tools),
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Estimated cost",
-      value: run.cost,
-      mono: true
-    }), /*#__PURE__*/React.createElement(PropertyRow, {
-      label: "Cost per outcome",
-      value: "$0.14",
-      mono: true
-    })), /*#__PURE__*/React.createElement(InspectorSection, {
-      label: "Latency",
-      collapsible: false
-    }, /*#__PURE__*/React.createElement(ChartFrame, {
-      flush: true
-    }, /*#__PURE__*/React.createElement(BarChart, {
-      height: 110,
-      orientation: "horizontal",
-      showValues: true,
-      labels: ['Model', 'Tools', 'Memory', 'Human'],
-      series: [{
-        data: [2.1, 3.1, 0.6, 42]
-      }],
-      format: v => v + 's'
-    })))) : null)));
-  };
-  return /*#__PURE__*/React.createElement(AppShell, {
-    header: /*#__PURE__*/React.createElement(GlobalHeader, {
-      brand: /*#__PURE__*/React.createElement(WorkspaceSwitcher, {
-        name: "Northwind Trading",
-        subtitle: "Operations LAMP"
-      }),
-      center: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Breadcrumb, {
-        items: [{
-          label: 'Northwind'
-        }, {
-          label: 'Operations LAMP'
-        }, {
-          label: 'Operations'
-        }]
-      }), /*#__PURE__*/React.createElement(EnvironmentPill, {
-        environment: "live"
-      })),
-      right: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(LiveActivityIndicator, {
-        mode: "live",
-        count: 7
-      }), /*#__PURE__*/React.createElement(Divider, {
-        orientation: "vertical"
-      }), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "secondary",
-        icon: "pause"
-      }, "Pause all"), /*#__PURE__*/React.createElement(Button, {
-        size: "sm",
-        variant: "danger-quiet",
-        icon: "dangerous",
-        onClick: () => {
-          setView('safety');
-          setKillOpen(true);
-        }
-      }, "Emergency stop"), /*#__PURE__*/React.createElement(IconButton, {
-        icon: "notifications",
-        label: "Notifications",
-        size: "lg"
-      }), /*#__PURE__*/React.createElement(IconButton, {
-        icon: "account_circle",
-        label: "Account",
-        size: "lg"
-      }))
-    }),
-    rail: /*#__PURE__*/React.createElement(SideNav, {
-      footer: /*#__PURE__*/React.createElement(NavItem, {
-        icon: "settings",
-        label: "Settings"
-      })
-    }, /*#__PURE__*/React.createElement(NavSection, {
-      label: "Operate"
-    }, /*#__PURE__*/React.createElement(NavItem, {
-      icon: "history",
-      label: "Runs",
-      active: view === 'runs',
-      meta: "412",
-      onClick: () => setView('runs')
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "how_to_reg",
-      label: "Approvals",
-      active: view === 'approvals',
-      badge: /*#__PURE__*/React.createElement(Badge, {
-        count: true,
-        tone: "waiting"
-      }, "7"),
-      onClick: () => setView('approvals')
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "shield",
-      label: "Safety",
-      active: view === 'safety',
-      onClick: () => setView('safety')
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "auto_awesome",
-      label: "Intelligence",
-      active: view === 'intelligence',
-      onClick: () => setView('intelligence')
-    })), /*#__PURE__*/React.createElement(NavSection, {
-      label: "Genies"
-    }, /*#__PURE__*/React.createElement(NavItem, {
-      icon: "hive",
-      label: "Finance",
-      meta: "23"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "hive",
-      label: "Customer Ops",
-      meta: "17"
-    }), /*#__PURE__*/React.createElement(NavItem, {
-      icon: "hive",
-      label: "Recruitment",
-      meta: "6"
-    }))),
-    statusBar: /*#__PURE__*/React.createElement(StatusBar, {
-      items: [{
-        icon: 'bolt',
-        label: 'Live'
-      }, {
-        label: 'Active runs',
-        value: 7
-      }, {
-        label: 'Queue',
-        value: 3
-      }],
-      right: [{
-        icon: 'cloud_done',
-        label: 'Synced'
-      }, {
-        label: 'Tools',
-        value: '8/9 healthy'
-      }, {
-        label: 'p95',
-        value: '6.2s'
-      }, {
-        label: 'Today',
-        value: '$58.40'
-      }]
-    })
-  }, /*#__PURE__*/React.createElement(EnvironmentBanner, {
-    environment: "live",
-    scope: "3 Genies",
-    detail: "23 Agents can act on the business.",
-    actions: /*#__PURE__*/React.createElement(SegmentedControl, {
-      value: view,
-      onChange: setView,
-      options: [{
-        value: 'runs',
-        label: 'Runs',
-        icon: 'history'
-      }, {
-        value: 'approvals',
-        label: 'Approvals',
-        icon: 'how_to_reg'
-      }, {
-        value: 'safety',
-        label: 'Safety',
-        icon: 'shield'
-      }, {
-        value: 'intelligence',
-        label: 'Intelligence',
-        icon: 'auto_awesome'
-      }]
-    })
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      minHeight: 0,
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden'
-    }
-  }, body()));
-}
-window.OpsApp = OpsApp;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/lamp-operations/OpsApp.jsx", error: String((e && e.message) || e) }); }
+__ds_ns.BRAND_ICON_BASE = __ds_scope.BRAND_ICON_BASE;
+
+__ds_ns.Icon = __ds_scope.Icon;
+
+__ds_ns.BrandIcon = __ds_scope.BrandIcon;
 
 __ds_ns.CanvasContextMenu = __ds_scope.CanvasContextMenu;
+
+__ds_ns.GSAP_CDN = __ds_scope.GSAP_CDN;
+
+__ds_ns.GSAP_EASE = __ds_scope.GSAP_EASE;
+
+__ds_ns.GSAP_DURATION = __ds_scope.GSAP_DURATION;
 
 __ds_ns.CanvasSurface = __ds_scope.CanvasSurface;
 
 __ds_ns.SnapGuide = __ds_scope.SnapGuide;
+
+__ds_ns.IconButton = __ds_scope.IconButton;
+
+__ds_ns.Divider = __ds_scope.Divider;
 
 __ds_ns.CanvasToolbar = __ds_scope.CanvasToolbar;
 
@@ -9149,15 +10354,27 @@ __ds_ns.CanvasObjectToolbar = __ds_scope.CanvasObjectToolbar;
 
 __ds_ns.CanvasMinimap = __ds_scope.CanvasMinimap;
 
+__ds_ns.STATUS = __ds_scope.STATUS;
+
+__ds_ns.StatusDot = __ds_scope.StatusDot;
+
+__ds_ns.StatusBadge = __ds_scope.StatusBadge;
+
+__ds_ns.Badge = __ds_scope.Badge;
+
+__ds_ns.AGENT_SIZES = __ds_scope.AGENT_SIZES;
+
+__ds_ns.AgentHex = __ds_scope.AgentHex;
+
+__ds_ns.HexLattice = __ds_scope.HexLattice;
+
+__ds_ns.HexCenter = __ds_scope.HexCenter;
+
 __ds_ns.SnapField = __ds_scope.SnapField;
 
-__ds_ns.ChatStatus = __ds_scope.ChatStatus;
+__ds_ns.Button = __ds_scope.Button;
 
-__ds_ns.AgentChat = __ds_scope.AgentChat;
-
-__ds_ns.ChatQuickReplies = __ds_scope.ChatQuickReplies;
-
-__ds_ns.ChatComposer = __ds_scope.ChatComposer;
+__ds_ns.SplitButton = __ds_scope.SplitButton;
 
 __ds_ns.ChatAvatar = __ds_scope.ChatAvatar;
 
@@ -9169,37 +10386,21 @@ __ds_ns.ChatDayDivider = __ds_scope.ChatDayDivider;
 
 __ds_ns.ChatMessage = __ds_scope.ChatMessage;
 
-__ds_ns.Badge = __ds_scope.Badge;
+__ds_ns.ChatStatus = __ds_scope.ChatStatus;
 
-__ds_ns.Button = __ds_scope.Button;
-
-__ds_ns.SplitButton = __ds_scope.SplitButton;
-
-__ds_ns.Card = __ds_scope.Card;
-
-__ds_ns.Divider = __ds_scope.Divider;
-
-__ds_ns.EnvironmentPill = __ds_scope.EnvironmentPill;
-
-__ds_ns.MATERIAL_SYMBOLS_BASE = __ds_scope.MATERIAL_SYMBOLS_BASE;
-
-__ds_ns.BRAND_ICON_BASE = __ds_scope.BRAND_ICON_BASE;
-
-__ds_ns.Icon = __ds_scope.Icon;
-
-__ds_ns.BrandIcon = __ds_scope.BrandIcon;
-
-__ds_ns.IconButton = __ds_scope.IconButton;
+__ds_ns.AgentChat = __ds_scope.AgentChat;
 
 __ds_ns.Kbd = __ds_scope.Kbd;
 
+__ds_ns.ChatQuickReplies = __ds_scope.ChatQuickReplies;
+
+__ds_ns.ChatComposer = __ds_scope.ChatComposer;
+
+__ds_ns.Card = __ds_scope.Card;
+
+__ds_ns.EnvironmentPill = __ds_scope.EnvironmentPill;
+
 __ds_ns.Panel = __ds_scope.Panel;
-
-__ds_ns.STATUS = __ds_scope.STATUS;
-
-__ds_ns.StatusDot = __ds_scope.StatusDot;
-
-__ds_ns.StatusBadge = __ds_scope.StatusBadge;
 
 __ds_ns.Tag = __ds_scope.Tag;
 
@@ -9217,8 +10418,6 @@ __ds_ns.DashboardPage = __ds_scope.DashboardPage;
 
 __ds_ns.SectionHeader = __ds_scope.SectionHeader;
 
-__ds_ns.BarChart = __ds_scope.BarChart;
-
 __ds_ns.DATAVIZ = __ds_scope.DATAVIZ;
 
 __ds_ns.ChartLegend = __ds_scope.ChartLegend;
@@ -9226,6 +10425,14 @@ __ds_ns.ChartLegend = __ds_scope.ChartLegend;
 __ds_ns.ChartFrame = __ds_scope.ChartFrame;
 
 __ds_ns.ChartTooltip = __ds_scope.ChartTooltip;
+
+__ds_ns.BarChart = __ds_scope.BarChart;
+
+__ds_ns.StackedBar = __ds_scope.StackedBar;
+
+__ds_ns.ContextBreakdown = __ds_scope.ContextBreakdown;
+
+__ds_ns.Checkbox = __ds_scope.Checkbox;
 
 __ds_ns.DataTable = __ds_scope.DataTable;
 
@@ -9273,11 +10480,17 @@ __ds_ns.Skeleton = __ds_scope.Skeleton;
 
 __ds_ns.Spinner = __ds_scope.Spinner;
 
-__ds_ns.Checkbox = __ds_scope.Checkbox;
-
 __ds_ns.CodeFrame = __ds_scope.CodeFrame;
 
 __ds_ns.Field = __ds_scope.Field;
+
+__ds_ns.TextInput = __ds_scope.TextInput;
+
+__ds_ns.SearchInput = __ds_scope.SearchInput;
+
+__ds_ns.NumberInput = __ds_scope.NumberInput;
+
+__ds_ns.SecretField = __ds_scope.SecretField;
 
 __ds_ns.KeyValueInput = __ds_scope.KeyValueInput;
 
@@ -9297,15 +10510,17 @@ __ds_ns.Switch = __ds_scope.Switch;
 
 __ds_ns.TagInput = __ds_scope.TagInput;
 
-__ds_ns.TextInput = __ds_scope.TextInput;
-
-__ds_ns.SearchInput = __ds_scope.SearchInput;
-
-__ds_ns.NumberInput = __ds_scope.NumberInput;
-
-__ds_ns.SecretField = __ds_scope.SecretField;
-
 __ds_ns.Textarea = __ds_scope.Textarea;
+
+__ds_ns.InspectorField = __ds_scope.InspectorField;
+
+__ds_ns.Tabs = __ds_scope.Tabs;
+
+__ds_ns.InspectorHeader = __ds_scope.InspectorHeader;
+
+__ds_ns.InspectorTabs = __ds_scope.InspectorTabs;
+
+__ds_ns.InspectorFooter = __ds_scope.InspectorFooter;
 
 __ds_ns.InspectorPanel = __ds_scope.InspectorPanel;
 
@@ -9323,9 +10538,13 @@ __ds_ns.MemoryScope = __ds_scope.MemoryScope;
 
 __ds_ns.MemoryConfidence = __ds_scope.MemoryConfidence;
 
+__ds_ns.MemoryConflict = __ds_scope.MemoryConflict;
+
 __ds_ns.MemoryFact = __ds_scope.MemoryFact;
 
 __ds_ns.MemoryGraph = __ds_scope.MemoryGraph;
+
+__ds_ns.MemoryScopeBar = __ds_scope.MemoryScopeBar;
 
 __ds_ns.MemoryTimeline = __ds_scope.MemoryTimeline;
 
@@ -9355,13 +10574,7 @@ __ds_ns.NavItem = __ds_scope.NavItem;
 
 __ds_ns.StatusBar = __ds_scope.StatusBar;
 
-__ds_ns.Tabs = __ds_scope.Tabs;
-
 __ds_ns.WorkspaceSwitcher = __ds_scope.WorkspaceSwitcher;
-
-__ds_ns.AGENT_SIZES = __ds_scope.AGENT_SIZES;
-
-__ds_ns.AgentHex = __ds_scope.AgentHex;
 
 __ds_ns.AgentIsland = __ds_scope.AgentIsland;
 
@@ -9372,10 +10585,6 @@ __ds_ns.BondLayer = __ds_scope.BondLayer;
 __ds_ns.EntityChip = __ds_scope.EntityChip;
 
 __ds_ns.GenieCard = __ds_scope.GenieCard;
-
-__ds_ns.HexLattice = __ds_scope.HexLattice;
-
-__ds_ns.HexCenter = __ds_scope.HexCenter;
 
 __ds_ns.ObjectRow = __ds_scope.ObjectRow;
 
@@ -9393,6 +10602,14 @@ __ds_ns.ToolTile = __ds_scope.ToolTile;
 
 __ds_ns.ToolRow = __ds_scope.ToolRow;
 
+__ds_ns.BUSINESS_PROCESSES = __ds_scope.BUSINESS_PROCESSES;
+
+__ds_ns.BLANK_PROCESS = __ds_scope.BLANK_PROCESS;
+
+__ds_ns.MatchProcess = __ds_scope.MatchProcess;
+
+__ds_ns.ProcessProposal = __ds_scope.ProcessProposal;
+
 __ds_ns.Message = __ds_scope.Message;
 
 __ds_ns.MessageList = __ds_scope.MessageList;
@@ -9400,6 +10617,10 @@ __ds_ns.MessageList = __ds_scope.MessageList;
 __ds_ns.Composer = __ds_scope.Composer;
 
 __ds_ns.Conversation = __ds_scope.Conversation;
+
+__ds_ns.BuildGenie = __ds_scope.BuildGenie;
+
+__ds_ns.GenieBlueprint = __ds_scope.GenieBlueprint;
 
 __ds_ns.IntegrationCard = __ds_scope.IntegrationCard;
 
@@ -9414,6 +10635,8 @@ __ds_ns.PermissionCell = __ds_scope.PermissionCell;
 __ds_ns.PermissionMatrix = __ds_scope.PermissionMatrix;
 
 __ds_ns.RoleBadge = __ds_scope.RoleBadge;
+
+__ds_ns.PlaybookComposer = __ds_scope.PlaybookComposer;
 
 __ds_ns.VoiceWaveform = __ds_scope.VoiceWaveform;
 
@@ -9440,5 +10663,7 @@ __ds_ns.RunStep = __ds_scope.RunStep;
 __ds_ns.RunTimeline = __ds_scope.RunTimeline;
 
 __ds_ns.SimulationBar = __ds_scope.SimulationBar;
+
+__ds_ns.SimulationStep = __ds_scope.SimulationStep;
 
 })();

@@ -5,7 +5,7 @@ import { Icon } from './Icon.jsx';
 export const STATUS = {
   draft:      { tone: 'neutral', icon: 'edit',     label: 'Draft',          color: 'var(--runtime-draft)' },
   observed:   { tone: 'neutral', icon: 'visibility',             label: 'Observed',       color: 'var(--runtime-observed)' },
-  inferred:   { tone: 'waiting', icon: 'auto_awesome',   label: 'Inferred',       color: 'var(--runtime-inferred)' },
+  inferred:   { tone: 'waiting', icon: 'flare',   label: 'Inferred',       color: 'var(--runtime-inferred)' },
   learning:   { tone: 'waiting', icon: 'school',  label: 'Learning',       color: 'var(--runtime-learning)' },
   simulation: { tone: 'info',    icon: 'science',   label: 'Simulation',     color: 'var(--runtime-simulation)' },
   validated:  { tone: 'success', icon: 'check',           label: 'Validated',      color: 'var(--runtime-validated)' },

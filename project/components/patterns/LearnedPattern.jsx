@@ -12,7 +12,7 @@ export function LearnedPattern({
   return (
     <article className={'lamp-learn ' + className} {...rest}>
       <div className="lamp-learn__top">
-        <Icon name="auto_awesome" size={14} style={{ color: 'var(--status-waiting-text)' }} />
+        <Icon name="flare" size={14} style={{ color: 'var(--status-waiting-text)' }} />
         <span className="lamp-learn__note">{note || label}</span>
         <span style={{ marginLeft: 'auto' }}><MemoryConfidence level={confidence} /></span>
       </div>

@@ -1,7 +1,7 @@
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /** sm 28 · md 32 (default) · lg 40 */
   size?: 'sm' | 'md' | 'lg';
-  /** Leading Lucide icon name. */
+  /** Leading Material Symbol name (Outlined). */
   icon?: string;
   /** Static unit on the right, e.g. "USD", "ms". */
   suffix?: React.ReactNode;

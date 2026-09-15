@@ -6,7 +6,7 @@ import { Badge } from '../core/Badge.jsx';
 export const FACT_TYPES = {
   explicitFact:    { label: 'Fact',        glyph: 'check_circle',    tone: 'memory' },
   observedPattern: { label: 'Observed',    glyph: 'visibility',      tone: 'neutral' },
-  inferredPattern: { label: 'Inferred',    glyph: 'auto_awesome',    tone: 'waiting' },
+  inferredPattern: { label: 'Inferred',    glyph: 'flare',    tone: 'waiting' },
   policy:          { label: 'Policy',      glyph: 'gavel',           tone: 'brand' },
   preference:      { label: 'Preference',  glyph: 'tune',            tone: 'memory' },
   exception:       { label: 'Exception',   glyph: 'report',          tone: 'warning' },

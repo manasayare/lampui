@@ -1,0 +1,66 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Playbook composer" subtitle="LAMP proposes the business process, its connectors and what success means" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Playbook composer</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:16px;background:var(--surface-canvas);font-family:var(--font-sans);color:var(--text-primary)}
+.stack{display:flex;flex-direction:column;gap:18px;max-width:660px}
+.lab{font:600 10px/14px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.pair{display:flex;gap:10px;flex-wrap:wrap}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const {
+  ProcessProposal, MatchProcess, GenieBlueprint, BuildGenie, BUSINESS_PROCESSES, Button,
+} = window.LAMPDesignSystem_980d6d;
+
+/* The selection an operator just drew a box around. */
+const SELECTED = [
+  { id:'a1', name:'Invoice Matcher',  role:'Specialist',       tools:['SAP','Gmail'] },
+  { id:'a2', name:'Vendor Verifier',  role:'Specialist' },
+  { id:'a3', name:'Exception Handler',role:'Coordinator' },
+  { id:'a4', name:'Payment Approver', role:'Human-supervised' },
+];
+
+function Demo(){
+  const matches = MatchProcess({ agents: SELECTED });
+  const [chosen, setChosen] = React.useState(matches[0].process);
+  const [skipped, setSkipped] = React.useState([]);
+  const blueprint = BuildGenie(chosen, { agents: SELECTED });
+
+  return <div className="stack">
+    <div>
+      <div className="lab" style={{marginBottom:6}}>The proposal — four Agents, no process named yet</div>
+      <ProcessProposal
+        primary
+        match={matches[0]}
+        selected={chosen.id === matches[0].process.id}
+        onUse={setChosen}
+        onReview={()=>{}}
+        onDismiss={()=>{}} />
+    </div>
+
+    <div>
+      <div className="lab" style={{marginBottom:6}}>Runners-up, compact — the proposal is never the only option</div>
+      <div className="pair">
+        {matches.slice(1,3).map(m => (
+          <div key={m.process.id} style={{flex:'1 1 300px'}}>
+            <ProcessProposal compact match={m} selected={chosen.id === m.process.id} onUse={setChosen} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <div className="lab" style={{marginBottom:6}}>And the Genie it would create — all drafts, nothing authorized</div>
+      <GenieBlueprint
+        blueprint={blueprint}
+        excluded={skipped}
+        onTogglePlaybook={(id)=>setSkipped(s => s.indexOf(id) === -1 ? s.concat([id]) : s.filter(x => x !== id))}
+        onCreate={()=>{}}
+        onCancel={()=>{}} />
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

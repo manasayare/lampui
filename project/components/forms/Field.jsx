@@ -4,7 +4,7 @@ import { Icon } from '../core/Icon.jsx';
 export function Field({ label, htmlFor, description, helper, error, warning, success, required = false, optional = false, count, layout = 'stack', children, className = '', ...rest }) {
   const msg = error || warning || success;
   const msgTone = error ? 'error' : warning ? 'warning' : 'success';
-  const msgIcon = error ? 'circle-x' : warning ? 'triangle-alert' : 'circle-check';
+  const msgIcon = error ? 'cancel' : warning ? 'warning' : 'check_circle';
   return (
     <div className={['lamp-field', layout === 'row' && 'lamp-field--row', className].filter(Boolean).join(' ')} {...rest}>
       {label ? (

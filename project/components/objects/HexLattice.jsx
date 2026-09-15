@@ -18,7 +18,7 @@ export function HexLattice({ size = 'md', gap = 2, cells = [], overlay, classNam
     <div className={'lamp-lattice ' + className} style={{ width: maxX, height: maxY, ...style }} {...rest}>
       {overlay}
       {placed.map((p) => (
-        <div key={p.key} className="lamp-lattice__cell" style={{ left: p.x, top: p.y }}>{p.node}</div>
+        <div key={p.key} className="lamp-lattice__cell" style={{ left: p.x, top: p.y, width: w, height: h }}>{p.node}</div>
       ))}
     </div>
   );
