@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGsap } from './CanvasMotion.jsx';
+import { useMergedRefs } from '../core/refs.js';
 
 /* The canvas surface: grid, environment tint, guides, marquee, empty state, and
    — when `pannable` — space-and-drag panning on GSAP Draggable.
@@ -8,14 +9,17 @@ import { useGsap } from './CanvasMotion.jsx';
    of `__world` (the pan) and React owns the transform of `__scale` (the zoom),
    so neither clobbers the other on re-render. */
 
-export function CanvasSurface({
+export const CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function CanvasSurface({
   grid = 'dots', zoom = 1, environment = 'draft', state = 'idle', locked = false, readOnly = false,
   empty, marquee, guides = [], pannable = false, panMode = false, onPanChange,
   children, className = '', style, ...rest
-}) {
+}, ref) {
   const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
   const api = useGsap();
   const hostRef = React.useRef(null);
+  /* Draggable needs this node as its trigger, so the forwarded ref is merged
+     rather than replaced. */
+  const setHost = useMergedRefs(ref, hostRef);
   const worldRef = React.useRef(null);
 
   /* Space is held, or the caller has put the canvas in an explicit pan mode.
@@ -91,7 +95,7 @@ export function CanvasSurface({
   ].filter(Boolean).join(' ');
 
   return (
-    <div ref={hostRef} className={cls} style={style} role="application" aria-label="LAMP canvas" {...rest}>
+    <div ref={setHost} className={cls} style={style} role="application" aria-label="LAMP canvas" {...rest}>
       <div ref={worldRef} className="lamp-canvas__world">
         <div className="lamp-canvas__scale" style={{ transform: 'scale(' + zoom + ')' }}>{children}</div>
       </div>
@@ -102,8 +106,8 @@ export function CanvasSurface({
       {empty ? <div className="lamp-canvas__empty">{empty}</div> : null}
     </div>
   );
-}
+}), { displayName: 'CanvasSurface' });
 
-export function SnapGuide({ rect, invalid = false, kind = 'snap' }) {
-  return <span className={kind === 'drop' ? ('lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '')) : 'lamp-canvas__snapguide'} style={rect} />;
-}
+export const SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SnapGuide({ rect, invalid = false, kind = 'snap' }, ref) {
+  return <span ref={ref} className={kind === 'drop' ? ('lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '')) : 'lamp-canvas__snapguide'} style={rect} />;
+}), { displayName: 'SnapGuide' });

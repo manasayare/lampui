@@ -9,14 +9,14 @@ const ENV = {
   killed:     { glyph: 'dangerous',   label: 'Emergency stopped', detail: 'All external writes are blocked.' },
 };
 
-export function EnvironmentBanner({ environment = 'draft', scope, detail, actions, className = '', ...rest }) {
+export const EnvironmentBanner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function EnvironmentBanner({ environment = 'draft', scope, detail, actions, className = '', ...rest }, ref) {
   const e = ENV[environment] || ENV.draft;
   return (
-    <div className={['lamp-envbar', 'lamp-envbar--' + environment, className].filter(Boolean).join(' ')} role={environment === 'killed' ? 'alert' : 'status'} {...rest}>
+    <div ref={ref} className={['lamp-envbar', 'lamp-envbar--' + environment, className].filter(Boolean).join(' ')} role={environment === 'killed' ? 'alert' : 'status'} {...rest}>
       <span className="lamp-envbar__label"><Icon name={e.glyph} size={14} />{e.label}</span>
       {scope ? <span style={{ fontWeight: 500 }}>{scope}</span> : null}
       <span className="lamp-envbar__detail">{detail || e.detail}</span>
       {actions ? <span className="lamp-envbar__right">{actions}</span> : null}
     </div>
   );
-}
+}), { displayName: 'EnvironmentBanner' });

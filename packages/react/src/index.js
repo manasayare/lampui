@@ -30,6 +30,7 @@ export { STATUS, StatusDot, StatusBadge } from '../../../project/components/core
 export { Tag } from '../../../project/components/core/Tag.jsx';
 export { Tooltip } from '../../../project/components/core/Tooltip.jsx';
 export { ICON_VIEWBOX, BRAND_VIEWBOX, glyphs, brandGlyphs, registerGlyphs } from '../../../project/components/core/glyphs.js';
+export { useMergedRefs } from '../../../project/components/core/refs.js';
 
 /* dashboard */
 export { DashboardCard, DashboardGrid, StatGrid } from '../../../project/components/dashboard/DashboardCard.jsx';

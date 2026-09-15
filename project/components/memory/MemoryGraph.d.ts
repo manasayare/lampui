@@ -37,4 +37,4 @@ export interface MemoryGraphProps extends Omit<React.SVGAttributes<SVGSVGElement
   /** Simulation frame cap. Default 260 — it settles and then stops. */
   iterations?: number;
 }
-export declare function MemoryGraph(props: MemoryGraphProps): JSX.Element;
+export declare const MemoryGraph: React.ForwardRefExoticComponent<MemoryGraphProps & React.RefAttributes<HTMLDivElement>>;

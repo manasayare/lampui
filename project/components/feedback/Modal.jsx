@@ -3,11 +3,11 @@ import { Icon } from '../core/Icon.jsx';
 import { IconButton } from '../core/IconButton.jsx';
 import { Button } from '../core/Button.jsx';
 
-export function Modal({ open = true, title, subtitle, glyph, size = 'md', critical = false, footer, onClose, children, className = '', ...rest }) {
+export const Modal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Modal({ open = true, title, subtitle, glyph, size = 'md', critical = false, footer, onClose, children, className = '', ...rest }, ref) {
   if (!open) return null;
   const width = size === 'sm' ? 'var(--modal-width-sm)' : size === 'lg' ? 'var(--modal-width-lg)' : 'var(--modal-width-md)';
   return (
-    <div className="lamp-scrim" onClick={onClose}>
+    <div ref={ref} className="lamp-scrim" onClick={onClose}>
       <div className={['lamp-modal', critical && 'lamp-modal--critical', className].filter(Boolean).join(' ')} style={{ width }}
         role={critical ? 'alertdialog' : 'dialog'} aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()} {...rest}>
         <div className="lamp-modal__head">
@@ -23,11 +23,11 @@ export function Modal({ open = true, title, subtitle, glyph, size = 'md', critic
       </div>
     </div>
   );
-}
+}), { displayName: 'Modal' });
 
-export function CriticalConfirmation({ open = true, title, consequences = [], scope, confirmLabel = 'Confirm', cancelLabel = 'Cancel', onCancel, onConfirm, children, ...rest }) {
+export const CriticalConfirmation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function CriticalConfirmation({ open = true, title, consequences = [], scope, confirmLabel = 'Confirm', cancelLabel = 'Cancel', onCancel, onConfirm, children, ...rest }, ref) {
   return (
-    <Modal open={open} critical glyph="dangerous" size="sm" title={title} onClose={onCancel}
+    <Modal ref={ref} open={open} critical glyph="dangerous" size="sm" title={title} onClose={onCancel}
       footer={<><Button size="md" variant="secondary" onClick={onCancel}>{cancelLabel}</Button><Button size="md" variant="danger" onClick={onConfirm}>{confirmLabel}</Button></>} {...rest}>
       {scope ? <p style={{ margin: '0 0 8px', color: 'var(--text-primary)' }}>{scope}</p> : null}
       {consequences.length ? (
@@ -39,12 +39,12 @@ export function CriticalConfirmation({ open = true, title, consequences = [], sc
       {children}
     </Modal>
   );
-}
+}), { displayName: 'CriticalConfirmation' });
 
-export function Drawer({ open = true, title, side = 'right', width, actions, footer, onClose, children, className = '', ...rest }) {
+export const Drawer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Drawer({ open = true, title, side = 'right', width, actions, footer, onClose, children, className = '', ...rest }, ref) {
   if (!open) return null;
   return (
-    <aside className={['lamp-drawer', side === 'left' && 'lamp-drawer--left', className].filter(Boolean).join(' ')} style={width ? { width } : undefined}
+    <aside ref={ref} className={['lamp-drawer', side === 'left' && 'lamp-drawer--left', className].filter(Boolean).join(' ')} style={width ? { width } : undefined}
       role="dialog" aria-label={title} {...rest}>
       <header className="lamp-drawer__head">
         <span className="lamp-drawer__title">{title}</span>
@@ -57,13 +57,13 @@ export function Drawer({ open = true, title, side = 'right', width, actions, foo
       {footer ? <div className="lamp-modal__foot">{footer}</div> : null}
     </aside>
   );
-}
+}), { displayName: 'Drawer' });
 
-export function Popover({ title, children, x, y, className = '', style, ...rest }) {
+export const Popover = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Popover({ title, children, x, y, className = '', style, ...rest }, ref) {
   return (
-    <div className={'lamp-popover ' + className} style={{ position: x != null ? 'absolute' : undefined, left: x, top: y, ...style }} role="dialog" {...rest}>
+    <div ref={ref} className={'lamp-popover ' + className} style={{ position: x != null ? 'absolute' : undefined, left: x, top: y, ...style }} role="dialog" {...rest}>
       {title ? <div className="lamp-popover__head">{title}</div> : null}
       {children}
     </div>
   );
-}
+}), { displayName: 'Popover' });

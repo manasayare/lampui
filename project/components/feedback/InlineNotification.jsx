@@ -6,9 +6,9 @@ const TONE = {
   neutral: 'info', info: 'info', success: 'check_circle', warning: 'warning', danger: 'error', critical: 'dangerous',
 };
 
-export function InlineNotification({ tone = 'neutral', title, children, actions, banner = false, onDismiss, className = '', ...rest }) {
+export const InlineNotification = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InlineNotification({ tone = 'neutral', title, children, actions, banner = false, onDismiss, className = '', ...rest }, ref) {
   return (
-    <div className={['lamp-note', 'lamp-note--' + tone, banner && 'lamp-note--banner', className].filter(Boolean).join(' ')}
+    <div ref={ref} className={['lamp-note', 'lamp-note--' + tone, banner && 'lamp-note--banner', className].filter(Boolean).join(' ')}
       role={tone === 'danger' || tone === 'critical' ? 'alert' : 'status'} {...rest}>
       <span className="lamp-note__icon"><Icon name={TONE[tone] || 'info'} size={16} /></span>
       <span className="lamp-note__body">
@@ -19,11 +19,11 @@ export function InlineNotification({ tone = 'neutral', title, children, actions,
       {onDismiss ? <IconButton icon="close" label="Dismiss" size="xs" onClick={onDismiss} /> : null}
     </div>
   );
-}
+}), { displayName: 'InlineNotification' });
 
-export function Toast({ tone = 'neutral', title, children, action, onDismiss, className = '', ...rest }) {
+export const Toast = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Toast({ tone = 'neutral', title, children, action, onDismiss, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-toast ' + className} role="status" {...rest}>
+    <div ref={ref} className={'lamp-toast ' + className} role="status" {...rest}>
       <span className="lamp-note__icon" style={{ color: tone === 'success' ? 'var(--status-success)' : tone === 'danger' ? 'var(--status-danger)' : tone === 'warning' ? 'var(--status-warning)' : 'var(--text-tertiary)' }}>
         <Icon name={TONE[tone] || 'info'} size={16} />
       </span>
@@ -35,8 +35,8 @@ export function Toast({ tone = 'neutral', title, children, action, onDismiss, cl
       {onDismiss ? <IconButton icon="close" label="Dismiss" size="xs" onClick={onDismiss} /> : null}
     </div>
   );
-}
+}), { displayName: 'Toast' });
 
-export function ToastStack({ children, ...rest }) {
-  return <div className="lamp-toast__stack" {...rest}>{children}</div>;
-}
+export const ToastStack = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ToastStack({ children, ...rest }, ref) {
+  return <div ref={ref} className="lamp-toast__stack" {...rest}>{children}</div>;
+}), { displayName: 'ToastStack' });

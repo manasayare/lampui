@@ -16,4 +16,4 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   layout?: 'stack' | 'row';
   children?: React.ReactNode;
 }
-export declare function Field(props: FieldProps): JSX.Element;
+export declare const Field: React.ForwardRefExoticComponent<FieldProps & React.RefAttributes<HTMLDivElement>>;

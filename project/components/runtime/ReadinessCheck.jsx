@@ -8,9 +8,9 @@ const TONE = {
   pending: { glyph: 'radio_button_unchecked', color: 'var(--text-disabled)' },
 };
 
-export function ReadinessCheck({ checks = [], className = '', ...rest }) {
+export const ReadinessCheck = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ReadinessCheck({ checks = [], className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-readiness ' + className} role="list" {...rest}>
+    <div ref={ref} className={'lamp-readiness ' + className} role="list" {...rest}>
       {checks.map((c) => {
         const t = TONE[c.state] || TONE.pending;
         return (
@@ -24,4 +24,4 @@ export function ReadinessCheck({ checks = [], className = '', ...rest }) {
       })}
     </div>
   );
-}
+}), { displayName: 'ReadinessCheck' });

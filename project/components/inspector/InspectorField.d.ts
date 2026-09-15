@@ -23,4 +23,4 @@ export interface InspectorFieldProps extends React.HTMLAttributes<HTMLDivElement
   action?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function InspectorField(props: InspectorFieldProps): JSX.Element;
+export declare const InspectorField: React.ForwardRefExoticComponent<InspectorFieldProps & React.RefAttributes<HTMLDivElement>>;

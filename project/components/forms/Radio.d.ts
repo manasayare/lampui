@@ -2,7 +2,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
   label?: string;
   description?: string;
 }
-export declare function Radio(props: RadioProps): JSX.Element;
+export declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
 export interface RadioGroupProps {
   name: string;
   options: Array<string | { value: string; label: string; description?: string }>;
@@ -10,4 +10,4 @@ export interface RadioGroupProps {
   onChange?: (v: string) => void;
   direction?: 'row' | 'column';
 }
-export declare function RadioGroup(props: RadioGroupProps): JSX.Element;
+export declare const RadioGroup: React.ForwardRefExoticComponent<RadioGroupProps & React.RefAttributes<HTMLDivElement>>;

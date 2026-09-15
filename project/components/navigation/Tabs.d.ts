@@ -6,4 +6,4 @@ export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
   /** underline = section tabs · pill = compact inline switch */
   variant?: 'underline' | 'pill';
 }
-export declare function Tabs(props: TabsProps): JSX.Element;
+export declare const Tabs: React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>>;

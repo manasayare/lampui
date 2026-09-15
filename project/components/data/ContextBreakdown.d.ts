@@ -17,4 +17,4 @@ export interface ContextBreakdownProps extends React.HTMLAttributes<HTMLDivEleme
   showBar?: boolean;
   title?: string;
 }
-export declare function ContextBreakdown(props: ContextBreakdownProps): JSX.Element;
+export declare const ContextBreakdown: React.ForwardRefExoticComponent<ContextBreakdownProps & React.RefAttributes<HTMLDivElement>>;

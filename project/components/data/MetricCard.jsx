@@ -1,11 +1,11 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function MetricCard({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = 'lg', flush = false, glyph, footnote, spark, actions, className = '', ...rest }) {
+export const MetricCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MetricCard({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = 'lg', flush = false, glyph, footnote, spark, actions, className = '', ...rest }, ref) {
   const dir = deltaDirection || (delta && String(delta).trim().startsWith('-') ? 'down' : delta ? 'up' : 'flat');
   const tone = deltaTone || (dir === 'up' ? 'positive' : dir === 'down' ? 'negative' : 'flat');
   return (
-    <div className={['lamp-metric', size === 'sm' && 'lamp-metric--sm', flush && 'lamp-metric--flush', className].filter(Boolean).join(' ')} {...rest}>
+    <div ref={ref} className={['lamp-metric', size === 'sm' && 'lamp-metric--sm', flush && 'lamp-metric--flush', className].filter(Boolean).join(' ')} {...rest}>
       <span className="lamp-metric__label">
         {glyph ? <Icon name={glyph} size={12} /> : null}{label}
         {actions ? <span style={{ marginLeft: 'auto' }}>{actions}</span> : null}
@@ -23,4 +23,4 @@ export function MetricCard({ label, value, unit, delta, deltaDirection, deltaTon
       {(footnote || deltaLabel) ? <span className="lamp-metric__foot">{footnote || deltaLabel}</span> : null}
     </div>
   );
-}
+}), { displayName: 'MetricCard' });

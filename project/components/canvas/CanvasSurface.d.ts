@@ -25,11 +25,11 @@ export interface CanvasSurfaceProps extends React.HTMLAttributes<HTMLDivElement>
   /** Fires with the world offset during a pan. */
   onPanChange?: (offset: { x: number; y: number }) => void;
 }
-export declare function CanvasSurface(props: CanvasSurfaceProps): JSX.Element;
+export declare const CanvasSurface: React.ForwardRefExoticComponent<CanvasSurfaceProps & React.RefAttributes<HTMLDivElement>>;
 export interface SnapGuideProps {
   rect: { left: number; top: number; width: number; height: number };
   invalid?: boolean;
   /** snap = dashed gold outline at the snap slot · drop = filled drop preview */
   kind?: 'snap' | 'drop';
 }
-export declare function SnapGuide(props: SnapGuideProps): JSX.Element;
+export declare const SnapGuide: React.ForwardRefExoticComponent<SnapGuideProps & React.RefAttributes<HTMLSpanElement>>;

@@ -7,4 +7,4 @@ export interface PanelProps extends React.HTMLAttributes<HTMLElement> {
   width?: number | string;
   children?: React.ReactNode;
 }
-export declare function Panel(props: PanelProps): JSX.Element;
+export declare const Panel: React.ForwardRefExoticComponent<PanelProps & React.RefAttributes<HTMLElement>>;

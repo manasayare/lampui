@@ -38,4 +38,4 @@ export interface PlaybookComposerProps {
   /** Hides the "also create a Genie" option. */
   allowGenie?: boolean;
 }
-export declare function PlaybookComposer(props: PlaybookComposerProps): JSX.Element;
+export declare const PlaybookComposer: React.ForwardRefExoticComponent<PlaybookComposerProps & React.RefAttributes<HTMLDivElement>>;

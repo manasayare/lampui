@@ -11,4 +11,4 @@ export interface EntityChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   showType?: boolean;
   glyph?: string;
 }
-export declare function EntityChip(props: EntityChipProps): JSX.Element;
+export declare const EntityChip: React.ForwardRefExoticComponent<EntityChipProps & React.RefAttributes<HTMLSpanElement>>;

@@ -3,4 +3,4 @@ export interface KbdProps extends React.HTMLAttributes<HTMLElement> {
   keys?: string[];
   children?: React.ReactNode;
 }
-export declare function Kbd(props: KbdProps): JSX.Element;
+export declare const Kbd: React.ForwardRefExoticComponent<KbdProps & React.RefAttributes<HTMLSpanElement>>;

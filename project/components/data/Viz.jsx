@@ -40,14 +40,14 @@ const RENDER = {
   hive: (p) => <HexHeatmap {...p} />,
 };
 
-export function Viz({ type = 'line', title, subtitle, legend, legendVariant, footnote, state = 'ready', height, actions, flush, config = {}, ...rest }) {
+export const Viz = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Viz({ type = 'line', title, subtitle, legend, legendVariant, footnote, state = 'ready', height, actions, flush, config = {}, ...rest }, ref) {
   const render = RENDER[type];
   const chartState = state === 'ready' && !render ? 'error' : state;
   return (
-    <ChartFrame title={title} subtitle={subtitle} legend={legend} legendVariant={legendVariant || (type === 'line' || type === 'area' ? 'line' : 'swatch')}
+    <ChartFrame ref={ref} title={title} subtitle={subtitle} legend={legend} legendVariant={legendVariant || (type === 'line' || type === 'area' ? 'line' : 'swatch')}
       footnote={footnote} state={chartState} height={height} actions={actions} flush={flush}
       errorLabel={render ? undefined : 'This visualization type renders on the ECharts or visx tier.'}>
       {render ? render({ ...config, ...rest }) : null}
     </ChartFrame>
   );
-}
+}), { displayName: 'Viz' });

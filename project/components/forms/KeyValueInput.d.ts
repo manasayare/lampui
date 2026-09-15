@@ -7,4 +7,4 @@ export interface KeyValueInputProps extends Omit<React.HTMLAttributes<HTMLDivEle
   addLabel?: string;
   mono?: boolean;
 }
-export declare function KeyValueInput(props: KeyValueInputProps): JSX.Element;
+export declare const KeyValueInput: React.ForwardRefExoticComponent<KeyValueInputProps & React.RefAttributes<HTMLDivElement>>;

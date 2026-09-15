@@ -28,13 +28,13 @@ const SIM_NOTE = {
   skipped: { label: 'Skipped', glyph: 'remove', tone: 'neutral' },
 };
 
-export function SimulationStep({
+export const SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SimulationStep({
   state = 'pending', mockedValue, blockedReason, divergence, expected, scenario,
   children, className = '', ...rest
-}) {
+}, ref) {
   const note = SIM_NOTE[state];
   return (
-    <RunStep
+    <RunStep ref={ref}
       state={state}
       className={['lamp-simstep', 'lamp-simstep--' + state, divergence && 'lamp-simstep--diverged', className].filter(Boolean).join(' ')}
       {...rest}
@@ -71,4 +71,4 @@ export function SimulationStep({
       {children}
     </RunStep>
   );
-}
+}), { displayName: 'SimulationStep' });

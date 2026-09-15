@@ -8,10 +8,10 @@ const ENTITY_GLYPH = {
   event: 'event', decision: 'rule', exception: 'report', relationship: 'link',
 };
 
-export function EntityChip({ type = 'person', name, initials, showType = false, glyph, onClick, className = '', ...rest }) {
+export const EntityChip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function EntityChip({ type = 'person', name, initials, showType = false, glyph, onClick, className = '', ...rest }, ref) {
   const round = type === 'person';
   return (
-    <span className={['lamp-entity', onClick && 'lamp-entity--interactive', className].filter(Boolean).join(' ')}
+    <span ref={ref} className={['lamp-entity', onClick && 'lamp-entity--interactive', className].filter(Boolean).join(' ')}
       onClick={onClick} role={onClick ? 'button' : undefined} tabIndex={onClick ? 0 : undefined} {...rest}>
       {initials
         ? <span className={'lamp-entity__avatar' + (round ? ' lamp-entity__avatar--round' : '')}>{initials}</span>
@@ -20,4 +20,4 @@ export function EntityChip({ type = 'person', name, initials, showType = false, 
       <span>{name}</span>
     </span>
   );
-}
+}), { displayName: 'EntityChip' });

@@ -4,13 +4,13 @@ import { Button } from '../core/Button.jsx';
 import { Icon } from '../core/Icon.jsx';
 import { MemoryConfidence } from '../memory/MemoryBadge.jsx';
 
-export function LearnedPattern({
+export const LearnedPattern = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function LearnedPattern({
   kind = 'observed', observation, occurrences, period, confidence = 'high', evidence = [], entities,
   onUse, onReview, onIgnore, actions, note, className = '', ...rest
-}) {
+}, ref) {
   const label = kind === 'inferred' ? 'LAMP inferred' : kind === 'suggested' ? 'LAMP suggests' : kind === 'proposal' ? 'Process proposal' : 'LAMP noticed';
   return (
-    <article className={'lamp-learn ' + className} {...rest}>
+    <article ref={ref} className={'lamp-learn ' + className} {...rest}>
       <div className="lamp-learn__top">
         <Icon name="flare" size={14} style={{ color: 'var(--status-waiting-text)' }} />
         <span className="lamp-learn__note">{note || label}</span>
@@ -30,4 +30,4 @@ export function LearnedPattern({
       </div>
     </article>
   );
-}
+}), { displayName: 'LearnedPattern' });

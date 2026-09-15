@@ -27,4 +27,4 @@ export interface LineChartProps extends Omit<React.SVGAttributes<SVGElement>, 'f
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function LineChart(props: LineChartProps): JSX.Element;
+export declare const LineChart: React.ForwardRefExoticComponent<LineChartProps & React.RefAttributes<SVGSVGElement>>;

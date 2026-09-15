@@ -19,4 +19,4 @@ export interface RunSummaryProps extends React.HTMLAttributes<HTMLDivElement> {
   interventions?: number | string;
   environment?: string;
   }
-export declare function RunSummary(props: RunSummaryProps): JSX.Element;
+export declare const RunSummary: React.ForwardRefExoticComponent<RunSummaryProps & React.RefAttributes<HTMLDivElement>>;

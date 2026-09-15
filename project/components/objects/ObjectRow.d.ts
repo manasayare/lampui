@@ -22,5 +22,5 @@ export interface ObjectRowProps extends React.HTMLAttributes<HTMLDivElement> {
   /** 32px instead of 40px. */
   compact?: boolean;
 }
-export declare function ObjectRow(props: ObjectRowProps): JSX.Element;
-export declare function ObjectList(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
+export declare const ObjectRow: React.ForwardRefExoticComponent<ObjectRowProps & React.RefAttributes<HTMLDivElement>>;
+export declare const ObjectList: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;

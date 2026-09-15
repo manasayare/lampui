@@ -37,6 +37,7 @@ const manifest = JSON.parse(readFileSync(join(PROJECT, '_ds_manifest.json'), 'ut
 const EXTRA_EXPORTS = [
   ['components/canvas/CanvasMotion.jsx', ['setGsap', 'loadGsap', 'useGsap', 'prefersReducedMotion']],
   ['components/core/glyphs.js', ['glyphs', 'brandGlyphs', 'registerGlyphs']],
+  ['components/core/refs.js', ['useMergedRefs']],
   ['components/objects/HexLattice.jsx', ['hexCenter']],
   ['components/data/ChartFrame.jsx', ['seriesColor']],
   ['components/data/Heatmap.jsx', ['heatColor']],
@@ -98,6 +99,14 @@ const shared = {
   jsx: 'transform',
   loader: { '.jsx': 'jsx', '.js': 'jsx' },
   target: ['es2019', 'chrome90', 'firefox90', 'safari14'],
+  /* No keepNames. React reads a forwardRef component's devtools name off its
+     inner function, and esbuild leaves those names alone in this unminified
+     build — so devtools reads correctly in development, which is when anyone
+     looks. keepNames would bake a __name() call next to every component to
+     survive the CONSUMER's minifier too, at ~40kB, and a production build is
+     not where you read component names. The other option, a displayName
+     statement per component, is a top-level side effect on an exported binding
+     and stops the package tree-shaking altogether. */
   logLevel: 'warning',
 };
 

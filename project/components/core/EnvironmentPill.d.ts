@@ -4,4 +4,4 @@ export interface EnvironmentPillProps extends React.HTMLAttributes<HTMLSpanEleme
   /** Optional scope suffix, e.g. "Finance Genie". */
   scope?: string;
 }
-export declare function EnvironmentPill(props: EnvironmentPillProps): JSX.Element;
+export declare const EnvironmentPill: React.ForwardRefExoticComponent<EnvironmentPillProps & React.RefAttributes<HTMLSpanElement>>;

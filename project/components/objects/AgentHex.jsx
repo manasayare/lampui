@@ -20,11 +20,11 @@ const PULSE = { starting: 1, running: 1, delegating: 1, retrying: 1, succeeded: 
 const PULSE_COLOR = { succeeded: 'var(--status-success)', retrying: 'var(--status-warning)', paused: 'var(--neutral-400)' };
 const ROLE_GLYPH = { standard: 'smart_toy', coordinator: 'account_tree', specialist: 'target', humanSupervised: 'supervisor_account', system: 'settings', external: 'cloud' };
 
-export function AgentHex({
+export const AgentHex = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function AgentHex({
   size = 'md', state = 'idle', role = 'standard', environment = 'draft', detail = 'name',
   name, roleLabel, glyph, status, badgeCount, memoryActive = false, authority, task, cost, confidence,
   tools = 0, dashed = false, labelWidth, onClick, className = '', style, ...rest
-}) {
+}, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const border = STATE_BORDER[state] || STATE_BORDER.idle;
   const sw = ACTIVE[state] ? 1.5 : 1;
@@ -35,7 +35,7 @@ export function AgentHex({
   const label = (name || 'Agent') + (status ? ', ' + (STATUS[status] ? STATUS[status].label : status) : '');
   const labelled = detail !== 'glyph' && !!(name || status);
   return (
-    <div className={['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' ')} style={style} {...rest}>
+    <div ref={ref} className={['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' ')} style={style} {...rest}>
       <div className="lamp-agent__hex" style={{ width: w, height: h }} onClick={onClick}
         tabIndex={0} role={onClick ? 'button' : 'img'} aria-label={label}>
         <svg width={w} height={h} viewBox={'0 0 ' + w + ' ' + h} style={{ display: 'block', overflow: 'visible' }}>
@@ -82,4 +82,4 @@ export function AgentHex({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'AgentHex' });

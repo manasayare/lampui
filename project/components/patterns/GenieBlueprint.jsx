@@ -122,15 +122,15 @@ export function BuildGenie(businessProcess, options = {}) {
 export const buildGenie = BuildGenie;
 
 /** Everything that would be created, shown before it is created. */
-export function GenieBlueprint({
+export const GenieBlueprint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function GenieBlueprint({
   blueprint, onCreate, onCancel, onTogglePlaybook, excluded = [], compact = false, className = '', ...rest
-}) {
+}, ref) {
   if (!blueprint) return null;
   const isOut = (id) => excluded.indexOf(id) !== -1;
   const included = blueprint.playbooks.filter((pb) => !isOut(pb.process.id));
 
   return (
-    <section className={['lamp-blueprint', compact && 'lamp-blueprint--compact', className].filter(Boolean).join(' ')} {...rest}>
+    <section ref={ref} className={['lamp-blueprint', compact && 'lamp-blueprint--compact', className].filter(Boolean).join(' ')} {...rest}>
       <header className="lamp-blueprint__head">
         <span className="lamp-blueprint__glyph"><Icon name={blueprint.glyph} size={18} /></span>
         <span className="lamp-blueprint__titles">
@@ -213,4 +213,4 @@ export function GenieBlueprint({
       ) : null}
     </section>
   );
-}
+}), { displayName: 'GenieBlueprint' });

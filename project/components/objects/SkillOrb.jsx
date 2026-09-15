@@ -4,7 +4,7 @@ import { StatusDot } from '../core/StatusBadge.jsx';
 
 export const SKILL_SIZES = { xs: 16, sm: 20, md: 28, lg: 36, xl: 48 };
 
-export function SkillOrb({ size = 'md', state = 'available', glyph = 'flare', name, label, onClick, className = '', style, ...rest }) {
+export const SkillOrb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SkillOrb({ size = 'md', state = 'available', glyph = 'flare', name, label, onClick, className = '', style, ...rest }, ref) {
   const px = SKILL_SIZES[size] || SKILL_SIZES.md;
   const orb = (
     <span className={['lamp-skill', 'lamp-skill--' + state, onClick && 'lamp-skill--interactive', className].filter(Boolean).join(' ')}
@@ -15,5 +15,5 @@ export function SkillOrb({ size = 'md', state = 'available', glyph = 'flare', na
     </span>
   );
   if (!label) return orb;
-  return <span className="lamp-skillrow">{orb}<span className="lamp-skillrow__name">{name}</span></span>;
-}
+  return <span ref={ref} className="lamp-skillrow">{orb}<span className="lamp-skillrow__name">{name}</span></span>;
+}), { displayName: 'SkillOrb' });

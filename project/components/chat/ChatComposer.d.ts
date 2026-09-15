@@ -26,5 +26,5 @@ export interface ChatComposerProps extends Omit<React.HTMLAttributes<HTMLDivElem
   /** Show the Enter / Shift+Enter hint. Default true. */
   hint?: boolean;
 }
-export declare function ChatComposer(props: ChatComposerProps): JSX.Element;
+export declare const ChatComposer: React.ForwardRefExoticComponent<ChatComposerProps & React.RefAttributes<HTMLDivElement>>;
 export declare function ChatQuickReplies(props: { options: Array<string | ChatQuickReply>; onSelect?: (o: ChatQuickReply) => void }): JSX.Element;

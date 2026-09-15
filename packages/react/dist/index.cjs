@@ -215,7 +215,8 @@ __export(src_exports, {
   registerGlyphs: () => registerGlyphs,
   seriesColor: () => seriesColor,
   setGsap: () => setGsap,
-  useGsap: () => useGsap
+  useGsap: () => useGsap,
+  useMergedRefs: () => useMergedRefs
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -448,12 +449,13 @@ function usePath(name, table, base) {
 function Placeholder({ size }) {
   return /* @__PURE__ */ import_react.default.createElement("svg", { width: size, height: size, viewBox: "0 0 24 24", "aria-hidden": "true", style: { display: "block" } }, /* @__PURE__ */ import_react.default.createElement("rect", { x: "4.5", y: "4.5", width: "15", height: "15", rx: "2", fill: "none", stroke: "currentColor", strokeWidth: "1.5", opacity: "0.45" }));
 }
-function Icon({ name, size = 16, className = "", style, label, ...rest }) {
+var Icon = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react.default.forwardRef(function Icon2({ name, size = 16, className = "", style, label, ...rest }, ref) {
   const key = String(name).replace(/-/g, "_");
   const d = usePath(key, glyphs, MATERIAL_SYMBOLS_BASE);
   return /* @__PURE__ */ import_react.default.createElement(
     "span",
     {
+      ref,
       className,
       role: label ? "img" : void 0,
       "aria-label": label,
@@ -463,13 +465,14 @@ function Icon({ name, size = 16, className = "", style, label, ...rest }) {
     },
     d ? /* @__PURE__ */ import_react.default.createElement("svg", { width: size, height: size, viewBox: ICON_VIEWBOX, fill: "currentColor", "aria-hidden": "true", style: { display: "block" } }, /* @__PURE__ */ import_react.default.createElement("path", { d })) : /* @__PURE__ */ import_react.default.createElement(Placeholder, { size })
   );
-}
-function BrandIcon({ slug, size = 16, color, className = "", style, label, ...rest }) {
+}), { displayName: "Icon" });
+var BrandIcon = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react.default.forwardRef(function BrandIcon2({ slug, size = 16, color, className = "", style, label, ...rest }, ref) {
   const key = String(slug).toLowerCase();
   const d = usePath(key, brandGlyphs, BRAND_ICON_BASE);
   return /* @__PURE__ */ import_react.default.createElement(
     "span",
     {
+      ref,
       className,
       role: label ? "img" : void 0,
       "aria-label": label,
@@ -479,11 +482,11 @@ function BrandIcon({ slug, size = 16, color, className = "", style, label, ...re
     },
     d ? /* @__PURE__ */ import_react.default.createElement("svg", { width: size, height: size, viewBox: BRAND_VIEWBOX, fill: "currentColor", "aria-hidden": "true", style: { display: "block" } }, /* @__PURE__ */ import_react.default.createElement("path", { d })) : /* @__PURE__ */ import_react.default.createElement(Placeholder, { size })
   );
-}
+}), { displayName: "BrandIcon" });
 
 // project/components/canvas/CanvasContextMenu.jsx
-function CanvasContextMenu({ x = 0, y = 0, groups = [], onSelect, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react2.default.createElement("div", { className: "lamp-cmenu " + className, style: { position: "absolute", left: x, top: y, ...style }, role: "menu", ...rest }, groups.map((g, gi) => /* @__PURE__ */ import_react2.default.createElement("div", { key: gi }, gi > 0 ? /* @__PURE__ */ import_react2.default.createElement("div", { className: "lamp-cmenu__sep" }) : null, g.label ? /* @__PURE__ */ import_react2.default.createElement("div", { className: "lamp-cmenu__label" }, g.label) : null, g.items.map((it) => /* @__PURE__ */ import_react2.default.createElement(
+var CanvasContextMenu = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react2.default.forwardRef(function CanvasContextMenu2({ x = 0, y = 0, groups = [], onSelect, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react2.default.createElement("div", { ref, className: "lamp-cmenu " + className, style: { position: "absolute", left: x, top: y, ...style }, role: "menu", ...rest }, groups.map((g, gi) => /* @__PURE__ */ import_react2.default.createElement("div", { key: gi }, gi > 0 ? /* @__PURE__ */ import_react2.default.createElement("div", { className: "lamp-cmenu__sep" }) : null, g.label ? /* @__PURE__ */ import_react2.default.createElement("div", { className: "lamp-cmenu__label" }, g.label) : null, g.items.map((it) => /* @__PURE__ */ import_react2.default.createElement(
     "button",
     {
       key: it.id,
@@ -497,7 +500,7 @@ function CanvasContextMenu({ x = 0, y = 0, groups = [], onSelect, className = ""
     /* @__PURE__ */ import_react2.default.createElement("span", null, it.label),
     it.shortcut ? /* @__PURE__ */ import_react2.default.createElement("span", { className: "lamp-cmenu__kbd" }, it.shortcut) : null
   )))));
-}
+}), { displayName: "CanvasContextMenu" });
 
 // project/components/canvas/CanvasMotion.jsx
 var import_react3 = __toESM(require("react"), 1);
@@ -595,8 +598,28 @@ function prefersReducedMotion() {
 }
 
 // project/components/canvas/CanvasSurface.jsx
+var import_react5 = __toESM(require("react"), 1);
+
+// project/components/core/refs.js
 var import_react4 = __toESM(require("react"), 1);
-function CanvasSurface({
+function useMergedRefs(...refs) {
+  return import_react4.default.useMemo(
+    () => {
+      if (refs.every((r) => r == null)) return null;
+      return (node) => {
+        for (const ref of refs) {
+          if (typeof ref === "function") ref(node);
+          else if (ref && typeof ref === "object") ref.current = node;
+        }
+      };
+    },
+    refs
+    // eslint-disable-line react-hooks/exhaustive-deps
+  );
+}
+
+// project/components/canvas/CanvasSurface.jsx
+var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react5.default.forwardRef(function CanvasSurface2({
   grid = "dots",
   zoom = 1,
   environment = "draft",
@@ -613,16 +636,17 @@ function CanvasSurface({
   className = "",
   style,
   ...rest
-}) {
+}, ref) {
   const gridClass = zoom < 0.3 ? "plain" : zoom < 0.5 ? "dots-major" : grid;
   const api = useGsap();
-  const hostRef = import_react4.default.useRef(null);
-  const worldRef = import_react4.default.useRef(null);
-  const [spaceHeld, setSpaceHeld] = import_react4.default.useState(false);
+  const hostRef = import_react5.default.useRef(null);
+  const setHost = useMergedRefs(ref, hostRef);
+  const worldRef = import_react5.default.useRef(null);
+  const [spaceHeld, setSpaceHeld] = import_react5.default.useState(false);
   const panning = pannable && !locked && (panMode || spaceHeld);
-  const report = import_react4.default.useRef(onPanChange);
+  const report = import_react5.default.useRef(onPanChange);
   report.current = onPanChange;
-  import_react4.default.useEffect(() => {
+  import_react5.default.useEffect(() => {
     if (!pannable || locked) return void 0;
     const down = (e) => {
       if (e.code !== "Space" || e.repeat) return;
@@ -644,8 +668,8 @@ function CanvasSurface({
       window.removeEventListener("blur", blur);
     };
   }, [pannable, locked]);
-  const dragRef = import_react4.default.useRef(null);
-  import_react4.default.useEffect(() => {
+  const dragRef = import_react5.default.useRef(null);
+  import_react5.default.useEffect(() => {
     if (!api || !pannable || !worldRef.current) return void 0;
     const [drag] = api.Draggable.create(worldRef.current, {
       type: "x,y",
@@ -664,7 +688,7 @@ function CanvasSurface({
       dragRef.current = null;
     };
   }, [api, pannable]);
-  import_react4.default.useEffect(() => {
+  import_react5.default.useEffect(() => {
     const drag = dragRef.current;
     if (!drag) return;
     if (panning) drag.enable();
@@ -679,55 +703,55 @@ function CanvasSurface({
     readOnly && "lamp-canvas--readonly",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react4.default.createElement("div", { ref: hostRef, className: cls, style, role: "application", "aria-label": "LAMP canvas", ...rest }, /* @__PURE__ */ import_react4.default.createElement("div", { ref: worldRef, className: "lamp-canvas__world" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "lamp-canvas__scale", style: { transform: "scale(" + zoom + ")" } }, children)), guides.map((g, i) => /* @__PURE__ */ import_react4.default.createElement("span", { key: i, className: "lamp-canvas__guide lamp-canvas__guide--" + (g.axis === "x" ? "v" : "h"), style: g.axis === "x" ? { left: g.at } : { top: g.at } })), marquee ? /* @__PURE__ */ import_react4.default.createElement("span", { className: "lamp-canvas__marquee", style: marquee }) : null, empty ? /* @__PURE__ */ import_react4.default.createElement("div", { className: "lamp-canvas__empty" }, empty) : null);
-}
-function SnapGuide({ rect, invalid = false, kind = "snap" }) {
-  return /* @__PURE__ */ import_react4.default.createElement("span", { className: kind === "drop" ? "lamp-canvas__drop" + (invalid ? " lamp-canvas__drop--invalid" : "") : "lamp-canvas__snapguide", style: rect });
-}
+  return /* @__PURE__ */ import_react5.default.createElement("div", { ref: setHost, className: cls, style, role: "application", "aria-label": "LAMP canvas", ...rest }, /* @__PURE__ */ import_react5.default.createElement("div", { ref: worldRef, className: "lamp-canvas__world" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "lamp-canvas__scale", style: { transform: "scale(" + zoom + ")" } }, children)), guides.map((g, i) => /* @__PURE__ */ import_react5.default.createElement("span", { key: i, className: "lamp-canvas__guide lamp-canvas__guide--" + (g.axis === "x" ? "v" : "h"), style: g.axis === "x" ? { left: g.at } : { top: g.at } })), marquee ? /* @__PURE__ */ import_react5.default.createElement("span", { className: "lamp-canvas__marquee", style: marquee }) : null, empty ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "lamp-canvas__empty" }, empty) : null);
+}), { displayName: "CanvasSurface" });
+var SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react5.default.forwardRef(function SnapGuide2({ rect, invalid = false, kind = "snap" }, ref) {
+  return /* @__PURE__ */ import_react5.default.createElement("span", { ref, className: kind === "drop" ? "lamp-canvas__drop" + (invalid ? " lamp-canvas__drop--invalid" : "") : "lamp-canvas__snapguide", style: rect });
+}), { displayName: "SnapGuide" });
 
 // project/components/canvas/CanvasToolbar.jsx
-var import_react7 = __toESM(require("react"), 1);
+var import_react8 = __toESM(require("react"), 1);
 
 // project/components/core/IconButton.jsx
-var import_react5 = __toESM(require("react"), 1);
-function IconButton({ icon, label, size = "md", bordered = false, active = false, tone = "default", className = "", ...rest }) {
+var import_react6 = __toESM(require("react"), 1);
+var IconButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react6.default.forwardRef(function IconButton2({ icon, label, size = "md", bordered = false, active = false, tone = "default", className = "", ...rest }, ref) {
   const cls = ["lamp-iconbtn", "lamp-iconbtn--" + size, bordered && "lamp-iconbtn--bordered", active && "lamp-iconbtn--active", tone === "danger" && "lamp-iconbtn--danger", className].filter(Boolean).join(" ");
   const glyph = size === "xs" ? 12 : size === "sm" ? 14 : 16;
-  return /* @__PURE__ */ import_react5.default.createElement("button", { type: "button", className: cls, "aria-label": label, "aria-pressed": active || void 0, title: label, ...rest }, typeof icon === "string" ? /* @__PURE__ */ import_react5.default.createElement(Icon, { name: icon, size: glyph }) : icon);
-}
+  return /* @__PURE__ */ import_react6.default.createElement("button", { ref, type: "button", className: cls, "aria-label": label, "aria-pressed": active || void 0, title: label, ...rest }, typeof icon === "string" ? /* @__PURE__ */ import_react6.default.createElement(Icon, { name: icon, size: glyph }) : icon);
+}), { displayName: "IconButton" });
 
 // project/components/core/Divider.jsx
-var import_react6 = __toESM(require("react"), 1);
-function Divider({ orientation = "horizontal", label, className = "", ...rest }) {
-  if (label) return /* @__PURE__ */ import_react6.default.createElement("div", { className: "lamp-divider lamp-divider--label " + className, ...rest }, label);
-  return /* @__PURE__ */ import_react6.default.createElement("hr", { className: ["lamp-divider", orientation === "vertical" && "lamp-divider--v", className].filter(Boolean).join(" "), ...rest });
-}
+var import_react7 = __toESM(require("react"), 1);
+var Divider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react7.default.forwardRef(function Divider2({ orientation = "horizontal", label, className = "", ...rest }, ref) {
+  if (label) return /* @__PURE__ */ import_react7.default.createElement("div", { className: "lamp-divider lamp-divider--label " + className, ...rest }, label);
+  return /* @__PURE__ */ import_react7.default.createElement("hr", { ref, className: ["lamp-divider", orientation === "vertical" && "lamp-divider--v", className].filter(Boolean).join(" "), ...rest });
+}), { displayName: "Divider" });
 
 // project/components/canvas/CanvasToolbar.jsx
-function CanvasToolbar({ position = "floating", children, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react7.default.createElement("div", { className: ["lamp-ctoolbar", "lamp-ctoolbar--" + position, className].filter(Boolean).join(" "), style, role: "toolbar", ...rest }, children);
-}
-function CanvasZoomControls({ zoom = 1, onZoomIn, onZoomOut, onFit, onReset, ...rest }) {
-  return /* @__PURE__ */ import_react7.default.createElement(CanvasToolbar, { position: "topright", ...rest }, /* @__PURE__ */ import_react7.default.createElement(IconButton, { icon: "remove", label: "Zoom out", size: "sm", onClick: onZoomOut }), /* @__PURE__ */ import_react7.default.createElement("button", { type: "button", className: "lamp-ctoolbar__zoom", onClick: onReset, title: "Reset zoom" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ import_react7.default.createElement(IconButton, { icon: "add", label: "Zoom in", size: "sm", onClick: onZoomIn }), /* @__PURE__ */ import_react7.default.createElement(Divider, { orientation: "vertical" }), /* @__PURE__ */ import_react7.default.createElement(IconButton, { icon: "fit_screen", label: "Fit selection", size: "sm", onClick: onFit }));
-}
-function CanvasObjectToolbar({ x, y, children, ...rest }) {
-  return /* @__PURE__ */ import_react7.default.createElement("div", { className: "lamp-ctoolbar lamp-ctoolbar--object", style: { left: x, top: y }, role: "toolbar", ...rest }, children);
-}
-function CanvasMinimap({ blips = [], viewport, onJump, ...rest }) {
-  return /* @__PURE__ */ import_react7.default.createElement("div", { className: "lamp-minimap", onClick: onJump, "aria-label": "Canvas overview", ...rest }, blips.map((b, i) => /* @__PURE__ */ import_react7.default.createElement("span", { key: i, className: "lamp-minimap__blip" + (b.tone ? " lamp-minimap__blip--" + b.tone : ""), style: { left: b.x, top: b.y, width: b.w || 4, height: b.h || 4 } })), viewport ? /* @__PURE__ */ import_react7.default.createElement("span", { className: "lamp-minimap__viewport", style: viewport }) : null);
-}
+var CanvasToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react8.default.forwardRef(function CanvasToolbar2({ position = "floating", children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react8.default.createElement("div", { ref, className: ["lamp-ctoolbar", "lamp-ctoolbar--" + position, className].filter(Boolean).join(" "), style, role: "toolbar", ...rest }, children);
+}), { displayName: "CanvasToolbar" });
+var CanvasZoomControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react8.default.forwardRef(function CanvasZoomControls2({ zoom = 1, onZoomIn, onZoomOut, onFit, onReset, ...rest }, ref) {
+  return /* @__PURE__ */ import_react8.default.createElement(CanvasToolbar, { ref, position: "topright", ...rest }, /* @__PURE__ */ import_react8.default.createElement(IconButton, { icon: "remove", label: "Zoom out", size: "sm", onClick: onZoomOut }), /* @__PURE__ */ import_react8.default.createElement("button", { type: "button", className: "lamp-ctoolbar__zoom", onClick: onReset, title: "Reset zoom" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ import_react8.default.createElement(IconButton, { icon: "add", label: "Zoom in", size: "sm", onClick: onZoomIn }), /* @__PURE__ */ import_react8.default.createElement(Divider, { orientation: "vertical" }), /* @__PURE__ */ import_react8.default.createElement(IconButton, { icon: "fit_screen", label: "Fit selection", size: "sm", onClick: onFit }));
+}), { displayName: "CanvasZoomControls" });
+var CanvasObjectToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react8.default.forwardRef(function CanvasObjectToolbar2({ x, y, children, ...rest }, ref) {
+  return /* @__PURE__ */ import_react8.default.createElement("div", { ref, className: "lamp-ctoolbar lamp-ctoolbar--object", style: { left: x, top: y }, role: "toolbar", ...rest }, children);
+}), { displayName: "CanvasObjectToolbar" });
+var CanvasMinimap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react8.default.forwardRef(function CanvasMinimap2({ blips = [], viewport, onJump, ...rest }, ref) {
+  return /* @__PURE__ */ import_react8.default.createElement("div", { ref, className: "lamp-minimap", onClick: onJump, "aria-label": "Canvas overview", ...rest }, blips.map((b, i) => /* @__PURE__ */ import_react8.default.createElement("span", { key: i, className: "lamp-minimap__blip" + (b.tone ? " lamp-minimap__blip--" + b.tone : ""), style: { left: b.x, top: b.y, width: b.w || 4, height: b.h || 4 } })), viewport ? /* @__PURE__ */ import_react8.default.createElement("span", { className: "lamp-minimap__viewport", style: viewport }) : null);
+}), { displayName: "CanvasMinimap" });
 
 // project/components/canvas/SnapField.jsx
-var import_react12 = __toESM(require("react"), 1);
+var import_react13 = __toESM(require("react"), 1);
 
 // project/components/objects/HexLattice.jsx
-var import_react11 = __toESM(require("react"), 1);
+var import_react12 = __toESM(require("react"), 1);
 
 // project/components/objects/AgentHex.jsx
-var import_react10 = __toESM(require("react"), 1);
+var import_react11 = __toESM(require("react"), 1);
 
 // project/components/core/StatusBadge.jsx
-var import_react8 = __toESM(require("react"), 1);
+var import_react9 = __toESM(require("react"), 1);
 var STATUS = {
   draft: { tone: "neutral", icon: "edit", label: "Draft", color: "var(--runtime-draft)" },
   observed: { tone: "neutral", icon: "visibility", label: "Observed", color: "var(--runtime-observed)" },
@@ -751,29 +775,29 @@ var STATUS = {
   blocked: { tone: "danger", icon: "block", label: "Blocked", color: "var(--status-danger)" },
   disabled: { tone: "neutral", icon: "do_not_disturb_on", label: "Disabled", color: "var(--status-neutral)" }
 };
-function StatusDot({ status = "draft", size = "md", pulse = false, ring = false, style, ...rest }) {
+var StatusDot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react9.default.forwardRef(function StatusDot2({ status = "draft", size = "md", pulse = false, ring = false, style, ...rest }, ref) {
   const s = STATUS[status] || STATUS.draft;
   const cls = ["lamp-dot", size === "lg" && "lamp-dot--lg", ring && "lamp-dot--ring", pulse && "lamp-dot--pulse"].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react8.default.createElement("span", { className: cls, style: { background: s.color, color: s.color, ...style }, role: "img", "aria-label": s.label, ...rest });
-}
-function StatusBadge({ status = "draft", label, mode = "badge", size = "md", className = "", ...rest }) {
+  return /* @__PURE__ */ import_react9.default.createElement("span", { ref, className: cls, style: { background: s.color, color: s.color, ...style }, role: "img", "aria-label": s.label, ...rest });
+}), { displayName: "StatusDot" });
+var StatusBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react9.default.forwardRef(function StatusBadge2({ status = "draft", label, mode = "badge", size = "md", className = "", ...rest }, ref) {
   const s = STATUS[status] || STATUS.draft;
   const text = label || s.label;
   if (mode === "label") {
-    return /* @__PURE__ */ import_react8.default.createElement("span", { className: "lamp-status-label " + className, style: { display: "inline-flex", alignItems: "center", gap: 6, fontSize: size === "sm" ? 12 : 13, fontWeight: 500, color: "var(--text-secondary)" }, ...rest }, /* @__PURE__ */ import_react8.default.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), text);
+    return /* @__PURE__ */ import_react9.default.createElement("span", { className: "lamp-status-label " + className, style: { display: "inline-flex", alignItems: "center", gap: 6, fontSize: size === "sm" ? 12 : 13, fontWeight: 500, color: "var(--text-secondary)" }, ...rest }, /* @__PURE__ */ import_react9.default.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), text);
   }
   if (mode === "icon") {
-    return /* @__PURE__ */ import_react8.default.createElement("span", { className, style: { display: "inline-flex", color: s.color }, role: "img", "aria-label": text, ...rest }, /* @__PURE__ */ import_react8.default.createElement(Icon, { name: s.icon, size: 14 }));
+    return /* @__PURE__ */ import_react9.default.createElement("span", { className, style: { display: "inline-flex", color: s.color }, role: "img", "aria-label": text, ...rest }, /* @__PURE__ */ import_react9.default.createElement(Icon, { name: s.icon, size: 14 }));
   }
-  return /* @__PURE__ */ import_react8.default.createElement("span", { className: ["lamp-badge", "lamp-badge--" + s.tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react8.default.createElement(Icon, { name: s.icon, size: 11 }), text);
-}
+  return /* @__PURE__ */ import_react9.default.createElement("span", { ref, className: ["lamp-badge", "lamp-badge--" + s.tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react9.default.createElement(Icon, { name: s.icon, size: 11 }), text);
+}), { displayName: "StatusBadge" });
 
 // project/components/core/Badge.jsx
-var import_react9 = __toESM(require("react"), 1);
-function Badge({ tone = "neutral", icon, shape = "pill", micro = false, count = false, outline = false, children, className = "", ...rest }) {
+var import_react10 = __toESM(require("react"), 1);
+var Badge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react10.default.forwardRef(function Badge2({ tone = "neutral", icon, shape = "pill", micro = false, count = false, outline = false, children, className = "", ...rest }, ref) {
   const cls = ["lamp-badge", "lamp-badge--" + (outline ? "outline" : tone), shape === "square" && "lamp-badge--square", micro && "lamp-badge--micro", count && "lamp-badge--count", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react9.default.createElement("span", { className: cls, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react9.default.createElement(Icon, { name: icon, size: 11 }) : icon : null, children);
-}
+  return /* @__PURE__ */ import_react10.default.createElement("span", { ref, className: cls, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react10.default.createElement(Icon, { name: icon, size: 11 }) : icon : null, children);
+}), { displayName: "Badge" });
 
 // project/components/objects/AgentHex.jsx
 var AGENT_SIZES = { xs: [36, 31], sm: [48, 42], md: [64, 55], lg: [88, 76], xl: [120, 104] };
@@ -806,7 +830,7 @@ var ACTIVE = { selected: 1, snapReady: 1, bonding: 1, running: 1, delegating: 1,
 var PULSE = { starting: 1, running: 1, delegating: 1, retrying: 1, succeeded: 1, paused: 1 };
 var PULSE_COLOR = { succeeded: "var(--status-success)", retrying: "var(--status-warning)", paused: "var(--neutral-400)" };
 var ROLE_GLYPH = { standard: "smart_toy", coordinator: "account_tree", specialist: "target", humanSupervised: "supervisor_account", system: "settings", external: "cloud" };
-function AgentHex({
+var AgentHex = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react11.default.forwardRef(function AgentHex2({
   size = "md",
   state = "idle",
   role = "standard",
@@ -829,7 +853,7 @@ function AgentHex({
   className = "",
   style,
   ...rest
-}) {
+}, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const border = STATE_BORDER[state] || STATE_BORDER.idle;
   const sw = ACTIVE[state] ? 1.5 : 1;
@@ -839,7 +863,7 @@ function AgentHex({
   const glyphSize = size === "xs" ? 14 : size === "sm" ? 16 : size === "md" ? 18 : size === "lg" ? 22 : 28;
   const label = (name || "Agent") + (status ? ", " + (STATUS[status] ? STATUS[status].label : status) : "");
   const labelled = detail !== "glyph" && !!(name || status);
-  return /* @__PURE__ */ import_react10.default.createElement("div", { className: ["lamp-agent", "lamp-agent--" + state, onClick && "lamp-agent--interactive", className].filter(Boolean).join(" "), style, ...rest }, /* @__PURE__ */ import_react10.default.createElement(
+  return /* @__PURE__ */ import_react11.default.createElement("div", { ref, className: ["lamp-agent", "lamp-agent--" + state, onClick && "lamp-agent--interactive", className].filter(Boolean).join(" "), style, ...rest }, /* @__PURE__ */ import_react11.default.createElement(
     "div",
     {
       className: "lamp-agent__hex",
@@ -849,7 +873,7 @@ function AgentHex({
       role: onClick ? "button" : "img",
       "aria-label": label
     },
-    /* @__PURE__ */ import_react10.default.createElement("svg", { width: w, height: h, viewBox: "0 0 " + w + " " + h, style: { display: "block", overflow: "visible" } }, /* @__PURE__ */ import_react10.default.createElement(
+    /* @__PURE__ */ import_react11.default.createElement("svg", { width: w, height: h, viewBox: "0 0 " + w + " " + h, style: { display: "block", overflow: "visible" } }, /* @__PURE__ */ import_react11.default.createElement(
       "polygon",
       {
         points: pts,
@@ -860,15 +884,15 @@ function AgentHex({
         strokeLinejoin: "round"
       }
     )),
-    PULSE[state] ? /* @__PURE__ */ import_react10.default.createElement("svg", { className: "lamp-agent__pulse", width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" }, /* @__PURE__ */ import_react10.default.createElement("polygon", { points: pts, fill: "none", strokeWidth: 2, stroke: PULSE_COLOR[state] || energy })) : null,
-    /* @__PURE__ */ import_react10.default.createElement("div", { className: "lamp-agent__glyph", style: { color: ACTIVE[state] ? "var(--text-brand)" : "var(--text-secondary)" } }, /* @__PURE__ */ import_react10.default.createElement(Icon, { name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard, size: glyphSize })),
-    badgeCount ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__badge" }, /* @__PURE__ */ import_react10.default.createElement(Badge, { tone: state === "error" ? "danger" : "waiting", count: true }, badgeCount)) : null,
-    (memoryActive || tools > 0) && detail !== "glyph" && size !== "xs" ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__pin" }, memoryActive ? /* @__PURE__ */ import_react10.default.createElement(Icon, { name: "database", size: 10, style: { color: "var(--memory-accent)" } }) : null, tools > 0 ? /* @__PURE__ */ import_react10.default.createElement(Icon, { name: "handyman", size: 10, style: { color: "var(--text-tertiary)" } }) : null) : null
-  ), labelled ? /* @__PURE__ */ import_react10.default.createElement("div", { className: "lamp-agent__label", style: labelWidth ? { maxWidth: labelWidth } : void 0 }, name ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__name" }, name) : null, status ? /* @__PURE__ */ import_react10.default.createElement("span", { style: { display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "var(--text-secondary)" } }, /* @__PURE__ */ import_react10.default.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), STATUS[status] ? STATUS[status].label : status) : null, detail === "meta" && roleLabel ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__role" }, roleLabel) : null, detail === "meta" && task ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__role" }, task) : null, detail === "meta" && (cost || confidence || authority) ? /* @__PURE__ */ import_react10.default.createElement("span", { className: "lamp-agent__meta" }, [authority, confidence, cost].filter(Boolean).join(" \xB7 ")) : null) : null);
-}
+    PULSE[state] ? /* @__PURE__ */ import_react11.default.createElement("svg", { className: "lamp-agent__pulse", width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" }, /* @__PURE__ */ import_react11.default.createElement("polygon", { points: pts, fill: "none", strokeWidth: 2, stroke: PULSE_COLOR[state] || energy })) : null,
+    /* @__PURE__ */ import_react11.default.createElement("div", { className: "lamp-agent__glyph", style: { color: ACTIVE[state] ? "var(--text-brand)" : "var(--text-secondary)" } }, /* @__PURE__ */ import_react11.default.createElement(Icon, { name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard, size: glyphSize })),
+    badgeCount ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__badge" }, /* @__PURE__ */ import_react11.default.createElement(Badge, { tone: state === "error" ? "danger" : "waiting", count: true }, badgeCount)) : null,
+    (memoryActive || tools > 0) && detail !== "glyph" && size !== "xs" ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__pin" }, memoryActive ? /* @__PURE__ */ import_react11.default.createElement(Icon, { name: "database", size: 10, style: { color: "var(--memory-accent)" } }) : null, tools > 0 ? /* @__PURE__ */ import_react11.default.createElement(Icon, { name: "handyman", size: 10, style: { color: "var(--text-tertiary)" } }) : null) : null
+  ), labelled ? /* @__PURE__ */ import_react11.default.createElement("div", { className: "lamp-agent__label", style: labelWidth ? { maxWidth: labelWidth } : void 0 }, name ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__name" }, name) : null, status ? /* @__PURE__ */ import_react11.default.createElement("span", { style: { display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "var(--text-secondary)" } }, /* @__PURE__ */ import_react11.default.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), STATUS[status] ? STATUS[status].label : status) : null, detail === "meta" && roleLabel ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__role" }, roleLabel) : null, detail === "meta" && task ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__role" }, task) : null, detail === "meta" && (cost || confidence || authority) ? /* @__PURE__ */ import_react11.default.createElement("span", { className: "lamp-agent__meta" }, [authority, confidence, cost].filter(Boolean).join(" \xB7 ")) : null) : null);
+}), { displayName: "AgentHex" });
 
 // project/components/objects/HexLattice.jsx
-function HexLattice({ size = "md", gap = 2, cells = [], overlay, className = "", style, ...rest }) {
+var HexLattice = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react12.default.forwardRef(function HexLattice2({ size = "md", gap = 2, cells = [], overlay, className = "", style, ...rest }, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const stepX = w * 0.75 + gap;
   const stepY = h + gap;
@@ -880,8 +904,8 @@ function HexLattice({ size = "md", gap = 2, cells = [], overlay, className = "",
     if (y + h > maxY) maxY = y + h;
     return { key: c.key == null ? i : c.key, x, y, node: c.node };
   });
-  return /* @__PURE__ */ import_react11.default.createElement("div", { className: "lamp-lattice " + className, style: { width: maxX, height: maxY, ...style }, ...rest }, overlay, placed.map((p) => /* @__PURE__ */ import_react11.default.createElement("div", { key: p.key, className: "lamp-lattice__cell", style: { left: p.x, top: p.y, width: w, height: h } }, p.node)));
-}
+  return /* @__PURE__ */ import_react12.default.createElement("div", { ref, className: "lamp-lattice " + className, style: { width: maxX, height: maxY, ...style }, ...rest }, overlay, placed.map((p) => /* @__PURE__ */ import_react12.default.createElement("div", { key: p.key, className: "lamp-lattice__cell", style: { left: p.x, top: p.y, width: w, height: h } }, p.node)));
+}), { displayName: "HexLattice" });
 function hexCenter(col, row, size = "md", gap = 2) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const stepX = w * 0.75 + gap;
@@ -895,7 +919,7 @@ function HexCenter(col, row, size = "md", gap = 2) {
 // project/components/canvas/SnapField.jsx
 var HEX_CLIP = "polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)";
 var PULL = 0.35;
-function SnapField({
+var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react13.default.forwardRef(function SnapField2({
   agents = [],
   size = "md",
   gap = 2,
@@ -919,39 +943,40 @@ function SnapField({
   className = "",
   style,
   ...rest
-}) {
+}, ref) {
   const [hexW, hexH] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const api = useGsap();
-  const [dragId, setDragId] = import_react12.default.useState(null);
-  const [snapState, setSnapState] = import_react12.default.useState("idle");
-  const [marquee, setMarquee] = import_react12.default.useState(null);
-  const nodes = import_react12.default.useRef({});
-  const guideRef = import_react12.default.useRef(null);
-  const fieldRef = import_react12.default.useRef(null);
+  const [dragId, setDragId] = import_react13.default.useState(null);
+  const [snapState, setSnapState] = import_react13.default.useState("idle");
+  const [marquee, setMarquee] = import_react13.default.useState(null);
+  const nodes = import_react13.default.useRef({});
+  const guideRef = import_react13.default.useRef(null);
+  const fieldRef = import_react13.default.useRef(null);
+  const setField = useMergedRefs(ref, fieldRef);
   const multi = selectedIds || [];
-  const live = import_react12.default.useRef({});
+  const live = import_react13.default.useRef({});
   live.current = { agents, origin, size, gap, snapTolerance, proximityRange, onChange, onSelect, onSnapStateChange };
   const stepX = hexW * 0.75 + gap;
   const stepY = hexH + gap;
-  const at = import_react12.default.useCallback((col, row) => {
+  const at = import_react13.default.useCallback((col, row) => {
     const { origin: o, size: s, gap: g } = live.current;
     const c = HexCenter(col, row, s, g);
     return { x: o.x + c.x, y: o.y + c.y };
   }, []);
-  const bounds = import_react12.default.useMemo(() => {
+  const bounds = import_react13.default.useMemo(() => {
     const minCol = Math.ceil(-origin.x / stepX);
     const maxCol = Math.floor((width - hexW - origin.x) / stepX);
     const minRow = Math.ceil(-origin.y / stepY);
     const maxRow = Math.floor((height - hexH - origin.y) / stepY);
     return { minCol, maxCol, minRow, maxRow };
   }, [origin.x, origin.y, width, height, hexW, hexH, stepX, stepY]);
-  const inBounds = import_react12.default.useCallback((col, row) => {
+  const inBounds = import_react13.default.useCallback((col, row) => {
     if (col < bounds.minCol || col > bounds.maxCol) return false;
     if (row < bounds.minRow) return false;
     const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
     return row <= last;
   }, [bounds]);
-  const freePoints = import_react12.default.useCallback((selfId) => {
+  const freePoints = import_react13.default.useCallback((selfId) => {
     const taken = {};
     live.current.agents.forEach((a) => {
       if (a.id !== selfId) taken[a.col + ":" + a.row] = true;
@@ -975,20 +1000,20 @@ function SnapField({
     }
     return best;
   };
-  const emit = import_react12.default.useCallback((state) => {
+  const emit = import_react13.default.useCallback((state) => {
     setSnapState((was) => was === state ? was : state);
     const fn = live.current.onSnapStateChange;
     if (fn) fn(state);
   }, []);
   const layoutKey = agents.map((a) => a.id + ":" + a.col + ":" + a.row).join("|");
-  import_react12.default.useLayoutEffect(() => {
+  import_react13.default.useLayoutEffect(() => {
     if (!api) return;
     agents.forEach((a) => {
       const el = nodes.current[a.id];
       if (el) api.gsap.set(el, { x: 0, y: 0 });
     });
   }, [api, layoutKey]);
-  import_react12.default.useEffect(() => {
+  import_react13.default.useEffect(() => {
     if (!api || readOnly) return void 0;
     const { gsap, Draggable } = api;
     const guide = guideRef.current;
@@ -1088,7 +1113,7 @@ function SnapField({
     });
     return () => instances.forEach((d) => d.kill());
   }, [api, readOnly, layoutKey, hexW, hexH, at, freePoints, emit]);
-  const marqueeFrom = import_react12.default.useRef(null);
+  const marqueeFrom = import_react13.default.useRef(null);
   const localPoint = (e) => {
     const box = fieldRef.current.getBoundingClientRect();
     return { x: e.clientX - box.left, y: e.clientY - box.top };
@@ -1124,7 +1149,7 @@ function SnapField({
     }).map((a) => a.id);
     onSelectionChange(hits);
   };
-  const groupAnchor = import_react12.default.useMemo(() => {
+  const groupAnchor = import_react13.default.useMemo(() => {
     if (multi.length < 2) return null;
     const picked = agents.filter((a) => multi.indexOf(a.id) !== -1);
     if (!picked.length) return null;
@@ -1134,7 +1159,7 @@ function SnapField({
       y: Math.min.apply(null, pts.map((p) => p.y)) - hexH / 2 - 12
     };
   }, [multi, agents, at, hexH]);
-  const groupOutline = import_react12.default.useMemo(() => {
+  const groupOutline = import_react13.default.useMemo(() => {
     if (multi.length < 2) return null;
     const picked = agents.filter((a) => multi.indexOf(a.id) !== -1);
     if (!picked.length) return null;
@@ -1161,10 +1186,10 @@ function SnapField({
     if (agents.some((x) => x.id !== a.id && x.col === col && x.row === row)) return;
     onChange(agents.map((x) => x.id === a.id ? { ...x, col, row } : x));
   };
-  return /* @__PURE__ */ import_react12.default.createElement(
+  return /* @__PURE__ */ import_react13.default.createElement(
     "div",
     {
-      ref: fieldRef,
+      ref: setField,
       className: [
         "lamp-snapfield",
         dragId && "lamp-snapfield--dragging",
@@ -1180,14 +1205,14 @@ function SnapField({
       onPointerCancel: onFieldPointerUp,
       ...rest
     },
-    bonds ? /* @__PURE__ */ import_react12.default.createElement("div", { className: "lamp-snapfield__bonds", style: { position: "absolute", left: origin.x, top: origin.y, pointerEvents: "none" } }, bonds) : null,
-    groupOutline ? /* @__PURE__ */ import_react12.default.createElement("span", { className: "lamp-snapfield__outline", style: groupOutline }) : null,
-    /* @__PURE__ */ import_react12.default.createElement("div", { ref: guideRef, className: "lamp-snapfield__guide", style: { position: "absolute", left: 0, top: 0, width: hexW, height: hexH, opacity: 0, visibility: "hidden", pointerEvents: "none", zIndex: 2 } }, /* @__PURE__ */ import_react12.default.createElement(SnapGuide, { rect: { position: "absolute", inset: 0, clipPath: HEX_CLIP } })),
+    bonds ? /* @__PURE__ */ import_react13.default.createElement("div", { className: "lamp-snapfield__bonds", style: { position: "absolute", left: origin.x, top: origin.y, pointerEvents: "none" } }, bonds) : null,
+    groupOutline ? /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-snapfield__outline", style: groupOutline }) : null,
+    /* @__PURE__ */ import_react13.default.createElement("div", { ref: guideRef, className: "lamp-snapfield__guide", style: { position: "absolute", left: 0, top: 0, width: hexW, height: hexH, opacity: 0, visibility: "hidden", pointerEvents: "none", zIndex: 2 } }, /* @__PURE__ */ import_react13.default.createElement(SnapGuide, { rect: { position: "absolute", inset: 0, clipPath: HEX_CLIP } })),
     agents.map((a) => {
       const isDrag = dragId === a.id;
       const p = at(a.col, a.row);
       const state = isDrag && snapState !== "idle" ? snapState : a.state;
-      return /* @__PURE__ */ import_react12.default.createElement(
+      return /* @__PURE__ */ import_react13.default.createElement(
         "div",
         {
           key: a.id,
@@ -1199,7 +1224,7 @@ function SnapField({
           style: { position: "absolute", left: p.x - hexW / 2, top: p.y - hexH / 2, width: hexW, height: hexH, zIndex: isDrag ? 5 : 1 },
           onKeyDown: onKeyDown(a)
         },
-        /* @__PURE__ */ import_react12.default.createElement("div", { className: "lamp-snapfield__cell" }, renderAgent(Object.assign({}, a, { state }), {
+        /* @__PURE__ */ import_react13.default.createElement("div", { className: "lamp-snapfield__cell" }, renderAgent(Object.assign({}, a, { state }), {
           dragging: isDrag,
           proximity: isDrag && snapState === "proximity",
           snapReady: isDrag && snapState === "snapReady",
@@ -1208,45 +1233,45 @@ function SnapField({
         }))
       );
     }),
-    marquee ? /* @__PURE__ */ import_react12.default.createElement("span", { className: "lamp-canvas__marquee", style: { position: "absolute", ...marquee } }) : null,
-    groupAnchor && onGroup ? /* @__PURE__ */ import_react12.default.createElement("div", { className: "lamp-snapfield__group", style: { left: groupAnchor.x, top: groupAnchor.y } }, /* @__PURE__ */ import_react12.default.createElement("button", { type: "button", className: "lamp-snapfield__group-btn", onClick: () => onGroup(multi) }, groupLabel, /* @__PURE__ */ import_react12.default.createElement("span", { className: "lamp-snapfield__group-count" }, multi.length))) : null
+    marquee ? /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-canvas__marquee", style: { position: "absolute", ...marquee } }) : null,
+    groupAnchor && onGroup ? /* @__PURE__ */ import_react13.default.createElement("div", { className: "lamp-snapfield__group", style: { left: groupAnchor.x, top: groupAnchor.y } }, /* @__PURE__ */ import_react13.default.createElement("button", { type: "button", className: "lamp-snapfield__group-btn", onClick: () => onGroup(multi) }, groupLabel, /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-snapfield__group-count" }, multi.length))) : null
   );
-}
+}), { displayName: "SnapField" });
 
 // project/components/chat/AgentChat.jsx
-var import_react15 = __toESM(require("react"), 1);
+var import_react16 = __toESM(require("react"), 1);
 
 // project/components/core/Button.jsx
-var import_react13 = __toESM(require("react"), 1);
-function Button({ variant = "secondary", size = "md", icon, iconRight, loading: loading2 = false, disabled = false, block = false, shortcut, children, className = "", ...rest }) {
+var import_react14 = __toESM(require("react"), 1);
+var Button = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react14.default.forwardRef(function Button2({ variant = "secondary", size = "md", icon, iconRight, loading: loading2 = false, disabled = false, block = false, shortcut, children, className = "", ...rest }, ref) {
   const cls = ["lamp-btn", "lamp-btn--" + variant, "lamp-btn--" + size, block && "lamp-btn--block", loading2 && "lamp-btn--loading", className].filter(Boolean).join(" ");
   const glyph = size === "lg" ? 16 : 14;
-  return /* @__PURE__ */ import_react13.default.createElement("button", { type: "button", className: cls, disabled: disabled || loading2, "aria-busy": loading2 || void 0, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react13.default.createElement(Icon, { name: icon, size: glyph }) : icon : null, children, iconRight ? typeof iconRight === "string" ? /* @__PURE__ */ import_react13.default.createElement(Icon, { name: iconRight, size: glyph }) : iconRight : null, shortcut ? /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-btn__kbd" }, shortcut) : null, loading2 ? /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-btn__spin" }, /* @__PURE__ */ import_react13.default.createElement("i", null)) : null);
-}
-function SplitButton({ variant = "secondary", size = "md", icon, children, onMenu, menuLabel = "More actions", ...rest }) {
-  return /* @__PURE__ */ import_react13.default.createElement("span", { className: "lamp-split" }, /* @__PURE__ */ import_react13.default.createElement(Button, { variant, size, icon, ...rest }, children), /* @__PURE__ */ import_react13.default.createElement(Button, { variant, size, onClick: onMenu, "aria-label": menuLabel, icon: "keyboard_arrow_down" }));
-}
+  return /* @__PURE__ */ import_react14.default.createElement("button", { ref, type: "button", className: cls, disabled: disabled || loading2, "aria-busy": loading2 || void 0, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react14.default.createElement(Icon, { name: icon, size: glyph }) : icon : null, children, iconRight ? typeof iconRight === "string" ? /* @__PURE__ */ import_react14.default.createElement(Icon, { name: iconRight, size: glyph }) : iconRight : null, shortcut ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-btn__kbd" }, shortcut) : null, loading2 ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-btn__spin" }, /* @__PURE__ */ import_react14.default.createElement("i", null)) : null);
+}), { displayName: "Button" });
+var SplitButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react14.default.forwardRef(function SplitButton2({ variant = "secondary", size = "md", icon, children, onMenu, menuLabel = "More actions", ...rest }, ref) {
+  return /* @__PURE__ */ import_react14.default.createElement("span", { ref, className: "lamp-split" }, /* @__PURE__ */ import_react14.default.createElement(Button, { variant, size, icon, ...rest }, children), /* @__PURE__ */ import_react14.default.createElement(Button, { variant, size, onClick: onMenu, "aria-label": menuLabel, icon: "keyboard_arrow_down" }));
+}), { displayName: "SplitButton" });
 
 // project/components/chat/ChatMessage.jsx
-var import_react14 = __toESM(require("react"), 1);
+var import_react15 = __toESM(require("react"), 1);
 var HEX_POINTS = "25,0 75,0 100,50 75,100 25,100 0,50";
-function ChatAvatar({ role = "agent", initials, glyph, state = "idle", size = 26 }) {
+var ChatAvatar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react15.default.forwardRef(function ChatAvatar2({ role = "agent", initials, glyph, state = "idle", size = 26 }, ref) {
   if (role === "user") {
-    return /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--user", style: { width: size, height: size } }, initials || "You".slice(0, 2));
+    return /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--user", style: { width: size, height: size } }, initials || "You".slice(0, 2));
   }
   if (role === "system" || role === "tool") {
-    return /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--" + role, style: { width: size, height: size } }, /* @__PURE__ */ import_react14.default.createElement(Icon, { name: glyph || (role === "tool" ? "square" : "info"), size: 13 }));
+    return /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--" + role, style: { width: size, height: size } }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: glyph || (role === "tool" ? "square" : "info"), size: 13 }));
   }
   const stroke = state === "acting" ? "var(--gold-500)" : state === "failed" ? "var(--status-danger)" : "var(--border-strong)";
   const fill = state === "acting" ? "var(--gold-100)" : "var(--surface-secondary)";
-  return /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__avatar", style: { width: size, height: size } }, /* @__PURE__ */ import_react14.default.createElement("svg", { className: "lamp-cm__hex", viewBox: "0 0 100 100", preserveAspectRatio: "none", "aria-hidden": "true" }, /* @__PURE__ */ import_react14.default.createElement("polygon", { points: HEX_POINTS, fill, stroke, strokeWidth: state === "acting" ? 6 : 4, vectorEffect: "non-scaling-stroke" })), glyph ? /* @__PURE__ */ import_react14.default.createElement(Icon, { name: glyph, size: 12, className: "lamp-cm__ini" }) : /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__ini" }, initials || "AG"));
-}
-function ChatActivity({ items = [], max = 4, onSelect }) {
-  const [open, setOpen] = import_react14.default.useState(false);
+  return /* @__PURE__ */ import_react15.default.createElement("span", { ref, className: "lamp-cm__avatar", style: { width: size, height: size } }, /* @__PURE__ */ import_react15.default.createElement("svg", { className: "lamp-cm__hex", viewBox: "0 0 100 100", preserveAspectRatio: "none", "aria-hidden": "true" }, /* @__PURE__ */ import_react15.default.createElement("polygon", { points: HEX_POINTS, fill, stroke, strokeWidth: state === "acting" ? 6 : 4, vectorEffect: "non-scaling-stroke" })), glyph ? /* @__PURE__ */ import_react15.default.createElement(Icon, { name: glyph, size: 12, className: "lamp-cm__ini" }) : /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__ini" }, initials || "AG"));
+}), { displayName: "ChatAvatar" });
+var ChatActivity = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react15.default.forwardRef(function ChatActivity2({ items = [], max = 4, onSelect }, ref) {
+  const [open, setOpen] = import_react15.default.useState(false);
   const shown = open ? items : items.slice(0, max);
   const rest = items.length - shown.length;
   const glyph = (k) => k === "tool" ? "square" : k === "memory" ? "database" : k === "skill" ? "flare" : k === "human" ? "how_to_reg" : "bolt";
-  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-act" }, shown.map((a, i) => /* @__PURE__ */ import_react14.default.createElement(
+  return /* @__PURE__ */ import_react15.default.createElement("div", { ref, className: "lamp-act" }, shown.map((a, i) => /* @__PURE__ */ import_react15.default.createElement(
     "span",
     {
       key: i,
@@ -1255,18 +1280,18 @@ function ChatActivity({ items = [], max = 4, onSelect }) {
       onClick: onSelect ? () => onSelect(a) : void 0,
       style: onSelect ? { cursor: "pointer" } : void 0
     },
-    /* @__PURE__ */ import_react14.default.createElement(Icon, { name: a.glyph || glyph(a.kind), size: 11 }),
+    /* @__PURE__ */ import_react15.default.createElement(Icon, { name: a.glyph || glyph(a.kind), size: 11 }),
     a.label,
-    a.duration ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-act__dur" }, a.duration) : null
-  )), rest > 0 ? /* @__PURE__ */ import_react14.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(true) }, "+" + rest + " more") : null, open && items.length > max ? /* @__PURE__ */ import_react14.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(false) }, "Show less") : null);
-}
-function ChatCitation({ index, source, scope, onClick }) {
-  return /* @__PURE__ */ import_react14.default.createElement("button", { type: "button", className: "lamp-cite", onClick, title: [source, scope].filter(Boolean).join(" \xB7 "), "aria-label": "Evidence " + index + (source ? ": " + source : "") }, /* @__PURE__ */ import_react14.default.createElement(Icon, { name: "fact_check", size: 9 }), index);
-}
-function ChatDayDivider({ label }) {
-  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-chat__day" }, /* @__PURE__ */ import_react14.default.createElement("span", null, label));
-}
-function ChatMessage({
+    a.duration ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-act__dur" }, a.duration) : null
+  )), rest > 0 ? /* @__PURE__ */ import_react15.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(true) }, "+" + rest + " more") : null, open && items.length > max ? /* @__PURE__ */ import_react15.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(false) }, "Show less") : null);
+}), { displayName: "ChatActivity" });
+var ChatCitation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react15.default.forwardRef(function ChatCitation2({ index, source, scope, onClick }, ref) {
+  return /* @__PURE__ */ import_react15.default.createElement("button", { ref, type: "button", className: "lamp-cite", onClick, title: [source, scope].filter(Boolean).join(" \xB7 "), "aria-label": "Evidence " + index + (source ? ": " + source : "") }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: "fact_check", size: 9 }), index);
+}), { displayName: "ChatCitation" });
+var ChatDayDivider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react15.default.forwardRef(function ChatDayDivider2({ label }, ref) {
+  return /* @__PURE__ */ import_react15.default.createElement("div", { ref, className: "lamp-chat__day" }, /* @__PURE__ */ import_react15.default.createElement("span", null, label));
+}), { displayName: "ChatDayDivider" });
+var ChatMessage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react15.default.forwardRef(function ChatMessage2({
   role = "agent",
   author,
   roleLabel,
@@ -1287,19 +1312,19 @@ function ChatMessage({
   children,
   className = "",
   ...rest
-}) {
+}, ref) {
   const failed = state === "failed" || status === "failed";
-  return /* @__PURE__ */ import_react14.default.createElement("article", { className: ["lamp-cm", "lamp-cm--" + role, grouped && "lamp-cm--grouped", state === "acting" && "lamp-cm--acting", failed && "lamp-cm--failed", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react14.default.createElement(ChatAvatar, { role, initials, glyph, state }), /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__body" }, /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__meta" }, /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__who" }, author || (role === "user" ? "You" : role === "tool" ? "Tool" : role === "system" ? "LAMP" : "Agent")), roleLabel ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__role" }, roleLabel) : null, timestamp ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__time" }, timestamp) : null), activity.length ? /* @__PURE__ */ import_react14.default.createElement(ChatActivity, { items: activity }) : null, /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__text" }, children, citations.length ? /* @__PURE__ */ import_react14.default.createElement("span", { style: { marginLeft: 2 } }, citations.map((c, i) => /* @__PURE__ */ import_react14.default.createElement(ChatCitation, { key: i, index: c.index || i + 1, source: c.source, scope: c.scope, onClick: c.onClick }))) : null, streaming ? /* @__PURE__ */ import_react14.default.createElement("span", { className: "lamp-cm__caret" }) : null), attachment ? /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__attach" }, attachment) : null, status && status !== "failed" ? /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__status" }, /* @__PURE__ */ import_react14.default.createElement(Icon, { name: status === "sending" ? "schedule" : "check", size: 11 }), status === "sending" ? "Sending" : status) : null, failed ? /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__status lamp-cm__status--failed" }, /* @__PURE__ */ import_react14.default.createElement(Icon, { name: "error", size: 11 }), "Not delivered", onRetry ? /* @__PURE__ */ import_react14.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: onRetry }, "Retry") : null) : null), actions ? /* @__PURE__ */ import_react14.default.createElement("div", { className: "lamp-cm__tools" }, onInspect ? /* @__PURE__ */ import_react14.default.createElement(IconButton, { icon: "open_in_new", label: "Open in Inspector", size: "xs", onClick: onInspect }) : null, onCopy ? /* @__PURE__ */ import_react14.default.createElement(IconButton, { icon: "content_copy", label: "Copy message", size: "xs", onClick: onCopy }) : null) : null);
-}
+  return /* @__PURE__ */ import_react15.default.createElement("article", { ref, className: ["lamp-cm", "lamp-cm--" + role, grouped && "lamp-cm--grouped", state === "acting" && "lamp-cm--acting", failed && "lamp-cm--failed", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react15.default.createElement(ChatAvatar, { role, initials, glyph, state }), /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__body" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__meta" }, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__who" }, author || (role === "user" ? "You" : role === "tool" ? "Tool" : role === "system" ? "LAMP" : "Agent")), roleLabel ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__role" }, roleLabel) : null, timestamp ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__time" }, timestamp) : null), activity.length ? /* @__PURE__ */ import_react15.default.createElement(ChatActivity, { items: activity }) : null, /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__text" }, children, citations.length ? /* @__PURE__ */ import_react15.default.createElement("span", { style: { marginLeft: 2 } }, citations.map((c, i) => /* @__PURE__ */ import_react15.default.createElement(ChatCitation, { key: i, index: c.index || i + 1, source: c.source, scope: c.scope, onClick: c.onClick }))) : null, streaming ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-cm__caret" }) : null), attachment ? /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__attach" }, attachment) : null, status && status !== "failed" ? /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__status" }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: status === "sending" ? "schedule" : "check", size: 11 }), status === "sending" ? "Sending" : status) : null, failed ? /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__status lamp-cm__status--failed" }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: "error", size: 11 }), "Not delivered", onRetry ? /* @__PURE__ */ import_react15.default.createElement("button", { type: "button", className: "lamp-act__more", onClick: onRetry }, "Retry") : null) : null), actions ? /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-cm__tools" }, onInspect ? /* @__PURE__ */ import_react15.default.createElement(IconButton, { icon: "open_in_new", label: "Open in Inspector", size: "xs", onClick: onInspect }) : null, onCopy ? /* @__PURE__ */ import_react15.default.createElement(IconButton, { icon: "content_copy", label: "Copy message", size: "xs", onClick: onCopy }) : null) : null);
+}), { displayName: "ChatMessage" });
 
 // project/components/chat/AgentChat.jsx
-function ChatStatus({ state = "idle", author, action, detail, tokens, onStop, onInspect }) {
+var ChatStatus = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react16.default.forwardRef(function ChatStatus2({ state = "idle", author, action, detail, tokens, onStop, onInspect }, ref) {
   if (state === "idle") {
-    return /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-chat__status lamp-chat__status--idle" }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: "check_circle", size: 13 }), detail || "Up to date. Nothing is running.");
+    return /* @__PURE__ */ import_react16.default.createElement("div", { className: "lamp-chat__status lamp-chat__status--idle" }, /* @__PURE__ */ import_react16.default.createElement(Icon, { name: "check_circle", size: 13 }), detail || "Up to date. Nothing is running.");
   }
-  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-chat__status", role: "status" }, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__status-hex" }, /* @__PURE__ */ import_react15.default.createElement(ChatAvatar, { role: "agent", glyph: "bolt", state: "acting", size: 16 })), /* @__PURE__ */ import_react15.default.createElement("span", null, /* @__PURE__ */ import_react15.default.createElement("b", { style: { fontWeight: 600 } }, author || "Agent"), " ", action || "is working"), /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__dots", "aria-hidden": "true" }, /* @__PURE__ */ import_react15.default.createElement("i", null), /* @__PURE__ */ import_react15.default.createElement("i", null), /* @__PURE__ */ import_react15.default.createElement("i", null)), detail ? /* @__PURE__ */ import_react15.default.createElement("span", { style: { color: "var(--text-tertiary)" } }, detail) : null, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__status-right" }, tokens ? /* @__PURE__ */ import_react15.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-tertiary)" } }, tokens) : null, onInspect ? /* @__PURE__ */ import_react15.default.createElement(Button, { size: "xs", variant: "quiet", onClick: onInspect }, "Open run") : null, onStop ? /* @__PURE__ */ import_react15.default.createElement(Button, { size: "xs", variant: "secondary", icon: "stop_circle", onClick: onStop }, "Stop") : null));
-}
-function AgentChat({
+  return /* @__PURE__ */ import_react16.default.createElement("div", { ref, className: "lamp-chat__status", role: "status" }, /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__status-hex" }, /* @__PURE__ */ import_react16.default.createElement(ChatAvatar, { role: "agent", glyph: "bolt", state: "acting", size: 16 })), /* @__PURE__ */ import_react16.default.createElement("span", null, /* @__PURE__ */ import_react16.default.createElement("b", { style: { fontWeight: 600 } }, author || "Agent"), " ", action || "is working"), /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__dots", "aria-hidden": "true" }, /* @__PURE__ */ import_react16.default.createElement("i", null), /* @__PURE__ */ import_react16.default.createElement("i", null), /* @__PURE__ */ import_react16.default.createElement("i", null)), detail ? /* @__PURE__ */ import_react16.default.createElement("span", { style: { color: "var(--text-tertiary)" } }, detail) : null, /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__status-right" }, tokens ? /* @__PURE__ */ import_react16.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-tertiary)" } }, tokens) : null, onInspect ? /* @__PURE__ */ import_react16.default.createElement(Button, { size: "xs", variant: "quiet", onClick: onInspect }, "Open run") : null, onStop ? /* @__PURE__ */ import_react16.default.createElement(Button, { size: "xs", variant: "secondary", icon: "stop_circle", onClick: onStop }, "Stop") : null));
+}), { displayName: "ChatStatus" });
+var AgentChat = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react16.default.forwardRef(function AgentChat2({
   title,
   scope,
   scopeGlyph = "hive",
@@ -1313,33 +1338,33 @@ function AgentChat({
   children,
   className = "",
   ...rest
-}) {
-  const threadRef = import_react15.default.useRef(null);
-  import_react15.default.useEffect(() => {
+}, ref) {
+  const threadRef = import_react16.default.useRef(null);
+  import_react16.default.useEffect(() => {
     const el = threadRef.current;
     if (autoScroll && el) el.scrollTop = el.scrollHeight;
   }, [children, autoScroll]);
-  return /* @__PURE__ */ import_react15.default.createElement("section", { className: ["lamp-chat", flush && "lamp-chat--flush", className].filter(Boolean).join(" "), "aria-label": title || "Conversation", ...rest }, /* @__PURE__ */ import_react15.default.createElement("header", { className: "lamp-chat__head" }, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__id" }, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__title" }, title), scope ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__scope" }, /* @__PURE__ */ import_react15.default.createElement(Icon, { name: scopeGlyph, size: 11 }), /* @__PURE__ */ import_react15.default.createElement("b", null, scope), environment ? /* @__PURE__ */ import_react15.default.createElement(import_react15.default.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__crew", title: crew.map((c) => c.name).join(", ") }, crew.slice(0, 4).map((c) => /* @__PURE__ */ import_react15.default.createElement("span", { key: c.name }, /* @__PURE__ */ import_react15.default.createElement(ChatAvatar, { role: c.role || "agent", initials: c.initials, glyph: c.glyph, state: c.state, size: 22 }))), crew.length > 4 ? /* @__PURE__ */ import_react15.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", marginLeft: 6 } }, "+", crew.length - 4) : null) : null, /* @__PURE__ */ import_react15.default.createElement("span", { className: "lamp-chat__actions" }, actions, /* @__PURE__ */ import_react15.default.createElement(IconButton, { icon: "more_horiz", label: "Conversation actions", size: "sm" }))), /* @__PURE__ */ import_react15.default.createElement("div", { className: "lamp-chat__thread", ref: threadRef, role: "log", "aria-live": "polite" }, children), status, composer);
-}
+  return /* @__PURE__ */ import_react16.default.createElement("section", { ref, className: ["lamp-chat", flush && "lamp-chat--flush", className].filter(Boolean).join(" "), "aria-label": title || "Conversation", ...rest }, /* @__PURE__ */ import_react16.default.createElement("header", { className: "lamp-chat__head" }, /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__id" }, /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__title" }, title), scope ? /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__scope" }, /* @__PURE__ */ import_react16.default.createElement(Icon, { name: scopeGlyph, size: 11 }), /* @__PURE__ */ import_react16.default.createElement("b", null, scope), environment ? /* @__PURE__ */ import_react16.default.createElement(import_react16.default.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__crew", title: crew.map((c) => c.name).join(", ") }, crew.slice(0, 4).map((c) => /* @__PURE__ */ import_react16.default.createElement("span", { key: c.name }, /* @__PURE__ */ import_react16.default.createElement(ChatAvatar, { role: c.role || "agent", initials: c.initials, glyph: c.glyph, state: c.state, size: 22 }))), crew.length > 4 ? /* @__PURE__ */ import_react16.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", marginLeft: 6 } }, "+", crew.length - 4) : null) : null, /* @__PURE__ */ import_react16.default.createElement("span", { className: "lamp-chat__actions" }, actions, /* @__PURE__ */ import_react16.default.createElement(IconButton, { icon: "more_horiz", label: "Conversation actions", size: "sm" }))), /* @__PURE__ */ import_react16.default.createElement("div", { className: "lamp-chat__thread", ref: threadRef, role: "log", "aria-live": "polite" }, children), status, composer);
+}), { displayName: "AgentChat" });
 
 // project/components/chat/ChatComposer.jsx
-var import_react17 = __toESM(require("react"), 1);
+var import_react18 = __toESM(require("react"), 1);
 
 // project/components/core/Kbd.jsx
-var import_react16 = __toESM(require("react"), 1);
-function Kbd({ keys, children, className = "", ...rest }) {
+var import_react17 = __toESM(require("react"), 1);
+var Kbd = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react17.default.forwardRef(function Kbd2({ keys, children, className = "", ...rest }, ref) {
   const list = keys || (typeof children === "string" ? children.split("+") : null);
-  if (!list) return /* @__PURE__ */ import_react16.default.createElement("kbd", { className: "lamp-kbd " + className, ...rest }, children);
-  return /* @__PURE__ */ import_react16.default.createElement("span", { style: { display: "inline-flex", gap: 3, alignItems: "center" }, ...rest }, list.map((k, i) => /* @__PURE__ */ import_react16.default.createElement("kbd", { key: i, className: "lamp-kbd " + className }, k)));
-}
+  if (!list) return /* @__PURE__ */ import_react17.default.createElement("kbd", { className: "lamp-kbd " + className, ...rest }, children);
+  return /* @__PURE__ */ import_react17.default.createElement("span", { ref, style: { display: "inline-flex", gap: 3, alignItems: "center" }, ...rest }, list.map((k, i) => /* @__PURE__ */ import_react17.default.createElement("kbd", { key: i, className: "lamp-kbd " + className }, k)));
+}), { displayName: "Kbd" });
 
 // project/components/chat/ChatComposer.jsx
-function ChatQuickReplies({ options = [], onSelect }) {
+var ChatQuickReplies = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react18.default.forwardRef(function ChatQuickReplies2({ options = [], onSelect }, ref) {
   if (!options.length) return null;
-  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "lamp-cc__quick" }, options.map((o) => {
+  return /* @__PURE__ */ import_react18.default.createElement("div", { ref, className: "lamp-cc__quick" }, options.map((o) => {
     const label = typeof o === "string" ? o : o.label;
     const tone = typeof o === "object" && o.tone;
-    return /* @__PURE__ */ import_react17.default.createElement(
+    return /* @__PURE__ */ import_react18.default.createElement(
       Button,
       {
         key: label,
@@ -1351,8 +1376,8 @@ function ChatQuickReplies({ options = [], onSelect }) {
       label
     );
   }));
-}
-function ChatComposer({
+}), { displayName: "ChatQuickReplies" });
+var ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react18.default.forwardRef(function ChatComposer2({
   value = "",
   onChange,
   onSend,
@@ -1368,12 +1393,12 @@ function ChatComposer({
   hint = true,
   className = "",
   ...rest
-}) {
-  const [focus, setFocus] = import_react17.default.useState(false);
+}, ref) {
+  const [focus, setFocus] = import_react18.default.useState(false);
   const send = () => {
     if (!disabled && value.trim()) onSend && onSend(value);
   };
-  return /* @__PURE__ */ import_react17.default.createElement("div", { className: ["lamp-cc", disabled && "lamp-cc--disabled", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react17.default.createElement(ChatQuickReplies, { options: quickReplies, onSelect: (o) => o.onSelect ? o.onSelect() : onSend && onSend(o.label) }), /* @__PURE__ */ import_react17.default.createElement("div", { className: "lamp-cc__box" }, /* @__PURE__ */ import_react17.default.createElement("div", { className: ["lamp-cc__field", focus && "lamp-cc__field--focus"].filter(Boolean).join(" ") }, scope ? /* @__PURE__ */ import_react17.default.createElement("div", { className: "lamp-cc__scope" }, "Talking to", /* @__PURE__ */ import_react17.default.createElement("span", { className: "lamp-cc__scope-pill" }, /* @__PURE__ */ import_react17.default.createElement(Icon, { name: scopeGlyph, size: 11 }), scope)) : null, /* @__PURE__ */ import_react17.default.createElement(
+  return /* @__PURE__ */ import_react18.default.createElement("div", { ref, className: ["lamp-cc", disabled && "lamp-cc--disabled", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react18.default.createElement(ChatQuickReplies, { options: quickReplies, onSelect: (o) => o.onSelect ? o.onSelect() : onSend && onSend(o.label) }), /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-cc__box" }, /* @__PURE__ */ import_react18.default.createElement("div", { className: ["lamp-cc__field", focus && "lamp-cc__field--focus"].filter(Boolean).join(" ") }, scope ? /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-cc__scope" }, "Talking to", /* @__PURE__ */ import_react18.default.createElement("span", { className: "lamp-cc__scope-pill" }, /* @__PURE__ */ import_react18.default.createElement(Icon, { name: scopeGlyph, size: 11 }), scope)) : null, /* @__PURE__ */ import_react18.default.createElement(
     "textarea",
     {
       className: "lamp-cc__input",
@@ -1391,19 +1416,19 @@ function ChatComposer({
         }
       }
     }
-  ), /* @__PURE__ */ import_react17.default.createElement("div", { className: "lamp-cc__row" }, onAttach ? /* @__PURE__ */ import_react17.default.createElement(IconButton, { icon: "attach_file", label: "Attach a file", size: "sm", onClick: onAttach }) : null, onSlash ? /* @__PURE__ */ import_react17.default.createElement(IconButton, { icon: "terminal", label: "Commands", size: "sm", onClick: onSlash }) : null, onVoice ? /* @__PURE__ */ import_react17.default.createElement(IconButton, { icon: "mic", label: "Record a voice message", size: "sm", onClick: onVoice }) : null, hint ? /* @__PURE__ */ import_react17.default.createElement("span", { className: "lamp-cc__hint" }, /* @__PURE__ */ import_react17.default.createElement(Kbd, null, "Enter"), " to send", /* @__PURE__ */ import_react17.default.createElement(Kbd, { keys: ["Shift", "Enter"] }), " for a new line") : null)), /* @__PURE__ */ import_react17.default.createElement(Button, { className: "lamp-cc__send", size: "md", variant: "primary", icon: "send", loading: sending, disabled: disabled || !value.trim(), onClick: send }, "Send")));
-}
+  ), /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-cc__row" }, onAttach ? /* @__PURE__ */ import_react18.default.createElement(IconButton, { icon: "attach_file", label: "Attach a file", size: "sm", onClick: onAttach }) : null, onSlash ? /* @__PURE__ */ import_react18.default.createElement(IconButton, { icon: "terminal", label: "Commands", size: "sm", onClick: onSlash }) : null, onVoice ? /* @__PURE__ */ import_react18.default.createElement(IconButton, { icon: "mic", label: "Record a voice message", size: "sm", onClick: onVoice }) : null, hint ? /* @__PURE__ */ import_react18.default.createElement("span", { className: "lamp-cc__hint" }, /* @__PURE__ */ import_react18.default.createElement(Kbd, null, "Enter"), " to send", /* @__PURE__ */ import_react18.default.createElement(Kbd, { keys: ["Shift", "Enter"] }), " for a new line") : null)), /* @__PURE__ */ import_react18.default.createElement(Button, { className: "lamp-cc__send", size: "md", variant: "primary", icon: "send", loading: sending, disabled: disabled || !value.trim(), onClick: send }, "Send")));
+}), { displayName: "ChatComposer" });
 
 // project/components/core/Card.jsx
-var import_react18 = __toESM(require("react"), 1);
-function Card({ padding = "md", raised = false, interactive = false, selected = false, tone = "default", header, footer, title, actions, children, className = "", ...rest }) {
+var import_react19 = __toESM(require("react"), 1);
+var Card = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react19.default.forwardRef(function Card2({ padding = "md", raised = false, interactive = false, selected = false, tone = "default", header, footer, title, actions, children, className = "", ...rest }, ref) {
   const structured = header || footer || title || actions;
   const cls = ["lamp-card", !structured && padding === "md" && "lamp-card--pad", !structured && padding === "sm" && "lamp-card--pad-sm", raised && "lamp-card--raised", interactive && "lamp-card--interactive", selected && "lamp-card--selected", tone === "danger" && "lamp-card--danger", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react18.default.createElement("div", { className: cls, ...rest }, structured && (header || title || actions) ? /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-card__head" }, header || /* @__PURE__ */ import_react18.default.createElement("h3", { className: "lamp-card__title" }, title), actions ? /* @__PURE__ */ import_react18.default.createElement("div", { style: { display: "flex", gap: 4 } }, actions) : null) : null, structured ? /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-card__body" }, children) : children, footer ? /* @__PURE__ */ import_react18.default.createElement("div", { className: "lamp-card__foot" }, footer) : null);
-}
+  return /* @__PURE__ */ import_react19.default.createElement("div", { ref, className: cls, ...rest }, structured && (header || title || actions) ? /* @__PURE__ */ import_react19.default.createElement("div", { className: "lamp-card__head" }, header || /* @__PURE__ */ import_react19.default.createElement("h3", { className: "lamp-card__title" }, title), actions ? /* @__PURE__ */ import_react19.default.createElement("div", { style: { display: "flex", gap: 4 } }, actions) : null) : null, structured ? /* @__PURE__ */ import_react19.default.createElement("div", { className: "lamp-card__body" }, children) : children, footer ? /* @__PURE__ */ import_react19.default.createElement("div", { className: "lamp-card__foot" }, footer) : null);
+}), { displayName: "Card" });
 
 // project/components/core/EnvironmentPill.jsx
-var import_react19 = __toESM(require("react"), 1);
+var import_react20 = __toESM(require("react"), 1);
 var ENV = {
   draft: { icon: "edit", label: "Draft" },
   simulation: { icon: "science", label: "Simulation" },
@@ -1411,30 +1436,31 @@ var ENV = {
   paused: { icon: "pause", label: "Paused" },
   killed: { icon: "dangerous", label: "Emergency stopped" }
 };
-function EnvironmentPill({ environment = "draft", label, scope, className = "", ...rest }) {
+var EnvironmentPill = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react20.default.forwardRef(function EnvironmentPill2({ environment = "draft", label, scope, className = "", ...rest }, ref) {
   const e = ENV[environment] || ENV.draft;
-  return /* @__PURE__ */ import_react19.default.createElement("span", { className: ["lamp-env", "lamp-env--" + environment, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react19.default.createElement(Icon, { name: e.icon, size: 12 }), label || e.label, scope ? /* @__PURE__ */ import_react19.default.createElement("span", { style: { opacity: 0.7, fontWeight: 500, letterSpacing: 0, textTransform: "none" } }, scope) : null);
-}
+  return /* @__PURE__ */ import_react20.default.createElement("span", { ref, className: ["lamp-env", "lamp-env--" + environment, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react20.default.createElement(Icon, { name: e.icon, size: 12 }), label || e.label, scope ? /* @__PURE__ */ import_react20.default.createElement("span", { style: { opacity: 0.7, fontWeight: 500, letterSpacing: 0, textTransform: "none" } }, scope) : null);
+}), { displayName: "EnvironmentPill" });
 
 // project/components/core/Panel.jsx
-var import_react20 = __toESM(require("react"), 1);
-function Panel({ title, actions, flush = false, width, children, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react20.default.createElement("section", { className: ["lamp-panel", flush && "lamp-panel--flush", className].filter(Boolean).join(" "), style: { width, ...style }, ...rest }, title || actions ? /* @__PURE__ */ import_react20.default.createElement("header", { className: "lamp-panel__head" }, title ? /* @__PURE__ */ import_react20.default.createElement("span", { className: "lamp-panel__title" }, title) : null, actions ? /* @__PURE__ */ import_react20.default.createElement("span", { className: "lamp-panel__actions" }, actions) : null) : null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "lamp-panel__body" }, children));
-}
+var import_react21 = __toESM(require("react"), 1);
+var Panel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react21.default.forwardRef(function Panel2({ title, actions, flush = false, width, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react21.default.createElement("section", { ref, className: ["lamp-panel", flush && "lamp-panel--flush", className].filter(Boolean).join(" "), style: { width, ...style }, ...rest }, title || actions ? /* @__PURE__ */ import_react21.default.createElement("header", { className: "lamp-panel__head" }, title ? /* @__PURE__ */ import_react21.default.createElement("span", { className: "lamp-panel__title" }, title) : null, actions ? /* @__PURE__ */ import_react21.default.createElement("span", { className: "lamp-panel__actions" }, actions) : null) : null, /* @__PURE__ */ import_react21.default.createElement("div", { className: "lamp-panel__body" }, children));
+}), { displayName: "Panel" });
 
 // project/components/core/Tag.jsx
-var import_react21 = __toESM(require("react"), 1);
-function Tag({ icon, mono = false, onRemove, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react21.default.createElement("span", { className: ["lamp-tag", mono && "lamp-tag--mono", className].filter(Boolean).join(" "), ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react21.default.createElement(Icon, { name: icon, size: 12 }) : icon : null, children, onRemove ? /* @__PURE__ */ import_react21.default.createElement("button", { type: "button", className: "lamp-tag__x", "aria-label": "Remove", onClick: onRemove }, /* @__PURE__ */ import_react21.default.createElement(Icon, { name: "close", size: 10 })) : null);
-}
+var import_react22 = __toESM(require("react"), 1);
+var Tag = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react22.default.forwardRef(function Tag2({ icon, mono = false, onRemove, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react22.default.createElement("span", { ref, className: ["lamp-tag", mono && "lamp-tag--mono", className].filter(Boolean).join(" "), ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ import_react22.default.createElement(Icon, { name: icon, size: 12 }) : icon : null, children, onRemove ? /* @__PURE__ */ import_react22.default.createElement("button", { type: "button", className: "lamp-tag__x", "aria-label": "Remove", onClick: onRemove }, /* @__PURE__ */ import_react22.default.createElement(Icon, { name: "close", size: 10 })) : null);
+}), { displayName: "Tag" });
 
 // project/components/core/Tooltip.jsx
-var import_react22 = __toESM(require("react"), 1);
-function Tooltip({ content, shortcut, rich = false, children, ...rest }) {
-  const [open, setOpen] = import_react22.default.useState(false);
-  return /* @__PURE__ */ import_react22.default.createElement(
+var import_react23 = __toESM(require("react"), 1);
+var Tooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react23.default.forwardRef(function Tooltip2({ content, shortcut, rich = false, children, ...rest }, ref) {
+  const [open, setOpen] = import_react23.default.useState(false);
+  return /* @__PURE__ */ import_react23.default.createElement(
     "span",
     {
+      ref,
       className: ["lamp-tip", open && "lamp-tip--open"].filter(Boolean).join(" "),
       onMouseEnter: () => setOpen(true),
       onMouseLeave: () => setOpen(false),
@@ -1443,66 +1469,67 @@ function Tooltip({ content, shortcut, rich = false, children, ...rest }) {
       ...rest
     },
     children,
-    /* @__PURE__ */ import_react22.default.createElement("span", { role: "tooltip", className: ["lamp-tip__pop", rich && "lamp-tip__pop--rich"].filter(Boolean).join(" ") }, content, shortcut ? /* @__PURE__ */ import_react22.default.createElement("span", { className: "lamp-tip__kbd" }, shortcut) : null)
+    /* @__PURE__ */ import_react23.default.createElement("span", { role: "tooltip", className: ["lamp-tip__pop", rich && "lamp-tip__pop--rich"].filter(Boolean).join(" ") }, content, shortcut ? /* @__PURE__ */ import_react23.default.createElement("span", { className: "lamp-tip__kbd" }, shortcut) : null)
   );
-}
+}), { displayName: "Tooltip" });
 
 // project/components/dashboard/DashboardCard.jsx
-var import_react23 = __toESM(require("react"), 1);
-function DashboardCard({ title, description, actions, footer, raised = false, flush = false, span, children, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react23.default.createElement(
+var import_react24 = __toESM(require("react"), 1);
+var DashboardCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react24.default.forwardRef(function DashboardCard2({ title, description, actions, footer, raised = false, flush = false, span, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react24.default.createElement(
     "section",
     {
+      ref,
       className: ["lamp-dcard", raised && "lamp-dcard--raised", className].filter(Boolean).join(" "),
       style: span ? { gridColumn: "span " + span, ...style } : style,
       ...rest
     },
-    title || actions ? /* @__PURE__ */ import_react23.default.createElement("header", { className: "lamp-dcard__head" }, /* @__PURE__ */ import_react23.default.createElement("div", { className: "lamp-dcard__titles" }, title ? /* @__PURE__ */ import_react23.default.createElement("h3", { className: "lamp-dcard__title" }, title) : null, description ? /* @__PURE__ */ import_react23.default.createElement("p", { className: "lamp-dcard__desc" }, description) : null), actions ? /* @__PURE__ */ import_react23.default.createElement("div", { className: "lamp-dcard__actions" }, actions) : null) : null,
-    /* @__PURE__ */ import_react23.default.createElement("div", { className: ["lamp-dcard__content", flush && "lamp-dcard__content--flush"].filter(Boolean).join(" ") }, children),
-    footer ? /* @__PURE__ */ import_react23.default.createElement("footer", { className: "lamp-dcard__foot" }, footer) : null
+    title || actions ? /* @__PURE__ */ import_react24.default.createElement("header", { className: "lamp-dcard__head" }, /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-dcard__titles" }, title ? /* @__PURE__ */ import_react24.default.createElement("h3", { className: "lamp-dcard__title" }, title) : null, description ? /* @__PURE__ */ import_react24.default.createElement("p", { className: "lamp-dcard__desc" }, description) : null), actions ? /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-dcard__actions" }, actions) : null) : null,
+    /* @__PURE__ */ import_react24.default.createElement("div", { className: ["lamp-dcard__content", flush && "lamp-dcard__content--flush"].filter(Boolean).join(" ") }, children),
+    footer ? /* @__PURE__ */ import_react24.default.createElement("footer", { className: "lamp-dcard__foot" }, footer) : null
   );
-}
-function DashboardGrid({ columns = 2, children, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react23.default.createElement("div", { className: ["lamp-grid", "lamp-grid--" + columns, className].filter(Boolean).join(" "), style, ...rest }, children);
-}
-function StatGrid({ children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react23.default.createElement("div", { className: ["lamp-grid", "lamp-grid--stats", className].filter(Boolean).join(" "), ...rest }, children);
-}
+}), { displayName: "DashboardCard" });
+var DashboardGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react24.default.forwardRef(function DashboardGrid2({ columns = 2, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react24.default.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--" + columns, className].filter(Boolean).join(" "), style, ...rest }, children);
+}), { displayName: "DashboardGrid" });
+var StatGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react24.default.forwardRef(function StatGrid2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react24.default.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--stats", className].filter(Boolean).join(" "), ...rest }, children);
+}), { displayName: "StatGrid" });
 
 // project/components/dashboard/PageHeader.jsx
-var import_react24 = __toESM(require("react"), 1);
-function PageHeader({ title, description, meta, actions, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react24.default.createElement("header", { className: "lamp-pagehead " + className, ...rest }, /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-pagehead__titles" }, /* @__PURE__ */ import_react24.default.createElement("h1", { className: "lamp-pagehead__title" }, title), description ? /* @__PURE__ */ import_react24.default.createElement("p", { className: "lamp-pagehead__desc" }, description) : null, meta ? /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-pagehead__meta" }, meta) : null), actions ? /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-pagehead__actions" }, actions) : null);
-}
-function DashboardPage({ header, toolbar, flush = false, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react24.default.createElement("div", { className: ["lamp-page", flush && "lamp-page--flush", className].filter(Boolean).join(" "), ...rest }, header, toolbar, children);
-}
-function SectionHeader({ title, actions, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react24.default.createElement("div", { className: "lamp-section " + className, ...rest }, /* @__PURE__ */ import_react24.default.createElement("span", { className: "lamp-section__title" }, title), /* @__PURE__ */ import_react24.default.createElement("span", { className: "lamp-section__rule" }), actions ? /* @__PURE__ */ import_react24.default.createElement("span", { className: "lamp-section__actions" }, actions) : null);
-}
+var import_react25 = __toESM(require("react"), 1);
+var PageHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react25.default.forwardRef(function PageHeader2({ title, description, meta, actions, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react25.default.createElement("header", { ref, className: "lamp-pagehead " + className, ...rest }, /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-pagehead__titles" }, /* @__PURE__ */ import_react25.default.createElement("h1", { className: "lamp-pagehead__title" }, title), description ? /* @__PURE__ */ import_react25.default.createElement("p", { className: "lamp-pagehead__desc" }, description) : null, meta ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-pagehead__meta" }, meta) : null), actions ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-pagehead__actions" }, actions) : null);
+}), { displayName: "PageHeader" });
+var DashboardPage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react25.default.forwardRef(function DashboardPage2({ header, toolbar, flush = false, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react25.default.createElement("div", { ref, className: ["lamp-page", flush && "lamp-page--flush", className].filter(Boolean).join(" "), ...rest }, header, toolbar, children);
+}), { displayName: "DashboardPage" });
+var SectionHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react25.default.forwardRef(function SectionHeader2({ title, actions, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react25.default.createElement("div", { ref, className: "lamp-section " + className, ...rest }, /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-section__title" }, title), /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-section__rule" }), actions ? /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-section__actions" }, actions) : null);
+}), { displayName: "SectionHeader" });
 
 // project/components/data/BarChart.jsx
-var import_react26 = __toESM(require("react"), 1);
+var import_react27 = __toESM(require("react"), 1);
 
 // project/components/data/ChartFrame.jsx
-var import_react25 = __toESM(require("react"), 1);
+var import_react26 = __toESM(require("react"), 1);
 var DATAVIZ = ["var(--dataviz-1)", "var(--dataviz-2)", "var(--dataviz-3)", "var(--dataviz-4)", "var(--dataviz-5)", "var(--dataviz-6)", "var(--dataviz-7)", "var(--dataviz-8)"];
 var seriesColor = (i) => DATAVIZ[i % DATAVIZ.length];
-function ChartLegend({ items = [], variant = "swatch", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__legend " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__legend-item", key: it.label }, /* @__PURE__ */ import_react25.default.createElement(
+var ChartLegend = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react26.default.forwardRef(function ChartLegend2({ items = [], variant = "swatch", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react26.default.createElement("div", { ref, className: "lamp-chart__legend " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__legend-item", key: it.label }, /* @__PURE__ */ import_react26.default.createElement(
     "span",
     {
       className: "lamp-chart__swatch" + (variant === "line" ? " lamp-chart__swatch--line" : "") + (it.dashed ? " lamp-chart__swatch--dashed" : ""),
       style: it.dashed ? { color: it.color || seriesColor(i), background: "transparent" } : { background: it.color || seriesColor(i) }
     }
-  ), it.label, it.value != null ? /* @__PURE__ */ import_react25.default.createElement("span", { style: { fontFamily: "var(--font-mono)", color: "var(--text-primary)" } }, it.value) : null)));
-}
-function ChartFrame({ title, subtitle, actions, legend, legendVariant = "swatch", state = "ready", emptyLabel = "No data yet", errorLabel = "Could not load this chart", footnote, flush = false, height, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react25.default.createElement("figure", { className: ["lamp-chart", flush && "lamp-chart--flush", className].filter(Boolean).join(" "), style: { margin: 0 }, ...rest }, title || actions ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__head" }, /* @__PURE__ */ import_react25.default.createElement("figcaption", { className: "lamp-chart__titles" }, title ? /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__title" }, title) : null, subtitle ? /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__sub" }, subtitle) : null), actions ? /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__actions" }, actions) : null) : null, legend ? /* @__PURE__ */ import_react25.default.createElement(ChartLegend, { items: legend, variant: legendVariant }) : null, /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__body", style: height ? { height } : void 0 }, state === "ready" ? children : null, state === "loading" ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ import_react25.default.createElement(Icon, { name: "progress_activity", size: 16 }), "Loading") : null, state === "empty" ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ import_react25.default.createElement(Icon, { name: "bar_chart", size: 18 }), emptyLabel) : null, state === "error" ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__state", style: { color: "var(--status-danger-text)" } }, /* @__PURE__ */ import_react25.default.createElement(Icon, { name: "warning", size: 16 }), errorLabel) : null), footnote ? /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__foot" }, footnote) : null);
-}
-function ChartTooltip({ x, y, title, rows = [], ...rest }) {
-  return /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__tip", style: { left: x, top: y }, ...rest }, title ? /* @__PURE__ */ import_react25.default.createElement("div", { style: { fontWeight: 500, marginBottom: 4, color: "var(--text-primary)" } }, title) : null, rows.map((r, i) => /* @__PURE__ */ import_react25.default.createElement("div", { className: "lamp-chart__tip-row", key: i }, /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__swatch", style: { background: r.color || seriesColor(i) } }), r.label, /* @__PURE__ */ import_react25.default.createElement("span", { className: "lamp-chart__tip-val" }, r.value))));
-}
+  ), it.label, it.value != null ? /* @__PURE__ */ import_react26.default.createElement("span", { style: { fontFamily: "var(--font-mono)", color: "var(--text-primary)" } }, it.value) : null)));
+}), { displayName: "ChartLegend" });
+var ChartFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react26.default.forwardRef(function ChartFrame2({ title, subtitle, actions, legend, legendVariant = "swatch", state = "ready", emptyLabel = "No data yet", errorLabel = "Could not load this chart", footnote, flush = false, height, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react26.default.createElement("figure", { ref, className: ["lamp-chart", flush && "lamp-chart--flush", className].filter(Boolean).join(" "), style: { margin: 0 }, ...rest }, title || actions ? /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__head" }, /* @__PURE__ */ import_react26.default.createElement("figcaption", { className: "lamp-chart__titles" }, title ? /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__title" }, title) : null, subtitle ? /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__sub" }, subtitle) : null), actions ? /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__actions" }, actions) : null) : null, legend ? /* @__PURE__ */ import_react26.default.createElement(ChartLegend, { items: legend, variant: legendVariant }) : null, /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__body", style: height ? { height } : void 0 }, state === "ready" ? children : null, state === "loading" ? /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ import_react26.default.createElement(Icon, { name: "progress_activity", size: 16 }), "Loading") : null, state === "empty" ? /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ import_react26.default.createElement(Icon, { name: "bar_chart", size: 18 }), emptyLabel) : null, state === "error" ? /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__state", style: { color: "var(--status-danger-text)" } }, /* @__PURE__ */ import_react26.default.createElement(Icon, { name: "warning", size: 16 }), errorLabel) : null), footnote ? /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__foot" }, footnote) : null);
+}), { displayName: "ChartFrame" });
+var ChartTooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react26.default.forwardRef(function ChartTooltip2({ x, y, title, rows = [], ...rest }, ref) {
+  return /* @__PURE__ */ import_react26.default.createElement("div", { ref, className: "lamp-chart__tip", style: { left: x, top: y }, ...rest }, title ? /* @__PURE__ */ import_react26.default.createElement("div", { style: { fontWeight: 500, marginBottom: 4, color: "var(--text-primary)" } }, title) : null, rows.map((r, i) => /* @__PURE__ */ import_react26.default.createElement("div", { className: "lamp-chart__tip-row", key: i }, /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__swatch", style: { background: r.color || seriesColor(i) } }), r.label, /* @__PURE__ */ import_react26.default.createElement("span", { className: "lamp-chart__tip-val" }, r.value))));
+}), { displayName: "ChartTooltip" });
 ChartFrame.seriesColor = seriesColor;
 ChartFrame.palette = DATAVIZ;
 
@@ -1513,7 +1540,7 @@ var niceTick = (v, max) => {
   if (max >= 1) return (Math.round(v * 10) / 10).toFixed(1);
   return (Math.round(v * 100) / 100).toFixed(2);
 };
-function BarChart({
+var BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react27.default.forwardRef(function BarChart2({
   series = [],
   labels = [],
   width = 640,
@@ -1530,7 +1557,7 @@ function BarChart({
   format,
   className = "",
   ...rest
-}) {
+}, ref) {
   const p = pad || (orientation === "horizontal" ? { l: 104, r: 34, t: 4, b: 18 } : { l: 42, r: 10, t: 8, b: 20 });
   const n = labels.length || Math.max.apply(null, series.map((s) => s.data.length).concat([1]));
   const totals = Array.from({ length: n }, (_, i) => series.reduce((a, s) => a + (s.data[i] || 0), 0));
@@ -1544,9 +1571,9 @@ function BarChart({
   const scale = (v) => (normalized ? v : v / max) * (orientation === "vertical" ? ih : iw);
   const ticks = Array.from({ length: 5 }, (_, i) => max / 4 * i);
   const fmt = format || ((v) => niceTick(v, max));
-  return /* @__PURE__ */ import_react26.default.createElement("svg", { width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ import_react26.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => orientation === "vertical" ? /* @__PURE__ */ import_react26.default.createElement("line", { key: i, x1: p.l, x2: width - p.r, y1: p.t + ih - scale(t), y2: p.t + ih - scale(t) }) : /* @__PURE__ */ import_react26.default.createElement("line", { key: i, y1: p.t, y2: p.t + ih, x1: p.l + scale(t), x2: p.l + scale(t) }))) : null, showAxis ? /* @__PURE__ */ import_react26.default.createElement("g", { className: "lamp-chart__axis" }, orientation === "vertical" ? ticks.map((t, i) => /* @__PURE__ */ import_react26.default.createElement("text", { key: i, x: p.l - 6, y: p.t + ih - scale(t) + 4, textAnchor: "end" }, fmt(t))) : labels.map((l, i) => /* @__PURE__ */ import_react26.default.createElement("text", { key: i, x: p.l - 8, y: p.t + i * groupSize + band / 2 + 4, textAnchor: "end" }, l)), orientation === "vertical" ? labels.map((l, i) => /* @__PURE__ */ import_react26.default.createElement("text", { key: i, x: p.l + i * groupSize + band / 2, y: height - 5, textAnchor: "middle" }, l)) : null) : null, series.map((s, si) => {
+  return /* @__PURE__ */ import_react27.default.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ import_react27.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => orientation === "vertical" ? /* @__PURE__ */ import_react27.default.createElement("line", { key: i, x1: p.l, x2: width - p.r, y1: p.t + ih - scale(t), y2: p.t + ih - scale(t) }) : /* @__PURE__ */ import_react27.default.createElement("line", { key: i, y1: p.t, y2: p.t + ih, x1: p.l + scale(t), x2: p.l + scale(t) }))) : null, showAxis ? /* @__PURE__ */ import_react27.default.createElement("g", { className: "lamp-chart__axis" }, orientation === "vertical" ? ticks.map((t, i) => /* @__PURE__ */ import_react27.default.createElement("text", { key: i, x: p.l - 6, y: p.t + ih - scale(t) + 4, textAnchor: "end" }, fmt(t))) : labels.map((l, i) => /* @__PURE__ */ import_react27.default.createElement("text", { key: i, x: p.l - 8, y: p.t + i * groupSize + band / 2 + 4, textAnchor: "end" }, l)), orientation === "vertical" ? labels.map((l, i) => /* @__PURE__ */ import_react27.default.createElement("text", { key: i, x: p.l + i * groupSize + band / 2, y: height - 5, textAnchor: "middle" }, l)) : null) : null, series.map((s, si) => {
     const color = s.color || seriesColor(si);
-    return /* @__PURE__ */ import_react26.default.createElement("g", { key: s.label || si }, Array.from({ length: n }, (_, i) => {
+    return /* @__PURE__ */ import_react27.default.createElement("g", { key: s.label || si }, Array.from({ length: n }, (_, i) => {
       const raw = s.data[i] || 0;
       const v = normalized ? totals[i] ? raw / totals[i] : 0 : raw;
       const prior = stacked ? series.slice(0, si).reduce((a, q) => a + (normalized ? totals[i] ? (q.data[i] || 0) / totals[i] : 0 : q.data[i] || 0), 0) : 0;
@@ -1554,21 +1581,21 @@ function BarChart({
       if (orientation === "vertical") {
         const bx2 = p.l + i * groupSize + (stacked ? 0 : si * thickness);
         const by2 = p.t + ih - len - scale(prior);
-        return /* @__PURE__ */ import_react26.default.createElement("rect", { key: i, x: bx2, y: by2, width: Math.max(1, thickness), height: Math.max(0, len), fill: color, rx: 1.5 });
+        return /* @__PURE__ */ import_react27.default.createElement("rect", { key: i, x: bx2, y: by2, width: Math.max(1, thickness), height: Math.max(0, len), fill: color, rx: 1.5 });
       }
       const by = p.t + i * groupSize + (stacked ? 0 : si * thickness);
       const bx = p.l + scale(prior);
-      return /* @__PURE__ */ import_react26.default.createElement("g", { key: i }, /* @__PURE__ */ import_react26.default.createElement("rect", { x: bx, y: by, width: Math.max(0, len), height: Math.max(1, thickness), fill: color, rx: 1.5 }), showValues && !stacked ? /* @__PURE__ */ import_react26.default.createElement("text", { className: "lamp-chart__axis", x: bx + len + 6, y: by + thickness / 2 + 4, style: { fill: "var(--chart-axis-text)", fontSize: 11 } }, fmt(raw)) : null);
+      return /* @__PURE__ */ import_react27.default.createElement("g", { key: i }, /* @__PURE__ */ import_react27.default.createElement("rect", { x: bx, y: by, width: Math.max(0, len), height: Math.max(1, thickness), fill: color, rx: 1.5 }), showValues && !stacked ? /* @__PURE__ */ import_react27.default.createElement("text", { className: "lamp-chart__axis", x: bx + len + 6, y: by + thickness / 2 + 4, style: { fill: "var(--chart-axis-text)", fontSize: 11 } }, fmt(raw)) : null);
     }));
   }));
-}
+}), { displayName: "BarChart" });
 
 // project/components/data/ContextBreakdown.jsx
-var import_react28 = __toESM(require("react"), 1);
+var import_react29 = __toESM(require("react"), 1);
 
 // project/components/data/StackedBar.jsx
-var import_react27 = __toESM(require("react"), 1);
-function StackedBar({
+var import_react28 = __toESM(require("react"), 1);
+var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react28.default.forwardRef(function StackedBar2({
   segments = [],
   total,
   unit,
@@ -1581,11 +1608,11 @@ function StackedBar({
   label,
   className = "",
   ...rest
-}) {
+}, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + (s.value || 0), 0);
   const fmt = format || ((v) => typeof v === "number" ? v.toLocaleString() : v);
   const colorOf = (s, i) => s.color || seriesColor(i);
-  return /* @__PURE__ */ import_react27.default.createElement("div", { className: "lamp-sbar " + className, ...rest }, label ? /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__label" }, label) : null, /* @__PURE__ */ import_react27.default.createElement(
+  return /* @__PURE__ */ import_react28.default.createElement("div", { ref, className: "lamp-sbar " + className, ...rest }, label ? /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__label" }, label) : null, /* @__PURE__ */ import_react28.default.createElement(
     "div",
     {
       className: "lamp-sbar__track",
@@ -1595,7 +1622,7 @@ function StackedBar({
     },
     segments.map((s, i) => {
       const share = sum ? (s.value || 0) / sum : 0;
-      return /* @__PURE__ */ import_react27.default.createElement(
+      return /* @__PURE__ */ import_react28.default.createElement(
         "span",
         {
           key: s.key || s.label || i,
@@ -1603,11 +1630,11 @@ function StackedBar({
           title: s.label + ": " + fmt(s.value) + (unit ? " " + unit : ""),
           style: { width: share * 100 + "%", background: colorOf(s, i) }
         },
-        inlineValues && share >= minLabel ? /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__inline" }, fmt(s.value)) : null
+        inlineValues && share >= minLabel ? /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__inline" }, fmt(s.value)) : null
       );
     })
-  ), legend ? /* @__PURE__ */ import_react27.default.createElement("div", { className: "lamp-sbar__legend" }, segments.map((s, i) => /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__row", key: s.key || s.label || i }, /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__swatch", style: { background: colorOf(s, i) } }), /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__name" }, s.label), /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__val" }, fmt(s.value)))), showTotal ? /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__total" }, /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__name" }, "Total"), /* @__PURE__ */ import_react27.default.createElement("span", { className: "lamp-sbar__val" }, fmt(sum), unit ? " " + unit : "")) : null) : null);
-}
+  ), legend ? /* @__PURE__ */ import_react28.default.createElement("div", { className: "lamp-sbar__legend" }, segments.map((s, i) => /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__row", key: s.key || s.label || i }, /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__swatch", style: { background: colorOf(s, i) } }), /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__name" }, s.label), /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__val" }, fmt(s.value)))), showTotal ? /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__total" }, /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__name" }, "Total"), /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-sbar__val" }, fmt(sum), unit ? " " + unit : "")) : null) : null);
+}), { displayName: "StackedBar" });
 
 // project/components/data/ContextBreakdown.jsx
 var SCOPE_ORDER = ["agent", "playbook", "genie", "lamp", "evidence"];
@@ -1629,7 +1656,7 @@ var SCOPE_COLOR = {
   prompt: "var(--dataviz-neutral-3)",
   completion: "var(--dataviz-neutral-4)"
 };
-function ContextBreakdown({
+var ContextBreakdown = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react29.default.forwardRef(function ContextBreakdown2({
   segments,
   context,
   unit = "tokens",
@@ -1639,26 +1666,26 @@ function ContextBreakdown({
   title = "Context",
   className = "",
   ...rest
-}) {
+}, ref) {
   const rows = segments ? segments : SCOPE_ORDER.filter((k) => context && context[k] != null).map((k) => ({ key: k, label: DEFAULT_LABELS[k], value: context[k] }));
   const withColor = rows.map((r) => ({ ...r, color: r.color || SCOPE_COLOR[r.key] || void 0 }));
   const total = withColor.reduce((a, r) => a + (r.value || 0), 0);
   const fmt = (v) => v.toLocaleString();
   const pctOfLimit = limit ? Math.round(total / limit * 100) : null;
-  return /* @__PURE__ */ import_react28.default.createElement("div", { className: "lamp-ctxb " + className, ...rest }, title ? /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-ctxb__title" }, title) : null, showBar ? /* @__PURE__ */ import_react28.default.createElement(StackedBar, { segments: withColor, total, unit, height: 8 }) : null, /* @__PURE__ */ import_react28.default.createElement("table", { className: "lamp-ctxb__table" }, /* @__PURE__ */ import_react28.default.createElement("tbody", null, withColor.map((r, i) => /* @__PURE__ */ import_react28.default.createElement("tr", { key: r.key || r.label || i }, /* @__PURE__ */ import_react28.default.createElement("td", { className: "lamp-ctxb__swatchcell" }, /* @__PURE__ */ import_react28.default.createElement("span", { className: "lamp-ctxb__swatch", style: { background: r.color || "var(--dataviz-neutral-3)" } })), /* @__PURE__ */ import_react28.default.createElement("td", { className: "lamp-ctxb__name" }, r.label), /* @__PURE__ */ import_react28.default.createElement("td", { className: "lamp-ctxb__val" }, fmt(r.value))))), /* @__PURE__ */ import_react28.default.createElement("tfoot", null, /* @__PURE__ */ import_react28.default.createElement("tr", null, /* @__PURE__ */ import_react28.default.createElement("td", null), /* @__PURE__ */ import_react28.default.createElement("td", { className: "lamp-ctxb__name" }, "Total"), /* @__PURE__ */ import_react28.default.createElement("td", { className: "lamp-ctxb__val" }, fmt(total), " ", unit)))), cached != null || limit ? /* @__PURE__ */ import_react28.default.createElement("div", { className: "lamp-ctxb__meta" }, cached != null ? /* @__PURE__ */ import_react28.default.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /* @__PURE__ */ import_react28.default.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
-}
+  return /* @__PURE__ */ import_react29.default.createElement("div", { ref, className: "lamp-ctxb " + className, ...rest }, title ? /* @__PURE__ */ import_react29.default.createElement("span", { className: "lamp-ctxb__title" }, title) : null, showBar ? /* @__PURE__ */ import_react29.default.createElement(StackedBar, { segments: withColor, total, unit, height: 8 }) : null, /* @__PURE__ */ import_react29.default.createElement("table", { className: "lamp-ctxb__table" }, /* @__PURE__ */ import_react29.default.createElement("tbody", null, withColor.map((r, i) => /* @__PURE__ */ import_react29.default.createElement("tr", { key: r.key || r.label || i }, /* @__PURE__ */ import_react29.default.createElement("td", { className: "lamp-ctxb__swatchcell" }, /* @__PURE__ */ import_react29.default.createElement("span", { className: "lamp-ctxb__swatch", style: { background: r.color || "var(--dataviz-neutral-3)" } })), /* @__PURE__ */ import_react29.default.createElement("td", { className: "lamp-ctxb__name" }, r.label), /* @__PURE__ */ import_react29.default.createElement("td", { className: "lamp-ctxb__val" }, fmt(r.value))))), /* @__PURE__ */ import_react29.default.createElement("tfoot", null, /* @__PURE__ */ import_react29.default.createElement("tr", null, /* @__PURE__ */ import_react29.default.createElement("td", null), /* @__PURE__ */ import_react29.default.createElement("td", { className: "lamp-ctxb__name" }, "Total"), /* @__PURE__ */ import_react29.default.createElement("td", { className: "lamp-ctxb__val" }, fmt(total), " ", unit)))), cached != null || limit ? /* @__PURE__ */ import_react29.default.createElement("div", { className: "lamp-ctxb__meta" }, cached != null ? /* @__PURE__ */ import_react29.default.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /* @__PURE__ */ import_react29.default.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
+}), { displayName: "ContextBreakdown" });
 
 // project/components/data/DataTable.jsx
-var import_react30 = __toESM(require("react"), 1);
+var import_react31 = __toESM(require("react"), 1);
 
 // project/components/forms/Checkbox.jsx
-var import_react29 = __toESM(require("react"), 1);
-function Checkbox({ label, description, indeterminate = false, disabled = false, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react29.default.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react29.default.createElement("input", { type: "checkbox", disabled, ...rest }), /* @__PURE__ */ import_react29.default.createElement("span", { className: "lamp-check__box" }, indeterminate ? /* @__PURE__ */ import_react29.default.createElement(Icon, { name: "remove", size: 12 }) : /* @__PURE__ */ import_react29.default.createElement(Icon, { name: "check", size: 12 })), label ? /* @__PURE__ */ import_react29.default.createElement("span", null, label, description ? /* @__PURE__ */ import_react29.default.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
-}
+var import_react30 = __toESM(require("react"), 1);
+var Checkbox = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react30.default.forwardRef(function Checkbox2({ label, description, indeterminate = false, disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react30.default.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react30.default.createElement("input", { ref, type: "checkbox", disabled, ...rest }), /* @__PURE__ */ import_react30.default.createElement("span", { className: "lamp-check__box" }, indeterminate ? /* @__PURE__ */ import_react30.default.createElement(Icon, { name: "remove", size: 12 }) : /* @__PURE__ */ import_react30.default.createElement(Icon, { name: "check", size: 12 })), label ? /* @__PURE__ */ import_react30.default.createElement("span", null, label, description ? /* @__PURE__ */ import_react30.default.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
+}), { displayName: "Checkbox" });
 
 // project/components/data/DataTable.jsx
-function DataTable({
+var DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react31.default.forwardRef(function DataTable2({
   columns = [],
   rows = [],
   density = "default",
@@ -1679,9 +1706,9 @@ function DataTable({
   stickyHeader = true,
   className = "",
   ...rest
-}) {
+}, ref) {
   const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
-  return /* @__PURE__ */ import_react30.default.createElement("div", { className: "lamp-tablewrap " + className, ...rest }, toolbar ? /* @__PURE__ */ import_react30.default.createElement("div", { className: "lamp-tabletoolbar" }, toolbar) : null, selectable && selected.length > 0 ? /* @__PURE__ */ import_react30.default.createElement("div", { className: "lamp-tablebulk" }, /* @__PURE__ */ import_react30.default.createElement(Icon, { name: "check_circle", size: 14 }), selected.length, " selected", /* @__PURE__ */ import_react30.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 6 } }, bulkActions)) : null, /* @__PURE__ */ import_react30.default.createElement("div", { className: "lamp-tablewrap__scroll" }, /* @__PURE__ */ import_react30.default.createElement("table", { className: ["lamp-table", density !== "default" && "lamp-table--" + density, variant !== "standard" && "lamp-table--" + variant].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react30.default.createElement("thead", null, /* @__PURE__ */ import_react30.default.createElement("tr", null, selectable ? /* @__PURE__ */ import_react30.default.createElement("th", { style: { width: 34 }, "data-pinned": true }, /* @__PURE__ */ import_react30.default.createElement(Checkbox, { checked: allSelected, indeterminate: selected.length > 0 && !allSelected, onChange: () => onSelectAll && onSelectAll(!allSelected), "aria-label": "Select all rows" })) : null, columns.map((c) => /* @__PURE__ */ import_react30.default.createElement(
+  return /* @__PURE__ */ import_react31.default.createElement("div", { ref, className: "lamp-tablewrap " + className, ...rest }, toolbar ? /* @__PURE__ */ import_react31.default.createElement("div", { className: "lamp-tabletoolbar" }, toolbar) : null, selectable && selected.length > 0 ? /* @__PURE__ */ import_react31.default.createElement("div", { className: "lamp-tablebulk" }, /* @__PURE__ */ import_react31.default.createElement(Icon, { name: "check_circle", size: 14 }), selected.length, " selected", /* @__PURE__ */ import_react31.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 6 } }, bulkActions)) : null, /* @__PURE__ */ import_react31.default.createElement("div", { className: "lamp-tablewrap__scroll" }, /* @__PURE__ */ import_react31.default.createElement("table", { className: ["lamp-table", density !== "default" && "lamp-table--" + density, variant !== "standard" && "lamp-table--" + variant].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react31.default.createElement("thead", null, /* @__PURE__ */ import_react31.default.createElement("tr", null, selectable ? /* @__PURE__ */ import_react31.default.createElement("th", { style: { width: 34 }, "data-pinned": true }, /* @__PURE__ */ import_react31.default.createElement(Checkbox, { checked: allSelected, indeterminate: selected.length > 0 && !allSelected, onChange: () => onSelectAll && onSelectAll(!allSelected), "aria-label": "Select all rows" })) : null, columns.map((c) => /* @__PURE__ */ import_react31.default.createElement(
     "th",
     {
       key: c.key,
@@ -1693,17 +1720,17 @@ function DataTable({
       "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : void 0
     },
     c.header,
-    c.sortable ? /* @__PURE__ */ import_react30.default.createElement("span", { className: "lamp-table__sort" }, /* @__PURE__ */ import_react30.default.createElement(Icon, { name: sort && sort.key === c.key ? sort.dir === "asc" ? "arrow_upward" : "arrow_downward" : "unfold_more", size: 12 })) : null
-  )))), /* @__PURE__ */ import_react30.default.createElement("tbody", null, state === "loading" ? Array.from({ length: 6 }, (_, i) => /* @__PURE__ */ import_react30.default.createElement("tr", { key: i }, /* @__PURE__ */ import_react30.default.createElement("td", { colSpan: columns.length + (selectable ? 1 : 0) }, /* @__PURE__ */ import_react30.default.createElement("span", { className: "lamp-skel", style: { display: "block", height: 10, width: "60%" } })))) : null, state === "ready" ? rows.map((r, i) => {
+    c.sortable ? /* @__PURE__ */ import_react31.default.createElement("span", { className: "lamp-table__sort" }, /* @__PURE__ */ import_react31.default.createElement(Icon, { name: sort && sort.key === c.key ? sort.dir === "asc" ? "arrow_upward" : "arrow_downward" : "unfold_more", size: 12 })) : null
+  )))), /* @__PURE__ */ import_react31.default.createElement("tbody", null, state === "loading" ? Array.from({ length: 6 }, (_, i) => /* @__PURE__ */ import_react31.default.createElement("tr", { key: i }, /* @__PURE__ */ import_react31.default.createElement("td", { colSpan: columns.length + (selectable ? 1 : 0) }, /* @__PURE__ */ import_react31.default.createElement("span", { className: "lamp-skel", style: { display: "block", height: 10, width: "60%" } })))) : null, state === "ready" ? rows.map((r, i) => {
     const key = rowKey(r, i);
     const isSel = selected.indexOf(key) !== -1;
-    return /* @__PURE__ */ import_react30.default.createElement("tr", { key, "data-selected": isSel ? "" : void 0, onClick: onRowClick ? () => onRowClick(r) : void 0, style: onRowClick ? { cursor: "pointer" } : void 0 }, selectable ? /* @__PURE__ */ import_react30.default.createElement("td", { "data-pinned": true, onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react30.default.createElement(Checkbox, { checked: isSel, onChange: () => onSelect && onSelect(key, !isSel), "aria-label": "Select row" })) : null, columns.map((c) => /* @__PURE__ */ import_react30.default.createElement("td", { key: c.key, "data-align": c.align, "data-mono": c.mono ? "" : void 0, "data-pinned": c.pinned ? "" : void 0 }, c.render ? c.render(r) : r[c.key])));
-  }) : null), footerRow ? /* @__PURE__ */ import_react30.default.createElement("tfoot", null, /* @__PURE__ */ import_react30.default.createElement("tr", null, footerRow)) : null), state === "empty" ? /* @__PURE__ */ import_react30.default.createElement("div", { className: "lamp-table__empty" }, emptyState) : null));
-}
+    return /* @__PURE__ */ import_react31.default.createElement("tr", { key, "data-selected": isSel ? "" : void 0, onClick: onRowClick ? () => onRowClick(r) : void 0, style: onRowClick ? { cursor: "pointer" } : void 0 }, selectable ? /* @__PURE__ */ import_react31.default.createElement("td", { "data-pinned": true, onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react31.default.createElement(Checkbox, { checked: isSel, onChange: () => onSelect && onSelect(key, !isSel), "aria-label": "Select row" })) : null, columns.map((c) => /* @__PURE__ */ import_react31.default.createElement("td", { key: c.key, "data-align": c.align, "data-mono": c.mono ? "" : void 0, "data-pinned": c.pinned ? "" : void 0 }, c.render ? c.render(r) : r[c.key])));
+  }) : null), footerRow ? /* @__PURE__ */ import_react31.default.createElement("tfoot", null, /* @__PURE__ */ import_react31.default.createElement("tr", null, footerRow)) : null), state === "empty" ? /* @__PURE__ */ import_react31.default.createElement("div", { className: "lamp-table__empty" }, emptyState) : null));
+}), { displayName: "DataTable" });
 
 // project/components/data/DonutChart.jsx
-var import_react31 = __toESM(require("react"), 1);
-function DonutChart({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = "", ...rest }) {
+var import_react32 = __toESM(require("react"), 1);
+var DonutChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react32.default.forwardRef(function DonutChart2({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = "", ...rest }, ref) {
   const r = (size - thickness) / 2;
   const c = size / 2;
   const total = max != null ? max : data.reduce((a, d) => a + d.value, 0) || 1;
@@ -1715,18 +1742,18 @@ function DonutChart({ data = [], size = 132, thickness = 12, centerValue, center
     const large = to - from > 180 ? 1 : 0;
     const x1 = c + r * Math.cos(a1), y1 = c + r * Math.sin(a1);
     const x2 = c + r * Math.cos(a2), y2 = c + r * Math.sin(a2);
-    return /* @__PURE__ */ import_react31.default.createElement("path", { key, d: "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 " + large + " 1 " + x2 + "," + y2, fill: "none", stroke: color, strokeWidth: thickness, strokeLinecap: gauge ? "round" : "butt" });
+    return /* @__PURE__ */ import_react32.default.createElement("path", { key, d: "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 " + large + " 1 " + x2 + "," + y2, fill: "none", stroke: color, strokeWidth: thickness, strokeLinecap: gauge ? "round" : "butt" });
   };
-  return /* @__PURE__ */ import_react31.default.createElement("svg", { width: size, height: size, viewBox: "0 0 " + size + " " + size, role: "img", className, ...rest }, arc(0, sweep - 0.01, "var(--chart-track)", "track"), data.map((d, i) => {
+  return /* @__PURE__ */ import_react32.default.createElement("svg", { ref, width: size, height: size, viewBox: "0 0 " + size + " " + size, role: "img", className, ...rest }, arc(0, sweep - 0.01, "var(--chart-track)", "track"), data.map((d, i) => {
     const from = acc / total * sweep;
     acc += d.value;
     const to = acc / total * sweep;
     return arc(from, Math.min(to, sweep - 0.01), d.color || seriesColor(i), d.label || i);
-  }), centerValue != null ? /* @__PURE__ */ import_react31.default.createElement("g", null, /* @__PURE__ */ import_react31.default.createElement("text", { x: c, y: c + (centerLabel ? 0 : 5), textAnchor: "middle", style: { fill: "var(--text-primary)", font: "500 18px var(--font-sans)", fontVariantNumeric: "tabular-nums" } }, centerValue), centerLabel ? /* @__PURE__ */ import_react31.default.createElement("text", { x: c, y: c + 15, textAnchor: "middle", style: { fill: "var(--text-tertiary)", font: "400 10px var(--font-sans)" } }, centerLabel) : null) : null);
-}
+  }), centerValue != null ? /* @__PURE__ */ import_react32.default.createElement("g", null, /* @__PURE__ */ import_react32.default.createElement("text", { x: c, y: c + (centerLabel ? 0 : 5), textAnchor: "middle", style: { fill: "var(--text-primary)", font: "500 18px var(--font-sans)", fontVariantNumeric: "tabular-nums" } }, centerValue), centerLabel ? /* @__PURE__ */ import_react32.default.createElement("text", { x: c, y: c + 15, textAnchor: "middle", style: { fill: "var(--text-tertiary)", font: "400 10px var(--font-sans)" } }, centerLabel) : null) : null);
+}), { displayName: "DonutChart" });
 
 // project/components/data/Heatmap.jsx
-var import_react32 = __toESM(require("react"), 1);
+var import_react33 = __toESM(require("react"), 1);
 var RAMPS = {
   gold: ["var(--gold-50)", "var(--gold-200)", "var(--gold-400)", "var(--gold-600)", "var(--gold-800)"],
   blue: ["var(--blue-100)", "var(--blue-300)", "var(--blue-500)", "var(--blue-600)", "var(--blue-700)"],
@@ -1740,9 +1767,9 @@ function heatColor(value, max, ramp = "gold") {
   const i = Math.min(steps.length - 1, Math.floor(value / (max || 1) * steps.length));
   return steps[i];
 }
-function Heatmap({ rows = [], columns = [], values = [], max, ramp = "gold", cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = "", ...rest }) {
+var Heatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react33.default.forwardRef(function Heatmap2({ rows = [], columns = [], values = [], max, ramp = "gold", cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = "", ...rest }, ref) {
   const m = max != null ? max : Math.max.apply(null, values.reduce((a, r) => a.concat(r), [0]));
-  return /* @__PURE__ */ import_react32.default.createElement("div", { className, ...rest }, /* @__PURE__ */ import_react32.default.createElement("div", { style: { display: "grid", gridTemplateColumns: (rows.length ? "auto " : "") + "repeat(" + columns.length + ", " + cellSize + "px)", gap, alignItems: "center" } }, rows.length ? /* @__PURE__ */ import_react32.default.createElement("span", null) : null, columns.map((c) => /* @__PURE__ */ import_react32.default.createElement("span", { key: c, style: { fontSize: 10, color: "var(--text-tertiary)", textAlign: "center" } }, c)), values.map((row, ri) => /* @__PURE__ */ import_react32.default.createElement(import_react32.default.Fragment, { key: ri }, rows.length ? /* @__PURE__ */ import_react32.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", paddingRight: 6, whiteSpace: "nowrap", textAlign: "right" } }, rows[ri]) : null, row.map((v, ci) => /* @__PURE__ */ import_react32.default.createElement(
+  return /* @__PURE__ */ import_react33.default.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ import_react33.default.createElement("div", { style: { display: "grid", gridTemplateColumns: (rows.length ? "auto " : "") + "repeat(" + columns.length + ", " + cellSize + "px)", gap, alignItems: "center" } }, rows.length ? /* @__PURE__ */ import_react33.default.createElement("span", null) : null, columns.map((c) => /* @__PURE__ */ import_react33.default.createElement("span", { key: c, style: { fontSize: 10, color: "var(--text-tertiary)", textAlign: "center" } }, c)), values.map((row, ri) => /* @__PURE__ */ import_react33.default.createElement(import_react33.default.Fragment, { key: ri }, rows.length ? /* @__PURE__ */ import_react33.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", paddingRight: 6, whiteSpace: "nowrap", textAlign: "right" } }, rows[ri]) : null, row.map((v, ci) => /* @__PURE__ */ import_react33.default.createElement(
     "span",
     {
       key: ci,
@@ -1750,13 +1777,13 @@ function Heatmap({ rows = [], columns = [], values = [], max, ramp = "gold", cel
       title: (rows[ri] || "") + " " + (columns[ci] || "") + ": " + format(v),
       style: { width: cellSize, height: cellSize, background: heatColor(v, m, ramp), borderRadius: 2 }
     }
-  ))))), showScale ? /* @__PURE__ */ import_react32.default.createElement("div", { className: "lamp-heat__scale", style: { marginTop: 8 } }, /* @__PURE__ */ import_react32.default.createElement("span", null, "Low"), (RAMPS[ramp] || RAMPS.gold).map((c) => /* @__PURE__ */ import_react32.default.createElement("span", { key: c, className: "lamp-heat__scale-swatch", style: { background: c } })), /* @__PURE__ */ import_react32.default.createElement("span", null, "High"), /* @__PURE__ */ import_react32.default.createElement("span", { style: { marginLeft: "auto", fontFamily: "var(--font-mono)" } }, "max ", format(m))) : null);
-}
+  ))))), showScale ? /* @__PURE__ */ import_react33.default.createElement("div", { className: "lamp-heat__scale", style: { marginTop: 8 } }, /* @__PURE__ */ import_react33.default.createElement("span", null, "Low"), (RAMPS[ramp] || RAMPS.gold).map((c) => /* @__PURE__ */ import_react33.default.createElement("span", { key: c, className: "lamp-heat__scale-swatch", style: { background: c } })), /* @__PURE__ */ import_react33.default.createElement("span", null, "High"), /* @__PURE__ */ import_react33.default.createElement("span", { style: { marginLeft: "auto", fontFamily: "var(--font-mono)" } }, "max ", format(m))) : null);
+}), { displayName: "Heatmap" });
 Heatmap.heatColor = heatColor;
 
 // project/components/data/HexHeatmap.jsx
-var import_react33 = __toESM(require("react"), 1);
-function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = "gold", showLabels = false, onSelect, className = "", ...rest }) {
+var import_react34 = __toESM(require("react"), 1);
+var HexHeatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react34.default.forwardRef(function HexHeatmap2({ cells = [], size = 26, gap = 2, max, ramp = "gold", showLabels = false, onSelect, className = "", ...rest }, ref) {
   const w = size;
   const h = size / 1.1547;
   const stepX = w * 0.75 + gap;
@@ -1771,18 +1798,18 @@ function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = "gold", showLa
     return { ...c, x, y, key: c.key == null ? i : c.key };
   });
   const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map((p) => p.join(",")).join(" ");
-  return /* @__PURE__ */ import_react33.default.createElement("svg", { width: maxX, height: maxY, viewBox: "0 0 " + maxX + " " + maxY, role: "img", className, ...rest }, placed.map((c) => /* @__PURE__ */ import_react33.default.createElement("g", { key: c.key, transform: "translate(" + c.x + "," + c.y + ")", onClick: onSelect ? () => onSelect(c) : void 0, style: onSelect ? { cursor: "pointer" } : void 0 }, /* @__PURE__ */ import_react33.default.createElement("polygon", { points: pts, fill: c.color || heatColor(c.value, m, ramp), stroke: c.selected ? "var(--gold-500)" : "var(--border-subtle)", strokeWidth: c.selected ? 1.5 : 0.75 }), /* @__PURE__ */ import_react33.default.createElement("title", null, (c.label || "") + (c.value != null ? ": " + c.value : "")), showLabels && c.short ? /* @__PURE__ */ import_react33.default.createElement("text", { x: w / 2, y: h / 2 + 3, textAnchor: "middle", style: { fill: "var(--text-primary)", font: "600 8px var(--font-sans)" } }, c.short) : null)));
-}
+  return /* @__PURE__ */ import_react34.default.createElement("svg", { ref, width: maxX, height: maxY, viewBox: "0 0 " + maxX + " " + maxY, role: "img", className, ...rest }, placed.map((c) => /* @__PURE__ */ import_react34.default.createElement("g", { key: c.key, transform: "translate(" + c.x + "," + c.y + ")", onClick: onSelect ? () => onSelect(c) : void 0, style: onSelect ? { cursor: "pointer" } : void 0 }, /* @__PURE__ */ import_react34.default.createElement("polygon", { points: pts, fill: c.color || heatColor(c.value, m, ramp), stroke: c.selected ? "var(--gold-500)" : "var(--border-subtle)", strokeWidth: c.selected ? 1.5 : 0.75 }), /* @__PURE__ */ import_react34.default.createElement("title", null, (c.label || "") + (c.value != null ? ": " + c.value : "")), showLabels && c.short ? /* @__PURE__ */ import_react34.default.createElement("text", { x: w / 2, y: h / 2 + 3, textAnchor: "middle", style: { fill: "var(--text-primary)", font: "600 8px var(--font-sans)" } }, c.short) : null)));
+}), { displayName: "HexHeatmap" });
 
 // project/components/data/LineChart.jsx
-var import_react34 = __toESM(require("react"), 1);
+var import_react35 = __toESM(require("react"), 1);
 var niceTick2 = (v, max) => {
   if (max >= 1e3) return Math.round(v / 100) * 100 >= 1e3 ? Math.round(v / 100) / 10 + "k" : String(Math.round(v));
   if (max >= 10) return String(Math.round(v));
   if (max >= 1) return (Math.round(v * 10) / 10).toFixed(1);
   return (Math.round(v * 100) / 100).toFixed(2);
 };
-function LineChart({
+var LineChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react35.default.forwardRef(function LineChart2({
   series = [],
   labels = [],
   width = 640,
@@ -1798,7 +1825,7 @@ function LineChart({
   format,
   className = "",
   ...rest
-}) {
+}, ref) {
   const n = Math.max.apply(null, series.map((s) => s.data.length).concat([1]));
   const flat = series.reduce((a, s) => a.concat(s.data), []);
   const max = yMax != null ? yMax : Math.max.apply(null, flat.concat(thresholds.map((t) => t.value)).concat([1]));
@@ -1808,42 +1835,42 @@ function LineChart({
   const y = (v) => pad.t + ih - (v - yMin) / (max - yMin || 1) * ih;
   const ticks = Array.from({ length: yTicks + 1 }, (_, i) => yMin + (max - yMin) / yTicks * i);
   const fmt = format || ((v) => niceTick2(v, max));
-  return /* @__PURE__ */ import_react34.default.createElement("svg", { width: "100%", height, viewBox: "0 0 " + width + " " + height, className: "lamp-chart__svg " + className, role: "img", preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ import_react34.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ import_react34.default.createElement("line", { key: i, x1: pad.l, x2: width - pad.r, y1: y(t), y2: y(t) }))) : null, showAxis ? /* @__PURE__ */ import_react34.default.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ import_react34.default.createElement("text", { key: i, x: pad.l - 6, y: y(t) + 4, textAnchor: "end" }, fmt(t))), labels.map((l, i) => i % Math.ceil(labels.length / 7) === 0 ? /* @__PURE__ */ import_react34.default.createElement("text", { key: i, x: x(i), y: height - 5, textAnchor: "middle" }, l) : null)) : null, thresholds.map((t, i) => /* @__PURE__ */ import_react34.default.createElement("g", { key: i }, /* @__PURE__ */ import_react34.default.createElement("line", { x1: pad.l, x2: width - pad.r, y1: y(t.value), y2: y(t.value), stroke: t.critical ? "var(--chart-critical)" : "var(--chart-threshold)", strokeWidth: 1, strokeDasharray: "4 3" }))), series.map((s, si) => {
+  return /* @__PURE__ */ import_react35.default.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, className: "lamp-chart__svg " + className, role: "img", preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ import_react35.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ import_react35.default.createElement("line", { key: i, x1: pad.l, x2: width - pad.r, y1: y(t), y2: y(t) }))) : null, showAxis ? /* @__PURE__ */ import_react35.default.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ import_react35.default.createElement("text", { key: i, x: pad.l - 6, y: y(t) + 4, textAnchor: "end" }, fmt(t))), labels.map((l, i) => i % Math.ceil(labels.length / 7) === 0 ? /* @__PURE__ */ import_react35.default.createElement("text", { key: i, x: x(i), y: height - 5, textAnchor: "middle" }, l) : null)) : null, thresholds.map((t, i) => /* @__PURE__ */ import_react35.default.createElement("g", { key: i }, /* @__PURE__ */ import_react35.default.createElement("line", { x1: pad.l, x2: width - pad.r, y1: y(t.value), y2: y(t.value), stroke: t.critical ? "var(--chart-critical)" : "var(--chart-threshold)", strokeWidth: 1, strokeDasharray: "4 3" }))), series.map((s, si) => {
     const color = s.color || seriesColor(si);
     const path = s.data.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" ");
-    return /* @__PURE__ */ import_react34.default.createElement("g", { key: s.label || si }, variant === "area" ? /* @__PURE__ */ import_react34.default.createElement("path", { d: path + " L" + x(s.data.length - 1) + "," + y(yMin) + " L" + pad.l + "," + y(yMin) + " Z", fill: color, opacity: 0.14 }) : null, /* @__PURE__ */ import_react34.default.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.5, strokeDasharray: s.dashed ? "4 3" : void 0, strokeLinejoin: "round", strokeLinecap: "round" }), s.points ? s.data.map((v, i) => /* @__PURE__ */ import_react34.default.createElement("circle", { key: i, cx: x(i), cy: y(v), r: 2, fill: "var(--surface-primary)", stroke: color, strokeWidth: 1.25 })) : null);
+    return /* @__PURE__ */ import_react35.default.createElement("g", { key: s.label || si }, variant === "area" ? /* @__PURE__ */ import_react35.default.createElement("path", { d: path + " L" + x(s.data.length - 1) + "," + y(yMin) + " L" + pad.l + "," + y(yMin) + " Z", fill: color, opacity: 0.14 }) : null, /* @__PURE__ */ import_react35.default.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.5, strokeDasharray: s.dashed ? "4 3" : void 0, strokeLinejoin: "round", strokeLinecap: "round" }), s.points ? s.data.map((v, i) => /* @__PURE__ */ import_react35.default.createElement("circle", { key: i, cx: x(i), cy: y(v), r: 2, fill: "var(--surface-primary)", stroke: color, strokeWidth: 1.25 })) : null);
   }));
-}
+}), { displayName: "LineChart" });
 
 // project/components/data/MetricCard.jsx
-var import_react35 = __toESM(require("react"), 1);
-function MetricCard({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = "lg", flush = false, glyph, footnote, spark, actions, className = "", ...rest }) {
+var import_react36 = __toESM(require("react"), 1);
+var MetricCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react36.default.forwardRef(function MetricCard2({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = "lg", flush = false, glyph, footnote, spark, actions, className = "", ...rest }, ref) {
   const dir = deltaDirection || (delta && String(delta).trim().startsWith("-") ? "down" : delta ? "up" : "flat");
   const tone = deltaTone || (dir === "up" ? "positive" : dir === "down" ? "negative" : "flat");
-  return /* @__PURE__ */ import_react35.default.createElement("div", { className: ["lamp-metric", size === "sm" && "lamp-metric--sm", flush && "lamp-metric--flush", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__label" }, glyph ? /* @__PURE__ */ import_react35.default.createElement(Icon, { name: glyph, size: 12 }) : null, label, actions ? /* @__PURE__ */ import_react35.default.createElement("span", { style: { marginLeft: "auto" } }, actions) : null), /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__row" }, /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__value" }, value), unit ? /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__unit" }, unit) : null, delta ? /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__delta lamp-metric__delta--" + tone }, /* @__PURE__ */ import_react35.default.createElement(Icon, { name: dir === "up" ? "trending_up" : dir === "down" ? "trending_down" : "trending_flat", size: 13 }), delta) : null), spark ? /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__spark" }, spark) : null, footnote || deltaLabel ? /* @__PURE__ */ import_react35.default.createElement("span", { className: "lamp-metric__foot" }, footnote || deltaLabel) : null);
-}
+  return /* @__PURE__ */ import_react36.default.createElement("div", { ref, className: ["lamp-metric", size === "sm" && "lamp-metric--sm", flush && "lamp-metric--flush", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__label" }, glyph ? /* @__PURE__ */ import_react36.default.createElement(Icon, { name: glyph, size: 12 }) : null, label, actions ? /* @__PURE__ */ import_react36.default.createElement("span", { style: { marginLeft: "auto" } }, actions) : null), /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__row" }, /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__value" }, value), unit ? /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__unit" }, unit) : null, delta ? /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__delta lamp-metric__delta--" + tone }, /* @__PURE__ */ import_react36.default.createElement(Icon, { name: dir === "up" ? "trending_up" : dir === "down" ? "trending_down" : "trending_flat", size: 13 }), delta) : null), spark ? /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__spark" }, spark) : null, footnote || deltaLabel ? /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-metric__foot" }, footnote || deltaLabel) : null);
+}), { displayName: "MetricCard" });
 
 // project/components/data/ProgressBar.jsx
-var import_react36 = __toESM(require("react"), 1);
-function ProgressBar({ value = 0, max = 100, tone = "primary", height = 6, indeterminate = false, label, className = "", ...rest }) {
+var import_react37 = __toESM(require("react"), 1);
+var ProgressBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react37.default.forwardRef(function ProgressBar2({ value = 0, max = 100, tone = "primary", height = 6, indeterminate = false, label, className = "", ...rest }, ref) {
   const pct = indeterminate ? 0 : Math.max(0, Math.min(100, value / max * 100));
-  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "lamp-bar-track " + className, style: { height }, role: "progressbar", "aria-valuenow": indeterminate ? void 0 : value, "aria-valuemax": max, "aria-label": label, ...rest }, /* @__PURE__ */ import_react36.default.createElement(
+  return /* @__PURE__ */ import_react37.default.createElement("div", { ref, className: "lamp-bar-track " + className, style: { height }, role: "progressbar", "aria-valuenow": indeterminate ? void 0 : value, "aria-valuemax": max, "aria-label": label, ...rest }, /* @__PURE__ */ import_react37.default.createElement(
     "div",
     {
       className: ["lamp-bar-fill", tone !== "primary" && "lamp-bar-fill--" + tone, indeterminate && "lamp-bar-fill--indeterminate"].filter(Boolean).join(" "),
       style: indeterminate ? void 0 : { width: pct + "%" }
     }
   ));
-}
-function UsageMeter({ label, used, limit, unit, tone, footnote, format = (v) => v.toLocaleString(), className = "", ...rest }) {
+}), { displayName: "ProgressBar" });
+var UsageMeter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react37.default.forwardRef(function UsageMeter2({ label, used, limit, unit, tone, footnote, format = (v) => v.toLocaleString(), className = "", ...rest }, ref) {
   const pct = limit ? used / limit * 100 : 0;
   const auto = pct >= 100 ? "danger" : pct >= 85 ? "warning" : "primary";
-  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "lamp-usage " + className, ...rest }, /* @__PURE__ */ import_react36.default.createElement("div", { className: "lamp-usage__top" }, label, /* @__PURE__ */ import_react36.default.createElement("span", { className: "lamp-usage__val" }, format(used), " / ", format(limit), unit ? " " + unit : "")), /* @__PURE__ */ import_react36.default.createElement(ProgressBar, { value: used, max: limit, tone: tone || auto, label }), footnote ? /* @__PURE__ */ import_react36.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, footnote) : null);
-}
+  return /* @__PURE__ */ import_react37.default.createElement("div", { ref, className: "lamp-usage " + className, ...rest }, /* @__PURE__ */ import_react37.default.createElement("div", { className: "lamp-usage__top" }, label, /* @__PURE__ */ import_react37.default.createElement("span", { className: "lamp-usage__val" }, format(used), " / ", format(limit), unit ? " " + unit : "")), /* @__PURE__ */ import_react37.default.createElement(ProgressBar, { value: used, max: limit, tone: tone || auto, label }), footnote ? /* @__PURE__ */ import_react37.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, footnote) : null);
+}), { displayName: "UsageMeter" });
 
 // project/components/data/ScatterPlot.jsx
-var import_react37 = __toESM(require("react"), 1);
-function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = "", ...rest }) {
+var import_react38 = __toESM(require("react"), 1);
+var ScatterPlot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react38.default.forwardRef(function ScatterPlot2({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = "", ...rest }, ref) {
   const xm = xMax != null ? xMax : Math.max.apply(null, points.map((p) => p.x).concat([1]));
   const ym = yMax != null ? yMax : Math.max.apply(null, points.map((p) => p.y).concat([1]));
   const iw = width - pad.l - pad.r;
@@ -1851,12 +1878,12 @@ function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax, xLabe
   const X = (v) => pad.l + v / xm * iw;
   const Y = (v) => pad.t + ih - v / ym * ih;
   const ticks = [0, 0.25, 0.5, 0.75, 1];
-  return /* @__PURE__ */ import_react37.default.createElement("svg", { width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, /* @__PURE__ */ import_react37.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ import_react37.default.createElement("line", { key: "h" + i, x1: pad.l, x2: width - pad.r, y1: Y(ym * t), y2: Y(ym * t) })), ticks.map((t, i) => /* @__PURE__ */ import_react37.default.createElement("line", { key: "v" + i, y1: pad.t, y2: pad.t + ih, x1: X(xm * t), x2: X(xm * t) }))), quadrant ? /* @__PURE__ */ import_react37.default.createElement("line", { x1: X(quadrant.x), x2: X(quadrant.x), y1: pad.t, y2: pad.t + ih, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, quadrant ? /* @__PURE__ */ import_react37.default.createElement("line", { y1: Y(quadrant.y), y2: Y(quadrant.y), x1: pad.l, x2: width - pad.r, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, /* @__PURE__ */ import_react37.default.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ import_react37.default.createElement("text", { key: i, x: pad.l - 6, y: Y(ym * t) + 4, textAnchor: "end" }, format(Math.round(ym * t)))), xLabel ? /* @__PURE__ */ import_react37.default.createElement("text", { x: pad.l + iw / 2, y: height - 4, textAnchor: "middle" }, xLabel) : null, yLabel ? /* @__PURE__ */ import_react37.default.createElement("text", { x: 10, y: pad.t + 4, textAnchor: "start" }, yLabel) : null), points.map((p, i) => /* @__PURE__ */ import_react37.default.createElement("circle", { key: i, cx: X(p.x), cy: Y(p.y), r: p.r || 3.5, fill: p.color || seriesColor(p.group || 0), opacity: 0.75, stroke: "var(--surface-primary)", strokeWidth: 0.75 }, p.label ? /* @__PURE__ */ import_react37.default.createElement("title", null, p.label) : null)));
-}
+  return /* @__PURE__ */ import_react38.default.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, /* @__PURE__ */ import_react38.default.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ import_react38.default.createElement("line", { key: "h" + i, x1: pad.l, x2: width - pad.r, y1: Y(ym * t), y2: Y(ym * t) })), ticks.map((t, i) => /* @__PURE__ */ import_react38.default.createElement("line", { key: "v" + i, y1: pad.t, y2: pad.t + ih, x1: X(xm * t), x2: X(xm * t) }))), quadrant ? /* @__PURE__ */ import_react38.default.createElement("line", { x1: X(quadrant.x), x2: X(quadrant.x), y1: pad.t, y2: pad.t + ih, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, quadrant ? /* @__PURE__ */ import_react38.default.createElement("line", { y1: Y(quadrant.y), y2: Y(quadrant.y), x1: pad.l, x2: width - pad.r, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, /* @__PURE__ */ import_react38.default.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ import_react38.default.createElement("text", { key: i, x: pad.l - 6, y: Y(ym * t) + 4, textAnchor: "end" }, format(Math.round(ym * t)))), xLabel ? /* @__PURE__ */ import_react38.default.createElement("text", { x: pad.l + iw / 2, y: height - 4, textAnchor: "middle" }, xLabel) : null, yLabel ? /* @__PURE__ */ import_react38.default.createElement("text", { x: 10, y: pad.t + 4, textAnchor: "start" }, yLabel) : null), points.map((p, i) => /* @__PURE__ */ import_react38.default.createElement("circle", { key: i, cx: X(p.x), cy: Y(p.y), r: p.r || 3.5, fill: p.color || seriesColor(p.group || 0), opacity: 0.75, stroke: "var(--surface-primary)", strokeWidth: 0.75 }, p.label ? /* @__PURE__ */ import_react38.default.createElement("title", null, p.label) : null)));
+}), { displayName: "ScatterPlot" });
 
 // project/components/data/Sparkline.jsx
-var import_react38 = __toESM(require("react"), 1);
-function Sparkline({ data = [], width = 96, height = 24, color = "var(--chart-primary)", variant = "line", area = true, baseline, className = "", ...rest }) {
+var import_react39 = __toESM(require("react"), 1);
+var Sparkline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react39.default.forwardRef(function Sparkline2({ data = [], width = 96, height = 24, color = "var(--chart-primary)", variant = "line", area = true, baseline, className = "", ...rest }, ref) {
   if (!data.length) return null;
   const max = Math.max.apply(null, data);
   const min = Math.min.apply(null, data);
@@ -1865,14 +1892,14 @@ function Sparkline({ data = [], width = 96, height = 24, color = "var(--chart-pr
   const y = (v) => height - (v - min) / span * (height - 2) - 1;
   if (variant === "bar") {
     const bw = Math.max(1, width / data.length - 1);
-    return /* @__PURE__ */ import_react38.default.createElement("svg", { width, height, className, role: "img", "aria-hidden": "true", ...rest }, data.map((v, i) => /* @__PURE__ */ import_react38.default.createElement("rect", { key: i, x: i / data.length * width, y: y(v), width: bw, height: height - y(v), fill: color, rx: 1 })));
+    return /* @__PURE__ */ import_react39.default.createElement("svg", { width, height, className, role: "img", "aria-hidden": "true", ...rest }, data.map((v, i) => /* @__PURE__ */ import_react39.default.createElement("rect", { key: i, x: i / data.length * width, y: y(v), width: bw, height: height - y(v), fill: color, rx: 1 })));
   }
   const path = data.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" ");
-  return /* @__PURE__ */ import_react38.default.createElement("svg", { width, height, className, role: "img", "aria-hidden": "true", ...rest }, area ? /* @__PURE__ */ import_react38.default.createElement("path", { d: path + " L" + width + "," + height + " L0," + height + " Z", fill: color, opacity: 0.12 }) : null, baseline != null ? /* @__PURE__ */ import_react38.default.createElement("line", { x1: 0, x2: width, y1: y(baseline), y2: y(baseline), stroke: "var(--chart-grid)", strokeDasharray: "2 2" }) : null, /* @__PURE__ */ import_react38.default.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.25, strokeLinejoin: "round", strokeLinecap: "round" }));
-}
+  return /* @__PURE__ */ import_react39.default.createElement("svg", { ref, width, height, className, role: "img", "aria-hidden": "true", ...rest }, area ? /* @__PURE__ */ import_react39.default.createElement("path", { d: path + " L" + width + "," + height + " L0," + height + " Z", fill: color, opacity: 0.12 }) : null, baseline != null ? /* @__PURE__ */ import_react39.default.createElement("line", { x1: 0, x2: width, y1: y(baseline), y2: y(baseline), stroke: "var(--chart-grid)", strokeDasharray: "2 2" }) : null, /* @__PURE__ */ import_react39.default.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.25, strokeLinejoin: "round", strokeLinecap: "round" }));
+}), { displayName: "Sparkline" });
 
 // project/components/data/Viz.jsx
-var import_react39 = __toESM(require("react"), 1);
+var import_react40 = __toESM(require("react"), 1);
 var VIZ_TIERS = {
   line: "standard",
   area: "standard",
@@ -1899,27 +1926,28 @@ var VIZ_TIERS = {
   telemetry: "realtime"
 };
 var RENDER = {
-  line: (p) => /* @__PURE__ */ import_react39.default.createElement(LineChart, { ...p }),
-  area: (p) => /* @__PURE__ */ import_react39.default.createElement(LineChart, { variant: "area", ...p }),
-  bar: (p) => /* @__PURE__ */ import_react39.default.createElement(BarChart, { ...p }),
-  hbar: (p) => /* @__PURE__ */ import_react39.default.createElement(BarChart, { orientation: "horizontal", showValues: true, ...p }),
-  stackedBar: (p) => /* @__PURE__ */ import_react39.default.createElement(BarChart, { stacked: true, ...p }),
-  normalizedBar: (p) => /* @__PURE__ */ import_react39.default.createElement(BarChart, { stacked: true, normalized: true, ...p }),
-  histogram: (p) => /* @__PURE__ */ import_react39.default.createElement(BarChart, { barGap: 1, ...p }),
-  donut: (p) => /* @__PURE__ */ import_react39.default.createElement(DonutChart, { ...p }),
-  gauge: (p) => /* @__PURE__ */ import_react39.default.createElement(DonutChart, { gauge: true, ...p }),
-  scatter: (p) => /* @__PURE__ */ import_react39.default.createElement(ScatterPlot, { ...p }),
-  sparkline: (p) => /* @__PURE__ */ import_react39.default.createElement(Sparkline, { ...p }),
-  heatmap: (p) => /* @__PURE__ */ import_react39.default.createElement(Heatmap, { ...p }),
-  calendar: (p) => /* @__PURE__ */ import_react39.default.createElement(Heatmap, { cellSize: 11, ...p }),
-  hive: (p) => /* @__PURE__ */ import_react39.default.createElement(HexHeatmap, { ...p })
+  line: (p) => /* @__PURE__ */ import_react40.default.createElement(LineChart, { ...p }),
+  area: (p) => /* @__PURE__ */ import_react40.default.createElement(LineChart, { variant: "area", ...p }),
+  bar: (p) => /* @__PURE__ */ import_react40.default.createElement(BarChart, { ...p }),
+  hbar: (p) => /* @__PURE__ */ import_react40.default.createElement(BarChart, { orientation: "horizontal", showValues: true, ...p }),
+  stackedBar: (p) => /* @__PURE__ */ import_react40.default.createElement(BarChart, { stacked: true, ...p }),
+  normalizedBar: (p) => /* @__PURE__ */ import_react40.default.createElement(BarChart, { stacked: true, normalized: true, ...p }),
+  histogram: (p) => /* @__PURE__ */ import_react40.default.createElement(BarChart, { barGap: 1, ...p }),
+  donut: (p) => /* @__PURE__ */ import_react40.default.createElement(DonutChart, { ...p }),
+  gauge: (p) => /* @__PURE__ */ import_react40.default.createElement(DonutChart, { gauge: true, ...p }),
+  scatter: (p) => /* @__PURE__ */ import_react40.default.createElement(ScatterPlot, { ...p }),
+  sparkline: (p) => /* @__PURE__ */ import_react40.default.createElement(Sparkline, { ...p }),
+  heatmap: (p) => /* @__PURE__ */ import_react40.default.createElement(Heatmap, { ...p }),
+  calendar: (p) => /* @__PURE__ */ import_react40.default.createElement(Heatmap, { cellSize: 11, ...p }),
+  hive: (p) => /* @__PURE__ */ import_react40.default.createElement(HexHeatmap, { ...p })
 };
-function Viz({ type = "line", title, subtitle, legend, legendVariant, footnote, state = "ready", height, actions, flush, config = {}, ...rest }) {
+var Viz = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react40.default.forwardRef(function Viz2({ type = "line", title, subtitle, legend, legendVariant, footnote, state = "ready", height, actions, flush, config = {}, ...rest }, ref) {
   const render = RENDER[type];
   const chartState = state === "ready" && !render ? "error" : state;
-  return /* @__PURE__ */ import_react39.default.createElement(
+  return /* @__PURE__ */ import_react40.default.createElement(
     ChartFrame,
     {
+      ref,
       title,
       subtitle,
       legend,
@@ -1933,22 +1961,22 @@ function Viz({ type = "line", title, subtitle, legend, legendVariant, footnote, 
     },
     render ? render({ ...config, ...rest }) : null
   );
-}
+}), { displayName: "Viz" });
 
 // project/components/feedback/EmptyState.jsx
-var import_react40 = __toESM(require("react"), 1);
-function EmptyState({ glyph = "inbox", title, description, action, secondaryAction, align = "center", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react40.default.createElement("div", { className: ["lamp-empty", align === "left" && "lamp-empty--left", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react40.default.createElement("span", { className: "lamp-empty__icon" }, /* @__PURE__ */ import_react40.default.createElement(Icon, { name: glyph, size: 18 })), title ? /* @__PURE__ */ import_react40.default.createElement("span", { className: "lamp-empty__title" }, title) : null, description ? /* @__PURE__ */ import_react40.default.createElement("span", { className: "lamp-empty__text" }, description) : null, action || secondaryAction ? /* @__PURE__ */ import_react40.default.createElement("span", { className: "lamp-empty__actions" }, action, secondaryAction) : null);
-}
+var import_react41 = __toESM(require("react"), 1);
+var EmptyState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react41.default.forwardRef(function EmptyState2({ glyph = "inbox", title, description, action, secondaryAction, align = "center", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react41.default.createElement("div", { ref, className: ["lamp-empty", align === "left" && "lamp-empty--left", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-empty__icon" }, /* @__PURE__ */ import_react41.default.createElement(Icon, { name: glyph, size: 18 })), title ? /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-empty__title" }, title) : null, description ? /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-empty__text" }, description) : null, action || secondaryAction ? /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-empty__actions" }, action, secondaryAction) : null);
+}), { displayName: "EmptyState" });
 
 // project/components/feedback/ErrorState.jsx
-var import_react41 = __toESM(require("react"), 1);
-function ErrorState({ kind = "recoverable", title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react41.default.createElement("div", { className: "lamp-err " + className, role: "alert", ...rest }, /* @__PURE__ */ import_react41.default.createElement("div", { className: "lamp-err__title" }, /* @__PURE__ */ import_react41.default.createElement(Icon, { name: kind === "fatal" ? "dangerous" : "error", size: 16 }), title), /* @__PURE__ */ import_react41.default.createElement("div", { className: "lamp-err__facts" }, happened ? /* @__PURE__ */ import_react41.default.createElement(import_react41.default.Fragment, null, /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__k" }, "What happened"), /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__v" }, happened)) : null, notHappened ? /* @__PURE__ */ import_react41.default.createElement(import_react41.default.Fragment, null, /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__k" }, "What did not"), /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__v" }, notHappened)) : null, impact ? /* @__PURE__ */ import_react41.default.createElement(import_react41.default.Fragment, null, /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__k" }, "Impact"), /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__v" }, impact)) : null, recovery ? /* @__PURE__ */ import_react41.default.createElement(import_react41.default.Fragment, null, /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__k" }, "Recovery"), /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__v" }, recovery)) : null), children, code ? /* @__PURE__ */ import_react41.default.createElement("span", { className: "lamp-err__code" }, code) : null, actions || onRetry || onReport ? /* @__PURE__ */ import_react41.default.createElement("div", { className: "lamp-err__actions" }, actions, onRetry ? /* @__PURE__ */ import_react41.default.createElement(Button, { size: "sm", variant: "secondary", icon: "refresh", onClick: onRetry }, "Retry") : null, onReport ? /* @__PURE__ */ import_react41.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onReport }, "Report problem") : null) : null);
-}
+var import_react42 = __toESM(require("react"), 1);
+var ErrorState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react42.default.forwardRef(function ErrorState2({ kind = "recoverable", title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react42.default.createElement("div", { ref, className: "lamp-err " + className, role: "alert", ...rest }, /* @__PURE__ */ import_react42.default.createElement("div", { className: "lamp-err__title" }, /* @__PURE__ */ import_react42.default.createElement(Icon, { name: kind === "fatal" ? "dangerous" : "error", size: 16 }), title), /* @__PURE__ */ import_react42.default.createElement("div", { className: "lamp-err__facts" }, happened ? /* @__PURE__ */ import_react42.default.createElement(import_react42.default.Fragment, null, /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__k" }, "What happened"), /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__v" }, happened)) : null, notHappened ? /* @__PURE__ */ import_react42.default.createElement(import_react42.default.Fragment, null, /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__k" }, "What did not"), /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__v" }, notHappened)) : null, impact ? /* @__PURE__ */ import_react42.default.createElement(import_react42.default.Fragment, null, /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__k" }, "Impact"), /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__v" }, impact)) : null, recovery ? /* @__PURE__ */ import_react42.default.createElement(import_react42.default.Fragment, null, /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__k" }, "Recovery"), /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__v" }, recovery)) : null), children, code ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-err__code" }, code) : null, actions || onRetry || onReport ? /* @__PURE__ */ import_react42.default.createElement("div", { className: "lamp-err__actions" }, actions, onRetry ? /* @__PURE__ */ import_react42.default.createElement(Button, { size: "sm", variant: "secondary", icon: "refresh", onClick: onRetry }, "Retry") : null, onReport ? /* @__PURE__ */ import_react42.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onReport }, "Report problem") : null) : null);
+}), { displayName: "ErrorState" });
 
 // project/components/feedback/InlineNotification.jsx
-var import_react42 = __toESM(require("react"), 1);
+var import_react43 = __toESM(require("react"), 1);
 var TONE = {
   neutral: "info",
   info: "info",
@@ -1957,32 +1985,33 @@ var TONE = {
   danger: "error",
   critical: "dangerous"
 };
-function InlineNotification({ tone = "neutral", title, children, actions, banner = false, onDismiss, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react42.default.createElement(
+var InlineNotification = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react43.default.forwardRef(function InlineNotification2({ tone = "neutral", title, children, actions, banner = false, onDismiss, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react43.default.createElement(
     "div",
     {
+      ref,
       className: ["lamp-note", "lamp-note--" + tone, banner && "lamp-note--banner", className].filter(Boolean).join(" "),
       role: tone === "danger" || tone === "critical" ? "alert" : "status",
       ...rest
     },
-    /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__icon" }, /* @__PURE__ */ import_react42.default.createElement(Icon, { name: TONE[tone] || "info", size: 16 })),
-    /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__text" }, children) : null, actions ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__actions" }, actions) : null),
-    onDismiss ? /* @__PURE__ */ import_react42.default.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null
+    /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__icon" }, /* @__PURE__ */ import_react43.default.createElement(Icon, { name: TONE[tone] || "info", size: 16 })),
+    /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__text" }, children) : null, actions ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__actions" }, actions) : null),
+    onDismiss ? /* @__PURE__ */ import_react43.default.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null
   );
-}
-function Toast({ tone = "neutral", title, children, action, onDismiss, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react42.default.createElement("div", { className: "lamp-toast " + className, role: "status", ...rest }, /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__icon", style: { color: tone === "success" ? "var(--status-success)" : tone === "danger" ? "var(--status-danger)" : tone === "warning" ? "var(--status-warning)" : "var(--text-tertiary)" } }, /* @__PURE__ */ import_react42.default.createElement(Icon, { name: TONE[tone] || "info", size: 16 })), /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-note__text" }, children) : null), action ? /* @__PURE__ */ import_react42.default.createElement("span", { className: "lamp-toast__undo" }, action) : null, onDismiss ? /* @__PURE__ */ import_react42.default.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null);
-}
-function ToastStack({ children, ...rest }) {
-  return /* @__PURE__ */ import_react42.default.createElement("div", { className: "lamp-toast__stack", ...rest }, children);
-}
+}), { displayName: "InlineNotification" });
+var Toast = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react43.default.forwardRef(function Toast2({ tone = "neutral", title, children, action, onDismiss, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react43.default.createElement("div", { ref, className: "lamp-toast " + className, role: "status", ...rest }, /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__icon", style: { color: tone === "success" ? "var(--status-success)" : tone === "danger" ? "var(--status-danger)" : tone === "warning" ? "var(--status-warning)" : "var(--text-tertiary)" } }, /* @__PURE__ */ import_react43.default.createElement(Icon, { name: TONE[tone] || "info", size: 16 })), /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-note__text" }, children) : null), action ? /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-toast__undo" }, action) : null, onDismiss ? /* @__PURE__ */ import_react43.default.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null);
+}), { displayName: "Toast" });
+var ToastStack = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react43.default.forwardRef(function ToastStack2({ children, ...rest }, ref) {
+  return /* @__PURE__ */ import_react43.default.createElement("div", { ref, className: "lamp-toast__stack", ...rest }, children);
+}), { displayName: "ToastStack" });
 
 // project/components/feedback/Modal.jsx
-var import_react43 = __toESM(require("react"), 1);
-function Modal({ open = true, title, subtitle, glyph, size = "md", critical = false, footer, onClose, children, className = "", ...rest }) {
+var import_react44 = __toESM(require("react"), 1);
+var Modal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react44.default.forwardRef(function Modal2({ open = true, title, subtitle, glyph, size = "md", critical = false, footer, onClose, children, className = "", ...rest }, ref) {
   if (!open) return null;
   const width = size === "sm" ? "var(--modal-width-sm)" : size === "lg" ? "var(--modal-width-lg)" : "var(--modal-width-md)";
-  return /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-scrim", onClick: onClose }, /* @__PURE__ */ import_react43.default.createElement(
+  return /* @__PURE__ */ import_react44.default.createElement("div", { ref, className: "lamp-scrim", onClick: onClose }, /* @__PURE__ */ import_react44.default.createElement(
     "div",
     {
       className: ["lamp-modal", critical && "lamp-modal--critical", className].filter(Boolean).join(" "),
@@ -1993,174 +2022,178 @@ function Modal({ open = true, title, subtitle, glyph, size = "md", critical = fa
       onClick: (e) => e.stopPropagation(),
       ...rest
     },
-    /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-modal__head" }, glyph ? /* @__PURE__ */ import_react43.default.createElement(Icon, { name: glyph, size: 18, style: { marginTop: 2, color: critical ? "var(--status-danger)" : "var(--text-secondary)" } }) : null, /* @__PURE__ */ import_react43.default.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ import_react43.default.createElement("h2", { className: "lamp-modal__title" }, title), subtitle ? /* @__PURE__ */ import_react43.default.createElement("p", { className: "lamp-modal__sub" }, subtitle) : null), onClose ? /* @__PURE__ */ import_react43.default.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null),
-    /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-modal__body" }, children),
-    footer ? /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-modal__foot" }, footer) : null
+    /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-modal__head" }, glyph ? /* @__PURE__ */ import_react44.default.createElement(Icon, { name: glyph, size: 18, style: { marginTop: 2, color: critical ? "var(--status-danger)" : "var(--text-secondary)" } }) : null, /* @__PURE__ */ import_react44.default.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ import_react44.default.createElement("h2", { className: "lamp-modal__title" }, title), subtitle ? /* @__PURE__ */ import_react44.default.createElement("p", { className: "lamp-modal__sub" }, subtitle) : null), onClose ? /* @__PURE__ */ import_react44.default.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null),
+    /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-modal__body" }, children),
+    footer ? /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-modal__foot" }, footer) : null
   ));
-}
-function CriticalConfirmation({ open = true, title, consequences = [], scope, confirmLabel = "Confirm", cancelLabel = "Cancel", onCancel, onConfirm, children, ...rest }) {
-  return /* @__PURE__ */ import_react43.default.createElement(
+}), { displayName: "Modal" });
+var CriticalConfirmation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react44.default.forwardRef(function CriticalConfirmation2({ open = true, title, consequences = [], scope, confirmLabel = "Confirm", cancelLabel = "Cancel", onCancel, onConfirm, children, ...rest }, ref) {
+  return /* @__PURE__ */ import_react44.default.createElement(
     Modal,
     {
+      ref,
       open,
       critical: true,
       glyph: "dangerous",
       size: "sm",
       title,
       onClose: onCancel,
-      footer: /* @__PURE__ */ import_react43.default.createElement(import_react43.default.Fragment, null, /* @__PURE__ */ import_react43.default.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, cancelLabel), /* @__PURE__ */ import_react43.default.createElement(Button, { size: "md", variant: "danger", onClick: onConfirm }, confirmLabel)),
+      footer: /* @__PURE__ */ import_react44.default.createElement(import_react44.default.Fragment, null, /* @__PURE__ */ import_react44.default.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, cancelLabel), /* @__PURE__ */ import_react44.default.createElement(Button, { size: "md", variant: "danger", onClick: onConfirm }, confirmLabel)),
       ...rest
     },
-    scope ? /* @__PURE__ */ import_react43.default.createElement("p", { style: { margin: "0 0 8px", color: "var(--text-primary)" } }, scope) : null,
-    consequences.length ? /* @__PURE__ */ import_react43.default.createElement(import_react43.default.Fragment, null, /* @__PURE__ */ import_react43.default.createElement("p", { style: { margin: "0 0 4px" } }, "Immediately:"), /* @__PURE__ */ import_react43.default.createElement("ul", { style: { margin: 0, paddingLeft: 18, lineHeight: "19px" } }, consequences.map((c) => /* @__PURE__ */ import_react43.default.createElement("li", { key: c }, c)))) : null,
+    scope ? /* @__PURE__ */ import_react44.default.createElement("p", { style: { margin: "0 0 8px", color: "var(--text-primary)" } }, scope) : null,
+    consequences.length ? /* @__PURE__ */ import_react44.default.createElement(import_react44.default.Fragment, null, /* @__PURE__ */ import_react44.default.createElement("p", { style: { margin: "0 0 4px" } }, "Immediately:"), /* @__PURE__ */ import_react44.default.createElement("ul", { style: { margin: 0, paddingLeft: 18, lineHeight: "19px" } }, consequences.map((c) => /* @__PURE__ */ import_react44.default.createElement("li", { key: c }, c)))) : null,
     children
   );
-}
-function Drawer({ open = true, title, side = "right", width, actions, footer, onClose, children, className = "", ...rest }) {
+}), { displayName: "CriticalConfirmation" });
+var Drawer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react44.default.forwardRef(function Drawer2({ open = true, title, side = "right", width, actions, footer, onClose, children, className = "", ...rest }, ref) {
   if (!open) return null;
-  return /* @__PURE__ */ import_react43.default.createElement(
+  return /* @__PURE__ */ import_react44.default.createElement(
     "aside",
     {
+      ref,
       className: ["lamp-drawer", side === "left" && "lamp-drawer--left", className].filter(Boolean).join(" "),
       style: width ? { width } : void 0,
       role: "dialog",
       "aria-label": title,
       ...rest
     },
-    /* @__PURE__ */ import_react43.default.createElement("header", { className: "lamp-drawer__head" }, /* @__PURE__ */ import_react43.default.createElement("span", { className: "lamp-drawer__title" }, title), /* @__PURE__ */ import_react43.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, onClose ? /* @__PURE__ */ import_react43.default.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null)),
-    /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-drawer__body" }, children),
-    footer ? /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-modal__foot" }, footer) : null
+    /* @__PURE__ */ import_react44.default.createElement("header", { className: "lamp-drawer__head" }, /* @__PURE__ */ import_react44.default.createElement("span", { className: "lamp-drawer__title" }, title), /* @__PURE__ */ import_react44.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, onClose ? /* @__PURE__ */ import_react44.default.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null)),
+    /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-drawer__body" }, children),
+    footer ? /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-modal__foot" }, footer) : null
   );
-}
-function Popover({ title, children, x, y, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-popover " + className, style: { position: x != null ? "absolute" : void 0, left: x, top: y, ...style }, role: "dialog", ...rest }, title ? /* @__PURE__ */ import_react43.default.createElement("div", { className: "lamp-popover__head" }, title) : null, children);
-}
+}), { displayName: "Drawer" });
+var Popover = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react44.default.forwardRef(function Popover2({ title, children, x, y, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react44.default.createElement("div", { ref, className: "lamp-popover " + className, style: { position: x != null ? "absolute" : void 0, left: x, top: y, ...style }, role: "dialog", ...rest }, title ? /* @__PURE__ */ import_react44.default.createElement("div", { className: "lamp-popover__head" }, title) : null, children);
+}), { displayName: "Popover" });
 
 // project/components/feedback/Skeleton.jsx
-var import_react44 = __toESM(require("react"), 1);
-function Skeleton({ width = "100%", height = 10, radius, variant = "block", lines = 1, className = "", style, ...rest }) {
+var import_react45 = __toESM(require("react"), 1);
+var Skeleton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react45.default.forwardRef(function Skeleton2({ width = "100%", height = 10, radius, variant = "block", lines = 1, className = "", style, ...rest }, ref) {
   if (variant === "text" && lines > 1) {
-    return /* @__PURE__ */ import_react44.default.createElement("span", { className, style: { display: "block" }, ...rest }, Array.from({ length: lines }, (_, i) => /* @__PURE__ */ import_react44.default.createElement("span", { key: i, className: "lamp-skel lamp-skel--text", style: { width: i === lines - 1 ? "60%" : "100%" } })));
+    return /* @__PURE__ */ import_react45.default.createElement("span", { className, style: { display: "block" }, ...rest }, Array.from({ length: lines }, (_, i) => /* @__PURE__ */ import_react45.default.createElement("span", { key: i, className: "lamp-skel lamp-skel--text", style: { width: i === lines - 1 ? "60%" : "100%" } })));
   }
-  return /* @__PURE__ */ import_react44.default.createElement(
+  return /* @__PURE__ */ import_react45.default.createElement(
     "span",
     {
+      ref,
       className: ["lamp-skel", variant === "hex" && "lamp-skel--hex", variant === "circle" && "lamp-skel--circle", className].filter(Boolean).join(" "),
       style: { width, height, borderRadius: variant === "circle" ? "50%" : radius, ...style },
       "aria-hidden": "true",
       ...rest
     }
   );
-}
-function Spinner({ size = 14, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react44.default.createElement("span", { className: "lamp-spin " + className, style: { width: size, height: size, ...style }, role: "status", "aria-label": "Loading", ...rest });
-}
+}), { displayName: "Skeleton" });
+var Spinner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react45.default.forwardRef(function Spinner2({ size = 14, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react45.default.createElement("span", { ref, className: "lamp-spin " + className, style: { width: size, height: size, ...style }, role: "status", "aria-label": "Loading", ...rest });
+}), { displayName: "Spinner" });
 
 // project/components/forms/CodeFrame.jsx
-var import_react45 = __toESM(require("react"), 1);
-function CodeFrame({ language = "json", title, children, actions, maxHeight, onCopy, ...rest }) {
-  return /* @__PURE__ */ import_react45.default.createElement("div", { className: "lamp-codeframe", ...rest }, /* @__PURE__ */ import_react45.default.createElement("div", { className: "lamp-codeframe__bar" }, /* @__PURE__ */ import_react45.default.createElement("span", { className: "lamp-codeframe__lang" }, language), title ? /* @__PURE__ */ import_react45.default.createElement("span", { style: { fontSize: 12, color: "var(--text-secondary)" } }, title) : null, /* @__PURE__ */ import_react45.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, /* @__PURE__ */ import_react45.default.createElement(IconButton, { icon: "content_copy", label: "Copy", size: "xs", onClick: onCopy }))), /* @__PURE__ */ import_react45.default.createElement("pre", { className: "lamp-codeframe__body", style: maxHeight ? { maxHeight } : void 0 }, children));
-}
+var import_react46 = __toESM(require("react"), 1);
+var CodeFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react46.default.forwardRef(function CodeFrame2({ language = "json", title, children, actions, maxHeight, onCopy, ...rest }, ref) {
+  return /* @__PURE__ */ import_react46.default.createElement("div", { ref, className: "lamp-codeframe", ...rest }, /* @__PURE__ */ import_react46.default.createElement("div", { className: "lamp-codeframe__bar" }, /* @__PURE__ */ import_react46.default.createElement("span", { className: "lamp-codeframe__lang" }, language), title ? /* @__PURE__ */ import_react46.default.createElement("span", { style: { fontSize: 12, color: "var(--text-secondary)" } }, title) : null, /* @__PURE__ */ import_react46.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, /* @__PURE__ */ import_react46.default.createElement(IconButton, { icon: "content_copy", label: "Copy", size: "xs", onClick: onCopy }))), /* @__PURE__ */ import_react46.default.createElement("pre", { className: "lamp-codeframe__body", style: maxHeight ? { maxHeight } : void 0 }, children));
+}), { displayName: "CodeFrame" });
 
 // project/components/forms/Field.jsx
-var import_react46 = __toESM(require("react"), 1);
-function Field({ label, htmlFor, description, helper, error, warning, success, required = false, optional = false, count, layout = "stack", children, className = "", ...rest }) {
+var import_react47 = __toESM(require("react"), 1);
+var Field = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react47.default.forwardRef(function Field2({ label, htmlFor, description, helper, error, warning, success, required = false, optional = false, count, layout = "stack", children, className = "", ...rest }, ref) {
   const msg = error || warning || success;
   const msgTone = error ? "error" : warning ? "warning" : "success";
   const msgIcon = error ? "cancel" : warning ? "warning" : "check_circle";
-  return /* @__PURE__ */ import_react46.default.createElement("div", { className: ["lamp-field", layout === "row" && "lamp-field--row", className].filter(Boolean).join(" "), ...rest }, label ? /* @__PURE__ */ import_react46.default.createElement("div", { className: "lamp-field__top" }, /* @__PURE__ */ import_react46.default.createElement("label", { className: "lamp-field__label", htmlFor }, label, required ? /* @__PURE__ */ import_react46.default.createElement("span", { className: "lamp-field__req" }, " *") : null), optional ? /* @__PURE__ */ import_react46.default.createElement("span", { className: "lamp-field__opt" }, "Optional") : null) : null, description ? /* @__PURE__ */ import_react46.default.createElement("p", { className: "lamp-field__desc" }, description) : null, children, msg || helper || count != null ? /* @__PURE__ */ import_react46.default.createElement("div", { className: "lamp-field__foot" }, msg ? /* @__PURE__ */ import_react46.default.createElement("span", { className: "lamp-field__msg lamp-field__msg--" + msgTone }, /* @__PURE__ */ import_react46.default.createElement(Icon, { name: msgIcon, size: 12 }), msg) : helper ? /* @__PURE__ */ import_react46.default.createElement("span", null, helper) : null, count != null ? /* @__PURE__ */ import_react46.default.createElement("span", { className: "lamp-field__count" }, count) : null) : null);
-}
+  return /* @__PURE__ */ import_react47.default.createElement("div", { ref, className: ["lamp-field", layout === "row" && "lamp-field--row", className].filter(Boolean).join(" "), ...rest }, label ? /* @__PURE__ */ import_react47.default.createElement("div", { className: "lamp-field__top" }, /* @__PURE__ */ import_react47.default.createElement("label", { className: "lamp-field__label", htmlFor }, label, required ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-field__req" }, " *") : null), optional ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-field__opt" }, "Optional") : null) : null, description ? /* @__PURE__ */ import_react47.default.createElement("p", { className: "lamp-field__desc" }, description) : null, children, msg || helper || count != null ? /* @__PURE__ */ import_react47.default.createElement("div", { className: "lamp-field__foot" }, msg ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-field__msg lamp-field__msg--" + msgTone }, /* @__PURE__ */ import_react47.default.createElement(Icon, { name: msgIcon, size: 12 }), msg) : helper ? /* @__PURE__ */ import_react47.default.createElement("span", null, helper) : null, count != null ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-field__count" }, count) : null) : null);
+}), { displayName: "Field" });
 
 // project/components/forms/KeyValueInput.jsx
-var import_react48 = __toESM(require("react"), 1);
+var import_react49 = __toESM(require("react"), 1);
 
 // project/components/forms/TextInput.jsx
-var import_react47 = __toESM(require("react"), 1);
-function TextInput({ size = "md", icon, suffix, trailing, mono = false, state = "default", disabled = false, readOnly = false, loading: loading2 = false, className = "", ...rest }) {
-  const [focus, setFocus] = import_react47.default.useState(false);
+var import_react48 = __toESM(require("react"), 1);
+var TextInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react48.default.forwardRef(function TextInput2({ size = "md", icon, suffix, trailing, mono = false, state = "default", disabled = false, readOnly = false, loading: loading2 = false, className = "", ...rest }, ref) {
+  const [focus, setFocus] = import_react48.default.useState(false);
   const cls = ["lamp-inputwrap", "lamp-inputwrap--" + size, focus && "lamp-inputwrap--focus", state !== "default" && "lamp-inputwrap--" + state, disabled && "lamp-inputwrap--disabled", readOnly && "lamp-inputwrap--readonly", mono && "lamp-inputwrap--mono", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react47.default.createElement("div", { className: cls }, icon ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ import_react47.default.createElement(Icon, { name: icon, size: 14 })) : null, /* @__PURE__ */ import_react47.default.createElement("input", { className: "lamp-input", disabled, readOnly, onFocus: () => setFocus(true), onBlur: () => setFocus(false), "aria-invalid": state === "error" || void 0, ...rest }), loading2 ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ import_react47.default.createElement(Icon, { name: "progress_activity", size: 14 })) : null, suffix ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-inputwrap__suffix" }, suffix) : null, trailing);
-}
-function SearchInput({ placeholder = "Search", shortcut, size = "md", ...rest }) {
-  return /* @__PURE__ */ import_react47.default.createElement(TextInput, { icon: "search", placeholder, size, trailing: shortcut ? /* @__PURE__ */ import_react47.default.createElement("span", { className: "lamp-inputwrap__suffix", style: { fontFamily: "var(--font-mono)", fontSize: 11 } }, shortcut) : null, ...rest });
-}
-function NumberInput({ suffix, step = 1, ...rest }) {
-  return /* @__PURE__ */ import_react47.default.createElement(TextInput, { type: "number", step, suffix, mono: true, ...rest });
-}
-function SecretField({ value = "", revealed: revealedProp, onReveal, expiring = false, ...rest }) {
-  const [revealed, setRevealed] = import_react47.default.useState(!!revealedProp);
-  return /* @__PURE__ */ import_react47.default.createElement("div", { className: "lamp-secret", ...rest }, /* @__PURE__ */ import_react47.default.createElement(TextInput, { mono: true, readOnly: true, value: revealed ? value : "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", state: expiring ? "warning" : "default" }), /* @__PURE__ */ import_react47.default.createElement("button", { type: "button", className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered", "aria-label": revealed ? "Hide value" : "Reveal value", onClick: () => {
+  return /* @__PURE__ */ import_react48.default.createElement("div", { className: cls }, icon ? /* @__PURE__ */ import_react48.default.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ import_react48.default.createElement(Icon, { name: icon, size: 14 })) : null, /* @__PURE__ */ import_react48.default.createElement("input", { ref, className: "lamp-input", disabled, readOnly, onFocus: () => setFocus(true), onBlur: () => setFocus(false), "aria-invalid": state === "error" || void 0, ...rest }), loading2 ? /* @__PURE__ */ import_react48.default.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ import_react48.default.createElement(Icon, { name: "progress_activity", size: 14 })) : null, suffix ? /* @__PURE__ */ import_react48.default.createElement("span", { className: "lamp-inputwrap__suffix" }, suffix) : null, trailing);
+}), { displayName: "TextInput" });
+var SearchInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react48.default.forwardRef(function SearchInput2({ placeholder = "Search", shortcut, size = "md", ...rest }, ref) {
+  return /* @__PURE__ */ import_react48.default.createElement(TextInput, { ref, icon: "search", placeholder, size, trailing: shortcut ? /* @__PURE__ */ import_react48.default.createElement("span", { className: "lamp-inputwrap__suffix", style: { fontFamily: "var(--font-mono)", fontSize: 11 } }, shortcut) : null, ...rest });
+}), { displayName: "SearchInput" });
+var NumberInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react48.default.forwardRef(function NumberInput2({ suffix, step = 1, ...rest }, ref) {
+  return /* @__PURE__ */ import_react48.default.createElement(TextInput, { ref, type: "number", step, suffix, mono: true, ...rest });
+}), { displayName: "NumberInput" });
+var SecretField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react48.default.forwardRef(function SecretField2({ value = "", revealed: revealedProp, onReveal, expiring = false, ...rest }, ref) {
+  const [revealed, setRevealed] = import_react48.default.useState(!!revealedProp);
+  return /* @__PURE__ */ import_react48.default.createElement("div", { ref, className: "lamp-secret", ...rest }, /* @__PURE__ */ import_react48.default.createElement(TextInput, { mono: true, readOnly: true, value: revealed ? value : "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", state: expiring ? "warning" : "default" }), /* @__PURE__ */ import_react48.default.createElement("button", { type: "button", className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered", "aria-label": revealed ? "Hide value" : "Reveal value", onClick: () => {
     setRevealed(!revealed);
     onReveal && onReveal(!revealed);
-  } }, /* @__PURE__ */ import_react47.default.createElement(Icon, { name: revealed ? "visibility_off" : "visibility", size: 14 })));
-}
+  } }, /* @__PURE__ */ import_react48.default.createElement(Icon, { name: revealed ? "visibility_off" : "visibility", size: 14 })));
+}), { displayName: "SecretField" });
 
 // project/components/forms/KeyValueInput.jsx
-function KeyValueInput({ rows = [], onChange, keyPlaceholder = "Key", valuePlaceholder = "Value", addLabel = "Add row", mono = true, ...rest }) {
+var KeyValueInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react49.default.forwardRef(function KeyValueInput2({ rows = [], onChange, keyPlaceholder = "Key", valuePlaceholder = "Value", addLabel = "Add row", mono = true, ...rest }, ref) {
   const set = (i, patch) => onChange && onChange(rows.map((r, j) => j === i ? { ...r, ...patch } : r));
-  return /* @__PURE__ */ import_react48.default.createElement("div", { className: "lamp-kv", ...rest }, rows.map((r, i) => /* @__PURE__ */ import_react48.default.createElement("div", { className: "lamp-kv__row", key: i }, /* @__PURE__ */ import_react48.default.createElement(TextInput, { size: "sm", mono, value: r.key, placeholder: keyPlaceholder, onChange: (e) => set(i, { key: e.target.value }) }), /* @__PURE__ */ import_react48.default.createElement(TextInput, { size: "sm", mono, value: r.value, placeholder: valuePlaceholder, onChange: (e) => set(i, { value: e.target.value }) }), /* @__PURE__ */ import_react48.default.createElement(IconButton, { icon: "delete", label: "Remove row", size: "sm", tone: "danger", onClick: () => onChange && onChange(rows.filter((_, j) => j !== i)) }))), /* @__PURE__ */ import_react48.default.createElement(Button, { className: "lamp-kv__add", variant: "ghost", size: "sm", icon: "add", onClick: () => onChange && onChange([...rows, { key: "", value: "" }]) }, addLabel));
-}
+  return /* @__PURE__ */ import_react49.default.createElement("div", { ref, className: "lamp-kv", ...rest }, rows.map((r, i) => /* @__PURE__ */ import_react49.default.createElement("div", { className: "lamp-kv__row", key: i }, /* @__PURE__ */ import_react49.default.createElement(TextInput, { size: "sm", mono, value: r.key, placeholder: keyPlaceholder, onChange: (e) => set(i, { key: e.target.value }) }), /* @__PURE__ */ import_react49.default.createElement(TextInput, { size: "sm", mono, value: r.value, placeholder: valuePlaceholder, onChange: (e) => set(i, { value: e.target.value }) }), /* @__PURE__ */ import_react49.default.createElement(IconButton, { icon: "delete", label: "Remove row", size: "sm", tone: "danger", onClick: () => onChange && onChange(rows.filter((_, j) => j !== i)) }))), /* @__PURE__ */ import_react49.default.createElement(Button, { className: "lamp-kv__add", variant: "ghost", size: "sm", icon: "add", onClick: () => onChange && onChange([...rows, { key: "", value: "" }]) }, addLabel));
+}), { displayName: "KeyValueInput" });
 
 // project/components/forms/PromptEditor.jsx
-var import_react49 = __toESM(require("react"), 1);
-function VariableToken({ name, kind = "variable", children, ...rest }) {
+var import_react50 = __toESM(require("react"), 1);
+var VariableToken = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react50.default.forwardRef(function VariableToken2({ name, kind = "variable", children, ...rest }, ref) {
   const label = children || name;
-  return /* @__PURE__ */ import_react49.default.createElement("span", { className: "lamp-vartoken" + (kind === "entity" ? " lamp-vartoken--entity" : kind === "missing" ? " lamp-vartoken--missing" : ""), ...rest }, /* @__PURE__ */ import_react49.default.createElement(Icon, { name: kind === "entity" ? "alternate_email" : kind === "missing" ? "warning" : "data_object", size: 10 }), label);
-}
-function PromptEditor({ label = "Instructions", children, tokens = [], footer, onInsert, ...rest }) {
-  return /* @__PURE__ */ import_react49.default.createElement("div", { className: "lamp-prompt", ...rest }, /* @__PURE__ */ import_react49.default.createElement("div", { className: "lamp-prompt__bar" }, /* @__PURE__ */ import_react49.default.createElement("span", { className: "lamp-prompt__label" }, label), /* @__PURE__ */ import_react49.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, tokens.map((t) => /* @__PURE__ */ import_react49.default.createElement(Button, { key: t, variant: "quiet", size: "xs", onClick: () => onInsert && onInsert(t) }, "{{" + t + "}}")))), /* @__PURE__ */ import_react49.default.createElement("div", { className: "lamp-prompt__body", contentEditable: false, suppressContentEditableWarning: true }, children), footer ? /* @__PURE__ */ import_react49.default.createElement("div", { className: "lamp-prompt__foot" }, footer) : null);
-}
+  return /* @__PURE__ */ import_react50.default.createElement("span", { ref, className: "lamp-vartoken" + (kind === "entity" ? " lamp-vartoken--entity" : kind === "missing" ? " lamp-vartoken--missing" : ""), ...rest }, /* @__PURE__ */ import_react50.default.createElement(Icon, { name: kind === "entity" ? "alternate_email" : kind === "missing" ? "warning" : "data_object", size: 10 }), label);
+}), { displayName: "VariableToken" });
+var PromptEditor = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react50.default.forwardRef(function PromptEditor2({ label = "Instructions", children, tokens = [], footer, onInsert, ...rest }, ref) {
+  return /* @__PURE__ */ import_react50.default.createElement("div", { ref, className: "lamp-prompt", ...rest }, /* @__PURE__ */ import_react50.default.createElement("div", { className: "lamp-prompt__bar" }, /* @__PURE__ */ import_react50.default.createElement("span", { className: "lamp-prompt__label" }, label), /* @__PURE__ */ import_react50.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, tokens.map((t) => /* @__PURE__ */ import_react50.default.createElement(Button, { key: t, variant: "quiet", size: "xs", onClick: () => onInsert && onInsert(t) }, "{{" + t + "}}")))), /* @__PURE__ */ import_react50.default.createElement("div", { className: "lamp-prompt__body", contentEditable: false, suppressContentEditableWarning: true }, children), footer ? /* @__PURE__ */ import_react50.default.createElement("div", { className: "lamp-prompt__foot" }, footer) : null);
+}), { displayName: "PromptEditor" });
 
 // project/components/forms/Radio.jsx
-var import_react50 = __toESM(require("react"), 1);
-function Radio({ label, description, disabled = false, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react50.default.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react50.default.createElement("input", { type: "radio", disabled, ...rest }), /* @__PURE__ */ import_react50.default.createElement("span", { className: "lamp-check__box lamp-check__box--radio" }, /* @__PURE__ */ import_react50.default.createElement("span", { className: "lamp-check__radio-dot" })), label ? /* @__PURE__ */ import_react50.default.createElement("span", null, label, description ? /* @__PURE__ */ import_react50.default.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
-}
-function RadioGroup({ name, options = [], value, onChange, direction = "column", ...rest }) {
-  return /* @__PURE__ */ import_react50.default.createElement("div", { role: "radiogroup", style: { display: "flex", flexDirection: direction, gap: direction === "row" ? 16 : 8 }, ...rest }, options.map((o) => {
+var import_react51 = __toESM(require("react"), 1);
+var Radio = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react51.default.forwardRef(function Radio2({ label, description, disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react51.default.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react51.default.createElement("input", { ref, type: "radio", disabled, ...rest }), /* @__PURE__ */ import_react51.default.createElement("span", { className: "lamp-check__box lamp-check__box--radio" }, /* @__PURE__ */ import_react51.default.createElement("span", { className: "lamp-check__radio-dot" })), label ? /* @__PURE__ */ import_react51.default.createElement("span", null, label, description ? /* @__PURE__ */ import_react51.default.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
+}), { displayName: "Radio" });
+var RadioGroup = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react51.default.forwardRef(function RadioGroup2({ name, options = [], value, onChange, direction = "column", ...rest }, ref) {
+  return /* @__PURE__ */ import_react51.default.createElement("div", { ref, role: "radiogroup", style: { display: "flex", flexDirection: direction, gap: direction === "row" ? 16 : 8 }, ...rest }, options.map((o) => {
     const v = typeof o === "string" ? o : o.value;
     const l = typeof o === "string" ? o : o.label;
-    return /* @__PURE__ */ import_react50.default.createElement(Radio, { key: v, name, value: v, label: l, description: typeof o === "object" ? o.description : void 0, checked: value === v, onChange: () => onChange && onChange(v) });
+    return /* @__PURE__ */ import_react51.default.createElement(Radio, { key: v, name, value: v, label: l, description: typeof o === "object" ? o.description : void 0, checked: value === v, onChange: () => onChange && onChange(v) });
   }));
-}
+}), { displayName: "RadioGroup" });
 
 // project/components/forms/Select.jsx
-var import_react51 = __toESM(require("react"), 1);
-function Select({ options = [], size = "md", placeholder, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react51.default.createElement("div", { className: ["lamp-select", size === "sm" && "lamp-select--sm", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react51.default.createElement("select", { ...rest }, placeholder ? /* @__PURE__ */ import_react51.default.createElement("option", { value: "" }, placeholder) : null, options.map((o) => {
+var import_react52 = __toESM(require("react"), 1);
+var Select = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react52.default.forwardRef(function Select2({ options = [], size = "md", placeholder, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react52.default.createElement("div", { className: ["lamp-select", size === "sm" && "lamp-select--sm", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react52.default.createElement("select", { ref, ...rest }, placeholder ? /* @__PURE__ */ import_react52.default.createElement("option", { value: "" }, placeholder) : null, options.map((o) => {
     const v = typeof o === "string" ? o : o.value;
     const l = typeof o === "string" ? o : o.label;
-    return /* @__PURE__ */ import_react51.default.createElement("option", { key: v, value: v, disabled: typeof o === "object" && o.disabled }, l);
-  })), /* @__PURE__ */ import_react51.default.createElement("span", { className: "lamp-select__chev" }, /* @__PURE__ */ import_react51.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })));
-}
+    return /* @__PURE__ */ import_react52.default.createElement("option", { key: v, value: v, disabled: typeof o === "object" && o.disabled }, l);
+  })), /* @__PURE__ */ import_react52.default.createElement("span", { className: "lamp-select__chev" }, /* @__PURE__ */ import_react52.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })));
+}), { displayName: "Select" });
 
 // project/components/forms/Slider.jsx
-var import_react52 = __toESM(require("react"), 1);
-function Slider({ min = 0, max = 100, step = 1, value, onChange, format, showValue = true, ...rest }) {
+var import_react53 = __toESM(require("react"), 1);
+var Slider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react53.default.forwardRef(function Slider2({ min = 0, max = 100, step = 1, value, onChange, format, showValue = true, ...rest }, ref) {
   const v = value == null ? min : value;
-  return /* @__PURE__ */ import_react52.default.createElement("div", { className: "lamp-slider" }, /* @__PURE__ */ import_react52.default.createElement("input", { type: "range", min, max, step, value: v, onChange: (e) => onChange && onChange(Number(e.target.value)), ...rest }), showValue ? /* @__PURE__ */ import_react52.default.createElement("span", { className: "lamp-slider__val" }, format ? format(v) : v) : null);
-}
+  return /* @__PURE__ */ import_react53.default.createElement("div", { className: "lamp-slider" }, /* @__PURE__ */ import_react53.default.createElement("input", { ref, type: "range", min, max, step, value: v, onChange: (e) => onChange && onChange(Number(e.target.value)), ...rest }), showValue ? /* @__PURE__ */ import_react53.default.createElement("span", { className: "lamp-slider__val" }, format ? format(v) : v) : null);
+}), { displayName: "Slider" });
 
 // project/components/forms/Switch.jsx
-var import_react53 = __toESM(require("react"), 1);
-function Switch({ label, tone = "default", disabled = false, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react53.default.createElement("label", { className: ["lamp-switch", tone === "brand" && "lamp-switch--brand", disabled && "lamp-switch--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react53.default.createElement("input", { type: "checkbox", role: "switch", disabled, ...rest }), /* @__PURE__ */ import_react53.default.createElement("span", { className: "lamp-switch__track" }), label ? /* @__PURE__ */ import_react53.default.createElement("span", null, label) : null);
-}
+var import_react54 = __toESM(require("react"), 1);
+var Switch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react54.default.forwardRef(function Switch2({ label, tone = "default", disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react54.default.createElement("label", { className: ["lamp-switch", tone === "brand" && "lamp-switch--brand", disabled && "lamp-switch--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react54.default.createElement("input", { ref, type: "checkbox", role: "switch", disabled, ...rest }), /* @__PURE__ */ import_react54.default.createElement("span", { className: "lamp-switch__track" }), label ? /* @__PURE__ */ import_react54.default.createElement("span", null, label) : null);
+}), { displayName: "Switch" });
 
 // project/components/forms/TagInput.jsx
-var import_react54 = __toESM(require("react"), 1);
-function TagInput({ values = [], onChange, placeholder = "Add\u2026", mono = false, ...rest }) {
-  const [focus, setFocus] = import_react54.default.useState(false);
-  const [draft, setDraft] = import_react54.default.useState("");
+var import_react55 = __toESM(require("react"), 1);
+var TagInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react55.default.forwardRef(function TagInput2({ values = [], onChange, placeholder = "Add\u2026", mono = false, ...rest }, ref) {
+  const [focus, setFocus] = import_react55.default.useState(false);
+  const [draft, setDraft] = import_react55.default.useState("");
   const commit = () => {
     const t = draft.trim();
     if (!t) return;
     onChange && onChange([...values, t]);
     setDraft("");
   };
-  return /* @__PURE__ */ import_react54.default.createElement("div", { className: ["lamp-taginput", focus && "lamp-taginput--focus"].filter(Boolean).join(" "), ...rest }, values.map((v, i) => /* @__PURE__ */ import_react54.default.createElement(Tag, { key: v + i, mono, onRemove: () => onChange && onChange(values.filter((_, j) => j !== i)) }, v)), /* @__PURE__ */ import_react54.default.createElement(
+  return /* @__PURE__ */ import_react55.default.createElement("div", { className: ["lamp-taginput", focus && "lamp-taginput--focus"].filter(Boolean).join(" "), ...rest }, values.map((v, i) => /* @__PURE__ */ import_react55.default.createElement(Tag, { key: v + i, mono, onRemove: () => onChange && onChange(values.filter((_, j) => j !== i)) }, v)), /* @__PURE__ */ import_react55.default.createElement(
     "input",
     {
+      ref,
       value: draft,
       placeholder,
       onFocus: () => setFocus(true),
@@ -2178,17 +2211,17 @@ function TagInput({ values = [], onChange, placeholder = "Add\u2026", mono = fal
       }
     }
   ));
-}
+}), { displayName: "TagInput" });
 
 // project/components/forms/Textarea.jsx
-var import_react55 = __toESM(require("react"), 1);
-function Textarea({ mono = false, state = "default", rows = 4, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react55.default.createElement("textarea", { rows, className: ["lamp-textarea", mono && "lamp-textarea--mono", state === "error" && "lamp-textarea--error", className].filter(Boolean).join(" "), "aria-invalid": state === "error" || void 0, ...rest });
-}
+var import_react56 = __toESM(require("react"), 1);
+var Textarea = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react56.default.forwardRef(function Textarea2({ mono = false, state = "default", rows = 4, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react56.default.createElement("textarea", { ref, rows, className: ["lamp-textarea", mono && "lamp-textarea--mono", state === "error" && "lamp-textarea--error", className].filter(Boolean).join(" "), "aria-invalid": state === "error" || void 0, ...rest });
+}), { displayName: "Textarea" });
 
 // project/components/inspector/InspectorField.jsx
-var import_react56 = __toESM(require("react"), 1);
-function InspectorField({
+var import_react57 = __toESM(require("react"), 1);
+var InspectorField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react57.default.forwardRef(function InspectorField2({
   label,
   htmlFor,
   hint,
@@ -2206,7 +2239,7 @@ function InspectorField({
   children,
   className = "",
   ...rest
-}) {
+}, ref) {
   const msg = error || warning;
   const tone = error ? "error" : "warning";
   const cls = [
@@ -2216,20 +2249,20 @@ function InspectorField({
     inherited && "lamp-ifield--inherited",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react56.default.createElement("div", { className: cls, ...rest }, /* @__PURE__ */ import_react56.default.createElement("div", { className: "lamp-ifield__labelcol" }, /* @__PURE__ */ import_react56.default.createElement("label", { className: "lamp-ifield__label", htmlFor }, label, required ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__req" }, " *") : null), optional ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__opt" }, "Optional") : null, hint ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__hint", title: hint }, /* @__PURE__ */ import_react56.default.createElement(Icon, { name: "help", size: 12, label: hint })) : null), /* @__PURE__ */ import_react56.default.createElement("div", { className: "lamp-ifield__control" }, children, inherited || overridden ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__origin" }, inherited ? "Inherited" + (inheritedFrom ? " from " + inheritedFrom : "") : "Overridden here") : null, msg ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__msg lamp-ifield__msg--" + tone }, /* @__PURE__ */ import_react56.default.createElement(Icon, { name: error ? "cancel" : "warning", size: 12 }), msg) : helper ? /* @__PURE__ */ import_react56.default.createElement("span", { className: "lamp-ifield__helper" }, helper) : null), action ? /* @__PURE__ */ import_react56.default.createElement("div", { className: "lamp-ifield__action" }, action) : null);
-}
+  return /* @__PURE__ */ import_react57.default.createElement("div", { ref, className: cls, ...rest }, /* @__PURE__ */ import_react57.default.createElement("div", { className: "lamp-ifield__labelcol" }, /* @__PURE__ */ import_react57.default.createElement("label", { className: "lamp-ifield__label", htmlFor }, label, required ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__req" }, " *") : null), optional ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__opt" }, "Optional") : null, hint ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__hint", title: hint }, /* @__PURE__ */ import_react57.default.createElement(Icon, { name: "help", size: 12, label: hint })) : null), /* @__PURE__ */ import_react57.default.createElement("div", { className: "lamp-ifield__control" }, children, inherited || overridden ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__origin" }, inherited ? "Inherited" + (inheritedFrom ? " from " + inheritedFrom : "") : "Overridden here") : null, msg ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__msg lamp-ifield__msg--" + tone }, /* @__PURE__ */ import_react57.default.createElement(Icon, { name: error ? "cancel" : "warning", size: 12 }), msg) : helper ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-ifield__helper" }, helper) : null), action ? /* @__PURE__ */ import_react57.default.createElement("div", { className: "lamp-ifield__action" }, action) : null);
+}), { displayName: "InspectorField" });
 
 // project/components/inspector/InspectorPanel.jsx
-var import_react58 = __toESM(require("react"), 1);
+var import_react59 = __toESM(require("react"), 1);
 
 // project/components/navigation/Tabs.jsx
-var import_react57 = __toESM(require("react"), 1);
-function Tabs({ tabs = [], value, onChange, variant = "underline", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react57.default.createElement("div", { className: ["lamp-tabs", variant === "pill" && "lamp-tabs--pill", className].filter(Boolean).join(" "), role: "tablist", ...rest }, tabs.map((t) => {
+var import_react58 = __toESM(require("react"), 1);
+var Tabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react58.default.forwardRef(function Tabs2({ tabs = [], value, onChange, variant = "underline", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react58.default.createElement("div", { ref, className: ["lamp-tabs", variant === "pill" && "lamp-tabs--pill", className].filter(Boolean).join(" "), role: "tablist", ...rest }, tabs.map((t) => {
     const id = typeof t === "string" ? t : t.id;
     const label = typeof t === "string" ? t : t.label;
     const active = value === id;
-    return /* @__PURE__ */ import_react57.default.createElement(
+    return /* @__PURE__ */ import_react58.default.createElement(
       "button",
       {
         key: id,
@@ -2240,31 +2273,31 @@ function Tabs({ tabs = [], value, onChange, variant = "underline", className = "
         className: "lamp-tabs__tab" + (active ? " lamp-tabs__tab--active" : ""),
         onClick: () => onChange && onChange(id)
       },
-      typeof t === "object" && t.icon ? /* @__PURE__ */ import_react57.default.createElement(Icon, { name: t.icon, size: 14 }) : null,
+      typeof t === "object" && t.icon ? /* @__PURE__ */ import_react58.default.createElement(Icon, { name: t.icon, size: 14 }) : null,
       label,
-      typeof t === "object" && t.count != null ? /* @__PURE__ */ import_react57.default.createElement("span", { className: "lamp-tabs__count" }, t.count) : null
+      typeof t === "object" && t.count != null ? /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-tabs__count" }, t.count) : null
     );
   }));
-}
+}), { displayName: "Tabs" });
 
 // project/components/inspector/InspectorPanel.jsx
-function InspectorHeader({ title, subtitle, glyph, badges, actions, onClose, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react58.default.createElement("header", { className: "lamp-insp__head " + className, ...rest }, glyph ? /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__glyph" }, /* @__PURE__ */ import_react58.default.createElement(Icon, { name: glyph, size: 16 })) : null, /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__titles" }, /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__title" }, title), subtitle ? /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__sub" }, subtitle) : null, badges ? /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__badges" }, badges) : null), /* @__PURE__ */ import_react58.default.createElement("span", { className: "lamp-insp__actions" }, actions, onClose ? /* @__PURE__ */ import_react58.default.createElement(IconButton, { icon: "close", label: "Close inspector", size: "sm", onClick: onClose }) : null));
-}
-function InspectorTabs({ tabs = [], value, onChange, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react58.default.createElement("div", { className: "lamp-insp__tabs " + className }, /* @__PURE__ */ import_react58.default.createElement(Tabs, { tabs, value, onChange, variant: "underline", ...rest }));
-}
-function InspectorFooter({ sticky = true, align = "end", children, className = "", ...rest }) {
+var InspectorHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react59.default.forwardRef(function InspectorHeader2({ title, subtitle, glyph, badges, actions, onClose, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react59.default.createElement("header", { ref, className: "lamp-insp__head " + className, ...rest }, glyph ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__glyph" }, /* @__PURE__ */ import_react59.default.createElement(Icon, { name: glyph, size: 16 })) : null, /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__titles" }, /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__title" }, title), subtitle ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__sub" }, subtitle) : null, badges ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__badges" }, badges) : null), /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp__actions" }, actions, onClose ? /* @__PURE__ */ import_react59.default.createElement(IconButton, { icon: "close", label: "Close inspector", size: "sm", onClick: onClose }) : null));
+}), { displayName: "InspectorHeader" });
+var InspectorTabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react59.default.forwardRef(function InspectorTabs2({ tabs = [], value, onChange, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react59.default.createElement("div", { ref, className: "lamp-insp__tabs " + className }, /* @__PURE__ */ import_react59.default.createElement(Tabs, { tabs, value, onChange, variant: "underline", ...rest }));
+}), { displayName: "InspectorTabs" });
+var InspectorFooter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react59.default.forwardRef(function InspectorFooter2({ sticky = true, align = "end", children, className = "", ...rest }, ref) {
   const cls = [
     "lamp-insp__foot",
     sticky && "lamp-insp__foot--sticky",
     align !== "end" && "lamp-insp__foot--" + align,
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ import_react58.default.createElement("footer", { className: cls, ...rest }, children);
-}
-function InspectorPanel({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react58.default.createElement("aside", { className: "lamp-insp " + className, "aria-label": "Inspector", ...rest }, title ? /* @__PURE__ */ import_react58.default.createElement(
+  return /* @__PURE__ */ import_react59.default.createElement("footer", { ref, className: cls, ...rest }, children);
+}), { displayName: "InspectorFooter" });
+var InspectorPanel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react59.default.forwardRef(function InspectorPanel2({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react59.default.createElement("aside", { ref, className: "lamp-insp " + className, "aria-label": "Inspector", ...rest }, title ? /* @__PURE__ */ import_react59.default.createElement(
     InspectorHeader,
     {
       title,
@@ -2274,15 +2307,15 @@ function InspectorPanel({ title, subtitle, glyph, badges, actions, tabs, footer,
       actions,
       onClose
     }
-  ) : null, tabs, /* @__PURE__ */ import_react58.default.createElement("div", { className: "lamp-insp__body" }, children), footer ? /* @__PURE__ */ import_react58.default.createElement(InspectorFooter, { sticky: stickyFooter }, footer) : null);
-}
+  ) : null, tabs, /* @__PURE__ */ import_react59.default.createElement("div", { className: "lamp-insp__body" }, children), footer ? /* @__PURE__ */ import_react59.default.createElement(InspectorFooter, { sticky: stickyFooter }, footer) : null);
+}), { displayName: "InspectorPanel" });
 
 // project/components/inspector/InspectorSection.jsx
-var import_react59 = __toESM(require("react"), 1);
-function InspectorSection({ label, count, actions, collapsible = true, defaultOpen = true, advanced = false, children, className = "", ...rest }) {
-  const [open, setOpen] = import_react59.default.useState(advanced ? false : defaultOpen);
+var import_react60 = __toESM(require("react"), 1);
+var InspectorSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react60.default.forwardRef(function InspectorSection2({ label, count, actions, collapsible = true, defaultOpen = true, advanced = false, children, className = "", ...rest }, ref) {
+  const [open, setOpen] = import_react60.default.useState(advanced ? false : defaultOpen);
   const isOpen = collapsible ? open : true;
-  return /* @__PURE__ */ import_react59.default.createElement("section", { className: ["lamp-insp-sec", !collapsible && "lamp-insp-sec--static", advanced && "lamp-insp-sec--advanced", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react59.default.createElement("div", { className: "lamp-insp-sec__head" }, /* @__PURE__ */ import_react59.default.createElement(
+  return /* @__PURE__ */ import_react60.default.createElement("section", { ref, className: ["lamp-insp-sec", !collapsible && "lamp-insp-sec--static", advanced && "lamp-insp-sec--advanced", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react60.default.createElement("div", { className: "lamp-insp-sec__head" }, /* @__PURE__ */ import_react60.default.createElement(
     "button",
     {
       type: "button",
@@ -2291,18 +2324,18 @@ function InspectorSection({ label, count, actions, collapsible = true, defaultOp
       "aria-expanded": isOpen,
       disabled: !collapsible
     },
-    /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp-sec__label" }, label),
-    count != null ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp-sec__count" }, count) : null,
-    collapsible ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp-sec__twist" + (isOpen ? " lamp-insp-sec__twist--open" : "") }, /* @__PURE__ */ import_react59.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })) : null
-  ), actions ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-insp-sec__actions" }, actions) : null), isOpen ? /* @__PURE__ */ import_react59.default.createElement("div", { className: "lamp-insp-sec__body" }, children) : null);
-}
-function PropertyRow({ label, value, mono = false, stack = false, inherited = false, empty, children, className = "", ...rest }) {
-  const content = children != null ? children : value == null || value === "" ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-prop__empty" }, empty || "Not set") : value;
-  return /* @__PURE__ */ import_react59.default.createElement("div", { className: ["lamp-prop", stack && "lamp-prop--stack", inherited && "lamp-prop--inherited", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-prop__label" }, label), /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-prop__value" + (mono ? " lamp-prop__value--mono" : "") }, content, inherited ? /* @__PURE__ */ import_react59.default.createElement("span", { className: "lamp-prop__inherit" }, "Inherited") : null));
-}
+    /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-insp-sec__label" }, label),
+    count != null ? /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-insp-sec__count" }, count) : null,
+    collapsible ? /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-insp-sec__twist" + (isOpen ? " lamp-insp-sec__twist--open" : "") }, /* @__PURE__ */ import_react60.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })) : null
+  ), actions ? /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-insp-sec__actions" }, actions) : null), isOpen ? /* @__PURE__ */ import_react60.default.createElement("div", { className: "lamp-insp-sec__body" }, children) : null);
+}), { displayName: "InspectorSection" });
+var PropertyRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react60.default.forwardRef(function PropertyRow2({ label, value, mono = false, stack = false, inherited = false, empty, children, className = "", ...rest }, ref) {
+  const content = children != null ? children : value == null || value === "" ? /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-prop__empty" }, empty || "Not set") : value;
+  return /* @__PURE__ */ import_react60.default.createElement("div", { ref, className: ["lamp-prop", stack && "lamp-prop--stack", inherited && "lamp-prop--inherited", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-prop__label" }, label), /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-prop__value" + (mono ? " lamp-prop__value--mono" : "") }, content, inherited ? /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-prop__inherit" }, "Inherited") : null));
+}), { displayName: "PropertyRow" });
 
 // project/components/memory/MemoryBadge.jsx
-var import_react60 = __toESM(require("react"), 1);
+var import_react61 = __toESM(require("react"), 1);
 var FACT_TYPES = {
   explicitFact: { label: "Fact", glyph: "check_circle", tone: "memory" },
   observedPattern: { label: "Observed", glyph: "visibility", tone: "neutral" },
@@ -2324,25 +2357,25 @@ var MEMORY_SCOPES = {
   genie: { label: "Genie memory", short: "Genie" },
   lamp: { label: "LAMP memory", short: "LAMP" }
 };
-function MemoryBadge({ type = "explicitFact", label, micro = true, ...rest }) {
+var MemoryBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react61.default.forwardRef(function MemoryBadge2({ type = "explicitFact", label, micro = true, ...rest }, ref) {
   const t = FACT_TYPES[type] || FACT_TYPES.explicitFact;
-  return /* @__PURE__ */ import_react60.default.createElement(Badge, { tone: t.tone, icon: t.glyph, micro, ...rest }, label || t.label);
-}
-function MemoryScope({ scope = "agent", full = false, ...rest }) {
+  return /* @__PURE__ */ import_react61.default.createElement(Badge, { ref, tone: t.tone, icon: t.glyph, micro, ...rest }, label || t.label);
+}), { displayName: "MemoryBadge" });
+var MemoryScope = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react61.default.forwardRef(function MemoryScope2({ scope = "agent", full = false, ...rest }, ref) {
   const s = MEMORY_SCOPES[scope] || MEMORY_SCOPES.agent;
-  return /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-mem-scope lamp-mem-scope--" + scope, title: s.label, ...rest }, /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-mem-scope__bar" }), full ? s.label : s.short);
-}
-function MemoryConfidence({ level = "high", value, showValue = false, ...rest }) {
+  return /* @__PURE__ */ import_react61.default.createElement("span", { ref, className: "lamp-mem-scope lamp-mem-scope--" + scope, title: s.label, ...rest }, /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-mem-scope__bar" }), full ? s.label : s.short);
+}), { displayName: "MemoryScope" });
+var MemoryConfidence = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react61.default.forwardRef(function MemoryConfidence2({ level = "high", value, showValue = false, ...rest }, ref) {
   const pct = value != null ? value : level === "veryHigh" ? 96 : level === "high" ? 84 : level === "medium" ? 62 : 34;
   const label = level === "veryHigh" ? "Very high" : level === "high" ? "High" : level === "medium" ? "Medium" : "Low";
   const tone = pct >= 80 ? "high" : pct >= 55 ? "" : "low";
-  return /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-conf", ...rest }, /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-conf__track" }, /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-conf__fill" + (tone ? " lamp-conf__fill--" + tone : ""), style: { width: pct + "%" } })), /* @__PURE__ */ import_react60.default.createElement("span", { className: "lamp-conf__label" }, showValue ? pct + "%" : label));
-}
+  return /* @__PURE__ */ import_react61.default.createElement("span", { ref, className: "lamp-conf", ...rest }, /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conf__track" }, /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conf__fill" + (tone ? " lamp-conf__fill--" + tone : ""), style: { width: pct + "%" } })), /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conf__label" }, showValue ? pct + "%" : label));
+}), { displayName: "MemoryConfidence" });
 
 // project/components/memory/MemoryConflict.jsx
-var import_react61 = __toESM(require("react"), 1);
+var import_react62 = __toESM(require("react"), 1);
 function Claim({ claim, index, selected, onPick, pickLabel, readOnly }) {
-  return /* @__PURE__ */ import_react61.default.createElement("div", { className: ["lamp-conflict__claim", selected && "lamp-conflict__claim--picked"].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react61.default.createElement("div", { className: "lamp-conflict__claim-top" }, claim.type ? /* @__PURE__ */ import_react61.default.createElement(MemoryBadge, { type: claim.type }) : null, claim.scope ? /* @__PURE__ */ import_react61.default.createElement(MemoryScope, { scope: claim.scope }) : null, /* @__PURE__ */ import_react61.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react61.default.createElement(MemoryConfidence, { level: claim.confidence || "medium", value: claim.confidenceValue }))), /* @__PURE__ */ import_react61.default.createElement("p", { className: "lamp-conflict__text" }, claim.fact), /* @__PURE__ */ import_react61.default.createElement("div", { className: "lamp-conflict__ev" }, claim.evidenceCount != null ? /* @__PURE__ */ import_react61.default.createElement("span", null, /* @__PURE__ */ import_react61.default.createElement(Icon, { name: "fact_check", size: 12 }), /* @__PURE__ */ import_react61.default.createElement("b", null, claim.evidenceCount), " pieces of evidence") : null, claim.occurrences != null ? /* @__PURE__ */ import_react61.default.createElement("span", null, "Seen ", /* @__PURE__ */ import_react61.default.createElement("b", null, claim.occurrences), " times") : null, claim.source ? /* @__PURE__ */ import_react61.default.createElement("span", null, claim.source) : null, claim.lastConfirmed ? /* @__PURE__ */ import_react61.default.createElement("span", null, "Last confirmed ", /* @__PURE__ */ import_react61.default.createElement("b", null, claim.lastConfirmed)) : null), !readOnly && onPick ? /* @__PURE__ */ import_react61.default.createElement(
+  return /* @__PURE__ */ import_react62.default.createElement("div", { className: ["lamp-conflict__claim", selected && "lamp-conflict__claim--picked"].filter(Boolean).join(" ") }, /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-conflict__claim-top" }, claim.type ? /* @__PURE__ */ import_react62.default.createElement(MemoryBadge, { type: claim.type }) : null, claim.scope ? /* @__PURE__ */ import_react62.default.createElement(MemoryScope, { scope: claim.scope }) : null, /* @__PURE__ */ import_react62.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react62.default.createElement(MemoryConfidence, { level: claim.confidence || "medium", value: claim.confidenceValue }))), /* @__PURE__ */ import_react62.default.createElement("p", { className: "lamp-conflict__text" }, claim.fact), /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-conflict__ev" }, claim.evidenceCount != null ? /* @__PURE__ */ import_react62.default.createElement("span", null, /* @__PURE__ */ import_react62.default.createElement(Icon, { name: "fact_check", size: 12 }), /* @__PURE__ */ import_react62.default.createElement("b", null, claim.evidenceCount), " pieces of evidence") : null, claim.occurrences != null ? /* @__PURE__ */ import_react62.default.createElement("span", null, "Seen ", /* @__PURE__ */ import_react62.default.createElement("b", null, claim.occurrences), " times") : null, claim.source ? /* @__PURE__ */ import_react62.default.createElement("span", null, claim.source) : null, claim.lastConfirmed ? /* @__PURE__ */ import_react62.default.createElement("span", null, "Last confirmed ", /* @__PURE__ */ import_react62.default.createElement("b", null, claim.lastConfirmed)) : null), !readOnly && onPick ? /* @__PURE__ */ import_react62.default.createElement(
     Button,
     {
       size: "sm",
@@ -2353,7 +2386,7 @@ function Claim({ claim, index, selected, onPick, pickLabel, readOnly }) {
     pickLabel || "Keep this"
   ) : null);
 }
-function MemoryConflict({
+var MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react62.default.forwardRef(function MemoryConflict2({
   claims = [],
   title = "Two memories disagree",
   detail,
@@ -2367,15 +2400,16 @@ function MemoryConflict({
   actions,
   className = "",
   ...rest
-}) {
-  return /* @__PURE__ */ import_react61.default.createElement(
+}, ref) {
+  return /* @__PURE__ */ import_react62.default.createElement(
     "article",
     {
+      ref,
       className: ["lamp-conflict", resolved && "lamp-conflict--resolved", className].filter(Boolean).join(" "),
       ...rest
     },
-    /* @__PURE__ */ import_react61.default.createElement("header", { className: "lamp-conflict__head" }, /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conflict__glyph" }, /* @__PURE__ */ import_react61.default.createElement(Icon, { name: resolved ? "check_circle" : "warning", size: 14 })), /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conflict__titles" }, /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conflict__title" }, title), detail ? /* @__PURE__ */ import_react61.default.createElement("span", { className: "lamp-conflict__detail" }, detail) : null), resolved ? /* @__PURE__ */ import_react61.default.createElement(Badge, { tone: "success", icon: "check", micro: true }, "Resolved") : null),
-    /* @__PURE__ */ import_react61.default.createElement("div", { className: "lamp-conflict__claims" }, claims.map((c, i) => /* @__PURE__ */ import_react61.default.createElement(
+    /* @__PURE__ */ import_react62.default.createElement("header", { className: "lamp-conflict__head" }, /* @__PURE__ */ import_react62.default.createElement("span", { className: "lamp-conflict__glyph" }, /* @__PURE__ */ import_react62.default.createElement(Icon, { name: resolved ? "check_circle" : "warning", size: 14 })), /* @__PURE__ */ import_react62.default.createElement("span", { className: "lamp-conflict__titles" }, /* @__PURE__ */ import_react62.default.createElement("span", { className: "lamp-conflict__title" }, title), detail ? /* @__PURE__ */ import_react62.default.createElement("span", { className: "lamp-conflict__detail" }, detail) : null), resolved ? /* @__PURE__ */ import_react62.default.createElement(Badge, { tone: "success", icon: "check", micro: true }, "Resolved") : null),
+    /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-conflict__claims" }, claims.map((c, i) => /* @__PURE__ */ import_react62.default.createElement(
       Claim,
       {
         key: c.id != null ? c.id : i,
@@ -2387,14 +2421,14 @@ function MemoryConflict({
         readOnly: readOnly || resolved
       }
     ))),
-    resolved && resolution ? /* @__PURE__ */ import_react61.default.createElement("p", { className: "lamp-conflict__resolution" }, resolution) : null,
-    !resolved && !readOnly && (onKeepBoth || onInvestigate || actions) ? /* @__PURE__ */ import_react61.default.createElement("footer", { className: "lamp-conflict__foot" }, actions, onKeepBoth ? /* @__PURE__ */ import_react61.default.createElement(Button, { size: "sm", variant: "secondary", icon: "call_split", onClick: onKeepBoth }, "Keep both, scoped") : null, onInvestigate ? /* @__PURE__ */ import_react61.default.createElement(Button, { size: "sm", variant: "quiet", icon: "search", onClick: onInvestigate }, "See the evidence") : null) : null
+    resolved && resolution ? /* @__PURE__ */ import_react62.default.createElement("p", { className: "lamp-conflict__resolution" }, resolution) : null,
+    !resolved && !readOnly && (onKeepBoth || onInvestigate || actions) ? /* @__PURE__ */ import_react62.default.createElement("footer", { className: "lamp-conflict__foot" }, actions, onKeepBoth ? /* @__PURE__ */ import_react62.default.createElement(Button, { size: "sm", variant: "secondary", icon: "call_split", onClick: onKeepBoth }, "Keep both, scoped") : null, onInvestigate ? /* @__PURE__ */ import_react62.default.createElement(Button, { size: "sm", variant: "quiet", icon: "search", onClick: onInvestigate }, "See the evidence") : null) : null
   );
-}
+}), { displayName: "MemoryConflict" });
 
 // project/components/memory/MemoryFact.jsx
-var import_react62 = __toESM(require("react"), 1);
-function MemoryFact({
+var import_react63 = __toESM(require("react"), 1);
+var MemoryFact = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react63.default.forwardRef(function MemoryFact2({
   type = "explicitFact",
   scope = "genie",
   fact,
@@ -2415,13 +2449,13 @@ function MemoryFact({
   onIgnore,
   className = "",
   ...rest
-}) {
+}, ref) {
   const conflict = contradictions > 0;
-  return /* @__PURE__ */ import_react62.default.createElement("article", { className: ["lamp-fact", conflict && "lamp-fact--conflict", "lamp-fact--" + state, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-fact__top" }, /* @__PURE__ */ import_react62.default.createElement(MemoryBadge, { type }), /* @__PURE__ */ import_react62.default.createElement(MemoryScope, { scope }), access ? /* @__PURE__ */ import_react62.default.createElement(Badge, { outline: true, icon: access === "Private" ? "lock" : "group" }, access) : null, state === "stale" ? /* @__PURE__ */ import_react62.default.createElement(Badge, { tone: "warning", icon: "schedule" }, "Stale") : null, state === "pendingReview" ? /* @__PURE__ */ import_react62.default.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Needs confirmation") : null, conflict ? /* @__PURE__ */ import_react62.default.createElement(Badge, { tone: "warning", icon: "warning" }, contradictions, " contradiction", contradictions > 1 ? "s" : "") : null, /* @__PURE__ */ import_react62.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react62.default.createElement(MemoryConfidence, { level: confidence, value: confidenceValue, showValue: showConfidenceValue }))), /* @__PURE__ */ import_react62.default.createElement("p", { className: "lamp-fact__text" }, fact), source || evidenceCount != null ? /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-fact__ev" }, /* @__PURE__ */ import_react62.default.createElement(Icon, { name: "fact_check", size: 13, style: { color: "var(--memory-accent)" } }), evidenceCount != null ? /* @__PURE__ */ import_react62.default.createElement("span", null, /* @__PURE__ */ import_react62.default.createElement("b", null, evidenceCount), " pieces of evidence") : null, source ? /* @__PURE__ */ import_react62.default.createElement("span", null, evidenceCount != null ? "\xB7 " : "", source) : null) : null, /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-fact__meta" }, lastConfirmed ? /* @__PURE__ */ import_react62.default.createElement("span", null, "Last confirmed ", /* @__PURE__ */ import_react62.default.createElement("b", null, lastConfirmed)) : null, freshness ? /* @__PURE__ */ import_react62.default.createElement("span", null, "Updated ", /* @__PURE__ */ import_react62.default.createElement("b", null, freshness)) : null, owner ? /* @__PURE__ */ import_react62.default.createElement("span", null, "Owner ", /* @__PURE__ */ import_react62.default.createElement("b", null, owner)) : null), actions || onConfirm || onCorrect || onIgnore ? /* @__PURE__ */ import_react62.default.createElement("div", { className: "lamp-fact__actions" }, actions, onConfirm ? /* @__PURE__ */ import_react62.default.createElement(Button, { size: "sm", variant: "secondary", icon: "check", onClick: onConfirm }, "Confirm") : null, onCorrect ? /* @__PURE__ */ import_react62.default.createElement(Button, { size: "sm", variant: "ghost", icon: "edit", onClick: onCorrect }, "Correct") : null, onIgnore ? /* @__PURE__ */ import_react62.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null) : null);
-}
+  return /* @__PURE__ */ import_react63.default.createElement("article", { ref, className: ["lamp-fact", conflict && "lamp-fact--conflict", "lamp-fact--" + state, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-fact__top" }, /* @__PURE__ */ import_react63.default.createElement(MemoryBadge, { type }), /* @__PURE__ */ import_react63.default.createElement(MemoryScope, { scope }), access ? /* @__PURE__ */ import_react63.default.createElement(Badge, { outline: true, icon: access === "Private" ? "lock" : "group" }, access) : null, state === "stale" ? /* @__PURE__ */ import_react63.default.createElement(Badge, { tone: "warning", icon: "schedule" }, "Stale") : null, state === "pendingReview" ? /* @__PURE__ */ import_react63.default.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Needs confirmation") : null, conflict ? /* @__PURE__ */ import_react63.default.createElement(Badge, { tone: "warning", icon: "warning" }, contradictions, " contradiction", contradictions > 1 ? "s" : "") : null, /* @__PURE__ */ import_react63.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react63.default.createElement(MemoryConfidence, { level: confidence, value: confidenceValue, showValue: showConfidenceValue }))), /* @__PURE__ */ import_react63.default.createElement("p", { className: "lamp-fact__text" }, fact), source || evidenceCount != null ? /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-fact__ev" }, /* @__PURE__ */ import_react63.default.createElement(Icon, { name: "fact_check", size: 13, style: { color: "var(--memory-accent)" } }), evidenceCount != null ? /* @__PURE__ */ import_react63.default.createElement("span", null, /* @__PURE__ */ import_react63.default.createElement("b", null, evidenceCount), " pieces of evidence") : null, source ? /* @__PURE__ */ import_react63.default.createElement("span", null, evidenceCount != null ? "\xB7 " : "", source) : null) : null, /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-fact__meta" }, lastConfirmed ? /* @__PURE__ */ import_react63.default.createElement("span", null, "Last confirmed ", /* @__PURE__ */ import_react63.default.createElement("b", null, lastConfirmed)) : null, freshness ? /* @__PURE__ */ import_react63.default.createElement("span", null, "Updated ", /* @__PURE__ */ import_react63.default.createElement("b", null, freshness)) : null, owner ? /* @__PURE__ */ import_react63.default.createElement("span", null, "Owner ", /* @__PURE__ */ import_react63.default.createElement("b", null, owner)) : null), actions || onConfirm || onCorrect || onIgnore ? /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-fact__actions" }, actions, onConfirm ? /* @__PURE__ */ import_react63.default.createElement(Button, { size: "sm", variant: "secondary", icon: "check", onClick: onConfirm }, "Confirm") : null, onCorrect ? /* @__PURE__ */ import_react63.default.createElement(Button, { size: "sm", variant: "ghost", icon: "edit", onClick: onCorrect }, "Correct") : null, onIgnore ? /* @__PURE__ */ import_react63.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null) : null);
+}), { displayName: "MemoryFact" });
 
 // project/components/memory/MemoryGraph.jsx
-var import_react63 = __toESM(require("react"), 1);
+var import_react64 = __toESM(require("react"), 1);
 var KIND_COLOR = {
   fact: "var(--memory-core)",
   policy: "var(--gold-600)",
@@ -2443,7 +2477,7 @@ function shapePath(shape, r) {
   }
   return null;
 }
-function MemoryGraph({
+var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react64.default.forwardRef(function MemoryGraph2({
   nodes = [],
   links = [],
   width = 640,
@@ -2458,13 +2492,13 @@ function MemoryGraph({
   className = "",
   style,
   ...rest
-}) {
-  const [tick, setTick] = import_react63.default.useState(0);
-  const [hover, setHover] = import_react63.default.useState(null);
-  const sim = import_react63.default.useRef({ pos: [], alpha: 1 });
+}, ref) {
+  const [tick, setTick] = import_react64.default.useState(0);
+  const [hover, setHover] = import_react64.default.useState(null);
+  const sim = import_react64.default.useRef({ pos: [], alpha: 1 });
   const key = nodes.map((n) => n.id).join("|") + "#" + links.length + "#" + width + "x" + height;
   const reduced = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  import_react63.default.useEffect(() => {
+  import_react64.default.useEffect(() => {
     const n = nodes.length;
     const cx = width / 2, cy = height / 2;
     const R = Math.min(width, height) * 0.34;
@@ -2535,7 +2569,7 @@ function MemoryGraph({
     return () => cancelAnimationFrame(frame);
   }, [key]);
   const { pos, radius, edges, index } = sim.current;
-  const neighbours = import_react63.default.useMemo(() => {
+  const neighbours = import_react64.default.useMemo(() => {
     if (!hover || !edges || !index) return null;
     const i = index[hover];
     const set = { [i]: 1 };
@@ -2545,9 +2579,9 @@ function MemoryGraph({
     });
     return set;
   }, [hover, key, tick > 0]);
-  if (!pos || !pos.length) return /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-graph " + className, style }, /* @__PURE__ */ import_react63.default.createElement("svg", { width: "100%", height }));
+  if (!pos || !pos.length) return /* @__PURE__ */ import_react64.default.createElement("div", { className: "lamp-graph " + className, style }, /* @__PURE__ */ import_react64.default.createElement("svg", { width: "100%", height }));
   const dim = (i) => neighbours && !neighbours[i] ? 0.18 : 1;
-  return /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-graph " + className, style }, /* @__PURE__ */ import_react63.default.createElement(
+  return /* @__PURE__ */ import_react64.default.createElement("div", { ref, className: "lamp-graph " + className, style }, /* @__PURE__ */ import_react64.default.createElement(
     "svg",
     {
       width: "100%",
@@ -2557,10 +2591,10 @@ function MemoryGraph({
       "aria-label": "Memory graph, " + nodes.length + " items and " + links.length + " relationships",
       ...rest
     },
-    /* @__PURE__ */ import_react63.default.createElement("g", null, (edges || []).map((e, i) => {
+    /* @__PURE__ */ import_react64.default.createElement("g", null, (edges || []).map((e, i) => {
       const l = links[i] || {};
       const on = !neighbours || neighbours[e.a] && neighbours[e.b];
-      return /* @__PURE__ */ import_react63.default.createElement(
+      return /* @__PURE__ */ import_react64.default.createElement(
         "line",
         {
           key: i,
@@ -2575,13 +2609,13 @@ function MemoryGraph({
         }
       );
     })),
-    /* @__PURE__ */ import_react63.default.createElement("g", null, nodes.map((nd, i) => {
+    /* @__PURE__ */ import_react64.default.createElement("g", null, nodes.map((nd, i) => {
       const r = radius[i];
       const color = nd.color || KIND_COLOR[nd.kind] || KIND_COLOR.fact;
       const shape = SHAPE[nd.kind];
       const isSel = selectedId === nd.id;
       const path = shapePath(shape, r);
-      return /* @__PURE__ */ import_react63.default.createElement(
+      return /* @__PURE__ */ import_react64.default.createElement(
         "g",
         {
           key: nd.id,
@@ -2598,19 +2632,19 @@ function MemoryGraph({
           },
           onClick: onSelect ? () => onSelect(nd) : void 0
         },
-        isSel ? path ? /* @__PURE__ */ import_react63.default.createElement("path", { d: shapePath(shape, r + 4), fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : /* @__PURE__ */ import_react63.default.createElement("circle", { r: r + 4, fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : null,
-        path ? /* @__PURE__ */ import_react63.default.createElement("path", { d: path, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }) : /* @__PURE__ */ import_react63.default.createElement("circle", { r, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }),
-        showLabels && r >= labelMinRadius ? /* @__PURE__ */ import_react63.default.createElement("text", { y: r + 11, textAnchor: "middle", style: { fill: "var(--text-secondary)", font: "500 10px var(--font-sans)", pointerEvents: "none" } }, nd.label) : null,
-        /* @__PURE__ */ import_react63.default.createElement("title", null, nd.label + (nd.detail ? " \u2014 " + nd.detail : ""))
+        isSel ? path ? /* @__PURE__ */ import_react64.default.createElement("path", { d: shapePath(shape, r + 4), fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : /* @__PURE__ */ import_react64.default.createElement("circle", { r: r + 4, fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : null,
+        path ? /* @__PURE__ */ import_react64.default.createElement("path", { d: path, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }) : /* @__PURE__ */ import_react64.default.createElement("circle", { r, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }),
+        showLabels && r >= labelMinRadius ? /* @__PURE__ */ import_react64.default.createElement("text", { y: r + 11, textAnchor: "middle", style: { fill: "var(--text-secondary)", font: "500 10px var(--font-sans)", pointerEvents: "none" } }, nd.label) : null,
+        /* @__PURE__ */ import_react64.default.createElement("title", null, nd.label + (nd.detail ? " \u2014 " + nd.detail : ""))
       );
     }))
-  ), legend ? /* @__PURE__ */ import_react63.default.createElement("div", { className: "lamp-graph__legend" }, [["fact", "Fact"], ["policy", "Policy"], ["observed", "Observed"], ["inferred", "Inferred"], ["exception", "Exception"], ["entity", "Entity"], ["agent", "Agent"], ["tool", "Tool"], ["scope", "Scope"]].map(([k, label]) => /* @__PURE__ */ import_react63.default.createElement("span", { className: "lamp-graph__key", key: k }, /* @__PURE__ */ import_react63.default.createElement("span", { className: "lamp-graph__swatch lamp-graph__swatch--" + (SHAPE[k] || "circle"), style: { background: KIND_COLOR[k] } }), label))) : null);
-}
+  ), legend ? /* @__PURE__ */ import_react64.default.createElement("div", { className: "lamp-graph__legend" }, [["fact", "Fact"], ["policy", "Policy"], ["observed", "Observed"], ["inferred", "Inferred"], ["exception", "Exception"], ["entity", "Entity"], ["agent", "Agent"], ["tool", "Tool"], ["scope", "Scope"]].map(([k, label]) => /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-graph__key", key: k }, /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-graph__swatch lamp-graph__swatch--" + (SHAPE[k] || "circle"), style: { background: KIND_COLOR[k] } }), label))) : null);
+}), { displayName: "MemoryGraph" });
 
 // project/components/memory/MemoryScopeBar.jsx
-var import_react64 = __toESM(require("react"), 1);
+var import_react65 = __toESM(require("react"), 1);
 var ORDER = ["agent", "playbook", "genie", "lamp"];
-function MemoryScopeBar({
+var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react65.default.forwardRef(function MemoryScopeBar2({
   value,
   counts = {},
   inherited = [],
@@ -2623,13 +2657,14 @@ function MemoryScopeBar({
   layout,
   className = "",
   ...rest
-}) {
+}, ref) {
   const asList = (layout || (readOnly ? "list" : "bar")) === "list";
   const ownedAt = owned ? scopes.indexOf(owned) : -1;
   const isInherited = (k) => inherited.indexOf(k) !== -1 || ownedAt >= 0 && scopes.indexOf(k) > ownedAt;
-  return /* @__PURE__ */ import_react64.default.createElement(
+  return /* @__PURE__ */ import_react65.default.createElement(
     "div",
     {
+      ref,
       className: [
         "lamp-scopebar",
         asList ? "lamp-scopebar--list" : "lamp-scopebar--bar",
@@ -2654,11 +2689,11 @@ function MemoryScopeBar({
         isOwned && "lamp-scopebar__item--owned",
         dim && "lamp-scopebar__item--inherited"
       ].filter(Boolean).join(" ");
-      const body = /* @__PURE__ */ import_react64.default.createElement(import_react64.default.Fragment, null, /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-scopebar__mark" }), /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-scopebar__name" }, asList || full ? s.label : s.short), showCounts && count != null ? /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-scopebar__count" }, count) : null, isOwned ? /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-scopebar__owned" }, "Owns") : null, dim ? /* @__PURE__ */ import_react64.default.createElement("span", { className: "lamp-scopebar__inherit" }, "Inherited") : null);
+      const body = /* @__PURE__ */ import_react65.default.createElement(import_react65.default.Fragment, null, /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-scopebar__mark" }), /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-scopebar__name" }, asList || full ? s.label : s.short), showCounts && count != null ? /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-scopebar__count" }, count) : null, isOwned ? /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-scopebar__owned" }, "Owns") : null, dim ? /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-scopebar__inherit" }, "Inherited") : null);
       if (readOnly) {
-        return /* @__PURE__ */ import_react64.default.createElement("span", { key: k, className: cls, title: s.label }, body);
+        return /* @__PURE__ */ import_react65.default.createElement("span", { key: k, className: cls, title: s.label }, body);
       }
-      return /* @__PURE__ */ import_react64.default.createElement(
+      return /* @__PURE__ */ import_react65.default.createElement(
         "button",
         {
           key: k,
@@ -2673,16 +2708,16 @@ function MemoryScopeBar({
       );
     })
   );
-}
+}), { displayName: "MemoryScopeBar" });
 
 // project/components/memory/MemoryTimeline.jsx
-var import_react65 = __toESM(require("react"), 1);
-function MemoryTimeline({ items = [], className = "", ...rest }) {
-  return /* @__PURE__ */ import_react65.default.createElement("div", { className: "lamp-timeline " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ import_react65.default.createElement("div", { className: "lamp-timeline__item", key: i }, /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__rail" }, /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__dot" + (it.current ? " lamp-timeline__dot--current" : it.accent ? " lamp-timeline__dot--accent" : "") }), i < items.length - 1 ? /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__line" }) : null), /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__body" }, /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__title" }, it.title), it.detail ? /* @__PURE__ */ import_react65.default.createElement("span", { style: { fontSize: 12, color: "var(--text-tertiary)" } }, it.detail) : null, /* @__PURE__ */ import_react65.default.createElement("span", { className: "lamp-timeline__meta" }, [it.actor, it.timestamp].filter(Boolean).join(" \xB7 "))))));
-}
+var import_react66 = __toESM(require("react"), 1);
+var MemoryTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react66.default.forwardRef(function MemoryTimeline2({ items = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react66.default.createElement("div", { ref, className: "lamp-timeline " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ import_react66.default.createElement("div", { className: "lamp-timeline__item", key: i }, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__rail" }, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__dot" + (it.current ? " lamp-timeline__dot--current" : it.accent ? " lamp-timeline__dot--accent" : "") }), i < items.length - 1 ? /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__line" }) : null), /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__body" }, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__title" }, it.title), it.detail ? /* @__PURE__ */ import_react66.default.createElement("span", { style: { fontSize: 12, color: "var(--text-tertiary)" } }, it.detail) : null, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-timeline__meta" }, [it.actor, it.timestamp].filter(Boolean).join(" \xB7 "))))));
+}), { displayName: "MemoryTimeline" });
 
 // project/components/memory/MemoryUsageBar.jsx
-var import_react66 = __toESM(require("react"), 1);
+var import_react67 = __toESM(require("react"), 1);
 var SCOPE_COLOR2 = {
   agent: "var(--memory-accent)",
   playbook: "var(--purple-400)",
@@ -2694,9 +2729,9 @@ var SCOPE_COLOR2 = {
   cached: "var(--green-500)",
   tool: "var(--teal-500)"
 };
-function MemoryUsageBar({ segments = [], total, unit = "tokens", legend = true, className = "", ...rest }) {
+var MemoryUsageBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react67.default.forwardRef(function MemoryUsageBar2({ segments = [], total, unit = "tokens", legend = true, className = "", ...rest }, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + s.value, 0);
-  return /* @__PURE__ */ import_react66.default.createElement("div", { className: "lamp-memusage " + className, ...rest }, /* @__PURE__ */ import_react66.default.createElement("div", { className: "lamp-memusage__bar", role: "img", "aria-label": "Context breakdown, " + sum + " " + unit }, segments.map((s) => /* @__PURE__ */ import_react66.default.createElement(
+  return /* @__PURE__ */ import_react67.default.createElement("div", { ref, className: "lamp-memusage " + className, ...rest }, /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-memusage__bar", role: "img", "aria-label": "Context breakdown, " + sum + " " + unit }, segments.map((s) => /* @__PURE__ */ import_react67.default.createElement(
     "span",
     {
       key: s.label,
@@ -2704,21 +2739,21 @@ function MemoryUsageBar({ segments = [], total, unit = "tokens", legend = true, 
       title: s.label + ": " + s.value,
       style: { width: s.value / sum * 100 + "%", background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" }
     }
-  ))), legend ? /* @__PURE__ */ import_react66.default.createElement("div", { className: "lamp-memusage__legend" }, segments.map((s) => /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-memusage__row", key: s.label }, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-memusage__swatch", style: { background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" } }), s.label, /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-memusage__val" }, s.value.toLocaleString()))), /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-memusage__total" }, "Total", /* @__PURE__ */ import_react66.default.createElement("span", { className: "lamp-memusage__val" }, sum.toLocaleString(), " ", unit))) : null);
-}
+  ))), legend ? /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-memusage__legend" }, segments.map((s) => /* @__PURE__ */ import_react67.default.createElement("span", { className: "lamp-memusage__row", key: s.label }, /* @__PURE__ */ import_react67.default.createElement("span", { className: "lamp-memusage__swatch", style: { background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" } }), s.label, /* @__PURE__ */ import_react67.default.createElement("span", { className: "lamp-memusage__val" }, s.value.toLocaleString()))), /* @__PURE__ */ import_react67.default.createElement("span", { className: "lamp-memusage__total" }, "Total", /* @__PURE__ */ import_react67.default.createElement("span", { className: "lamp-memusage__val" }, sum.toLocaleString(), " ", unit))) : null);
+}), { displayName: "MemoryUsageBar" });
 
 // project/components/navigation/AppShell.jsx
-var import_react67 = __toESM(require("react"), 1);
-function AppShell({ header, rail, dock, bottom, statusBar, dockWidth = "var(--inspector-width)", children, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell " + className, style: { height: "100%", ...style }, ...rest }, header, /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell__body" }, rail ? /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell__rail" }, rail) : null, /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell__main" }, children, bottom ? /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell__bottom" }, bottom) : null), dock ? /* @__PURE__ */ import_react67.default.createElement("div", { className: "lamp-shell__dock", style: { width: dockWidth } }, dock) : null), statusBar);
-}
+var import_react68 = __toESM(require("react"), 1);
+var AppShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react68.default.forwardRef(function AppShell2({ header, rail, dock, bottom, statusBar, dockWidth = "var(--inspector-width)", children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react68.default.createElement("div", { ref, className: "lamp-shell " + className, style: { height: "100%", ...style }, ...rest }, header, /* @__PURE__ */ import_react68.default.createElement("div", { className: "lamp-shell__body" }, rail ? /* @__PURE__ */ import_react68.default.createElement("div", { className: "lamp-shell__rail" }, rail) : null, /* @__PURE__ */ import_react68.default.createElement("div", { className: "lamp-shell__main" }, children, bottom ? /* @__PURE__ */ import_react68.default.createElement("div", { className: "lamp-shell__bottom" }, bottom) : null), dock ? /* @__PURE__ */ import_react68.default.createElement("div", { className: "lamp-shell__dock", style: { width: dockWidth } }, dock) : null), statusBar);
+}), { displayName: "AppShell" });
 
 // project/components/navigation/Breadcrumb.jsx
-var import_react68 = __toESM(require("react"), 1);
-function Breadcrumb({ items = [], maxVisible = 5, onNavigate, className = "", ...rest }) {
+var import_react69 = __toESM(require("react"), 1);
+var Breadcrumb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react69.default.forwardRef(function Breadcrumb2({ items = [], maxVisible = 5, onNavigate, className = "", ...rest }, ref) {
   const overflow = items.length > maxVisible;
   const shown = overflow ? [items[0], { label: "\u2026", overflow: true }, ...items.slice(-(maxVisible - 2))] : items;
-  return /* @__PURE__ */ import_react68.default.createElement("nav", { className: "lamp-crumb " + className, "aria-label": "Object path", ...rest }, shown.map((it, i) => /* @__PURE__ */ import_react68.default.createElement(import_react68.default.Fragment, { key: i }, i > 0 ? /* @__PURE__ */ import_react68.default.createElement("span", { className: "lamp-crumb__sep" }, /* @__PURE__ */ import_react68.default.createElement(Icon, { name: "chevron_right", size: 14 })) : null, /* @__PURE__ */ import_react68.default.createElement(
+  return /* @__PURE__ */ import_react69.default.createElement("nav", { ref, className: "lamp-crumb " + className, "aria-label": "Object path", ...rest }, shown.map((it, i) => /* @__PURE__ */ import_react69.default.createElement(import_react69.default.Fragment, { key: i }, i > 0 ? /* @__PURE__ */ import_react69.default.createElement("span", { className: "lamp-crumb__sep" }, /* @__PURE__ */ import_react69.default.createElement(Icon, { name: "chevron_right", size: 14 })) : null, /* @__PURE__ */ import_react69.default.createElement(
     "button",
     {
       type: "button",
@@ -2726,16 +2761,16 @@ function Breadcrumb({ items = [], maxVisible = 5, onNavigate, className = "", ..
       onClick: () => onNavigate && !it.overflow && onNavigate(it, i),
       "aria-current": i === shown.length - 1 ? "page" : void 0
     },
-    it.icon ? /* @__PURE__ */ import_react68.default.createElement(Icon, { name: it.icon, size: 14 }) : null,
+    it.icon ? /* @__PURE__ */ import_react69.default.createElement(Icon, { name: it.icon, size: 14 }) : null,
     it.label
   ))));
-}
+}), { displayName: "Breadcrumb" });
 
 // project/components/navigation/CommandPalette.jsx
-var import_react69 = __toESM(require("react"), 1);
-function CommandPalette({ open = true, query = "", onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = "Search or run a command", footer, className = "", ...rest }) {
+var import_react70 = __toESM(require("react"), 1);
+var CommandPalette = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react70.default.forwardRef(function CommandPalette2({ open = true, query = "", onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = "Search or run a command", footer, className = "", ...rest }, ref) {
   if (!open) return null;
-  return /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette " + className, role: "dialog", "aria-modal": "true", "aria-label": "Command palette", onClick: onClose, ...rest }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette__box", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette__search" }, /* @__PURE__ */ import_react69.default.createElement(Icon, { name: "search", size: 16 }), /* @__PURE__ */ import_react69.default.createElement("input", { autoFocus: true, value: query, placeholder, onChange: (e) => onQueryChange && onQueryChange(e.target.value) }), /* @__PURE__ */ import_react69.default.createElement(Kbd, null, "Esc")), /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette__list", role: "listbox" }, groups.length === 0 ? /* @__PURE__ */ import_react69.default.createElement("div", { style: { padding: "24px 12px", textAlign: "center", fontSize: 13, color: "var(--text-tertiary)" } }, "No matches") : null, groups.map((g) => /* @__PURE__ */ import_react69.default.createElement("div", { key: g.label }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette__group" }, g.label), g.items.map((it) => /* @__PURE__ */ import_react69.default.createElement(
+  return /* @__PURE__ */ import_react70.default.createElement("div", { ref, className: "lamp-palette " + className, role: "dialog", "aria-modal": "true", "aria-label": "Command palette", onClick: onClose, ...rest }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-palette__box", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-palette__search" }, /* @__PURE__ */ import_react70.default.createElement(Icon, { name: "search", size: 16 }), /* @__PURE__ */ import_react70.default.createElement("input", { autoFocus: true, value: query, placeholder, onChange: (e) => onQueryChange && onQueryChange(e.target.value) }), /* @__PURE__ */ import_react70.default.createElement(Kbd, null, "Esc")), /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-palette__list", role: "listbox" }, groups.length === 0 ? /* @__PURE__ */ import_react70.default.createElement("div", { style: { padding: "24px 12px", textAlign: "center", fontSize: 13, color: "var(--text-tertiary)" } }, "No matches") : null, groups.map((g) => /* @__PURE__ */ import_react70.default.createElement("div", { key: g.label }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-palette__group" }, g.label), g.items.map((it) => /* @__PURE__ */ import_react70.default.createElement(
     "button",
     {
       key: it.id,
@@ -2745,35 +2780,35 @@ function CommandPalette({ open = true, query = "", onQueryChange, groups = [], a
       className: "lamp-palette__item" + (activeId === it.id ? " lamp-palette__item--active" : "") + (it.danger ? " lamp-palette__item--danger" : ""),
       onClick: () => onSelect && onSelect(it)
     },
-    it.icon ? /* @__PURE__ */ import_react69.default.createElement(Icon, { name: it.icon, size: 16 }) : null,
-    /* @__PURE__ */ import_react69.default.createElement("span", null, it.label),
-    it.context ? /* @__PURE__ */ import_react69.default.createElement("span", { style: { color: "var(--text-tertiary)", fontSize: 12 } }, it.context) : null,
-    it.shortcut ? /* @__PURE__ */ import_react69.default.createElement("span", { className: "lamp-palette__hint" }, /* @__PURE__ */ import_react69.default.createElement(Kbd, { keys: it.shortcut })) : null
-  ))))), /* @__PURE__ */ import_react69.default.createElement("div", { className: "lamp-palette__foot" }, footer || /* @__PURE__ */ import_react69.default.createElement(import_react69.default.Fragment, null, /* @__PURE__ */ import_react69.default.createElement("span", null, "Navigate"), /* @__PURE__ */ import_react69.default.createElement(Kbd, { keys: ["\u2191", "\u2193"] }), /* @__PURE__ */ import_react69.default.createElement("span", null, "Open"), /* @__PURE__ */ import_react69.default.createElement(Kbd, null, "Enter")))));
-}
+    it.icon ? /* @__PURE__ */ import_react70.default.createElement(Icon, { name: it.icon, size: 16 }) : null,
+    /* @__PURE__ */ import_react70.default.createElement("span", null, it.label),
+    it.context ? /* @__PURE__ */ import_react70.default.createElement("span", { style: { color: "var(--text-tertiary)", fontSize: 12 } }, it.context) : null,
+    it.shortcut ? /* @__PURE__ */ import_react70.default.createElement("span", { className: "lamp-palette__hint" }, /* @__PURE__ */ import_react70.default.createElement(Kbd, { keys: it.shortcut })) : null
+  ))))), /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-palette__foot" }, footer || /* @__PURE__ */ import_react70.default.createElement(import_react70.default.Fragment, null, /* @__PURE__ */ import_react70.default.createElement("span", null, "Navigate"), /* @__PURE__ */ import_react70.default.createElement(Kbd, { keys: ["\u2191", "\u2193"] }), /* @__PURE__ */ import_react70.default.createElement("span", null, "Open"), /* @__PURE__ */ import_react70.default.createElement(Kbd, null, "Enter")))));
+}), { displayName: "CommandPalette" });
 
 // project/components/navigation/FilterBar.jsx
-var import_react70 = __toESM(require("react"), 1);
-function FilterBar({ children, activeCount = 0, onClear, right, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-filterbar " + className, ...rest }, /* @__PURE__ */ import_react70.default.createElement(Icon, { name: "filter_list", size: 14, style: { color: "var(--text-tertiary)" } }), children, activeCount > 0 ? /* @__PURE__ */ import_react70.default.createElement(Button, { variant: "quiet", size: "xs", onClick: onClear }, "Clear ", activeCount) : null, /* @__PURE__ */ import_react70.default.createElement("span", { className: "lamp-filterbar__spacer" }), right);
-}
-function Pagination({ page = 1, pageCount = 1, range, onPage, pageSize, onPageSize, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react70.default.createElement("div", { className: "lamp-pager " + className, ...rest }, range ? /* @__PURE__ */ import_react70.default.createElement("span", { className: "lamp-pager__range" }, range) : null, /* @__PURE__ */ import_react70.default.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_left", "aria-label": "Previous page", disabled: page <= 1, onClick: () => onPage && onPage(page - 1) }), /* @__PURE__ */ import_react70.default.createElement("span", { className: "lamp-pager__range" }, page, " / ", pageCount), /* @__PURE__ */ import_react70.default.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_right", "aria-label": "Next page", disabled: page >= pageCount, onClick: () => onPage && onPage(page + 1) }));
-}
+var import_react71 = __toESM(require("react"), 1);
+var FilterBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react71.default.forwardRef(function FilterBar2({ children, activeCount = 0, onClear, right, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react71.default.createElement("div", { ref, className: "lamp-filterbar " + className, ...rest }, /* @__PURE__ */ import_react71.default.createElement(Icon, { name: "filter_list", size: 14, style: { color: "var(--text-tertiary)" } }), children, activeCount > 0 ? /* @__PURE__ */ import_react71.default.createElement(Button, { variant: "quiet", size: "xs", onClick: onClear }, "Clear ", activeCount) : null, /* @__PURE__ */ import_react71.default.createElement("span", { className: "lamp-filterbar__spacer" }), right);
+}), { displayName: "FilterBar" });
+var Pagination = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react71.default.forwardRef(function Pagination2({ page = 1, pageCount = 1, range, onPage, pageSize, onPageSize, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react71.default.createElement("div", { ref, className: "lamp-pager " + className, ...rest }, range ? /* @__PURE__ */ import_react71.default.createElement("span", { className: "lamp-pager__range" }, range) : null, /* @__PURE__ */ import_react71.default.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_left", "aria-label": "Previous page", disabled: page <= 1, onClick: () => onPage && onPage(page - 1) }), /* @__PURE__ */ import_react71.default.createElement("span", { className: "lamp-pager__range" }, page, " / ", pageCount), /* @__PURE__ */ import_react71.default.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_right", "aria-label": "Next page", disabled: page >= pageCount, onClick: () => onPage && onPage(page + 1) }));
+}), { displayName: "Pagination" });
 
 // project/components/navigation/GlobalHeader.jsx
-var import_react71 = __toESM(require("react"), 1);
-function GlobalHeader({ brand, center, right, wordmark = "LAMP", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react71.default.createElement("header", { className: "lamp-header " + className, ...rest }, /* @__PURE__ */ import_react71.default.createElement("div", { className: "lamp-header__brand" }, brand || /* @__PURE__ */ import_react71.default.createElement("span", { className: "lamp-header__wordmark" }, wordmark)), /* @__PURE__ */ import_react71.default.createElement("div", { className: "lamp-header__center" }, center), /* @__PURE__ */ import_react71.default.createElement("div", { className: "lamp-header__right" }, right));
-}
+var import_react72 = __toESM(require("react"), 1);
+var GlobalHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react72.default.forwardRef(function GlobalHeader2({ brand, center, right, wordmark = "LAMP", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react72.default.createElement("header", { ref, className: "lamp-header " + className, ...rest }, /* @__PURE__ */ import_react72.default.createElement("div", { className: "lamp-header__brand" }, brand || /* @__PURE__ */ import_react72.default.createElement("span", { className: "lamp-header__wordmark" }, wordmark)), /* @__PURE__ */ import_react72.default.createElement("div", { className: "lamp-header__center" }, center), /* @__PURE__ */ import_react72.default.createElement("div", { className: "lamp-header__right" }, right));
+}), { displayName: "GlobalHeader" });
 
 // project/components/navigation/ObjectTree.jsx
-var import_react72 = __toESM(require("react"), 1);
-function ObjectTree({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = "", ...rest }) {
+var import_react73 = __toESM(require("react"), 1);
+var ObjectTree = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react73.default.forwardRef(function ObjectTree2({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = "", ...rest }, ref) {
   const render = (node, depth) => {
     const open = expanded[node.id] !== false;
     const kids = node.children || [];
-    return /* @__PURE__ */ import_react72.default.createElement(import_react72.default.Fragment, { key: node.id }, /* @__PURE__ */ import_react72.default.createElement(
+    return /* @__PURE__ */ import_react73.default.createElement(import_react73.default.Fragment, { key: node.id }, /* @__PURE__ */ import_react73.default.createElement(
       "div",
       {
         className: "lamp-tree__row" + (selectedId === node.id ? " lamp-tree__row--selected" : ""),
@@ -2784,42 +2819,43 @@ function ObjectTree({ nodes = [], selectedId, onSelect, onToggle, expanded = {},
         "aria-expanded": kids.length ? open : void 0,
         tabIndex: 0
       },
-      kids.length ? /* @__PURE__ */ import_react72.default.createElement("span", { className: "lamp-tree__twist" + (open ? " lamp-tree__twist--open" : ""), onClick: (e) => {
+      kids.length ? /* @__PURE__ */ import_react73.default.createElement("span", { className: "lamp-tree__twist" + (open ? " lamp-tree__twist--open" : ""), onClick: (e) => {
         e.stopPropagation();
         onToggle && onToggle(node);
-      } }, /* @__PURE__ */ import_react72.default.createElement(Icon, { name: "chevron_right", size: 14 })) : /* @__PURE__ */ import_react72.default.createElement("span", { className: "lamp-tree__twist" }),
-      node.icon ? /* @__PURE__ */ import_react72.default.createElement(Icon, { name: node.icon, size: 14 }) : null,
-      /* @__PURE__ */ import_react72.default.createElement("span", { className: "lamp-tree__text" }, node.label),
-      node.status ? /* @__PURE__ */ import_react72.default.createElement(StatusDot, { status: node.status }) : null,
-      node.meta ? /* @__PURE__ */ import_react72.default.createElement("span", { className: "lamp-nav__meta" }, node.meta) : null
+      } }, /* @__PURE__ */ import_react73.default.createElement(Icon, { name: "chevron_right", size: 14 })) : /* @__PURE__ */ import_react73.default.createElement("span", { className: "lamp-tree__twist" }),
+      node.icon ? /* @__PURE__ */ import_react73.default.createElement(Icon, { name: node.icon, size: 14 }) : null,
+      /* @__PURE__ */ import_react73.default.createElement("span", { className: "lamp-tree__text" }, node.label),
+      node.status ? /* @__PURE__ */ import_react73.default.createElement(StatusDot, { status: node.status }) : null,
+      node.meta ? /* @__PURE__ */ import_react73.default.createElement("span", { className: "lamp-nav__meta" }, node.meta) : null
     ), open && kids.map((k) => render(k, depth + 1)));
   };
-  return /* @__PURE__ */ import_react72.default.createElement("div", { className: "lamp-tree " + className, role: "tree", ...rest }, nodes.map((n) => render(n, 0)));
-}
+  return /* @__PURE__ */ import_react73.default.createElement("div", { ref, className: "lamp-tree " + className, role: "tree", ...rest }, nodes.map((n) => render(n, 0)));
+}), { displayName: "ObjectTree" });
 
 // project/components/navigation/SegmentedControl.jsx
-var import_react73 = __toESM(require("react"), 1);
-function SegmentedControl({ options = [], value, onChange, size = "sm", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react73.default.createElement("div", { className: ["lamp-seg", size === "md" && "lamp-seg--lg", className].filter(Boolean).join(" "), role: "group", ...rest }, options.map((o) => {
+var import_react74 = __toESM(require("react"), 1);
+var SegmentedControl = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react74.default.forwardRef(function SegmentedControl2({ options = [], value, onChange, size = "sm", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react74.default.createElement("div", { ref, className: ["lamp-seg", size === "md" && "lamp-seg--lg", className].filter(Boolean).join(" "), role: "group", ...rest }, options.map((o) => {
     const id = typeof o === "string" ? o : o.value;
     const label = typeof o === "string" ? o : o.label;
     const active = value === id;
-    return /* @__PURE__ */ import_react73.default.createElement("button", { key: id, type: "button", "aria-pressed": active, className: "lamp-seg__item" + (active ? " lamp-seg__item--active" : ""), onClick: () => onChange && onChange(id) }, typeof o === "object" && o.icon ? /* @__PURE__ */ import_react73.default.createElement(Icon, { name: o.icon, size: 14 }) : null, label);
+    return /* @__PURE__ */ import_react74.default.createElement("button", { key: id, type: "button", "aria-pressed": active, className: "lamp-seg__item" + (active ? " lamp-seg__item--active" : ""), onClick: () => onChange && onChange(id) }, typeof o === "object" && o.icon ? /* @__PURE__ */ import_react74.default.createElement(Icon, { name: o.icon, size: 14 }) : null, label);
   }));
-}
+}), { displayName: "SegmentedControl" });
 
 // project/components/navigation/SideNav.jsx
-var import_react74 = __toESM(require("react"), 1);
-function SideNav({ children, collapsed = false, footer, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react74.default.createElement("nav", { className: ["lamp-nav", collapsed && "lamp-nav__rail", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react74.default.createElement("div", { style: { flex: 1, minHeight: 0, overflow: "auto" } }, children), footer ? /* @__PURE__ */ import_react74.default.createElement("div", { className: "lamp-nav__foot" }, footer) : null);
-}
-function NavSection({ label, actions, children, ...rest }) {
-  return /* @__PURE__ */ import_react74.default.createElement("div", { className: "lamp-nav__section", ...rest }, label ? /* @__PURE__ */ import_react74.default.createElement("div", { className: "lamp-nav__label" }, label, actions ? /* @__PURE__ */ import_react74.default.createElement("span", { style: { marginLeft: "auto" } }, actions) : null) : null, children);
-}
-function NavItem({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }) {
-  return /* @__PURE__ */ import_react74.default.createElement(
+var import_react75 = __toESM(require("react"), 1);
+var SideNav = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react75.default.forwardRef(function SideNav2({ children, collapsed = false, footer, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react75.default.createElement("nav", { ref, className: ["lamp-nav", collapsed && "lamp-nav__rail", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react75.default.createElement("div", { style: { flex: 1, minHeight: 0, overflow: "auto" } }, children), footer ? /* @__PURE__ */ import_react75.default.createElement("div", { className: "lamp-nav__foot" }, footer) : null);
+}), { displayName: "SideNav" });
+var NavSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react75.default.forwardRef(function NavSection2({ label, actions, children, ...rest }, ref) {
+  return /* @__PURE__ */ import_react75.default.createElement("div", { ref, className: "lamp-nav__section", ...rest }, label ? /* @__PURE__ */ import_react75.default.createElement("div", { className: "lamp-nav__label" }, label, actions ? /* @__PURE__ */ import_react75.default.createElement("span", { style: { marginLeft: "auto" } }, actions) : null) : null, children);
+}), { displayName: "NavSection" });
+var NavItem = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react75.default.forwardRef(function NavItem2({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }, ref) {
+  return /* @__PURE__ */ import_react75.default.createElement(
     "button",
     {
+      ref,
       type: "button",
       className: "lamp-nav__item" + (active ? " lamp-nav__item--active" : ""),
       onClick,
@@ -2827,44 +2863,45 @@ function NavItem({ icon, label, meta, active = false, collapsed = false, badge, 
       title: collapsed ? label : void 0,
       ...rest
     },
-    icon ? /* @__PURE__ */ import_react74.default.createElement(Icon, { name: icon, size: 16 }) : null,
-    !collapsed ? /* @__PURE__ */ import_react74.default.createElement("span", { className: "lamp-nav__text" }, label) : null,
-    !collapsed && meta ? /* @__PURE__ */ import_react74.default.createElement("span", { className: "lamp-nav__meta" }, meta) : null,
+    icon ? /* @__PURE__ */ import_react75.default.createElement(Icon, { name: icon, size: 16 }) : null,
+    !collapsed ? /* @__PURE__ */ import_react75.default.createElement("span", { className: "lamp-nav__text" }, label) : null,
+    !collapsed && meta ? /* @__PURE__ */ import_react75.default.createElement("span", { className: "lamp-nav__meta" }, meta) : null,
     !collapsed ? badge : null
   );
-}
+}), { displayName: "NavItem" });
 
 // project/components/navigation/StatusBar.jsx
-var import_react75 = __toESM(require("react"), 1);
-function StatusBar({ items = [], right = [], className = "", ...rest }) {
-  const cell = (it, i, isRight) => /* @__PURE__ */ import_react75.default.createElement("span", { key: i, className: "lamp-statusbar__item" + (isRight && i === 0 ? " lamp-statusbar__item--right" : ""), title: it.title }, it.icon ? /* @__PURE__ */ import_react75.default.createElement(Icon, { name: it.icon, size: 12 }) : null, it.label ? /* @__PURE__ */ import_react75.default.createElement("span", null, it.label) : null, it.value != null ? /* @__PURE__ */ import_react75.default.createElement("span", { className: "lamp-statusbar__val" }, it.value) : null);
-  return /* @__PURE__ */ import_react75.default.createElement("footer", { className: "lamp-statusbar " + className, ...rest }, items.map((it, i) => cell(it, i, false)), right.map((it, i) => cell(it, i, true)));
-}
+var import_react76 = __toESM(require("react"), 1);
+var StatusBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react76.default.forwardRef(function StatusBar2({ items = [], right = [], className = "", ...rest }, ref) {
+  const cell = (it, i, isRight) => /* @__PURE__ */ import_react76.default.createElement("span", { key: i, className: "lamp-statusbar__item" + (isRight && i === 0 ? " lamp-statusbar__item--right" : ""), title: it.title }, it.icon ? /* @__PURE__ */ import_react76.default.createElement(Icon, { name: it.icon, size: 12 }) : null, it.label ? /* @__PURE__ */ import_react76.default.createElement("span", null, it.label) : null, it.value != null ? /* @__PURE__ */ import_react76.default.createElement("span", { className: "lamp-statusbar__val" }, it.value) : null);
+  return /* @__PURE__ */ import_react76.default.createElement("footer", { ref, className: "lamp-statusbar " + className, ...rest }, items.map((it, i) => cell(it, i, false)), right.map((it, i) => cell(it, i, true)));
+}), { displayName: "StatusBar" });
 
 // project/components/navigation/WorkspaceSwitcher.jsx
-var import_react76 = __toESM(require("react"), 1);
-function WorkspaceSwitcher({ name, subtitle, initials, onClick, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react76.default.createElement("button", { type: "button", className: "lamp-wsw " + className, onClick, ...rest }, /* @__PURE__ */ import_react76.default.createElement("span", { className: "lamp-wsw__avatar" }, initials || String(name || "?").slice(0, 2).toUpperCase()), /* @__PURE__ */ import_react76.default.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: 0 } }, /* @__PURE__ */ import_react76.default.createElement("span", { className: "lamp-wsw__name" }, name), subtitle ? /* @__PURE__ */ import_react76.default.createElement("span", { className: "lamp-wsw__sub" }, subtitle) : null), /* @__PURE__ */ import_react76.default.createElement(Icon, { name: "unfold_more", size: 14, style: { color: "var(--text-tertiary)" } }));
-}
+var import_react77 = __toESM(require("react"), 1);
+var WorkspaceSwitcher = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react77.default.forwardRef(function WorkspaceSwitcher2({ name, subtitle, initials, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react77.default.createElement("button", { ref, type: "button", className: "lamp-wsw " + className, onClick, ...rest }, /* @__PURE__ */ import_react77.default.createElement("span", { className: "lamp-wsw__avatar" }, initials || String(name || "?").slice(0, 2).toUpperCase()), /* @__PURE__ */ import_react77.default.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: 0 } }, /* @__PURE__ */ import_react77.default.createElement("span", { className: "lamp-wsw__name" }, name), subtitle ? /* @__PURE__ */ import_react77.default.createElement("span", { className: "lamp-wsw__sub" }, subtitle) : null), /* @__PURE__ */ import_react77.default.createElement(Icon, { name: "unfold_more", size: 14, style: { color: "var(--text-tertiary)" } }));
+}), { displayName: "WorkspaceSwitcher" });
 
 // project/components/objects/AgentIsland.jsx
-var import_react77 = __toESM(require("react"), 1);
-function AgentIsland({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = "", style, ...rest }) {
+var import_react78 = __toESM(require("react"), 1);
+var AgentIsland = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react78.default.forwardRef(function AgentIsland2({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = "", style, ...rest }, ref) {
   const positioned = x != null || y != null;
-  return /* @__PURE__ */ import_react77.default.createElement(
+  return /* @__PURE__ */ import_react78.default.createElement(
     "div",
     {
+      ref,
       className: ["lamp-island", solo && "lamp-island--solo", outlined && "lamp-island--outlined", selected && "lamp-island--selected", className].filter(Boolean).join(" "),
       style: positioned ? { position: "absolute", left: x, top: y, ...style } : style,
       ...rest
     },
-    name || note || actions ? /* @__PURE__ */ import_react77.default.createElement("div", { className: "lamp-island__head" }, name ? /* @__PURE__ */ import_react77.default.createElement("span", { className: "lamp-island__name" }, name) : null, note ? /* @__PURE__ */ import_react77.default.createElement("span", { className: "lamp-island__note" }, note) : null, actions ? /* @__PURE__ */ import_react77.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions) : null) : null,
-    /* @__PURE__ */ import_react77.default.createElement("div", { className: "lamp-island__body" }, children)
+    name || note || actions ? /* @__PURE__ */ import_react78.default.createElement("div", { className: "lamp-island__head" }, name ? /* @__PURE__ */ import_react78.default.createElement("span", { className: "lamp-island__name" }, name) : null, note ? /* @__PURE__ */ import_react78.default.createElement("span", { className: "lamp-island__note" }, note) : null, actions ? /* @__PURE__ */ import_react78.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions) : null) : null,
+    /* @__PURE__ */ import_react78.default.createElement("div", { className: "lamp-island__body" }, children)
   );
-}
+}), { displayName: "AgentIsland" });
 
 // project/components/objects/BondEdge.jsx
-var import_react78 = __toESM(require("react"), 1);
+var import_react79 = __toESM(require("react"), 1);
 var BOND_STROKE = {
   valid: "var(--bond-edge-confirmed)",
   incomplete: "var(--bond-edge)",
@@ -2876,7 +2913,7 @@ var BOND_STROKE = {
   locked: "var(--bond-edge-locked)",
   preview: "var(--gold-400)"
 };
-function BondEdge({ from, to, state = "valid", energy = false, environment = "draft", junction = true, className = "", ...rest }) {
+var BondEdge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react79.default.forwardRef(function BondEdge2({ from, to, state = "valid", energy = false, environment = "draft", junction = true, className = "", ...rest }, ref) {
   const stroke = BOND_STROKE[state] || BOND_STROKE.valid;
   const dashed = state === "suggested" || state === "learned" || state === "preview" || state === "incomplete";
   const mid = { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
@@ -2884,7 +2921,7 @@ function BondEdge({ from, to, state = "valid", energy = false, environment = "dr
   const a = { x: from.x + (to.x - from.x) * t, y: from.y + (to.y - from.y) * t };
   const b = { x: to.x + (from.x - to.x) * t, y: to.y + (from.y - to.y) * t };
   const spark = environment === "simulation" ? "var(--simulation-energy)" : "var(--energy-bright)";
-  return /* @__PURE__ */ import_react78.default.createElement("g", { className: ["lamp-bond", energy && "lamp-bond--energy", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react78.default.createElement(
+  return /* @__PURE__ */ import_react79.default.createElement("g", { ref, className: ["lamp-bond", energy && "lamp-bond--energy", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react79.default.createElement(
     "line",
     {
       className: "lamp-bond__line",
@@ -2898,14 +2935,14 @@ function BondEdge({ from, to, state = "valid", energy = false, environment = "dr
       strokeDasharray: dashed ? "3 3" : void 0,
       opacity: state === "preview" ? 0.85 : 1
     }
-  ), junction ? /* @__PURE__ */ import_react78.default.createElement("circle", { cx: mid.x, cy: mid.y, r: 3.5, fill: stroke, stroke: "var(--surface-primary)", strokeWidth: 1 }) : null, state === "locked" ? /* @__PURE__ */ import_react78.default.createElement("circle", { cx: mid.x, cy: mid.y, r: 5, fill: "none", stroke, strokeWidth: 1 }) : null, energy ? /* @__PURE__ */ import_react78.default.createElement("circle", { className: "lamp-bond__spark", r: 2.5, fill: spark, style: { offsetPath: 'path("M' + a.x + "," + a.y + " L" + b.x + "," + b.y + '")' } }) : null);
-}
-function BondLayer({ width, height, children, ...rest }) {
-  return /* @__PURE__ */ import_react78.default.createElement("svg", { width, height, style: { position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none", zIndex: 2 }, "aria-hidden": "true", ...rest }, children);
-}
+  ), junction ? /* @__PURE__ */ import_react79.default.createElement("circle", { cx: mid.x, cy: mid.y, r: 3.5, fill: stroke, stroke: "var(--surface-primary)", strokeWidth: 1 }) : null, state === "locked" ? /* @__PURE__ */ import_react79.default.createElement("circle", { cx: mid.x, cy: mid.y, r: 5, fill: "none", stroke, strokeWidth: 1 }) : null, energy ? /* @__PURE__ */ import_react79.default.createElement("circle", { className: "lamp-bond__spark", r: 2.5, fill: spark, style: { offsetPath: 'path("M' + a.x + "," + a.y + " L" + b.x + "," + b.y + '")' } }) : null);
+}), { displayName: "BondEdge" });
+var BondLayer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react79.default.forwardRef(function BondLayer2({ width, height, children, ...rest }, ref) {
+  return /* @__PURE__ */ import_react79.default.createElement("svg", { ref, width, height, style: { position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none", zIndex: 2 }, "aria-hidden": "true", ...rest }, children);
+}), { displayName: "BondLayer" });
 
 // project/components/objects/EntityChip.jsx
-var import_react79 = __toESM(require("react"), 1);
+var import_react80 = __toESM(require("react"), 1);
 var ENTITY_GLYPH = {
   person: "person",
   team: "groups",
@@ -2927,43 +2964,45 @@ var ENTITY_GLYPH = {
   exception: "report",
   relationship: "link"
 };
-function EntityChip({ type = "person", name, initials, showType = false, glyph, onClick, className = "", ...rest }) {
+var EntityChip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react80.default.forwardRef(function EntityChip2({ type = "person", name, initials, showType = false, glyph, onClick, className = "", ...rest }, ref) {
   const round = type === "person";
-  return /* @__PURE__ */ import_react79.default.createElement(
+  return /* @__PURE__ */ import_react80.default.createElement(
     "span",
     {
+      ref,
       className: ["lamp-entity", onClick && "lamp-entity--interactive", className].filter(Boolean).join(" "),
       onClick,
       role: onClick ? "button" : void 0,
       tabIndex: onClick ? 0 : void 0,
       ...rest
     },
-    initials ? /* @__PURE__ */ import_react79.default.createElement("span", { className: "lamp-entity__avatar" + (round ? " lamp-entity__avatar--round" : "") }, initials) : /* @__PURE__ */ import_react79.default.createElement(Icon, { name: glyph || ENTITY_GLYPH[type] || "circle", size: 13, style: { color: "var(--text-tertiary)" } }),
-    showType ? /* @__PURE__ */ import_react79.default.createElement("span", { className: "lamp-entity__type" }, type) : null,
-    /* @__PURE__ */ import_react79.default.createElement("span", null, name)
+    initials ? /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-entity__avatar" + (round ? " lamp-entity__avatar--round" : "") }, initials) : /* @__PURE__ */ import_react80.default.createElement(Icon, { name: glyph || ENTITY_GLYPH[type] || "circle", size: 13, style: { color: "var(--text-tertiary)" } }),
+    showType ? /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-entity__type" }, type) : null,
+    /* @__PURE__ */ import_react80.default.createElement("span", null, name)
   );
-}
+}), { displayName: "EntityChip" });
 
 // project/components/objects/GenieCard.jsx
-var import_react80 = __toESM(require("react"), 1);
-function GenieCard({ name, purpose, status = "draft", selected = false, live = false, stats = [], hive, actions, onClick, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react80.default.createElement(
+var import_react81 = __toESM(require("react"), 1);
+var GenieCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react81.default.forwardRef(function GenieCard2({ name, purpose, status = "draft", selected = false, live = false, stats = [], hive, actions, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react81.default.createElement(
     "div",
     {
+      ref,
       className: ["lamp-genie", selected && "lamp-genie--selected", live && "lamp-genie--live", onClick && "lamp-genie--interactive", className].filter(Boolean).join(" "),
       onClick,
       role: onClick ? "button" : "group",
       "aria-label": "Genie " + (name || ""),
       ...rest
     },
-    /* @__PURE__ */ import_react80.default.createElement("div", { className: "lamp-genie__head" }, /* @__PURE__ */ import_react80.default.createElement(Icon, { name: "hive", size: 18, style: { color: live ? "var(--gold-500)" : "var(--text-secondary)", marginTop: 1 } }), /* @__PURE__ */ import_react80.default.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 } }, /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-genie__name" }, name), purpose ? /* @__PURE__ */ import_react80.default.createElement("p", { className: "lamp-genie__purpose" }, purpose) : null), /* @__PURE__ */ import_react80.default.createElement(StatusBadge, { status }), actions),
-    hive ? /* @__PURE__ */ import_react80.default.createElement("div", { className: "lamp-genie__hive" }, hive) : null,
-    stats.length ? /* @__PURE__ */ import_react80.default.createElement("div", { className: "lamp-genie__stats" }, stats.map((s) => /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-genie__stat", key: s.label }, /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-genie__stat-v" }, s.value), /* @__PURE__ */ import_react80.default.createElement("span", { className: "lamp-genie__stat-l" }, s.label)))) : null
+    /* @__PURE__ */ import_react81.default.createElement("div", { className: "lamp-genie__head" }, /* @__PURE__ */ import_react81.default.createElement(Icon, { name: "hive", size: 18, style: { color: live ? "var(--gold-500)" : "var(--text-secondary)", marginTop: 1 } }), /* @__PURE__ */ import_react81.default.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 } }, /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-genie__name" }, name), purpose ? /* @__PURE__ */ import_react81.default.createElement("p", { className: "lamp-genie__purpose" }, purpose) : null), /* @__PURE__ */ import_react81.default.createElement(StatusBadge, { status }), actions),
+    hive ? /* @__PURE__ */ import_react81.default.createElement("div", { className: "lamp-genie__hive" }, hive) : null,
+    stats.length ? /* @__PURE__ */ import_react81.default.createElement("div", { className: "lamp-genie__stats" }, stats.map((s) => /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-genie__stat", key: s.label }, /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-genie__stat-v" }, s.value), /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-genie__stat-l" }, s.label)))) : null
   );
-}
+}), { displayName: "GenieCard" });
 
 // project/components/objects/ObjectRow.jsx
-var import_react81 = __toESM(require("react"), 1);
+var import_react82 = __toESM(require("react"), 1);
 var KIND_GLYPH = {
   agent: "hexagon",
   skill: "circle",
@@ -2986,10 +3025,11 @@ var KIND_GLYPH = {
   integration: "extension",
   member: "person"
 };
-function ObjectRow({ kind = "agent", glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react81.default.createElement(
+var ObjectRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react82.default.forwardRef(function ObjectRow2({ kind = "agent", glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react82.default.createElement(
     "div",
     {
+      ref,
       className: ["lamp-objrow", compact && "lamp-objrow--compact", selected && "lamp-objrow--selected", className].filter(Boolean).join(" "),
       onClick,
       role: "button",
@@ -2997,17 +3037,17 @@ function ObjectRow({ kind = "agent", glyph, name, secondary, status, statusLabel
       "aria-selected": selected,
       ...rest
     },
-    /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__glyph" }, /* @__PURE__ */ import_react81.default.createElement(Icon, { name: glyph || KIND_GLYPH[kind] || "circle", size: compact ? 14 : 16 })),
-    /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__main" }, /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__name" }, name), secondary ? /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__sub" }, secondary) : null),
-    /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__right" }, badges, meta ? /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__sub" }, meta) : null, status ? /* @__PURE__ */ import_react81.default.createElement(StatusBadge, { status, label: statusLabel, mode: compact ? "label" : "badge" }) : null, timestamp ? /* @__PURE__ */ import_react81.default.createElement("span", { className: "lamp-objrow__time" }, timestamp) : null, actions)
+    /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__glyph" }, /* @__PURE__ */ import_react82.default.createElement(Icon, { name: glyph || KIND_GLYPH[kind] || "circle", size: compact ? 14 : 16 })),
+    /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__main" }, /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__name" }, name), secondary ? /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__sub" }, secondary) : null),
+    /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__right" }, badges, meta ? /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__sub" }, meta) : null, status ? /* @__PURE__ */ import_react82.default.createElement(StatusBadge, { status, label: statusLabel, mode: compact ? "label" : "badge" }) : null, timestamp ? /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-objrow__time" }, timestamp) : null, actions)
   );
-}
-function ObjectList({ children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react81.default.createElement("div", { className: "lamp-objlist " + className, role: "list", style: { display: "flex", flexDirection: "column" }, ...rest }, children);
-}
+}), { displayName: "ObjectRow" });
+var ObjectList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react82.default.forwardRef(function ObjectList2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react82.default.createElement("div", { ref, className: "lamp-objlist " + className, role: "list", style: { display: "flex", flexDirection: "column" }, ...rest }, children);
+}), { displayName: "ObjectList" });
 
 // project/components/objects/PlaybookCluster.jsx
-var import_react82 = __toESM(require("react"), 1);
+var import_react83 = __toESM(require("react"), 1);
 var STATE_STATUS = {
   observed: "observed",
   inferred: "inferred",
@@ -3026,10 +3066,11 @@ var STATE_STATUS = {
   disabled: "disabled",
   deprecated: "disabled"
 };
-function PlaybookCluster({ name, state = "draft", selected = false, agents, meta = [], actions, padding, layout = "flow", dropState, collapsed = false, resizable = false, width, height, children, onClick, className = "", style, ...rest }) {
-  return /* @__PURE__ */ import_react82.default.createElement(
+var PlaybookCluster = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react83.default.forwardRef(function PlaybookCluster2({ name, state = "draft", selected = false, agents, meta = [], actions, padding, layout = "flow", dropState, collapsed = false, resizable = false, width, height, children, onClick, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ import_react83.default.createElement(
     "div",
     {
+      ref,
       className: [
         "lamp-pb",
         "lamp-pb--" + state,
@@ -3046,19 +3087,19 @@ function PlaybookCluster({ name, state = "draft", selected = false, agents, meta
       "aria-label": "Playbook " + (name || ""),
       ...rest
     },
-    name || actions ? /* @__PURE__ */ import_react82.default.createElement("div", { className: "lamp-pb__head" }, /* @__PURE__ */ import_react82.default.createElement(Icon, { name: "layers", size: 13, style: { color: "var(--text-tertiary)" } }), /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-pb__title" }, name), /* @__PURE__ */ import_react82.default.createElement(StatusBadge, { status: STATE_STATUS[state] || "draft" }), agents != null ? /* @__PURE__ */ import_react82.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--text-tertiary)" } }, agents, " Agents") : null, actions) : null,
-    collapsed ? null : /* @__PURE__ */ import_react82.default.createElement("div", { className: "lamp-pb__body" }, children),
-    resizable && !collapsed ? /* @__PURE__ */ import_react82.default.createElement("span", { className: "lamp-pb__grip", "aria-hidden": "true" }) : null,
-    meta.length ? /* @__PURE__ */ import_react82.default.createElement("div", { className: "lamp-pb__foot" }, meta.map((m, i) => /* @__PURE__ */ import_react82.default.createElement("span", { key: i }, m))) : null
+    name || actions ? /* @__PURE__ */ import_react83.default.createElement("div", { className: "lamp-pb__head" }, /* @__PURE__ */ import_react83.default.createElement(Icon, { name: "layers", size: 13, style: { color: "var(--text-tertiary)" } }), /* @__PURE__ */ import_react83.default.createElement("span", { className: "lamp-pb__title" }, name), /* @__PURE__ */ import_react83.default.createElement(StatusBadge, { status: STATE_STATUS[state] || "draft" }), agents != null ? /* @__PURE__ */ import_react83.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--text-tertiary)" } }, agents, " Agents") : null, actions) : null,
+    collapsed ? null : /* @__PURE__ */ import_react83.default.createElement("div", { className: "lamp-pb__body" }, children),
+    resizable && !collapsed ? /* @__PURE__ */ import_react83.default.createElement("span", { className: "lamp-pb__grip", "aria-hidden": "true" }) : null,
+    meta.length ? /* @__PURE__ */ import_react83.default.createElement("div", { className: "lamp-pb__foot" }, meta.map((m, i) => /* @__PURE__ */ import_react83.default.createElement("span", { key: i }, m))) : null
   );
-}
+}), { displayName: "PlaybookCluster" });
 
 // project/components/objects/SkillOrb.jsx
-var import_react83 = __toESM(require("react"), 1);
+var import_react84 = __toESM(require("react"), 1);
 var SKILL_SIZES = { xs: 16, sm: 20, md: 28, lg: 36, xl: 48 };
-function SkillOrb({ size = "md", state = "available", glyph = "flare", name, label, onClick, className = "", style, ...rest }) {
+var SkillOrb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react84.default.forwardRef(function SkillOrb2({ size = "md", state = "available", glyph = "flare", name, label, onClick, className = "", style, ...rest }, ref) {
   const px = SKILL_SIZES[size] || SKILL_SIZES.md;
-  const orb = /* @__PURE__ */ import_react83.default.createElement(
+  const orb = /* @__PURE__ */ import_react84.default.createElement(
     "span",
     {
       className: ["lamp-skill", "lamp-skill--" + state, onClick && "lamp-skill--interactive", className].filter(Boolean).join(" "),
@@ -3070,15 +3111,15 @@ function SkillOrb({ size = "md", state = "available", glyph = "flare", name, lab
       title: name,
       ...rest
     },
-    /* @__PURE__ */ import_react83.default.createElement(Icon, { name: glyph, size: px <= 20 ? 10 : px <= 28 ? 14 : 18 }),
-    state === "error" || state === "waiting" ? /* @__PURE__ */ import_react83.default.createElement("span", { className: "lamp-skill__dot" }, /* @__PURE__ */ import_react83.default.createElement(StatusDot, { status: state === "error" ? "error" : "waiting" })) : null
+    /* @__PURE__ */ import_react84.default.createElement(Icon, { name: glyph, size: px <= 20 ? 10 : px <= 28 ? 14 : 18 }),
+    state === "error" || state === "waiting" ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-skill__dot" }, /* @__PURE__ */ import_react84.default.createElement(StatusDot, { status: state === "error" ? "error" : "waiting" })) : null
   );
   if (!label) return orb;
-  return /* @__PURE__ */ import_react83.default.createElement("span", { className: "lamp-skillrow" }, orb, /* @__PURE__ */ import_react83.default.createElement("span", { className: "lamp-skillrow__name" }, name));
-}
+  return /* @__PURE__ */ import_react84.default.createElement("span", { ref, className: "lamp-skillrow" }, orb, /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-skillrow__name" }, name));
+}), { displayName: "SkillOrb" });
 
 // project/components/objects/ToolTile.jsx
-var import_react84 = __toESM(require("react"), 1);
+var import_react85 = __toESM(require("react"), 1);
 var TOOL_SIZES = { sm: 24, md: 32, lg: 40, xl: 48 };
 var STATE_STATUS2 = {
   available: null,
@@ -3093,12 +3134,13 @@ var STATE_STATUS2 = {
   blocked: "blocked",
   disabled: "disabled"
 };
-function ToolTile({ size = "md", state = "connected", provider, glyph = "extension", name, brandColor, onClick, className = "", style, ...rest }) {
+var ToolTile = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react85.default.forwardRef(function ToolTile2({ size = "md", state = "connected", provider, glyph = "extension", name, brandColor, onClick, className = "", style, ...rest }, ref) {
   const px = TOOL_SIZES[size] || TOOL_SIZES.md;
   const dot = STATE_STATUS2[state];
-  return /* @__PURE__ */ import_react84.default.createElement(
+  return /* @__PURE__ */ import_react85.default.createElement(
     "span",
     {
+      ref,
       className: ["lamp-tool", "lamp-tool--" + state, onClick && "lamp-tool--interactive", className].filter(Boolean).join(" "),
       style: { width: px, height: px, ...style },
       onClick,
@@ -3108,22 +3150,22 @@ function ToolTile({ size = "md", state = "connected", provider, glyph = "extensi
       title: name || provider,
       ...rest
     },
-    provider ? /* @__PURE__ */ import_react84.default.createElement(BrandIcon, { slug: provider, size: px <= 24 ? 14 : px <= 32 ? 18 : 22, color: brandColor }) : /* @__PURE__ */ import_react84.default.createElement(Icon, { name: glyph, size: px <= 24 ? 14 : px <= 32 ? 18 : 22 }),
-    dot ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-tool__dot" }, /* @__PURE__ */ import_react84.default.createElement(StatusDot, { status: dot })) : null
+    provider ? /* @__PURE__ */ import_react85.default.createElement(BrandIcon, { slug: provider, size: px <= 24 ? 14 : px <= 32 ? 18 : 22, color: brandColor }) : /* @__PURE__ */ import_react85.default.createElement(Icon, { name: glyph, size: px <= 24 ? 14 : px <= 32 ? 18 : 22 }),
+    dot ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-tool__dot" }, /* @__PURE__ */ import_react85.default.createElement(StatusDot, { status: dot })) : null
   );
-}
-function ToolRow({ provider, glyph, name, account, state = "connected", permission, usedBy, lastActivity, health, risk, actions, onClick, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react84.default.createElement("div", { className: "lamp-toolrow " + className, onClick, ...rest }, /* @__PURE__ */ import_react84.default.createElement(ToolTile, { provider, glyph, name, state }), /* @__PURE__ */ import_react84.default.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 1, minWidth: 0 } }, /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__name" }, name), account ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__sub" }, account) : null), /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__right" }, permission ? /* @__PURE__ */ import_react84.default.createElement(Badge, { outline: true }, permission) : null, risk ? /* @__PURE__ */ import_react84.default.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null, usedBy != null ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__sub" }, "Used by ", usedBy) : null, health ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, health) : null, lastActivity ? /* @__PURE__ */ import_react84.default.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, lastActivity) : null, /* @__PURE__ */ import_react84.default.createElement(
+}), { displayName: "ToolTile" });
+var ToolRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react85.default.forwardRef(function ToolRow2({ provider, glyph, name, account, state = "connected", permission, usedBy, lastActivity, health, risk, actions, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react85.default.createElement("div", { ref, className: "lamp-toolrow " + className, onClick, ...rest }, /* @__PURE__ */ import_react85.default.createElement(ToolTile, { provider, glyph, name, state }), /* @__PURE__ */ import_react85.default.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 1, minWidth: 0 } }, /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__name" }, name), account ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__sub" }, account) : null), /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__right" }, permission ? /* @__PURE__ */ import_react85.default.createElement(Badge, { outline: true }, permission) : null, risk ? /* @__PURE__ */ import_react85.default.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null, usedBy != null ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__sub" }, "Used by ", usedBy) : null, health ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, health) : null, lastActivity ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, lastActivity) : null, /* @__PURE__ */ import_react85.default.createElement(
     StatusBadge,
     {
       status: state === "connected" || state === "healthy" ? "success" : state === "error" ? "error" : state === "blocked" ? "blocked" : "attention",
       label: state === "authorizationRequired" ? "Auth required" : state === "expired" ? "Expired" : state === "degraded" ? "Degraded" : state === "connected" ? "Connected" : void 0
     }
   ), actions));
-}
+}), { displayName: "ToolRow" });
 
 // project/components/patterns/BusinessProcess.jsx
-var import_react85 = __toESM(require("react"), 1);
+var import_react86 = __toESM(require("react"), 1);
 var BUSINESS_PROCESSES = [
   {
     id: "procure-to-pay",
@@ -3447,7 +3489,7 @@ function MatchProcess(context = {}) {
   return scored.filter((m) => m.score > 0).sort((a, b) => b.score - a.score);
 }
 var matchProcess = MatchProcess;
-function ProcessProposal({
+var ProcessProposal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react86.default.forwardRef(function ProcessProposal2({
   match,
   selected = false,
   primary = false,
@@ -3457,35 +3499,36 @@ function ProcessProposal({
   compact = false,
   className = "",
   ...rest
-}) {
+}, ref) {
   if (!match) return null;
   const { process, confidence, evidence = [], roleHits = [] } = match;
-  return /* @__PURE__ */ import_react85.default.createElement(
+  return /* @__PURE__ */ import_react86.default.createElement(
     "article",
     {
+      ref,
       className: ["lamp-proposal", primary && "lamp-proposal--primary", selected && "lamp-proposal--selected", compact && "lamp-proposal--compact", className].filter(Boolean).join(" "),
       ...rest
     },
-    /* @__PURE__ */ import_react85.default.createElement("div", { className: "lamp-proposal__top" }, /* @__PURE__ */ import_react85.default.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-proposal__note" }, "LAMP thinks this is"), /* @__PURE__ */ import_react85.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react85.default.createElement(MemoryConfidence, { level: confidence }))),
-    /* @__PURE__ */ import_react85.default.createElement("div", { className: "lamp-proposal__name" }, process.name, /* @__PURE__ */ import_react85.default.createElement(Badge, { outline: true, micro: true }, process.domain), process.aka && process.aka.length ? /* @__PURE__ */ import_react85.default.createElement("span", { className: "lamp-proposal__aka" }, process.aka[0]) : null),
-    /* @__PURE__ */ import_react85.default.createElement("p", { className: "lamp-proposal__purpose" }, process.purpose),
-    !compact && evidence.length ? /* @__PURE__ */ import_react85.default.createElement("ul", { className: "lamp-proposal__ev" }, evidence.map((e) => /* @__PURE__ */ import_react85.default.createElement("li", { key: e }, e))) : null,
-    !compact && roleHits.length < process.roles.length ? /* @__PURE__ */ import_react85.default.createElement("p", { className: "lamp-proposal__gap" }, "Usually also has: ", process.roles.filter((r) => roleHits.indexOf(r) === -1).join(", ")) : null,
-    onUse || onReview || onDismiss ? /* @__PURE__ */ import_react85.default.createElement("div", { className: "lamp-proposal__actions" }, onUse ? /* @__PURE__ */ import_react85.default.createElement(Button, { size: "sm", variant: selected ? "brand" : "primary", icon: selected ? "check" : void 0, onClick: () => onUse(process) }, selected ? "Selected" : "Use this process") : null, onReview ? /* @__PURE__ */ import_react85.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onReview(process) }, "Review steps") : null, onDismiss ? /* @__PURE__ */ import_react85.default.createElement(Button, { size: "sm", variant: "quiet", onClick: () => onDismiss(process) }, "Not this") : null) : null
+    /* @__PURE__ */ import_react86.default.createElement("div", { className: "lamp-proposal__top" }, /* @__PURE__ */ import_react86.default.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-proposal__note" }, "LAMP thinks this is"), /* @__PURE__ */ import_react86.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react86.default.createElement(MemoryConfidence, { level: confidence }))),
+    /* @__PURE__ */ import_react86.default.createElement("div", { className: "lamp-proposal__name" }, process.name, /* @__PURE__ */ import_react86.default.createElement(Badge, { outline: true, micro: true }, process.domain), process.aka && process.aka.length ? /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-proposal__aka" }, process.aka[0]) : null),
+    /* @__PURE__ */ import_react86.default.createElement("p", { className: "lamp-proposal__purpose" }, process.purpose),
+    !compact && evidence.length ? /* @__PURE__ */ import_react86.default.createElement("ul", { className: "lamp-proposal__ev" }, evidence.map((e) => /* @__PURE__ */ import_react86.default.createElement("li", { key: e }, e))) : null,
+    !compact && roleHits.length < process.roles.length ? /* @__PURE__ */ import_react86.default.createElement("p", { className: "lamp-proposal__gap" }, "Usually also has: ", process.roles.filter((r) => roleHits.indexOf(r) === -1).join(", ")) : null,
+    onUse || onReview || onDismiss ? /* @__PURE__ */ import_react86.default.createElement("div", { className: "lamp-proposal__actions" }, onUse ? /* @__PURE__ */ import_react86.default.createElement(Button, { size: "sm", variant: selected ? "brand" : "primary", icon: selected ? "check" : void 0, onClick: () => onUse(process) }, selected ? "Selected" : "Use this process") : null, onReview ? /* @__PURE__ */ import_react86.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onReview(process) }, "Review steps") : null, onDismiss ? /* @__PURE__ */ import_react86.default.createElement(Button, { size: "sm", variant: "quiet", onClick: () => onDismiss(process) }, "Not this") : null) : null
   );
-}
+}), { displayName: "ProcessProposal" });
 
 // project/components/patterns/Conversation.jsx
-var import_react86 = __toESM(require("react"), 1);
-function Message({ role = "agent", author, timestamp, status, children, className = "", ...rest }) {
+var import_react87 = __toESM(require("react"), 1);
+var Message = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react87.default.forwardRef(function Message2({ role = "agent", author, timestamp, status, children, className = "", ...rest }, ref) {
   const initials = (author || (role === "user" ? "You" : "A")).slice(0, 2).toUpperCase();
-  return /* @__PURE__ */ import_react86.default.createElement("div", { className: ["lamp-msg", "lamp-msg--" + role, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-msg__av lamp-msg__av--" + role }, role === "system" ? /* @__PURE__ */ import_react86.default.createElement(Icon, { name: "info", size: 13 }) : role === "tool" ? /* @__PURE__ */ import_react86.default.createElement(Icon, { name: "square", size: 13 }) : initials), /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-msg__body" }, /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-msg__meta" }, /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-msg__who" }, author || (role === "user" ? "You" : role === "agent" ? "Agent" : role === "tool" ? "Tool" : "LAMP")), timestamp ? /* @__PURE__ */ import_react86.default.createElement("span", null, timestamp) : null, status ? /* @__PURE__ */ import_react86.default.createElement("span", null, status) : null), /* @__PURE__ */ import_react86.default.createElement("span", { className: "lamp-msg__text" }, children)));
-}
-function MessageList({ children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react86.default.createElement("div", { className, style: { display: "flex", flexDirection: "column", overflow: "auto", minHeight: 0 }, role: "log", ...rest }, children);
-}
-function Composer({ placeholder = "Write a message", value, onChange, onSend, onAttach, onVoice, quickReplies = [], disabled = false, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react86.default.createElement("div", { className, ...rest }, quickReplies.length ? /* @__PURE__ */ import_react86.default.createElement("div", { className: "lamp-quick" }, quickReplies.map((q) => /* @__PURE__ */ import_react86.default.createElement(Button, { key: q.label || q, size: "sm", variant: "secondary", onClick: q.onSelect }, q.label || q))) : null, /* @__PURE__ */ import_react86.default.createElement("div", { className: "lamp-composer" }, onAttach ? /* @__PURE__ */ import_react86.default.createElement(IconButton, { icon: "attach_file", label: "Attach file", size: "lg", onClick: onAttach }) : null, /* @__PURE__ */ import_react86.default.createElement(
+  return /* @__PURE__ */ import_react87.default.createElement("div", { ref, className: ["lamp-msg", "lamp-msg--" + role, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-msg__av lamp-msg__av--" + role }, role === "system" ? /* @__PURE__ */ import_react87.default.createElement(Icon, { name: "info", size: 13 }) : role === "tool" ? /* @__PURE__ */ import_react87.default.createElement(Icon, { name: "square", size: 13 }) : initials), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-msg__body" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-msg__meta" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-msg__who" }, author || (role === "user" ? "You" : role === "agent" ? "Agent" : role === "tool" ? "Tool" : "LAMP")), timestamp ? /* @__PURE__ */ import_react87.default.createElement("span", null, timestamp) : null, status ? /* @__PURE__ */ import_react87.default.createElement("span", null, status) : null), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-msg__text" }, children)));
+}), { displayName: "Message" });
+var MessageList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react87.default.forwardRef(function MessageList2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react87.default.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", overflow: "auto", minHeight: 0 }, role: "log", ...rest }, children);
+}), { displayName: "MessageList" });
+var Composer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react87.default.forwardRef(function Composer2({ placeholder = "Write a message", value, onChange, onSend, onAttach, onVoice, quickReplies = [], disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react87.default.createElement("div", { ref, className, ...rest }, quickReplies.length ? /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-quick" }, quickReplies.map((q) => /* @__PURE__ */ import_react87.default.createElement(Button, { key: q.label || q, size: "sm", variant: "secondary", onClick: q.onSelect }, q.label || q))) : null, /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-composer" }, onAttach ? /* @__PURE__ */ import_react87.default.createElement(IconButton, { icon: "attach_file", label: "Attach file", size: "lg", onClick: onAttach }) : null, /* @__PURE__ */ import_react87.default.createElement(
     "textarea",
     {
       className: "lamp-composer__field",
@@ -3501,14 +3544,14 @@ function Composer({ placeholder = "Write a message", value, onChange, onSend, on
         }
       }
     }
-  ), onVoice ? /* @__PURE__ */ import_react86.default.createElement(IconButton, { icon: "mic", label: "Record voice message", size: "lg", onClick: onVoice }) : null, /* @__PURE__ */ import_react86.default.createElement(Button, { size: "md", variant: "primary", icon: "send", onClick: onSend, disabled }, "Send")));
-}
-function Conversation({ title, subtitle, actions, messages, composer, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react86.default.createElement("div", { className, style: { display: "flex", flexDirection: "column", minHeight: 0, height: "100%", background: "var(--surface-primary)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-panel)", overflow: "hidden" }, ...rest }, /* @__PURE__ */ import_react86.default.createElement("header", { style: { display: "flex", alignItems: "center", gap: 8, height: 40, padding: "0 10px 0 12px", borderBottom: "1px solid var(--border-subtle)", flex: "none" } }, /* @__PURE__ */ import_react86.default.createElement("span", { style: { display: "flex", flexDirection: "column" } }, /* @__PURE__ */ import_react86.default.createElement("span", { style: { fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--text-primary)" } }, title), subtitle ? /* @__PURE__ */ import_react86.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, subtitle) : null), /* @__PURE__ */ import_react86.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), /* @__PURE__ */ import_react86.default.createElement(MessageList, { style: { flex: 1 } }, messages), composer);
-}
+  ), onVoice ? /* @__PURE__ */ import_react87.default.createElement(IconButton, { icon: "mic", label: "Record voice message", size: "lg", onClick: onVoice }) : null, /* @__PURE__ */ import_react87.default.createElement(Button, { size: "md", variant: "primary", icon: "send", onClick: onSend, disabled }, "Send")));
+}), { displayName: "Composer" });
+var Conversation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react87.default.forwardRef(function Conversation2({ title, subtitle, actions, messages, composer, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react87.default.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", minHeight: 0, height: "100%", background: "var(--surface-primary)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-panel)", overflow: "hidden" }, ...rest }, /* @__PURE__ */ import_react87.default.createElement("header", { style: { display: "flex", alignItems: "center", gap: 8, height: 40, padding: "0 10px 0 12px", borderBottom: "1px solid var(--border-subtle)", flex: "none" } }, /* @__PURE__ */ import_react87.default.createElement("span", { style: { display: "flex", flexDirection: "column" } }, /* @__PURE__ */ import_react87.default.createElement("span", { style: { fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--text-primary)" } }, title), subtitle ? /* @__PURE__ */ import_react87.default.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, subtitle) : null), /* @__PURE__ */ import_react87.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), /* @__PURE__ */ import_react87.default.createElement(MessageList, { style: { flex: 1 } }, messages), composer);
+}), { displayName: "Conversation" });
 
 // project/components/patterns/GenieBlueprint.jsx
-var import_react87 = __toESM(require("react"), 1);
+var import_react88 = __toESM(require("react"), 1);
 var DOMAIN_GLYPH = {
   Finance: "account_balance",
   Sales: "trending_up",
@@ -3582,7 +3625,7 @@ function BuildGenie(businessProcess, options = {}) {
   };
 }
 var buildGenie = BuildGenie;
-function GenieBlueprint({
+var GenieBlueprint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react88.default.forwardRef(function GenieBlueprint2({
   blueprint,
   onCreate,
   onCancel,
@@ -3591,25 +3634,25 @@ function GenieBlueprint({
   compact = false,
   className = "",
   ...rest
-}) {
+}, ref) {
   if (!blueprint) return null;
   const isOut = (id) => excluded.indexOf(id) !== -1;
   const included = blueprint.playbooks.filter((pb) => !isOut(pb.process.id));
-  return /* @__PURE__ */ import_react87.default.createElement("section", { className: ["lamp-blueprint", compact && "lamp-blueprint--compact", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react87.default.createElement("header", { className: "lamp-blueprint__head" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__glyph" }, /* @__PURE__ */ import_react87.default.createElement(Icon, { name: blueprint.glyph, size: 18 })), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__titles" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__name" }, blueprint.name, " Genie"), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__purpose" }, blueprint.purpose)), /* @__PURE__ */ import_react87.default.createElement(Badge, { tone: "neutral", icon: "edit_note", micro: true }, "Draft")), /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-blueprint__summary" }, /* @__PURE__ */ import_react87.default.createElement("span", null, /* @__PURE__ */ import_react87.default.createElement("b", null, included.length), " Playbooks"), /* @__PURE__ */ import_react87.default.createElement("span", null, /* @__PURE__ */ import_react87.default.createElement("b", null, blueprint.roles.length), " Agent roles"), /* @__PURE__ */ import_react87.default.createElement("span", null, /* @__PURE__ */ import_react87.default.createElement("b", null, blueprint.connectors.length), " connectors"), /* @__PURE__ */ import_react87.default.createElement("span", null, /* @__PURE__ */ import_react87.default.createElement("b", null, blueprint.guardrails.length), " guardrails")), /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__label" }, "Playbooks"), blueprint.playbooks.map((pb) => /* @__PURE__ */ import_react87.default.createElement(
+  return /* @__PURE__ */ import_react88.default.createElement("section", { ref, className: ["lamp-blueprint", compact && "lamp-blueprint--compact", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react88.default.createElement("header", { className: "lamp-blueprint__head" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__glyph" }, /* @__PURE__ */ import_react88.default.createElement(Icon, { name: blueprint.glyph, size: 18 })), /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__titles" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__name" }, blueprint.name, " Genie"), /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__purpose" }, blueprint.purpose)), /* @__PURE__ */ import_react88.default.createElement(Badge, { tone: "neutral", icon: "edit_note", micro: true }, "Draft")), /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-blueprint__summary" }, /* @__PURE__ */ import_react88.default.createElement("span", null, /* @__PURE__ */ import_react88.default.createElement("b", null, included.length), " Playbooks"), /* @__PURE__ */ import_react88.default.createElement("span", null, /* @__PURE__ */ import_react88.default.createElement("b", null, blueprint.roles.length), " Agent roles"), /* @__PURE__ */ import_react88.default.createElement("span", null, /* @__PURE__ */ import_react88.default.createElement("b", null, blueprint.connectors.length), " connectors"), /* @__PURE__ */ import_react88.default.createElement("span", null, /* @__PURE__ */ import_react88.default.createElement("b", null, blueprint.guardrails.length), " guardrails")), /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__label" }, "Playbooks"), blueprint.playbooks.map((pb) => /* @__PURE__ */ import_react88.default.createElement(
     "div",
     {
       key: pb.process.id,
       className: ["lamp-blueprint__pb", isOut(pb.process.id) && "lamp-blueprint__pb--out"].filter(Boolean).join(" ")
     },
-    /* @__PURE__ */ import_react87.default.createElement(Icon, { name: "layers", size: 14 }),
-    /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__pb-main" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__pb-name" }, pb.process.name), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__pb-purpose" }, pb.process.purpose)),
-    pb.primary ? /* @__PURE__ */ import_react87.default.createElement(Badge, { tone: "brand", micro: true }, "The one you just made") : /* @__PURE__ */ import_react87.default.createElement(Badge, { outline: true, micro: true }, "Suggested"),
-    onTogglePlaybook && !pb.primary ? /* @__PURE__ */ import_react87.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => onTogglePlaybook(pb.process.id) }, isOut(pb.process.id) ? "Include" : "Skip") : null
-  ))), /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__label" }, "Access this Genie will ask for"), blueprint.connectors.map((c) => /* @__PURE__ */ import_react87.default.createElement("div", { key: c.category, className: "lamp-blueprint__conn" }, /* @__PURE__ */ import_react87.default.createElement(StatusDot, { status: "blocked" }), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__conn-name" }, c.category), /* @__PURE__ */ import_react87.default.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__conn-used" }, "Used by ", c.usedBy.join(", ")))), /* @__PURE__ */ import_react87.default.createElement("p", { className: "lamp-blueprint__note" }, "Nothing is authorized by creating the Genie. Each connector is granted separately, by you.")), /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__label" }, "Guardrails it starts with"), /* @__PURE__ */ import_react87.default.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.guardrails.map((g) => /* @__PURE__ */ import_react87.default.createElement("li", { key: g }, /* @__PURE__ */ import_react87.default.createElement(Icon, { name: "shield", size: 12 }), g)))), /* @__PURE__ */ import_react87.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react87.default.createElement("span", { className: "lamp-blueprint__label" }, "Memory"), /* @__PURE__ */ import_react87.default.createElement(MemoryScopeBar, { readOnly: true, owned: "genie", full: false, showCounts: false }), /* @__PURE__ */ import_react87.default.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.memory.seeded.map((m) => /* @__PURE__ */ import_react87.default.createElement("li", { key: m }, /* @__PURE__ */ import_react87.default.createElement(Icon, { name: "database", size: 12 }), m)))), onCreate || onCancel ? /* @__PURE__ */ import_react87.default.createElement("footer", { className: "lamp-blueprint__foot" }, onCancel ? /* @__PURE__ */ import_react87.default.createElement(Button, { variant: "quiet", onClick: onCancel }, "Just the Playbook") : null, onCreate ? /* @__PURE__ */ import_react87.default.createElement(Button, { variant: "primary", icon: "check", onClick: () => onCreate(blueprint, excluded) }, "Create ", included.length, " Playbooks as drafts") : null) : null);
-}
+    /* @__PURE__ */ import_react88.default.createElement(Icon, { name: "layers", size: 14 }),
+    /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__pb-main" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__pb-name" }, pb.process.name), /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__pb-purpose" }, pb.process.purpose)),
+    pb.primary ? /* @__PURE__ */ import_react88.default.createElement(Badge, { tone: "brand", micro: true }, "The one you just made") : /* @__PURE__ */ import_react88.default.createElement(Badge, { outline: true, micro: true }, "Suggested"),
+    onTogglePlaybook && !pb.primary ? /* @__PURE__ */ import_react88.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => onTogglePlaybook(pb.process.id) }, isOut(pb.process.id) ? "Include" : "Skip") : null
+  ))), /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__label" }, "Access this Genie will ask for"), blueprint.connectors.map((c) => /* @__PURE__ */ import_react88.default.createElement("div", { key: c.category, className: "lamp-blueprint__conn" }, /* @__PURE__ */ import_react88.default.createElement(StatusDot, { status: "blocked" }), /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__conn-name" }, c.category), /* @__PURE__ */ import_react88.default.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__conn-used" }, "Used by ", c.usedBy.join(", ")))), /* @__PURE__ */ import_react88.default.createElement("p", { className: "lamp-blueprint__note" }, "Nothing is authorized by creating the Genie. Each connector is granted separately, by you.")), /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__label" }, "Guardrails it starts with"), /* @__PURE__ */ import_react88.default.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.guardrails.map((g) => /* @__PURE__ */ import_react88.default.createElement("li", { key: g }, /* @__PURE__ */ import_react88.default.createElement(Icon, { name: "shield", size: 12 }), g)))), /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-blueprint__label" }, "Memory"), /* @__PURE__ */ import_react88.default.createElement(MemoryScopeBar, { readOnly: true, owned: "genie", full: false, showCounts: false }), /* @__PURE__ */ import_react88.default.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.memory.seeded.map((m) => /* @__PURE__ */ import_react88.default.createElement("li", { key: m }, /* @__PURE__ */ import_react88.default.createElement(Icon, { name: "database", size: 12 }), m)))), onCreate || onCancel ? /* @__PURE__ */ import_react88.default.createElement("footer", { className: "lamp-blueprint__foot" }, onCancel ? /* @__PURE__ */ import_react88.default.createElement(Button, { variant: "quiet", onClick: onCancel }, "Just the Playbook") : null, onCreate ? /* @__PURE__ */ import_react88.default.createElement(Button, { variant: "primary", icon: "check", onClick: () => onCreate(blueprint, excluded) }, "Create ", included.length, " Playbooks as drafts") : null) : null);
+}), { displayName: "GenieBlueprint" });
 
 // project/components/patterns/IntegrationCard.jsx
-var import_react88 = __toESM(require("react"), 1);
+var import_react89 = __toESM(require("react"), 1);
 var STATE = {
   connected: { status: "success", label: "Connected" },
   requiresAuth: { status: "attention", label: "Authorization required" },
@@ -3619,7 +3662,7 @@ var STATE = {
   disabled: { status: "disabled", label: "Disabled" },
   available: { status: "draft", label: "Not connected" }
 };
-function IntegrationCard({
+var IntegrationCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react89.default.forwardRef(function IntegrationCard2({
   name,
   provider,
   glyph,
@@ -3638,15 +3681,15 @@ function IntegrationCard({
   actions,
   className = "",
   ...rest
-}) {
+}, ref) {
   const s = STATE[state] || STATE.connected;
   const tone = state === "error" ? "error" : state === "requiresAuth" || state === "expired" || state === "degraded" ? "attention" : "";
-  return /* @__PURE__ */ import_react88.default.createElement("article", { className: ["lamp-integ", tone && "lamp-integ--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-integ__head" }, /* @__PURE__ */ import_react88.default.createElement(ToolTile, { provider, glyph, name, size: "lg", state: state === "connected" ? "connected" : state === "error" ? "error" : "authorizationRequired" }), /* @__PURE__ */ import_react88.default.createElement("span", { style: { flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-integ__name" }, name), account ? /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-integ__account" }, account) : null), /* @__PURE__ */ import_react88.default.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 } }, /* @__PURE__ */ import_react88.default.createElement(StatusBadge, { status: s.status, label: s.label }), permission ? /* @__PURE__ */ import_react88.default.createElement(Badge, { outline: true, icon: permission === "Admin" ? "shield" : permission === "Write" ? "edit" : "visibility" }, permission) : null)), scopes.length ? /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-integ__scopes" }, scopes.map((sc) => /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-integ__scope", key: sc.label }, /* @__PURE__ */ import_react88.default.createElement(Icon, { name: sc.write ? "edit" : "visibility", size: 13, style: { color: sc.write ? "var(--status-warning)" : "var(--text-tertiary)" } }), sc.label, sc.key ? /* @__PURE__ */ import_react88.default.createElement("span", { className: "lamp-integ__scope-k" }, sc.key) : null))) : null, usedBy.length || health || expiry || risk ? /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-integ__users" }, usedBy.length ? /* @__PURE__ */ import_react88.default.createElement(import_react88.default.Fragment, null, /* @__PURE__ */ import_react88.default.createElement(Icon, { name: "hexagon", size: 13 }), usedBy.join(", ")) : null, health ? /* @__PURE__ */ import_react88.default.createElement("span", null, "Health ", health) : null, expiry ? /* @__PURE__ */ import_react88.default.createElement("span", null, "Expires ", expiry) : null, risk ? /* @__PURE__ */ import_react88.default.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null) : null, /* @__PURE__ */ import_react88.default.createElement("div", { className: "lamp-integ__actions" }, actions, onConnect ? /* @__PURE__ */ import_react88.default.createElement(Button, { size: "sm", variant: "primary", icon: "link" }, "Connect") : null, onReconnect ? /* @__PURE__ */ import_react88.default.createElement(Button, { size: "sm", variant: "primary", icon: "autorenew", onClick: onReconnect }, "Reconnect") : null, onTest ? /* @__PURE__ */ import_react88.default.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onTest }, "Test connection") : null, onDisconnect ? /* @__PURE__ */ import_react88.default.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "link_off", onClick: onDisconnect }, "Disconnect") : null));
-}
+  return /* @__PURE__ */ import_react89.default.createElement("article", { ref, className: ["lamp-integ", tone && "lamp-integ--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-integ__head" }, /* @__PURE__ */ import_react89.default.createElement(ToolTile, { provider, glyph, name, size: "lg", state: state === "connected" ? "connected" : state === "error" ? "error" : "authorizationRequired" }), /* @__PURE__ */ import_react89.default.createElement("span", { style: { flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ import_react89.default.createElement("span", { className: "lamp-integ__name" }, name), account ? /* @__PURE__ */ import_react89.default.createElement("span", { className: "lamp-integ__account" }, account) : null), /* @__PURE__ */ import_react89.default.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 } }, /* @__PURE__ */ import_react89.default.createElement(StatusBadge, { status: s.status, label: s.label }), permission ? /* @__PURE__ */ import_react89.default.createElement(Badge, { outline: true, icon: permission === "Admin" ? "shield" : permission === "Write" ? "edit" : "visibility" }, permission) : null)), scopes.length ? /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-integ__scopes" }, scopes.map((sc) => /* @__PURE__ */ import_react89.default.createElement("span", { className: "lamp-integ__scope", key: sc.label }, /* @__PURE__ */ import_react89.default.createElement(Icon, { name: sc.write ? "edit" : "visibility", size: 13, style: { color: sc.write ? "var(--status-warning)" : "var(--text-tertiary)" } }), sc.label, sc.key ? /* @__PURE__ */ import_react89.default.createElement("span", { className: "lamp-integ__scope-k" }, sc.key) : null))) : null, usedBy.length || health || expiry || risk ? /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-integ__users" }, usedBy.length ? /* @__PURE__ */ import_react89.default.createElement(import_react89.default.Fragment, null, /* @__PURE__ */ import_react89.default.createElement(Icon, { name: "hexagon", size: 13 }), usedBy.join(", ")) : null, health ? /* @__PURE__ */ import_react89.default.createElement("span", null, "Health ", health) : null, expiry ? /* @__PURE__ */ import_react89.default.createElement("span", null, "Expires ", expiry) : null, risk ? /* @__PURE__ */ import_react89.default.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null) : null, /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-integ__actions" }, actions, onConnect ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "primary", icon: "link" }, "Connect") : null, onReconnect ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "primary", icon: "autorenew", onClick: onReconnect }, "Reconnect") : null, onTest ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onTest }, "Test connection") : null, onDisconnect ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "link_off", onClick: onDisconnect }, "Disconnect") : null));
+}), { displayName: "IntegrationCard" });
 
 // project/components/patterns/LearnedPattern.jsx
-var import_react89 = __toESM(require("react"), 1);
-function LearnedPattern({
+var import_react90 = __toESM(require("react"), 1);
+var LearnedPattern = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react90.default.forwardRef(function LearnedPattern2({
   kind = "observed",
   observation,
   occurrences,
@@ -3661,15 +3704,15 @@ function LearnedPattern({
   note,
   className = "",
   ...rest
-}) {
+}, ref) {
   const label = kind === "inferred" ? "LAMP inferred" : kind === "suggested" ? "LAMP suggests" : kind === "proposal" ? "Process proposal" : "LAMP noticed";
-  return /* @__PURE__ */ import_react89.default.createElement("article", { className: "lamp-learn " + className, ...rest }, /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-learn__top" }, /* @__PURE__ */ import_react89.default.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ import_react89.default.createElement("span", { className: "lamp-learn__note" }, note || label), /* @__PURE__ */ import_react89.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react89.default.createElement(MemoryConfidence, { level: confidence }))), /* @__PURE__ */ import_react89.default.createElement("p", { className: "lamp-learn__quote" }, observation), /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-learn__ev" }, occurrences != null ? /* @__PURE__ */ import_react89.default.createElement("span", null, "Observed ", /* @__PURE__ */ import_react89.default.createElement("b", null, occurrences, " times"), period ? " over " + period : "") : null, evidence.map((e) => /* @__PURE__ */ import_react89.default.createElement("span", { key: e }, e))), entities ? /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-learn__ev" }, entities) : null, /* @__PURE__ */ import_react89.default.createElement("div", { className: "lamp-learn__actions" }, actions, onUse ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "primary", icon: "check", onClick: onUse }, "Use this pattern") : null, onReview ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: onReview }, "Review") : null, onIgnore ? /* @__PURE__ */ import_react89.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null));
-}
+  return /* @__PURE__ */ import_react90.default.createElement("article", { ref, className: "lamp-learn " + className, ...rest }, /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-learn__top" }, /* @__PURE__ */ import_react90.default.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ import_react90.default.createElement("span", { className: "lamp-learn__note" }, note || label), /* @__PURE__ */ import_react90.default.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ import_react90.default.createElement(MemoryConfidence, { level: confidence }))), /* @__PURE__ */ import_react90.default.createElement("p", { className: "lamp-learn__quote" }, observation), /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-learn__ev" }, occurrences != null ? /* @__PURE__ */ import_react90.default.createElement("span", null, "Observed ", /* @__PURE__ */ import_react90.default.createElement("b", null, occurrences, " times"), period ? " over " + period : "") : null, evidence.map((e) => /* @__PURE__ */ import_react90.default.createElement("span", { key: e }, e))), entities ? /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-learn__ev" }, entities) : null, /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-learn__actions" }, actions, onUse ? /* @__PURE__ */ import_react90.default.createElement(Button, { size: "sm", variant: "primary", icon: "check", onClick: onUse }, "Use this pattern") : null, onReview ? /* @__PURE__ */ import_react90.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: onReview }, "Review") : null, onIgnore ? /* @__PURE__ */ import_react90.default.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null));
+}), { displayName: "LearnedPattern" });
 
 // project/components/patterns/MobileShell.jsx
-var import_react90 = __toESM(require("react"), 1);
-function MobileShell({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-mobile " + className, ...rest }, /* @__PURE__ */ import_react90.default.createElement("header", { className: "lamp-mobile__top" }, leading, /* @__PURE__ */ import_react90.default.createElement("span", { className: "lamp-mobile__title" }, title), /* @__PURE__ */ import_react90.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), banner, /* @__PURE__ */ import_react90.default.createElement("div", { className: "lamp-mobile__body" }, children), tabs.length ? /* @__PURE__ */ import_react90.default.createElement("nav", { className: "lamp-mobile__nav" }, tabs.map((t) => /* @__PURE__ */ import_react90.default.createElement(
+var import_react91 = __toESM(require("react"), 1);
+var MobileShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react91.default.forwardRef(function MobileShell2({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react91.default.createElement("div", { ref, className: "lamp-mobile " + className, ...rest }, /* @__PURE__ */ import_react91.default.createElement("header", { className: "lamp-mobile__top" }, leading, /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-mobile__title" }, title), /* @__PURE__ */ import_react91.default.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), banner, /* @__PURE__ */ import_react91.default.createElement("div", { className: "lamp-mobile__body" }, children), tabs.length ? /* @__PURE__ */ import_react91.default.createElement("nav", { className: "lamp-mobile__nav" }, tabs.map((t) => /* @__PURE__ */ import_react91.default.createElement(
     "button",
     {
       key: t.id,
@@ -3678,19 +3721,19 @@ function MobileShell({ title, leading, actions, tabs = [], activeTab, onTab, ban
       onClick: () => onTab && onTab(t.id),
       "aria-current": activeTab === t.id ? "page" : void 0
     },
-    /* @__PURE__ */ import_react90.default.createElement(Icon, { name: t.icon, size: 20 }),
+    /* @__PURE__ */ import_react91.default.createElement(Icon, { name: t.icon, size: 20 }),
     t.label
   ))) : null);
-}
+}), { displayName: "MobileShell" });
 
 // project/components/patterns/ObservedProcess.jsx
-var import_react91 = __toESM(require("react"), 1);
-function ObservedProcess({ steps = [], showLinks = true, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react91.default.createElement("div", { className: "lamp-proc " + className, role: "list", ...rest }, steps.map((s, i) => /* @__PURE__ */ import_react91.default.createElement(import_react91.default.Fragment, { key: i }, /* @__PURE__ */ import_react91.default.createElement("div", { className: ["lamp-proc__step", s.kind === "exception" && "lamp-proc__step--exception", s.kind === "rework" && "lamp-proc__step--rework"].filter(Boolean).join(" "), role: "listitem" }, /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__n" }, i + 1), /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__main" }, /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__title" }, s.title), /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__who" }, s.actor ? /* @__PURE__ */ import_react91.default.createElement(EntityChip, { type: "person", name: s.actor }) : null, s.tool ? /* @__PURE__ */ import_react91.default.createElement(Badge, { outline: true, icon: "square" }, s.tool) : null, s.channel ? /* @__PURE__ */ import_react91.default.createElement(Badge, { outline: true, icon: "forum" }, s.channel) : null, s.kind === "approval" ? /* @__PURE__ */ import_react91.default.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Approval") : null, s.kind === "handoff" ? /* @__PURE__ */ import_react91.default.createElement(Badge, { outline: true, icon: "swap_horiz" }, "Handoff") : null, s.kind === "exception" ? /* @__PURE__ */ import_react91.default.createElement(Badge, { tone: "warning", icon: "report" }, "Exception") : null, s.kind === "rework" ? /* @__PURE__ */ import_react91.default.createElement(Badge, { tone: "warning", icon: "refresh" }, "Rework") : null)), /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__right" }, s.frequency ? /* @__PURE__ */ import_react91.default.createElement("span", null, s.frequency) : null, s.duration ? /* @__PURE__ */ import_react91.default.createElement("span", null, s.duration) : null)), showLinks && i < steps.length - 1 ? /* @__PURE__ */ import_react91.default.createElement("span", { className: "lamp-proc__link" }) : null)));
-}
+var import_react92 = __toESM(require("react"), 1);
+var ObservedProcess = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react92.default.forwardRef(function ObservedProcess2({ steps = [], showLinks = true, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react92.default.createElement("div", { ref, className: "lamp-proc " + className, role: "list", ...rest }, steps.map((s, i) => /* @__PURE__ */ import_react92.default.createElement(import_react92.default.Fragment, { key: i }, /* @__PURE__ */ import_react92.default.createElement("div", { className: ["lamp-proc__step", s.kind === "exception" && "lamp-proc__step--exception", s.kind === "rework" && "lamp-proc__step--rework"].filter(Boolean).join(" "), role: "listitem" }, /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__n" }, i + 1), /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__main" }, /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__title" }, s.title), /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__who" }, s.actor ? /* @__PURE__ */ import_react92.default.createElement(EntityChip, { type: "person", name: s.actor }) : null, s.tool ? /* @__PURE__ */ import_react92.default.createElement(Badge, { outline: true, icon: "square" }, s.tool) : null, s.channel ? /* @__PURE__ */ import_react92.default.createElement(Badge, { outline: true, icon: "forum" }, s.channel) : null, s.kind === "approval" ? /* @__PURE__ */ import_react92.default.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Approval") : null, s.kind === "handoff" ? /* @__PURE__ */ import_react92.default.createElement(Badge, { outline: true, icon: "swap_horiz" }, "Handoff") : null, s.kind === "exception" ? /* @__PURE__ */ import_react92.default.createElement(Badge, { tone: "warning", icon: "report" }, "Exception") : null, s.kind === "rework" ? /* @__PURE__ */ import_react92.default.createElement(Badge, { tone: "warning", icon: "refresh" }, "Rework") : null)), /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__right" }, s.frequency ? /* @__PURE__ */ import_react92.default.createElement("span", null, s.frequency) : null, s.duration ? /* @__PURE__ */ import_react92.default.createElement("span", null, s.duration) : null)), showLinks && i < steps.length - 1 ? /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-proc__link" }) : null)));
+}), { displayName: "ObservedProcess" });
 
 // project/components/patterns/PermissionMatrix.jsx
-var import_react92 = __toESM(require("react"), 1);
+var import_react93 = __toESM(require("react"), 1);
 var CELL = {
   granted: { glyph: "check", cls: "granted", label: "Granted" },
   inherited: { glyph: "check", cls: "inherited", label: "Inherited" },
@@ -3698,23 +3741,23 @@ var CELL = {
   overridden: { glyph: "edit", cls: "granted", label: "Overridden" },
   conflict: { glyph: "warning", cls: "conflict", label: "Conflict" }
 };
-function PermissionCell({ state = "denied", onClick, ...rest }) {
+var PermissionCell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react93.default.forwardRef(function PermissionCell2({ state = "denied", onClick, ...rest }, ref) {
   const c = CELL[state] || CELL.denied;
-  return /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-perm__cell lamp-perm__cell--" + c.cls, role: onClick ? "button" : "img", "aria-label": c.label, title: c.label, onClick, ...rest }, /* @__PURE__ */ import_react92.default.createElement(Icon, { name: c.glyph, size: 14 }));
-}
-function PermissionMatrix({ resources = [], actions = [], values = {}, onToggle, scopeLabel = "Resource", className = "", ...rest }) {
-  return /* @__PURE__ */ import_react92.default.createElement("table", { className: "lamp-perm " + className, ...rest }, /* @__PURE__ */ import_react92.default.createElement("thead", null, /* @__PURE__ */ import_react92.default.createElement("tr", null, /* @__PURE__ */ import_react92.default.createElement("th", null, /* @__PURE__ */ import_react92.default.createElement("span", { className: "lamp-perm__scope" }, scopeLabel)), actions.map((a) => /* @__PURE__ */ import_react92.default.createElement("th", { key: a }, a)))), /* @__PURE__ */ import_react92.default.createElement("tbody", null, resources.map((r) => /* @__PURE__ */ import_react92.default.createElement("tr", { key: r.key || r.label }, /* @__PURE__ */ import_react92.default.createElement("td", null, /* @__PURE__ */ import_react92.default.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 6 } }, r.glyph ? /* @__PURE__ */ import_react92.default.createElement(Icon, { name: r.glyph, size: 14, style: { color: "var(--text-tertiary)" } }) : null, r.label, r.scope ? /* @__PURE__ */ import_react92.default.createElement(Badge, { outline: true }, r.scope) : null)), actions.map((a) => {
+  return /* @__PURE__ */ import_react93.default.createElement("span", { ref, className: "lamp-perm__cell lamp-perm__cell--" + c.cls, role: onClick ? "button" : "img", "aria-label": c.label, title: c.label, onClick, ...rest }, /* @__PURE__ */ import_react93.default.createElement(Icon, { name: c.glyph, size: 14 }));
+}), { displayName: "PermissionCell" });
+var PermissionMatrix = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react93.default.forwardRef(function PermissionMatrix2({ resources = [], actions = [], values = {}, onToggle, scopeLabel = "Resource", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react93.default.createElement("table", { ref, className: "lamp-perm " + className, ...rest }, /* @__PURE__ */ import_react93.default.createElement("thead", null, /* @__PURE__ */ import_react93.default.createElement("tr", null, /* @__PURE__ */ import_react93.default.createElement("th", null, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-perm__scope" }, scopeLabel)), actions.map((a) => /* @__PURE__ */ import_react93.default.createElement("th", { key: a }, a)))), /* @__PURE__ */ import_react93.default.createElement("tbody", null, resources.map((r) => /* @__PURE__ */ import_react93.default.createElement("tr", { key: r.key || r.label }, /* @__PURE__ */ import_react93.default.createElement("td", null, /* @__PURE__ */ import_react93.default.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 6 } }, r.glyph ? /* @__PURE__ */ import_react93.default.createElement(Icon, { name: r.glyph, size: 14, style: { color: "var(--text-tertiary)" } }) : null, r.label, r.scope ? /* @__PURE__ */ import_react93.default.createElement(Badge, { outline: true }, r.scope) : null)), actions.map((a) => {
     const state = (values[r.key || r.label] || {})[a] || "denied";
-    return /* @__PURE__ */ import_react92.default.createElement("td", { key: a }, /* @__PURE__ */ import_react92.default.createElement(PermissionCell, { state, onClick: onToggle ? () => onToggle(r, a, state) : void 0 }));
+    return /* @__PURE__ */ import_react93.default.createElement("td", { key: a }, /* @__PURE__ */ import_react93.default.createElement(PermissionCell, { state, onClick: onToggle ? () => onToggle(r, a, state) : void 0 }));
   })))));
-}
-function RoleBadge({ role, scope, ...rest }) {
+}), { displayName: "PermissionMatrix" });
+var RoleBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react93.default.forwardRef(function RoleBadge2({ role, scope, ...rest }, ref) {
   const tone = role === "Owner" ? "brand" : role === "Admin" ? "info" : role === "Viewer" ? "neutral" : "neutral";
-  return /* @__PURE__ */ import_react92.default.createElement(Badge, { tone, icon: role === "Owner" ? "workspace_premium" : role === "Admin" ? "shield" : "person", ...rest }, scope ? role + " \xB7 " + scope : role);
-}
+  return /* @__PURE__ */ import_react93.default.createElement(Badge, { ref, tone, icon: role === "Owner" ? "workspace_premium" : role === "Admin" ? "shield" : "person", ...rest }, scope ? role + " \xB7 " + scope : role);
+}), { displayName: "RoleBadge" });
 
 // project/components/patterns/PlaybookComposer.jsx
-var import_react93 = __toESM(require("react"), 1);
+var import_react94 = __toESM(require("react"), 1);
 var STEP_GLYPH = { agent: "hexagon", human: "how_to_reg", tool: "square", decision: "call_split" };
 function keyOf(list) {
   const map = {};
@@ -3723,7 +3766,7 @@ function keyOf(list) {
   });
   return map;
 }
-function PlaybookComposer({
+var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react94.default.forwardRef(function PlaybookComposer2({
   open = true,
   agents = [],
   availableTools = [],
@@ -3734,24 +3777,24 @@ function PlaybookComposer({
   allowGenie = true,
   className = "",
   ...rest
-}) {
-  const matches = import_react93.default.useMemo(
+}, ref) {
+  const matches = import_react94.default.useMemo(
     () => suggestions || MatchProcess({ agents, tools: availableTools }),
     [suggestions, agents, availableTools]
   );
   const best = matches[0] || null;
-  const [chosen, setChosen] = import_react93.default.useState(() => best ? best.process : BLANK_PROCESS);
-  const [tab, setTab] = import_react93.default.useState("process");
-  const [browsing, setBrowsing] = import_react93.default.useState(false);
-  const [name, setName] = import_react93.default.useState(chosen.name === BLANK_PROCESS.name ? "" : chosen.name);
-  const [purpose, setPurpose] = import_react93.default.useState(chosen.purpose);
-  const [trigger, setTrigger] = import_react93.default.useState(chosen.trigger);
-  const [outcomes, setOutcomes] = import_react93.default.useState(() => keyOf(chosen.outcomes || []));
-  const [connectors, setConnectors] = import_react93.default.useState(() => keyOf(chosen.connectors || []));
-  const [checkpoints, setCheckpoints] = import_react93.default.useState(() => keyOf(chosen.checkpoints || []));
-  const [extraOutcome, setExtraOutcome] = import_react93.default.useState("");
-  const [extras, setExtras] = import_react93.default.useState([]);
-  const [makeGenie, setMakeGenie] = import_react93.default.useState(false);
+  const [chosen, setChosen] = import_react94.default.useState(() => best ? best.process : BLANK_PROCESS);
+  const [tab, setTab] = import_react94.default.useState("process");
+  const [browsing, setBrowsing] = import_react94.default.useState(false);
+  const [name, setName] = import_react94.default.useState(chosen.name === BLANK_PROCESS.name ? "" : chosen.name);
+  const [purpose, setPurpose] = import_react94.default.useState(chosen.purpose);
+  const [trigger, setTrigger] = import_react94.default.useState(chosen.trigger);
+  const [outcomes, setOutcomes] = import_react94.default.useState(() => keyOf(chosen.outcomes || []));
+  const [connectors, setConnectors] = import_react94.default.useState(() => keyOf(chosen.connectors || []));
+  const [checkpoints, setCheckpoints] = import_react94.default.useState(() => keyOf(chosen.checkpoints || []));
+  const [extraOutcome, setExtraOutcome] = import_react94.default.useState("");
+  const [extras, setExtras] = import_react94.default.useState([]);
+  const [makeGenie, setMakeGenie] = import_react94.default.useState(false);
   const pick = (process) => {
     setChosen(process);
     setBrowsing(false);
@@ -3803,9 +3846,10 @@ function PlaybookComposer({
     { id: "connectors", label: "Connectors", count: chosenConnectors.length },
     { id: "outcomes", label: "Outcomes", count: chosenOutcomes.length }
   ];
-  return /* @__PURE__ */ import_react93.default.createElement(
+  return /* @__PURE__ */ import_react94.default.createElement(
     Modal,
     {
+      ref,
       open,
       size: "lg",
       glyph: "layers",
@@ -3813,7 +3857,7 @@ function PlaybookComposer({
       subtitle: agents.length + " Agents selected. LAMP has suggested what this process is \u2014 correct anything that is wrong.",
       onClose: onCancel,
       className: "lamp-composer " + className,
-      footer: /* @__PURE__ */ import_react93.default.createElement(import_react93.default.Fragment, null, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__footnote" }, blockers.length ? /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ import_react93.default.createElement(Icon, { name: "warning", size: 13 }), blockers[0]) : missingConnectors.length ? /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ import_react93.default.createElement(Icon, { name: "link_off", size: 13 }), missingConnectors.length, " connector", missingConnectors.length > 1 ? "s" : "", " still need authorizing. The Playbook can be drafted without them.") : /* @__PURE__ */ import_react93.default.createElement("span", null, "Draft only. Nothing runs until you simulate it.")), /* @__PURE__ */ import_react93.default.createElement(Button, { variant: "quiet", onClick: onCancel }, "Cancel"), /* @__PURE__ */ import_react93.default.createElement(
+      footer: /* @__PURE__ */ import_react94.default.createElement(import_react94.default.Fragment, null, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__footnote" }, blockers.length ? /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ import_react94.default.createElement(Icon, { name: "warning", size: 13 }), blockers[0]) : missingConnectors.length ? /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ import_react94.default.createElement(Icon, { name: "link_off", size: 13 }), missingConnectors.length, " connector", missingConnectors.length > 1 ? "s" : "", " still need authorizing. The Playbook can be drafted without them.") : /* @__PURE__ */ import_react94.default.createElement("span", null, "Draft only. Nothing runs until you simulate it.")), /* @__PURE__ */ import_react94.default.createElement(Button, { variant: "quiet", onClick: onCancel }, "Cancel"), /* @__PURE__ */ import_react94.default.createElement(
         Button,
         {
           variant: "primary",
@@ -3825,8 +3869,8 @@ function PlaybookComposer({
       )),
       ...rest
     },
-    /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__selection" }, agents.map((a) => /* @__PURE__ */ import_react93.default.createElement("span", { key: a.id || a.name, className: "lamp-composer__agent" }, /* @__PURE__ */ import_react93.default.createElement(Icon, { name: "hexagon", size: 13 }), a.name || "Unnamed Agent", a.role ? /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__role" }, a.role) : null))),
-    best && !browsing ? /* @__PURE__ */ import_react93.default.createElement(
+    /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__selection" }, agents.map((a) => /* @__PURE__ */ import_react94.default.createElement("span", { key: a.id || a.name, className: "lamp-composer__agent" }, /* @__PURE__ */ import_react94.default.createElement(Icon, { name: "hexagon", size: 13 }), a.name || "Unnamed Agent", a.role ? /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__role" }, a.role) : null))),
+    best && !browsing ? /* @__PURE__ */ import_react94.default.createElement(
       ProcessProposal,
       {
         primary: true,
@@ -3836,7 +3880,7 @@ function PlaybookComposer({
         onDismiss: () => setBrowsing(true)
       }
     ) : null,
-    browsing || !best ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__browse" }, /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__browse-head" }, /* @__PURE__ */ import_react93.default.createElement("span", null, "Pick the process this is"), best ? /* @__PURE__ */ import_react93.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setBrowsing(false) }, "Back to the suggestion") : null), /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__browse-list" }, BUSINESS_PROCESSES.concat([BLANK_PROCESS]).map((p) => /* @__PURE__ */ import_react93.default.createElement(
+    browsing || !best ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__browse" }, /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__browse-head" }, /* @__PURE__ */ import_react94.default.createElement("span", null, "Pick the process this is"), best ? /* @__PURE__ */ import_react94.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setBrowsing(false) }, "Back to the suggestion") : null), /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__browse-list" }, BUSINESS_PROCESSES.concat([BLANK_PROCESS]).map((p) => /* @__PURE__ */ import_react94.default.createElement(
       "button",
       {
         key: p.id,
@@ -3844,21 +3888,21 @@ function PlaybookComposer({
         className: "lamp-composer__browse-item" + (chosen.id === p.id ? " lamp-composer__browse-item--active" : ""),
         onClick: () => pick(p)
       },
-      /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__browse-name" }, p.name),
-      /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__browse-domain" }, p.domain)
+      /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__browse-name" }, p.name),
+      /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__browse-domain" }, p.domain)
     )))) : null,
-    matches.length > 1 && !browsing ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__alts" }, /* @__PURE__ */ import_react93.default.createElement("span", null, "Or:"), matches.slice(1, 4).map((m) => /* @__PURE__ */ import_react93.default.createElement("button", { key: m.process.id, type: "button", className: "lamp-composer__alt", onClick: () => pick(m.process) }, m.process.name)), /* @__PURE__ */ import_react93.default.createElement("button", { type: "button", className: "lamp-composer__alt", onClick: () => setBrowsing(true) }, "Something else")) : null,
-    /* @__PURE__ */ import_react93.default.createElement(Tabs, { tabs, value: tab, onChange: setTab }),
-    tab === "process" ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react93.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-name" }, "Name"), /* @__PURE__ */ import_react93.default.createElement(TextInput, { id: "pb-name", value: name, placeholder: "Vendor payment", onChange: (e) => setName(e.target.value) }), /* @__PURE__ */ import_react93.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-purpose" }, "Purpose"), /* @__PURE__ */ import_react93.default.createElement(Textarea, { id: "pb-purpose", rows: 2, value: purpose, placeholder: "What this process is for, in one sentence.", onChange: (e) => setPurpose(e.target.value) }), /* @__PURE__ */ import_react93.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-trigger" }, "Trigger"), /* @__PURE__ */ import_react93.default.createElement(TextInput, { id: "pb-trigger", value: trigger, placeholder: "What starts a run.", onChange: (e) => setTrigger(e.target.value) }), chosen.steps && chosen.steps.length ? /* @__PURE__ */ import_react93.default.createElement(import_react93.default.Fragment, null, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__label" }, "Usual shape of this process"), /* @__PURE__ */ import_react93.default.createElement("ol", { className: "lamp-composer__steps" }, chosen.steps.map((s, i) => /* @__PURE__ */ import_react93.default.createElement("li", { key: s.name, className: "lamp-composer__step lamp-composer__step--" + s.kind }, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__step-n" }, i + 1), /* @__PURE__ */ import_react93.default.createElement(Icon, { name: STEP_GLYPH[s.kind] || "hexagon", size: 13 }), /* @__PURE__ */ import_react93.default.createElement("span", null, s.name), s.kind === "human" ? /* @__PURE__ */ import_react93.default.createElement(Badge, { tone: "waiting", micro: true }, "Human") : null))), /* @__PURE__ */ import_react93.default.createElement("p", { className: "lamp-composer__hint" }, "Execution order lives in the runtime, not in how the Agents are arranged on the canvas. You can change this later in the Inspector.")) : null, chosen.exceptions && chosen.exceptions.length ? /* @__PURE__ */ import_react93.default.createElement(import_react93.default.Fragment, null, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__label" }, "What usually goes wrong"), /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__chips" }, chosen.exceptions.map((e) => /* @__PURE__ */ import_react93.default.createElement(Badge, { key: e, tone: "warning", icon: "report", micro: true }, e)))) : null) : null,
-    tab === "connectors" ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react93.default.createElement("p", { className: "lamp-composer__hint" }, "The systems this process has to touch. Untick anything it does not need \u2014 each one is an access grant."), (chosen.connectors || []).length === 0 ? /* @__PURE__ */ import_react93.default.createElement("p", { className: "lamp-composer__empty" }, "No connectors suggested. Add Tools to the Agents and they will appear here.") : null, (chosen.connectors || []).map((c, i) => {
+    matches.length > 1 && !browsing ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__alts" }, /* @__PURE__ */ import_react94.default.createElement("span", null, "Or:"), matches.slice(1, 4).map((m) => /* @__PURE__ */ import_react94.default.createElement("button", { key: m.process.id, type: "button", className: "lamp-composer__alt", onClick: () => pick(m.process) }, m.process.name)), /* @__PURE__ */ import_react94.default.createElement("button", { type: "button", className: "lamp-composer__alt", onClick: () => setBrowsing(true) }, "Something else")) : null,
+    /* @__PURE__ */ import_react94.default.createElement(Tabs, { tabs, value: tab, onChange: setTab }),
+    tab === "process" ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react94.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-name" }, "Name"), /* @__PURE__ */ import_react94.default.createElement(TextInput, { id: "pb-name", value: name, placeholder: "Vendor payment", onChange: (e) => setName(e.target.value) }), /* @__PURE__ */ import_react94.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-purpose" }, "Purpose"), /* @__PURE__ */ import_react94.default.createElement(Textarea, { id: "pb-purpose", rows: 2, value: purpose, placeholder: "What this process is for, in one sentence.", onChange: (e) => setPurpose(e.target.value) }), /* @__PURE__ */ import_react94.default.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-trigger" }, "Trigger"), /* @__PURE__ */ import_react94.default.createElement(TextInput, { id: "pb-trigger", value: trigger, placeholder: "What starts a run.", onChange: (e) => setTrigger(e.target.value) }), chosen.steps && chosen.steps.length ? /* @__PURE__ */ import_react94.default.createElement(import_react94.default.Fragment, null, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__label" }, "Usual shape of this process"), /* @__PURE__ */ import_react94.default.createElement("ol", { className: "lamp-composer__steps" }, chosen.steps.map((s, i) => /* @__PURE__ */ import_react94.default.createElement("li", { key: s.name, className: "lamp-composer__step lamp-composer__step--" + s.kind }, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__step-n" }, i + 1), /* @__PURE__ */ import_react94.default.createElement(Icon, { name: STEP_GLYPH[s.kind] || "hexagon", size: 13 }), /* @__PURE__ */ import_react94.default.createElement("span", null, s.name), s.kind === "human" ? /* @__PURE__ */ import_react94.default.createElement(Badge, { tone: "waiting", micro: true }, "Human") : null))), /* @__PURE__ */ import_react94.default.createElement("p", { className: "lamp-composer__hint" }, "Execution order lives in the runtime, not in how the Agents are arranged on the canvas. You can change this later in the Inspector.")) : null, chosen.exceptions && chosen.exceptions.length ? /* @__PURE__ */ import_react94.default.createElement(import_react94.default.Fragment, null, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__label" }, "What usually goes wrong"), /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__chips" }, chosen.exceptions.map((e) => /* @__PURE__ */ import_react94.default.createElement(Badge, { key: e, tone: "warning", icon: "report", micro: true }, e)))) : null) : null,
+    tab === "connectors" ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react94.default.createElement("p", { className: "lamp-composer__hint" }, "The systems this process has to touch. Untick anything it does not need \u2014 each one is an access grant."), (chosen.connectors || []).length === 0 ? /* @__PURE__ */ import_react94.default.createElement("p", { className: "lamp-composer__empty" }, "No connectors suggested. Add Tools to the Agents and they will appear here.") : null, (chosen.connectors || []).map((c, i) => {
       const key = c.id != null ? c.id : i;
       const conn = connectionFor(c);
-      return /* @__PURE__ */ import_react93.default.createElement("div", { key, className: "lamp-composer__conn" }, /* @__PURE__ */ import_react93.default.createElement(Checkbox, { checked: !!connectors[key], onChange: () => toggle(setConnectors)(key) }), /* @__PURE__ */ import_react93.default.createElement(ToolTile, { size: "sm", provider: conn.provider, state: conn.state === "missing" ? "available" : conn.state, name: c.category }), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__conn-main" }, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__conn-name" }, c.category), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__conn-why" }, c.why)), /* @__PURE__ */ import_react93.default.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__conn-state lamp-composer__conn-state--" + conn.state }, /* @__PURE__ */ import_react93.default.createElement(StatusDot, { status: conn.state === "missing" ? "blocked" : conn.state === "connected" || conn.state === "healthy" ? "success" : "attention" }), conn.label));
+      return /* @__PURE__ */ import_react94.default.createElement("div", { key, className: "lamp-composer__conn" }, /* @__PURE__ */ import_react94.default.createElement(Checkbox, { checked: !!connectors[key], onChange: () => toggle(setConnectors)(key) }), /* @__PURE__ */ import_react94.default.createElement(ToolTile, { size: "sm", provider: conn.provider, state: conn.state === "missing" ? "available" : conn.state, name: c.category }), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__conn-main" }, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__conn-name" }, c.category), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__conn-why" }, c.why)), /* @__PURE__ */ import_react94.default.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__conn-state lamp-composer__conn-state--" + conn.state }, /* @__PURE__ */ import_react94.default.createElement(StatusDot, { status: conn.state === "missing" ? "blocked" : conn.state === "connected" || conn.state === "healthy" ? "success" : "attention" }), conn.label));
     })) : null,
-    tab === "outcomes" ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react93.default.createElement("p", { className: "lamp-composer__hint" }, "What this Playbook is supposed to achieve, and how you would know. Simulation is judged against these, so a Playbook with none cannot pass or fail."), (chosen.outcomes || []).map((o, i) => {
+    tab === "outcomes" ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ import_react94.default.createElement("p", { className: "lamp-composer__hint" }, "What this Playbook is supposed to achieve, and how you would know. Simulation is judged against these, so a Playbook with none cannot pass or fail."), (chosen.outcomes || []).map((o, i) => {
       const key = o.id != null ? o.id : i;
-      return /* @__PURE__ */ import_react93.default.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react93.default.createElement(Checkbox, { checked: !!outcomes[key], onChange: () => toggle(setOutcomes)(key) }), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-label" }, o.label), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-measure" }, o.measure)), o.target ? /* @__PURE__ */ import_react93.default.createElement(Badge, { outline: true, micro: true }, o.target) : null);
-    }), extras.map((label) => /* @__PURE__ */ import_react93.default.createElement("div", { key: label, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react93.default.createElement(Checkbox, { checked: true, readOnly: true }), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-label" }, label), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-measure" }, "Added by you")), /* @__PURE__ */ import_react93.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setExtras(extras.filter((x) => x !== label)) }, "Remove"))), /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__addrow" }, /* @__PURE__ */ import_react93.default.createElement(
+      return /* @__PURE__ */ import_react94.default.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react94.default.createElement(Checkbox, { checked: !!outcomes[key], onChange: () => toggle(setOutcomes)(key) }), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-label" }, o.label), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-measure" }, o.measure)), o.target ? /* @__PURE__ */ import_react94.default.createElement(Badge, { outline: true, micro: true }, o.target) : null);
+    }), extras.map((label) => /* @__PURE__ */ import_react94.default.createElement("div", { key: label, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react94.default.createElement(Checkbox, { checked: true, readOnly: true }), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-label" }, label), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-measure" }, "Added by you")), /* @__PURE__ */ import_react94.default.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setExtras(extras.filter((x) => x !== label)) }, "Remove"))), /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__addrow" }, /* @__PURE__ */ import_react94.default.createElement(
       TextInput,
       {
         value: extraOutcome,
@@ -3871,7 +3915,7 @@ function PlaybookComposer({
           setExtraOutcome("");
         }
       }
-    ), /* @__PURE__ */ import_react93.default.createElement(
+    ), /* @__PURE__ */ import_react94.default.createElement(
       Button,
       {
         size: "sm",
@@ -3884,11 +3928,11 @@ function PlaybookComposer({
         }
       },
       "Add"
-    )), (chosen.checkpoints || []).length ? /* @__PURE__ */ import_react93.default.createElement(import_react93.default.Fragment, null, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__label" }, "Where a person decides"), (chosen.checkpoints || []).map((c, i) => {
+    )), (chosen.checkpoints || []).length ? /* @__PURE__ */ import_react94.default.createElement(import_react94.default.Fragment, null, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__label" }, "Where a person decides"), (chosen.checkpoints || []).map((c, i) => {
       const key = c.id != null ? c.id : i;
-      return /* @__PURE__ */ import_react93.default.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react93.default.createElement(Checkbox, { checked: !!checkpoints[key], onChange: () => toggle(setCheckpoints)(key) }), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-label" }, c.name), /* @__PURE__ */ import_react93.default.createElement("span", { className: "lamp-composer__outcome-measure" }, c.when)));
+      return /* @__PURE__ */ import_react94.default.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ import_react94.default.createElement(Checkbox, { checked: !!checkpoints[key], onChange: () => toggle(setCheckpoints)(key) }), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-label" }, c.name), /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-composer__outcome-measure" }, c.when)));
     })) : null) : null,
-    allowGenie && chosen.id !== BLANK_PROCESS.id ? /* @__PURE__ */ import_react93.default.createElement("div", { className: "lamp-composer__genie" }, /* @__PURE__ */ import_react93.default.createElement(
+    allowGenie && chosen.id !== BLANK_PROCESS.id ? /* @__PURE__ */ import_react94.default.createElement("div", { className: "lamp-composer__genie" }, /* @__PURE__ */ import_react94.default.createElement(
       Checkbox,
       {
         checked: makeGenie,
@@ -3896,21 +3940,21 @@ function PlaybookComposer({
         label: "Also create a " + chosen.domain + " Genie",
         description: "Sets up the Genie this process belongs to, with its memory, guardrails and the other Playbooks it usually contains \u2014 as drafts."
       }
-    ), makeGenie && onPreviewGenie ? /* @__PURE__ */ import_react93.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onPreviewGenie(chosen) }, "Preview what gets created") : null) : null
+    ), makeGenie && onPreviewGenie ? /* @__PURE__ */ import_react94.default.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onPreviewGenie(chosen) }, "Preview what gets created") : null) : null
   );
-}
+}), { displayName: "PlaybookComposer" });
 
 // project/components/patterns/VoiceButton.jsx
-var import_react94 = __toESM(require("react"), 1);
-function VoiceWaveform({ levels = [], bars = 18, height = 20 }) {
+var import_react95 = __toESM(require("react"), 1);
+var VoiceWaveform = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react95.default.forwardRef(function VoiceWaveform2({ levels = [], bars = 18, height = 20 }, ref) {
   const data = levels.length ? levels : Array.from({ length: bars }, (_, i) => 0.3 + 0.7 * Math.abs(Math.sin(i * 1.1)));
-  return /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-voice__wave", style: { height }, "aria-hidden": "true" }, data.map((v, i) => /* @__PURE__ */ import_react94.default.createElement("span", { key: i, className: "lamp-voice__bar", style: { height: Math.max(2, v * height) } })));
-}
-function VoiceButton({ state = "idle", size = "md", duration, levels, label, onPress, onCancel, onSend, className = "", ...rest }) {
+  return /* @__PURE__ */ import_react95.default.createElement("span", { ref, className: "lamp-voice__wave", style: { height }, "aria-hidden": "true" }, data.map((v, i) => /* @__PURE__ */ import_react95.default.createElement("span", { key: i, className: "lamp-voice__bar", style: { height: Math.max(2, v * height) } })));
+}), { displayName: "VoiceWaveform" });
+var VoiceButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react95.default.forwardRef(function VoiceButton2({ state = "idle", size = "md", duration, levels, label, onPress, onCancel, onSend, className = "", ...rest }, ref) {
   const recording = state === "recording";
   const glyph = state === "processing" ? "progress_activity" : state === "speaking" ? "volume_up" : recording ? "stop" : "mic";
   const text = label || (recording ? "Recording" : state === "processing" ? "Processing" : state === "speaking" ? "Speaking" : state === "error" ? "Microphone unavailable" : "Hold to speak");
-  return /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-voice " + className, ...rest }, /* @__PURE__ */ import_react94.default.createElement(
+  return /* @__PURE__ */ import_react95.default.createElement("span", { ref, className: "lamp-voice " + className, ...rest }, /* @__PURE__ */ import_react95.default.createElement(
     "button",
     {
       type: "button",
@@ -3919,13 +3963,13 @@ function VoiceButton({ state = "idle", size = "md", duration, levels, label, onP
       className: ["lamp-voice__btn", recording && "lamp-voice__btn--recording", size === "lg" && "lamp-voice__btn--lg"].filter(Boolean).join(" "),
       onClick: onPress
     },
-    /* @__PURE__ */ import_react94.default.createElement(Icon, { name: glyph, size: size === "lg" ? 28 : 22 })
-  ), recording ? /* @__PURE__ */ import_react94.default.createElement(VoiceWaveform, { levels }) : null, duration ? /* @__PURE__ */ import_react94.default.createElement("span", { className: "lamp-voice__time" }, duration) : null, !recording && state === "idle" ? /* @__PURE__ */ import_react94.default.createElement("span", { style: { fontSize: 13, color: "var(--text-secondary)" } }, text) : null);
-}
+    /* @__PURE__ */ import_react95.default.createElement(Icon, { name: glyph, size: size === "lg" ? 28 : 22 })
+  ), recording ? /* @__PURE__ */ import_react95.default.createElement(VoiceWaveform, { levels }) : null, duration ? /* @__PURE__ */ import_react95.default.createElement("span", { className: "lamp-voice__time" }, duration) : null, !recording && state === "idle" ? /* @__PURE__ */ import_react95.default.createElement("span", { style: { fontSize: 13, color: "var(--text-secondary)" } }, text) : null);
+}), { displayName: "VoiceButton" });
 
 // project/components/runtime/ApprovalCard.jsx
-var import_react95 = __toESM(require("react"), 1);
-function ApprovalCard({
+var import_react96 = __toESM(require("react"), 1);
+var ApprovalCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react96.default.forwardRef(function ApprovalCard2({
   question,
   amount,
   tone = "default",
@@ -3943,15 +3987,15 @@ function ApprovalCard({
   evidence,
   className = "",
   ...rest
-}) {
-  return /* @__PURE__ */ import_react95.default.createElement("article", { className: ["lamp-approval", tone !== "default" && "lamp-approval--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react95.default.createElement("div", { className: "lamp-approval__top" }, /* @__PURE__ */ import_react95.default.createElement(Badge, { tone: tone === "critical" ? "danger" : "waiting", icon: "how_to_reg", micro: true }, "Approval required"), playbook ? /* @__PURE__ */ import_react95.default.createElement(Badge, { outline: true, icon: "layers" }, playbook) : null, requestedBy ? /* @__PURE__ */ import_react95.default.createElement(Badge, { outline: true, icon: "hexagon" }, requestedBy) : null, dueIn ? /* @__PURE__ */ import_react95.default.createElement("span", { className: "lamp-approval__timer" }, dueIn) : null), /* @__PURE__ */ import_react95.default.createElement("h3", { className: "lamp-approval__q" }, question), amount ? /* @__PURE__ */ import_react95.default.createElement("div", { className: "lamp-approval__amount" }, amount) : null, facts.length ? /* @__PURE__ */ import_react95.default.createElement("div", { className: "lamp-approval__facts" }, facts.map((f) => /* @__PURE__ */ import_react95.default.createElement(import_react95.default.Fragment, { key: f.label }, /* @__PURE__ */ import_react95.default.createElement("span", { className: "lamp-approval__k" }, f.label), /* @__PURE__ */ import_react95.default.createElement("span", { className: "lamp-approval__v" }, f.value)))) : null, evidence, /* @__PURE__ */ import_react95.default.createElement("div", { className: "lamp-approval__actions" }, kind === "choice" ? options.map((o) => /* @__PURE__ */ import_react95.default.createElement(Button, { key: o.id, size: "md", variant: o.primary ? "primary" : "secondary", onClick: o.onSelect }, o.label)) : /* @__PURE__ */ import_react95.default.createElement(import_react95.default.Fragment, null, onApprove ? /* @__PURE__ */ import_react95.default.createElement(Button, { size: "md", variant: tone === "critical" ? "danger" : "primary", icon: "check", onClick: onApprove }, tone === "critical" ? "Approve anyway" : "Approve") : null, onEdit ? /* @__PURE__ */ import_react95.default.createElement(Button, { size: "md", variant: "secondary", icon: "edit", onClick: onEdit }, "Edit before approving") : null, onReject ? /* @__PURE__ */ import_react95.default.createElement(Button, { size: "md", variant: "secondary", icon: "close", onClick: onReject }, "Reject") : null, onRequestInfo ? /* @__PURE__ */ import_react95.default.createElement(Button, { size: "md", variant: "ghost", onClick: onRequestInfo }, "Request information") : null, onEscalate ? /* @__PURE__ */ import_react95.default.createElement(Button, { size: "md", variant: "quiet", onClick: onEscalate }, "Escalate") : null)));
-}
-function HumanCheckpoint({ label = "Human checkpoint", detail, ...rest }) {
-  return /* @__PURE__ */ import_react95.default.createElement("span", { className: "lamp-checkpoint", ...rest }, /* @__PURE__ */ import_react95.default.createElement(Icon, { name: "how_to_reg", size: 14 }), /* @__PURE__ */ import_react95.default.createElement("b", { style: { fontWeight: 600 } }, label), detail ? /* @__PURE__ */ import_react95.default.createElement("span", null, detail) : null);
-}
+}, ref) {
+  return /* @__PURE__ */ import_react96.default.createElement("article", { ref, className: ["lamp-approval", tone !== "default" && "lamp-approval--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ import_react96.default.createElement("div", { className: "lamp-approval__top" }, /* @__PURE__ */ import_react96.default.createElement(Badge, { tone: tone === "critical" ? "danger" : "waiting", icon: "how_to_reg", micro: true }, "Approval required"), playbook ? /* @__PURE__ */ import_react96.default.createElement(Badge, { outline: true, icon: "layers" }, playbook) : null, requestedBy ? /* @__PURE__ */ import_react96.default.createElement(Badge, { outline: true, icon: "hexagon" }, requestedBy) : null, dueIn ? /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-approval__timer" }, dueIn) : null), /* @__PURE__ */ import_react96.default.createElement("h3", { className: "lamp-approval__q" }, question), amount ? /* @__PURE__ */ import_react96.default.createElement("div", { className: "lamp-approval__amount" }, amount) : null, facts.length ? /* @__PURE__ */ import_react96.default.createElement("div", { className: "lamp-approval__facts" }, facts.map((f) => /* @__PURE__ */ import_react96.default.createElement(import_react96.default.Fragment, { key: f.label }, /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-approval__k" }, f.label), /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-approval__v" }, f.value)))) : null, evidence, /* @__PURE__ */ import_react96.default.createElement("div", { className: "lamp-approval__actions" }, kind === "choice" ? options.map((o) => /* @__PURE__ */ import_react96.default.createElement(Button, { key: o.id, size: "md", variant: o.primary ? "primary" : "secondary", onClick: o.onSelect }, o.label)) : /* @__PURE__ */ import_react96.default.createElement(import_react96.default.Fragment, null, onApprove ? /* @__PURE__ */ import_react96.default.createElement(Button, { size: "md", variant: tone === "critical" ? "danger" : "primary", icon: "check", onClick: onApprove }, tone === "critical" ? "Approve anyway" : "Approve") : null, onEdit ? /* @__PURE__ */ import_react96.default.createElement(Button, { size: "md", variant: "secondary", icon: "edit", onClick: onEdit }, "Edit before approving") : null, onReject ? /* @__PURE__ */ import_react96.default.createElement(Button, { size: "md", variant: "secondary", icon: "close", onClick: onReject }, "Reject") : null, onRequestInfo ? /* @__PURE__ */ import_react96.default.createElement(Button, { size: "md", variant: "ghost", onClick: onRequestInfo }, "Request information") : null, onEscalate ? /* @__PURE__ */ import_react96.default.createElement(Button, { size: "md", variant: "quiet", onClick: onEscalate }, "Escalate") : null)));
+}), { displayName: "ApprovalCard" });
+var HumanCheckpoint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react96.default.forwardRef(function HumanCheckpoint2({ label = "Human checkpoint", detail, ...rest }, ref) {
+  return /* @__PURE__ */ import_react96.default.createElement("span", { ref, className: "lamp-checkpoint", ...rest }, /* @__PURE__ */ import_react96.default.createElement(Icon, { name: "how_to_reg", size: 14 }), /* @__PURE__ */ import_react96.default.createElement("b", { style: { fontWeight: 600 } }, label), detail ? /* @__PURE__ */ import_react96.default.createElement("span", null, detail) : null);
+}), { displayName: "HumanCheckpoint" });
 
 // project/components/runtime/EnvironmentBanner.jsx
-var import_react96 = __toESM(require("react"), 1);
+var import_react97 = __toESM(require("react"), 1);
 var ENV2 = {
   draft: { glyph: "edit", label: "Draft", detail: "Nothing here can act on the business yet." },
   simulation: { glyph: "science", label: "Simulation", detail: "Tool writes are mocked. Nothing leaves LAMP." },
@@ -3959,47 +4003,47 @@ var ENV2 = {
   paused: { glyph: "pause", label: "Paused", detail: "No new runs will start." },
   killed: { glyph: "dangerous", label: "Emergency stopped", detail: "All external writes are blocked." }
 };
-function EnvironmentBanner({ environment = "draft", scope, detail, actions, className = "", ...rest }) {
+var EnvironmentBanner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react97.default.forwardRef(function EnvironmentBanner2({ environment = "draft", scope, detail, actions, className = "", ...rest }, ref) {
   const e = ENV2[environment] || ENV2.draft;
-  return /* @__PURE__ */ import_react96.default.createElement("div", { className: ["lamp-envbar", "lamp-envbar--" + environment, className].filter(Boolean).join(" "), role: environment === "killed" ? "alert" : "status", ...rest }, /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-envbar__label" }, /* @__PURE__ */ import_react96.default.createElement(Icon, { name: e.glyph, size: 14 }), e.label), scope ? /* @__PURE__ */ import_react96.default.createElement("span", { style: { fontWeight: 500 } }, scope) : null, /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-envbar__detail" }, detail || e.detail), actions ? /* @__PURE__ */ import_react96.default.createElement("span", { className: "lamp-envbar__right" }, actions) : null);
-}
+  return /* @__PURE__ */ import_react97.default.createElement("div", { ref, className: ["lamp-envbar", "lamp-envbar--" + environment, className].filter(Boolean).join(" "), role: environment === "killed" ? "alert" : "status", ...rest }, /* @__PURE__ */ import_react97.default.createElement("span", { className: "lamp-envbar__label" }, /* @__PURE__ */ import_react97.default.createElement(Icon, { name: e.glyph, size: 14 }), e.label), scope ? /* @__PURE__ */ import_react97.default.createElement("span", { style: { fontWeight: 500 } }, scope) : null, /* @__PURE__ */ import_react97.default.createElement("span", { className: "lamp-envbar__detail" }, detail || e.detail), actions ? /* @__PURE__ */ import_react97.default.createElement("span", { className: "lamp-envbar__right" }, actions) : null);
+}), { displayName: "EnvironmentBanner" });
 
 // project/components/runtime/KillSwitch.jsx
-var import_react97 = __toESM(require("react"), 1);
-function KillSwitch({ scope = "this Genie", consequences, activeRuns, onCancel, onConfirm, requireAcknowledge = true, confirmLabel = "Emergency stop", className = "", ...rest }) {
-  const [ack, setAck] = import_react97.default.useState(!requireAcknowledge);
+var import_react98 = __toESM(require("react"), 1);
+var KillSwitch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react98.default.forwardRef(function KillSwitch2({ scope = "this Genie", consequences, activeRuns, onCancel, onConfirm, requireAcknowledge = true, confirmLabel = "Emergency stop", className = "", ...rest }, ref) {
+  const [ack, setAck] = import_react98.default.useState(!requireAcknowledge);
   const list = consequences || ["block new external write actions", "stop new runs", "isolate active tasks"];
-  return /* @__PURE__ */ import_react97.default.createElement("div", { className: "lamp-kill " + className, role: "alertdialog", "aria-label": "Stop " + scope, ...rest }, /* @__PURE__ */ import_react97.default.createElement("div", { className: "lamp-kill__title" }, /* @__PURE__ */ import_react97.default.createElement(Icon, { name: "dangerous", size: 16 }), "Stop ", scope, "?"), /* @__PURE__ */ import_react97.default.createElement("div", { style: { fontSize: 12, color: "var(--text-secondary)" } }, "Immediately:"), /* @__PURE__ */ import_react97.default.createElement("ul", { className: "lamp-kill__list" }, list.map((c) => /* @__PURE__ */ import_react97.default.createElement("li", { key: c }, c))), activeRuns != null ? /* @__PURE__ */ import_react97.default.createElement("div", { className: "lamp-kill__armed" }, /* @__PURE__ */ import_react97.default.createElement(Icon, { name: "warning", size: 14 }), activeRuns, " runs are active right now. Their completed steps are not reversed.") : null, requireAcknowledge ? /* @__PURE__ */ import_react97.default.createElement(Checkbox, { label: "I understand this stops all automation in " + scope + ".", checked: ack, onChange: (e) => setAck(e.target.checked) }) : null, /* @__PURE__ */ import_react97.default.createElement("div", { className: "lamp-kill__actions" }, /* @__PURE__ */ import_react97.default.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, "Cancel"), /* @__PURE__ */ import_react97.default.createElement(Button, { size: "md", variant: "danger", icon: "dangerous", disabled: !ack, onClick: onConfirm }, confirmLabel)));
-}
-function SafetyControls({ state = "live", onPause, onSafeStop, onEmergency, onResume, className = "", ...rest }) {
-  return /* @__PURE__ */ import_react97.default.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 }, className, ...rest }, state === "paused" ? /* @__PURE__ */ import_react97.default.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onResume }, "Resume") : /* @__PURE__ */ import_react97.default.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause"), /* @__PURE__ */ import_react97.default.createElement(Button, { size: "sm", variant: "secondary", icon: "stop_circle", onClick: onSafeStop }, "Safe stop"), /* @__PURE__ */ import_react97.default.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "dangerous", onClick: onEmergency }, "Emergency stop"));
-}
+  return /* @__PURE__ */ import_react98.default.createElement("div", { ref, className: "lamp-kill " + className, role: "alertdialog", "aria-label": "Stop " + scope, ...rest }, /* @__PURE__ */ import_react98.default.createElement("div", { className: "lamp-kill__title" }, /* @__PURE__ */ import_react98.default.createElement(Icon, { name: "dangerous", size: 16 }), "Stop ", scope, "?"), /* @__PURE__ */ import_react98.default.createElement("div", { style: { fontSize: 12, color: "var(--text-secondary)" } }, "Immediately:"), /* @__PURE__ */ import_react98.default.createElement("ul", { className: "lamp-kill__list" }, list.map((c) => /* @__PURE__ */ import_react98.default.createElement("li", { key: c }, c))), activeRuns != null ? /* @__PURE__ */ import_react98.default.createElement("div", { className: "lamp-kill__armed" }, /* @__PURE__ */ import_react98.default.createElement(Icon, { name: "warning", size: 14 }), activeRuns, " runs are active right now. Their completed steps are not reversed.") : null, requireAcknowledge ? /* @__PURE__ */ import_react98.default.createElement(Checkbox, { label: "I understand this stops all automation in " + scope + ".", checked: ack, onChange: (e) => setAck(e.target.checked) }) : null, /* @__PURE__ */ import_react98.default.createElement("div", { className: "lamp-kill__actions" }, /* @__PURE__ */ import_react98.default.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, "Cancel"), /* @__PURE__ */ import_react98.default.createElement(Button, { size: "md", variant: "danger", icon: "dangerous", disabled: !ack, onClick: onConfirm }, confirmLabel)));
+}), { displayName: "KillSwitch" });
+var SafetyControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react98.default.forwardRef(function SafetyControls2({ state = "live", onPause, onSafeStop, onEmergency, onResume, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react98.default.createElement("div", { ref, style: { display: "flex", alignItems: "center", gap: 6 }, className, ...rest }, state === "paused" ? /* @__PURE__ */ import_react98.default.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onResume }, "Resume") : /* @__PURE__ */ import_react98.default.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause"), /* @__PURE__ */ import_react98.default.createElement(Button, { size: "sm", variant: "secondary", icon: "stop_circle", onClick: onSafeStop }, "Safe stop"), /* @__PURE__ */ import_react98.default.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "dangerous", onClick: onEmergency }, "Emergency stop"));
+}), { displayName: "SafetyControls" });
 
 // project/components/runtime/LiveActivityIndicator.jsx
-var import_react98 = __toESM(require("react"), 1);
-function LiveActivityIndicator({ mode = "live", label, count, className = "", ...rest }) {
+var import_react99 = __toESM(require("react"), 1);
+var LiveActivityIndicator = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react99.default.forwardRef(function LiveActivityIndicator2({ mode = "live", label, count, className = "", ...rest }, ref) {
   const text = label || (mode === "live" ? "Live" : mode === "simulation" ? "Simulating" : "Idle");
-  return /* @__PURE__ */ import_react98.default.createElement("span", { className: ["lamp-live", mode !== "live" && "lamp-live--" + mode, className].filter(Boolean).join(" "), role: "status", ...rest }, /* @__PURE__ */ import_react98.default.createElement("span", { className: "lamp-live__pulse" }), text, count != null ? /* @__PURE__ */ import_react98.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, opacity: 0.8 } }, count, " active") : null);
-}
+  return /* @__PURE__ */ import_react99.default.createElement("span", { ref, className: ["lamp-live", mode !== "live" && "lamp-live--" + mode, className].filter(Boolean).join(" "), role: "status", ...rest }, /* @__PURE__ */ import_react99.default.createElement("span", { className: "lamp-live__pulse" }), text, count != null ? /* @__PURE__ */ import_react99.default.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, opacity: 0.8 } }, count, " active") : null);
+}), { displayName: "LiveActivityIndicator" });
 
 // project/components/runtime/ReadinessCheck.jsx
-var import_react99 = __toESM(require("react"), 1);
+var import_react100 = __toESM(require("react"), 1);
 var TONE2 = {
   passed: { glyph: "check_circle", color: "var(--status-success)" },
   warning: { glyph: "warning", color: "var(--status-warning)" },
   failed: { glyph: "cancel", color: "var(--status-danger)" },
   pending: { glyph: "radio_button_unchecked", color: "var(--text-disabled)" }
 };
-function ReadinessCheck({ checks = [], className = "", ...rest }) {
-  return /* @__PURE__ */ import_react99.default.createElement("div", { className: "lamp-readiness " + className, role: "list", ...rest }, checks.map((c) => {
+var ReadinessCheck = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react100.default.forwardRef(function ReadinessCheck2({ checks = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react100.default.createElement("div", { ref, className: "lamp-readiness " + className, role: "list", ...rest }, checks.map((c) => {
     const t = TONE2[c.state] || TONE2.pending;
-    return /* @__PURE__ */ import_react99.default.createElement("div", { className: "lamp-readiness__row", key: c.label, role: "listitem" }, /* @__PURE__ */ import_react99.default.createElement(Icon, { name: t.glyph, size: 15, style: { color: t.color } }), /* @__PURE__ */ import_react99.default.createElement("span", null, c.label), c.detail ? /* @__PURE__ */ import_react99.default.createElement("span", { className: "lamp-readiness__detail" }, c.detail) : null, c.action);
+    return /* @__PURE__ */ import_react100.default.createElement("div", { className: "lamp-readiness__row", key: c.label, role: "listitem" }, /* @__PURE__ */ import_react100.default.createElement(Icon, { name: t.glyph, size: 15, style: { color: t.color } }), /* @__PURE__ */ import_react100.default.createElement("span", null, c.label), c.detail ? /* @__PURE__ */ import_react100.default.createElement("span", { className: "lamp-readiness__detail" }, c.detail) : null, c.action);
   }));
-}
+}), { displayName: "ReadinessCheck" });
 
 // project/components/runtime/RunSummary.jsx
-var import_react100 = __toESM(require("react"), 1);
-function RunSummary({ runId, status = "success", trigger, started, completed, duration, agents, toolCalls, llmCalls, cacheRate, tokens, cost, interventions, environment, className = "", ...rest }) {
+var import_react101 = __toESM(require("react"), 1);
+var RunSummary = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react101.default.forwardRef(function RunSummary2({ runId, status = "success", trigger, started, completed, duration, agents, toolCalls, llmCalls, cacheRate, tokens, cost, interventions, environment, className = "", ...rest }, ref) {
   const rows = [
     ["Run ID", runId, true],
     ["Environment", environment],
@@ -4015,11 +4059,11 @@ function RunSummary({ runId, status = "success", trigger, started, completed, du
     ["Estimated cost", cost, true],
     ["Human interventions", interventions, true]
   ].filter((r) => r[1] != null && r[1] !== "");
-  return /* @__PURE__ */ import_react100.default.createElement("div", { className, ...rest }, /* @__PURE__ */ import_react100.default.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 } }, /* @__PURE__ */ import_react100.default.createElement(StatusBadge, { status })), rows.map(([label, value, mono]) => /* @__PURE__ */ import_react100.default.createElement(PropertyRow, { key: label, label, value, mono: !!mono })));
-}
+  return /* @__PURE__ */ import_react101.default.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ import_react101.default.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 } }, /* @__PURE__ */ import_react101.default.createElement(StatusBadge, { status })), rows.map(([label, value, mono]) => /* @__PURE__ */ import_react101.default.createElement(PropertyRow, { key: label, label, value, mono: !!mono })));
+}), { displayName: "RunSummary" });
 
 // project/components/runtime/RunTimeline.jsx
-var import_react101 = __toESM(require("react"), 1);
+var import_react102 = __toESM(require("react"), 1);
 var STEP = {
   pending: { glyph: null, cls: "" },
   running: { glyph: "sync", cls: "running" },
@@ -4031,30 +4075,30 @@ var STEP = {
   mocked: { glyph: "inventory_2", cls: "skipped" },
   blocked: { glyph: "block", cls: "blocked" }
 };
-function RunStep({ index, state = "pending", title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = "", ...rest }) {
+var RunStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react102.default.forwardRef(function RunStep2({ index, state = "pending", title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = "", ...rest }, ref) {
   const s = STEP[state] || STEP.pending;
-  return /* @__PURE__ */ import_react101.default.createElement("div", { className: "lamp-step " + className, ...rest }, /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__icon" + (s.cls ? " lamp-step__icon--" + s.cls : "") }, s.glyph ? /* @__PURE__ */ import_react101.default.createElement(Icon, { name: s.glyph, size: 11 }) : index), /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__main" }, /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__title" }, title), detail ? /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__sub" }, detail) : null, actor || tools.length || memory ? /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__chips" }, actor ? /* @__PURE__ */ import_react101.default.createElement(Badge, { outline: true, icon: "hexagon" }, actor) : null, tools.map((t) => /* @__PURE__ */ import_react101.default.createElement(Badge, { key: t, outline: true, icon: "square" }, t)), memory ? /* @__PURE__ */ import_react101.default.createElement(Badge, { tone: "memory", icon: "database" }, memory) : null) : null, children), /* @__PURE__ */ import_react101.default.createElement("span", { className: "lamp-step__right" }, tokens ? /* @__PURE__ */ import_react101.default.createElement("span", null, tokens) : null, cost ? /* @__PURE__ */ import_react101.default.createElement("span", null, cost) : null, duration ? /* @__PURE__ */ import_react101.default.createElement("span", null, duration) : null, expandable ? /* @__PURE__ */ import_react101.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 }) : null));
-}
-function RunTimeline({ steps = [], className = "", ...rest }) {
-  return /* @__PURE__ */ import_react101.default.createElement("div", { className, role: "list", "aria-label": "Run timeline", ...rest }, steps.map((s, i) => /* @__PURE__ */ import_react101.default.createElement(RunStep, { key: i, index: i + 1, ...s })));
-}
+  return /* @__PURE__ */ import_react102.default.createElement("div", { ref, className: "lamp-step " + className, ...rest }, /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__icon" + (s.cls ? " lamp-step__icon--" + s.cls : "") }, s.glyph ? /* @__PURE__ */ import_react102.default.createElement(Icon, { name: s.glyph, size: 11 }) : index), /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__main" }, /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__title" }, title), detail ? /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__sub" }, detail) : null, actor || tools.length || memory ? /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__chips" }, actor ? /* @__PURE__ */ import_react102.default.createElement(Badge, { outline: true, icon: "hexagon" }, actor) : null, tools.map((t) => /* @__PURE__ */ import_react102.default.createElement(Badge, { key: t, outline: true, icon: "square" }, t)), memory ? /* @__PURE__ */ import_react102.default.createElement(Badge, { tone: "memory", icon: "database" }, memory) : null) : null, children), /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-step__right" }, tokens ? /* @__PURE__ */ import_react102.default.createElement("span", null, tokens) : null, cost ? /* @__PURE__ */ import_react102.default.createElement("span", null, cost) : null, duration ? /* @__PURE__ */ import_react102.default.createElement("span", null, duration) : null, expandable ? /* @__PURE__ */ import_react102.default.createElement(Icon, { name: "keyboard_arrow_down", size: 14 }) : null));
+}), { displayName: "RunStep" });
+var RunTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react102.default.forwardRef(function RunTimeline2({ steps = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ import_react102.default.createElement("div", { ref, className, role: "list", "aria-label": "Run timeline", ...rest }, steps.map((s, i) => /* @__PURE__ */ import_react102.default.createElement(RunStep, { key: i, index: i + 1, ...s })));
+}), { displayName: "RunTimeline" });
 
 // project/components/runtime/SimulationBar.jsx
-var import_react102 = __toESM(require("react"), 1);
-function SimulationBar({ mode = "simulation", state = "idle", progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = "", ...rest }) {
+var import_react103 = __toESM(require("react"), 1);
+var SimulationBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react103.default.forwardRef(function SimulationBar2({ mode = "simulation", state = "idle", progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = "", ...rest }, ref) {
   const running = state === "running";
-  return /* @__PURE__ */ import_react102.default.createElement("div", { className: "lamp-simbar " + className, role: "toolbar", "aria-label": mode === "live" ? "Live controls" : "Simulation controls", ...rest }, running ? /* @__PURE__ */ import_react102.default.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause") : /* @__PURE__ */ import_react102.default.createElement(Button, { size: "sm", variant: mode === "live" ? "brand" : "primary", icon: "play_arrow", onClick: onRun }, state === "paused" ? "Resume" : mode === "live" ? "Start run" : "Run simulation"), /* @__PURE__ */ import_react102.default.createElement(IconButton, { icon: "skip_next", label: "Step forward", size: "md", onClick: onStepForward, disabled: running }), /* @__PURE__ */ import_react102.default.createElement(IconButton, { icon: "stop_circle", label: "Stop", size: "md", onClick: onStop, disabled: state === "idle" }), /* @__PURE__ */ import_react102.default.createElement(Divider, { orientation: "vertical" }), scenario ? /* @__PURE__ */ import_react102.default.createElement("button", { type: "button", onClick: onScenario, style: { display: "flex", alignItems: "center", gap: 6, height: 24, padding: "0 6px", border: "1px solid var(--border-default)", borderRadius: "var(--radius-sm)", background: "var(--surface-primary)", font: "500 12px var(--font-sans)", color: "var(--text-primary)", cursor: "pointer" } }, /* @__PURE__ */ import_react102.default.createElement(Icon, { name: "dataset", size: 13 }), scenario) : null, /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-simbar__progress" }, /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-simbar__fill" + (mode === "live" ? " lamp-simbar__fill--live" : ""), style: { width: Math.round(progress * 100) + "%" } })), /* @__PURE__ */ import_react102.default.createElement("span", { className: "lamp-simbar__meta" }, stepCount ? /* @__PURE__ */ import_react102.default.createElement("span", null, "Step ", step, "/", stepCount) : null, elapsed ? /* @__PURE__ */ import_react102.default.createElement("span", null, elapsed) : null, cost ? /* @__PURE__ */ import_react102.default.createElement("span", null, cost) : null), onReplay ? /* @__PURE__ */ import_react102.default.createElement(IconButton, { icon: "replay", label: "Replay run", size: "md", onClick: onReplay }) : null, right);
-}
+  return /* @__PURE__ */ import_react103.default.createElement("div", { ref, className: "lamp-simbar " + className, role: "toolbar", "aria-label": mode === "live" ? "Live controls" : "Simulation controls", ...rest }, running ? /* @__PURE__ */ import_react103.default.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause") : /* @__PURE__ */ import_react103.default.createElement(Button, { size: "sm", variant: mode === "live" ? "brand" : "primary", icon: "play_arrow", onClick: onRun }, state === "paused" ? "Resume" : mode === "live" ? "Start run" : "Run simulation"), /* @__PURE__ */ import_react103.default.createElement(IconButton, { icon: "skip_next", label: "Step forward", size: "md", onClick: onStepForward, disabled: running }), /* @__PURE__ */ import_react103.default.createElement(IconButton, { icon: "stop_circle", label: "Stop", size: "md", onClick: onStop, disabled: state === "idle" }), /* @__PURE__ */ import_react103.default.createElement(Divider, { orientation: "vertical" }), scenario ? /* @__PURE__ */ import_react103.default.createElement("button", { type: "button", onClick: onScenario, style: { display: "flex", alignItems: "center", gap: 6, height: 24, padding: "0 6px", border: "1px solid var(--border-default)", borderRadius: "var(--radius-sm)", background: "var(--surface-primary)", font: "500 12px var(--font-sans)", color: "var(--text-primary)", cursor: "pointer" } }, /* @__PURE__ */ import_react103.default.createElement(Icon, { name: "dataset", size: 13 }), scenario) : null, /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simbar__progress" }, /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simbar__fill" + (mode === "live" ? " lamp-simbar__fill--live" : ""), style: { width: Math.round(progress * 100) + "%" } })), /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simbar__meta" }, stepCount ? /* @__PURE__ */ import_react103.default.createElement("span", null, "Step ", step, "/", stepCount) : null, elapsed ? /* @__PURE__ */ import_react103.default.createElement("span", null, elapsed) : null, cost ? /* @__PURE__ */ import_react103.default.createElement("span", null, cost) : null), onReplay ? /* @__PURE__ */ import_react103.default.createElement(IconButton, { icon: "replay", label: "Replay run", size: "md", onClick: onReplay }) : null, right);
+}), { displayName: "SimulationBar" });
 
 // project/components/runtime/SimulationStep.jsx
-var import_react103 = __toESM(require("react"), 1);
+var import_react104 = __toESM(require("react"), 1);
 var SIM_NOTE = {
   mocked: { label: "Mocked", glyph: "inventory_2", tone: "neutral" },
   blocked: { label: "Blocked", glyph: "block", tone: "warning" },
   waitingHuman: { label: "Awaiting approval", glyph: "how_to_reg", tone: "waiting" },
   skipped: { label: "Skipped", glyph: "remove", tone: "neutral" }
 };
-function SimulationStep({
+var SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ import_react104.default.forwardRef(function SimulationStep2({
   state = "pending",
   mockedValue,
   blockedReason,
@@ -4064,19 +4108,20 @@ function SimulationStep({
   children,
   className = "",
   ...rest
-}) {
+}, ref) {
   const note = SIM_NOTE[state];
-  return /* @__PURE__ */ import_react103.default.createElement(
+  return /* @__PURE__ */ import_react104.default.createElement(
     RunStep,
     {
+      ref,
       state,
       className: ["lamp-simstep", "lamp-simstep--" + state, divergence && "lamp-simstep--diverged", className].filter(Boolean).join(" "),
       ...rest
     },
-    note || divergence || scenario ? /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__chips" }, note ? /* @__PURE__ */ import_react103.default.createElement(Badge, { tone: note.tone, icon: note.glyph, micro: true }, note.label) : null, scenario ? /* @__PURE__ */ import_react103.default.createElement(Badge, { outline: true, icon: "science", micro: true }, scenario) : null, divergence ? /* @__PURE__ */ import_react103.default.createElement(Badge, { tone: "warning", icon: "swap_horiz", micro: true }, "Differs from live") : null) : null,
-    state === "mocked" && mockedValue ? /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__mock" }, /* @__PURE__ */ import_react103.default.createElement(Icon, { name: "inventory_2", size: 12 }), /* @__PURE__ */ import_react103.default.createElement("span", null, "Stand-in value: ", /* @__PURE__ */ import_react103.default.createElement("b", null, mockedValue))) : null,
-    state === "blocked" && blockedReason ? /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__blocked" }, /* @__PURE__ */ import_react103.default.createElement(Icon, { name: "block", size: 12 }), /* @__PURE__ */ import_react103.default.createElement("span", null, blockedReason)) : null,
-    divergence && expected ? /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__diverge" }, /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ import_react103.default.createElement("span", null, "Live"), /* @__PURE__ */ import_react103.default.createElement("b", null, expected)), /* @__PURE__ */ import_react103.default.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ import_react103.default.createElement("span", null, "Simulated"), /* @__PURE__ */ import_react103.default.createElement("b", null, divergence))) : null,
+    note || divergence || scenario ? /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__chips" }, note ? /* @__PURE__ */ import_react104.default.createElement(Badge, { tone: note.tone, icon: note.glyph, micro: true }, note.label) : null, scenario ? /* @__PURE__ */ import_react104.default.createElement(Badge, { outline: true, icon: "science", micro: true }, scenario) : null, divergence ? /* @__PURE__ */ import_react104.default.createElement(Badge, { tone: "warning", icon: "swap_horiz", micro: true }, "Differs from live") : null) : null,
+    state === "mocked" && mockedValue ? /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__mock" }, /* @__PURE__ */ import_react104.default.createElement(Icon, { name: "inventory_2", size: 12 }), /* @__PURE__ */ import_react104.default.createElement("span", null, "Stand-in value: ", /* @__PURE__ */ import_react104.default.createElement("b", null, mockedValue))) : null,
+    state === "blocked" && blockedReason ? /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__blocked" }, /* @__PURE__ */ import_react104.default.createElement(Icon, { name: "block", size: 12 }), /* @__PURE__ */ import_react104.default.createElement("span", null, blockedReason)) : null,
+    divergence && expected ? /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__diverge" }, /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ import_react104.default.createElement("span", null, "Live"), /* @__PURE__ */ import_react104.default.createElement("b", null, expected)), /* @__PURE__ */ import_react104.default.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ import_react104.default.createElement("span", null, "Simulated"), /* @__PURE__ */ import_react104.default.createElement("b", null, divergence))) : null,
     children
   );
-}
+}), { displayName: "SimulationStep" });

@@ -47,4 +47,4 @@ export interface GenieBlueprintProps extends React.HTMLAttributes<HTMLElement> {
   excluded?: string[];
   compact?: boolean;
 }
-export declare function GenieBlueprint(props: GenieBlueprintProps): JSX.Element;
+export declare const GenieBlueprint: React.ForwardRefExoticComponent<GenieBlueprintProps & React.RefAttributes<HTMLElement>>;

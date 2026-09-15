@@ -23,4 +23,4 @@ export interface MemoryScopeBarProps extends Omit<React.HTMLAttributes<HTMLDivEl
   /** Full scope names instead of the short form. */
   full?: boolean;
 }
-export declare function MemoryScopeBar(props: MemoryScopeBarProps): JSX.Element;
+export declare const MemoryScopeBar: React.ForwardRefExoticComponent<MemoryScopeBarProps & React.RefAttributes<HTMLDivElement>>;

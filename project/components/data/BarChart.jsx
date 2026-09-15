@@ -10,10 +10,10 @@ const niceTick = (v, max) => {
 
 
 /* Vertical / horizontal / stacked / 100% stacked bars and histograms. Production renderer: Recharts. */
-export function BarChart({
+export const BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function BarChart({
   series = [], labels = [], width = 640, height = 180, orientation = 'vertical', stacked = false, normalized = false,
   yMax, showGrid = true, showAxis = true, showValues = false, barGap = 4, pad, format, className = '', ...rest
-}) {
+}, ref) {
   const p = pad || (orientation === 'horizontal' ? { l: 104, r: 34, t: 4, b: 18 } : { l: 42, r: 10, t: 8, b: 20 });
   const n = labels.length || Math.max.apply(null, series.map((s) => s.data.length).concat([1]));
   const totals = Array.from({ length: n }, (_, i) => series.reduce((a, s) => a + (s.data[i] || 0), 0));
@@ -28,7 +28,7 @@ export function BarChart({
   const ticks = Array.from({ length: 5 }, (_, i) => (max / 4) * i);
   const fmt = format || ((v) => niceTick(v, max));
   return (
-    <svg width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} role="img" className={className} preserveAspectRatio="none" {...rest}>
+    <svg ref={ref} width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} role="img" className={className} preserveAspectRatio="none" {...rest}>
       {showGrid ? (
         <g className="lamp-chart__grid">
           {ticks.map((t, i) => (orientation === 'vertical'
@@ -72,4 +72,4 @@ export function BarChart({
       })}
     </svg>
   );
-}
+}), { displayName: 'BarChart' });

@@ -20,4 +20,4 @@ export interface ObservedProcessProps extends React.HTMLAttributes<HTMLDivElemen
   steps: ObservedStep[];
   showLinks?: boolean;
 }
-export declare function ObservedProcess(props: ObservedProcessProps): JSX.Element;
+export declare const ObservedProcess: React.ForwardRefExoticComponent<ObservedProcessProps & React.RefAttributes<HTMLDivElement>>;

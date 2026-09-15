@@ -57,13 +57,13 @@ function Claim({ claim, index, selected, onPick, pickLabel, readOnly }) {
   );
 }
 
-export function MemoryConflict({
+export const MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryConflict({
   claims = [], title = 'Two memories disagree', detail, resolved = false, resolution,
   picked, onPick, onKeepBoth, onInvestigate, readOnly = false, actions,
   className = '', ...rest
-}) {
+}, ref) {
   return (
-    <article
+    <article ref={ref}
       className={['lamp-conflict', resolved && 'lamp-conflict--resolved', className].filter(Boolean).join(' ')}
       {...rest}
     >
@@ -111,4 +111,4 @@ export function MemoryConflict({
       ) : null}
     </article>
   );
-}
+}), { displayName: 'MemoryConflict' });

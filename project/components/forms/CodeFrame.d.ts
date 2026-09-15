@@ -7,4 +7,4 @@ export interface CodeFrameProps extends React.HTMLAttributes<HTMLDivElement> {
   onCopy?: () => void;
   children?: React.ReactNode;
 }
-export declare function CodeFrame(props: CodeFrameProps): JSX.Element;
+export declare const CodeFrame: React.ForwardRefExoticComponent<CodeFrameProps & React.RefAttributes<HTMLDivElement>>;

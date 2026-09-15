@@ -11,7 +11,7 @@ export interface InlineNotificationProps extends React.HTMLAttributes<HTMLDivEle
   onDismiss?: () => void;
   children?: React.ReactNode;
 }
-export declare function InlineNotification(props: InlineNotificationProps): JSX.Element;
+export declare const InlineNotification: React.ForwardRefExoticComponent<InlineNotificationProps & React.RefAttributes<HTMLDivElement>>;
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   tone?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
   title?: string;
@@ -19,5 +19,5 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: React.ReactNode;
   onDismiss?: () => void;
 }
-export declare function Toast(props: ToastProps): JSX.Element;
-export declare function ToastStack(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
+export declare const Toast: React.ForwardRefExoticComponent<ToastProps & React.RefAttributes<HTMLDivElement>>;
+export declare const ToastStack: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;

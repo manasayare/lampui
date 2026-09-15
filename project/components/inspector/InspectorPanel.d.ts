@@ -18,7 +18,7 @@ export interface InspectorPanelProps extends React.HTMLAttributes<HTMLElement> {
   stickyFooter?: boolean;
   onClose?: () => void;
 }
-export declare function InspectorPanel(props: InspectorPanelProps): JSX.Element;
+export declare const InspectorPanel: React.ForwardRefExoticComponent<InspectorPanelProps & React.RefAttributes<HTMLElement>>;
 
 export interface InspectorHeaderProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
@@ -28,7 +28,7 @@ export interface InspectorHeaderProps extends React.HTMLAttributes<HTMLElement> 
   actions?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function InspectorHeader(props: InspectorHeaderProps): JSX.Element;
+export declare const InspectorHeader: React.ForwardRefExoticComponent<InspectorHeaderProps & React.RefAttributes<HTMLElement>>;
 
 export interface InspectorTabsProps {
   /** The object's own facets — Purpose, Skills, Tools, Memory, Runtime. Never app navigation. */
@@ -36,7 +36,7 @@ export interface InspectorTabsProps {
   value?: string;
   onChange?: (id: string) => void;
 }
-export declare function InspectorTabs(props: InspectorTabsProps): JSX.Element;
+export declare const InspectorTabs: React.ForwardRefExoticComponent<InspectorTabsProps & React.RefAttributes<HTMLDivElement>>;
 
 export interface InspectorFooterProps extends React.HTMLAttributes<HTMLElement> {
   /** Sticky by default — commit actions stay reachable however long the body runs. */
@@ -45,4 +45,4 @@ export interface InspectorFooterProps extends React.HTMLAttributes<HTMLElement> 
   align?: 'end' | 'start' | 'split';
   children?: React.ReactNode;
 }
-export declare function InspectorFooter(props: InspectorFooterProps): JSX.Element;
+export declare const InspectorFooter: React.ForwardRefExoticComponent<InspectorFooterProps & React.RefAttributes<HTMLElement>>;

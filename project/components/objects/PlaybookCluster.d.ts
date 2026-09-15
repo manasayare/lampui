@@ -26,4 +26,4 @@ export interface PlaybookClusterProps extends React.HTMLAttributes<HTMLDivElemen
   /** The snapped composition — normally a HexLattice of AgentHex. */
   children?: React.ReactNode;
 }
-export declare function PlaybookCluster(props: PlaybookClusterProps): JSX.Element;
+export declare const PlaybookCluster: React.ForwardRefExoticComponent<PlaybookClusterProps & React.RefAttributes<HTMLDivElement>>;

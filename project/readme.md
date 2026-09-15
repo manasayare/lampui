@@ -468,6 +468,8 @@ setGsap({ gsap, Draggable });
 
 Skip it and the canvas still renders; drag is unavailable and the keyboard path — which is the guaranteed one — still works.
 
+**Every component forwards its ref**, and a form control's ref reaches the control rather than the wrapper it renders — a ref stopping at a `div` is useless to react-hook-form or to `.focus()`. Each is typed to the element it actually reaches. `useMergedRefs` is exported for components that need their own node and must still honour a forwarded one.
+
 **Types are real and checked.** Every component ships a props interface, and CI compiles both a usage file and the example app against them, so a prop that does not exist fails the build rather than rendering an empty page. Several interfaces in the original handoff extended a DOM attributes type while redefining one of its handlers, which TypeScript rejects outright; those now `Omit` the prop they replace.
 
 `examples/vite-app` is a working builder screen — shell, canvas, inspector, composer — assembled only from package exports.

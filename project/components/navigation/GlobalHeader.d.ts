@@ -7,4 +7,4 @@ export interface GlobalHeaderProps extends React.HTMLAttributes<HTMLElement> {
   right?: React.ReactNode;
   wordmark?: string;
 }
-export declare function GlobalHeader(props: GlobalHeaderProps): JSX.Element;
+export declare const GlobalHeader: React.ForwardRefExoticComponent<GlobalHeaderProps & React.RefAttributes<HTMLElement>>;

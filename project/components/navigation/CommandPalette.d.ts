@@ -21,4 +21,4 @@ export interface CommandPaletteProps extends Omit<React.HTMLAttributes<HTMLDivEl
   placeholder?: string;
   footer?: React.ReactNode;
 }
-export declare function CommandPalette(props: CommandPaletteProps): JSX.Element;
+export declare const CommandPalette: React.ForwardRefExoticComponent<CommandPaletteProps & React.RefAttributes<HTMLDivElement>>;

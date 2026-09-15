@@ -5,4 +5,4 @@ export interface SegmentedControlProps extends Omit<React.HTMLAttributes<HTMLDiv
   onChange?: (v: string) => void;
   size?: 'sm' | 'md';
 }
-export declare function SegmentedControl(props: SegmentedControlProps): JSX.Element;
+export declare const SegmentedControl: React.ForwardRefExoticComponent<SegmentedControlProps & React.RefAttributes<HTMLDivElement>>;

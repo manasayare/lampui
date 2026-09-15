@@ -4,4 +4,4 @@ export interface TagInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   placeholder?: string;
   mono?: boolean;
 }
-export declare function TagInput(props: TagInputProps): JSX.Element;
+export declare const TagInput: React.ForwardRefExoticComponent<TagInputProps & React.RefAttributes<HTMLInputElement>>;

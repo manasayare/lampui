@@ -6,4 +6,4 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>
   rich?: boolean;
   children: React.ReactNode;
 }
-export declare function Tooltip(props: TooltipProps): JSX.Element;
+export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & React.RefAttributes<HTMLSpanElement>>;

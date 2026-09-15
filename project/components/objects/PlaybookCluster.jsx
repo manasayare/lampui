@@ -8,9 +8,9 @@ const STATE_STATUS = {
   paused: 'paused', degraded: 'attention', failed: 'error', error: 'error', disabled: 'disabled', deprecated: 'disabled',
 };
 
-export function PlaybookCluster({ name, state = 'draft', selected = false, agents, meta = [], actions, padding, layout = 'flow', dropState, collapsed = false, resizable = false, width, height, children, onClick, className = '', style, ...rest }) {
+export const PlaybookCluster = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function PlaybookCluster({ name, state = 'draft', selected = false, agents, meta = [], actions, padding, layout = 'flow', dropState, collapsed = false, resizable = false, width, height, children, onClick, className = '', style, ...rest }, ref) {
   return (
-    <div className={['lamp-pb', 'lamp-pb--' + state, selected && 'lamp-pb--selected', layout === 'free' && 'lamp-pb--free',
+    <div ref={ref} className={['lamp-pb', 'lamp-pb--' + state, selected && 'lamp-pb--selected', layout === 'free' && 'lamp-pb--free',
       dropState === 'valid' && 'lamp-pb--drop', dropState === 'invalid' && 'lamp-pb--drop-invalid', collapsed && 'lamp-pb--collapsed', className].filter(Boolean).join(' ')}
       style={{ padding, width, height, ...style }} onClick={onClick} role="group" aria-label={'Playbook ' + (name || '')} {...rest}>
       {name || actions ? (
@@ -27,4 +27,4 @@ export function PlaybookCluster({ name, state = 'draft', selected = false, agent
       {meta.length ? <div className="lamp-pb__foot">{meta.map((m, i) => <span key={i}>{m}</span>)}</div> : null}
     </div>
   );
-}
+}), { displayName: 'PlaybookCluster' });

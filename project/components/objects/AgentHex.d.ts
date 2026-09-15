@@ -43,5 +43,5 @@ export interface AgentHexProps extends React.HTMLAttributes<HTMLDivElement> {
    *  Tighten this instead when the lattice must stay dense. */
   labelWidth?: number;
 }
-export declare function AgentHex(props: AgentHexProps): JSX.Element;
+export declare const AgentHex: React.ForwardRefExoticComponent<AgentHexProps & React.RefAttributes<HTMLDivElement>>;
 export declare const AGENT_SIZES: Record<string, [number, number]>;

@@ -8,7 +8,7 @@ export interface PageHeaderProps extends React.HTMLAttributes<HTMLElement> {
   /** Primary + secondary page actions, right-aligned. */
   actions?: React.ReactNode;
 }
-export declare function PageHeader(props: PageHeaderProps): JSX.Element;
+export declare const PageHeader: React.ForwardRefExoticComponent<PageHeaderProps & React.RefAttributes<HTMLElement>>;
 export interface DashboardPageProps extends React.HTMLAttributes<HTMLDivElement> {
   /** A PageHeader element. */
   header?: React.ReactNode;
@@ -17,9 +17,9 @@ export interface DashboardPageProps extends React.HTMLAttributes<HTMLDivElement>
   /** Removes the 20px page padding — for pages docked inside AppShell. */
   flush?: boolean;
 }
-export declare function DashboardPage(props: DashboardPageProps): JSX.Element;
+export declare const DashboardPage: React.ForwardRefExoticComponent<DashboardPageProps & React.RefAttributes<HTMLDivElement>>;
 export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   actions?: React.ReactNode;
 }
-export declare function SectionHeader(props: SectionHeaderProps): JSX.Element;
+export declare const SectionHeader: React.ForwardRefExoticComponent<SectionHeaderProps & React.RefAttributes<HTMLDivElement>>;

@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 import { Button } from '../core/Button.jsx';
 
-export function ErrorState({ kind = 'recoverable', title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = '', ...rest }) {
+export const ErrorState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ErrorState({ kind = 'recoverable', title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-err ' + className} role="alert" {...rest}>
+    <div ref={ref} className={'lamp-err ' + className} role="alert" {...rest}>
       <div className="lamp-err__title"><Icon name={kind === 'fatal' ? 'dangerous' : 'error'} size={16} />{title}</div>
       <div className="lamp-err__facts">
         {happened ? <><span className="lamp-err__k">What happened</span><span className="lamp-err__v">{happened}</span></> : null}
@@ -23,4 +23,4 @@ export function ErrorState({ kind = 'recoverable', title, happened, notHappened,
       ) : null}
     </div>
   );
-}
+}), { displayName: 'ErrorState' });

@@ -26,4 +26,4 @@ export interface MetricCardProps extends React.HTMLAttributes<HTMLDivElement> {
   spark?: React.ReactNode;
   actions?: React.ReactNode;
 }
-export declare function MetricCard(props: MetricCardProps): JSX.Element;
+export declare const MetricCard: React.ForwardRefExoticComponent<MetricCardProps & React.RefAttributes<HTMLDivElement>>;

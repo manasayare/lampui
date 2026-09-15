@@ -48,10 +48,10 @@ function keyOf(list) {
   return map;
 }
 
-export function PlaybookComposer({
+export const PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function PlaybookComposer({
   open = true, agents = [], availableTools = [], suggestions,
   onCreate, onCancel, onPreviewGenie, allowGenie = true, className = '', ...rest
-}) {
+}, ref) {
   /* Matches are derived from the selection, not held in state — reselecting on
      the canvas must not leave a stale proposal behind. */
   const matches = React.useMemo(
@@ -142,7 +142,7 @@ export function PlaybookComposer({
   ];
 
   return (
-    <Modal
+    <Modal ref={ref}
       open={open}
       size="lg"
       glyph="layers"
@@ -389,4 +389,4 @@ export function PlaybookComposer({
       ) : null}
     </Modal>
   );
-}
+}), { displayName: 'PlaybookComposer' });

@@ -16,6 +16,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   shortcut?: string;
   children?: React.ReactNode;
 }
-export declare function Button(props: ButtonProps): JSX.Element;
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export interface SplitButtonProps extends ButtonProps { onMenu?: () => void; menuLabel?: string }
-export declare function SplitButton(props: SplitButtonProps): JSX.Element;
+export declare const SplitButton: React.ForwardRefExoticComponent<SplitButtonProps & React.RefAttributes<HTMLSpanElement>>;

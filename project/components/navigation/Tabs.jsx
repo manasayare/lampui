@@ -1,9 +1,9 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function Tabs({ tabs = [], value, onChange, variant = 'underline', className = '', ...rest }) {
+export const Tabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Tabs({ tabs = [], value, onChange, variant = 'underline', className = '', ...rest }, ref) {
   return (
-    <div className={['lamp-tabs', variant === 'pill' && 'lamp-tabs--pill', className].filter(Boolean).join(' ')} role="tablist" {...rest}>
+    <div ref={ref} className={['lamp-tabs', variant === 'pill' && 'lamp-tabs--pill', className].filter(Boolean).join(' ')} role="tablist" {...rest}>
       {tabs.map((t) => {
         const id = typeof t === 'string' ? t : t.id;
         const label = typeof t === 'string' ? t : t.label;
@@ -19,4 +19,4 @@ export function Tabs({ tabs = [], value, onChange, variant = 'underline', classN
       })}
     </div>
   );
-}
+}), { displayName: 'Tabs' });

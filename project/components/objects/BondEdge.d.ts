@@ -10,6 +10,6 @@ export interface BondEdgeProps {
   environment?: 'draft' | 'simulation' | 'live';
   junction?: boolean;
 }
-export declare function BondEdge(props: BondEdgeProps): JSX.Element;
+export declare const BondEdge: React.ForwardRefExoticComponent<BondEdgeProps & React.RefAttributes<HTMLElement>>;
 export interface BondLayerProps { width: number; height: number; children?: React.ReactNode }
-export declare function BondLayer(props: BondLayerProps): JSX.Element;
+export declare const BondLayer: React.ForwardRefExoticComponent<BondLayerProps & React.RefAttributes<SVGSVGElement>>;

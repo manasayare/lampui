@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function Panel({ title, actions, flush = false, width, children, className = '', style, ...rest }) {
+export const Panel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Panel({ title, actions, flush = false, width, children, className = '', style, ...rest }, ref) {
   return (
-    <section className={['lamp-panel', flush && 'lamp-panel--flush', className].filter(Boolean).join(' ')} style={{ width, ...style }} {...rest}>
+    <section ref={ref} className={['lamp-panel', flush && 'lamp-panel--flush', className].filter(Boolean).join(' ')} style={{ width, ...style }} {...rest}>
       {title || actions ? (
         <header className="lamp-panel__head">
           {title ? <span className="lamp-panel__title">{title}</span> : null}
@@ -12,4 +12,4 @@ export function Panel({ title, actions, flush = false, width, children, classNam
       <div className="lamp-panel__body">{children}</div>
     </section>
   );
-}
+}), { displayName: 'Panel' });

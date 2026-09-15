@@ -15,4 +15,4 @@ export interface MemoryUsageBarProps extends React.HTMLAttributes<HTMLDivElement
   unit?: string;
   legend?: boolean;
 }
-export declare function MemoryUsageBar(props: MemoryUsageBarProps): JSX.Element;
+export declare const MemoryUsageBar: React.ForwardRefExoticComponent<MemoryUsageBarProps & React.RefAttributes<HTMLDivElement>>;

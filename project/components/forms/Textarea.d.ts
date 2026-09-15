@@ -2,4 +2,4 @@ export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   mono?: boolean;
   state?: 'default' | 'error' | 'warning' | 'success';
 }
-export declare function Textarea(props: TextareaProps): JSX.Element;
+export declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;

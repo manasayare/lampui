@@ -16,4 +16,4 @@ export interface AppShellProps extends React.HTMLAttributes<HTMLDivElement> {
   /** The dominant centre region — usually CanvasSurface. */
   children?: React.ReactNode;
 }
-export declare function AppShell(props: AppShellProps): JSX.Element;
+export declare const AppShell: React.ForwardRefExoticComponent<AppShellProps & React.RefAttributes<HTMLDivElement>>;

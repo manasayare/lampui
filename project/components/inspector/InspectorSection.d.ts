@@ -9,7 +9,7 @@ export interface InspectorSectionProps extends React.HTMLAttributes<HTMLElement>
   /** Dims the label and starts collapsed — progressive disclosure for advanced config. */
   advanced?: boolean;
 }
-export declare function InspectorSection(props: InspectorSectionProps): JSX.Element;
+export declare const InspectorSection: React.ForwardRefExoticComponent<InspectorSectionProps & React.RefAttributes<HTMLElement>>;
 export interface PropertyRowProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   value?: React.ReactNode;
@@ -23,4 +23,4 @@ export interface PropertyRowProps extends React.HTMLAttributes<HTMLDivElement> {
   empty?: string;
   children?: React.ReactNode;
 }
-export declare function PropertyRow(props: PropertyRowProps): JSX.Element;
+export declare const PropertyRow: React.ForwardRefExoticComponent<PropertyRowProps & React.RefAttributes<HTMLDivElement>>;

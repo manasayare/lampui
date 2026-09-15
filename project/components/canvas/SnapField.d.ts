@@ -77,4 +77,4 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   origin?: { x: number; y: number };
   readOnly?: boolean;
 }
-export declare function SnapField(props: SnapFieldProps): JSX.Element;
+export declare const SnapField: React.ForwardRefExoticComponent<SnapFieldProps & React.RefAttributes<HTMLDivElement>>;

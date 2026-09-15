@@ -21,4 +21,4 @@ export interface BarChartProps extends Omit<React.SVGAttributes<SVGElement>, 'fo
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function BarChart(props: BarChartProps): JSX.Element;
+export declare const BarChart: React.ForwardRefExoticComponent<BarChartProps & React.RefAttributes<SVGSVGElement>>;

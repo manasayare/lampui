@@ -19,7 +19,7 @@ export interface CanvasContextMenuProps extends Omit<React.HTMLAttributes<HTMLDi
   groups?: Array<{ label?: string; items: MenuItemDef[] }>;
   onSelect?: (item: MenuItemDef) => void;
 }
-export declare function CanvasContextMenu(props: CanvasContextMenuProps): React.JSX.Element;
+export declare const CanvasContextMenu: React.ForwardRefExoticComponent<CanvasContextMenuProps & React.RefAttributes<HTMLDivElement>>;
 
 /* canvas/CanvasMotion.d.ts */
 /**
@@ -106,14 +106,14 @@ export interface CanvasSurfaceProps extends React.HTMLAttributes<HTMLDivElement>
   /** Fires with the world offset during a pan. */
   onPanChange?: (offset: { x: number; y: number }) => void;
 }
-export declare function CanvasSurface(props: CanvasSurfaceProps): React.JSX.Element;
+export declare const CanvasSurface: React.ForwardRefExoticComponent<CanvasSurfaceProps & React.RefAttributes<HTMLDivElement>>;
 export interface SnapGuideProps {
   rect: { left: number; top: number; width: number; height: number };
   invalid?: boolean;
   /** snap = dashed gold outline at the snap slot · drop = filled drop preview */
   kind?: 'snap' | 'drop';
 }
-export declare function SnapGuide(props: SnapGuideProps): React.JSX.Element;
+export declare const SnapGuide: React.ForwardRefExoticComponent<SnapGuideProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* canvas/CanvasToolbar.d.ts */
 export interface CanvasToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -121,7 +121,7 @@ export interface CanvasToolbarProps extends React.HTMLAttributes<HTMLDivElement>
   position?: 'floating' | 'topleft' | 'topright' | 'object';
   children?: React.ReactNode;
 }
-export declare function CanvasToolbar(props: CanvasToolbarProps): React.JSX.Element;
+export declare const CanvasToolbar: React.ForwardRefExoticComponent<CanvasToolbarProps & React.RefAttributes<HTMLDivElement>>;
 export interface CanvasZoomControlsProps {
   zoom?: number;
   onZoomIn?: () => void;
@@ -129,20 +129,20 @@ export interface CanvasZoomControlsProps {
   onFit?: () => void;
   onReset?: () => void;
 }
-export declare function CanvasZoomControls(props: CanvasZoomControlsProps): React.JSX.Element;
+export declare const CanvasZoomControls: React.ForwardRefExoticComponent<CanvasZoomControlsProps & React.RefAttributes<HTMLDivElement>>;
 export interface CanvasObjectToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Canvas-space anchor; the toolbar centres above it. */
   x: number;
   y: number;
 }
-export declare function CanvasObjectToolbar(props: CanvasObjectToolbarProps): React.JSX.Element;
+export declare const CanvasObjectToolbar: React.ForwardRefExoticComponent<CanvasObjectToolbarProps & React.RefAttributes<HTMLDivElement>>;
 export interface CanvasMinimapProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Object blips: position, size and tone (live = gold, error = red). */
   blips?: Array<{ x: number; y: number; w?: number; h?: number; tone?: 'live' | 'error' }>;
   viewport?: { left: number; top: number; width: number; height: number };
   onJump?: (e: React.MouseEvent) => void;
 }
-export declare function CanvasMinimap(props: CanvasMinimapProps): React.JSX.Element;
+export declare const CanvasMinimap: React.ForwardRefExoticComponent<CanvasMinimapProps & React.RefAttributes<HTMLDivElement>>;
 
 /* canvas/SnapField.d.ts */
 export interface SnapFieldAgent {
@@ -222,7 +222,7 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   origin?: { x: number; y: number };
   readOnly?: boolean;
 }
-export declare function SnapField(props: SnapFieldProps): React.JSX.Element;
+export declare const SnapField: React.ForwardRefExoticComponent<SnapFieldProps & React.RefAttributes<HTMLDivElement>>;
 
 /* chat/AgentChat.d.ts */
 /**
@@ -246,7 +246,7 @@ export interface AgentChatProps extends React.HTMLAttributes<HTMLElement> {
   /** Keeps the thread pinned to the newest message. Default true. */
   autoScroll?: boolean;
 }
-export declare function AgentChat(props: AgentChatProps): React.JSX.Element;
+export declare const AgentChat: React.ForwardRefExoticComponent<AgentChatProps & React.RefAttributes<HTMLElement>>;
 export interface ChatStatusProps {
   state?: 'idle' | 'working';
   author?: string;
@@ -258,7 +258,7 @@ export interface ChatStatusProps {
   onStop?: () => void;
   onInspect?: () => void;
 }
-export declare function ChatStatus(props: ChatStatusProps): React.JSX.Element;
+export declare const ChatStatus: React.ForwardRefExoticComponent<ChatStatusProps & React.RefAttributes<HTMLDivElement>>;
 
 /* chat/ChatComposer.d.ts */
 export interface ChatQuickReply {
@@ -289,7 +289,7 @@ export interface ChatComposerProps extends Omit<React.HTMLAttributes<HTMLDivElem
   /** Show the Enter / Shift+Enter hint. Default true. */
   hint?: boolean;
 }
-export declare function ChatComposer(props: ChatComposerProps): React.JSX.Element;
+export declare const ChatComposer: React.ForwardRefExoticComponent<ChatComposerProps & React.RefAttributes<HTMLDivElement>>;
 export declare function ChatQuickReplies(props: { options: Array<string | ChatQuickReply>; onSelect?: (o: ChatQuickReply) => void }): React.JSX.Element;
 
 /* chat/ChatMessage.d.ts */
@@ -344,11 +344,11 @@ export interface ChatMessageProps extends React.HTMLAttributes<HTMLElement> {
   onCopy?: () => void;
   onInspect?: () => void;
 }
-export declare function ChatMessage(props: ChatMessageProps): React.JSX.Element;
-export declare function ChatAvatar(props: { role?: string; initials?: string; glyph?: string; state?: string; size?: number }): React.JSX.Element;
+export declare const ChatMessage: React.ForwardRefExoticComponent<ChatMessageProps & React.RefAttributes<HTMLElement>>;
+export declare const ChatAvatar: React.ForwardRefExoticComponent<{ role?: string; initials?: string; glyph?: string; state?: string; size?: number } & React.RefAttributes<HTMLSpanElement>>;
 export declare function ChatActivity(props: { items: ChatActivityItem[]; max?: number; onSelect?: (a: ChatActivityItem) => void }): React.JSX.Element;
-export declare function ChatCitation(props: ChatCitationRef & { index: number }): React.JSX.Element;
-export declare function ChatDayDivider(props: { label: string }): React.JSX.Element;
+export declare const ChatCitation: React.ForwardRefExoticComponent<ChatCitationRef & { index: number } & React.RefAttributes<HTMLButtonElement>>;
+export declare const ChatDayDivider: React.ForwardRefExoticComponent<{ label: string } & React.RefAttributes<HTMLDivElement>>;
 
 /* core/Badge.d.ts */
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -362,7 +362,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   outline?: boolean;
   children?: React.ReactNode;
 }
-export declare function Badge(props: BadgeProps): React.JSX.Element;
+export declare const Badge: React.ForwardRefExoticComponent<BadgeProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* core/Button.d.ts */
 /**
@@ -383,9 +383,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   shortcut?: string;
   children?: React.ReactNode;
 }
-export declare function Button(props: ButtonProps): React.JSX.Element;
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export interface SplitButtonProps extends ButtonProps { onMenu?: () => void; menuLabel?: string }
-export declare function SplitButton(props: SplitButtonProps): React.JSX.Element;
+export declare const SplitButton: React.ForwardRefExoticComponent<SplitButtonProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* core/Card.d.ts */
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -401,7 +401,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function Card(props: CardProps): React.JSX.Element;
+export declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>>;
 
 /* core/Divider.d.ts */
 export interface DividerProps extends React.HTMLAttributes<HTMLElement> {
@@ -409,7 +409,7 @@ export interface DividerProps extends React.HTMLAttributes<HTMLElement> {
   /** Renders a micro uppercase section label with a trailing rule. */
   label?: string;
 }
-export declare function Divider(props: DividerProps): React.JSX.Element;
+export declare const Divider: React.ForwardRefExoticComponent<DividerProps & React.RefAttributes<HTMLElement>>;
 
 /* core/EnvironmentPill.d.ts */
 export interface EnvironmentPillProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -418,7 +418,7 @@ export interface EnvironmentPillProps extends React.HTMLAttributes<HTMLSpanEleme
   /** Optional scope suffix, e.g. "Finance Genie". */
   scope?: string;
 }
-export declare function EnvironmentPill(props: EnvironmentPillProps): React.JSX.Element;
+export declare const EnvironmentPill: React.ForwardRefExoticComponent<EnvironmentPillProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* core/Icon.d.ts */
 /**
@@ -432,7 +432,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Supply when the icon stands alone and carries meaning. */
   label?: string;
 }
-export declare function Icon(props: IconProps): React.JSX.Element;
+export declare const Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<HTMLSpanElement>>;
 
 export interface BrandIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Simple Icons slug — "gmail", "salesforce", "sap", "googledrive", "whatsapp". */
@@ -442,7 +442,7 @@ export interface BrandIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string;
   label?: string;
 }
-export declare function BrandIcon(props: BrandIconProps): React.JSX.Element;
+export declare const BrandIcon: React.ForwardRefExoticComponent<BrandIconProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const MATERIAL_SYMBOLS_BASE: string;
 export declare const BRAND_ICON_BASE: string;
 
@@ -459,7 +459,7 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   active?: boolean;
   tone?: 'default' | 'danger';
 }
-export declare function IconButton(props: IconButtonProps): React.JSX.Element;
+export declare const IconButton: React.ForwardRefExoticComponent<IconButtonProps & React.RefAttributes<HTMLButtonElement>>;
 
 /* core/Kbd.d.ts */
 export interface KbdProps extends React.HTMLAttributes<HTMLElement> {
@@ -467,7 +467,7 @@ export interface KbdProps extends React.HTMLAttributes<HTMLElement> {
   keys?: string[];
   children?: React.ReactNode;
 }
-export declare function Kbd(props: KbdProps): React.JSX.Element;
+export declare const Kbd: React.ForwardRefExoticComponent<KbdProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* core/Panel.d.ts */
 export interface PanelProps extends React.HTMLAttributes<HTMLElement> {
@@ -479,7 +479,7 @@ export interface PanelProps extends React.HTMLAttributes<HTMLElement> {
   width?: number | string;
   children?: React.ReactNode;
 }
-export declare function Panel(props: PanelProps): React.JSX.Element;
+export declare const Panel: React.ForwardRefExoticComponent<PanelProps & React.RefAttributes<HTMLElement>>;
 
 /* core/StatusBadge.d.ts */
 export type LampStatus = 'draft' | 'observed' | 'inferred' | 'learning' | 'simulation' | 'validated' | 'ready' | 'live' | 'running' | 'waiting' | 'attention' | 'needsHuman' | 'paused' | 'stopped' | 'error' | 'killed' | 'success' | 'skipped' | 'mocked' | 'blocked' | 'disabled';
@@ -495,14 +495,14 @@ export interface StatusBadgeProps extends React.HTMLAttributes<HTMLSpanElement> 
   mode?: 'badge' | 'label' | 'icon';
   size?: 'sm' | 'md';
 }
-export declare function StatusBadge(props: StatusBadgeProps): React.JSX.Element;
+export declare const StatusBadge: React.ForwardRefExoticComponent<StatusBadgeProps & React.RefAttributes<HTMLSpanElement>>;
 export interface StatusDotProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: LampStatus;
   size?: 'md' | 'lg';
   pulse?: boolean;
   ring?: boolean;
 }
-export declare function StatusDot(props: StatusDotProps): React.JSX.Element;
+export declare const StatusDot: React.ForwardRefExoticComponent<StatusDotProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const STATUS: Record<LampStatus, { tone: string; icon: string; label: string; color: string }>;
 
 /* core/Tag.d.ts */
@@ -513,7 +513,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   onRemove?: () => void;
   children?: React.ReactNode;
 }
-export declare function Tag(props: TagProps): React.JSX.Element;
+export declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* core/Tooltip.d.ts */
 export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
@@ -524,7 +524,21 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>
   rich?: boolean;
   children: React.ReactNode;
 }
-export declare function Tooltip(props: TooltipProps): React.JSX.Element;
+export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & React.RefAttributes<HTMLSpanElement>>;
+
+/* core/refs.d.ts */
+/**
+ * Merges refs onto one node. Memoised on the refs, so the returned callback is
+ * stable between renders — an inline callback ref is invoked with null and then
+ * the node again on every render, which tears down anything attached to it.
+ *
+ * Use it when a component needs its own element and must still honour a
+ * forwarded ref, or when you are putting another library's trigger ref on a LAMP
+ * component that already takes one.
+ */
+export declare function useMergedRefs<T>(
+  ...refs: Array<React.Ref<T> | undefined | null>
+): React.RefCallback<T> | null;
 
 /* dashboard/DashboardCard.d.ts */
 /**
@@ -543,14 +557,14 @@ export interface DashboardCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Grid columns to span. */
   span?: number;
 }
-export declare function DashboardCard(props: DashboardCardProps): React.JSX.Element;
+export declare const DashboardCard: React.ForwardRefExoticComponent<DashboardCardProps & React.RefAttributes<HTMLElement>>;
 export interface DashboardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   /** 2 · 3 · 4 — collapses to 2 below 1100px and 1 below 760px. */
   columns?: 2 | 3 | 4;
 }
-export declare function DashboardGrid(props: DashboardGridProps): React.JSX.Element;
+export declare const DashboardGrid: React.ForwardRefExoticComponent<DashboardGridProps & React.RefAttributes<HTMLDivElement>>;
 /** Auto-fitting row of MetricCards, minimum 180px each. */
-export declare function StatGrid(props: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element;
+export declare const StatGrid: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 
 /* dashboard/PageHeader.d.ts */
 export interface PageHeaderProps extends React.HTMLAttributes<HTMLElement> {
@@ -563,7 +577,7 @@ export interface PageHeaderProps extends React.HTMLAttributes<HTMLElement> {
   /** Primary + secondary page actions, right-aligned. */
   actions?: React.ReactNode;
 }
-export declare function PageHeader(props: PageHeaderProps): React.JSX.Element;
+export declare const PageHeader: React.ForwardRefExoticComponent<PageHeaderProps & React.RefAttributes<HTMLElement>>;
 export interface DashboardPageProps extends React.HTMLAttributes<HTMLDivElement> {
   /** A PageHeader element. */
   header?: React.ReactNode;
@@ -572,12 +586,12 @@ export interface DashboardPageProps extends React.HTMLAttributes<HTMLDivElement>
   /** Removes the 20px page padding — for pages docked inside AppShell. */
   flush?: boolean;
 }
-export declare function DashboardPage(props: DashboardPageProps): React.JSX.Element;
+export declare const DashboardPage: React.ForwardRefExoticComponent<DashboardPageProps & React.RefAttributes<HTMLDivElement>>;
 export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   actions?: React.ReactNode;
 }
-export declare function SectionHeader(props: SectionHeaderProps): React.JSX.Element;
+export declare const SectionHeader: React.ForwardRefExoticComponent<SectionHeaderProps & React.RefAttributes<HTMLDivElement>>;
 
 /* data/BarChart.d.ts */
 /**
@@ -602,7 +616,7 @@ export interface BarChartProps extends Omit<React.SVGAttributes<SVGElement>, 'fo
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function BarChart(props: BarChartProps): React.JSX.Element;
+export declare const BarChart: React.ForwardRefExoticComponent<BarChartProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/ChartFrame.d.ts */
 /**
@@ -625,10 +639,10 @@ export interface ChartFrameProps extends React.HTMLAttributes<HTMLElement> {
   flush?: boolean;
   height?: number;
 }
-export declare function ChartFrame(props: ChartFrameProps): React.JSX.Element;
-export declare function ChartLegend(props: { items: Array<{ label: string; color?: string; value?: string | number; dashed?: boolean }>; variant?: 'swatch' | 'line' }): React.JSX.Element;
+export declare const ChartFrame: React.ForwardRefExoticComponent<ChartFrameProps & React.RefAttributes<HTMLElement>>;
+export declare const ChartLegend: React.ForwardRefExoticComponent<{ items: Array<{ label: string; color?: string; value?: string | number; dashed?: boolean }>; variant?: 'swatch' | 'line' } & React.RefAttributes<HTMLDivElement>>;
 export interface ChartTooltipProps { x: number; y: number; title?: string; rows?: Array<{ label: string; value: string | number; color?: string }> }
-export declare function ChartTooltip(props: ChartTooltipProps): React.JSX.Element;
+export declare const ChartTooltip: React.ForwardRefExoticComponent<ChartTooltipProps & React.RefAttributes<HTMLDivElement>>;
 /** The categorical sequence: gold, blue, green, violet, orange, teal, magenta, steel. */
 export declare const DATAVIZ: string[];
 export declare function seriesColor(i: number): string;
@@ -651,7 +665,7 @@ export interface ContextBreakdownProps extends React.HTMLAttributes<HTMLDivEleme
   showBar?: boolean;
   title?: string;
 }
-export declare function ContextBreakdown(props: ContextBreakdownProps): React.JSX.Element;
+export declare const ContextBreakdown: React.ForwardRefExoticComponent<ContextBreakdownProps & React.RefAttributes<HTMLDivElement>>;
 
 /* data/DataTable.d.ts */
 export interface DataColumn<T = any> {
@@ -715,7 +729,7 @@ export interface DonutChartProps extends React.SVGAttributes<SVGElement> {
   max?: number;
   startAngle?: number;
 }
-export declare function DonutChart(props: DonutChartProps): React.JSX.Element;
+export declare const DonutChart: React.ForwardRefExoticComponent<DonutChartProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/Heatmap.d.ts */
 /**
@@ -735,7 +749,7 @@ export interface HeatmapProps extends React.HTMLAttributes<HTMLDivElement> {
   showScale?: boolean;
   format?: (v: number) => string | number;
 }
-export declare function Heatmap(props: HeatmapProps): React.JSX.Element;
+export declare const Heatmap: React.ForwardRefExoticComponent<HeatmapProps & React.RefAttributes<HTMLDivElement>>;
 /** Ramp lookup for custom cells — same steps as the component. */
 export declare function heatColor(value: number, max: number, ramp?: string): string;
 
@@ -764,7 +778,7 @@ export interface HexHeatmapProps extends Omit<React.SVGAttributes<SVGElement>, '
   showLabels?: boolean;
   onSelect?: (cell: HexHeatmapCell) => void;
 }
-export declare function HexHeatmap(props: HexHeatmapProps): React.JSX.Element;
+export declare const HexHeatmap: React.ForwardRefExoticComponent<HexHeatmapProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/LineChart.d.ts */
 export interface ChartSeries {
@@ -796,7 +810,7 @@ export interface LineChartProps extends Omit<React.SVGAttributes<SVGElement>, 'f
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function LineChart(props: LineChartProps): React.JSX.Element;
+export declare const LineChart: React.ForwardRefExoticComponent<LineChartProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/MetricCard.d.ts */
 /**
@@ -827,7 +841,7 @@ export interface MetricCardProps extends React.HTMLAttributes<HTMLDivElement> {
   spark?: React.ReactNode;
   actions?: React.ReactNode;
 }
-export declare function MetricCard(props: MetricCardProps): React.JSX.Element;
+export declare const MetricCard: React.ForwardRefExoticComponent<MetricCardProps & React.RefAttributes<HTMLDivElement>>;
 
 /* data/ProgressBar.d.ts */
 export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -839,7 +853,7 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   indeterminate?: boolean;
   label?: string;
 }
-export declare function ProgressBar(props: ProgressBarProps): React.JSX.Element;
+export declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
 /**
  * @startingPoint section="Data" subtitle="Usage meters — tokens, runs, seats, storage" viewport="700x180"
  */
@@ -853,7 +867,7 @@ export interface UsageMeterProps extends React.HTMLAttributes<HTMLDivElement> {
   footnote?: string;
   format?: (v: number) => string;
 }
-export declare function UsageMeter(props: UsageMeterProps): React.JSX.Element;
+export declare const UsageMeter: React.ForwardRefExoticComponent<UsageMeterProps & React.RefAttributes<HTMLDivElement>>;
 
 /* data/ScatterPlot.d.ts */
 /**
@@ -873,7 +887,7 @@ export interface ScatterPlotProps extends Omit<React.SVGAttributes<SVGElement>, 
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function ScatterPlot(props: ScatterPlotProps): React.JSX.Element;
+export declare const ScatterPlot: React.ForwardRefExoticComponent<ScatterPlotProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/Sparkline.d.ts */
 export interface SparklineProps extends React.SVGAttributes<SVGElement> {
@@ -886,7 +900,7 @@ export interface SparklineProps extends React.SVGAttributes<SVGElement> {
   /** Draws a dashed reference line at this value. */
   baseline?: number;
 }
-export declare function Sparkline(props: SparklineProps): React.JSX.Element;
+export declare const Sparkline: React.ForwardRefExoticComponent<SparklineProps & React.RefAttributes<SVGSVGElement>>;
 
 /* data/StackedBar.d.ts */
 export interface StackedBarSegment {
@@ -920,7 +934,7 @@ export interface StackedBarProps extends React.HTMLAttributes<HTMLDivElement> {
   format?: (value: number) => string;
   label?: string;
 }
-export declare function StackedBar(props: StackedBarProps): React.JSX.Element;
+export declare const StackedBar: React.ForwardRefExoticComponent<StackedBarProps & React.RefAttributes<HTMLDivElement>>;
 
 /* data/Viz.d.ts */
 export type VizType = 'line' | 'area' | 'bar' | 'hbar' | 'stackedBar' | 'normalizedBar' | 'histogram' | 'donut' | 'gauge' | 'scatter' | 'sparkline' | 'heatmap' | 'calendar' | 'treemap' | 'sunburst' | 'sankey' | 'graph' | 'parallel' | 'hive' | 'constellation' | 'topology' | 'fingerprint' | 'telemetry';
@@ -943,7 +957,7 @@ export interface VizProps {
   /** Renderer props may also be passed flat. */
   [key: string]: any;
 }
-export declare function Viz(props: VizProps): React.JSX.Element;
+export declare const Viz: React.ForwardRefExoticComponent<VizProps & React.RefAttributes<HTMLElement>>;
 /** type → renderer tier: standard (Recharts) · advanced (ECharts) · native (visx) · realtime (uPlot). */
 export declare const VIZ_TIERS: Record<VizType, 'standard' | 'advanced' | 'native' | 'realtime'>;
 
@@ -963,7 +977,7 @@ export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
   secondaryAction?: React.ReactNode;
   align?: 'center' | 'left';
 }
-export declare function EmptyState(props: EmptyStateProps): React.JSX.Element;
+export declare const EmptyState: React.ForwardRefExoticComponent<EmptyStateProps & React.RefAttributes<HTMLDivElement>>;
 
 /* feedback/ErrorState.d.ts */
 /**
@@ -985,7 +999,7 @@ export interface ErrorStateProps extends React.HTMLAttributes<HTMLDivElement> {
   onReport?: () => void;
   actions?: React.ReactNode;
 }
-export declare function ErrorState(props: ErrorStateProps): React.JSX.Element;
+export declare const ErrorState: React.ForwardRefExoticComponent<ErrorStateProps & React.RefAttributes<HTMLDivElement>>;
 
 /* feedback/InlineNotification.d.ts */
 /**
@@ -1001,7 +1015,7 @@ export interface InlineNotificationProps extends React.HTMLAttributes<HTMLDivEle
   onDismiss?: () => void;
   children?: React.ReactNode;
 }
-export declare function InlineNotification(props: InlineNotificationProps): React.JSX.Element;
+export declare const InlineNotification: React.ForwardRefExoticComponent<InlineNotificationProps & React.RefAttributes<HTMLDivElement>>;
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   tone?: 'neutral' | 'info' | 'success' | 'warning' | 'danger';
   title?: string;
@@ -1009,8 +1023,8 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: React.ReactNode;
   onDismiss?: () => void;
 }
-export declare function Toast(props: ToastProps): React.JSX.Element;
-export declare function ToastStack(props: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element;
+export declare const Toast: React.ForwardRefExoticComponent<ToastProps & React.RefAttributes<HTMLDivElement>>;
+export declare const ToastStack: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 
 /* feedback/Modal.d.ts */
 /**
@@ -1028,7 +1042,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   footer?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function Modal(props: ModalProps): React.JSX.Element;
+export declare const Modal: React.ForwardRefExoticComponent<ModalProps & React.RefAttributes<HTMLDivElement>>;
 export interface CriticalConfirmationProps extends Omit<ModalProps, 'critical' | 'size'> {
   /** What is affected, in one sentence. */
   scope?: string;
@@ -1039,7 +1053,7 @@ export interface CriticalConfirmationProps extends Omit<ModalProps, 'critical' |
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-export declare function CriticalConfirmation(props: CriticalConfirmationProps): React.JSX.Element;
+export declare const CriticalConfirmation: React.ForwardRefExoticComponent<CriticalConfirmationProps & React.RefAttributes<HTMLDivElement>>;
 export interface DrawerProps extends React.HTMLAttributes<HTMLElement> {
   open?: boolean;
   title?: string;
@@ -1049,13 +1063,13 @@ export interface DrawerProps extends React.HTMLAttributes<HTMLElement> {
   footer?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function Drawer(props: DrawerProps): React.JSX.Element;
+export declare const Drawer: React.ForwardRefExoticComponent<DrawerProps & React.RefAttributes<HTMLElement>>;
 export interface PopoverProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   x?: number;
   y?: number;
 }
-export declare function Popover(props: PopoverProps): React.JSX.Element;
+export declare const Popover: React.ForwardRefExoticComponent<PopoverProps & React.RefAttributes<HTMLDivElement>>;
 
 /* feedback/Skeleton.d.ts */
 export interface SkeletonProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -1066,9 +1080,9 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'block' | 'text' | 'circle' | 'hex';
   lines?: number;
 }
-export declare function Skeleton(props: SkeletonProps): React.JSX.Element;
+export declare const Skeleton: React.ForwardRefExoticComponent<SkeletonProps & React.RefAttributes<HTMLSpanElement>>;
 export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> { size?: number }
-export declare function Spinner(props: SpinnerProps): React.JSX.Element;
+export declare const Spinner: React.ForwardRefExoticComponent<SpinnerProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* forms/Checkbox.d.ts */
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -1076,7 +1090,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   description?: string;
   indeterminate?: boolean;
 }
-export declare function Checkbox(props: CheckboxProps): React.JSX.Element;
+export declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
 
 /* forms/CodeFrame.d.ts */
 export interface CodeFrameProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -1088,7 +1102,7 @@ export interface CodeFrameProps extends React.HTMLAttributes<HTMLDivElement> {
   onCopy?: () => void;
   children?: React.ReactNode;
 }
-export declare function CodeFrame(props: CodeFrameProps): React.JSX.Element;
+export declare const CodeFrame: React.ForwardRefExoticComponent<CodeFrameProps & React.RefAttributes<HTMLDivElement>>;
 
 /* forms/Field.d.ts */
 export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -1109,7 +1123,7 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   layout?: 'stack' | 'row';
   children?: React.ReactNode;
 }
-export declare function Field(props: FieldProps): React.JSX.Element;
+export declare const Field: React.ForwardRefExoticComponent<FieldProps & React.RefAttributes<HTMLDivElement>>;
 
 /* forms/KeyValueInput.d.ts */
 export interface KeyValueRow { key: string; value: string }
@@ -1121,7 +1135,7 @@ export interface KeyValueInputProps extends Omit<React.HTMLAttributes<HTMLDivEle
   addLabel?: string;
   mono?: boolean;
 }
-export declare function KeyValueInput(props: KeyValueInputProps): React.JSX.Element;
+export declare const KeyValueInput: React.ForwardRefExoticComponent<KeyValueInputProps & React.RefAttributes<HTMLDivElement>>;
 
 /* forms/PromptEditor.d.ts */
 export interface PromptEditorProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -1133,21 +1147,21 @@ export interface PromptEditorProps extends React.HTMLAttributes<HTMLDivElement> 
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function PromptEditor(props: PromptEditorProps): React.JSX.Element;
+export declare const PromptEditor: React.ForwardRefExoticComponent<PromptEditorProps & React.RefAttributes<HTMLDivElement>>;
 export interface VariableTokenProps extends React.HTMLAttributes<HTMLSpanElement> {
   name?: string;
   /** variable = gold {{…}} · entity = memory-violet @mention · missing = red, unresolved */
   kind?: 'variable' | 'entity' | 'missing';
   children?: React.ReactNode;
 }
-export declare function VariableToken(props: VariableTokenProps): React.JSX.Element;
+export declare const VariableToken: React.ForwardRefExoticComponent<VariableTokenProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* forms/Radio.d.ts */
 export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   description?: string;
 }
-export declare function Radio(props: RadioProps): React.JSX.Element;
+export declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
 export interface RadioGroupProps {
   name: string;
   options: Array<string | { value: string; label: string; description?: string }>;
@@ -1155,7 +1169,7 @@ export interface RadioGroupProps {
   onChange?: (v: string) => void;
   direction?: 'row' | 'column';
 }
-export declare function RadioGroup(props: RadioGroupProps): React.JSX.Element;
+export declare const RadioGroup: React.ForwardRefExoticComponent<RadioGroupProps & React.RefAttributes<HTMLDivElement>>;
 
 /* forms/Select.d.ts */
 export interface SelectOption { value: string; label: string; disabled?: boolean }
@@ -1164,7 +1178,7 @@ export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectE
   size?: 'sm' | 'md';
   placeholder?: string;
 }
-export declare function Select(props: SelectProps): React.JSX.Element;
+export declare const Select: React.ForwardRefExoticComponent<SelectProps & React.RefAttributes<HTMLSelectElement>>;
 
 /* forms/Slider.d.ts */
 export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
@@ -1177,7 +1191,7 @@ export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
   format?: (v: number) => string;
   showValue?: boolean;
 }
-export declare function Slider(props: SliderProps): React.JSX.Element;
+export declare const Slider: React.ForwardRefExoticComponent<SliderProps & React.RefAttributes<HTMLInputElement>>;
 
 /* forms/Switch.d.ts */
 export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -1185,7 +1199,7 @@ export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>
   /** brand = gold track; reserve for switches that arm runtime behaviour. */
   tone?: 'default' | 'brand';
 }
-export declare function Switch(props: SwitchProps): React.JSX.Element;
+export declare const Switch: React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLInputElement>>;
 
 /* forms/TagInput.d.ts */
 export interface TagInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -1194,7 +1208,7 @@ export interface TagInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   placeholder?: string;
   mono?: boolean;
 }
-export declare function TagInput(props: TagInputProps): React.JSX.Element;
+export declare const TagInput: React.ForwardRefExoticComponent<TagInputProps & React.RefAttributes<HTMLInputElement>>;
 
 /* forms/TextInput.d.ts */
 export interface TextInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -1210,19 +1224,19 @@ export interface TextInputProps extends Omit<React.InputHTMLAttributes<HTMLInput
   state?: 'default' | 'error' | 'warning' | 'success';
   loading?: boolean;
 }
-export declare function TextInput(props: TextInputProps): React.JSX.Element;
+export declare const TextInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
 export interface SearchInputProps extends TextInputProps { shortcut?: string }
-export declare function SearchInput(props: SearchInputProps): React.JSX.Element;
-export declare function NumberInput(props: TextInputProps & { step?: number }): React.JSX.Element;
+export declare const SearchInput: React.ForwardRefExoticComponent<SearchInputProps & React.RefAttributes<HTMLInputElement>>;
+export declare const NumberInput: React.ForwardRefExoticComponent<TextInputProps & { step?: number } & React.RefAttributes<HTMLInputElement>>;
 export interface SecretFieldProps { value?: string; revealed?: boolean; onReveal?: (v: boolean) => void; expiring?: boolean }
-export declare function SecretField(props: SecretFieldProps): React.JSX.Element;
+export declare const SecretField: React.ForwardRefExoticComponent<SecretFieldProps & React.RefAttributes<HTMLDivElement>>;
 
 /* forms/Textarea.d.ts */
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   mono?: boolean;
   state?: 'default' | 'error' | 'warning' | 'success';
 }
-export declare function Textarea(props: TextareaProps): React.JSX.Element;
+export declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
 
 /* inspector/InspectorField.d.ts */
 export interface InspectorFieldProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -1250,7 +1264,7 @@ export interface InspectorFieldProps extends React.HTMLAttributes<HTMLDivElement
   action?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function InspectorField(props: InspectorFieldProps): React.JSX.Element;
+export declare const InspectorField: React.ForwardRefExoticComponent<InspectorFieldProps & React.RefAttributes<HTMLDivElement>>;
 
 /* inspector/InspectorPanel.d.ts */
 /**
@@ -1273,7 +1287,7 @@ export interface InspectorPanelProps extends React.HTMLAttributes<HTMLElement> {
   stickyFooter?: boolean;
   onClose?: () => void;
 }
-export declare function InspectorPanel(props: InspectorPanelProps): React.JSX.Element;
+export declare const InspectorPanel: React.ForwardRefExoticComponent<InspectorPanelProps & React.RefAttributes<HTMLElement>>;
 
 export interface InspectorHeaderProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
@@ -1283,7 +1297,7 @@ export interface InspectorHeaderProps extends React.HTMLAttributes<HTMLElement> 
   actions?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function InspectorHeader(props: InspectorHeaderProps): React.JSX.Element;
+export declare const InspectorHeader: React.ForwardRefExoticComponent<InspectorHeaderProps & React.RefAttributes<HTMLElement>>;
 
 export interface InspectorTabsProps {
   /** The object's own facets — Purpose, Skills, Tools, Memory, Runtime. Never app navigation. */
@@ -1291,7 +1305,7 @@ export interface InspectorTabsProps {
   value?: string;
   onChange?: (id: string) => void;
 }
-export declare function InspectorTabs(props: InspectorTabsProps): React.JSX.Element;
+export declare const InspectorTabs: React.ForwardRefExoticComponent<InspectorTabsProps & React.RefAttributes<HTMLDivElement>>;
 
 export interface InspectorFooterProps extends React.HTMLAttributes<HTMLElement> {
   /** Sticky by default — commit actions stay reachable however long the body runs. */
@@ -1300,7 +1314,7 @@ export interface InspectorFooterProps extends React.HTMLAttributes<HTMLElement> 
   align?: 'end' | 'start' | 'split';
   children?: React.ReactNode;
 }
-export declare function InspectorFooter(props: InspectorFooterProps): React.JSX.Element;
+export declare const InspectorFooter: React.ForwardRefExoticComponent<InspectorFooterProps & React.RefAttributes<HTMLElement>>;
 
 /* inspector/InspectorSection.d.ts */
 export interface InspectorSectionProps extends React.HTMLAttributes<HTMLElement> {
@@ -1314,7 +1328,7 @@ export interface InspectorSectionProps extends React.HTMLAttributes<HTMLElement>
   /** Dims the label and starts collapsed — progressive disclosure for advanced config. */
   advanced?: boolean;
 }
-export declare function InspectorSection(props: InspectorSectionProps): React.JSX.Element;
+export declare const InspectorSection: React.ForwardRefExoticComponent<InspectorSectionProps & React.RefAttributes<HTMLElement>>;
 export interface PropertyRowProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   value?: React.ReactNode;
@@ -1328,7 +1342,7 @@ export interface PropertyRowProps extends React.HTMLAttributes<HTMLDivElement> {
   empty?: string;
   children?: React.ReactNode;
 }
-export declare function PropertyRow(props: PropertyRowProps): React.JSX.Element;
+export declare const PropertyRow: React.ForwardRefExoticComponent<PropertyRowProps & React.RefAttributes<HTMLDivElement>>;
 
 /* memory/MemoryBadge.d.ts */
 export type FactType = 'explicitFact' | 'observedPattern' | 'inferredPattern' | 'policy' | 'preference' | 'exception' | 'assumption' | 'historicalEvent' | 'relationship' | 'decision' | 'rule' | 'temporaryContext' | 'workingMemory';
@@ -1341,14 +1355,14 @@ export interface MemoryBadgeProps extends React.HTMLAttributes<HTMLSpanElement> 
   label?: string;
   micro?: boolean;
 }
-export declare function MemoryBadge(props: MemoryBadgeProps): React.JSX.Element;
+export declare const MemoryBadge: React.ForwardRefExoticComponent<MemoryBadgeProps & React.RefAttributes<HTMLSpanElement>>;
 export interface MemoryScopeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Bar height encodes breadth: Agent < Playbook < Genie < LAMP. */
   scope?: MemoryScopeKey;
   /** Spell out the full scope name. */
   full?: boolean;
 }
-export declare function MemoryScope(props: MemoryScopeProps): React.JSX.Element;
+export declare const MemoryScope: React.ForwardRefExoticComponent<MemoryScopeProps & React.RefAttributes<HTMLSpanElement>>;
 export interface MemoryConfidenceProps extends React.HTMLAttributes<HTMLSpanElement> {
   level?: 'low' | 'medium' | 'high' | 'veryHigh';
   /** Exact percentage — technical surfaces only. */
@@ -1356,7 +1370,7 @@ export interface MemoryConfidenceProps extends React.HTMLAttributes<HTMLSpanElem
   /** Show the percentage instead of the word. Inspector and run surfaces only. */
   showValue?: boolean;
 }
-export declare function MemoryConfidence(props: MemoryConfidenceProps): React.JSX.Element;
+export declare const MemoryConfidence: React.ForwardRefExoticComponent<MemoryConfidenceProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const FACT_TYPES: Record<FactType, { label: string; glyph: string; tone: string }>;
 export declare const MEMORY_SCOPES: Record<MemoryScopeKey, { label: string; short: string }>;
 
@@ -1399,7 +1413,7 @@ export interface MemoryConflictProps extends React.HTMLAttributes<HTMLElement> {
   readOnly?: boolean;
   actions?: React.ReactNode;
 }
-export declare function MemoryConflict(props: MemoryConflictProps): React.JSX.Element;
+export declare const MemoryConflict: React.ForwardRefExoticComponent<MemoryConflictProps & React.RefAttributes<HTMLElement>>;
 
 /* memory/MemoryFact.d.ts */
 /**
@@ -1431,7 +1445,7 @@ export interface MemoryFactProps extends React.HTMLAttributes<HTMLElement> {
   onIgnore?: () => void;
   actions?: React.ReactNode;
 }
-export declare function MemoryFact(props: MemoryFactProps): React.JSX.Element;
+export declare const MemoryFact: React.ForwardRefExoticComponent<MemoryFactProps & React.RefAttributes<HTMLElement>>;
 
 /* memory/MemoryGraph.d.ts */
 export interface MemoryGraphNode {
@@ -1473,7 +1487,7 @@ export interface MemoryGraphProps extends Omit<React.SVGAttributes<SVGSVGElement
   /** Simulation frame cap. Default 260 — it settles and then stops. */
   iterations?: number;
 }
-export declare function MemoryGraph(props: MemoryGraphProps): React.JSX.Element;
+export declare const MemoryGraph: React.ForwardRefExoticComponent<MemoryGraphProps & React.RefAttributes<HTMLDivElement>>;
 
 /* memory/MemoryScopeBar.d.ts */
 /**
@@ -1501,7 +1515,7 @@ export interface MemoryScopeBarProps extends Omit<React.HTMLAttributes<HTMLDivEl
   /** Full scope names instead of the short form. */
   full?: boolean;
 }
-export declare function MemoryScopeBar(props: MemoryScopeBarProps): React.JSX.Element;
+export declare const MemoryScopeBar: React.ForwardRefExoticComponent<MemoryScopeBarProps & React.RefAttributes<HTMLDivElement>>;
 
 /* memory/MemoryTimeline.d.ts */
 /**
@@ -1521,7 +1535,7 @@ export interface TimelineEntry {
 export interface MemoryTimelineProps extends React.HTMLAttributes<HTMLDivElement> {
   items: TimelineEntry[];
 }
-export declare function MemoryTimeline(props: MemoryTimelineProps): React.JSX.Element;
+export declare const MemoryTimeline: React.ForwardRefExoticComponent<MemoryTimelineProps & React.RefAttributes<HTMLDivElement>>;
 
 /* memory/MemoryUsageBar.d.ts */
 /**
@@ -1541,7 +1555,7 @@ export interface MemoryUsageBarProps extends React.HTMLAttributes<HTMLDivElement
   unit?: string;
   legend?: boolean;
 }
-export declare function MemoryUsageBar(props: MemoryUsageBarProps): React.JSX.Element;
+export declare const MemoryUsageBar: React.ForwardRefExoticComponent<MemoryUsageBarProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/AppShell.d.ts */
 /**
@@ -1562,7 +1576,7 @@ export interface AppShellProps extends React.HTMLAttributes<HTMLDivElement> {
   /** The dominant centre region — usually CanvasSurface. */
   children?: React.ReactNode;
 }
-export declare function AppShell(props: AppShellProps): React.JSX.Element;
+export declare const AppShell: React.ForwardRefExoticComponent<AppShellProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/Breadcrumb.d.ts */
 export interface BreadcrumbItem { label: string; icon?: string; id?: string }
@@ -1573,7 +1587,7 @@ export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
   maxVisible?: number;
   onNavigate?: (item: BreadcrumbItem, index: number) => void;
 }
-export declare function Breadcrumb(props: BreadcrumbProps): React.JSX.Element;
+export declare const Breadcrumb: React.ForwardRefExoticComponent<BreadcrumbProps & React.RefAttributes<HTMLElement>>;
 
 /* navigation/CommandPalette.d.ts */
 export interface CommandItemDef {
@@ -1599,7 +1613,7 @@ export interface CommandPaletteProps extends Omit<React.HTMLAttributes<HTMLDivEl
   placeholder?: string;
   footer?: React.ReactNode;
 }
-export declare function CommandPalette(props: CommandPaletteProps): React.JSX.Element;
+export declare const CommandPalette: React.ForwardRefExoticComponent<CommandPaletteProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/FilterBar.d.ts */
 export interface FilterBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -1611,7 +1625,7 @@ export interface FilterBarProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Right cluster — density switch, view switch, export. */
   right?: React.ReactNode;
 }
-export declare function FilterBar(props: FilterBarProps): React.JSX.Element;
+export declare const FilterBar: React.ForwardRefExoticComponent<FilterBarProps & React.RefAttributes<HTMLDivElement>>;
 export interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   page?: number;
   pageCount?: number;
@@ -1619,7 +1633,7 @@ export interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   range?: string;
   onPage?: (page: number) => void;
 }
-export declare function Pagination(props: PaginationProps): React.JSX.Element;
+export declare const Pagination: React.ForwardRefExoticComponent<PaginationProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/GlobalHeader.d.ts */
 export interface GlobalHeaderProps extends React.HTMLAttributes<HTMLElement> {
@@ -1631,7 +1645,7 @@ export interface GlobalHeaderProps extends React.HTMLAttributes<HTMLElement> {
   right?: React.ReactNode;
   wordmark?: string;
 }
-export declare function GlobalHeader(props: GlobalHeaderProps): React.JSX.Element;
+export declare const GlobalHeader: React.ForwardRefExoticComponent<GlobalHeaderProps & React.RefAttributes<HTMLElement>>;
 
 /* navigation/ObjectTree.d.ts */
 export interface ObjectTreeNode {
@@ -1651,7 +1665,7 @@ export interface ObjectTreeProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   onSelect?: (node: ObjectTreeNode) => void;
   onToggle?: (node: ObjectTreeNode) => void;
 }
-export declare function ObjectTree(props: ObjectTreeProps): React.JSX.Element;
+export declare const ObjectTree: React.ForwardRefExoticComponent<ObjectTreeProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/SegmentedControl.d.ts */
 export interface SegmentedOption { value: string; label?: string; icon?: string }
@@ -1661,7 +1675,7 @@ export interface SegmentedControlProps extends Omit<React.HTMLAttributes<HTMLDiv
   onChange?: (v: string) => void;
   size?: 'sm' | 'md';
 }
-export declare function SegmentedControl(props: SegmentedControlProps): React.JSX.Element;
+export declare const SegmentedControl: React.ForwardRefExoticComponent<SegmentedControlProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/SideNav.d.ts */
 export interface SideNavProps extends React.HTMLAttributes<HTMLElement> {
@@ -1670,9 +1684,9 @@ export interface SideNavProps extends React.HTMLAttributes<HTMLElement> {
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function SideNav(props: SideNavProps): React.JSX.Element;
+export declare const SideNav: React.ForwardRefExoticComponent<SideNavProps & React.RefAttributes<HTMLElement>>;
 export interface NavSectionProps { label?: string; actions?: React.ReactNode; children?: React.ReactNode }
-export declare function NavSection(props: NavSectionProps): React.JSX.Element;
+export declare const NavSection: React.ForwardRefExoticComponent<NavSectionProps & React.RefAttributes<HTMLDivElement>>;
 export interface NavItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string;
   label: string;
@@ -1682,7 +1696,7 @@ export interface NavItemProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
   collapsed?: boolean;
   badge?: React.ReactNode;
 }
-export declare function NavItem(props: NavItemProps): React.JSX.Element;
+export declare const NavItem: React.ForwardRefExoticComponent<NavItemProps & React.RefAttributes<HTMLButtonElement>>;
 
 /* navigation/StatusBar.d.ts */
 export interface StatusBarItem {
@@ -1697,7 +1711,7 @@ export interface StatusBarProps extends React.HTMLAttributes<HTMLElement> {
   /** Right-aligned cluster: sync, connection, cost. */
   right?: StatusBarItem[];
 }
-export declare function StatusBar(props: StatusBarProps): React.JSX.Element;
+export declare const StatusBar: React.ForwardRefExoticComponent<StatusBarProps & React.RefAttributes<HTMLElement>>;
 
 /* navigation/Tabs.d.ts */
 export interface TabDef { id: string; label: string; icon?: string; count?: number; disabled?: boolean }
@@ -1708,7 +1722,7 @@ export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
   /** underline = section tabs · pill = compact inline switch */
   variant?: 'underline' | 'pill';
 }
-export declare function Tabs(props: TabsProps): React.JSX.Element;
+export declare const Tabs: React.ForwardRefExoticComponent<TabsProps & React.RefAttributes<HTMLDivElement>>;
 
 /* navigation/WorkspaceSwitcher.d.ts */
 export interface WorkspaceSwitcherProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -1718,7 +1732,7 @@ export interface WorkspaceSwitcherProps extends React.ButtonHTMLAttributes<HTMLB
   subtitle?: string;
   initials?: string;
 }
-export declare function WorkspaceSwitcher(props: WorkspaceSwitcherProps): React.JSX.Element;
+export declare const WorkspaceSwitcher: React.ForwardRefExoticComponent<WorkspaceSwitcherProps & React.RefAttributes<HTMLButtonElement>>;
 
 /* objects/AgentHex.d.ts */
 export type AgentRole =
@@ -1766,7 +1780,7 @@ export interface AgentHexProps extends React.HTMLAttributes<HTMLDivElement> {
    *  Tighten this instead when the lattice must stay dense. */
   labelWidth?: number;
 }
-export declare function AgentHex(props: AgentHexProps): React.JSX.Element;
+export declare const AgentHex: React.ForwardRefExoticComponent<AgentHexProps & React.RefAttributes<HTMLDivElement>>;
 export declare const AGENT_SIZES: Record<string, [number, number]>;
 
 /* objects/AgentIsland.d.ts */
@@ -1790,7 +1804,7 @@ export interface AgentIslandProps extends React.HTMLAttributes<HTMLDivElement> {
   /** A HexLattice of bonded Agents, or a single AgentHex. */
   children?: React.ReactNode;
 }
-export declare function AgentIsland(props: AgentIslandProps): React.JSX.Element;
+export declare const AgentIsland: React.ForwardRefExoticComponent<AgentIslandProps & React.RefAttributes<HTMLDivElement>>;
 
 /* objects/BondEdge.d.ts */
 export type BondState = 'valid' | 'incomplete' | 'conflicting' | 'requiresConfig' | 'learned' | 'suggested' | 'manual' | 'locked' | 'preview';
@@ -1805,9 +1819,9 @@ export interface BondEdgeProps {
   environment?: 'draft' | 'simulation' | 'live';
   junction?: boolean;
 }
-export declare function BondEdge(props: BondEdgeProps): React.JSX.Element;
+export declare const BondEdge: React.ForwardRefExoticComponent<BondEdgeProps & React.RefAttributes<HTMLElement>>;
 export interface BondLayerProps { width: number; height: number; children?: React.ReactNode }
-export declare function BondLayer(props: BondLayerProps): React.JSX.Element;
+export declare const BondLayer: React.ForwardRefExoticComponent<BondLayerProps & React.RefAttributes<SVGSVGElement>>;
 
 /* objects/EntityChip.d.ts */
 export type EntityType = 'person' | 'team' | 'customer' | 'vendor' | 'project' | 'product' | 'service' | 'invoice' | 'order' | 'contract' | 'policy' | 'document' | 'system' | 'channel' | 'location' | 'event' | 'decision' | 'exception' | 'relationship';
@@ -1823,7 +1837,7 @@ export interface EntityChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   showType?: boolean;
   glyph?: string;
 }
-export declare function EntityChip(props: EntityChipProps): React.JSX.Element;
+export declare const EntityChip: React.ForwardRefExoticComponent<EntityChipProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* objects/GenieCard.d.ts */
 /**
@@ -1844,7 +1858,7 @@ export interface GenieCardProps extends React.HTMLAttributes<HTMLDivElement> {
   hive?: React.ReactNode;
   actions?: React.ReactNode;
 }
-export declare function GenieCard(props: GenieCardProps): React.JSX.Element;
+export declare const GenieCard: React.ForwardRefExoticComponent<GenieCardProps & React.RefAttributes<HTMLDivElement>>;
 
 /* objects/HexLattice.d.ts */
 export interface HexCell {
@@ -1863,7 +1877,7 @@ export interface HexLatticeProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Absolutely-positioned layer behind the cells — usually an SVG of BondEdges. */
   overlay?: React.ReactNode;
 }
-export declare function HexLattice(props: HexLatticeProps): React.JSX.Element;
+export declare const HexLattice: React.ForwardRefExoticComponent<HexLatticeProps & React.RefAttributes<HTMLDivElement>>;
 /** Centre of a lattice slot — anchor BondEdge and energy paths with it.
  *  Use `HexCenter` from the design-system namespace; `hexCenter` is the sibling-import name. */
 export declare function hexCenter(col: number, row: number, size?: string, gap?: number): { x: number; y: number };
@@ -1894,8 +1908,8 @@ export interface ObjectRowProps extends React.HTMLAttributes<HTMLDivElement> {
   /** 32px instead of 40px. */
   compact?: boolean;
 }
-export declare function ObjectRow(props: ObjectRowProps): React.JSX.Element;
-export declare function ObjectList(props: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element;
+export declare const ObjectRow: React.ForwardRefExoticComponent<ObjectRowProps & React.RefAttributes<HTMLDivElement>>;
+export declare const ObjectList: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 
 /* objects/PlaybookCluster.d.ts */
 export type PlaybookState = 'observed' | 'inferred' | 'draft' | 'unvalidated' | 'simulation' | 'simulationFailed' | 'validated' | 'stable' | 'live' | 'learning' | 'paused' | 'degraded' | 'failed' | 'error' | 'disabled' | 'deprecated';
@@ -1926,7 +1940,7 @@ export interface PlaybookClusterProps extends React.HTMLAttributes<HTMLDivElemen
   /** The snapped composition — normally a HexLattice of AgentHex. */
   children?: React.ReactNode;
 }
-export declare function PlaybookCluster(props: PlaybookClusterProps): React.JSX.Element;
+export declare const PlaybookCluster: React.ForwardRefExoticComponent<PlaybookClusterProps & React.RefAttributes<HTMLDivElement>>;
 
 /* objects/SkillOrb.d.ts */
 export type SkillState = 'available' | 'attached' | 'active' | 'running' | 'waiting' | 'error' | 'disabled' | 'suggested' | 'learned';
@@ -1943,7 +1957,7 @@ export interface SkillOrbProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Render the name beside the circle. */
   label?: boolean;
 }
-export declare function SkillOrb(props: SkillOrbProps): React.JSX.Element;
+export declare const SkillOrb: React.ForwardRefExoticComponent<SkillOrbProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const SKILL_SIZES: Record<string, number>;
 
 /* objects/ToolTile.d.ts */
@@ -1963,7 +1977,7 @@ export interface ToolTileProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Official brand hex. Allowed on the glyph only — the tile itself stays neutral. */
   brandColor?: string;
 }
-export declare function ToolTile(props: ToolTileProps): React.JSX.Element;
+export declare const ToolTile: React.ForwardRefExoticComponent<ToolTileProps & React.RefAttributes<HTMLSpanElement>>;
 export interface ToolRowProps extends React.HTMLAttributes<HTMLDivElement> {
   provider?: string;
   glyph?: string;
@@ -1979,7 +1993,7 @@ export interface ToolRowProps extends React.HTMLAttributes<HTMLDivElement> {
   risk?: 'Low' | 'Medium' | 'High';
   actions?: React.ReactNode;
 }
-export declare function ToolRow(props: ToolRowProps): React.JSX.Element;
+export declare const ToolRow: React.ForwardRefExoticComponent<ToolRowProps & React.RefAttributes<HTMLDivElement>>;
 
 /* patterns/BusinessProcess.d.ts */
 export interface ProcessStep {
@@ -2070,7 +2084,7 @@ export interface ProcessProposalProps extends React.HTMLAttributes<HTMLElement> 
   /** Drops the evidence list and the gap note. For a sidebar or a list. */
   compact?: boolean;
 }
-export declare function ProcessProposal(props: ProcessProposalProps): React.JSX.Element;
+export declare const ProcessProposal: React.ForwardRefExoticComponent<ProcessProposalProps & React.RefAttributes<HTMLElement>>;
 
 /* patterns/Conversation.d.ts */
 /**
@@ -2084,8 +2098,8 @@ export interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Delivery or execution state, e.g. "Delivered", "Waiting". */
   status?: string;
 }
-export declare function Message(props: MessageProps): React.JSX.Element;
-export declare function MessageList(props: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element;
+export declare const Message: React.ForwardRefExoticComponent<MessageProps & React.RefAttributes<HTMLDivElement>>;
+export declare const MessageList: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 export interface ComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   placeholder?: string;
   value?: string;
@@ -2097,7 +2111,7 @@ export interface ComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   quickReplies?: Array<string | { label: string; onSelect?: () => void }>;
   disabled?: boolean;
 }
-export declare function Composer(props: ComposerProps): React.JSX.Element;
+export declare const Composer: React.ForwardRefExoticComponent<ComposerProps & React.RefAttributes<HTMLDivElement>>;
 export interface ConversationProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   /** Context line — the Playbook or run the thread belongs to. */
@@ -2108,7 +2122,7 @@ export interface ConversationProps extends React.HTMLAttributes<HTMLDivElement> 
   /** A Composer element. */
   composer?: React.ReactNode;
 }
-export declare function Conversation(props: ConversationProps): React.JSX.Element;
+export declare const Conversation: React.ForwardRefExoticComponent<ConversationProps & React.RefAttributes<HTMLDivElement>>;
 
 /* patterns/GenieBlueprint.d.ts */
 export interface GenieBlueprintModel {
@@ -2158,7 +2172,7 @@ export interface GenieBlueprintProps extends React.HTMLAttributes<HTMLElement> {
   excluded?: string[];
   compact?: boolean;
 }
-export declare function GenieBlueprint(props: GenieBlueprintProps): React.JSX.Element;
+export declare const GenieBlueprint: React.ForwardRefExoticComponent<GenieBlueprintProps & React.RefAttributes<HTMLElement>>;
 
 /* patterns/IntegrationCard.d.ts */
 /**
@@ -2187,7 +2201,7 @@ export interface IntegrationCardProps extends React.HTMLAttributes<HTMLElement> 
   onTest?: () => void;
   actions?: React.ReactNode;
 }
-export declare function IntegrationCard(props: IntegrationCardProps): React.JSX.Element;
+export declare const IntegrationCard: React.ForwardRefExoticComponent<IntegrationCardProps & React.RefAttributes<HTMLElement>>;
 
 /* patterns/LearnedPattern.d.ts */
 /**
@@ -2213,7 +2227,7 @@ export interface LearnedPatternProps extends React.HTMLAttributes<HTMLElement> {
   onIgnore?: () => void;
   actions?: React.ReactNode;
 }
-export declare function LearnedPattern(props: LearnedPatternProps): React.JSX.Element;
+export declare const LearnedPattern: React.ForwardRefExoticComponent<LearnedPatternProps & React.RefAttributes<HTMLElement>>;
 
 /* patterns/MobileShell.d.ts */
 /**
@@ -2230,7 +2244,7 @@ export interface MobileShellProps extends React.HTMLAttributes<HTMLDivElement> {
   /** EnvironmentBanner or InlineNotification pinned under the bar. */
   banner?: React.ReactNode;
 }
-export declare function MobileShell(props: MobileShellProps): React.JSX.Element;
+export declare const MobileShell: React.ForwardRefExoticComponent<MobileShellProps & React.RefAttributes<HTMLDivElement>>;
 
 /* patterns/ObservedProcess.d.ts */
 /**
@@ -2255,7 +2269,7 @@ export interface ObservedProcessProps extends React.HTMLAttributes<HTMLDivElemen
   steps: ObservedStep[];
   showLinks?: boolean;
 }
-export declare function ObservedProcess(props: ObservedProcessProps): React.JSX.Element;
+export declare const ObservedProcess: React.ForwardRefExoticComponent<ObservedProcessProps & React.RefAttributes<HTMLDivElement>>;
 
 /* patterns/PermissionMatrix.d.ts */
 /**
@@ -2277,10 +2291,10 @@ export interface PermissionMatrixProps extends React.TableHTMLAttributes<HTMLTab
   onToggle?: (resource: PermissionResource, action: string, state: string) => void;
   scopeLabel?: string;
 }
-export declare function PermissionMatrix(props: PermissionMatrixProps): React.JSX.Element;
+export declare const PermissionMatrix: React.ForwardRefExoticComponent<PermissionMatrixProps & React.RefAttributes<HTMLTableElement>>;
 export declare function PermissionCell(props: { state?: 'granted' | 'inherited' | 'denied' | 'overridden' | 'conflict'; onClick?: () => void }): React.JSX.Element;
 export interface RoleBadgeProps { role: string; scope?: string }
-export declare function RoleBadge(props: RoleBadgeProps): React.JSX.Element;
+export declare const RoleBadge: React.ForwardRefExoticComponent<RoleBadgeProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* patterns/PlaybookComposer.d.ts */
 export interface ComposedPlaybook {
@@ -2321,7 +2335,7 @@ export interface PlaybookComposerProps {
   /** Hides the "also create a Genie" option. */
   allowGenie?: boolean;
 }
-export declare function PlaybookComposer(props: PlaybookComposerProps): React.JSX.Element;
+export declare const PlaybookComposer: React.ForwardRefExoticComponent<PlaybookComposerProps & React.RefAttributes<HTMLDivElement>>;
 
 /* patterns/VoiceButton.d.ts */
 /**
@@ -2340,8 +2354,8 @@ export interface VoiceButtonProps extends React.HTMLAttributes<HTMLSpanElement> 
   onCancel?: () => void;
   onSend?: () => void;
 }
-export declare function VoiceButton(props: VoiceButtonProps): React.JSX.Element;
-export declare function VoiceWaveform(props: { levels?: number[]; bars?: number; height?: number }): React.JSX.Element;
+export declare const VoiceButton: React.ForwardRefExoticComponent<VoiceButtonProps & React.RefAttributes<HTMLSpanElement>>;
+export declare const VoiceWaveform: React.ForwardRefExoticComponent<{ levels?: number[]; bars?: number; height?: number } & React.RefAttributes<HTMLSpanElement>>;
 
 /* runtime/ApprovalCard.d.ts */
 /**
@@ -2372,12 +2386,12 @@ export interface ApprovalCardProps extends React.HTMLAttributes<HTMLElement> {
   onRequestInfo?: () => void;
   onEscalate?: () => void;
 }
-export declare function ApprovalCard(props: ApprovalCardProps): React.JSX.Element;
+export declare const ApprovalCard: React.ForwardRefExoticComponent<ApprovalCardProps & React.RefAttributes<HTMLElement>>;
 export interface HumanCheckpointProps extends React.HTMLAttributes<HTMLSpanElement> {
   label?: string;
   detail?: string;
 }
-export declare function HumanCheckpoint(props: HumanCheckpointProps): React.JSX.Element;
+export declare const HumanCheckpoint: React.ForwardRefExoticComponent<HumanCheckpointProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* runtime/EnvironmentBanner.d.ts */
 /**
@@ -2391,7 +2405,7 @@ export interface EnvironmentBannerProps extends React.HTMLAttributes<HTMLDivElem
   detail?: string;
   actions?: React.ReactNode;
 }
-export declare function EnvironmentBanner(props: EnvironmentBannerProps): React.JSX.Element;
+export declare const EnvironmentBanner: React.ForwardRefExoticComponent<EnvironmentBannerProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/KillSwitch.d.ts */
 /**
@@ -2409,7 +2423,7 @@ export interface KillSwitchProps extends React.HTMLAttributes<HTMLDivElement> {
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-export declare function KillSwitch(props: KillSwitchProps): React.JSX.Element;
+export declare const KillSwitch: React.ForwardRefExoticComponent<KillSwitchProps & React.RefAttributes<HTMLDivElement>>;
 export interface SafetyControlsProps extends React.HTMLAttributes<HTMLDivElement> {
   state?: 'live' | 'paused';
   onPause?: () => void;
@@ -2417,7 +2431,7 @@ export interface SafetyControlsProps extends React.HTMLAttributes<HTMLDivElement
   onEmergency?: () => void;
   onResume?: () => void;
 }
-export declare function SafetyControls(props: SafetyControlsProps): React.JSX.Element;
+export declare const SafetyControls: React.ForwardRefExoticComponent<SafetyControlsProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/LiveActivityIndicator.d.ts */
 export interface LiveActivityIndicatorProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -2427,7 +2441,7 @@ export interface LiveActivityIndicatorProps extends React.HTMLAttributes<HTMLSpa
   /** Active run count. */
   count?: number;
 }
-export declare function LiveActivityIndicator(props: LiveActivityIndicatorProps): React.JSX.Element;
+export declare const LiveActivityIndicator: React.ForwardRefExoticComponent<LiveActivityIndicatorProps & React.RefAttributes<HTMLSpanElement>>;
 
 /* runtime/ReadinessCheck.d.ts */
 /**
@@ -2444,7 +2458,7 @@ export interface ReadinessItem {
 export interface ReadinessCheckProps extends React.HTMLAttributes<HTMLDivElement> {
   checks: ReadinessItem[];
 }
-export declare function ReadinessCheck(props: ReadinessCheckProps): React.JSX.Element;
+export declare const ReadinessCheck: React.ForwardRefExoticComponent<ReadinessCheckProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/RunSummary.d.ts */
 /**
@@ -2468,7 +2482,7 @@ export interface RunSummaryProps extends React.HTMLAttributes<HTMLDivElement> {
   interventions?: number | string;
   environment?: string;
   }
-export declare function RunSummary(props: RunSummaryProps): React.JSX.Element;
+export declare const RunSummary: React.ForwardRefExoticComponent<RunSummaryProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/RunTimeline.d.ts */
 export type RunStepState = 'pending' | 'running' | 'success' | 'warning' | 'failed' | 'skipped' | 'waitingHuman' | 'mocked' | 'blocked';
@@ -2493,11 +2507,11 @@ export interface RunStepProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   expandable?: boolean;
   onToggle?: () => void;
 }
-export declare function RunStep(props: RunStepProps): React.JSX.Element;
+export declare const RunStep: React.ForwardRefExoticComponent<RunStepProps & React.RefAttributes<HTMLDivElement>>;
 export interface RunTimelineProps extends React.HTMLAttributes<HTMLDivElement> {
   steps: RunStepProps[];
 }
-export declare function RunTimeline(props: RunTimelineProps): React.JSX.Element;
+export declare const RunTimeline: React.ForwardRefExoticComponent<RunTimelineProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/SimulationBar.d.ts */
 /**
@@ -2525,7 +2539,7 @@ export interface SimulationBarProps extends React.HTMLAttributes<HTMLDivElement>
   onScenario?: () => void;
   right?: React.ReactNode;
 }
-export declare function SimulationBar(props: SimulationBarProps): React.JSX.Element;
+export declare const SimulationBar: React.ForwardRefExoticComponent<SimulationBarProps & React.RefAttributes<HTMLDivElement>>;
 
 /* runtime/SimulationStep.d.ts */
 export interface SimulationStepProps extends RunStepProps {
@@ -2542,4 +2556,4 @@ export interface SimulationStepProps extends RunStepProps {
   /** Scenario this step ran under — "Late invoice", "Missing PO". */
   scenario?: string;
 }
-export declare function SimulationStep(props: SimulationStepProps): React.JSX.Element;
+export declare const SimulationStep: React.ForwardRefExoticComponent<SimulationStepProps & React.RefAttributes<HTMLDivElement>>;

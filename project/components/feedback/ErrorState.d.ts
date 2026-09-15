@@ -17,4 +17,4 @@ export interface ErrorStateProps extends React.HTMLAttributes<HTMLDivElement> {
   onReport?: () => void;
   actions?: React.ReactNode;
 }
-export declare function ErrorState(props: ErrorStateProps): JSX.Element;
+export declare const ErrorState: React.ForwardRefExoticComponent<ErrorStateProps & React.RefAttributes<HTMLDivElement>>;

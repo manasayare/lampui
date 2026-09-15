@@ -4,4 +4,4 @@ export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectE
   size?: 'sm' | 'md';
   placeholder?: string;
 }
-export declare function Select(props: SelectProps): JSX.Element;
+export declare const Select: React.ForwardRefExoticComponent<SelectProps & React.RefAttributes<HTMLSelectElement>>;

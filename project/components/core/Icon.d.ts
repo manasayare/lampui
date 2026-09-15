@@ -9,7 +9,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Supply when the icon stands alone and carries meaning. */
   label?: string;
 }
-export declare function Icon(props: IconProps): JSX.Element;
+export declare const Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<HTMLSpanElement>>;
 
 export interface BrandIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Simple Icons slug — "gmail", "salesforce", "sap", "googledrive", "whatsapp". */
@@ -19,6 +19,6 @@ export interface BrandIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string;
   label?: string;
 }
-export declare function BrandIcon(props: BrandIconProps): JSX.Element;
+export declare const BrandIcon: React.ForwardRefExoticComponent<BrandIconProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const MATERIAL_SYMBOLS_BASE: string;
 export declare const BRAND_ICON_BASE: string;

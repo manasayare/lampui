@@ -36,4 +36,4 @@ export interface MemoryConflictProps extends React.HTMLAttributes<HTMLElement> {
   readOnly?: boolean;
   actions?: React.ReactNode;
 }
-export declare function MemoryConflict(props: MemoryConflictProps): JSX.Element;
+export declare const MemoryConflict: React.ForwardRefExoticComponent<MemoryConflictProps & React.RefAttributes<HTMLElement>>;

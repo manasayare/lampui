@@ -86,4 +86,4 @@ export interface ProcessProposalProps extends React.HTMLAttributes<HTMLElement> 
   /** Drops the evidence list and the gap note. For a sidebar or a list. */
   compact?: boolean;
 }
-export declare function ProcessProposal(props: ProcessProposalProps): JSX.Element;
+export declare const ProcessProposal: React.ForwardRefExoticComponent<ProcessProposalProps & React.RefAttributes<HTMLElement>>;

@@ -12,4 +12,4 @@ export interface MobileShellProps extends React.HTMLAttributes<HTMLDivElement> {
   /** EnvironmentBanner or InlineNotification pinned under the bar. */
   banner?: React.ReactNode;
 }
-export declare function MobileShell(props: MobileShellProps): JSX.Element;
+export declare const MobileShell: React.ForwardRefExoticComponent<MobileShellProps & React.RefAttributes<HTMLDivElement>>;

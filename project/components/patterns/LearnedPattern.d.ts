@@ -21,4 +21,4 @@ export interface LearnedPatternProps extends React.HTMLAttributes<HTMLElement> {
   onIgnore?: () => void;
   actions?: React.ReactNode;
 }
-export declare function LearnedPattern(props: LearnedPatternProps): JSX.Element;
+export declare const LearnedPattern: React.ForwardRefExoticComponent<LearnedPatternProps & React.RefAttributes<HTMLElement>>;

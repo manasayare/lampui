@@ -11,4 +11,4 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   footer?: React.ReactNode;
   children?: React.ReactNode;
 }
-export declare function Card(props: CardProps): JSX.Element;
+export declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>>;

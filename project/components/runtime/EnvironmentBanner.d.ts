@@ -9,4 +9,4 @@ export interface EnvironmentBannerProps extends React.HTMLAttributes<HTMLDivElem
   detail?: string;
   actions?: React.ReactNode;
 }
-export declare function EnvironmentBanner(props: EnvironmentBannerProps): JSX.Element;
+export declare const EnvironmentBanner: React.ForwardRefExoticComponent<EnvironmentBannerProps & React.RefAttributes<HTMLDivElement>>;

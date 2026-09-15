@@ -387,14 +387,14 @@ export const matchProcess = MatchProcess;
  * Same grammar as LearnedPattern: what LAMP thinks, what it is going on, and
  * three ways out — use it, look closer, or dismiss it.
  */
-export function ProcessProposal({
+export const ProcessProposal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ProcessProposal({
   match, selected = false, primary = false, onUse, onReview, onDismiss, compact = false, className = '', ...rest
-}) {
+}, ref) {
   if (!match) return null;
   const { process, confidence, evidence = [], roleHits = [] } = match;
 
   return (
-    <article
+    <article ref={ref}
       className={['lamp-proposal', primary && 'lamp-proposal--primary', selected && 'lamp-proposal--selected', compact && 'lamp-proposal--compact', className].filter(Boolean).join(' ')}
       {...rest}
     >
@@ -433,4 +433,4 @@ export function ProcessProposal({
       ) : null}
     </article>
   );
-}
+}), { displayName: 'ProcessProposal' });

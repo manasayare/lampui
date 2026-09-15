@@ -10,18 +10,18 @@ const CELL = {
   conflict:  { glyph: 'warning', cls: 'conflict', label: 'Conflict' },
 };
 
-export function PermissionCell({ state = 'denied', onClick, ...rest }) {
+export const PermissionCell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function PermissionCell({ state = 'denied', onClick, ...rest }, ref) {
   const c = CELL[state] || CELL.denied;
   return (
-    <span className={'lamp-perm__cell lamp-perm__cell--' + c.cls} role={onClick ? 'button' : 'img'} aria-label={c.label} title={c.label} onClick={onClick} {...rest}>
+    <span ref={ref} className={'lamp-perm__cell lamp-perm__cell--' + c.cls} role={onClick ? 'button' : 'img'} aria-label={c.label} title={c.label} onClick={onClick} {...rest}>
       <Icon name={c.glyph} size={14} />
     </span>
   );
-}
+}), { displayName: 'PermissionCell' });
 
-export function PermissionMatrix({ resources = [], actions = [], values = {}, onToggle, scopeLabel = 'Resource', className = '', ...rest }) {
+export const PermissionMatrix = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function PermissionMatrix({ resources = [], actions = [], values = {}, onToggle, scopeLabel = 'Resource', className = '', ...rest }, ref) {
   return (
-    <table className={'lamp-perm ' + className} {...rest}>
+    <table ref={ref} className={'lamp-perm ' + className} {...rest}>
       <thead>
         <tr>
           <th><span className="lamp-perm__scope">{scopeLabel}</span></th>
@@ -47,9 +47,9 @@ export function PermissionMatrix({ resources = [], actions = [], values = {}, on
       </tbody>
     </table>
   );
-}
+}), { displayName: 'PermissionMatrix' });
 
-export function RoleBadge({ role, scope, ...rest }) {
+export const RoleBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function RoleBadge({ role, scope, ...rest }, ref) {
   const tone = role === 'Owner' ? 'brand' : role === 'Admin' ? 'info' : role === 'Viewer' ? 'neutral' : 'neutral';
-  return <Badge tone={tone} icon={role === 'Owner' ? 'workspace_premium' : role === 'Admin' ? 'shield' : 'person'} {...rest}>{scope ? role + ' · ' + scope : role}</Badge>;
-}
+  return <Badge ref={ref} tone={tone} icon={role === 'Owner' ? 'workspace_premium' : role === 'Admin' ? 'shield' : 'person'} {...rest}>{scope ? role + ' · ' + scope : role}</Badge>;
+}), { displayName: 'RoleBadge' });

@@ -22,4 +22,4 @@ export interface HexHeatmapProps extends Omit<React.SVGAttributes<SVGElement>, '
   showLabels?: boolean;
   onSelect?: (cell: HexHeatmapCell) => void;
 }
-export declare function HexHeatmap(props: HexHeatmapProps): JSX.Element;
+export declare const HexHeatmap: React.ForwardRefExoticComponent<HexHeatmapProps & React.RefAttributes<SVGSVGElement>>;

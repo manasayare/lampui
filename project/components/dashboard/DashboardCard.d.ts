@@ -14,11 +14,11 @@ export interface DashboardCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Grid columns to span. */
   span?: number;
 }
-export declare function DashboardCard(props: DashboardCardProps): JSX.Element;
+export declare const DashboardCard: React.ForwardRefExoticComponent<DashboardCardProps & React.RefAttributes<HTMLElement>>;
 export interface DashboardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   /** 2 · 3 · 4 — collapses to 2 below 1100px and 1 below 760px. */
   columns?: 2 | 3 | 4;
 }
-export declare function DashboardGrid(props: DashboardGridProps): JSX.Element;
+export declare const DashboardGrid: React.ForwardRefExoticComponent<DashboardGridProps & React.RefAttributes<HTMLDivElement>>;
 /** Auto-fitting row of MetricCards, minimum 180px each. */
-export declare function StatGrid(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
+export declare const StatGrid: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;

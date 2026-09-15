@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Tooltip({ content, shortcut, rich = false, children, ...rest }) {
+export const Tooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Tooltip({ content, shortcut, rich = false, children, ...rest }, ref) {
   const [open, setOpen] = React.useState(false);
   return (
-    <span className={['lamp-tip', open && 'lamp-tip--open'].filter(Boolean).join(' ')}
+    <span ref={ref} className={['lamp-tip', open && 'lamp-tip--open'].filter(Boolean).join(' ')}
       onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}
       onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} {...rest}>
       {children}
@@ -12,4 +12,4 @@ export function Tooltip({ content, shortcut, rich = false, children, ...rest }) 
       </span>
     </span>
   );
-}
+}), { displayName: 'Tooltip' });

@@ -11,6 +11,7 @@ import {
   SimulationStep, RunTimeline, KillSwitch,
   StackedBar, ContextBreakdown, MetricCard, DataTable,
   PlaybookComposer, GenieBlueprint, BuildGenie, MatchProcess, BUSINESS_PROCESSES,
+  useMergedRefs,
   type ButtonProps, type SnapFieldAgent, type ComposedPlaybook, type BusinessProcessDef,
 } from '@lamp/design-system';
 
@@ -92,6 +93,34 @@ export function Smoke() {
         />
       ) : null}
       <GenieBlueprint blueprint={blueprint} />
+    </>
+  );
+}
+
+/* Refs reach the DOM node, and are typed to the right element. */
+export function Refs() {
+  const button = React.useRef<HTMLButtonElement>(null);
+  const panel = React.useRef<HTMLElement>(null);
+  const field = React.useRef<HTMLDivElement>(null);
+  const extra = React.useRef<HTMLDivElement>(null);
+
+  /* CanvasSurface keeps its own ref internally and still honours this one. */
+  const merged = useMergedRefs(field, extra);
+
+  React.useEffect(() => {
+    button.current?.focus();
+    field.current?.getBoundingClientRect();
+  }, []);
+
+  return (
+    <>
+      <Button ref={button}>Go live</Button>
+      <InspectorPanel ref={panel} title="Invoice Matcher" />
+      <CanvasSurface ref={merged} pannable>
+        <SnapField ref={field} agents={[]} renderAgent={() => null} />
+      </CanvasSurface>
+      {/* @ts-expect-error a button ref is not an input ref */}
+      <TextInput ref={button} />
     </>
   );
 }

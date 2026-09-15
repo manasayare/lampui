@@ -26,13 +26,13 @@ export const STATUS = {
   disabled:   { tone: 'neutral', icon: 'do_not_disturb_on',    label: 'Disabled',       color: 'var(--status-neutral)' },
 };
 
-export function StatusDot({ status = 'draft', size = 'md', pulse = false, ring = false, style, ...rest }) {
+export const StatusDot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function StatusDot({ status = 'draft', size = 'md', pulse = false, ring = false, style, ...rest }, ref) {
   const s = STATUS[status] || STATUS.draft;
   const cls = ['lamp-dot', size === 'lg' && 'lamp-dot--lg', ring && 'lamp-dot--ring', pulse && 'lamp-dot--pulse'].filter(Boolean).join(' ');
-  return <span className={cls} style={{ background: s.color, color: s.color, ...style }} role="img" aria-label={s.label} {...rest} />;
-}
+  return <span ref={ref} className={cls} style={{ background: s.color, color: s.color, ...style }} role="img" aria-label={s.label} {...rest} />;
+}), { displayName: 'StatusDot' });
 
-export function StatusBadge({ status = 'draft', label, mode = 'badge', size = 'md', className = '', ...rest }) {
+export const StatusBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function StatusBadge({ status = 'draft', label, mode = 'badge', size = 'md', className = '', ...rest }, ref) {
   const s = STATUS[status] || STATUS.draft;
   const text = label || s.label;
   if (mode === 'label') {
@@ -46,8 +46,8 @@ export function StatusBadge({ status = 'draft', label, mode = 'badge', size = 'm
     return <span className={className} style={{ display: 'inline-flex', color: s.color }} role="img" aria-label={text} {...rest}><Icon name={s.icon} size={14} /></span>;
   }
   return (
-    <span className={['lamp-badge', 'lamp-badge--' + s.tone, className].filter(Boolean).join(' ')} {...rest}>
+    <span ref={ref} className={['lamp-badge', 'lamp-badge--' + s.tone, className].filter(Boolean).join(' ')} {...rest}>
       <Icon name={s.icon} size={11} />{text}
     </span>
   );
-}
+}), { displayName: 'StatusBadge' });

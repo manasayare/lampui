@@ -4,14 +4,14 @@ import { Checkbox } from '../forms/Checkbox.jsx';
 
 /* Presentation layer for TanStack Table. Logic (sorting, filtering, virtualization,
    grouping, pagination) belongs to the table instance; this renders LAMP's surface. */
-export function DataTable({
+export const DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function DataTable({
   columns = [], rows = [], density = 'default', variant = 'standard', sort, onSort,
   selectable = false, selected = [], onSelect, onSelectAll, onRowClick, rowKey = (r, i) => r.id || i,
   toolbar, bulkActions, footerRow, state = 'ready', emptyState, stickyHeader = true, className = '', ...rest
-}) {
+}, ref) {
   const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
   return (
-    <div className={'lamp-tablewrap ' + className} {...rest}>
+    <div ref={ref} className={'lamp-tablewrap ' + className} {...rest}>
       {toolbar ? <div className="lamp-tabletoolbar">{toolbar}</div> : null}
       {selectable && selected.length > 0 ? (
         <div className="lamp-tablebulk">
@@ -73,4 +73,4 @@ export function DataTable({
       </div>
     </div>
   );
-}
+}), { displayName: 'DataTable' });

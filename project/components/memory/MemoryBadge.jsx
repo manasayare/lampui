@@ -26,29 +26,29 @@ export const MEMORY_SCOPES = {
   lamp:     { label: 'LAMP memory',          short: 'LAMP' },
 };
 
-export function MemoryBadge({ type = 'explicitFact', label, micro = true, ...rest }) {
+export const MemoryBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryBadge({ type = 'explicitFact', label, micro = true, ...rest }, ref) {
   const t = FACT_TYPES[type] || FACT_TYPES.explicitFact;
-  return <Badge tone={t.tone} icon={t.glyph} micro={micro} {...rest}>{label || t.label}</Badge>;
-}
+  return <Badge ref={ref} tone={t.tone} icon={t.glyph} micro={micro} {...rest}>{label || t.label}</Badge>;
+}), { displayName: 'MemoryBadge' });
 
-export function MemoryScope({ scope = 'agent', full = false, ...rest }) {
+export const MemoryScope = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryScope({ scope = 'agent', full = false, ...rest }, ref) {
   const s = MEMORY_SCOPES[scope] || MEMORY_SCOPES.agent;
   return (
-    <span className={'lamp-mem-scope lamp-mem-scope--' + scope} title={s.label} {...rest}>
+    <span ref={ref} className={'lamp-mem-scope lamp-mem-scope--' + scope} title={s.label} {...rest}>
       <span className="lamp-mem-scope__bar" />
       {full ? s.label : s.short}
     </span>
   );
-}
+}), { displayName: 'MemoryScope' });
 
-export function MemoryConfidence({ level = 'high', value, showValue = false, ...rest }) {
+export const MemoryConfidence = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryConfidence({ level = 'high', value, showValue = false, ...rest }, ref) {
   const pct = value != null ? value : level === 'veryHigh' ? 96 : level === 'high' ? 84 : level === 'medium' ? 62 : 34;
   const label = level === 'veryHigh' ? 'Very high' : level === 'high' ? 'High' : level === 'medium' ? 'Medium' : 'Low';
   const tone = pct >= 80 ? 'high' : pct >= 55 ? '' : 'low';
   return (
-    <span className="lamp-conf" {...rest}>
+    <span ref={ref} className="lamp-conf" {...rest}>
       <span className="lamp-conf__track"><span className={'lamp-conf__fill' + (tone ? ' lamp-conf__fill--' + tone : '')} style={{ width: pct + '%' }} /></span>
       <span className="lamp-conf__label">{showValue ? pct + '%' : label}</span>
     </span>
   );
-}
+}), { displayName: 'MemoryConfidence' });

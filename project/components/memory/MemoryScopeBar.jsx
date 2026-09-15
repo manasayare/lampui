@@ -24,10 +24,10 @@ import { MEMORY_SCOPES } from './MemoryBadge.jsx';
 
 const ORDER = ['agent', 'playbook', 'genie', 'lamp'];
 
-export function MemoryScopeBar({
+export const MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryScopeBar({
   value, counts = {}, inherited = [], owned, onChange, readOnly = false,
   scopes = ORDER, showCounts = true, full = false, layout, className = '', ...rest
-}) {
+}, ref) {
   /* A read-out lists; a filter is a bar. Either can be forced. */
   const asList = (layout || (readOnly ? 'list' : 'bar')) === 'list';
   /* An object owns one scope and reads from every broader one. Naming `owned` is
@@ -38,7 +38,7 @@ export function MemoryScopeBar({
     inherited.indexOf(k) !== -1 || (ownedAt >= 0 && scopes.indexOf(k) > ownedAt);
 
   return (
-    <div
+    <div ref={ref}
       className={[
         'lamp-scopebar',
         asList ? 'lamp-scopebar--list' : 'lamp-scopebar--bar',
@@ -93,4 +93,4 @@ export function MemoryScopeBar({
       })}
     </div>
   );
-}
+}), { displayName: 'MemoryScopeBar' });

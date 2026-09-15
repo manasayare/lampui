@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 import { IconButton } from '../core/IconButton.jsx';
 
-export function MobileShell({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = '', ...rest }) {
+export const MobileShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MobileShell({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-mobile ' + className} {...rest}>
+    <div ref={ref} className={'lamp-mobile ' + className} {...rest}>
       <header className="lamp-mobile__top">
         {leading}
         <span className="lamp-mobile__title">{title}</span>
@@ -25,4 +25,4 @@ export function MobileShell({ title, leading, actions, tabs = [], activeTab, onT
       ) : null}
     </div>
   );
-}
+}), { displayName: 'MobileShell' });

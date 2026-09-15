@@ -1,9 +1,9 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function CanvasContextMenu({ x = 0, y = 0, groups = [], onSelect, className = '', style, ...rest }) {
+export const CanvasContextMenu = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function CanvasContextMenu({ x = 0, y = 0, groups = [], onSelect, className = '', style, ...rest }, ref) {
   return (
-    <div className={'lamp-cmenu ' + className} style={{ position: 'absolute', left: x, top: y, ...style }} role="menu" {...rest}>
+    <div ref={ref} className={'lamp-cmenu ' + className} style={{ position: 'absolute', left: x, top: y, ...style }} role="menu" {...rest}>
       {groups.map((g, gi) => (
         <div key={gi}>
           {gi > 0 ? <div className="lamp-cmenu__sep" /> : null}
@@ -21,4 +21,4 @@ export function CanvasContextMenu({ x = 0, y = 0, groups = [], onSelect, classNa
       ))}
     </div>
   );
-}
+}), { displayName: 'CanvasContextMenu' });

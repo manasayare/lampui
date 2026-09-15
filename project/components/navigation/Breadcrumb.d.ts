@@ -6,4 +6,4 @@ export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
   maxVisible?: number;
   onNavigate?: (item: BreadcrumbItem, index: number) => void;
 }
-export declare function Breadcrumb(props: BreadcrumbProps): JSX.Element;
+export declare const Breadcrumb: React.ForwardRefExoticComponent<BreadcrumbProps & React.RefAttributes<HTMLElement>>;

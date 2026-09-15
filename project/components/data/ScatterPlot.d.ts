@@ -15,4 +15,4 @@ export interface ScatterPlotProps extends Omit<React.SVGAttributes<SVGElement>, 
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function ScatterPlot(props: ScatterPlotProps): JSX.Element;
+export declare const ScatterPlot: React.ForwardRefExoticComponent<ScatterPlotProps & React.RefAttributes<SVGSVGElement>>;

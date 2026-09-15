@@ -1,0 +1,791 @@
+{
+  "converted": [
+    {
+      "name": "CanvasContextMenu",
+      "element": "HTMLDivElement",
+      "file": "canvas/CanvasContextMenu.jsx"
+    },
+    {
+      "name": "SnapGuide",
+      "element": "HTMLElement",
+      "file": "canvas/CanvasSurface.jsx"
+    },
+    {
+      "name": "CanvasToolbar",
+      "element": "HTMLDivElement",
+      "file": "canvas/CanvasToolbar.jsx"
+    },
+    {
+      "name": "CanvasZoomControls",
+      "element": "HTMLElement",
+      "file": "canvas/CanvasToolbar.jsx"
+    },
+    {
+      "name": "CanvasObjectToolbar",
+      "element": "HTMLDivElement",
+      "file": "canvas/CanvasToolbar.jsx"
+    },
+    {
+      "name": "CanvasMinimap",
+      "element": "HTMLDivElement",
+      "file": "canvas/CanvasToolbar.jsx"
+    },
+    {
+      "name": "ChatStatus",
+      "element": "HTMLElement",
+      "file": "chat/AgentChat.jsx"
+    },
+    {
+      "name": "AgentChat",
+      "element": "HTMLElement",
+      "file": "chat/AgentChat.jsx"
+    },
+    {
+      "name": "ChatQuickReplies",
+      "element": "HTMLElement",
+      "file": "chat/ChatComposer.jsx"
+    },
+    {
+      "name": "ChatComposer",
+      "element": "HTMLDivElement",
+      "file": "chat/ChatComposer.jsx"
+    },
+    {
+      "name": "ChatAvatar",
+      "element": "HTMLElement",
+      "file": "chat/ChatMessage.jsx"
+    },
+    {
+      "name": "ChatActivity",
+      "element": "HTMLElement",
+      "file": "chat/ChatMessage.jsx"
+    },
+    {
+      "name": "ChatCitation",
+      "element": "HTMLElement",
+      "file": "chat/ChatMessage.jsx"
+    },
+    {
+      "name": "ChatDayDivider",
+      "element": "HTMLElement",
+      "file": "chat/ChatMessage.jsx"
+    },
+    {
+      "name": "ChatMessage",
+      "element": "HTMLElement",
+      "file": "chat/ChatMessage.jsx"
+    },
+    {
+      "name": "Badge",
+      "element": "HTMLSpanElement",
+      "file": "core/Badge.jsx"
+    },
+    {
+      "name": "Button",
+      "element": "HTMLButtonElement",
+      "file": "core/Button.jsx"
+    },
+    {
+      "name": "SplitButton",
+      "element": "HTMLElement",
+      "file": "core/Button.jsx"
+    },
+    {
+      "name": "Card",
+      "element": "HTMLDivElement",
+      "file": "core/Card.jsx"
+    },
+    {
+      "name": "Divider",
+      "element": "HTMLElement",
+      "file": "core/Divider.jsx"
+    },
+    {
+      "name": "EnvironmentPill",
+      "element": "HTMLSpanElement",
+      "file": "core/EnvironmentPill.jsx"
+    },
+    {
+      "name": "Icon",
+      "element": "HTMLSpanElement",
+      "file": "core/Icon.jsx"
+    },
+    {
+      "name": "BrandIcon",
+      "element": "HTMLSpanElement",
+      "file": "core/Icon.jsx"
+    },
+    {
+      "name": "IconButton",
+      "element": "HTMLButtonElement",
+      "file": "core/IconButton.jsx"
+    },
+    {
+      "name": "Kbd",
+      "element": "HTMLElement",
+      "file": "core/Kbd.jsx"
+    },
+    {
+      "name": "Panel",
+      "element": "HTMLElement",
+      "file": "core/Panel.jsx"
+    },
+    {
+      "name": "StatusDot",
+      "element": "HTMLSpanElement",
+      "file": "core/StatusBadge.jsx"
+    },
+    {
+      "name": "StatusBadge",
+      "element": "HTMLSpanElement",
+      "file": "core/StatusBadge.jsx"
+    },
+    {
+      "name": "Tag",
+      "element": "HTMLSpanElement",
+      "file": "core/Tag.jsx"
+    },
+    {
+      "name": "Tooltip",
+      "element": "HTMLSpanElement",
+      "file": "core/Tooltip.jsx"
+    },
+    {
+      "name": "DashboardCard",
+      "element": "HTMLElement",
+      "file": "dashboard/DashboardCard.jsx"
+    },
+    {
+      "name": "DashboardGrid",
+      "element": "HTMLDivElement",
+      "file": "dashboard/DashboardCard.jsx"
+    },
+    {
+      "name": "StatGrid",
+      "element": "HTMLElement",
+      "file": "dashboard/DashboardCard.jsx"
+    },
+    {
+      "name": "PageHeader",
+      "element": "HTMLElement",
+      "file": "dashboard/PageHeader.jsx"
+    },
+    {
+      "name": "DashboardPage",
+      "element": "HTMLDivElement",
+      "file": "dashboard/PageHeader.jsx"
+    },
+    {
+      "name": "SectionHeader",
+      "element": "HTMLDivElement",
+      "file": "dashboard/PageHeader.jsx"
+    },
+    {
+      "name": "BarChart",
+      "element": "SVGElement",
+      "file": "data/BarChart.jsx"
+    },
+    {
+      "name": "ChartLegend",
+      "element": "HTMLElement",
+      "file": "data/ChartFrame.jsx"
+    },
+    {
+      "name": "ChartFrame",
+      "element": "HTMLElement",
+      "file": "data/ChartFrame.jsx"
+    },
+    {
+      "name": "ChartTooltip",
+      "element": "HTMLElement",
+      "file": "data/ChartFrame.jsx"
+    },
+    {
+      "name": "ContextBreakdown",
+      "element": "HTMLDivElement",
+      "file": "data/ContextBreakdown.jsx"
+    },
+    {
+      "name": "DataTable",
+      "element": "HTMLDivElement",
+      "file": "data/DataTable.jsx"
+    },
+    {
+      "name": "DonutChart",
+      "element": "SVGElement",
+      "file": "data/DonutChart.jsx"
+    },
+    {
+      "name": "Heatmap",
+      "element": "HTMLDivElement",
+      "file": "data/Heatmap.jsx"
+    },
+    {
+      "name": "HexHeatmap",
+      "element": "SVGElement",
+      "file": "data/HexHeatmap.jsx"
+    },
+    {
+      "name": "LineChart",
+      "element": "SVGElement",
+      "file": "data/LineChart.jsx"
+    },
+    {
+      "name": "MetricCard",
+      "element": "HTMLDivElement",
+      "file": "data/MetricCard.jsx"
+    },
+    {
+      "name": "ProgressBar",
+      "element": "HTMLDivElement",
+      "file": "data/ProgressBar.jsx"
+    },
+    {
+      "name": "UsageMeter",
+      "element": "HTMLDivElement",
+      "file": "data/ProgressBar.jsx"
+    },
+    {
+      "name": "ScatterPlot",
+      "element": "SVGElement",
+      "file": "data/ScatterPlot.jsx"
+    },
+    {
+      "name": "Sparkline",
+      "element": "SVGElement",
+      "file": "data/Sparkline.jsx"
+    },
+    {
+      "name": "StackedBar",
+      "element": "HTMLDivElement",
+      "file": "data/StackedBar.jsx"
+    },
+    {
+      "name": "Viz",
+      "element": "HTMLElement",
+      "file": "data/Viz.jsx"
+    },
+    {
+      "name": "EmptyState",
+      "element": "HTMLDivElement",
+      "file": "feedback/EmptyState.jsx"
+    },
+    {
+      "name": "ErrorState",
+      "element": "HTMLDivElement",
+      "file": "feedback/ErrorState.jsx"
+    },
+    {
+      "name": "InlineNotification",
+      "element": "HTMLDivElement",
+      "file": "feedback/InlineNotification.jsx"
+    },
+    {
+      "name": "Toast",
+      "element": "HTMLDivElement",
+      "file": "feedback/InlineNotification.jsx"
+    },
+    {
+      "name": "ToastStack",
+      "element": "HTMLElement",
+      "file": "feedback/InlineNotification.jsx"
+    },
+    {
+      "name": "Modal",
+      "element": "HTMLDivElement",
+      "file": "feedback/Modal.jsx"
+    },
+    {
+      "name": "CriticalConfirmation",
+      "element": "HTMLElement",
+      "file": "feedback/Modal.jsx"
+    },
+    {
+      "name": "Drawer",
+      "element": "HTMLElement",
+      "file": "feedback/Modal.jsx"
+    },
+    {
+      "name": "Popover",
+      "element": "HTMLDivElement",
+      "file": "feedback/Modal.jsx"
+    },
+    {
+      "name": "Skeleton",
+      "element": "HTMLSpanElement",
+      "file": "feedback/Skeleton.jsx"
+    },
+    {
+      "name": "Spinner",
+      "element": "HTMLSpanElement",
+      "file": "feedback/Skeleton.jsx"
+    },
+    {
+      "name": "Checkbox",
+      "element": "HTMLInputElement",
+      "file": "forms/Checkbox.jsx"
+    },
+    {
+      "name": "CodeFrame",
+      "element": "HTMLDivElement",
+      "file": "forms/CodeFrame.jsx"
+    },
+    {
+      "name": "Field",
+      "element": "HTMLDivElement",
+      "file": "forms/Field.jsx"
+    },
+    {
+      "name": "KeyValueInput",
+      "element": "HTMLDivElement",
+      "file": "forms/KeyValueInput.jsx"
+    },
+    {
+      "name": "VariableToken",
+      "element": "HTMLSpanElement",
+      "file": "forms/PromptEditor.jsx"
+    },
+    {
+      "name": "PromptEditor",
+      "element": "HTMLDivElement",
+      "file": "forms/PromptEditor.jsx"
+    },
+    {
+      "name": "Radio",
+      "element": "HTMLInputElement",
+      "file": "forms/Radio.jsx"
+    },
+    {
+      "name": "RadioGroup",
+      "element": "HTMLElement",
+      "file": "forms/Radio.jsx"
+    },
+    {
+      "name": "Select",
+      "element": "HTMLSelectElement",
+      "file": "forms/Select.jsx"
+    },
+    {
+      "name": "Slider",
+      "element": "HTMLInputElement",
+      "file": "forms/Slider.jsx"
+    },
+    {
+      "name": "Switch",
+      "element": "HTMLInputElement",
+      "file": "forms/Switch.jsx"
+    },
+    {
+      "name": "TagInput",
+      "element": "HTMLDivElement",
+      "file": "forms/TagInput.jsx"
+    },
+    {
+      "name": "TextInput",
+      "element": "HTMLInputElement",
+      "file": "forms/TextInput.jsx"
+    },
+    {
+      "name": "SearchInput",
+      "element": "HTMLElement",
+      "file": "forms/TextInput.jsx"
+    },
+    {
+      "name": "NumberInput",
+      "element": "HTMLElement",
+      "file": "forms/TextInput.jsx"
+    },
+    {
+      "name": "SecretField",
+      "element": "HTMLElement",
+      "file": "forms/TextInput.jsx"
+    },
+    {
+      "name": "Textarea",
+      "element": "HTMLTextAreaElement",
+      "file": "forms/Textarea.jsx"
+    },
+    {
+      "name": "InspectorField",
+      "element": "HTMLDivElement",
+      "file": "inspector/InspectorField.jsx"
+    },
+    {
+      "name": "InspectorHeader",
+      "element": "HTMLElement",
+      "file": "inspector/InspectorPanel.jsx"
+    },
+    {
+      "name": "InspectorTabs",
+      "element": "HTMLElement",
+      "file": "inspector/InspectorPanel.jsx"
+    },
+    {
+      "name": "InspectorFooter",
+      "element": "HTMLElement",
+      "file": "inspector/InspectorPanel.jsx"
+    },
+    {
+      "name": "InspectorPanel",
+      "element": "HTMLElement",
+      "file": "inspector/InspectorPanel.jsx"
+    },
+    {
+      "name": "InspectorSection",
+      "element": "HTMLElement",
+      "file": "inspector/InspectorSection.jsx"
+    },
+    {
+      "name": "PropertyRow",
+      "element": "HTMLDivElement",
+      "file": "inspector/InspectorSection.jsx"
+    },
+    {
+      "name": "MemoryBadge",
+      "element": "HTMLSpanElement",
+      "file": "memory/MemoryBadge.jsx"
+    },
+    {
+      "name": "MemoryScope",
+      "element": "HTMLSpanElement",
+      "file": "memory/MemoryBadge.jsx"
+    },
+    {
+      "name": "MemoryConfidence",
+      "element": "HTMLSpanElement",
+      "file": "memory/MemoryBadge.jsx"
+    },
+    {
+      "name": "MemoryConflict",
+      "element": "HTMLElement",
+      "file": "memory/MemoryConflict.jsx"
+    },
+    {
+      "name": "MemoryFact",
+      "element": "HTMLElement",
+      "file": "memory/MemoryFact.jsx"
+    },
+    {
+      "name": "MemoryGraph",
+      "element": "SVGSVGElement",
+      "file": "memory/MemoryGraph.jsx"
+    },
+    {
+      "name": "MemoryScopeBar",
+      "element": "HTMLDivElement",
+      "file": "memory/MemoryScopeBar.jsx"
+    },
+    {
+      "name": "MemoryTimeline",
+      "element": "HTMLDivElement",
+      "file": "memory/MemoryTimeline.jsx"
+    },
+    {
+      "name": "MemoryUsageBar",
+      "element": "HTMLDivElement",
+      "file": "memory/MemoryUsageBar.jsx"
+    },
+    {
+      "name": "AppShell",
+      "element": "HTMLDivElement",
+      "file": "navigation/AppShell.jsx"
+    },
+    {
+      "name": "Breadcrumb",
+      "element": "HTMLElement",
+      "file": "navigation/Breadcrumb.jsx"
+    },
+    {
+      "name": "CommandPalette",
+      "element": "HTMLDivElement",
+      "file": "navigation/CommandPalette.jsx"
+    },
+    {
+      "name": "FilterBar",
+      "element": "HTMLDivElement",
+      "file": "navigation/FilterBar.jsx"
+    },
+    {
+      "name": "Pagination",
+      "element": "HTMLDivElement",
+      "file": "navigation/FilterBar.jsx"
+    },
+    {
+      "name": "GlobalHeader",
+      "element": "HTMLElement",
+      "file": "navigation/GlobalHeader.jsx"
+    },
+    {
+      "name": "ObjectTree",
+      "element": "HTMLDivElement",
+      "file": "navigation/ObjectTree.jsx"
+    },
+    {
+      "name": "SegmentedControl",
+      "element": "HTMLDivElement",
+      "file": "navigation/SegmentedControl.jsx"
+    },
+    {
+      "name": "SideNav",
+      "element": "HTMLElement",
+      "file": "navigation/SideNav.jsx"
+    },
+    {
+      "name": "NavSection",
+      "element": "HTMLElement",
+      "file": "navigation/SideNav.jsx"
+    },
+    {
+      "name": "NavItem",
+      "element": "HTMLButtonElement",
+      "file": "navigation/SideNav.jsx"
+    },
+    {
+      "name": "StatusBar",
+      "element": "HTMLElement",
+      "file": "navigation/StatusBar.jsx"
+    },
+    {
+      "name": "Tabs",
+      "element": "HTMLDivElement",
+      "file": "navigation/Tabs.jsx"
+    },
+    {
+      "name": "WorkspaceSwitcher",
+      "element": "HTMLButtonElement",
+      "file": "navigation/WorkspaceSwitcher.jsx"
+    },
+    {
+      "name": "AgentHex",
+      "element": "HTMLDivElement",
+      "file": "objects/AgentHex.jsx"
+    },
+    {
+      "name": "AgentIsland",
+      "element": "HTMLDivElement",
+      "file": "objects/AgentIsland.jsx"
+    },
+    {
+      "name": "BondEdge",
+      "element": "HTMLElement",
+      "file": "objects/BondEdge.jsx"
+    },
+    {
+      "name": "BondLayer",
+      "element": "HTMLElement",
+      "file": "objects/BondEdge.jsx"
+    },
+    {
+      "name": "EntityChip",
+      "element": "HTMLSpanElement",
+      "file": "objects/EntityChip.jsx"
+    },
+    {
+      "name": "GenieCard",
+      "element": "HTMLDivElement",
+      "file": "objects/GenieCard.jsx"
+    },
+    {
+      "name": "HexLattice",
+      "element": "HTMLDivElement",
+      "file": "objects/HexLattice.jsx"
+    },
+    {
+      "name": "ObjectRow",
+      "element": "HTMLDivElement",
+      "file": "objects/ObjectRow.jsx"
+    },
+    {
+      "name": "ObjectList",
+      "element": "HTMLElement",
+      "file": "objects/ObjectRow.jsx"
+    },
+    {
+      "name": "PlaybookCluster",
+      "element": "HTMLDivElement",
+      "file": "objects/PlaybookCluster.jsx"
+    },
+    {
+      "name": "SkillOrb",
+      "element": "HTMLSpanElement",
+      "file": "objects/SkillOrb.jsx"
+    },
+    {
+      "name": "ToolTile",
+      "element": "HTMLSpanElement",
+      "file": "objects/ToolTile.jsx"
+    },
+    {
+      "name": "ToolRow",
+      "element": "HTMLDivElement",
+      "file": "objects/ToolTile.jsx"
+    },
+    {
+      "name": "ProcessProposal",
+      "element": "HTMLElement",
+      "file": "patterns/BusinessProcess.jsx"
+    },
+    {
+      "name": "Message",
+      "element": "HTMLDivElement",
+      "file": "patterns/Conversation.jsx"
+    },
+    {
+      "name": "MessageList",
+      "element": "HTMLElement",
+      "file": "patterns/Conversation.jsx"
+    },
+    {
+      "name": "Composer",
+      "element": "HTMLDivElement",
+      "file": "patterns/Conversation.jsx"
+    },
+    {
+      "name": "Conversation",
+      "element": "HTMLDivElement",
+      "file": "patterns/Conversation.jsx"
+    },
+    {
+      "name": "GenieBlueprint",
+      "element": "HTMLElement",
+      "file": "patterns/GenieBlueprint.jsx"
+    },
+    {
+      "name": "IntegrationCard",
+      "element": "HTMLElement",
+      "file": "patterns/IntegrationCard.jsx"
+    },
+    {
+      "name": "LearnedPattern",
+      "element": "HTMLElement",
+      "file": "patterns/LearnedPattern.jsx"
+    },
+    {
+      "name": "MobileShell",
+      "element": "HTMLDivElement",
+      "file": "patterns/MobileShell.jsx"
+    },
+    {
+      "name": "ObservedProcess",
+      "element": "HTMLDivElement",
+      "file": "patterns/ObservedProcess.jsx"
+    },
+    {
+      "name": "PermissionCell",
+      "element": "HTMLElement",
+      "file": "patterns/PermissionMatrix.jsx"
+    },
+    {
+      "name": "PermissionMatrix",
+      "element": "HTMLTableElement",
+      "file": "patterns/PermissionMatrix.jsx"
+    },
+    {
+      "name": "RoleBadge",
+      "element": "HTMLElement",
+      "file": "patterns/PermissionMatrix.jsx"
+    },
+    {
+      "name": "PlaybookComposer",
+      "element": "HTMLElement",
+      "file": "patterns/PlaybookComposer.jsx"
+    },
+    {
+      "name": "VoiceWaveform",
+      "element": "HTMLElement",
+      "file": "patterns/VoiceButton.jsx"
+    },
+    {
+      "name": "VoiceButton",
+      "element": "HTMLSpanElement",
+      "file": "patterns/VoiceButton.jsx"
+    },
+    {
+      "name": "ApprovalCard",
+      "element": "HTMLElement",
+      "file": "runtime/ApprovalCard.jsx"
+    },
+    {
+      "name": "HumanCheckpoint",
+      "element": "HTMLSpanElement",
+      "file": "runtime/ApprovalCard.jsx"
+    },
+    {
+      "name": "EnvironmentBanner",
+      "element": "HTMLDivElement",
+      "file": "runtime/EnvironmentBanner.jsx"
+    },
+    {
+      "name": "KillSwitch",
+      "element": "HTMLDivElement",
+      "file": "runtime/KillSwitch.jsx"
+    },
+    {
+      "name": "SafetyControls",
+      "element": "HTMLDivElement",
+      "file": "runtime/KillSwitch.jsx"
+    },
+    {
+      "name": "LiveActivityIndicator",
+      "element": "HTMLSpanElement",
+      "file": "runtime/LiveActivityIndicator.jsx"
+    },
+    {
+      "name": "ReadinessCheck",
+      "element": "HTMLDivElement",
+      "file": "runtime/ReadinessCheck.jsx"
+    },
+    {
+      "name": "RunSummary",
+      "element": "HTMLDivElement",
+      "file": "runtime/RunSummary.jsx"
+    },
+    {
+      "name": "RunStep",
+      "element": "HTMLDivElement",
+      "file": "runtime/RunTimeline.jsx"
+    },
+    {
+      "name": "RunTimeline",
+      "element": "HTMLDivElement",
+      "file": "runtime/RunTimeline.jsx"
+    },
+    {
+      "name": "SimulationBar",
+      "element": "HTMLDivElement",
+      "file": "runtime/SimulationBar.jsx"
+    },
+    {
+      "name": "SimulationStep",
+      "element": "HTMLElement",
+      "file": "runtime/SimulationStep.jsx"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "CanvasSurface",
+      "file": "canvas/CanvasSurface.jsx",
+      "why": "root holds its own ref — needs a manual merge"
+    },
+    {
+      "name": "SnapField",
+      "file": "canvas/SnapField.jsx",
+      "why": "root holds its own ref — needs a manual merge"
+    },
+    {
+      "name": "HexCenter",
+      "file": "objects/HexLattice.jsx",
+      "why": "returns a fragment or a value, not one host element"
+    },
+    {
+      "name": "MatchProcess",
+      "file": "patterns/BusinessProcess.jsx",
+      "why": "returns a fragment or a value, not one host element"
+    },
+    {
+      "name": "BuildGenie",
+      "file": "patterns/GenieBlueprint.jsx",
+      "why": "returns a fragment or a value, not one host element"
+    }
+  ]
+}

@@ -12,16 +12,16 @@ import { seriesColor } from './ChartFrame.jsx';
    total are still drawn but never labelled inline, because a 3px segment with a
    number on it is noise. */
 
-export function StackedBar({
+export const StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function StackedBar({
   segments = [], total, unit, height = 8, legend = false, inlineValues = false,
   showTotal = false, minLabel = 0.08, format, label, className = '', ...rest
-}) {
+}, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + (s.value || 0), 0);
   const fmt = format || ((v) => (typeof v === 'number' ? v.toLocaleString() : v));
   const colorOf = (s, i) => s.color || seriesColor(i);
 
   return (
-    <div className={'lamp-sbar ' + className} {...rest}>
+    <div ref={ref} className={'lamp-sbar ' + className} {...rest}>
       {label ? <span className="lamp-sbar__label">{label}</span> : null}
       <div
         className="lamp-sbar__track"
@@ -69,4 +69,4 @@ export function StackedBar({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'StackedBar' });

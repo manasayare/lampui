@@ -72,11 +72,11 @@ function Placeholder({ size }) {
   );
 }
 
-export function Icon({ name, size = 16, className = '', style, label, ...rest }) {
+export const Icon = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Icon({ name, size = 16, className = '', style, label, ...rest }, ref) {
   const key = String(name).replace(/-/g, '_');
   const d = usePath(key, glyphs, MATERIAL_SYMBOLS_BASE);
   return (
-    <span
+    <span ref={ref}
       className={className}
       role={label ? 'img' : undefined}
       aria-label={label}
@@ -93,13 +93,13 @@ export function Icon({ name, size = 16, className = '', style, label, ...rest })
       )}
     </span>
   );
-}
+}), { displayName: 'Icon' });
 
-export function BrandIcon({ slug, size = 16, color, className = '', style, label, ...rest }) {
+export const BrandIcon = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function BrandIcon({ slug, size = 16, color, className = '', style, label, ...rest }, ref) {
   const key = String(slug).toLowerCase();
   const d = usePath(key, brandGlyphs, BRAND_ICON_BASE);
   return (
-    <span
+    <span ref={ref}
       className={className}
       role={label ? 'img' : undefined}
       aria-label={label}
@@ -116,4 +116,4 @@ export function BrandIcon({ slug, size = 16, color, className = '', style, label
       )}
     </span>
   );
-}
+}), { displayName: 'BrandIcon' });

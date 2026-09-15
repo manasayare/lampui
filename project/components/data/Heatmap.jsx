@@ -16,10 +16,10 @@ export function heatColor(value, max, ramp = 'gold') {
 }
 
 /* Matrix / calendar heatmap. Production renderer for large matrices: Apache ECharts, same props. */
-export function Heatmap({ rows = [], columns = [], values = [], max, ramp = 'gold', cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = '', ...rest }) {
+export const Heatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Heatmap({ rows = [], columns = [], values = [], max, ramp = 'gold', cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = '', ...rest }, ref) {
   const m = max != null ? max : Math.max.apply(null, values.reduce((a, r) => a.concat(r), [0]));
   return (
-    <div className={className} {...rest}>
+    <div ref={ref} className={className} {...rest}>
       <div style={{ display: 'grid', gridTemplateColumns: (rows.length ? 'auto ' : '') + 'repeat(' + columns.length + ', ' + cellSize + 'px)', gap, alignItems: 'center' }}>
         {rows.length ? <span /> : null}
         {columns.map((c) => <span key={c} style={{ fontSize: 10, color: 'var(--text-tertiary)', textAlign: 'center' }}>{c}</span>)}
@@ -43,7 +43,7 @@ export function Heatmap({ rows = [], columns = [], values = [], max, ramp = 'gol
       ) : null}
     </div>
   );
-}
+}), { displayName: 'Heatmap' });
 
 /* Reachable from the namespace as Heatmap.heatColor. */
 Heatmap.heatColor = heatColor;

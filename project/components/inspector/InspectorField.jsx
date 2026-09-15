@@ -15,11 +15,11 @@ import { Icon } from '../core/Icon.jsx';
    value, not implied by a tint. `advanced` dims the label for configuration that
    most operators should not need to touch. */
 
-export function InspectorField({
+export const InspectorField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InspectorField({
   label, htmlFor, hint, helper, error, warning, required = false, optional = false,
   inherited = false, inheritedFrom, overridden = false, advanced = false,
   stack = false, action, children, className = '', ...rest
-}) {
+}, ref) {
   const msg = error || warning;
   const tone = error ? 'error' : 'warning';
   const cls = [
@@ -31,7 +31,7 @@ export function InspectorField({
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={cls} {...rest}>
+    <div ref={ref} className={cls} {...rest}>
       <div className="lamp-ifield__labelcol">
         <label className="lamp-ifield__label" htmlFor={htmlFor}>
           {label}
@@ -69,4 +69,4 @@ export function InspectorField({
       {action ? <div className="lamp-ifield__action">{action}</div> : null}
     </div>
   );
-}
+}), { displayName: 'InspectorField' });

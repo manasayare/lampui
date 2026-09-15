@@ -102,6 +102,29 @@ import { PlaybookComposer, MatchProcess, BuildGenie, GenieBlueprint } from '@lam
 
 Outcomes are required — a Playbook with none cannot be simulated against anything. `BuildGenie` turns a chosen process into the capability it belongs to, and `GenieBlueprint` shows everything that would be created before any of it exists. See §18 of the design guide.
 
+## Refs
+
+Every component forwards its ref, so the DOM node is reachable — which is what a Radix or Floating UI trigger, a `.focus()` after a mutation, a scroll-into-view or a measurement all need.
+
+```jsx
+const button = React.useRef(null);
+const input = React.useRef(null);
+
+<Button ref={button}>Go live</Button>
+<TextInput ref={input} />        // -> the <input>, not the wrapper
+```
+
+**A form control's ref lands on the control, not on its wrapper.** `TextInput`, `Select`, `Checkbox`, `Radio`, `Switch`, `Slider` and `TagInput` all render a wrapper, and a ref stopping there would be useless to react-hook-form, to `.focus()` and to the constraint validation API. Each ref is typed to the element it actually reaches, so `input.current.value` type-checks and `button.current.value` does not.
+
+Three exports are not components and take no ref: `HexCenter`, `MatchProcess` and `BuildGenie`.
+
+**`useMergedRefs`** is exported for the case where a component needs its own element and must still honour a forwarded ref — `SnapField` and `CanvasSurface` use it internally, and you need it to put another library's trigger ref on a component that already takes one.
+
+```jsx
+const mine = React.useRef(null);
+<CanvasSurface ref={useMergedRefs(forwarded, mine)} />
+```
+
 ## Types
 
 Every component ships a props interface.

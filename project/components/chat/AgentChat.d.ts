@@ -19,7 +19,7 @@ export interface AgentChatProps extends React.HTMLAttributes<HTMLElement> {
   /** Keeps the thread pinned to the newest message. Default true. */
   autoScroll?: boolean;
 }
-export declare function AgentChat(props: AgentChatProps): JSX.Element;
+export declare const AgentChat: React.ForwardRefExoticComponent<AgentChatProps & React.RefAttributes<HTMLElement>>;
 export interface ChatStatusProps {
   state?: 'idle' | 'working';
   author?: string;
@@ -31,4 +31,4 @@ export interface ChatStatusProps {
   onStop?: () => void;
   onInspect?: () => void;
 }
-export declare function ChatStatus(props: ChatStatusProps): JSX.Element;
+export declare const ChatStatus: React.ForwardRefExoticComponent<ChatStatusProps & React.RefAttributes<HTMLDivElement>>;

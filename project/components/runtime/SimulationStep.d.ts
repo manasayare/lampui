@@ -14,4 +14,4 @@ export interface SimulationStepProps extends RunStepProps {
   /** Scenario this step ran under — "Late invoice", "Missing PO". */
   scenario?: string;
 }
-export declare function SimulationStep(props: SimulationStepProps): JSX.Element;
+export declare const SimulationStep: React.ForwardRefExoticComponent<SimulationStepProps & React.RefAttributes<HTMLDivElement>>;

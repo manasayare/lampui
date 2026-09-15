@@ -15,14 +15,14 @@ const STATE = {
   available: { status: 'draft', label: 'Not connected' },
 };
 
-export function IntegrationCard({
+export const IntegrationCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function IntegrationCard({
   name, provider, glyph, account, state = 'connected', permission, scopes = [], usedBy = [], health, expiry, risk,
   onConnect, onReconnect, onDisconnect, onTest, actions, className = '', ...rest
-}) {
+}, ref) {
   const s = STATE[state] || STATE.connected;
   const tone = state === 'error' ? 'error' : (state === 'requiresAuth' || state === 'expired' || state === 'degraded') ? 'attention' : '';
   return (
-    <article className={['lamp-integ', tone && 'lamp-integ--' + tone, className].filter(Boolean).join(' ')} {...rest}>
+    <article ref={ref} className={['lamp-integ', tone && 'lamp-integ--' + tone, className].filter(Boolean).join(' ')} {...rest}>
       <div className="lamp-integ__head">
         <ToolTile provider={provider} glyph={glyph} name={name} size="lg" state={state === 'connected' ? 'connected' : state === 'error' ? 'error' : 'authorizationRequired'} />
         <span style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -62,4 +62,4 @@ export function IntegrationCard({
       </div>
     </article>
   );
-}
+}), { displayName: 'IntegrationCard' });

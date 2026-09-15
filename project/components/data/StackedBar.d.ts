@@ -29,4 +29,4 @@ export interface StackedBarProps extends React.HTMLAttributes<HTMLDivElement> {
   format?: (value: number) => string;
   label?: string;
 }
-export declare function StackedBar(props: StackedBarProps): JSX.Element;
+export declare const StackedBar: React.ForwardRefExoticComponent<StackedBarProps & React.RefAttributes<HTMLDivElement>>;

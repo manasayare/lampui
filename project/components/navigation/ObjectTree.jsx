@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 import { StatusDot } from '../core/StatusBadge.jsx';
 
-export function ObjectTree({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = '', ...rest }) {
+export const ObjectTree = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ObjectTree({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = '', ...rest }, ref) {
   const render = (node, depth) => {
     const open = expanded[node.id] !== false;
     const kids = node.children || [];
@@ -25,5 +25,5 @@ export function ObjectTree({ nodes = [], selectedId, onSelect, onToggle, expande
       </React.Fragment>
     );
   };
-  return <div className={'lamp-tree ' + className} role="tree" {...rest}>{nodes.map((n) => render(n, 0))}</div>;
-}
+  return <div ref={ref} className={'lamp-tree ' + className} role="tree" {...rest}>{nodes.map((n) => render(n, 0))}</div>;
+}), { displayName: 'ObjectTree' });

@@ -15,4 +15,4 @@ export interface ObjectTreeProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   onSelect?: (node: ObjectTreeNode) => void;
   onToggle?: (node: ObjectTreeNode) => void;
 }
-export declare function ObjectTree(props: ObjectTreeProps): JSX.Element;
+export declare const ObjectTree: React.ForwardRefExoticComponent<ObjectTreeProps & React.RefAttributes<HTMLDivElement>>;

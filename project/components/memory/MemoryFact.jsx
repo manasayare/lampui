@@ -4,14 +4,14 @@ import { Button } from '../core/Button.jsx';
 import { Badge } from '../core/Badge.jsx';
 import { MemoryBadge, MemoryScope, MemoryConfidence } from './MemoryBadge.jsx';
 
-export function MemoryFact({
+export const MemoryFact = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryFact({
   type = 'explicitFact', scope = 'genie', fact, confidence = 'high', confidenceValue, showConfidenceValue = false,
   source, evidenceCount, lastConfirmed, freshness, owner, contradictions = 0, access, state = 'approved',
   actions, onConfirm, onCorrect, onIgnore, className = '', ...rest
-}) {
+}, ref) {
   const conflict = contradictions > 0;
   return (
-    <article className={['lamp-fact', conflict && 'lamp-fact--conflict', 'lamp-fact--' + state, className].filter(Boolean).join(' ')} {...rest}>
+    <article ref={ref} className={['lamp-fact', conflict && 'lamp-fact--conflict', 'lamp-fact--' + state, className].filter(Boolean).join(' ')} {...rest}>
       <div className="lamp-fact__top">
         <MemoryBadge type={type} />
         <MemoryScope scope={scope} />
@@ -44,4 +44,4 @@ export function MemoryFact({
       ) : null}
     </article>
   );
-}
+}), { displayName: 'MemoryFact' });

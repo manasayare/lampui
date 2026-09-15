@@ -13,7 +13,7 @@ export interface KillSwitchProps extends React.HTMLAttributes<HTMLDivElement> {
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-export declare function KillSwitch(props: KillSwitchProps): JSX.Element;
+export declare const KillSwitch: React.ForwardRefExoticComponent<KillSwitchProps & React.RefAttributes<HTMLDivElement>>;
 export interface SafetyControlsProps extends React.HTMLAttributes<HTMLDivElement> {
   state?: 'live' | 'paused';
   onPause?: () => void;
@@ -21,4 +21,4 @@ export interface SafetyControlsProps extends React.HTMLAttributes<HTMLDivElement
   onEmergency?: () => void;
   onResume?: () => void;
 }
-export declare function SafetyControls(props: SafetyControlsProps): JSX.Element;
+export declare const SafetyControls: React.ForwardRefExoticComponent<SafetyControlsProps & React.RefAttributes<HTMLDivElement>>;

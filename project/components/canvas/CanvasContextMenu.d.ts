@@ -6,4 +6,4 @@ export interface CanvasContextMenuProps extends Omit<React.HTMLAttributes<HTMLDi
   groups?: Array<{ label?: string; items: MenuItemDef[] }>;
   onSelect?: (item: MenuItemDef) => void;
 }
-export declare function CanvasContextMenu(props: CanvasContextMenuProps): JSX.Element;
+export declare const CanvasContextMenu: React.ForwardRefExoticComponent<CanvasContextMenuProps & React.RefAttributes<HTMLDivElement>>;

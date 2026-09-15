@@ -23,4 +23,4 @@ export interface SimulationBarProps extends React.HTMLAttributes<HTMLDivElement>
   onScenario?: () => void;
   right?: React.ReactNode;
 }
-export declare function SimulationBar(props: SimulationBarProps): JSX.Element;
+export declare const SimulationBar: React.ForwardRefExoticComponent<SimulationBarProps & React.RefAttributes<HTMLDivElement>>;

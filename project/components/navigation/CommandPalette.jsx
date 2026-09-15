@@ -2,10 +2,10 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 import { Kbd } from '../core/Kbd.jsx';
 
-export function CommandPalette({ open = true, query = '', onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = 'Search or run a command', footer, className = '', ...rest }) {
+export const CommandPalette = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function CommandPalette({ open = true, query = '', onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = 'Search or run a command', footer, className = '', ...rest }, ref) {
   if (!open) return null;
   return (
-    <div className={'lamp-palette ' + className} role="dialog" aria-modal="true" aria-label="Command palette" onClick={onClose} {...rest}>
+    <div ref={ref} className={'lamp-palette ' + className} role="dialog" aria-modal="true" aria-label="Command palette" onClick={onClose} {...rest}>
       <div className="lamp-palette__box" onClick={(e) => e.stopPropagation()}>
         <div className="lamp-palette__search">
           <Icon name="search" size={16} />
@@ -34,4 +34,4 @@ export function CommandPalette({ open = true, query = '', onQueryChange, groups 
       </div>
     </div>
   );
-}
+}), { displayName: 'CommandPalette' });

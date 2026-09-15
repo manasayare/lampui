@@ -84,6 +84,77 @@ try {
   rmSync(PROBE, { recursive: true, force: true });
 }
 
+/* -------------------------------------------------------------------- refs */
+
+/**
+ * forwardRef, checked at runtime.
+ *
+ * The type test proves the declarations accept a ref; it cannot prove the ref
+ * arrives. A component that forwards nothing types identically. So: render one,
+ * read back what each ref actually caught, and assert the tag.
+ *
+ * Form controls are the ones that matter most here — a ref landing on the
+ * wrapper instead of the <input> is useless to react-hook-form and to .focus().
+ */
+const REF_PROBE = join(ROOT, '.refprobe');
+const EXPECT = {
+  Button: 'BUTTON', TextInput: 'INPUT', Textarea: 'TEXTAREA', Select: 'SELECT',
+  Checkbox: 'INPUT', Switch: 'INPUT', Slider: 'INPUT', TagInput: 'INPUT',
+  InspectorPanel: 'ASIDE', CanvasSurface: 'DIV', SnapField: 'DIV', AgentHex: 'DIV',
+};
+try {
+  rmSync(REF_PROBE, { recursive: true, force: true });
+  mkdirSync(join(REF_PROBE, 'src'), { recursive: true });
+  writeFileSync(join(REF_PROBE, 'index.html'),
+    '<!doctype html><html><body><div id="root"></div>'
+    + '<script type="module" src="/src/main.jsx"></script></body></html>');
+  writeFileSync(join(REF_PROBE, 'vite.config.mjs'),
+    "import react from '@vitejs/plugin-react';\n"
+    + 'export default { plugins: [react()], logLevel: "error" };\n');
+  writeFileSync(join(REF_PROBE, 'src/main.jsx'), `
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
+import {
+  Button, TextInput, Textarea, Select, Checkbox, Switch, Slider, TagInput,
+  InspectorPanel, CanvasSurface, SnapField, AgentHex,
+} from '@lamp/design-system';
+
+const NAMES = ${JSON.stringify(Object.keys(EXPECT))};
+
+function Probe() {
+  const refs = Object.fromEntries(NAMES.map((n) => [n, React.useRef(null)]));
+  const [out, setOut] = React.useState('');
+  React.useEffect(() => {
+    setOut(JSON.stringify(Object.fromEntries(
+      NAMES.map((n) => [n, refs[n].current ? refs[n].current.tagName : null]),
+    )));
+  }, []);
+  return (
+    <div>
+      <Button ref={refs.Button}>Go live</Button>
+      <TextInput ref={refs.TextInput} />
+      <Textarea ref={refs.Textarea} />
+      <Select ref={refs.Select} options={['a']} />
+      <Checkbox ref={refs.Checkbox} label="x" />
+      <Switch ref={refs.Switch} />
+      <Slider ref={refs.Slider} value={1} />
+      <TagInput ref={refs.TagInput} values={[]} />
+      <InspectorPanel ref={refs.InspectorPanel} title="x" />
+      <CanvasSurface ref={refs.CanvasSurface}>
+        <SnapField ref={refs.SnapField} agents={[]} renderAgent={() => null} />
+      </CanvasSurface>
+      <AgentHex ref={refs.AgentHex} name="x" />
+      <pre id="out">{out}</pre>
+    </div>
+  );
+}
+createRoot(document.getElementById('root')).render(<Probe />);
+`);
+  execFileSync('npx', ['vite', 'build', '.refprobe'], { cwd: ROOT, stdio: 'pipe' });
+} catch (e) {
+  failures.push('ref probe failed to build: ' + String(e.stderr || e.message || e).split('\n')[0]);
+}
+
 /* ------------------------------------------------------------------ render */
 
 const TYPES = {
@@ -198,6 +269,43 @@ if (existsSync(DIST)) {
   }
   await page.close();
 }
+
+/* Serve and read the ref probe. */
+if (existsSync(join(REF_PROBE, 'dist'))) {
+  const refServer = createServer((req, res) => {
+    const p = decodeURIComponent(req.url.split('?')[0]);
+    const f = join(REF_PROBE, 'dist', p === '/' ? 'index.html' : p);
+    if (!f.startsWith(REF_PROBE) || !existsSync(f) || statSync(f).isDirectory()) {
+      res.writeHead(404); res.end(); return;
+    }
+    res.writeHead(200, { 'content-type': TYPES[extname(f)] || 'application/octet-stream' });
+    res.end(readFileSync(f));
+  });
+  await new Promise((r) => refServer.listen(0, r));
+  const refBase = 'http://127.0.0.1:' + refServer.address().port;
+
+  const page = await browser.newPage();
+  await page.goto(refBase + '/', { waitUntil: 'load' });
+  await page.waitForFunction(() => {
+    const el = document.getElementById('out');
+    return el && el.textContent.length > 2;
+  }, null, { timeout: 20000 }).catch(() => {});
+  const got = JSON.parse((await page.textContent('#out')) || '{}');
+
+  const wrong = Object.entries(EXPECT).filter(([name, tag]) => got[name] !== tag);
+  if (wrong.length) {
+    failures.push(
+      'refs did not reach the expected element: '
+      + wrong.map(([n, tag]) => n + ' expected ' + tag + ', got ' + (got[n] || 'nothing')).join('; '),
+    );
+  } else {
+    console.log('ok    refs reach the DOM — ' + Object.keys(EXPECT).length
+      + ' components, form controls land on their <input>/<select>, not the wrapper');
+  }
+  await page.close();
+  refServer.close();
+}
+rmSync(REF_PROBE, { recursive: true, force: true });
 
 await browser.close();
 server.close();

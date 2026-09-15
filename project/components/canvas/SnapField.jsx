@@ -3,6 +3,7 @@ import { HexCenter } from '../objects/HexLattice.jsx';
 import { AGENT_SIZES } from '../objects/AgentHex.jsx';
 import { SnapGuide } from './CanvasSurface.jsx';
 import { useGsap, GSAP_DURATION, GSAP_EASE } from './CanvasMotion.jsx';
+import { useMergedRefs } from '../core/refs.js';
 
 /* Drag-to-snap field, running on GSAP Draggable.
 
@@ -56,14 +57,14 @@ const HEX_CLIP = 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)';
    approach — a hint that it is about to land, not a decision made for you. */
 const PULL = 0.35;
 
-export function SnapField({
+export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SnapField({
   agents = [], size = 'md', gap = 2, width = 720, height = 380,
   snapTolerance = 34, proximityRange = 72,
   renderAgent, bonds, selectedId, selectedIds, onSelect, onSelectionChange, onChange,
   onSnapStateChange, onGroup, groupLabel = 'Group into Playbook',
   selectable = false, origin = { x: 40, y: 40 }, readOnly = false,
   className = '', style, ...rest
-}) {
+}, ref) {
   const [hexW, hexH] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const api = useGsap();
 
@@ -74,6 +75,9 @@ export function SnapField({
   const nodes = React.useRef({});
   const guideRef = React.useRef(null);
   const fieldRef = React.useRef(null);
+  /* The field's box converts pointer coordinates for the marquee, so the
+     forwarded ref is merged rather than replacing it. */
+  const setField = useMergedRefs(ref, fieldRef);
 
   const multi = selectedIds || [];
 
@@ -362,7 +366,7 @@ export function SnapField({
 
   return (
     <div
-      ref={fieldRef}
+      ref={setField}
       className={[
         'lamp-snapfield',
         dragId && 'lamp-snapfield--dragging',
@@ -433,4 +437,4 @@ export function SnapField({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'SnapField' });

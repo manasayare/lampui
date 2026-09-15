@@ -1,4 +1,4 @@
-/* @ds-bundle: {"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"ICON_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"BRAND_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"GSAP_CDN","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_EASE","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_DURATION","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"StackedBar","sourcePath":"components/data/StackedBar.jsx"},{"name":"ContextBreakdown","sourcePath":"components/data/ContextBreakdown.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"InspectorField","sourcePath":"components/inspector/InspectorField.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"InspectorHeader","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorTabs","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorFooter","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConflict","sourcePath":"components/memory/MemoryConflict.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryScopeBar","sourcePath":"components/memory/MemoryScopeBar.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"BUSINESS_PROCESSES","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"BLANK_PROCESS","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"MatchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"ProcessProposal","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"BuildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"GenieBlueprint","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PlaybookComposer","sourcePath":"components/patterns/PlaybookComposer.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"},{"name":"SimulationStep","sourcePath":"components/runtime/SimulationStep.jsx"}],"sourceHashes":{"components/canvas/CanvasContextMenu.jsx":"b5c1094ff109","components/canvas/CanvasMotion.jsx":"5b16c55bf142","components/canvas/CanvasSurface.jsx":"bc1a88c01127","components/canvas/CanvasToolbar.jsx":"b0fe73df09cb","components/canvas/SnapField.jsx":"aee8c69a9093","components/chat/AgentChat.jsx":"69a5423e443b","components/chat/ChatComposer.jsx":"efd836a57a78","components/chat/ChatMessage.jsx":"51fb8b9bed1e","components/core/Badge.jsx":"1ecec0a83180","components/core/Button.jsx":"6b1d360e8f60","components/core/Card.jsx":"8240b832d4a5","components/core/Divider.jsx":"649783d96c1f","components/core/EnvironmentPill.jsx":"6652e40dc49d","components/core/glyphs.js":"76e625feea12","components/core/Icon.jsx":"7d0a13c76068","components/core/IconButton.jsx":"c238d952b0a2","components/core/Kbd.jsx":"39456002f46e","components/core/Panel.jsx":"46526875e471","components/core/StatusBadge.jsx":"d457760c99c6","components/core/Tag.jsx":"e9bb486a0cdb","components/core/Tooltip.jsx":"040d331c61a2","components/dashboard/DashboardCard.jsx":"5f628e238982","components/dashboard/PageHeader.jsx":"e09fbf47e8d1","components/data/BarChart.jsx":"42b37da80ce6","components/data/ChartFrame.jsx":"925a77ed2a43","components/data/ContextBreakdown.jsx":"773cb0f00b7c","components/data/DataTable.jsx":"8ec8181865c5","components/data/DonutChart.jsx":"48ea51f1b3cf","components/data/Heatmap.jsx":"15e82a377538","components/data/HexHeatmap.jsx":"53bcd99e3dad","components/data/LineChart.jsx":"bcd6a02f1bc9","components/data/MetricCard.jsx":"b684de4a97df","components/data/ProgressBar.jsx":"74049ea54576","components/data/ScatterPlot.jsx":"738937432136","components/data/Sparkline.jsx":"0c2f9c31d8d4","components/data/StackedBar.jsx":"53fbb715e216","components/data/Viz.jsx":"aa12701997d1","components/feedback/EmptyState.jsx":"8bf3b41e96d0","components/feedback/ErrorState.jsx":"cd96b0fe93c2","components/feedback/InlineNotification.jsx":"8ea7fc20ed7f","components/feedback/Modal.jsx":"796b7e12a09b","components/feedback/Skeleton.jsx":"c792eba33930","components/forms/Checkbox.jsx":"2710fb9bfec1","components/forms/CodeFrame.jsx":"8c09b84550f8","components/forms/Field.jsx":"019a3cd12090","components/forms/KeyValueInput.jsx":"afed4aeb2172","components/forms/PromptEditor.jsx":"fdd70167a5d1","components/forms/Radio.jsx":"31e2d88bf290","components/forms/Select.jsx":"20e8b41f6f8d","components/forms/Slider.jsx":"498c2b49ec08","components/forms/Switch.jsx":"7194ded5f978","components/forms/TagInput.jsx":"6685515b180e","components/forms/Textarea.jsx":"58852516a804","components/forms/TextInput.jsx":"a7a19e94c354","components/inspector/InspectorField.jsx":"b0192b5db58b","components/inspector/InspectorPanel.jsx":"b8bf9e369608","components/inspector/InspectorSection.jsx":"25b56e7180db","components/memory/MemoryBadge.jsx":"e925491539ee","components/memory/MemoryConflict.jsx":"ae2853d07b38","components/memory/MemoryFact.jsx":"326ba2a78608","components/memory/MemoryGraph.jsx":"fe9ec1e842b2","components/memory/MemoryScopeBar.jsx":"223a35f8c8a9","components/memory/MemoryTimeline.jsx":"286ab23d4313","components/memory/MemoryUsageBar.jsx":"e965570ae5d1","components/navigation/AppShell.jsx":"3670fe5b1079","components/navigation/Breadcrumb.jsx":"28027e982d14","components/navigation/CommandPalette.jsx":"c1e1f1564d84","components/navigation/FilterBar.jsx":"50a135e9283e","components/navigation/GlobalHeader.jsx":"f6aa261ac07c","components/navigation/ObjectTree.jsx":"5568d4be4c44","components/navigation/SegmentedControl.jsx":"0dc1e7be4418","components/navigation/SideNav.jsx":"07f0a45507bd","components/navigation/StatusBar.jsx":"e0a7bd225092","components/navigation/Tabs.jsx":"ef16c1c5a5a8","components/navigation/WorkspaceSwitcher.jsx":"cedddb1d60bf","components/objects/AgentHex.jsx":"27ec4453de20","components/objects/AgentIsland.jsx":"304329f044c1","components/objects/BondEdge.jsx":"49ede7f7ec81","components/objects/EntityChip.jsx":"8e0c49cede9e","components/objects/GenieCard.jsx":"21056d75c7d5","components/objects/HexLattice.jsx":"9fca7ea4b576","components/objects/ObjectRow.jsx":"dcf2888beea7","components/objects/PlaybookCluster.jsx":"ad6f654b4036","components/objects/SkillOrb.jsx":"e4a3fa609572","components/objects/ToolTile.jsx":"243f364ac60c","components/patterns/BusinessProcess.jsx":"0ea6ddb2cd49","components/patterns/Conversation.jsx":"4621b54e56cd","components/patterns/GenieBlueprint.jsx":"64a118a81766","components/patterns/IntegrationCard.jsx":"f1dce4398506","components/patterns/LearnedPattern.jsx":"65eb1980fd12","components/patterns/MobileShell.jsx":"0435b8c2f821","components/patterns/ObservedProcess.jsx":"90f83f4b5dc0","components/patterns/PermissionMatrix.jsx":"4497d683e5b8","components/patterns/PlaybookComposer.jsx":"cc2a699a4c46","components/patterns/VoiceButton.jsx":"51e9e6be76d5","components/runtime/ApprovalCard.jsx":"63306142c757","components/runtime/EnvironmentBanner.jsx":"0922fba2b38f","components/runtime/KillSwitch.jsx":"f3c32947adef","components/runtime/LiveActivityIndicator.jsx":"60462a5c5f1a","components/runtime/ReadinessCheck.jsx":"9566ed72c291","components/runtime/RunSummary.jsx":"db587b0bfe30","components/runtime/RunTimeline.jsx":"203580bcd98c","components/runtime/SimulationBar.jsx":"28607eb8f650","components/runtime/SimulationStep.jsx":"523eee16b4cd","ui_kits/lamp-canvas/BuilderApp.jsx":"0921bf677a52","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-operations/OpsApp.jsx":"e7c0627e0660"},"inlinedExternals":[],"unexposedExports":[{"name":"brandGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"buildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"glyphs","sourcePath":"components/core/glyphs.js"},{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"loadGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"matchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"prefersReducedMotion","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"registerGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"},{"name":"setGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useGsap","sourcePath":"components/canvas/CanvasMotion.jsx"}]} */
+/* @ds-bundle: {"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"ICON_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"BRAND_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"GSAP_CDN","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_EASE","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_DURATION","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"StackedBar","sourcePath":"components/data/StackedBar.jsx"},{"name":"ContextBreakdown","sourcePath":"components/data/ContextBreakdown.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"InspectorField","sourcePath":"components/inspector/InspectorField.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"InspectorHeader","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorTabs","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorFooter","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConflict","sourcePath":"components/memory/MemoryConflict.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryScopeBar","sourcePath":"components/memory/MemoryScopeBar.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"BUSINESS_PROCESSES","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"BLANK_PROCESS","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"MatchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"ProcessProposal","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"BuildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"GenieBlueprint","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PlaybookComposer","sourcePath":"components/patterns/PlaybookComposer.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"},{"name":"SimulationStep","sourcePath":"components/runtime/SimulationStep.jsx"}],"sourceHashes":{"components/canvas/CanvasContextMenu.jsx":"642e509a361f","components/canvas/CanvasMotion.jsx":"5b16c55bf142","components/canvas/CanvasSurface.jsx":"db0572d24abf","components/canvas/CanvasToolbar.jsx":"1e90531bb5b7","components/canvas/SnapField.jsx":"ff8fd88944ba","components/chat/AgentChat.jsx":"a993ce5d5724","components/chat/ChatComposer.jsx":"e4797b124cad","components/chat/ChatMessage.jsx":"ec98b6317ffe","components/core/Badge.jsx":"02ec3798d471","components/core/Button.jsx":"01703e75087c","components/core/Card.jsx":"4f07d92ba8fb","components/core/Divider.jsx":"bbef0f29f18a","components/core/EnvironmentPill.jsx":"4b6cb0f1c6e7","components/core/glyphs.js":"76e625feea12","components/core/Icon.jsx":"da94632bafd0","components/core/IconButton.jsx":"fe79c7a872c7","components/core/Kbd.jsx":"c907f3fefbd3","components/core/Panel.jsx":"6eafedbbe0e4","components/core/refs.js":"84615fb1a4c1","components/core/StatusBadge.jsx":"e66478913946","components/core/Tag.jsx":"58ae1ed9706a","components/core/Tooltip.jsx":"286494380b24","components/dashboard/DashboardCard.jsx":"9cfc7f7bde21","components/dashboard/PageHeader.jsx":"e64443109f78","components/data/BarChart.jsx":"31b05f10899b","components/data/ChartFrame.jsx":"9c7fb4937c47","components/data/ContextBreakdown.jsx":"183ef6ed90f6","components/data/DataTable.jsx":"dd3c70054ef9","components/data/DonutChart.jsx":"2fd6b68fe28f","components/data/Heatmap.jsx":"ba7d9f459273","components/data/HexHeatmap.jsx":"489204584f86","components/data/LineChart.jsx":"31f3b752c5c7","components/data/MetricCard.jsx":"0c82c139d8a0","components/data/ProgressBar.jsx":"6c205eaea379","components/data/ScatterPlot.jsx":"20ecb73c12b1","components/data/Sparkline.jsx":"aa96565d6ac1","components/data/StackedBar.jsx":"583970cae7e6","components/data/Viz.jsx":"60bdb93790cb","components/feedback/EmptyState.jsx":"6eb22e48bc12","components/feedback/ErrorState.jsx":"dd1ce27be581","components/feedback/InlineNotification.jsx":"830b9b9df14f","components/feedback/Modal.jsx":"dc13ceaf26fe","components/feedback/Skeleton.jsx":"7e7e5393f0c4","components/forms/Checkbox.jsx":"4b0aaee3abcc","components/forms/CodeFrame.jsx":"51033b535629","components/forms/Field.jsx":"811e3e3f47e3","components/forms/KeyValueInput.jsx":"b0cb689d5e7e","components/forms/PromptEditor.jsx":"dad958373036","components/forms/Radio.jsx":"b9664a441848","components/forms/Select.jsx":"a52362727edc","components/forms/Slider.jsx":"6e80bed5923b","components/forms/Switch.jsx":"b3289d2b42ce","components/forms/TagInput.jsx":"bec9c50f529e","components/forms/Textarea.jsx":"e832fc3b06f1","components/forms/TextInput.jsx":"a4fa3bc4afa8","components/inspector/InspectorField.jsx":"a032f02cf6e3","components/inspector/InspectorPanel.jsx":"35f85d629b56","components/inspector/InspectorSection.jsx":"9d41f88569ed","components/memory/MemoryBadge.jsx":"89ce91afc4db","components/memory/MemoryConflict.jsx":"17550dcb5a46","components/memory/MemoryFact.jsx":"62129a1c0b5c","components/memory/MemoryGraph.jsx":"046b34c84f8d","components/memory/MemoryScopeBar.jsx":"130c4cbe8833","components/memory/MemoryTimeline.jsx":"4b619bc0e8ab","components/memory/MemoryUsageBar.jsx":"90444b76b37a","components/navigation/AppShell.jsx":"87a170d10720","components/navigation/Breadcrumb.jsx":"c383403d3e56","components/navigation/CommandPalette.jsx":"a7c890578772","components/navigation/FilterBar.jsx":"71dd18237784","components/navigation/GlobalHeader.jsx":"6b28673c28e5","components/navigation/ObjectTree.jsx":"81286028842a","components/navigation/SegmentedControl.jsx":"e91d309d3a8f","components/navigation/SideNav.jsx":"98c62576a989","components/navigation/StatusBar.jsx":"659853140d5e","components/navigation/Tabs.jsx":"7241285ac4cc","components/navigation/WorkspaceSwitcher.jsx":"22ee04da69fb","components/objects/AgentHex.jsx":"c6265b3c233e","components/objects/AgentIsland.jsx":"156dc2b6faa3","components/objects/BondEdge.jsx":"9bd98b574165","components/objects/EntityChip.jsx":"663c05d1ef94","components/objects/GenieCard.jsx":"533d66206fd8","components/objects/HexLattice.jsx":"8537ceef3be7","components/objects/ObjectRow.jsx":"4622e3c808f7","components/objects/PlaybookCluster.jsx":"45ba9a3da286","components/objects/SkillOrb.jsx":"02119f0c065b","components/objects/ToolTile.jsx":"6e0f665f9515","components/patterns/BusinessProcess.jsx":"7a5f6eb4e465","components/patterns/Conversation.jsx":"48f4290ca7d8","components/patterns/GenieBlueprint.jsx":"79e140ba2dc3","components/patterns/IntegrationCard.jsx":"35fd077fbe8c","components/patterns/LearnedPattern.jsx":"b78185ee2421","components/patterns/MobileShell.jsx":"ef4cec47dab5","components/patterns/ObservedProcess.jsx":"ac26151b779e","components/patterns/PermissionMatrix.jsx":"02fee98ef531","components/patterns/PlaybookComposer.jsx":"f13e60998ce5","components/patterns/VoiceButton.jsx":"17f3f0fb72a7","components/runtime/ApprovalCard.jsx":"7fa6f7a21338","components/runtime/EnvironmentBanner.jsx":"2978da634f79","components/runtime/KillSwitch.jsx":"241913ac79c5","components/runtime/LiveActivityIndicator.jsx":"965485edd7c9","components/runtime/ReadinessCheck.jsx":"1aea9f9b4018","components/runtime/RunSummary.jsx":"c3fda9026198","components/runtime/RunTimeline.jsx":"cbfa22f31999","components/runtime/SimulationBar.jsx":"9f436079df88","components/runtime/SimulationStep.jsx":"7ae0bd2ac1dc","ui_kits/lamp-canvas/BuilderApp.jsx":"0921bf677a52","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-operations/OpsApp.jsx":"e7c0627e0660"},"inlinedExternals":[],"unexposedExports":[{"name":"brandGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"buildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"glyphs","sourcePath":"components/core/glyphs.js"},{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"loadGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"matchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"prefersReducedMotion","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"registerGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"},{"name":"setGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useMergedRefs","sourcePath":"components/core/refs.js"}]} */
 
 (() => {
 
@@ -307,17 +307,18 @@ function Placeholder({
     opacity: "0.45"
   }));
 }
-function Icon({
+const Icon = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Icon({
   name,
   size = 16,
   className = '',
   style,
   label,
   ...rest
-}) {
+}, ref) {
   const key = String(name).replace(/-/g, '_');
   const d = usePath(key, __ds_scope.glyphs, MATERIAL_SYMBOLS_BASE);
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: className,
     role: label ? 'img' : undefined,
     "aria-label": label,
@@ -344,8 +345,10 @@ function Icon({
   })) : /*#__PURE__*/React.createElement(Placeholder, {
     size: size
   }));
-}
-function BrandIcon({
+}), {
+  displayName: 'Icon'
+});
+const BrandIcon = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function BrandIcon({
   slug,
   size = 16,
   color,
@@ -353,10 +356,11 @@ function BrandIcon({
   style,
   label,
   ...rest
-}) {
+}, ref) {
   const key = String(slug).toLowerCase();
   const d = usePath(key, __ds_scope.brandGlyphs, BRAND_ICON_BASE);
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: className,
     role: label ? 'img' : undefined,
     "aria-label": label,
@@ -383,7 +387,9 @@ function BrandIcon({
   })) : /*#__PURE__*/React.createElement(Placeholder, {
     size: size
   }));
-}
+}), {
+  displayName: 'BrandIcon'
+});
 Object.assign(__ds_scope, { MATERIAL_SYMBOLS_BASE, BRAND_ICON_BASE, Icon, BrandIcon });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Icon.jsx", error: String((e && e.message) || e) }); }
 
@@ -398,7 +404,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function CanvasContextMenu({
+const CanvasContextMenu = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasContextMenu({
   x = 0,
   y = 0,
   groups = [],
@@ -406,8 +412,9 @@ function CanvasContextMenu({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-cmenu ' + className,
     style: {
       position: 'absolute',
@@ -435,7 +442,9 @@ function CanvasContextMenu({
   }) : null, /*#__PURE__*/React.createElement("span", null, it.label), it.shortcut ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-cmenu__kbd"
   }, it.shortcut) : null)))));
-}
+}), {
+  displayName: 'CanvasContextMenu'
+});
 Object.assign(__ds_scope, { CanvasContextMenu });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasContextMenu.jsx", error: String((e && e.message) || e) }); }
 
@@ -597,6 +606,37 @@ function prefersReducedMotion() {
 Object.assign(__ds_scope, { GSAP_CDN, GSAP_EASE, GSAP_DURATION, setGsap, loadGsap, useGsap, prefersReducedMotion });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasMotion.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/refs.js
+try { (() => {
+/* Ref merging.
+
+   Most components hand the forwarded ref straight to their root element. A few
+   need that element themselves — SnapField measures the field to convert pointer
+   coordinates, CanvasSurface gives it to Draggable as the drag trigger — and a
+   DOM node takes exactly one `ref` attribute. Those components merge instead.
+
+   Memoised on the refs so the merged callback is stable between renders: an
+   inline callback ref is called with null and then the node again on every
+   render, which would tear down and recreate the Draggable instance each time.
+
+   Exported from the package as `useMergedRefs` — a consumer composing two LAMP
+   components, or putting a Radix trigger ref on one that already takes its own,
+   needs exactly the same thing. */
+
+function useMergedRefs(...refs) {
+  return React.useMemo(() => {
+    if (refs.every(r => r == null)) return null;
+    return node => {
+      for (const ref of refs) {
+        if (typeof ref === 'function') ref(node);else if (ref && typeof ref === 'object') ref.current = node;
+      }
+    };
+  }, refs // eslint-disable-line react-hooks/exhaustive-deps
+  );
+}
+Object.assign(__ds_scope, { useMergedRefs });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/refs.js", error: String((e && e.message) || e) }); }
+
 // components/canvas/CanvasSurface.jsx
 try { (() => {
 function _extends() {
@@ -615,7 +655,7 @@ function _extends() {
    of `__world` (the pan) and React owns the transform of `__scale` (the zoom),
    so neither clobbers the other on re-render. */
 
-function CanvasSurface({
+const CanvasSurface = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasSurface({
   grid = 'dots',
   zoom = 1,
   environment = 'draft',
@@ -632,10 +672,13 @@ function CanvasSurface({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
   const api = __ds_scope.useGsap();
   const hostRef = React.useRef(null);
+  /* Draggable needs this node as its trigger, so the forwarded ref is merged
+     rather than replaced. */
+  const setHost = __ds_scope.useMergedRefs(ref, hostRef);
   const worldRef = React.useRef(null);
 
   /* Space is held, or the caller has put the canvas in an explicit pan mode.
@@ -701,7 +744,7 @@ function CanvasSurface({
   }, [api, pannable, panning]);
   const cls = ['lamp-canvas', 'lamp-canvas--' + gridClass, environment !== 'draft' && 'lamp-canvas--' + environment, (state === 'panning' || panning) && 'lamp-canvas--panning', locked && 'lamp-canvas--locked', readOnly && 'lamp-canvas--readonly', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
-    ref: hostRef,
+    ref: setHost,
     className: cls,
     style: style,
     role: "application",
@@ -728,17 +771,22 @@ function CanvasSurface({
   }) : null, empty ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-canvas__empty"
   }, empty) : null);
-}
-function SnapGuide({
+}), {
+  displayName: 'CanvasSurface'
+});
+const SnapGuide = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SnapGuide({
   rect,
   invalid = false,
   kind = 'snap'
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: kind === 'drop' ? 'lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '') : 'lamp-canvas__snapguide',
     style: rect
   });
-}
+}), {
+  displayName: 'SnapGuide'
+});
 Object.assign(__ds_scope, { CanvasSurface, SnapGuide });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasSurface.jsx", error: String((e && e.message) || e) }); }
 
@@ -753,7 +801,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function IconButton({
+const IconButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function IconButton({
   icon,
   label,
   size = 'md',
@@ -762,10 +810,11 @@ function IconButton({
   tone = 'default',
   className = '',
   ...rest
-}) {
+}, ref) {
   const cls = ['lamp-iconbtn', 'lamp-iconbtn--' + size, bordered && 'lamp-iconbtn--bordered', active && 'lamp-iconbtn--active', tone === 'danger' && 'lamp-iconbtn--danger', className].filter(Boolean).join(' ');
   const glyph = size === 'xs' ? 12 : size === 'sm' ? 14 : 16;
   return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
     type: "button",
     className: cls,
     "aria-label": label,
@@ -775,7 +824,9 @@ function IconButton({
     name: icon,
     size: glyph
   }) : icon);
-}
+}), {
+  displayName: 'IconButton'
+});
 Object.assign(__ds_scope, { IconButton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/IconButton.jsx", error: String((e && e.message) || e) }); }
 
@@ -790,19 +841,22 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Divider({
+const Divider = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Divider({
   orientation = 'horizontal',
   label,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (label) return /*#__PURE__*/React.createElement("div", _extends({
     className: 'lamp-divider lamp-divider--label ' + className
   }, rest), label);
   return /*#__PURE__*/React.createElement("hr", _extends({
+    ref: ref,
     className: ['lamp-divider', orientation === 'vertical' && 'lamp-divider--v', className].filter(Boolean).join(' ')
   }, rest));
-}
+}), {
+  displayName: 'Divider'
+});
 Object.assign(__ds_scope, { Divider });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
 
@@ -817,28 +871,32 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function CanvasToolbar({
+const CanvasToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasToolbar({
   position = 'floating',
   children,
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-ctoolbar', 'lamp-ctoolbar--' + position, className].filter(Boolean).join(' '),
     style: style,
     role: "toolbar"
   }, rest), children);
-}
-function CanvasZoomControls({
+}), {
+  displayName: 'CanvasToolbar'
+});
+const CanvasZoomControls = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasZoomControls({
   zoom = 1,
   onZoomIn,
   onZoomOut,
   onFit,
   onReset,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement(CanvasToolbar, _extends({
+    ref: ref,
     position: "topright"
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
     icon: "remove",
@@ -863,14 +921,17 @@ function CanvasZoomControls({
     size: "sm",
     onClick: onFit
   }));
-}
-function CanvasObjectToolbar({
+}), {
+  displayName: 'CanvasZoomControls'
+});
+const CanvasObjectToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasObjectToolbar({
   x,
   y,
   children,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-ctoolbar lamp-ctoolbar--object",
     style: {
       left: x,
@@ -878,14 +939,17 @@ function CanvasObjectToolbar({
     },
     role: "toolbar"
   }, rest), children);
-}
-function CanvasMinimap({
+}), {
+  displayName: 'CanvasObjectToolbar'
+});
+const CanvasMinimap = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasMinimap({
   blips = [],
   viewport,
   onJump,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-minimap",
     onClick: onJump,
     "aria-label": "Canvas overview"
@@ -902,7 +966,9 @@ function CanvasMinimap({
     className: "lamp-minimap__viewport",
     style: viewport
   }) : null);
-}
+}), {
+  displayName: 'CanvasMinimap'
+});
 Object.assign(__ds_scope, { CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasToolbar.jsx", error: String((e && e.message) || e) }); }
 
@@ -1046,17 +1112,18 @@ const STATUS = {
     color: 'var(--status-neutral)'
   }
 };
-function StatusDot({
+const StatusDot = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function StatusDot({
   status = 'draft',
   size = 'md',
   pulse = false,
   ring = false,
   style,
   ...rest
-}) {
+}, ref) {
   const s = STATUS[status] || STATUS.draft;
   const cls = ['lamp-dot', size === 'lg' && 'lamp-dot--lg', ring && 'lamp-dot--ring', pulse && 'lamp-dot--pulse'].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: cls,
     style: {
       background: s.color,
@@ -1066,15 +1133,17 @@ function StatusDot({
     role: "img",
     "aria-label": s.label
   }, rest));
-}
-function StatusBadge({
+}), {
+  displayName: 'StatusDot'
+});
+const StatusBadge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function StatusBadge({
   status = 'draft',
   label,
   mode = 'badge',
   size = 'md',
   className = '',
   ...rest
-}) {
+}, ref) {
   const s = STATUS[status] || STATUS.draft;
   const text = label || s.label;
   if (mode === 'label') {
@@ -1108,12 +1177,15 @@ function StatusBadge({
     }));
   }
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-badge', 'lamp-badge--' + s.tone, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: s.icon,
     size: 11
   }), text);
-}
+}), {
+  displayName: 'StatusBadge'
+});
 Object.assign(__ds_scope, { STATUS, StatusDot, StatusBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/StatusBadge.jsx", error: String((e && e.message) || e) }); }
 
@@ -1128,7 +1200,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Badge({
+const Badge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Badge({
   tone = 'neutral',
   icon,
   shape = 'pill',
@@ -1138,15 +1210,18 @@ function Badge({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const cls = ['lamp-badge', 'lamp-badge--' + (outline ? 'outline' : tone), shape === 'square' && 'lamp-badge--square', micro && 'lamp-badge--micro', count && 'lamp-badge--count', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: cls
   }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
     size: 11
   }) : icon : null, children);
-}
+}), {
+  displayName: 'Badge'
+});
 Object.assign(__ds_scope, { Badge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Badge.jsx", error: String((e && e.message) || e) }); }
 
@@ -1228,7 +1303,7 @@ const ROLE_GLYPH = {
   system: 'settings',
   external: 'cloud'
 };
-function AgentHex({
+const AgentHex = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function AgentHex({
   size = 'md',
   state = 'idle',
   role = 'standard',
@@ -1251,7 +1326,7 @@ function AgentHex({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const border = STATE_BORDER[state] || STATE_BORDER.idle;
   const sw = ACTIVE[state] ? 1.5 : 1;
@@ -1262,6 +1337,7 @@ function AgentHex({
   const label = (name || 'Agent') + (status ? ', ' + (__ds_scope.STATUS[status] ? __ds_scope.STATUS[status].label : status) : '');
   const labelled = detail !== 'glyph' && !!(name || status);
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' '),
     style: style
   }, rest), /*#__PURE__*/React.createElement("div", {
@@ -1352,7 +1428,9 @@ function AgentHex({
   }, task) : null, detail === 'meta' && (cost || confidence || authority) ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-agent__meta"
   }, [authority, confidence, cost].filter(Boolean).join(' · ')) : null) : null);
-}
+}), {
+  displayName: 'AgentHex'
+});
 Object.assign(__ds_scope, { AGENT_SIZES, AgentHex });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/AgentHex.jsx", error: String((e && e.message) || e) }); }
 
@@ -1368,7 +1446,7 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 /* Honeycomb layout for flat-top hexagons. Column step = 0.75w; odd columns drop half a row. */
-function HexLattice({
+const HexLattice = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function HexLattice({
   size = 'md',
   gap = 2,
   cells = [],
@@ -1376,7 +1454,7 @@ function HexLattice({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
   const stepX = w * 0.75 + gap;
   const stepY = h + gap;
@@ -1395,6 +1473,7 @@ function HexLattice({
     };
   });
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-lattice ' + className,
     style: {
       width: maxX,
@@ -1411,7 +1490,9 @@ function HexLattice({
       height: h
     }
   }, p.node)));
-}
+}), {
+  displayName: 'HexLattice'
+});
 function hexCenter(col, row, size = 'md', gap = 2) {
   const [w, h] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
   const stepX = w * 0.75 + gap;
@@ -1491,7 +1572,7 @@ const HEX_CLIP = 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)';
    this keeps the visible shift inside the specified 2–6px band for most of the
    approach — a hint that it is about to land, not a decision made for you. */
 const PULL = 0.35;
-function SnapField({
+const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SnapField({
   agents = [],
   size = 'md',
   gap = 2,
@@ -1518,7 +1599,7 @@ function SnapField({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const [hexW, hexH] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
   const api = __ds_scope.useGsap();
   const [dragId, setDragId] = React.useState(null);
@@ -1527,6 +1608,9 @@ function SnapField({
   const nodes = React.useRef({});
   const guideRef = React.useRef(null);
   const fieldRef = React.useRef(null);
+  /* The field's box converts pointer coordinates for the marquee, so the
+     forwarded ref is merged rather than replacing it. */
+  const setField = __ds_scope.useMergedRefs(ref, fieldRef);
   const multi = selectedIds || [];
 
   /* Draggable callbacks outlive a render, so everything they read goes through
@@ -1869,7 +1953,7 @@ function SnapField({
     } : x));
   };
   return /*#__PURE__*/React.createElement("div", _extends({
-    ref: fieldRef,
+    ref: setField,
     className: ['lamp-snapfield', dragId && 'lamp-snapfield--dragging', readOnly && 'lamp-snapfield--readonly', snapState === 'proximity' && 'lamp-snapfield--proximity', snapState === 'snapReady' && 'lamp-snapfield--ready', className].filter(Boolean).join(' '),
     style: {
       position: 'relative',
@@ -1962,7 +2046,9 @@ function SnapField({
   }, groupLabel, /*#__PURE__*/React.createElement("span", {
     className: "lamp-snapfield__group-count"
   }, multi.length))) : null);
-}
+}), {
+  displayName: 'SnapField'
+});
 Object.assign(__ds_scope, { SnapField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/SnapField.jsx", error: String((e && e.message) || e) }); }
 
@@ -1977,7 +2063,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Button({
+const Button = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Button({
   variant = 'secondary',
   size = 'md',
   icon,
@@ -1989,10 +2075,11 @@ function Button({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const cls = ['lamp-btn', 'lamp-btn--' + variant, 'lamp-btn--' + size, block && 'lamp-btn--block', loading && 'lamp-btn--loading', className].filter(Boolean).join(' ');
   const glyph = size === 'lg' ? 16 : 14;
   return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
     type: "button",
     className: cls,
     disabled: disabled || loading,
@@ -2008,8 +2095,10 @@ function Button({
   }, shortcut) : null, loading ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-btn__spin"
   }, /*#__PURE__*/React.createElement("i", null)) : null);
-}
-function SplitButton({
+}), {
+  displayName: 'Button'
+});
+const SplitButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SplitButton({
   variant = 'secondary',
   size = 'md',
   icon,
@@ -2017,8 +2106,9 @@ function SplitButton({
   onMenu,
   menuLabel = 'More actions',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: "lamp-split"
   }, /*#__PURE__*/React.createElement(Button, _extends({
     variant: variant,
@@ -2031,7 +2121,9 @@ function SplitButton({
     "aria-label": menuLabel,
     icon: "keyboard_arrow_down"
   }));
-}
+}), {
+  displayName: 'SplitButton'
+});
 Object.assign(__ds_scope, { Button, SplitButton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
 
@@ -2049,13 +2141,13 @@ function _extends() {
 const HEX_POINTS = '25,0 75,0 100,50 75,100 25,100 0,50';
 
 /** Hexagonal Agent identity — the chat's signature mark. */
-function ChatAvatar({
+const ChatAvatar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatAvatar({
   role = 'agent',
   initials,
   glyph,
   state = 'idle',
   size = 26
-}) {
+}, ref) {
   if (role === 'user') {
     return /*#__PURE__*/React.createElement("span", {
       className: "lamp-cm__avatar lamp-cm__avatar--user",
@@ -2080,6 +2172,7 @@ function ChatAvatar({
   const stroke = state === 'acting' ? 'var(--gold-500)' : state === 'failed' ? 'var(--status-danger)' : 'var(--border-strong)';
   const fill = state === 'acting' ? 'var(--gold-100)' : 'var(--surface-secondary)';
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: "lamp-cm__avatar",
     style: {
       width: size,
@@ -2103,19 +2196,22 @@ function ChatAvatar({
   }) : /*#__PURE__*/React.createElement("span", {
     className: "lamp-cm__ini"
   }, initials || 'AG'));
-}
+}), {
+  displayName: 'ChatAvatar'
+});
 
 /** Visible work: what the Agent called, read and used — never hidden behind a spinner. */
-function ChatActivity({
+const ChatActivity = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatActivity({
   items = [],
   max = 4,
   onSelect
-}) {
+}, ref) {
   const [open, setOpen] = React.useState(false);
   const shown = open ? items : items.slice(0, max);
   const rest = items.length - shown.length;
   const glyph = k => k === 'tool' ? 'square' : k === 'memory' ? 'database' : k === 'skill' ? 'flare' : k === 'human' ? 'how_to_reg' : 'bolt';
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "lamp-act"
   }, shown.map((a, i) => /*#__PURE__*/React.createElement("span", {
     key: i,
@@ -2139,16 +2235,19 @@ function ChatActivity({
     className: "lamp-act__more",
     onClick: () => setOpen(false)
   }, "Show less") : null);
-}
+}), {
+  displayName: 'ChatActivity'
+});
 
 /** Provenance you can open — replaces "trust me" with "here's where it came from". */
-function ChatCitation({
+const ChatCitation = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatCitation({
   index,
   source,
   scope,
   onClick
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("button", {
+    ref: ref,
     type: "button",
     className: "lamp-cite",
     onClick: onClick,
@@ -2158,15 +2257,20 @@ function ChatCitation({
     name: "fact_check",
     size: 9
   }), index);
-}
-function ChatDayDivider({
+}), {
+  displayName: 'ChatCitation'
+});
+const ChatDayDivider = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatDayDivider({
   label
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "lamp-chat__day"
   }, /*#__PURE__*/React.createElement("span", null, label));
-}
-function ChatMessage({
+}), {
+  displayName: 'ChatDayDivider'
+});
+const ChatMessage = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatMessage({
   role = 'agent',
   author,
   roleLabel,
@@ -2187,9 +2291,10 @@ function ChatMessage({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const failed = state === 'failed' || status === 'failed';
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-cm', 'lamp-cm--' + role, grouped && 'lamp-cm--grouped', state === 'acting' && 'lamp-cm--acting', failed && 'lamp-cm--failed', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement(ChatAvatar, {
     role: role,
@@ -2251,7 +2356,9 @@ function ChatMessage({
     size: "xs",
     onClick: onCopy
   }) : null) : null);
-}
+}), {
+  displayName: 'ChatMessage'
+});
 Object.assign(__ds_scope, { ChatAvatar, ChatActivity, ChatCitation, ChatDayDivider, ChatMessage });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatMessage.jsx", error: String((e && e.message) || e) }); }
 
@@ -2267,7 +2374,7 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 /** What is happening right now, in words, with a way to stop it. */
-function ChatStatus({
+const ChatStatus = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatStatus({
   state = 'idle',
   author,
   action,
@@ -2275,7 +2382,7 @@ function ChatStatus({
   tokens,
   onStop,
   onInspect
-}) {
+}, ref) {
   if (state === 'idle') {
     return /*#__PURE__*/React.createElement("div", {
       className: "lamp-chat__status lamp-chat__status--idle"
@@ -2285,6 +2392,7 @@ function ChatStatus({
     }), detail || 'Up to date. Nothing is running.');
   }
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "lamp-chat__status",
     role: "status"
   }, /*#__PURE__*/React.createElement("span", {
@@ -2323,8 +2431,10 @@ function ChatStatus({
     icon: "stop_circle",
     onClick: onStop
   }, "Stop") : null));
-}
-function AgentChat({
+}), {
+  displayName: 'ChatStatus'
+});
+const AgentChat = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function AgentChat({
   title,
   scope,
   scopeGlyph = 'hive',
@@ -2338,13 +2448,14 @@ function AgentChat({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const threadRef = React.useRef(null);
   React.useEffect(() => {
     const el = threadRef.current;
     if (autoScroll && el) el.scrollTop = el.scrollHeight;
   }, [children, autoScroll]);
   return /*#__PURE__*/React.createElement("section", _extends({
+    ref: ref,
     className: ['lamp-chat', flush && 'lamp-chat--flush', className].filter(Boolean).join(' '),
     "aria-label": title || 'Conversation'
   }, rest), /*#__PURE__*/React.createElement("header", {
@@ -2387,7 +2498,9 @@ function AgentChat({
     role: "log",
     "aria-live": "polite"
   }, children), status, composer);
-}
+}), {
+  displayName: 'AgentChat'
+});
 Object.assign(__ds_scope, { ChatStatus, AgentChat });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/AgentChat.jsx", error: String((e && e.message) || e) }); }
 
@@ -2402,17 +2515,18 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Kbd({
+const Kbd = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Kbd({
   keys,
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const list = keys || (typeof children === 'string' ? children.split('+') : null);
   if (!list) return /*#__PURE__*/React.createElement("kbd", _extends({
     className: 'lamp-kbd ' + className
   }, rest), children);
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     style: {
       display: 'inline-flex',
       gap: 3,
@@ -2422,7 +2536,9 @@ function Kbd({
     key: i,
     className: 'lamp-kbd ' + className
   }, k)));
-}
+}), {
+  displayName: 'Kbd'
+});
 Object.assign(__ds_scope, { Kbd });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Kbd.jsx", error: String((e && e.message) || e) }); }
 
@@ -2438,12 +2554,13 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 /** Quick replies keep the common answer one tap away. */
-function ChatQuickReplies({
+const ChatQuickReplies = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatQuickReplies({
   options = [],
   onSelect
-}) {
+}, ref) {
   if (!options.length) return null;
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "lamp-cc__quick"
   }, options.map(o => {
     const label = typeof o === 'string' ? o : o.label;
@@ -2458,8 +2575,10 @@ function ChatQuickReplies({
       } : o)
     }, label);
   }));
-}
-function ChatComposer({
+}), {
+  displayName: 'ChatQuickReplies'
+});
+const ChatComposer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChatComposer({
   value = '',
   onChange,
   onSend,
@@ -2475,12 +2594,13 @@ function ChatComposer({
   hint = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   const [focus, setFocus] = React.useState(false);
   const send = () => {
     if (!disabled && value.trim()) onSend && onSend(value);
   };
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-cc', disabled && 'lamp-cc--disabled', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement(ChatQuickReplies, {
     options: quickReplies,
@@ -2541,7 +2661,9 @@ function ChatComposer({
     disabled: disabled || !value.trim(),
     onClick: send
   }, "Send")));
-}
+}), {
+  displayName: 'ChatComposer'
+});
 Object.assign(__ds_scope, { ChatQuickReplies, ChatComposer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/chat/ChatComposer.jsx", error: String((e && e.message) || e) }); }
 
@@ -2556,7 +2678,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Card({
+const Card = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Card({
   padding = 'md',
   raised = false,
   interactive = false,
@@ -2569,10 +2691,11 @@ function Card({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const structured = header || footer || title || actions;
   const cls = ['lamp-card', !structured && padding === 'md' && 'lamp-card--pad', !structured && padding === 'sm' && 'lamp-card--pad-sm', raised && 'lamp-card--raised', interactive && 'lamp-card--interactive', selected && 'lamp-card--selected', tone === 'danger' && 'lamp-card--danger', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: cls
   }, rest), structured && (header || title || actions) ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-card__head"
@@ -2588,7 +2711,9 @@ function Card({
   }, children) : children, footer ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-card__foot"
   }, footer) : null);
-}
+}), {
+  displayName: 'Card'
+});
 Object.assign(__ds_scope, { Card });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Card.jsx", error: String((e && e.message) || e) }); }
 
@@ -2625,15 +2750,16 @@ const ENV = {
     label: 'Emergency stopped'
   }
 };
-function EnvironmentPill({
+const EnvironmentPill = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function EnvironmentPill({
   environment = 'draft',
   label,
   scope,
   className = '',
   ...rest
-}) {
+}, ref) {
   const e = ENV[environment] || ENV.draft;
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-env', 'lamp-env--' + environment, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: e.icon,
@@ -2646,7 +2772,9 @@ function EnvironmentPill({
       textTransform: 'none'
     }
   }, scope) : null);
-}
+}), {
+  displayName: 'EnvironmentPill'
+});
 Object.assign(__ds_scope, { EnvironmentPill });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/EnvironmentPill.jsx", error: String((e && e.message) || e) }); }
 
@@ -2661,7 +2789,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Panel({
+const Panel = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Panel({
   title,
   actions,
   flush = false,
@@ -2670,8 +2798,9 @@ function Panel({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("section", _extends({
+    ref: ref,
     className: ['lamp-panel', flush && 'lamp-panel--flush', className].filter(Boolean).join(' '),
     style: {
       width,
@@ -2686,7 +2815,9 @@ function Panel({
   }, actions) : null) : null, /*#__PURE__*/React.createElement("div", {
     className: "lamp-panel__body"
   }, children));
-}
+}), {
+  displayName: 'Panel'
+});
 Object.assign(__ds_scope, { Panel });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Panel.jsx", error: String((e && e.message) || e) }); }
 
@@ -2701,15 +2832,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Tag({
+const Tag = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Tag({
   icon,
   mono = false,
   onRemove,
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-tag', mono && 'lamp-tag--mono', className].filter(Boolean).join(' ')
   }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
@@ -2723,7 +2855,9 @@ function Tag({
     name: "close",
     size: 10
   })) : null);
-}
+}), {
+  displayName: 'Tag'
+});
 Object.assign(__ds_scope, { Tag });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Tag.jsx", error: String((e && e.message) || e) }); }
 
@@ -2738,15 +2872,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Tooltip({
+const Tooltip = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Tooltip({
   content,
   shortcut,
   rich = false,
   children,
   ...rest
-}) {
+}, ref) {
   const [open, setOpen] = React.useState(false);
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-tip', open && 'lamp-tip--open'].filter(Boolean).join(' '),
     onMouseEnter: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
@@ -2758,7 +2893,9 @@ function Tooltip({
   }, content, shortcut ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-tip__kbd"
   }, shortcut) : null));
-}
+}), {
+  displayName: 'Tooltip'
+});
 Object.assign(__ds_scope, { Tooltip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Tooltip.jsx", error: String((e && e.message) || e) }); }
 
@@ -2773,7 +2910,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function DashboardCard({
+const DashboardCard = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function DashboardCard({
   title,
   description,
   actions,
@@ -2785,8 +2922,9 @@ function DashboardCard({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("section", _extends({
+    ref: ref,
     className: ['lamp-dcard', raised && 'lamp-dcard--raised', className].filter(Boolean).join(' '),
     style: span ? {
       gridColumn: 'span ' + span,
@@ -2807,28 +2945,36 @@ function DashboardCard({
   }, children), footer ? /*#__PURE__*/React.createElement("footer", {
     className: "lamp-dcard__foot"
   }, footer) : null);
-}
-function DashboardGrid({
+}), {
+  displayName: 'DashboardCard'
+});
+const DashboardGrid = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function DashboardGrid({
   columns = 2,
   children,
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-grid', 'lamp-grid--' + columns, className].filter(Boolean).join(' '),
     style: style
   }, rest), children);
-}
-function StatGrid({
+}), {
+  displayName: 'DashboardGrid'
+});
+const StatGrid = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function StatGrid({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-grid', 'lamp-grid--stats', className].filter(Boolean).join(' ')
   }, rest), children);
-}
+}), {
+  displayName: 'StatGrid'
+});
 Object.assign(__ds_scope, { DashboardCard, DashboardGrid, StatGrid });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/dashboard/DashboardCard.jsx", error: String((e && e.message) || e) }); }
 
@@ -2843,15 +2989,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function PageHeader({
+const PageHeader = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PageHeader({
   title,
   description,
   meta,
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("header", _extends({
+    ref: ref,
     className: 'lamp-pagehead ' + className
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-pagehead__titles"
@@ -2864,26 +3011,32 @@ function PageHeader({
   }, meta) : null), actions ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-pagehead__actions"
   }, actions) : null);
-}
-function DashboardPage({
+}), {
+  displayName: 'PageHeader'
+});
+const DashboardPage = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function DashboardPage({
   header,
   toolbar,
   flush = false,
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-page', flush && 'lamp-page--flush', className].filter(Boolean).join(' ')
   }, rest), header, toolbar, children);
-}
-function SectionHeader({
+}), {
+  displayName: 'DashboardPage'
+});
+const SectionHeader = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SectionHeader({
   title,
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-section ' + className
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-section__title"
@@ -2892,7 +3045,9 @@ function SectionHeader({
   }), actions ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-section__actions"
   }, actions) : null);
-}
+}), {
+  displayName: 'SectionHeader'
+});
 Object.assign(__ds_scope, { PageHeader, DashboardPage, SectionHeader });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/dashboard/PageHeader.jsx", error: String((e && e.message) || e) }); }
 
@@ -2909,13 +3064,14 @@ function _extends() {
 }
 const DATAVIZ = ['var(--dataviz-1)', 'var(--dataviz-2)', 'var(--dataviz-3)', 'var(--dataviz-4)', 'var(--dataviz-5)', 'var(--dataviz-6)', 'var(--dataviz-7)', 'var(--dataviz-8)'];
 const seriesColor = i => DATAVIZ[i % DATAVIZ.length];
-function ChartLegend({
+const ChartLegend = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChartLegend({
   items = [],
   variant = 'swatch',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-chart__legend ' + className
   }, rest), items.map((it, i) => /*#__PURE__*/React.createElement("span", {
     className: "lamp-chart__legend-item",
@@ -2934,8 +3090,10 @@ function ChartLegend({
       color: 'var(--text-primary)'
     }
   }, it.value) : null)));
-}
-function ChartFrame({
+}), {
+  displayName: 'ChartLegend'
+});
+const ChartFrame = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChartFrame({
   title,
   subtitle,
   actions,
@@ -2950,8 +3108,9 @@ function ChartFrame({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("figure", _extends({
+    ref: ref,
     className: ['lamp-chart', flush && 'lamp-chart--flush', className].filter(Boolean).join(' '),
     style: {
       margin: 0
@@ -2995,15 +3154,18 @@ function ChartFrame({
   }), errorLabel) : null), footnote ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-chart__foot"
   }, footnote) : null);
-}
-function ChartTooltip({
+}), {
+  displayName: 'ChartFrame'
+});
+const ChartTooltip = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ChartTooltip({
   x,
   y,
   title,
   rows = [],
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-chart__tip",
     style: {
       left: x,
@@ -3026,7 +3188,9 @@ function ChartTooltip({
   }), r.label, /*#__PURE__*/React.createElement("span", {
     className: "lamp-chart__tip-val"
   }, r.value))));
-}
+}), {
+  displayName: 'ChartTooltip'
+});
 
 /* Reachable from the namespace as ChartFrame.seriesColor. */
 ChartFrame.seriesColor = seriesColor;
@@ -3053,7 +3217,7 @@ const niceTick = (v, max) => {
 };
 
 /* Vertical / horizontal / stacked / 100% stacked bars and histograms. Production renderer: Recharts. */
-function BarChart({
+const BarChart = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function BarChart({
   series = [],
   labels = [],
   width = 640,
@@ -3070,7 +3234,7 @@ function BarChart({
   format,
   className = '',
   ...rest
-}) {
+}, ref) {
   const p = pad || (orientation === 'horizontal' ? {
     l: 104,
     r: 34,
@@ -3099,6 +3263,7 @@ function BarChart({
   }, (_, i) => max / 4 * i);
   const fmt = format || (v => niceTick(v, max));
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: "100%",
     height: height,
     viewBox: '0 0 ' + width + ' ' + height,
@@ -3182,7 +3347,9 @@ function BarChart({
       }, fmt(raw)) : null);
     }));
   }));
-}
+}), {
+  displayName: 'BarChart'
+});
 Object.assign(__ds_scope, { BarChart });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/BarChart.jsx", error: String((e && e.message) || e) }); }
 
@@ -3208,7 +3375,7 @@ function _extends() {
    total are still drawn but never labelled inline, because a 3px segment with a
    number on it is noise. */
 
-function StackedBar({
+const StackedBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function StackedBar({
   segments = [],
   total,
   unit,
@@ -3221,11 +3388,12 @@ function StackedBar({
   label,
   className = '',
   ...rest
-}) {
+}, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + (s.value || 0), 0);
   const fmt = format || (v => typeof v === 'number' ? v.toLocaleString() : v);
   const colorOf = (s, i) => s.color || __ds_scope.seriesColor(i);
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-sbar ' + className
   }, rest), label ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-sbar__label"
@@ -3270,7 +3438,9 @@ function StackedBar({
   }, "Total"), /*#__PURE__*/React.createElement("span", {
     className: "lamp-sbar__val"
   }, fmt(sum), unit ? ' ' + unit : '')) : null) : null);
-}
+}), {
+  displayName: 'StackedBar'
+});
 Object.assign(__ds_scope, { StackedBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/StackedBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -3324,7 +3494,7 @@ const SCOPE_COLOR = {
   prompt: 'var(--dataviz-neutral-3)',
   completion: 'var(--dataviz-neutral-4)'
 };
-function ContextBreakdown({
+const ContextBreakdown = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ContextBreakdown({
   segments,
   context,
   unit = 'tokens',
@@ -3334,7 +3504,7 @@ function ContextBreakdown({
   title = 'Context',
   className = '',
   ...rest
-}) {
+}, ref) {
   /* Accept either an explicit segments array or a { agent: 618, … } map. */
   const rows = segments ? segments : SCOPE_ORDER.filter(k => context && context[k] != null).map(k => ({
     key: k,
@@ -3349,6 +3519,7 @@ function ContextBreakdown({
   const fmt = v => v.toLocaleString();
   const pctOfLimit = limit ? Math.round(total / limit * 100) : null;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-ctxb ' + className
   }, rest), title ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-ctxb__title"
@@ -3379,7 +3550,9 @@ function ContextBreakdown({
   }, fmt(total), " ", unit)))), cached != null || limit ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-ctxb__meta"
   }, cached != null ? /*#__PURE__*/React.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /*#__PURE__*/React.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
-}
+}), {
+  displayName: 'ContextBreakdown'
+});
 Object.assign(__ds_scope, { ContextBreakdown });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/ContextBreakdown.jsx", error: String((e && e.message) || e) }); }
 
@@ -3394,17 +3567,18 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Checkbox({
+const Checkbox = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Checkbox({
   label,
   description,
   indeterminate = false,
   disabled = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("label", {
     className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
   }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     type: "checkbox",
     disabled: disabled
   }, rest)), /*#__PURE__*/React.createElement("span", {
@@ -3418,7 +3592,9 @@ function Checkbox({
   })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-check__desc"
   }, description) : null) : null);
-}
+}), {
+  displayName: 'Checkbox'
+});
 Object.assign(__ds_scope, { Checkbox });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
 
@@ -3435,7 +3611,7 @@ function _extends() {
 }
 /* Presentation layer for TanStack Table. Logic (sorting, filtering, virtualization,
    grouping, pagination) belongs to the table instance; this renders LAMP's surface. */
-function DataTable({
+const DataTable = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function DataTable({
   columns = [],
   rows = [],
   density = 'default',
@@ -3456,9 +3632,10 @@ function DataTable({
   stickyHeader = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-tablewrap ' + className
   }, rest), toolbar ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-tabletoolbar"
@@ -3541,7 +3718,9 @@ function DataTable({
   }) : null), footerRow ? /*#__PURE__*/React.createElement("tfoot", null, /*#__PURE__*/React.createElement("tr", null, footerRow)) : null), state === 'empty' ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-table__empty"
   }, emptyState) : null));
-}
+}), {
+  displayName: 'DataTable'
+});
 Object.assign(__ds_scope, { DataTable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/DataTable.jsx", error: String((e && e.message) || e) }); }
 
@@ -3557,7 +3736,7 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 /* Donut / radial gauge. Keep donuts small and never use more than 5 slices. */
-function DonutChart({
+const DonutChart = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function DonutChart({
   data = [],
   size = 132,
   thickness = 12,
@@ -3568,7 +3747,7 @@ function DonutChart({
   startAngle = -90,
   className = '',
   ...rest
-}) {
+}, ref) {
   const r = (size - thickness) / 2;
   const c = size / 2;
   const total = max != null ? max : data.reduce((a, d) => a + d.value, 0) || 1;
@@ -3592,6 +3771,7 @@ function DonutChart({
     });
   };
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: size,
     height: size,
     viewBox: '0 0 ' + size + ' ' + size,
@@ -3620,7 +3800,9 @@ function DonutChart({
       font: '400 10px var(--font-sans)'
     }
   }, centerLabel) : null) : null);
-}
+}), {
+  displayName: 'DonutChart'
+});
 Object.assign(__ds_scope, { DonutChart });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/DonutChart.jsx", error: String((e && e.message) || e) }); }
 
@@ -3650,7 +3832,7 @@ function heatColor(value, max, ramp = 'gold') {
 }
 
 /* Matrix / calendar heatmap. Production renderer for large matrices: Apache ECharts, same props. */
-function Heatmap({
+const Heatmap = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Heatmap({
   rows = [],
   columns = [],
   values = [],
@@ -3662,9 +3844,10 @@ function Heatmap({
   format = v => v,
   className = '',
   ...rest
-}) {
+}, ref) {
   const m = max != null ? max : Math.max.apply(null, values.reduce((a, r) => a.concat(r), [0]));
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className
   }, rest), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3717,7 +3900,9 @@ function Heatmap({
       fontFamily: 'var(--font-mono)'
     }
   }, "max ", format(m))) : null);
-}
+}), {
+  displayName: 'Heatmap'
+});
 
 /* Reachable from the namespace as Heatmap.heatColor. */
 Heatmap.heatColor = heatColor;
@@ -3737,7 +3922,7 @@ function _extends() {
 }
 /* LAMP-native hive visualization: a value per Agent slot on the hexagonal lattice.
    Production renderer: visx — this is product language, not a generic chart. */
-function HexHeatmap({
+const HexHeatmap = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function HexHeatmap({
   cells = [],
   size = 26,
   gap = 2,
@@ -3747,7 +3932,7 @@ function HexHeatmap({
   onSelect,
   className = '',
   ...rest
-}) {
+}, ref) {
   const w = size;
   const h = size / 1.1547;
   const stepX = w * 0.75 + gap;
@@ -3769,6 +3954,7 @@ function HexHeatmap({
   });
   const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map(p => p.join(',')).join(' ');
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: maxX,
     height: maxY,
     viewBox: '0 0 ' + maxX + ' ' + maxY,
@@ -3795,7 +3981,9 @@ function HexHeatmap({
       font: '600 8px var(--font-sans)'
     }
   }, c.short) : null)));
-}
+}), {
+  displayName: 'HexHeatmap'
+});
 Object.assign(__ds_scope, { HexHeatmap });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/HexHeatmap.jsx", error: String((e && e.message) || e) }); }
 
@@ -3818,7 +4006,7 @@ const niceTick = (v, max) => {
 };
 
 /* LAMP line / area chart. Production renderer: shadcn Charts + Recharts, tokenised to match. */
-function LineChart({
+const LineChart = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function LineChart({
   series = [],
   labels = [],
   width = 640,
@@ -3839,7 +4027,7 @@ function LineChart({
   format,
   className = '',
   ...rest
-}) {
+}, ref) {
   const n = Math.max.apply(null, series.map(s => s.data.length).concat([1]));
   const flat = series.reduce((a, s) => a.concat(s.data), []);
   const max = yMax != null ? yMax : Math.max.apply(null, flat.concat(thresholds.map(t => t.value)).concat([1]));
@@ -3852,6 +4040,7 @@ function LineChart({
   }, (_, i) => yMin + (max - yMin) / yTicks * i);
   const fmt = format || (v => niceTick(v, max));
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: "100%",
     height: height,
     viewBox: '0 0 ' + width + ' ' + height,
@@ -3915,7 +4104,9 @@ function LineChart({
       strokeWidth: 1.25
     })) : null);
   }));
-}
+}), {
+  displayName: 'LineChart'
+});
 Object.assign(__ds_scope, { LineChart });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/LineChart.jsx", error: String((e && e.message) || e) }); }
 
@@ -3930,7 +4121,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function MetricCard({
+const MetricCard = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MetricCard({
   label,
   value,
   unit,
@@ -3946,10 +4137,11 @@ function MetricCard({
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   const dir = deltaDirection || (delta && String(delta).trim().startsWith('-') ? 'down' : delta ? 'up' : 'flat');
   const tone = deltaTone || (dir === 'up' ? 'positive' : dir === 'down' ? 'negative' : 'flat');
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-metric', size === 'sm' && 'lamp-metric--sm', flush && 'lamp-metric--flush', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-metric__label"
@@ -3976,7 +4168,9 @@ function MetricCard({
   }, spark) : null, footnote || deltaLabel ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-metric__foot"
   }, footnote || deltaLabel) : null);
-}
+}), {
+  displayName: 'MetricCard'
+});
 Object.assign(__ds_scope, { MetricCard });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/MetricCard.jsx", error: String((e && e.message) || e) }); }
 
@@ -3991,7 +4185,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function ProgressBar({
+const ProgressBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ProgressBar({
   value = 0,
   max = 100,
   tone = 'primary',
@@ -4000,9 +4194,10 @@ function ProgressBar({
   label,
   className = '',
   ...rest
-}) {
+}, ref) {
   const pct = indeterminate ? 0 : Math.max(0, Math.min(100, value / max * 100));
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-bar-track ' + className,
     style: {
       height
@@ -4017,8 +4212,10 @@ function ProgressBar({
       width: pct + '%'
     }
   }));
-}
-function UsageMeter({
+}), {
+  displayName: 'ProgressBar'
+});
+const UsageMeter = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function UsageMeter({
   label,
   used,
   limit,
@@ -4028,10 +4225,11 @@ function UsageMeter({
   format = v => v.toLocaleString(),
   className = '',
   ...rest
-}) {
+}, ref) {
   const pct = limit ? used / limit * 100 : 0;
   const auto = pct >= 100 ? 'danger' : pct >= 85 ? 'warning' : 'primary';
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-usage ' + className
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-usage__top"
@@ -4048,7 +4246,9 @@ function UsageMeter({
       color: 'var(--text-tertiary)'
     }
   }, footnote) : null);
-}
+}), {
+  displayName: 'UsageMeter'
+});
 Object.assign(__ds_scope, { ProgressBar, UsageMeter });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/ProgressBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -4064,7 +4264,7 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 /* Scatter / bubble. Large point counts belong on the ECharts tier with the same API. */
-function ScatterPlot({
+const ScatterPlot = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ScatterPlot({
   points = [],
   width = 640,
   height = 200,
@@ -4082,7 +4282,7 @@ function ScatterPlot({
   format = v => v,
   className = '',
   ...rest
-}) {
+}, ref) {
   const xm = xMax != null ? xMax : Math.max.apply(null, points.map(p => p.x).concat([1]));
   const ym = yMax != null ? yMax : Math.max.apply(null, points.map(p => p.y).concat([1]));
   const iw = width - pad.l - pad.r;
@@ -4091,6 +4291,7 @@ function ScatterPlot({
   const Y = v => pad.t + ih - v / ym * ih;
   const ticks = [0, 0.25, 0.5, 0.75, 1];
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: "100%",
     height: height,
     viewBox: '0 0 ' + width + ' ' + height,
@@ -4150,7 +4351,9 @@ function ScatterPlot({
     stroke: "var(--surface-primary)",
     strokeWidth: 0.75
   }, p.label ? /*#__PURE__*/React.createElement("title", null, p.label) : null)));
-}
+}), {
+  displayName: 'ScatterPlot'
+});
 Object.assign(__ds_scope, { ScatterPlot });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/ScatterPlot.jsx", error: String((e && e.message) || e) }); }
 
@@ -4165,7 +4368,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Sparkline({
+const Sparkline = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Sparkline({
   data = [],
   width = 96,
   height = 24,
@@ -4175,7 +4378,7 @@ function Sparkline({
   baseline,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!data.length) return null;
   const max = Math.max.apply(null, data);
   const min = Math.min.apply(null, data);
@@ -4202,6 +4405,7 @@ function Sparkline({
   }
   const path = data.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join(' ');
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: width,
     height: height,
     className: className,
@@ -4226,7 +4430,9 @@ function Sparkline({
     strokeLinejoin: "round",
     strokeLinecap: "round"
   }));
-}
+}), {
+  displayName: 'Sparkline'
+});
 Object.assign(__ds_scope, { Sparkline });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Sparkline.jsx", error: String((e && e.message) || e) }); }
 
@@ -4305,7 +4511,7 @@ const RENDER = {
   }, p)),
   hive: p => /*#__PURE__*/React.createElement(__ds_scope.HexHeatmap, p)
 };
-function Viz({
+const Viz = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Viz({
   type = 'line',
   title,
   subtitle,
@@ -4318,10 +4524,11 @@ function Viz({
   flush,
   config = {},
   ...rest
-}) {
+}, ref) {
   const render = RENDER[type];
   const chartState = state === 'ready' && !render ? 'error' : state;
   return /*#__PURE__*/React.createElement(__ds_scope.ChartFrame, {
+    ref: ref,
     title: title,
     subtitle: subtitle,
     legend: legend,
@@ -4336,7 +4543,9 @@ function Viz({
     ...config,
     ...rest
   }) : null);
-}
+}), {
+  displayName: 'Viz'
+});
 Object.assign(__ds_scope, { VIZ_TIERS, Viz });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Viz.jsx", error: String((e && e.message) || e) }); }
 
@@ -4351,7 +4560,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function EmptyState({
+const EmptyState = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function EmptyState({
   glyph = 'inbox',
   title,
   description,
@@ -4360,8 +4569,9 @@ function EmptyState({
   align = 'center',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-empty', align === 'left' && 'lamp-empty--left', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-empty__icon"
@@ -4375,7 +4585,9 @@ function EmptyState({
   }, description) : null, action || secondaryAction ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-empty__actions"
   }, action, secondaryAction) : null);
-}
+}), {
+  displayName: 'EmptyState'
+});
 Object.assign(__ds_scope, { EmptyState });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/EmptyState.jsx", error: String((e && e.message) || e) }); }
 
@@ -4390,7 +4602,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function ErrorState({
+const ErrorState = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ErrorState({
   kind = 'recoverable',
   title,
   happened,
@@ -4404,8 +4616,9 @@ function ErrorState({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-err ' + className,
     role: "alert"
   }, rest), /*#__PURE__*/React.createElement("div", {
@@ -4445,7 +4658,9 @@ function ErrorState({
     variant: "quiet",
     onClick: onReport
   }, "Report problem") : null) : null);
-}
+}), {
+  displayName: 'ErrorState'
+});
 Object.assign(__ds_scope, { ErrorState });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/ErrorState.jsx", error: String((e && e.message) || e) }); }
 
@@ -4468,7 +4683,7 @@ const TONE = {
   danger: 'error',
   critical: 'dangerous'
 };
-function InlineNotification({
+const InlineNotification = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InlineNotification({
   tone = 'neutral',
   title,
   children,
@@ -4477,8 +4692,9 @@ function InlineNotification({
   onDismiss,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-note', 'lamp-note--' + tone, banner && 'lamp-note--banner', className].filter(Boolean).join(' '),
     role: tone === 'danger' || tone === 'critical' ? 'alert' : 'status'
   }, rest), /*#__PURE__*/React.createElement("span", {
@@ -4500,8 +4716,10 @@ function InlineNotification({
     size: "xs",
     onClick: onDismiss
   }) : null);
-}
-function Toast({
+}), {
+  displayName: 'InlineNotification'
+});
+const Toast = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Toast({
   tone = 'neutral',
   title,
   children,
@@ -4509,8 +4727,9 @@ function Toast({
   onDismiss,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-toast ' + className,
     role: "status"
   }, rest), /*#__PURE__*/React.createElement("span", {
@@ -4535,15 +4754,20 @@ function Toast({
     size: "xs",
     onClick: onDismiss
   }) : null);
-}
-function ToastStack({
+}), {
+  displayName: 'Toast'
+});
+const ToastStack = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToastStack({
   children,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-toast__stack"
   }, rest), children);
-}
+}), {
+  displayName: 'ToastStack'
+});
 Object.assign(__ds_scope, { InlineNotification, Toast, ToastStack });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/InlineNotification.jsx", error: String((e && e.message) || e) }); }
 
@@ -4558,7 +4782,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Modal({
+const Modal = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Modal({
   open = true,
   title,
   subtitle,
@@ -4570,10 +4794,11 @@ function Modal({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!open) return null;
   const width = size === 'sm' ? 'var(--modal-width-sm)' : size === 'lg' ? 'var(--modal-width-lg)' : 'var(--modal-width-md)';
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "lamp-scrim",
     onClick: onClose
   }, /*#__PURE__*/React.createElement("div", _extends({
@@ -4613,8 +4838,10 @@ function Modal({
   }, children), footer ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-modal__foot"
   }, footer) : null));
-}
-function CriticalConfirmation({
+}), {
+  displayName: 'Modal'
+});
+const CriticalConfirmation = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CriticalConfirmation({
   open = true,
   title,
   consequences = [],
@@ -4625,8 +4852,9 @@ function CriticalConfirmation({
   onConfirm,
   children,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement(Modal, _extends({
+    ref: ref,
     open: open,
     critical: true,
     glyph: "dangerous",
@@ -4660,8 +4888,10 @@ function CriticalConfirmation({
   }, consequences.map(c => /*#__PURE__*/React.createElement("li", {
     key: c
   }, c)))) : null, children);
-}
-function Drawer({
+}), {
+  displayName: 'CriticalConfirmation'
+});
+const Drawer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Drawer({
   open = true,
   title,
   side = 'right',
@@ -4672,9 +4902,10 @@ function Drawer({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!open) return null;
   return /*#__PURE__*/React.createElement("aside", _extends({
+    ref: ref,
     className: ['lamp-drawer', side === 'left' && 'lamp-drawer--left', className].filter(Boolean).join(' '),
     style: width ? {
       width
@@ -4701,8 +4932,10 @@ function Drawer({
   }, children), footer ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-modal__foot"
   }, footer) : null);
-}
-function Popover({
+}), {
+  displayName: 'Drawer'
+});
+const Popover = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Popover({
   title,
   children,
   x,
@@ -4710,8 +4943,9 @@ function Popover({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-popover ' + className,
     style: {
       position: x != null ? 'absolute' : undefined,
@@ -4723,7 +4957,9 @@ function Popover({
   }, rest), title ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-popover__head"
   }, title) : null, children);
-}
+}), {
+  displayName: 'Popover'
+});
 Object.assign(__ds_scope, { Modal, CriticalConfirmation, Drawer, Popover });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Modal.jsx", error: String((e && e.message) || e) }); }
 
@@ -4738,7 +4974,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Skeleton({
+const Skeleton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Skeleton({
   width = '100%',
   height = 10,
   radius,
@@ -4747,7 +4983,7 @@ function Skeleton({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   if (variant === 'text' && lines > 1) {
     return /*#__PURE__*/React.createElement("span", _extends({
       className: className,
@@ -4765,6 +5001,7 @@ function Skeleton({
     })));
   }
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-skel', variant === 'hex' && 'lamp-skel--hex', variant === 'circle' && 'lamp-skel--circle', className].filter(Boolean).join(' '),
     style: {
       width,
@@ -4774,14 +5011,17 @@ function Skeleton({
     },
     "aria-hidden": "true"
   }, rest));
-}
-function Spinner({
+}), {
+  displayName: 'Skeleton'
+});
+const Spinner = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Spinner({
   size = 14,
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: 'lamp-spin ' + className,
     style: {
       width: size,
@@ -4791,7 +5031,9 @@ function Spinner({
     role: "status",
     "aria-label": "Loading"
   }, rest));
-}
+}), {
+  displayName: 'Spinner'
+});
 Object.assign(__ds_scope, { Skeleton, Spinner });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Skeleton.jsx", error: String((e && e.message) || e) }); }
 
@@ -4806,7 +5048,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function CodeFrame({
+const CodeFrame = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CodeFrame({
   language = 'json',
   title,
   children,
@@ -4814,8 +5056,9 @@ function CodeFrame({
   maxHeight,
   onCopy,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-codeframe"
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-codeframe__bar"
@@ -4843,7 +5086,9 @@ function CodeFrame({
       maxHeight
     } : undefined
   }, children));
-}
+}), {
+  displayName: 'CodeFrame'
+});
 Object.assign(__ds_scope, { CodeFrame });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/CodeFrame.jsx", error: String((e && e.message) || e) }); }
 
@@ -4858,7 +5103,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Field({
+const Field = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Field({
   label,
   htmlFor,
   description,
@@ -4873,11 +5118,12 @@ function Field({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const msg = error || warning || success;
   const msgTone = error ? 'error' : warning ? 'warning' : 'success';
   const msgIcon = error ? 'cancel' : warning ? 'warning' : 'check_circle';
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-field', layout === 'row' && 'lamp-field--row', className].filter(Boolean).join(' ')
   }, rest), label ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-field__top"
@@ -4900,7 +5146,9 @@ function Field({
   }), msg) : helper ? /*#__PURE__*/React.createElement("span", null, helper) : null, count != null ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-field__count"
   }, count) : null) : null);
-}
+}), {
+  displayName: 'Field'
+});
 Object.assign(__ds_scope, { Field });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Field.jsx", error: String((e && e.message) || e) }); }
 
@@ -4915,7 +5163,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function TextInput({
+const TextInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TextInput({
   size = 'md',
   icon,
   suffix,
@@ -4927,7 +5175,7 @@ function TextInput({
   loading = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   const [focus, setFocus] = React.useState(false);
   const cls = ['lamp-inputwrap', 'lamp-inputwrap--' + size, focus && 'lamp-inputwrap--focus', state !== 'default' && 'lamp-inputwrap--' + state, disabled && 'lamp-inputwrap--disabled', readOnly && 'lamp-inputwrap--readonly', mono && 'lamp-inputwrap--mono', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", {
@@ -4938,6 +5186,7 @@ function TextInput({
     name: icon,
     size: 14
   })) : null, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     className: "lamp-input",
     disabled: disabled,
     readOnly: readOnly,
@@ -4952,14 +5201,17 @@ function TextInput({
   })) : null, suffix ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-inputwrap__suffix"
   }, suffix) : null, trailing);
-}
-function SearchInput({
+}), {
+  displayName: 'TextInput'
+});
+const SearchInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SearchInput({
   placeholder = 'Search',
   shortcut,
   size = 'md',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement(TextInput, _extends({
+    ref: ref,
     icon: "search",
     placeholder: placeholder,
     size: size,
@@ -4971,28 +5223,34 @@ function SearchInput({
       }
     }, shortcut) : null
   }, rest));
-}
-function NumberInput({
+}), {
+  displayName: 'SearchInput'
+});
+const NumberInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NumberInput({
   suffix,
   step = 1,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement(TextInput, _extends({
+    ref: ref,
     type: "number",
     step: step,
     suffix: suffix,
     mono: true
   }, rest));
-}
-function SecretField({
+}), {
+  displayName: 'NumberInput'
+});
+const SecretField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SecretField({
   value = '',
   revealed: revealedProp,
   onReveal,
   expiring = false,
   ...rest
-}) {
+}, ref) {
   const [revealed, setRevealed] = React.useState(!!revealedProp);
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-secret"
   }, rest), /*#__PURE__*/React.createElement(TextInput, {
     mono: true,
@@ -5011,7 +5269,9 @@ function SecretField({
     name: revealed ? 'visibility_off' : 'visibility',
     size: 14
   })));
-}
+}), {
+  displayName: 'SecretField'
+});
 Object.assign(__ds_scope, { TextInput, SearchInput, NumberInput, SecretField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TextInput.jsx", error: String((e && e.message) || e) }); }
 
@@ -5026,7 +5286,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function KeyValueInput({
+const KeyValueInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function KeyValueInput({
   rows = [],
   onChange,
   keyPlaceholder = 'Key',
@@ -5034,12 +5294,13 @@ function KeyValueInput({
   addLabel = 'Add row',
   mono = true,
   ...rest
-}) {
+}, ref) {
   const set = (i, patch) => onChange && onChange(rows.map((r, j) => j === i ? {
     ...r,
     ...patch
   } : r));
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-kv"
   }, rest), rows.map((r, i) => /*#__PURE__*/React.createElement("div", {
     className: "lamp-kv__row",
@@ -5076,7 +5337,9 @@ function KeyValueInput({
       value: ''
     }])
   }, addLabel));
-}
+}), {
+  displayName: 'KeyValueInput'
+});
 Object.assign(__ds_scope, { KeyValueInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/KeyValueInput.jsx", error: String((e && e.message) || e) }); }
 
@@ -5091,29 +5354,33 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function VariableToken({
+const VariableToken = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function VariableToken({
   name,
   kind = 'variable',
   children,
   ...rest
-}) {
+}, ref) {
   const label = children || name;
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: 'lamp-vartoken' + (kind === 'entity' ? ' lamp-vartoken--entity' : kind === 'missing' ? ' lamp-vartoken--missing' : '')
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: kind === 'entity' ? 'alternate_email' : kind === 'missing' ? 'warning' : 'data_object',
     size: 10
   }), label);
-}
-function PromptEditor({
+}), {
+  displayName: 'VariableToken'
+});
+const PromptEditor = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PromptEditor({
   label = 'Instructions',
   children,
   tokens = [],
   footer,
   onInsert,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-prompt"
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-prompt__bar"
@@ -5137,7 +5404,9 @@ function PromptEditor({
   }, children), footer ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-prompt__foot"
   }, footer) : null);
-}
+}), {
+  displayName: 'PromptEditor'
+});
 Object.assign(__ds_scope, { VariableToken, PromptEditor });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/PromptEditor.jsx", error: String((e && e.message) || e) }); }
 
@@ -5152,16 +5421,17 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Radio({
+const Radio = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Radio({
   label,
   description,
   disabled = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("label", {
     className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
   }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     type: "radio",
     disabled: disabled
   }, rest)), /*#__PURE__*/React.createElement("span", {
@@ -5171,16 +5441,19 @@ function Radio({
   })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-check__desc"
   }, description) : null) : null);
-}
-function RadioGroup({
+}), {
+  displayName: 'Radio'
+});
+const RadioGroup = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function RadioGroup({
   name,
   options = [],
   value,
   onChange,
   direction = 'column',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     role: "radiogroup",
     style: {
       display: 'flex',
@@ -5200,22 +5473,35 @@ function RadioGroup({
       onChange: () => onChange && onChange(v)
     });
   }));
-}
+}), {
+  displayName: 'RadioGroup'
+});
 Object.assign(__ds_scope, { Radio, RadioGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Radio.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Select.jsx
 try { (() => {
-function Select({
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Select = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Select({
   options = [],
   size = 'md',
   placeholder,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", {
     className: ['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("select", rest, placeholder ? /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/React.createElement("select", _extends({
+    ref: ref
+  }, rest), placeholder ? /*#__PURE__*/React.createElement("option", {
     value: ""
   }, placeholder) : null, options.map(o => {
     const v = typeof o === 'string' ? o : o.value;
@@ -5231,7 +5517,9 @@ function Select({
     name: "keyboard_arrow_down",
     size: 14
   })));
-}
+}), {
+  displayName: 'Select'
+});
 Object.assign(__ds_scope, { Select });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
 
@@ -5246,7 +5534,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Slider({
+const Slider = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Slider({
   min = 0,
   max = 100,
   step = 1,
@@ -5255,11 +5543,12 @@ function Slider({
   format,
   showValue = true,
   ...rest
-}) {
+}, ref) {
   const v = value == null ? min : value;
   return /*#__PURE__*/React.createElement("div", {
     className: "lamp-slider"
   }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     type: "range",
     min: min,
     max: max,
@@ -5269,7 +5558,9 @@ function Slider({
   }, rest)), showValue ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-slider__val"
   }, format ? format(v) : v) : null);
-}
+}), {
+  displayName: 'Slider'
+});
 Object.assign(__ds_scope, { Slider });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Slider.jsx", error: String((e && e.message) || e) }); }
 
@@ -5284,23 +5575,26 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Switch({
+const Switch = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Switch({
   label,
   tone = 'default',
   disabled = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("label", {
     className: ['lamp-switch', tone === 'brand' && 'lamp-switch--brand', disabled && 'lamp-switch--disabled', className].filter(Boolean).join(' ')
   }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
     type: "checkbox",
     role: "switch",
     disabled: disabled
   }, rest)), /*#__PURE__*/React.createElement("span", {
     className: "lamp-switch__track"
   }), label ? /*#__PURE__*/React.createElement("span", null, label) : null);
-}
+}), {
+  displayName: 'Switch'
+});
 Object.assign(__ds_scope, { Switch });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
 
@@ -5315,13 +5609,13 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function TagInput({
+const TagInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TagInput({
   values = [],
   onChange,
   placeholder = 'Add…',
   mono = false,
   ...rest
-}) {
+}, ref) {
   const [focus, setFocus] = React.useState(false);
   const [draft, setDraft] = React.useState('');
   const commit = () => {
@@ -5337,6 +5631,7 @@ function TagInput({
     mono: mono,
     onRemove: () => onChange && onChange(values.filter((_, j) => j !== i))
   }, v)), /*#__PURE__*/React.createElement("input", {
+    ref: ref,
     value: draft,
     placeholder: placeholder,
     onFocus: () => setFocus(true),
@@ -5353,7 +5648,9 @@ function TagInput({
       if (e.key === 'Backspace' && !draft && values.length) onChange && onChange(values.slice(0, -1));
     }
   }));
-}
+}), {
+  displayName: 'TagInput'
+});
 Object.assign(__ds_scope, { TagInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
 
@@ -5368,19 +5665,22 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Textarea({
+const Textarea = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Textarea({
   mono = false,
   state = 'default',
   rows = 4,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("textarea", _extends({
+    ref: ref,
     rows: rows,
     className: ['lamp-textarea', mono && 'lamp-textarea--mono', state === 'error' && 'lamp-textarea--error', className].filter(Boolean).join(' '),
     "aria-invalid": state === 'error' || undefined
   }, rest));
-}
+}), {
+  displayName: 'Textarea'
+});
 Object.assign(__ds_scope, { Textarea });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
 
@@ -5409,7 +5709,7 @@ function _extends() {
    value, not implied by a tint. `advanced` dims the label for configuration that
    most operators should not need to touch. */
 
-function InspectorField({
+const InspectorField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorField({
   label,
   htmlFor,
   hint,
@@ -5427,11 +5727,12 @@ function InspectorField({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const msg = error || warning;
   const tone = error ? 'error' : 'warning';
   const cls = ['lamp-ifield', stack && 'lamp-ifield--stack', advanced && 'lamp-ifield--advanced', inherited && 'lamp-ifield--inherited', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: cls
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-ifield__labelcol"
@@ -5463,7 +5764,9 @@ function InspectorField({
   }, helper) : null), action ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-ifield__action"
   }, action) : null);
-}
+}), {
+  displayName: 'InspectorField'
+});
 Object.assign(__ds_scope, { InspectorField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/inspector/InspectorField.jsx", error: String((e && e.message) || e) }); }
 
@@ -5478,15 +5781,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Tabs({
+const Tabs = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Tabs({
   tabs = [],
   value,
   onChange,
   variant = 'underline',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-tabs', variant === 'pill' && 'lamp-tabs--pill', className].filter(Boolean).join(' '),
     role: "tablist"
   }, rest), tabs.map(t => {
@@ -5508,7 +5812,9 @@ function Tabs({
       className: "lamp-tabs__count"
     }, t.count) : null);
   }));
-}
+}), {
+  displayName: 'Tabs'
+});
 Object.assign(__ds_scope, { Tabs });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Tabs.jsx", error: String((e && e.message) || e) }); }
 
@@ -5532,7 +5838,7 @@ function _extends() {
    They are the same implementation, so a composed Inspector and a prop-driven
    one are pixel-identical. */
 
-function InspectorHeader({
+const InspectorHeader = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorHeader({
   title,
   subtitle,
   glyph,
@@ -5541,8 +5847,9 @@ function InspectorHeader({
   onClose,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("header", _extends({
+    ref: ref,
     className: 'lamp-insp__head ' + className
   }, rest), glyph ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-insp__glyph"
@@ -5565,19 +5872,22 @@ function InspectorHeader({
     size: "sm",
     onClick: onClose
   }) : null));
-}
+}), {
+  displayName: 'InspectorHeader'
+});
 
 /* Inspector tabs sit flush under the header and use the underline variant, so the
    panel reads as one surface rather than a card stack. Keep them to the object's
    own facets — Purpose, Skills, Tools, Memory, Runtime — never app navigation. */
-function InspectorTabs({
+const InspectorTabs = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorTabs({
   tabs = [],
   value,
   onChange,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: 'lamp-insp__tabs ' + className
   }, /*#__PURE__*/React.createElement(__ds_scope.Tabs, _extends({
     tabs: tabs,
@@ -5585,24 +5895,29 @@ function InspectorTabs({
     onChange: onChange,
     variant: "underline"
   }, rest)));
-}
+}), {
+  displayName: 'InspectorTabs'
+});
 
 /* Sticky by default: the Inspector's commit actions must stay reachable however
    long the body runs. `align="split"` pushes the first child left and the rest
    right — the usual Cancel / Apply shape. */
-function InspectorFooter({
+const InspectorFooter = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorFooter({
   sticky = true,
   align = 'end',
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const cls = ['lamp-insp__foot', sticky && 'lamp-insp__foot--sticky', align !== 'end' && 'lamp-insp__foot--' + align, className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("footer", _extends({
+    ref: ref,
     className: cls
   }, rest), children);
-}
-function InspectorPanel({
+}), {
+  displayName: 'InspectorFooter'
+});
+const InspectorPanel = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorPanel({
   title,
   subtitle,
   glyph,
@@ -5615,8 +5930,9 @@ function InspectorPanel({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("aside", _extends({
+    ref: ref,
     className: 'lamp-insp ' + className,
     "aria-label": "Inspector"
   }, rest), title ? /*#__PURE__*/React.createElement(InspectorHeader, {
@@ -5631,7 +5947,9 @@ function InspectorPanel({
   }, children), footer ? /*#__PURE__*/React.createElement(InspectorFooter, {
     sticky: stickyFooter
   }, footer) : null);
-}
+}), {
+  displayName: 'InspectorPanel'
+});
 Object.assign(__ds_scope, { InspectorHeader, InspectorTabs, InspectorFooter, InspectorPanel });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/inspector/InspectorPanel.jsx", error: String((e && e.message) || e) }); }
 
@@ -5646,7 +5964,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function InspectorSection({
+const InspectorSection = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function InspectorSection({
   label,
   count,
   actions,
@@ -5656,10 +5974,11 @@ function InspectorSection({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const [open, setOpen] = React.useState(advanced ? false : defaultOpen);
   const isOpen = collapsible ? open : true;
   return /*#__PURE__*/React.createElement("section", _extends({
+    ref: ref,
     className: ['lamp-insp-sec', !collapsible && 'lamp-insp-sec--static', advanced && 'lamp-insp-sec--advanced', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-insp-sec__head"
@@ -5683,8 +6002,10 @@ function InspectorSection({
   }, actions) : null), isOpen ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-insp-sec__body"
   }, children) : null);
-}
-function PropertyRow({
+}), {
+  displayName: 'InspectorSection'
+});
+const PropertyRow = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PropertyRow({
   label,
   value,
   mono = false,
@@ -5694,11 +6015,12 @@ function PropertyRow({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const content = children != null ? children : value == null || value === '' ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-prop__empty"
   }, empty || 'Not set') : value;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-prop', stack && 'lamp-prop--stack', inherited && 'lamp-prop--inherited', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-prop__label"
@@ -5707,7 +6029,9 @@ function PropertyRow({
   }, content, inherited ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-prop__inherit"
   }, "Inherited") : null));
-}
+}), {
+  displayName: 'PropertyRow'
+});
 Object.assign(__ds_scope, { InspectorSection, PropertyRow });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/inspector/InspectorSection.jsx", error: String((e && e.message) || e) }); }
 
@@ -5808,42 +6132,49 @@ const MEMORY_SCOPES = {
     short: 'LAMP'
   }
 };
-function MemoryBadge({
+const MemoryBadge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryBadge({
   type = 'explicitFact',
   label,
   micro = true,
   ...rest
-}) {
+}, ref) {
   const t = FACT_TYPES[type] || FACT_TYPES.explicitFact;
   return /*#__PURE__*/React.createElement(__ds_scope.Badge, _extends({
+    ref: ref,
     tone: t.tone,
     icon: t.glyph,
     micro: micro
   }, rest), label || t.label);
-}
-function MemoryScope({
+}), {
+  displayName: 'MemoryBadge'
+});
+const MemoryScope = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryScope({
   scope = 'agent',
   full = false,
   ...rest
-}) {
+}, ref) {
   const s = MEMORY_SCOPES[scope] || MEMORY_SCOPES.agent;
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: 'lamp-mem-scope lamp-mem-scope--' + scope,
     title: s.label
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-mem-scope__bar"
   }), full ? s.label : s.short);
-}
-function MemoryConfidence({
+}), {
+  displayName: 'MemoryScope'
+});
+const MemoryConfidence = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryConfidence({
   level = 'high',
   value,
   showValue = false,
   ...rest
-}) {
+}, ref) {
   const pct = value != null ? value : level === 'veryHigh' ? 96 : level === 'high' ? 84 : level === 'medium' ? 62 : 34;
   const label = level === 'veryHigh' ? 'Very high' : level === 'high' ? 'High' : level === 'medium' ? 'Medium' : 'Low';
   const tone = pct >= 80 ? 'high' : pct >= 55 ? '' : 'low';
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: "lamp-conf"
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: "lamp-conf__track"
@@ -5855,7 +6186,9 @@ function MemoryConfidence({
   })), /*#__PURE__*/React.createElement("span", {
     className: "lamp-conf__label"
   }, showValue ? pct + '%' : label));
-}
+}), {
+  displayName: 'MemoryConfidence'
+});
 Object.assign(__ds_scope, { FACT_TYPES, MEMORY_SCOPES, MemoryBadge, MemoryScope, MemoryConfidence });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryBadge.jsx", error: String((e && e.message) || e) }); }
 
@@ -5924,7 +6257,7 @@ function Claim({
     onClick: () => onPick(claim.id != null ? claim.id : index)
   }, pickLabel || 'Keep this') : null);
 }
-function MemoryConflict({
+const MemoryConflict = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryConflict({
   claims = [],
   title = 'Two memories disagree',
   detail,
@@ -5938,8 +6271,9 @@ function MemoryConflict({
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-conflict', resolved && 'lamp-conflict--resolved', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("header", {
     className: "lamp-conflict__head"
@@ -5983,7 +6317,9 @@ function MemoryConflict({
     icon: "search",
     onClick: onInvestigate
   }, "See the evidence") : null) : null);
-}
+}), {
+  displayName: 'MemoryConflict'
+});
 Object.assign(__ds_scope, { MemoryConflict });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryConflict.jsx", error: String((e && e.message) || e) }); }
 
@@ -5998,7 +6334,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function MemoryFact({
+const MemoryFact = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryFact({
   type = 'explicitFact',
   scope = 'genie',
   fact,
@@ -6019,9 +6355,10 @@ function MemoryFact({
   onIgnore,
   className = '',
   ...rest
-}) {
+}, ref) {
   const conflict = contradictions > 0;
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-fact', conflict && 'lamp-fact--conflict', 'lamp-fact--' + state, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-fact__top"
@@ -6078,7 +6415,9 @@ function MemoryFact({
     variant: "quiet",
     onClick: onIgnore
   }, "Ignore") : null) : null);
-}
+}), {
+  displayName: 'MemoryFact'
+});
 Object.assign(__ds_scope, { MemoryFact });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryFact.jsx", error: String((e && e.message) || e) }); }
 
@@ -6124,7 +6463,7 @@ function shapePath(shape, r) {
   }
   return null;
 }
-function MemoryGraph({
+const MemoryGraph = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryGraph({
   nodes = [],
   links = [],
   width = 640,
@@ -6139,7 +6478,7 @@ function MemoryGraph({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const [tick, setTick] = React.useState(0);
   const [hover, setHover] = React.useState(null);
   const sim = React.useRef({
@@ -6268,6 +6607,7 @@ function MemoryGraph({
   }));
   const dim = i => neighbours && !neighbours[i] ? 0.18 : 1;
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: 'lamp-graph ' + className,
     style: style
   }, /*#__PURE__*/React.createElement("svg", _extends({
@@ -6352,7 +6692,9 @@ function MemoryGraph({
       background: KIND_COLOR[k]
     }
   }), label))) : null);
-}
+}), {
+  displayName: 'MemoryGraph'
+});
 Object.assign(__ds_scope, { MemoryGraph });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryGraph.jsx", error: String((e && e.message) || e) }); }
 
@@ -6389,7 +6731,7 @@ function _extends() {
    segmented look where there is room for it. */
 
 const ORDER = ['agent', 'playbook', 'genie', 'lamp'];
-function MemoryScopeBar({
+const MemoryScopeBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryScopeBar({
   value,
   counts = {},
   inherited = [],
@@ -6402,7 +6744,7 @@ function MemoryScopeBar({
   layout,
   className = '',
   ...rest
-}) {
+}, ref) {
   /* A read-out lists; a filter is a bar. Either can be forced. */
   const asList = (layout || (readOnly ? 'list' : 'bar')) === 'list';
   /* An object owns one scope and reads from every broader one. Naming `owned` is
@@ -6411,6 +6753,7 @@ function MemoryScopeBar({
   const ownedAt = owned ? scopes.indexOf(owned) : -1;
   const isInherited = k => inherited.indexOf(k) !== -1 || ownedAt >= 0 && scopes.indexOf(k) > ownedAt;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-scopebar', asList ? 'lamp-scopebar--list' : 'lamp-scopebar--bar', readOnly && 'lamp-scopebar--static', className].filter(Boolean).join(' '),
     role: readOnly ? 'group' : 'radiogroup',
     "aria-label": "Memory scope"
@@ -6450,7 +6793,9 @@ function MemoryScopeBar({
       onClick: () => onChange && onChange(active ? undefined : k)
     }, body);
   }));
-}
+}), {
+  displayName: 'MemoryScopeBar'
+});
 Object.assign(__ds_scope, { MemoryScopeBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryScopeBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -6465,12 +6810,13 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function MemoryTimeline({
+const MemoryTimeline = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryTimeline({
   items = [],
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-timeline ' + className
   }, rest), items.map((it, i) => /*#__PURE__*/React.createElement("div", {
     className: "lamp-timeline__item",
@@ -6493,7 +6839,9 @@ function MemoryTimeline({
   }, it.detail) : null, /*#__PURE__*/React.createElement("span", {
     className: "lamp-timeline__meta"
   }, [it.actor, it.timestamp].filter(Boolean).join(' · '))))));
-}
+}), {
+  displayName: 'MemoryTimeline'
+});
 Object.assign(__ds_scope, { MemoryTimeline });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryTimeline.jsx", error: String((e && e.message) || e) }); }
 
@@ -6519,16 +6867,17 @@ const SCOPE_COLOR = {
   cached: 'var(--green-500)',
   tool: 'var(--teal-500)'
 };
-function MemoryUsageBar({
+const MemoryUsageBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MemoryUsageBar({
   segments = [],
   total,
   unit = 'tokens',
   legend = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + s.value, 0);
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-memusage ' + className
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-memusage__bar",
@@ -6559,7 +6908,9 @@ function MemoryUsageBar({
   }, "Total", /*#__PURE__*/React.createElement("span", {
     className: "lamp-memusage__val"
   }, sum.toLocaleString(), " ", unit))) : null);
-}
+}), {
+  displayName: 'MemoryUsageBar'
+});
 Object.assign(__ds_scope, { MemoryUsageBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/memory/MemoryUsageBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -6574,7 +6925,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function AppShell({
+const AppShell = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function AppShell({
   header,
   rail,
   dock,
@@ -6585,8 +6936,9 @@ function AppShell({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-shell ' + className,
     style: {
       height: '100%',
@@ -6606,7 +6958,9 @@ function AppShell({
       width: dockWidth
     }
   }, dock) : null), statusBar);
-}
+}), {
+  displayName: 'AppShell'
+});
 Object.assign(__ds_scope, { AppShell });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/AppShell.jsx", error: String((e && e.message) || e) }); }
 
@@ -6621,19 +6975,20 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Breadcrumb({
+const Breadcrumb = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Breadcrumb({
   items = [],
   maxVisible = 5,
   onNavigate,
   className = '',
   ...rest
-}) {
+}, ref) {
   const overflow = items.length > maxVisible;
   const shown = overflow ? [items[0], {
     label: '…',
     overflow: true
   }, ...items.slice(-(maxVisible - 2))] : items;
   return /*#__PURE__*/React.createElement("nav", _extends({
+    ref: ref,
     className: 'lamp-crumb ' + className,
     "aria-label": "Object path"
   }, rest), shown.map((it, i) => /*#__PURE__*/React.createElement(React.Fragment, {
@@ -6652,7 +7007,9 @@ function Breadcrumb({
     name: it.icon,
     size: 14
   }) : null, it.label))));
-}
+}), {
+  displayName: 'Breadcrumb'
+});
 Object.assign(__ds_scope, { Breadcrumb });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Breadcrumb.jsx", error: String((e && e.message) || e) }); }
 
@@ -6667,7 +7024,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function CommandPalette({
+const CommandPalette = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CommandPalette({
   open = true,
   query = '',
   onQueryChange,
@@ -6679,9 +7036,10 @@ function CommandPalette({
   footer,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!open) return null;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-palette ' + className,
     role: "dialog",
     "aria-modal": "true",
@@ -6738,7 +7096,9 @@ function CommandPalette({
   }, footer || /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "Navigate"), /*#__PURE__*/React.createElement(__ds_scope.Kbd, {
     keys: ['↑', '↓']
   }), /*#__PURE__*/React.createElement("span", null, "Open"), /*#__PURE__*/React.createElement(__ds_scope.Kbd, null, "Enter")))));
-}
+}), {
+  displayName: 'CommandPalette'
+});
 Object.assign(__ds_scope, { CommandPalette });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/CommandPalette.jsx", error: String((e && e.message) || e) }); }
 
@@ -6753,15 +7113,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function FilterBar({
+const FilterBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function FilterBar({
   children,
   activeCount = 0,
   onClear,
   right,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-filterbar ' + className
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "filter_list",
@@ -6776,8 +7137,10 @@ function FilterBar({
   }, "Clear ", activeCount) : null, /*#__PURE__*/React.createElement("span", {
     className: "lamp-filterbar__spacer"
   }), right);
-}
-function Pagination({
+}), {
+  displayName: 'FilterBar'
+});
+const Pagination = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Pagination({
   page = 1,
   pageCount = 1,
   range,
@@ -6786,8 +7149,9 @@ function Pagination({
   onPageSize,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-pager ' + className
   }, rest), range ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-pager__range"
@@ -6808,7 +7172,9 @@ function Pagination({
     disabled: page >= pageCount,
     onClick: () => onPage && onPage(page + 1)
   }));
-}
+}), {
+  displayName: 'Pagination'
+});
 Object.assign(__ds_scope, { FilterBar, Pagination });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/FilterBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -6823,15 +7189,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function GlobalHeader({
+const GlobalHeader = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function GlobalHeader({
   brand,
   center,
   right,
   wordmark = 'LAMP',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("header", _extends({
+    ref: ref,
     className: 'lamp-header ' + className
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-header__brand"
@@ -6842,7 +7209,9 @@ function GlobalHeader({
   }, center), /*#__PURE__*/React.createElement("div", {
     className: "lamp-header__right"
   }, right));
-}
+}), {
+  displayName: 'GlobalHeader'
+});
 Object.assign(__ds_scope, { GlobalHeader });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/GlobalHeader.jsx", error: String((e && e.message) || e) }); }
 
@@ -6857,7 +7226,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function ObjectTree({
+const ObjectTree = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ObjectTree({
   nodes = [],
   selectedId,
   onSelect,
@@ -6865,7 +7234,7 @@ function ObjectTree({
   expanded = {},
   className = '',
   ...rest
-}) {
+}, ref) {
   const render = (node, depth) => {
     const open = expanded[node.id] !== false;
     const kids = node.children || [];
@@ -6904,10 +7273,13 @@ function ObjectTree({
     }, node.meta) : null), open && kids.map(k => render(k, depth + 1)));
   };
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-tree ' + className,
     role: "tree"
   }, rest), nodes.map(n => render(n, 0)));
-}
+}), {
+  displayName: 'ObjectTree'
+});
 Object.assign(__ds_scope, { ObjectTree });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/ObjectTree.jsx", error: String((e && e.message) || e) }); }
 
@@ -6922,15 +7294,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function SegmentedControl({
+const SegmentedControl = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SegmentedControl({
   options = [],
   value,
   onChange,
   size = 'sm',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-seg', size === 'md' && 'lamp-seg--lg', className].filter(Boolean).join(' '),
     role: "group"
   }, rest), options.map(o => {
@@ -6948,7 +7321,9 @@ function SegmentedControl({
       size: 14
     }) : null, label);
   }));
-}
+}), {
+  displayName: 'SegmentedControl'
+});
 Object.assign(__ds_scope, { SegmentedControl });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/SegmentedControl.jsx", error: String((e && e.message) || e) }); }
 
@@ -6963,14 +7338,15 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function SideNav({
+const SideNav = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SideNav({
   children,
   collapsed = false,
   footer,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("nav", _extends({
+    ref: ref,
     className: ['lamp-nav', collapsed && 'lamp-nav__rail', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -6981,14 +7357,17 @@ function SideNav({
   }, children), footer ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-nav__foot"
   }, footer) : null);
-}
-function NavSection({
+}), {
+  displayName: 'SideNav'
+});
+const NavSection = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NavSection({
   label,
   actions,
   children,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: "lamp-nav__section"
   }, rest), label ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-nav__label"
@@ -6997,8 +7376,10 @@ function NavSection({
       marginLeft: 'auto'
     }
   }, actions) : null) : null, children);
-}
-function NavItem({
+}), {
+  displayName: 'NavSection'
+});
+const NavItem = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NavItem({
   icon,
   label,
   meta,
@@ -7007,8 +7388,9 @@ function NavItem({
   badge,
   onClick,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
     type: "button",
     className: 'lamp-nav__item' + (active ? ' lamp-nav__item--active' : ''),
     onClick: onClick,
@@ -7022,7 +7404,9 @@ function NavItem({
   }, label) : null, !collapsed && meta ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-nav__meta"
   }, meta) : null, !collapsed ? badge : null);
-}
+}), {
+  displayName: 'NavItem'
+});
 Object.assign(__ds_scope, { SideNav, NavSection, NavItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/SideNav.jsx", error: String((e && e.message) || e) }); }
 
@@ -7037,12 +7421,12 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function StatusBar({
+const StatusBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function StatusBar({
   items = [],
   right = [],
   className = '',
   ...rest
-}) {
+}, ref) {
   const cell = (it, i, isRight) => /*#__PURE__*/React.createElement("span", {
     key: i,
     className: 'lamp-statusbar__item' + (isRight && i === 0 ? ' lamp-statusbar__item--right' : ''),
@@ -7054,9 +7438,12 @@ function StatusBar({
     className: "lamp-statusbar__val"
   }, it.value) : null);
   return /*#__PURE__*/React.createElement("footer", _extends({
+    ref: ref,
     className: 'lamp-statusbar ' + className
   }, rest), items.map((it, i) => cell(it, i, false)), right.map((it, i) => cell(it, i, true)));
-}
+}), {
+  displayName: 'StatusBar'
+});
 Object.assign(__ds_scope, { StatusBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/StatusBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -7071,15 +7458,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function WorkspaceSwitcher({
+const WorkspaceSwitcher = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function WorkspaceSwitcher({
   name,
   subtitle,
   initials,
   onClick,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
     type: "button",
     className: 'lamp-wsw ' + className,
     onClick: onClick
@@ -7103,7 +7491,9 @@ function WorkspaceSwitcher({
       color: 'var(--text-tertiary)'
     }
   }));
-}
+}), {
+  displayName: 'WorkspaceSwitcher'
+});
 Object.assign(__ds_scope, { WorkspaceSwitcher });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/WorkspaceSwitcher.jsx", error: String((e && e.message) || e) }); }
 
@@ -7120,7 +7510,7 @@ function _extends() {
 }
 /* A group inside a Playbook section: one bonded cluster, or a single Agent working alone.
    Bonds exist only inside an island; membership in the Playbook is carried by the frame. */
-function AgentIsland({
+const AgentIsland = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function AgentIsland({
   name,
   note,
   solo = false,
@@ -7133,9 +7523,10 @@ function AgentIsland({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const positioned = x != null || y != null;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-island', solo && 'lamp-island--solo', outlined && 'lamp-island--outlined', selected && 'lamp-island--selected', className].filter(Boolean).join(' '),
     style: positioned ? {
       position: 'absolute',
@@ -7158,7 +7549,9 @@ function AgentIsland({
   }, actions) : null) : null, /*#__PURE__*/React.createElement("div", {
     className: "lamp-island__body"
   }, children));
-}
+}), {
+  displayName: 'AgentIsland'
+});
 Object.assign(__ds_scope, { AgentIsland });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/AgentIsland.jsx", error: String((e && e.message) || e) }); }
 
@@ -7187,7 +7580,7 @@ const BOND_STROKE = {
 
 /* One bond between two lattice slots. Render inside an SVG overlay sized to the lattice.
    A bond means membership and composition — never a data wire, never a port connector. */
-function BondEdge({
+const BondEdge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function BondEdge({
   from,
   to,
   state = 'valid',
@@ -7196,7 +7589,7 @@ function BondEdge({
   junction = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   const stroke = BOND_STROKE[state] || BOND_STROKE.valid;
   const dashed = state === 'suggested' || state === 'learned' || state === 'preview' || state === 'incomplete';
   const mid = {
@@ -7216,6 +7609,7 @@ function BondEdge({
   };
   const spark = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-bright)';
   return /*#__PURE__*/React.createElement("g", _extends({
+    ref: ref,
     className: ['lamp-bond', energy && 'lamp-bond--energy', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("line", {
     className: "lamp-bond__line",
@@ -7250,16 +7644,19 @@ function BondEdge({
       offsetPath: 'path("M' + a.x + ',' + a.y + ' L' + b.x + ',' + b.y + '")'
     }
   }) : null);
-}
+}), {
+  displayName: 'BondEdge'
+});
 
 /* Overlay host: an absolutely-positioned SVG matching the lattice box. */
-function BondLayer({
+const BondLayer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function BondLayer({
   width,
   height,
   children,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("svg", _extends({
+    ref: ref,
     width: width,
     height: height,
     style: {
@@ -7272,7 +7669,9 @@ function BondLayer({
     },
     "aria-hidden": "true"
   }, rest), children);
-}
+}), {
+  displayName: 'BondLayer'
+});
 Object.assign(__ds_scope, { BondEdge, BondLayer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/BondEdge.jsx", error: String((e && e.message) || e) }); }
 
@@ -7308,7 +7707,7 @@ const ENTITY_GLYPH = {
   exception: 'report',
   relationship: 'link'
 };
-function EntityChip({
+const EntityChip = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function EntityChip({
   type = 'person',
   name,
   initials,
@@ -7317,9 +7716,10 @@ function EntityChip({
   onClick,
   className = '',
   ...rest
-}) {
+}, ref) {
   const round = type === 'person';
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-entity', onClick && 'lamp-entity--interactive', className].filter(Boolean).join(' '),
     onClick: onClick,
     role: onClick ? 'button' : undefined,
@@ -7335,7 +7735,9 @@ function EntityChip({
   }), showType ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-entity__type"
   }, type) : null, /*#__PURE__*/React.createElement("span", null, name));
-}
+}), {
+  displayName: 'EntityChip'
+});
 Object.assign(__ds_scope, { EntityChip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/EntityChip.jsx", error: String((e && e.message) || e) }); }
 
@@ -7350,7 +7752,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function GenieCard({
+const GenieCard = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function GenieCard({
   name,
   purpose,
   status = 'draft',
@@ -7362,8 +7764,9 @@ function GenieCard({
   onClick,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-genie', selected && 'lamp-genie--selected', live && 'lamp-genie--live', onClick && 'lamp-genie--interactive', className].filter(Boolean).join(' '),
     onClick: onClick,
     role: onClick ? 'button' : 'group',
@@ -7403,7 +7806,9 @@ function GenieCard({
   }, s.value), /*#__PURE__*/React.createElement("span", {
     className: "lamp-genie__stat-l"
   }, s.label)))) : null);
-}
+}), {
+  displayName: 'GenieCard'
+});
 Object.assign(__ds_scope, { GenieCard });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/GenieCard.jsx", error: String((e && e.message) || e) }); }
 
@@ -7440,7 +7845,7 @@ const KIND_GLYPH = {
   integration: 'extension',
   member: 'person'
 };
-function ObjectRow({
+const ObjectRow = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ObjectRow({
   kind = 'agent',
   glyph,
   name,
@@ -7456,8 +7861,9 @@ function ObjectRow({
   onClick,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-objrow', compact && 'lamp-objrow--compact', selected && 'lamp-objrow--selected', className].filter(Boolean).join(' '),
     onClick: onClick,
     role: "button",
@@ -7485,13 +7891,16 @@ function ObjectRow({
   }) : null, timestamp ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-objrow__time"
   }, timestamp) : null, actions));
-}
-function ObjectList({
+}), {
+  displayName: 'ObjectRow'
+});
+const ObjectList = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ObjectList({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-objlist ' + className,
     role: "list",
     style: {
@@ -7499,7 +7908,9 @@ function ObjectList({
       flexDirection: 'column'
     }
   }, rest), children);
-}
+}), {
+  displayName: 'ObjectList'
+});
 Object.assign(__ds_scope, { ObjectRow, ObjectList });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/ObjectRow.jsx", error: String((e && e.message) || e) }); }
 
@@ -7532,7 +7943,7 @@ const STATE_STATUS = {
   disabled: 'disabled',
   deprecated: 'disabled'
 };
-function PlaybookCluster({
+const PlaybookCluster = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PlaybookCluster({
   name,
   state = 'draft',
   selected = false,
@@ -7551,8 +7962,9 @@ function PlaybookCluster({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-pb', 'lamp-pb--' + state, selected && 'lamp-pb--selected', layout === 'free' && 'lamp-pb--free', dropState === 'valid' && 'lamp-pb--drop', dropState === 'invalid' && 'lamp-pb--drop-invalid', collapsed && 'lamp-pb--collapsed', className].filter(Boolean).join(' '),
     style: {
       padding,
@@ -7591,7 +8003,9 @@ function PlaybookCluster({
   }, meta.map((m, i) => /*#__PURE__*/React.createElement("span", {
     key: i
   }, m))) : null);
-}
+}), {
+  displayName: 'PlaybookCluster'
+});
 Object.assign(__ds_scope, { PlaybookCluster });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/PlaybookCluster.jsx", error: String((e && e.message) || e) }); }
 
@@ -7613,7 +8027,7 @@ const SKILL_SIZES = {
   lg: 36,
   xl: 48
 };
-function SkillOrb({
+const SkillOrb = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SkillOrb({
   size = 'md',
   state = 'available',
   glyph = 'flare',
@@ -7623,7 +8037,7 @@ function SkillOrb({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const px = SKILL_SIZES[size] || SKILL_SIZES.md;
   const orb = /*#__PURE__*/React.createElement("span", _extends({
     className: ['lamp-skill', 'lamp-skill--' + state, onClick && 'lamp-skill--interactive', className].filter(Boolean).join(' '),
@@ -7647,11 +8061,14 @@ function SkillOrb({
   })) : null);
   if (!label) return orb;
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: "lamp-skillrow"
   }, orb, /*#__PURE__*/React.createElement("span", {
     className: "lamp-skillrow__name"
   }, name));
-}
+}), {
+  displayName: 'SkillOrb'
+});
 Object.assign(__ds_scope, { SKILL_SIZES, SkillOrb });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/SkillOrb.jsx", error: String((e && e.message) || e) }); }
 
@@ -7685,7 +8102,7 @@ const STATE_STATUS = {
   blocked: 'blocked',
   disabled: 'disabled'
 };
-function ToolTile({
+const ToolTile = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolTile({
   size = 'md',
   state = 'connected',
   provider,
@@ -7696,10 +8113,11 @@ function ToolTile({
   className = '',
   style,
   ...rest
-}) {
+}, ref) {
   const px = TOOL_SIZES[size] || TOOL_SIZES.md;
   const dot = STATE_STATUS[state];
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-tool', 'lamp-tool--' + state, onClick && 'lamp-tool--interactive', className].filter(Boolean).join(' '),
     style: {
       width: px,
@@ -7723,8 +8141,10 @@ function ToolTile({
   }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
     status: dot
   })) : null);
-}
-function ToolRow({
+}), {
+  displayName: 'ToolTile'
+});
+const ToolRow = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolRow({
   provider,
   glyph,
   name,
@@ -7739,8 +8159,9 @@ function ToolRow({
   onClick,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-toolrow ' + className,
     onClick: onClick
   }, rest), /*#__PURE__*/React.createElement(ToolTile, {
@@ -7781,7 +8202,9 @@ function ToolRow({
     status: state === 'connected' || state === 'healthy' ? 'success' : state === 'error' ? 'error' : state === 'blocked' ? 'blocked' : 'attention',
     label: state === 'authorizationRequired' ? 'Auth required' : state === 'expired' ? 'Expired' : state === 'degraded' ? 'Degraded' : state === 'connected' ? 'Connected' : undefined
   }), actions));
-}
+}), {
+  displayName: 'ToolRow'
+});
 Object.assign(__ds_scope, { TOOL_SIZES, ToolTile, ToolRow });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/ToolTile.jsx", error: String((e && e.message) || e) }); }
 
@@ -8454,7 +8877,7 @@ const matchProcess = MatchProcess;
  * Same grammar as LearnedPattern: what LAMP thinks, what it is going on, and
  * three ways out — use it, look closer, or dismiss it.
  */
-function ProcessProposal({
+const ProcessProposal = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ProcessProposal({
   match,
   selected = false,
   primary = false,
@@ -8464,7 +8887,7 @@ function ProcessProposal({
   compact = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!match) return null;
   const {
     process,
@@ -8473,6 +8896,7 @@ function ProcessProposal({
     roleHits = []
   } = match;
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-proposal', primary && 'lamp-proposal--primary', selected && 'lamp-proposal--selected', compact && 'lamp-proposal--compact', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-proposal__top"
@@ -8522,7 +8946,9 @@ function ProcessProposal({
     variant: "quiet",
     onClick: () => onDismiss(process)
   }, "Not this") : null) : null);
-}
+}), {
+  displayName: 'ProcessProposal'
+});
 Object.assign(__ds_scope, { BUSINESS_PROCESSES, BLANK_PROCESS, MatchProcess, matchProcess, ProcessProposal });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/BusinessProcess.jsx", error: String((e && e.message) || e) }); }
 
@@ -8537,7 +8963,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function Message({
+const Message = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Message({
   role = 'agent',
   author,
   timestamp,
@@ -8545,9 +8971,10 @@ function Message({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const initials = (author || (role === 'user' ? 'You' : 'A')).slice(0, 2).toUpperCase();
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-msg', 'lamp-msg--' + role, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: 'lamp-msg__av lamp-msg__av--' + role
@@ -8566,13 +8993,16 @@ function Message({
   }, author || (role === 'user' ? 'You' : role === 'agent' ? 'Agent' : role === 'tool' ? 'Tool' : 'LAMP')), timestamp ? /*#__PURE__*/React.createElement("span", null, timestamp) : null, status ? /*#__PURE__*/React.createElement("span", null, status) : null), /*#__PURE__*/React.createElement("span", {
     className: "lamp-msg__text"
   }, children)));
-}
-function MessageList({
+}), {
+  displayName: 'Message'
+});
+const MessageList = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MessageList({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className,
     style: {
       display: 'flex',
@@ -8582,8 +9012,10 @@ function MessageList({
     },
     role: "log"
   }, rest), children);
-}
-function Composer({
+}), {
+  displayName: 'MessageList'
+});
+const Composer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Composer({
   placeholder = 'Write a message',
   value,
   onChange,
@@ -8594,8 +9026,9 @@ function Composer({
   disabled = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className
   }, rest), quickReplies.length ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-quick"
@@ -8636,8 +9069,10 @@ function Composer({
     onClick: onSend,
     disabled: disabled
   }, "Send")));
-}
-function Conversation({
+}), {
+  displayName: 'Composer'
+});
+const Conversation = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Conversation({
   title,
   subtitle,
   actions,
@@ -8645,8 +9080,9 @@ function Conversation({
   composer,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className,
     style: {
       display: 'flex',
@@ -8696,7 +9132,9 @@ function Conversation({
       flex: 1
     }
   }, messages), composer);
-}
+}), {
+  displayName: 'Conversation'
+});
 Object.assign(__ds_scope, { Message, MessageList, Composer, Conversation });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/Conversation.jsx", error: String((e && e.message) || e) }); }
 
@@ -8828,7 +9266,7 @@ function BuildGenie(businessProcess, options = {}) {
 const buildGenie = BuildGenie;
 
 /** Everything that would be created, shown before it is created. */
-function GenieBlueprint({
+const GenieBlueprint = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function GenieBlueprint({
   blueprint,
   onCreate,
   onCancel,
@@ -8837,11 +9275,12 @@ function GenieBlueprint({
   compact = false,
   className = '',
   ...rest
-}) {
+}, ref) {
   if (!blueprint) return null;
   const isOut = id => excluded.indexOf(id) !== -1;
   const included = blueprint.playbooks.filter(pb => !isOut(pb.process.id));
   return /*#__PURE__*/React.createElement("section", _extends({
+    ref: ref,
     className: ['lamp-blueprint', compact && 'lamp-blueprint--compact', className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("header", {
     className: "lamp-blueprint__head"
@@ -8943,7 +9382,9 @@ function GenieBlueprint({
     icon: "check",
     onClick: () => onCreate(blueprint, excluded)
   }, "Create ", included.length, " Playbooks as drafts") : null) : null);
-}
+}), {
+  displayName: 'GenieBlueprint'
+});
 Object.assign(__ds_scope, { BuildGenie, buildGenie, GenieBlueprint });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/GenieBlueprint.jsx", error: String((e && e.message) || e) }); }
 
@@ -8988,7 +9429,7 @@ const STATE = {
     label: 'Not connected'
   }
 };
-function IntegrationCard({
+const IntegrationCard = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function IntegrationCard({
   name,
   provider,
   glyph,
@@ -9007,10 +9448,11 @@ function IntegrationCard({
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   const s = STATE[state] || STATE.connected;
   const tone = state === 'error' ? 'error' : state === 'requiresAuth' || state === 'expired' || state === 'degraded' ? 'attention' : '';
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-integ', tone && 'lamp-integ--' + tone, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-integ__head"
@@ -9087,7 +9529,9 @@ function IntegrationCard({
     icon: "link_off",
     onClick: onDisconnect
   }, "Disconnect") : null));
-}
+}), {
+  displayName: 'IntegrationCard'
+});
 Object.assign(__ds_scope, { IntegrationCard });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/IntegrationCard.jsx", error: String((e && e.message) || e) }); }
 
@@ -9102,7 +9546,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function LearnedPattern({
+const LearnedPattern = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function LearnedPattern({
   kind = 'observed',
   observation,
   occurrences,
@@ -9117,9 +9561,10 @@ function LearnedPattern({
   note,
   className = '',
   ...rest
-}) {
+}, ref) {
   const label = kind === 'inferred' ? 'LAMP inferred' : kind === 'suggested' ? 'LAMP suggests' : kind === 'proposal' ? 'Process proposal' : 'LAMP noticed';
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: 'lamp-learn ' + className
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-learn__top"
@@ -9162,7 +9607,9 @@ function LearnedPattern({
     variant: "quiet",
     onClick: onIgnore
   }, "Ignore") : null));
-}
+}), {
+  displayName: 'LearnedPattern'
+});
 Object.assign(__ds_scope, { LearnedPattern });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/LearnedPattern.jsx", error: String((e && e.message) || e) }); }
 
@@ -9177,7 +9624,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function MobileShell({
+const MobileShell = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function MobileShell({
   title,
   leading,
   actions,
@@ -9188,8 +9635,9 @@ function MobileShell({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-mobile ' + className
   }, rest), /*#__PURE__*/React.createElement("header", {
     className: "lamp-mobile__top"
@@ -9215,7 +9663,9 @@ function MobileShell({
     name: t.icon,
     size: 20
   }), t.label))) : null);
-}
+}), {
+  displayName: 'MobileShell'
+});
 Object.assign(__ds_scope, { MobileShell });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/MobileShell.jsx", error: String((e && e.message) || e) }); }
 
@@ -9230,13 +9680,14 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function ObservedProcess({
+const ObservedProcess = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ObservedProcess({
   steps = [],
   showLinks = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-proc ' + className,
     role: "list"
   }, rest), steps.map((s, i) => /*#__PURE__*/React.createElement(React.Fragment, {
@@ -9278,7 +9729,9 @@ function ObservedProcess({
   }, s.frequency ? /*#__PURE__*/React.createElement("span", null, s.frequency) : null, s.duration ? /*#__PURE__*/React.createElement("span", null, s.duration) : null)), showLinks && i < steps.length - 1 ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-proc__link"
   }) : null)));
-}
+}), {
+  displayName: 'ObservedProcess'
+});
 Object.assign(__ds_scope, { ObservedProcess });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/ObservedProcess.jsx", error: String((e && e.message) || e) }); }
 
@@ -9320,13 +9773,14 @@ const CELL = {
     label: 'Conflict'
   }
 };
-function PermissionCell({
+const PermissionCell = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PermissionCell({
   state = 'denied',
   onClick,
   ...rest
-}) {
+}, ref) {
   const c = CELL[state] || CELL.denied;
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: 'lamp-perm__cell lamp-perm__cell--' + c.cls,
     role: onClick ? 'button' : 'img',
     "aria-label": c.label,
@@ -9336,8 +9790,10 @@ function PermissionCell({
     name: c.glyph,
     size: 14
   }));
-}
-function PermissionMatrix({
+}), {
+  displayName: 'PermissionCell'
+});
+const PermissionMatrix = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PermissionMatrix({
   resources = [],
   actions = [],
   values = {},
@@ -9345,8 +9801,9 @@ function PermissionMatrix({
   scopeLabel = 'Resource',
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("table", _extends({
+    ref: ref,
     className: 'lamp-perm ' + className
   }, rest), /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, /*#__PURE__*/React.createElement("span", {
     className: "lamp-perm__scope"
@@ -9377,18 +9834,23 @@ function PermissionMatrix({
       onClick: onToggle ? () => onToggle(r, a, state) : undefined
     }));
   })))));
-}
-function RoleBadge({
+}), {
+  displayName: 'PermissionMatrix'
+});
+const RoleBadge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function RoleBadge({
   role,
   scope,
   ...rest
-}) {
+}, ref) {
   const tone = role === 'Owner' ? 'brand' : role === 'Admin' ? 'info' : role === 'Viewer' ? 'neutral' : 'neutral';
   return /*#__PURE__*/React.createElement(__ds_scope.Badge, _extends({
+    ref: ref,
     tone: tone,
     icon: role === 'Owner' ? 'workspace_premium' : role === 'Admin' ? 'shield' : 'person'
   }, rest), scope ? role + ' · ' + scope : role);
-}
+}), {
+  displayName: 'RoleBadge'
+});
 Object.assign(__ds_scope, { PermissionCell, PermissionMatrix, RoleBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/PermissionMatrix.jsx", error: String((e && e.message) || e) }); }
 
@@ -9445,7 +9907,7 @@ function keyOf(list) {
   });
   return map;
 }
-function PlaybookComposer({
+const PlaybookComposer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function PlaybookComposer({
   open = true,
   agents = [],
   availableTools = [],
@@ -9456,7 +9918,7 @@ function PlaybookComposer({
   allowGenie = true,
   className = '',
   ...rest
-}) {
+}, ref) {
   /* Matches are derived from the selection, not held in state — reselecting on
      the canvas must not leave a stale proposal behind. */
   const matches = React.useMemo(() => suggestions || __ds_scope.MatchProcess({
@@ -9547,6 +10009,7 @@ function PlaybookComposer({
     count: chosenOutcomes.length
   }];
   return /*#__PURE__*/React.createElement(__ds_scope.Modal, _extends({
+    ref: ref,
     open: open,
     size: "lg",
     glyph: "layers",
@@ -9801,7 +10264,9 @@ function PlaybookComposer({
     icon: "visibility",
     onClick: () => onPreviewGenie(chosen)
   }, "Preview what gets created") : null) : null);
-}
+}), {
+  displayName: 'PlaybookComposer'
+});
 Object.assign(__ds_scope, { PlaybookComposer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/PlaybookComposer.jsx", error: String((e && e.message) || e) }); }
 
@@ -9816,15 +10281,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function VoiceWaveform({
+const VoiceWaveform = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function VoiceWaveform({
   levels = [],
   bars = 18,
   height = 20
-}) {
+}, ref) {
   const data = levels.length ? levels : Array.from({
     length: bars
   }, (_, i) => 0.3 + 0.7 * Math.abs(Math.sin(i * 1.1)));
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: "lamp-voice__wave",
     style: {
       height
@@ -9837,8 +10303,10 @@ function VoiceWaveform({
       height: Math.max(2, v * height)
     }
   })));
-}
-function VoiceButton({
+}), {
+  displayName: 'VoiceWaveform'
+});
+const VoiceButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function VoiceButton({
   state = 'idle',
   size = 'md',
   duration,
@@ -9849,11 +10317,12 @@ function VoiceButton({
   onSend,
   className = '',
   ...rest
-}) {
+}, ref) {
   const recording = state === 'recording';
   const glyph = state === 'processing' ? 'progress_activity' : state === 'speaking' ? 'volume_up' : recording ? 'stop' : 'mic';
   const text = label || (recording ? 'Recording' : state === 'processing' ? 'Processing' : state === 'speaking' ? 'Speaking' : state === 'error' ? 'Microphone unavailable' : 'Hold to speak');
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: 'lamp-voice ' + className
   }, rest), /*#__PURE__*/React.createElement("button", {
     type: "button",
@@ -9874,7 +10343,9 @@ function VoiceButton({
       color: 'var(--text-secondary)'
     }
   }, text) : null);
-}
+}), {
+  displayName: 'VoiceButton'
+});
 Object.assign(__ds_scope, { VoiceWaveform, VoiceButton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/VoiceButton.jsx", error: String((e && e.message) || e) }); }
 
@@ -9889,7 +10360,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function ApprovalCard({
+const ApprovalCard = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ApprovalCard({
   question,
   amount,
   tone = 'default',
@@ -9907,8 +10378,9 @@ function ApprovalCard({
   evidence,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("article", _extends({
+    ref: ref,
     className: ['lamp-approval', tone !== 'default' && 'lamp-approval--' + tone, className].filter(Boolean).join(' ')
   }, rest), /*#__PURE__*/React.createElement("div", {
     className: "lamp-approval__top"
@@ -9967,13 +10439,16 @@ function ApprovalCard({
     variant: "quiet",
     onClick: onEscalate
   }, "Escalate") : null)));
-}
-function HumanCheckpoint({
+}), {
+  displayName: 'ApprovalCard'
+});
+const HumanCheckpoint = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function HumanCheckpoint({
   label = 'Human checkpoint',
   detail,
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: "lamp-checkpoint"
   }, rest), /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "how_to_reg",
@@ -9983,7 +10458,9 @@ function HumanCheckpoint({
       fontWeight: 600
     }
   }, label), detail ? /*#__PURE__*/React.createElement("span", null, detail) : null);
-}
+}), {
+  displayName: 'HumanCheckpoint'
+});
 Object.assign(__ds_scope, { ApprovalCard, HumanCheckpoint });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/ApprovalCard.jsx", error: String((e && e.message) || e) }); }
 
@@ -10025,16 +10502,17 @@ const ENV = {
     detail: 'All external writes are blocked.'
   }
 };
-function EnvironmentBanner({
+const EnvironmentBanner = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function EnvironmentBanner({
   environment = 'draft',
   scope,
   detail,
   actions,
   className = '',
   ...rest
-}) {
+}, ref) {
   const e = ENV[environment] || ENV.draft;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: ['lamp-envbar', 'lamp-envbar--' + environment, className].filter(Boolean).join(' '),
     role: environment === 'killed' ? 'alert' : 'status'
   }, rest), /*#__PURE__*/React.createElement("span", {
@@ -10051,7 +10529,9 @@ function EnvironmentBanner({
   }, detail || e.detail), actions ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-envbar__right"
   }, actions) : null);
-}
+}), {
+  displayName: 'EnvironmentBanner'
+});
 Object.assign(__ds_scope, { EnvironmentBanner });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/EnvironmentBanner.jsx", error: String((e && e.message) || e) }); }
 
@@ -10066,7 +10546,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function KillSwitch({
+const KillSwitch = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function KillSwitch({
   scope = 'this Genie',
   consequences,
   activeRuns,
@@ -10076,10 +10556,11 @@ function KillSwitch({
   confirmLabel = 'Emergency stop',
   className = '',
   ...rest
-}) {
+}, ref) {
   const [ack, setAck] = React.useState(!requireAcknowledge);
   const list = consequences || ['block new external write actions', 'stop new runs', 'isolate active tasks'];
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-kill ' + className,
     role: "alertdialog",
     "aria-label": 'Stop ' + scope
@@ -10119,8 +10600,10 @@ function KillSwitch({
     disabled: !ack,
     onClick: onConfirm
   }, confirmLabel)));
-}
-function SafetyControls({
+}), {
+  displayName: 'KillSwitch'
+});
+const SafetyControls = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SafetyControls({
   state = 'live',
   onPause,
   onSafeStop,
@@ -10128,8 +10611,9 @@ function SafetyControls({
   onResume,
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -10157,7 +10641,9 @@ function SafetyControls({
     icon: "dangerous",
     onClick: onEmergency
   }, "Emergency stop"));
-}
+}), {
+  displayName: 'SafetyControls'
+});
 Object.assign(__ds_scope, { KillSwitch, SafetyControls });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/KillSwitch.jsx", error: String((e && e.message) || e) }); }
 
@@ -10172,15 +10658,16 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function LiveActivityIndicator({
+const LiveActivityIndicator = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function LiveActivityIndicator({
   mode = 'live',
   label,
   count,
   className = '',
   ...rest
-}) {
+}, ref) {
   const text = label || (mode === 'live' ? 'Live' : mode === 'simulation' ? 'Simulating' : 'Idle');
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: ['lamp-live', mode !== 'live' && 'lamp-live--' + mode, className].filter(Boolean).join(' '),
     role: "status"
   }, rest), /*#__PURE__*/React.createElement("span", {
@@ -10192,7 +10679,9 @@ function LiveActivityIndicator({
       opacity: 0.8
     }
   }, count, " active") : null);
-}
+}), {
+  displayName: 'LiveActivityIndicator'
+});
 Object.assign(__ds_scope, { LiveActivityIndicator });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/LiveActivityIndicator.jsx", error: String((e && e.message) || e) }); }
 
@@ -10225,12 +10714,13 @@ const TONE = {
     color: 'var(--text-disabled)'
   }
 };
-function ReadinessCheck({
+const ReadinessCheck = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ReadinessCheck({
   checks = [],
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-readiness ' + className,
     role: "list"
   }, rest), checks.map(c => {
@@ -10249,7 +10739,9 @@ function ReadinessCheck({
       className: "lamp-readiness__detail"
     }, c.detail) : null, c.action);
   }));
-}
+}), {
+  displayName: 'ReadinessCheck'
+});
 Object.assign(__ds_scope, { ReadinessCheck });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/ReadinessCheck.jsx", error: String((e && e.message) || e) }); }
 
@@ -10264,7 +10756,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function RunSummary({
+const RunSummary = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function RunSummary({
   runId,
   status = 'success',
   trigger,
@@ -10281,9 +10773,10 @@ function RunSummary({
   environment,
   className = '',
   ...rest
-}) {
+}, ref) {
   const rows = [['Run ID', runId, true], ['Environment', environment], ['Trigger', trigger], ['Started', started, true], ['Completed', completed, true], ['Duration', duration, true], ['Agents', agents, true], ['Tool calls', toolCalls, true], ['LLM calls', llmCalls, true], ['Cache utilization', cacheRate, true], ['Tokens', tokens, true], ['Estimated cost', cost, true], ['Human interventions', interventions, true]].filter(r => r[1] != null && r[1] !== '');
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className
   }, rest), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -10300,7 +10793,9 @@ function RunSummary({
     value: value,
     mono: !!mono
   })));
-}
+}), {
+  displayName: 'RunSummary'
+});
 Object.assign(__ds_scope, { RunSummary });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/RunSummary.jsx", error: String((e && e.message) || e) }); }
 
@@ -10353,7 +10848,7 @@ const STEP = {
     cls: 'blocked'
   }
 };
-function RunStep({
+const RunStep = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function RunStep({
   index,
   state = 'pending',
   title,
@@ -10369,9 +10864,10 @@ function RunStep({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const s = STEP[state] || STEP.pending;
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-step ' + className
   }, rest), /*#__PURE__*/React.createElement("span", {
     className: 'lamp-step__icon' + (s.cls ? ' lamp-step__icon--' + s.cls : '')
@@ -10402,13 +10898,16 @@ function RunStep({
     name: "keyboard_arrow_down",
     size: 14
   }) : null));
-}
-function RunTimeline({
+}), {
+  displayName: 'RunStep'
+});
+const RunTimeline = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function RunTimeline({
   steps = [],
   className = '',
   ...rest
-}) {
+}, ref) {
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: className,
     role: "list",
     "aria-label": "Run timeline"
@@ -10416,7 +10915,9 @@ function RunTimeline({
     key: i,
     index: i + 1
   }, s))));
-}
+}), {
+  displayName: 'RunTimeline'
+});
 Object.assign(__ds_scope, { RunStep, RunTimeline });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/RunTimeline.jsx", error: String((e && e.message) || e) }); }
 
@@ -10431,7 +10932,7 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-function SimulationBar({
+const SimulationBar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SimulationBar({
   mode = 'simulation',
   state = 'idle',
   progress = 0,
@@ -10449,9 +10950,10 @@ function SimulationBar({
   right,
   className = '',
   ...rest
-}) {
+}, ref) {
   const running = state === 'running';
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: 'lamp-simbar ' + className,
     role: "toolbar",
     "aria-label": mode === 'live' ? 'Live controls' : 'Simulation controls'
@@ -10513,7 +11015,9 @@ function SimulationBar({
     size: "md",
     onClick: onReplay
   }) : null, right);
-}
+}), {
+  displayName: 'SimulationBar'
+});
 Object.assign(__ds_scope, { SimulationBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/SimulationBar.jsx", error: String((e && e.message) || e) }); }
 
@@ -10568,7 +11072,7 @@ const SIM_NOTE = {
     tone: 'neutral'
   }
 };
-function SimulationStep({
+const SimulationStep = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SimulationStep({
   state = 'pending',
   mockedValue,
   blockedReason,
@@ -10578,9 +11082,10 @@ function SimulationStep({
   children,
   className = '',
   ...rest
-}) {
+}, ref) {
   const note = SIM_NOTE[state];
   return /*#__PURE__*/React.createElement(__ds_scope.RunStep, _extends({
+    ref: ref,
     state: state,
     className: ['lamp-simstep', 'lamp-simstep--' + state, divergence && 'lamp-simstep--diverged', className].filter(Boolean).join(' ')
   }, rest), note || divergence || scenario ? /*#__PURE__*/React.createElement("span", {
@@ -10614,7 +11119,9 @@ function SimulationStep({
   }, /*#__PURE__*/React.createElement("span", null, "Live"), /*#__PURE__*/React.createElement("b", null, expected)), /*#__PURE__*/React.createElement("span", {
     className: "lamp-simstep__diverge-row"
   }, /*#__PURE__*/React.createElement("span", null, "Simulated"), /*#__PURE__*/React.createElement("b", null, divergence))) : null, children);
-}
+}), {
+  displayName: 'SimulationStep'
+});
 Object.assign(__ds_scope, { SimulationStep });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/runtime/SimulationStep.jsx", error: String((e && e.message) || e) }); }
 

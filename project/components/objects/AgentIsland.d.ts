@@ -18,4 +18,4 @@ export interface AgentIslandProps extends React.HTMLAttributes<HTMLDivElement> {
   /** A HexLattice of bonded Agents, or a single AgentHex. */
   children?: React.ReactNode;
 }
-export declare function AgentIsland(props: AgentIslandProps): JSX.Element;
+export declare const AgentIsland: React.ForwardRefExoticComponent<AgentIslandProps & React.RefAttributes<HTMLDivElement>>;

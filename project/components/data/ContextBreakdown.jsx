@@ -43,10 +43,10 @@ const SCOPE_COLOR = {
   completion: 'var(--dataviz-neutral-4)',
 };
 
-export function ContextBreakdown({
+export const ContextBreakdown = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ContextBreakdown({
   segments, context, unit = 'tokens', cached, limit, showBar = true,
   title = 'Context', className = '', ...rest
-}) {
+}, ref) {
   /* Accept either an explicit segments array or a { agent: 618, … } map. */
   const rows = segments
     ? segments
@@ -60,7 +60,7 @@ export function ContextBreakdown({
   const pctOfLimit = limit ? Math.round((total / limit) * 100) : null;
 
   return (
-    <div className={'lamp-ctxb ' + className} {...rest}>
+    <div ref={ref} className={'lamp-ctxb ' + className} {...rest}>
       {title ? <span className="lamp-ctxb__title">{title}</span> : null}
 
       {showBar ? <StackedBar segments={withColor} total={total} unit={unit} height={8} /> : null}
@@ -94,4 +94,4 @@ export function ContextBreakdown({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'ContextBreakdown' });

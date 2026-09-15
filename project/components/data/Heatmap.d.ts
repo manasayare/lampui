@@ -15,6 +15,6 @@ export interface HeatmapProps extends React.HTMLAttributes<HTMLDivElement> {
   showScale?: boolean;
   format?: (v: number) => string | number;
 }
-export declare function Heatmap(props: HeatmapProps): JSX.Element;
+export declare const Heatmap: React.ForwardRefExoticComponent<HeatmapProps & React.RefAttributes<HTMLDivElement>>;
 /** Ramp lookup for custom cells — same steps as the component. */
 export declare function heatColor(value: number, max: number, ramp?: string): string;

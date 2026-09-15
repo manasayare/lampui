@@ -12,9 +12,9 @@ import { Tabs } from '../navigation/Tabs.jsx';
    They are the same implementation, so a composed Inspector and a prop-driven
    one are pixel-identical. */
 
-export function InspectorHeader({ title, subtitle, glyph, badges, actions, onClose, className = '', ...rest }) {
+export const InspectorHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InspectorHeader({ title, subtitle, glyph, badges, actions, onClose, className = '', ...rest }, ref) {
   return (
-    <header className={'lamp-insp__head ' + className} {...rest}>
+    <header ref={ref} className={'lamp-insp__head ' + className} {...rest}>
       {glyph ? <span className="lamp-insp__glyph"><Icon name={glyph} size={16} /></span> : null}
       <span className="lamp-insp__titles">
         <span className="lamp-insp__title">{title}</span>
@@ -27,35 +27,35 @@ export function InspectorHeader({ title, subtitle, glyph, badges, actions, onClo
       </span>
     </header>
   );
-}
+}), { displayName: 'InspectorHeader' });
 
 /* Inspector tabs sit flush under the header and use the underline variant, so the
    panel reads as one surface rather than a card stack. Keep them to the object's
    own facets — Purpose, Skills, Tools, Memory, Runtime — never app navigation. */
-export function InspectorTabs({ tabs = [], value, onChange, className = '', ...rest }) {
+export const InspectorTabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InspectorTabs({ tabs = [], value, onChange, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-insp__tabs ' + className}>
+    <div ref={ref} className={'lamp-insp__tabs ' + className}>
       <Tabs tabs={tabs} value={value} onChange={onChange} variant="underline" {...rest} />
     </div>
   );
-}
+}), { displayName: 'InspectorTabs' });
 
 /* Sticky by default: the Inspector's commit actions must stay reachable however
    long the body runs. `align="split"` pushes the first child left and the rest
    right — the usual Cancel / Apply shape. */
-export function InspectorFooter({ sticky = true, align = 'end', children, className = '', ...rest }) {
+export const InspectorFooter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InspectorFooter({ sticky = true, align = 'end', children, className = '', ...rest }, ref) {
   const cls = [
     'lamp-insp__foot',
     sticky && 'lamp-insp__foot--sticky',
     align !== 'end' && 'lamp-insp__foot--' + align,
     className,
   ].filter(Boolean).join(' ');
-  return <footer className={cls} {...rest}>{children}</footer>;
-}
+  return <footer ref={ref} className={cls} {...rest}>{children}</footer>;
+}), { displayName: 'InspectorFooter' });
 
-export function InspectorPanel({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = '', ...rest }) {
+export const InspectorPanel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function InspectorPanel({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = '', ...rest }, ref) {
   return (
-    <aside className={'lamp-insp ' + className} aria-label="Inspector" {...rest}>
+    <aside ref={ref} className={'lamp-insp ' + className} aria-label="Inspector" {...rest}>
       {title ? (
         <InspectorHeader
           title={title}
@@ -71,4 +71,4 @@ export function InspectorPanel({ title, subtitle, glyph, badges, actions, tabs, 
       {footer ? <InspectorFooter sticky={stickyFooter}>{footer}</InspectorFooter> : null}
     </aside>
   );
-}
+}), { displayName: 'InspectorPanel' });

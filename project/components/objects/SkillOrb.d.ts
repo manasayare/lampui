@@ -12,5 +12,5 @@ export interface SkillOrbProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Render the name beside the circle. */
   label?: boolean;
 }
-export declare function SkillOrb(props: SkillOrbProps): JSX.Element;
+export declare const SkillOrb: React.ForwardRefExoticComponent<SkillOrbProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const SKILL_SIZES: Record<string, number>;
