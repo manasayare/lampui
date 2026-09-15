@@ -1,0 +1,37 @@
+/* ============================================================
+   LAMP — DATA VISUALIZATION
+   Gold = primary series. Blue = comparison. No rainbow palettes.
+   ============================================================ */
+
+:root {
+  --dataviz-1: #D6A82E;
+  --dataviz-2: #3478F6;
+  --dataviz-3: #22A06B;
+  --dataviz-4: #7A6FF0;
+  --dataviz-5: #D9822B;
+  --dataviz-6: #3CA6A6;
+  --dataviz-7: #B55FC1;
+  --dataviz-8: #657A9A;
+
+  --dataviz-neutral-1: #454541;
+  --dataviz-neutral-2: #63635D;
+  --dataviz-neutral-3: #82827A;
+  --dataviz-neutral-4: #A7A79F;
+  --dataviz-neutral-5: #C8C8C0;
+
+  --chart-grid: #E9E9E5;
+  --chart-axis-text: var(--text-tertiary);
+  --chart-axis-size: 11px; /* @kind other */
+  --chart-threshold: var(--orange-500);
+  --chart-critical: var(--red-500);
+  --chart-track: var(--surface-secondary);
+  --chart-primary: var(--gold-500);
+  --chart-comparison: var(--blue-500);
+  --chart-success: var(--green-500);
+  --chart-failure: var(--red-500);
+}
+
+[data-theme="dark"] {
+  --chart-grid: #262624;
+  --chart-track: #1D1D1B;
+}

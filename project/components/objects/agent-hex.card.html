@@ -1,0 +1,62 @@
+<!-- @dsCard group="LAMP objects" viewport="700x440" name="Agent hexagon" subtitle="Flat-top hexagon — sizes, roles, composition and runtime states" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Agent hexagon</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:12px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-4px}.u{display:flex;flex-direction:column;align-items:center;gap:5px}.cap{font:400 10px var(--font-mono);color:var(--text-tertiary)}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { AgentHex } = L;
+const U = ({label,children}) => <span className="u">{children}<span className="cap">{label}</span></span>;
+function Demo(){return <div className="col">
+ <div className="lbl">Sizes — w:h 1.1547:1 · md 64×55 is the canvas default</div>
+ <div className="row" style={{alignItems:'flex-end'}}>
+  <U label="xs 36"><AgentHex size="xs" detail="glyph" /></U>
+  <U label="sm 48"><AgentHex size="sm" detail="glyph" /></U>
+  <U label="md 64"><AgentHex size="md" detail="glyph" /></U>
+  <U label="lg 88"><AgentHex size="lg" detail="glyph" /></U>
+  <U label="xl 120"><AgentHex size="xl" detail="glyph" /></U>
+ </div>
+ <div className="lbl">Roles — the glyph carries the role, never the shape</div>
+ <div className="row">
+  <U label="standard"><AgentHex size="sm" detail="glyph" role="standard" /></U>
+  <U label="coordinator"><AgentHex size="sm" detail="glyph" role="coordinator" /></U>
+  <U label="specialist"><AgentHex size="sm" detail="glyph" role="specialist" /></U>
+  <U label="human-supervised"><AgentHex size="sm" detail="glyph" role="humanSupervised" /></U>
+  <U label="system"><AgentHex size="sm" detail="glyph" role="system" /></U>
+  <U label="external"><AgentHex size="sm" detail="glyph" role="external" /></U>
+ </div>
+ <div className="lbl">Composition states</div>
+ <div className="row">
+  <U label="idle"><AgentHex size="sm" detail="glyph" state="idle" /></U>
+  <U label="selected"><AgentHex size="sm" detail="glyph" state="selected" /></U>
+  <U label="multi-selected"><AgentHex size="sm" detail="glyph" state="multiSelected" /></U>
+  <U label="compatible"><AgentHex size="sm" detail="glyph" state="compatible" /></U>
+  <U label="snap-ready"><AgentHex size="sm" detail="glyph" state="snapReady" environment="live" /></U>
+  <U label="bonded"><AgentHex size="sm" detail="glyph" state="bonded" /></U>
+  <U label="unconfigured"><AgentHex size="sm" detail="glyph" state="unconfigured" /></U>
+  <U label="disabled"><AgentHex size="sm" detail="glyph" state="disabled" /></U>
+ </div>
+ <div className="lbl">Runtime states — border + adjacent label, never a colour fill</div>
+ <div className="rowt">
+  <AgentHex size="sm" detail="name" name="Queued" state="queued" status="waiting" />
+  <AgentHex size="sm" detail="name" name="Running" state="running" status="running" environment="live" />
+  <AgentHex size="sm" detail="name" name="Delegating" state="delegating" status="running" environment="live" role="coordinator" />
+  <AgentHex size="sm" detail="name" name="Needs human" state="needsHuman" status="needsHuman" badgeCount={1} />
+  <AgentHex size="sm" detail="name" name="Retrying" state="retrying" status="attention" />
+  <AgentHex size="sm" detail="name" name="Succeeded" state="succeeded" status="success" />
+  <AgentHex size="sm" detail="name" name="Failed" state="failed" status="error" />
+  <AgentHex size="sm" detail="name" name="Killed" state="killed" status="killed" />
+ </div>
+ <div className="lbl">Semantic zoom — glyph · name · meta</div>
+ <div className="rowt">
+  <AgentHex size="md" detail="glyph" />
+  <AgentHex size="md" detail="name" name="Invoice Matcher" status="running" />
+  <AgentHex size="md" detail="meta" name="Invoice Matcher" status="running" roleLabel="Specialist" cost="$0.04" confidence="High" memoryActive tools={2} />
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

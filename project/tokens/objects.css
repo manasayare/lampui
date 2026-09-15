@@ -1,0 +1,101 @@
+/* ============================================================
+   LAMP — OBJECT TOKENS
+   Agent = flat-top hexagon · Skill = circle · Tool = square
+   Geometry carries identity; colour carries state.
+   ============================================================ */
+
+:root {
+  /* ---- Agent hexagon (flat-top, w:h = 1.1547:1) ---- */
+  --agent-width-xs: 36px;  --agent-height-xs: 31px;
+  --agent-width-sm: 48px;  --agent-height-sm: 42px;
+  --agent-width-md: 64px;  --agent-height-md: 55px;
+  --agent-width-lg: 88px;  --agent-height-lg: 76px;
+  --agent-width-xl: 120px; --agent-height-xl: 104px;
+
+  --agent-fill: var(--surface-primary);
+  --agent-fill-selected: var(--gold-50);
+  --agent-border: var(--border-strong);
+  --agent-border-hover: var(--neutral-400);
+  --agent-border-selected: var(--gold-500);
+  --agent-border-running: var(--gold-400);
+  --agent-border-waiting: var(--purple-500);
+  --agent-border-warning: var(--orange-500);
+  --agent-border-error: var(--red-500);
+  --agent-border-paused: var(--neutral-500);
+  --agent-border-killed: var(--red-700);
+  --agent-border-compatible: var(--gold-300);
+  --agent-border-width: 1px; /* @kind other */
+  --agent-border-width-active: 1.5px; /* @kind other */
+
+  /* ---- Skill circle ---- */
+  --skill-size-xs: 16px;
+  --skill-size-sm: 20px;
+  --skill-size-md: 28px;
+  --skill-size-lg: 36px;
+  --skill-size-xl: 48px;
+  --skill-fill: var(--surface-secondary);
+  --skill-border: var(--border-default);
+  --skill-fill-active: var(--gold-50);
+  --skill-border-active: var(--gold-400);
+
+  /* ---- Tool square ---- */
+  --tool-size-sm: 24px;
+  --tool-size-md: 32px;
+  --tool-size-lg: 40px;
+  --tool-size-xl: 48px;
+  --tool-radius: 6px;
+  --tool-fill: var(--surface-primary);
+  --tool-border: var(--border-default);
+
+  /* ---- Playbook cluster ---- */
+  --playbook-radius: 12px;
+  --playbook-padding: 24px;
+  --playbook-border-draft: var(--neutral-300);
+  --playbook-border-inferred: var(--purple-400);
+  --playbook-border-simulation: var(--blue-500);
+  --playbook-border-live: var(--gold-500);
+  --playbook-border-error: var(--red-500);
+  --playbook-bg-inferred: rgba(122,111,240,0.04);
+  --playbook-bg-simulation: rgba(52,120,246,0.04);
+  --playbook-bg-live: rgba(214,168,46,0.05);
+
+  /* ---- Genie ---- */
+  --genie-border: var(--border-default);
+  --genie-border-selected: var(--gold-500);
+  --genie-radius: 12px;
+
+  /* ---- Bond ---- */
+  --bond-edge: var(--neutral-400);
+  --bond-edge-confirmed: var(--gold-600);
+  --bond-edge-suggested: var(--purple-400);
+  --bond-edge-conflict: var(--red-500);
+  --bond-edge-locked: var(--neutral-600);
+  --bond-width: 2px;
+  --bond-junction-size: 6px;
+
+  /* ---- Canvas ---- */
+  --canvas-background: #F8F8F6;
+  --canvas-grid: rgba(69,69,65,0.08);
+  --canvas-grid-major: rgba(69,69,65,0.13);
+  --canvas-selection: #D6A82E;
+  --canvas-guides: #3478F6;
+  --canvas-grid-minor-spacing: 8px;
+  --canvas-grid-major-spacing: 32px;
+  --canvas-multiselect: #3478F6;
+}
+
+[data-theme="dark"] {
+  --agent-fill: #171716;
+  --agent-fill-selected: var(--gold-950);
+  --agent-border: var(--neutral-700);
+  --agent-border-hover: var(--neutral-500);
+  --agent-border-selected: var(--gold-400);
+  --canvas-background: #0B0B0A;
+  --canvas-grid: rgba(248,248,246,0.055);
+  --canvas-grid-major: rgba(248,248,246,0.09);
+  --canvas-selection: #E1B33A;
+  --canvas-guides: #5C91F7;
+  --playbook-border-draft: var(--neutral-700);
+  --bond-edge: var(--neutral-600);
+  --bond-edge-confirmed: var(--gold-500);
+}

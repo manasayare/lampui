@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Genie canvas" description="LAMP builder shell — structure rail, hexagonal Agent composition, contextual inspector" -->
+<helmet><script src="./ds-base.js"></script><style>html,body{margin:0;height:100%}body{overflow:hidden;background:var(--surface-canvas)}</style></helmet>
+<div style="display:grid;grid-template-rows:48px 32px 1fr 28px;height:100vh;font-family:var(--font-sans);color:var(--text-primary);background:var(--surface-canvas)">
+<header style="display:flex;align-items:center;gap:10px;padding:0 8px 0 12px;border-bottom:1px solid var(--border-default);background:var(--surface-primary)">
+<span style="font-size:14px;font-weight:600;letter-spacing:0.1em">LAMP</span>
+<span style="width:1px;height:16px;background:var(--border-subtle);margin:0 2px"></span>
+<nav style="display:flex;align-items:center;gap:4px;font-size:13px;color:var(--text-secondary)"><span>Northwind</span><span style="color:var(--text-disabled)">/</span><span>Operations LAMP</span><span style="color:var(--text-disabled)">/</span><span>Finance Genie</span><span style="color:var(--text-disabled)">/</span><span style="color:var(--text-primary);font-weight:500">Vendor payment</span></nav>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.EnvironmentPill" environment="live" hint-size="80px,24px"></x-import>
+<span style="margin-left:auto;display:flex;align-items:center;gap:6px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="secondary" size="sm" icon="science" hint-size="110px,28px">Simulate</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="brand" size="sm" icon="bolt" hint-size="88px,28px">Go live</x-import>
+</span>
+</header>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.EnvironmentBanner" environment="live" scope="Finance Genie" hint-size="100%,32px"></x-import>
+<div style="display:flex;min-height:0;overflow:hidden">
+<aside style="width:240px;flex:none;border-right:1px solid var(--border-default);background:var(--surface-primary);padding:6px;overflow:auto">
+<div style="padding:4px 6px;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary)">Structure</div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<button style="display:flex;align-items:center;gap:8px;height:32px;padding:0 8px;border:none;border-radius:4px;background:var(--surface-secondary);font:500 13px var(--font-sans);color:var(--text-primary);cursor:pointer;text-align:left">Finance Genie</button>
+<button style="display:flex;align-items:center;gap:8px;height:32px;padding:0 8px 0 22px;border:none;border-radius:4px;background:var(--surface-selected);box-shadow:inset 2px 0 0 var(--gold-500);font:500 13px var(--font-sans);color:var(--text-primary);cursor:pointer;text-align:left">Vendor payment</button>
+<button style="display:flex;align-items:center;gap:8px;height:32px;padding:0 8px 0 22px;border:none;border-radius:4px;background:transparent;font:500 13px var(--font-sans);color:var(--text-secondary);cursor:pointer;text-align:left">Month-end close</button>
+<button style="display:flex;align-items:center;gap:8px;height:32px;padding:0 8px 0 22px;border:none;border-radius:4px;background:transparent;font:500 13px var(--font-sans);color:var(--text-secondary);cursor:pointer;text-align:left">Reconciliation</button>
+</div>
+</aside>
+<main style="flex:1;min-width:0;position:relative;overflow:hidden;background-color:var(--canvas-background);background-image:radial-gradient(var(--canvas-grid) 1px,transparent 1px);background-size:32px 32px">
+<div style="position:absolute;left:56px;top:44px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.PlaybookCluster" name="Vendor payment" state="live" agents="{{ agentCount }}" hint-size="420px,220px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.HexLattice" size="md" gap="{{ two }}" cells="{{ cells }}" overlay="{{ bonds }}" hint-size="340px,150px"></x-import>
+</x-import>
+</div>
+</main>
+<aside style="width:320px;flex:none;border-left:1px solid var(--border-default);background:var(--surface-primary);display:flex;flex-direction:column;min-height:0">
+<div style="display:flex;align-items:flex-start;gap:8px;padding:10px;border-bottom:1px solid var(--border-subtle)">
+<div style="flex:1;min-width:0">
+<div style="font-size:14px;font-weight:600;letter-spacing:-0.01em">Invoice Matcher</div>
+<div style="font-size:11px;color:var(--text-tertiary)">Finance Genie / Vendor payment</div>
+<div style="margin-top:5px;display:flex;gap:4px"><x-import component-from-global-scope="LAMPDesignSystem_980d6d.StatusBadge" status="running" hint-size="76px,20px"></x-import></div>
+</div>
+</div>
+<div style="flex:1;min-height:0;overflow:auto">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Purpose" hint-size="100%,90px">
+<p style="margin:0;font-size:13px;line-height:19px;color:var(--text-secondary)">Match each invoice to its purchase order and flag any mismatch above tolerance.</p>
+</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Authority" hint-size="100%,120px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.PropertyRow" label="Approval limit" value="₹50,000" mono="{{ yes }}" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.PropertyRow" label="Escalation" value="Asha Rao" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.PropertyRow" label="External writes" value="Allowed" hint-size="100%,32px"></x-import>
+</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Advanced" advanced="{{ yes }}" hint-size="100%,40px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.PropertyRow" label="Agent ID" value="ag_4b21c9" mono="{{ yes }}" hint-size="100%,32px"></x-import>
+</x-import>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-top:1px solid var(--border-subtle)">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="secondary" size="sm" hint-size="70px,28px">Discard</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="primary" size="sm" hint-size="56px,28px">Save</x-import>
+</div>
+</aside>
+</div>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.StatusBar" items="{{ statusItems }}" right="{{ statusRight }}" hint-size="100%,28px"></x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:800}}">
+class Component extends DCLogic {
+  renderVals() {
+    const L = window.LAMPDesignSystem_980d6d || {};
+    const { AgentHex, HexLattice, HexCenter, BondEdge, BondLayer } = L;
+    const agents = [
+      { id: 'intake', name: 'Invoice Intake', col: 0, row: 0, role: 'coordinator', state: 'bonded', status: 'success' },
+      { id: 'matcher', name: 'Invoice Matcher', col: 1, row: 0, role: 'specialist', state: 'selected', status: 'running' },
+      { id: 'verifier', name: 'Vendor Verifier', col: 2, row: 0, role: 'specialist', state: 'bonded', status: 'waiting' },
+      { id: 'approver', name: 'Payment Approver', col: 1, row: 1, role: 'humanSupervised', state: 'needsHuman', status: 'needsHuman' },
+      { id: 'ledger', name: 'Ledger Sync', col: 3, row: 0, role: 'standard', state: 'error', status: 'error' },
+    ];
+    const bonds = [['intake', 'matcher', 'valid'], ['matcher', 'verifier', 'valid'], ['matcher', 'approver', 'valid'], ['verifier', 'ledger', 'requiresConfig']];
+    const by = {};
+    agents.forEach((a) => { by[a.id] = a; });
+    const c = (id) => (HexCenter ? HexCenter(by[id].col, by[id].row, 'md', 2) : { x: 0, y: 0 });
+    const cells = AgentHex ? agents.map((a) => ({
+      col: a.col, row: a.row, key: a.id,
+      node: React.createElement(AgentHex, { size: 'md', detail: 'name', name: a.name, role: a.role, state: a.state, status: a.status, environment: a.state === 'running' ? 'live' : 'draft' }),
+    })) : [];
+    const overlay = (BondLayer && BondEdge) ? React.createElement(BondLayer, { width: 340, height: 150 },
+      bonds.map((b) => React.createElement(BondEdge, { key: b[0] + b[1], from: c(b[0]), to: c(b[1]), state: b[2], environment: 'live' }))) : null;
+    return {
+      cells, bonds: overlay, two: 2, yes: true, agentCount: agents.length,
+      statusItems: [{ icon: 'bolt', label: 'Live' }, { label: 'Zoom', value: '100%' }, { label: 'Agents', value: agents.length }],
+      statusRight: [{ icon: 'cloud_done', label: 'Saved' }, { label: 'Run cost', value: '$0.42' }],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

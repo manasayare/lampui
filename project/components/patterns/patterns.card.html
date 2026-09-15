@@ -1,0 +1,64 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Product patterns" subtitle="Tool authorization, permissions, learning, process, conversation, voice, mobile" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Product patterns</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { IntegrationCard, PermissionMatrix, RoleBadge, LearnedPattern, ObservedProcess, Conversation, Message, Composer, VoiceButton, MobileShell, EntityChip, ApprovalCard, EnvironmentBanner, Button, Badge } = L;
+function Demo(){return <div className="col">
+ <div className="g2" style={{gridTemplateColumns:'1fr 1fr'}}>
+  <IntegrationCard name="Salesforce" provider="salesforce" account="finance@northwind.com" state="expired" permission="Write" risk="High" expiry="expired 2 days ago" usedBy={['Vendor Verifier','Payment Approver']}
+   scopes={[{label:'Read accounts and opportunities'},{label:'Create and update opportunities',write:true}]} onReconnect={()=>{}} onDisconnect={()=>{}} />
+  <div className="col">
+   <div className="lbl">Effective permissions</div>
+   <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',padding:'2px 10px 6px'}}>
+    <PermissionMatrix scopeLabel="Genie" actions={['View','Edit','Run','Approve','Go live']}
+     resources={[{key:'fin',label:'Finance',glyph:'hive',scope:'Genie'},{key:'sales',label:'Sales',glyph:'hive',scope:'Genie'},{key:'ops',label:'Customer Ops',glyph:'hive',scope:'Genie'}]}
+     values={{fin:{View:'granted',Edit:'granted',Run:'inherited',Approve:'conflict',['Go live']:'denied'},sales:{View:'inherited',Edit:'denied',Run:'denied'},ops:{View:'granted',Edit:'overridden',Run:'granted',Approve:'granted'}}} />
+   </div>
+   <div className="row"><RoleBadge role="Owner" /><RoleBadge role="Admin" scope="Finance Genie" /><RoleBadge role="Operator" /><RoleBadge role="Viewer" /></div>
+  </div>
+ </div>
+ <LearnedPattern kind="observed" occurrences={23} period="6 weeks" confidence="high"
+  observation="Vendor approvals usually happen through WhatsApp before they are entered in SAP."
+  evidence={['WhatsApp · 23 threads','SAP · 21 matching records']}
+  entities={<><EntityChip type="vendor" name="Meridian Supplies" /><EntityChip type="person" name="Asha Rao" initials="AR" /><EntityChip type="system" name="SAP" /></>}
+  onUse={()=>{}} onReview={()=>{}} onIgnore={()=>{}} />
+ <div className="g2" style={{gridTemplateColumns:'1.2fr 1fr'}}>
+  <div className="col">
+   <div className="lbl">Observed process — sequence, not flowchart</div>
+   <ObservedProcess steps={[{title:'Vendor sends invoice',actor:'Meridian',channel:'Email',frequency:'100%'},{title:'Informal approval',actor:'Asha Rao',channel:'WhatsApp',kind:'approval',frequency:'92%',duration:'4h'},{title:'Entered into SAP',actor:'Ravi K',tool:'SAP',frequency:'100%',duration:'11m'},{title:'Correction after mismatch',kind:'rework',frequency:'18%',duration:'1d'}]} />
+  </div>
+  <div className="col">
+   <div className="lbl">Conversation</div>
+   <div style={{height:230}}>
+    <Conversation title="Vendor payment" subtitle="Finance Genie · run_8f21c4"
+     messages={<><Message role="agent" author="Vendor Verifier" timestamp="14:02">Meridian's invoice does not match PO-9921. The total is ₹4,200 higher.</Message>
+     <Message role="tool" author="SAP" timestamp="14:02">GET /purchase-orders/9921 → 200</Message>
+     <Message role="user" timestamp="14:04">Use the revised PO.</Message>
+     <Message role="system" timestamp="14:04">Playbook resumed at step 3.</Message></>}
+     composer={<Composer quickReplies={['Approve','Reject','Ask for details']} onSend={()=>{}} onVoice={()=>{}} onAttach={()=>{}} />} />
+   </div>
+  </div>
+ </div>
+ <div className="rowt">
+  <div className="col"><div className="lbl">Voice</div><VoiceButton state="recording" duration="0:06" /><VoiceButton size="lg" label="Hold to speak" /></div>
+  <div className="col" style={{flex:1}}>
+   <div className="lbl">Mobile operations</div>
+   <div style={{width:300,height:380,border:'1px solid var(--border-default)',borderRadius:12,overflow:'hidden'}}>
+    <MobileShell title="Approvals" activeTab="approvals" tabs={[{id:'approvals',label:'Approvals',icon:'how_to_reg'},{id:'activity',label:'Activity',icon:'bolt'},{id:'safety',label:'Safety',icon:'shield'}]}
+     banner={<EnvironmentBanner environment="live" scope="Finance Genie" detail="Agents can act." />}
+     actions={<Badge count tone="danger">3</Badge>}>
+     <ApprovalCard tone="financial" question="Approve ₹184,200 to Meridian Supplies?" amount="₹184,200" requestedBy="Payment Approver" facts={[{label:'Invoice',value:'INV-20418'},{label:'Limit',value:'₹50,000'}]} onApprove={()=>{}} onReject={()=>{}} />
+    </MobileShell>
+   </div>
+  </div>
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

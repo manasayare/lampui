@@ -1,0 +1,53 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Inspector" subtitle="Contextual panel, sections, property rows, progressive disclosure" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Inspector</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { InspectorPanel, InspectorSection, PropertyRow, Tabs, StatusBadge, Button, IconButton, Badge, SkillOrb, ToolTile, EntityChip, MemoryScope, Switch, TextInput } = L;
+function Demo(){const [tab,setTab]=React.useState('purpose');
+return <div style={{display:'grid',gridTemplateColumns:'320px 1fr',gap:14,alignItems:'start'}}>
+ <div style={{border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden',height:390}}>
+  <InspectorPanel title="Invoice Matcher" subtitle="Finance Genie / Vendor payment" glyph="hexagon"
+   badges={<><StatusBadge status="running" /><Badge outline>Specialist</Badge></>}
+   actions={<IconButton icon="more_horiz" label="More" size="sm" />}
+   tabs={<Tabs value={tab} onChange={setTab} tabs={[{id:'purpose',label:'Purpose'},{id:'memory',label:'Memory',count:12},{id:'runtime',label:'Runtime'}]} />}
+   footer={<><Button size="sm" variant="secondary">Discard</Button><Button size="sm" variant="primary">Save</Button></>} onClose={()=>{}}>
+   <InspectorSection label="Purpose"><PropertyRow label="Responsibility" stack value="Match incoming invoices to purchase orders and flag mismatches." /></InspectorSection>
+   <InspectorSection label="Skills" count={3} actions={<IconButton icon="add" label="Add Skill" size="xs" />}>
+    <div className="row"><SkillOrb name="Extract" glyph="content_paste" state="attached" label /><SkillOrb name="Reconcile" glyph="rule" state="attached" label /></div>
+   </InspectorSection>
+   <InspectorSection label="Tools" count={2}><div className="row"><ToolTile provider="googledrive" size="sm" name="Drive" /><ToolTile provider="sap" size="sm" name="SAP" state="authorizationRequired" /></div></InspectorSection>
+   <InspectorSection label="Authority">
+    <PropertyRow label="Approval limit" value="₹50,000" mono />
+    <PropertyRow label="Escalation" value={<EntityChip type="person" name="Asha Rao" initials="AR" />} />
+    <PropertyRow label="External writes" inherited value="Allowed" />
+    <PropertyRow label="Delegation" value={<Switch defaultChecked />} />
+   </InspectorSection>
+   <InspectorSection label="Memory" count={12}><div className="row"><MemoryScope scope="agent" /><MemoryScope scope="playbook" /><MemoryScope scope="genie" /></div></InspectorSection>
+   <InspectorSection label="Advanced" advanced><PropertyRow label="Model" value="Default routing" /><PropertyRow label="Retry policy" value="3 attempts, exponential" /></InspectorSection>
+  </InspectorPanel>
+ </div>
+ <div className="col">
+  <div className="lbl">Property rows in every state</div>
+  <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',padding:'4px 10px'}}>
+   <PropertyRow label="Run ID" value="run_8f21…c4" mono />
+   <PropertyRow label="Trigger" value="Schedule · 06:00 IST" />
+   <PropertyRow label="Owner" inherited value="Finance Genie" />
+   <PropertyRow label="Escalation path" />
+   <PropertyRow label="Rename" value={<TextInput size="sm" defaultValue="Invoice Matcher" />} />
+  </div>
+  <div className="lbl">Section behaviour</div>
+  <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)'}}>
+   <InspectorSection label="Guardrails" count={4}><PropertyRow label="Max spend / run" value="₹250,000" mono /><PropertyRow label="Blocked actions" value="Delete records" /></InspectorSection>
+   <InspectorSection label="Raw configuration" advanced><PropertyRow label="Schema version" value="2024-09" mono /></InspectorSection>
+  </div>
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

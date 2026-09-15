@@ -1,0 +1,25 @@
+/* ============================================================
+   LAMP — ELEVATION
+   Structure comes from border + surface contrast first.
+   0 canvas · 1 panels · 2 popovers · 3 menus · 4 dialogs · 5 critical
+   ============================================================ */
+
+:root {
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.12);
+
+  --elevation-panel: var(--shadow-0);
+  --elevation-popover: var(--shadow-2);
+  --elevation-menu: var(--shadow-2);
+  --elevation-dialog: var(--shadow-3);
+  --elevation-critical: var(--shadow-3);
+  --elevation-canvas-object: var(--shadow-1);
+}
+
+[data-theme="dark"] {
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.30);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.36);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.44);
+}

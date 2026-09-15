@@ -1,0 +1,64 @@
+<!-- @dsCard group="Components" viewport="700x900" name="LAMP objects" subtitle="Agent hexagons, bonded compositions, Skills, Tools, Playbook, Genie" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>LAMP objects</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { AgentHex, HexLattice, HexCenter, BondEdge, BondLayer, SkillOrb, ToolTile, PlaybookCluster, AgentIsland, GenieCard, ObjectRow, ObjectList, EntityChip } = L;
+const cells=[{col:0,row:0,node:<AgentHex size="sm" detail="glyph" role="coordinator" />},{col:1,row:0,node:<AgentHex size="sm" detail="glyph" state="running" environment="live" />},{col:2,row:0,node:<AgentHex size="sm" detail="glyph" />},{col:1,row:1,node:<AgentHex size="sm" detail="glyph" state="needsHuman" role="humanSupervised" />}];
+function Demo(){return <div className="col">
+ <div className="lbl">AgentHex — state lives in the border and the adjacent label</div>
+ <div className="rowt"><AgentHex name="Invoice Matcher" status="running" state="running" environment="live" /><AgentHex name="Vendor Verifier" state="selected" status="waiting" /><AgentHex name="Payment Approver" state="needsHuman" status="needsHuman" role="humanSupervised" badgeCount={2} /><AgentHex name="Ledger Sync" state="error" status="error" /><AgentHex state="compatible" detail="glyph" /><AgentHex name="Reconciler" state="bonded" detail="meta" size="lg" roleLabel="Specialist" cost="$0.04" memoryActive tools={2} /></div>
+ <div className="lbl">Sizes xs · sm · md · lg — and a bonded composition</div>
+ <div className="rowt" style={{alignItems:'center'}}>
+  <AgentHex size="xs" detail="glyph" /><AgentHex size="sm" detail="glyph" /><AgentHex size="md" detail="glyph" /><AgentHex size="lg" detail="glyph" />
+  <div style={{marginLeft:16}}><HexLattice size="sm" gap={0} cells={cells} overlay={<BondLayer width={130} height={100}><BondEdge from={HexCenter(0,0,'sm',0)} to={HexCenter(1,0,'sm',0)} state="valid" /><BondEdge from={HexCenter(1,0,'sm',0)} to={HexCenter(2,0,'sm',0)} state="valid" energy environment="live" /><BondEdge from={HexCenter(1,0,'sm',0)} to={HexCenter(1,1,'sm',0)} state="suggested" /></BondLayer>} /></div>
+ </div>
+ <div className="lbl">Skills (circle) · Tools (square)</div>
+ <div className="row"><SkillOrb name="Reconcile" glyph="rule" state="attached" label /><SkillOrb name="Verify" glyph="fact_check" state="running" /><SkillOrb name="Classify" glyph="category" state="suggested" /><SkillOrb name="Translate" glyph="translate" state="disabled" /><Divider /><ToolTile provider="gmail" name="Gmail" /><ToolTile provider="salesforce" name="Salesforce" state="authorizationRequired" /><ToolTile provider="sap" name="SAP" state="error" /><ToolTile glyph="api" name="Internal API" state="readOnly" /></div>
+ <div className="lbl">Live behaviour — only running states move; finished work settles and goes still</div>
+ <div className="rowt" style={{alignItems:'flex-start'}}>
+  <AgentHex size="sm" detail="name" name="Queued" state="queued" status="waiting" />
+  <AgentHex size="sm" detail="name" name="Starting" state="starting" environment="live" />
+  <AgentHex size="sm" detail="name" name="Running" state="running" status="running" environment="live" />
+  <AgentHex size="sm" detail="name" name="Delegating" state="delegating" environment="live" role="coordinator" />
+  <AgentHex size="sm" detail="name" name="Waiting" state="waiting" status="waiting" />
+  <AgentHex size="sm" detail="name" name="Retrying" state="retrying" status="attention" />
+  <AgentHex size="sm" detail="name" name="Succeeded" state="succeeded" status="success" />
+  <AgentHex size="sm" detail="name" name="Failed" state="failed" status="error" />
+  <AgentHex size="sm" detail="name" name="Paused" state="paused" status="paused" />
+  <AgentHex size="sm" detail="name" name="Killed" state="killed" status="killed" />
+ </div>
+ <div className="lbl">Playbook section — bonded island, parallel island, and an Agent working alone</div>
+ <PlaybookCluster name="Vendor payment" state="live" layout="free" agents={6} resizable height={196} meta={['Last run 4m ago','98% success']}>
+  <AgentIsland name="Intake and matching" x={0} y={0}>
+   <HexLattice size="sm" gap={0} cells={[{col:0,row:0,node:<AgentHex size="sm" detail="glyph" role="coordinator" onClick={()=>{}} />},{col:1,row:0,node:<AgentHex size="sm" detail="glyph" state="running" environment="live" onClick={()=>{}} />}]}
+     overlay={<BondLayer width={84} height={44}><BondEdge from={HexCenter(0,0,'sm',0)} to={HexCenter(1,0,'sm',0)} state="valid" energy environment="live" /></BondLayer>} />
+  </AgentIsland>
+  <AgentIsland name="Approval" note="human checkpoint" x={150} y={22} outlined>
+   <AgentHex size="sm" detail="glyph" role="humanSupervised" state="needsHuman" badgeCount={1} onClick={()=>{}} />
+  </AgentIsland>
+  <AgentIsland solo name="Ledger Sync" note="runs after settlement" x={280} y={76}>
+   <AgentHex size="sm" detail="glyph" state="failed" onClick={()=>{}} />
+  </AgentIsland>
+  <AgentIsland solo name="Vendor Notifier" note="not configured" x={420} y={10}>
+   <AgentHex size="sm" detail="glyph" state="unconfigured" onClick={()=>{}} />
+  </AgentIsland>
+ </PlaybookCluster>
+ <div className="lbl">Playbook cluster · Genie</div>
+ <div className="g2" style={{gridTemplateColumns:'1.1fr 1fr'}}>
+  <PlaybookCluster name="Vendor payment" state="live" agents={4} padding={14} meta={['Last run 4m ago','98% success']}><HexLattice size="sm" gap={0} cells={cells} /></PlaybookCluster>
+  <GenieCard name="Finance" purpose="Vendor payments, reconciliation and month-end close." status="live" live stats={[{label:'Playbooks',value:6},{label:'Agents',value:23},{label:'Runs today',value:412}]} />
+ </div>
+ <div className="lbl">Object rows · entity chips</div>
+ <ObjectList><ObjectRow kind="run" name="Vendor payment" secondary="Triggered by schedule" status="error" timestamp="14:32:08" /><ObjectRow kind="agent" name="Invoice Matcher" secondary="Specialist" status="running" compact /></ObjectList>
+ <div className="row"><EntityChip type="vendor" name="Meridian Supplies" /><EntityChip type="person" name="Asha Rao" initials="AR" /><EntityChip type="policy" name="Vendor approval > ₹50,000" showType /></div>
+</div>}
+const { Divider } = L;
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

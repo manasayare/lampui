@@ -1,0 +1,54 @@
+/* LAMP — memory */
+.lamp-mem-scope{display:inline-flex;align-items:center;gap:5px;height:20px;padding:0 6px 0 5px;border-radius:var(--radius-sm);border:1px solid var(--memory-border);background:var(--memory-bg);color:var(--memory-text);font-size:11px;font-weight:500;white-space:nowrap}
+.lamp-mem-scope__bar{width:3px;height:10px;border-radius:1px;background:var(--memory-accent)}
+.lamp-mem-scope--agent .lamp-mem-scope__bar{height:4px}
+.lamp-mem-scope--playbook .lamp-mem-scope__bar{height:7px}
+.lamp-mem-scope--genie .lamp-mem-scope__bar{height:10px}
+.lamp-mem-scope--lamp .lamp-mem-scope__bar{height:13px}
+
+.lamp-fact{display:flex;flex-direction:column;gap:6px;padding:10px;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--surface-primary)}
+.lamp-fact--conflict{border-color:var(--status-warning)}
+.lamp-fact--stale{border-style:dashed}
+.lamp-fact--candidate,.lamp-fact--pendingReview{border-style:dashed;border-color:var(--memory-border);background:var(--memory-bg)}
+.lamp-fact--rejected,.lamp-fact--superseded{opacity:var(--opacity-secondary)}
+.lamp-fact__top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lamp-fact__text{font-size:13px;line-height:19px;color:var(--text-primary);text-wrap:pretty;margin:0}
+.lamp-fact__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--text-tertiary)}
+.lamp-fact__meta b{font-weight:500;color:var(--text-secondary)}
+.lamp-fact__ev{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:var(--radius-sm);background:var(--surface-secondary);font-size:11px;color:var(--text-secondary)}
+.lamp-fact__actions{display:flex;gap:6px;flex-wrap:wrap}
+
+.lamp-conf{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.lamp-conf__track{width:44px;height:4px;border-radius:2px;background:var(--surface-tertiary);overflow:hidden}
+.lamp-conf__fill{height:100%;border-radius:2px;background:var(--memory-accent)}
+.lamp-conf__fill--high{background:var(--status-success)}
+.lamp-conf__fill--low{background:var(--status-warning)}
+.lamp-conf__label{font-size:11px;color:var(--text-secondary)}
+
+.lamp-memusage{display:flex;flex-direction:column;gap:6px}
+.lamp-memusage__bar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--surface-tertiary)}
+.lamp-memusage__seg{height:100%}
+.lamp-memusage__legend{display:flex;flex-direction:column;gap:3px}
+.lamp-memusage__row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary)}
+.lamp-memusage__swatch{width:8px;height:8px;border-radius:2px;flex:none}
+.lamp-memusage__val{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--text-primary);font-variant-numeric:tabular-nums}
+.lamp-memusage__total{display:flex;align-items:center;gap:8px;padding-top:4px;border-top:1px solid var(--border-subtle);font-size:12px;font-weight:500;color:var(--text-primary)}
+
+.lamp-timeline{display:flex;flex-direction:column}
+.lamp-timeline__item{display:grid;grid-template-columns:16px 1fr;gap:10px;padding-bottom:12px;position:relative}
+.lamp-timeline__rail{display:flex;flex-direction:column;align-items:center;gap:2px}
+.lamp-timeline__dot{width:7px;height:7px;border-radius:50%;background:var(--border-strong);margin-top:5px;flex:none}
+.lamp-timeline__dot--accent{background:var(--memory-accent)}
+.lamp-timeline__dot--current{background:var(--gold-500);box-shadow:0 0 0 3px var(--energy-glow)}
+.lamp-timeline__line{flex:1;width:1px;background:var(--border-subtle)}
+.lamp-timeline__body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.lamp-timeline__title{font-size:13px;color:var(--text-primary)}
+.lamp-timeline__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary)}
+.lamp-graph{position:relative;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:var(--surface-primary);overflow:hidden}
+.lamp-graph svg{display:block}
+.lamp-graph__legend{display:flex;flex-wrap:wrap;gap:10px;padding:7px 10px;border-top:1px solid var(--border-subtle);background:var(--surface-secondary)}
+.lamp-graph__key{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--text-tertiary);white-space:nowrap}
+.lamp-graph__swatch{width:8px;height:8px;border-radius:50%;flex:none}
+.lamp-graph__swatch--square{border-radius:1px}
+.lamp-graph__swatch--diamond{border-radius:1px;transform:rotate(45deg)}
+.lamp-graph__swatch--hex{border-radius:1px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}

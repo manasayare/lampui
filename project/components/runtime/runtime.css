@@ -1,0 +1,65 @@
+/* LAMP — simulation, live runtime, safety */
+.lamp-envbar{display:flex;align-items:center;gap:10px;height:32px;padding:0 10px;border-bottom:1px solid var(--border-default);background:var(--surface-secondary);font-size:12px;color:var(--text-secondary)}
+.lamp-envbar--simulation{background:var(--runtime-simulation-bg);border-bottom-color:var(--blue-500);color:var(--status-info-text)}
+.lamp-envbar--live{background:var(--runtime-live-bg);border-bottom-color:var(--gold-500);color:var(--text-brand)}
+.lamp-envbar--paused{background:var(--runtime-paused-bg);border-bottom-color:var(--orange-500);color:var(--status-warning-text)}
+.lamp-envbar--killed{background:var(--runtime-killed-bg);border-bottom-color:var(--red-500);color:var(--status-danger-text)}
+.lamp-envbar__label{display:flex;align-items:center;gap:6px;font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.lamp-envbar__detail{color:inherit;opacity:.85}
+.lamp-envbar__right{margin-left:auto;display:flex;align-items:center;gap:6px}
+
+.lamp-simbar{display:flex;align-items:center;gap:10px;height:var(--toolbar-height);padding:0 8px 0 10px;border-bottom:1px solid var(--border-default);background:var(--surface-primary)}
+.lamp-simbar__progress{flex:1;min-width:60px;height:4px;border-radius:2px;background:var(--surface-tertiary);overflow:hidden}
+.lamp-simbar__fill{height:100%;background:var(--simulation-energy);transition:width var(--duration-medium) var(--ease-standard)}
+.lamp-simbar__fill--live{background:var(--gold-500)}
+.lamp-simbar__meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);white-space:nowrap}
+
+.lamp-step{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-bottom:1px solid var(--border-subtle)}
+.lamp-step:hover{background:var(--surface-hover)}
+.lamp-step__icon{flex:none;margin-top:1px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--border-default);color:var(--text-tertiary);font-family:var(--font-mono);font-size:10px}
+.lamp-step__icon--running{border-color:var(--gold-400);color:var(--text-brand);animation:lamp-pulse 1.4s var(--ease-standard) infinite}
+.lamp-step__icon--success{border-color:var(--status-success);color:var(--status-success)}
+.lamp-step__icon--failed{border-color:var(--status-danger);color:var(--status-danger)}
+.lamp-step__icon--warning{border-color:var(--status-warning);color:var(--status-warning)}
+.lamp-step__icon--waitingHuman{border-color:var(--status-waiting);color:var(--status-waiting)}
+.lamp-step__icon--skipped,.lamp-step__icon--blocked{border-style:dashed}
+.lamp-step__main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.lamp-step__title{font-size:13px;font-weight:500;color:var(--text-primary)}
+.lamp-step__sub{font-size:12px;color:var(--text-tertiary);text-wrap:pretty}
+.lamp-step__chips{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px}
+.lamp-step__right{flex:none;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary)}
+
+.lamp-live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text-brand)}
+.lamp-live__pulse{position:relative;width:8px;height:8px;border-radius:50%;background:var(--gold-500);flex:none}
+.lamp-live__pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--gold-400);animation:lamp-pulse 1.6s var(--ease-standard) infinite}
+.lamp-live--simulation{color:var(--status-info-text)}
+.lamp-live--simulation .lamp-live__pulse{background:var(--blue-500)}
+.lamp-live--simulation .lamp-live__pulse::after{border-color:var(--blue-400)}
+.lamp-live--idle{color:var(--text-tertiary)}
+.lamp-live--idle .lamp-live__pulse{background:var(--neutral-400)}
+.lamp-live--idle .lamp-live__pulse::after{display:none}
+
+.lamp-approval{display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid var(--border-default);border-left:2px solid var(--status-waiting);border-radius:var(--radius-lg);background:var(--surface-primary)}
+.lamp-approval--critical{border-left-color:var(--status-danger)}
+.lamp-approval--financial{border-left-color:var(--gold-500)}
+.lamp-approval__top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lamp-approval__q{font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary);margin:0;text-wrap:pretty}
+.lamp-approval__amount{font-size:20px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.lamp-approval__facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:12px}
+.lamp-approval__k{color:var(--text-tertiary)}
+.lamp-approval__v{color:var(--text-primary)}
+.lamp-approval__actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:2px}
+.lamp-approval__timer{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary)}
+
+.lamp-checkpoint{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px dashed var(--status-waiting);border-radius:var(--radius-md);background:var(--status-waiting-bg);font-size:12px;color:var(--status-waiting-text)}
+
+.lamp-kill{display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid var(--status-danger);border-radius:var(--radius-lg);background:var(--surface-primary)}
+.lamp-kill__title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--status-danger-text)}
+.lamp-kill__list{margin:0;padding-left:18px;font-size:12px;line-height:18px;color:var(--text-secondary)}
+.lamp-kill__actions{display:flex;gap:8px;justify-content:flex-end}
+.lamp-kill__armed{display:flex;align-items:center;gap:8px;padding:8px;border-radius:var(--radius-sm);background:var(--status-danger-bg);font-size:12px;color:var(--status-danger-text)}
+
+.lamp-readiness{display:flex;flex-direction:column;gap:2px}
+.lamp-readiness__row{display:flex;align-items:center;gap:8px;min-height:32px;padding:4px 0;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border-subtle)}
+.lamp-readiness__row:last-child{border-bottom:none}
+.lamp-readiness__detail{margin-left:auto;font-size:12px;color:var(--text-tertiary)}

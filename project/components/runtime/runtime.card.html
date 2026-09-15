@@ -1,0 +1,48 @@
+<!-- @dsCard group="Components" viewport="700x460" name="Runtime & safety" subtitle="Environment bars, run controls, traces, approvals, emergency stop" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Runtime & safety</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { EnvironmentBanner, SimulationBar, RunTimeline, LiveActivityIndicator, RunSummary, ApprovalCard, HumanCheckpoint, KillSwitch, SafetyControls, ReadinessCheck, Button } = L;
+function Demo(){return <div className="col">
+ <div className="col" style={{gap:4,border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden'}}>
+  <EnvironmentBanner environment="simulation" scope="Finance Genie" actions={<Button size="sm" variant="secondary" icon="stop_circle">Exit simulation</Button>} />
+  <EnvironmentBanner environment="live" scope="Finance Genie" />
+  <EnvironmentBanner environment="killed" scope="Finance Genie" />
+ </div>
+ <SimulationBar mode="simulation" state="running" progress={0.4} step={4} stepCount={10} scenario="March invoices (120 cases)" elapsed="00:06.2" cost="$0.18" right={<LiveActivityIndicator mode="simulation" count={3} />} />
+ <div className="g2" style={{gridTemplateColumns:'1.3fr 1fr'}}>
+  <div className="col">
+   <div className="lbl">Run trace</div>
+   <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',overflow:'hidden'}}>
+    <RunTimeline steps={[
+     {state:'success',title:'Invoice extracted',actor:'Invoice Matcher',tools:['Google Drive'],duration:'1.2s',tokens:'812'},
+     {state:'success',title:'Matched to PO-9921',actor:'Invoice Matcher',memory:'Genie memory',duration:'0.6s'},
+     {state:'waitingHuman',title:'Approval required',detail:'₹184,200 is above the Agent authority limit.',actor:'Payment Approver'},
+     {state:'failed',title:'Salesforce write failed',detail:'Credentials expired. No records were created.',tools:['Salesforce'],duration:'3.1s'},
+     {state:'skipped',title:'Notify vendor',detail:'Skipped because the write failed.'}]} />
+   </div>
+   <div className="row"><HumanCheckpoint detail="Payment approval · Finance" /><LiveActivityIndicator mode="live" count={7} /><LiveActivityIndicator mode="idle" label="No active runs" /></div>
+   <div className="lbl">Go-live readiness</div>
+   <ReadinessCheck checks={[{label:'Simulation passed on 120 historical cases',state:'passed',detail:'98% match'},{label:'Salesforce authorization',state:'failed',detail:'Credentials expired',action:<Button size="xs" variant="secondary">Reconnect</Button>},{label:'Human checkpoints defined',state:'warning',detail:'No escalation owner'}]} />
+  </div>
+  <div className="col">
+   <ApprovalCard tone="financial" question="Approve payment to Meridian Supplies?" amount="₹184,200" requestedBy="Payment Approver" playbook="Vendor payment" dueIn="Due in 2h"
+     facts={[{label:'Invoice',value:'INV-20418'},{label:'Matched PO',value:'PO-9921'},{label:'Authority limit',value:'₹50,000'}]} onApprove={()=>{}} onEdit={()=>{}} onReject={()=>{}} onEscalate={()=>{}} />
+   <KillSwitch scope="Finance Genie" activeRuns={4} onCancel={()=>{}} onConfirm={()=>{}} />
+   <SafetyControls state="live" />
+  </div>
+ </div>
+ <div className="lbl">Run summary</div>
+ <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',padding:'4px 12px',maxWidth:340}}>
+  <RunSummary runId="run_8f21…c4" status="error" environment="Live" trigger="Schedule" started="06:00:02" duration="6.2s" agents={9} toolCalls={14} llmCalls={11} cacheRate="62%" tokens="3,412" cost="$0.14" interventions={1} />
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

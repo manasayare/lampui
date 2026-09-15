@@ -1,0 +1,38 @@
+export type AgentState =
+  /* composition */ 'idle' | 'hover' | 'selected' | 'multiSelected' | 'dragging' | 'compatible' | 'snapReady' | 'bonding' | 'bonded' | 'unconfigured' | 'disabled'
+  /* runtime */ | 'queued' | 'starting' | 'running' | 'delegating' | 'waiting' | 'needsHuman' | 'retrying' | 'succeeded' | 'success' | 'warning' | 'failed' | 'error' | 'degraded' | 'paused' | 'killed';
+
+/**
+ * @startingPoint section="LAMP objects" subtitle="The Agent hexagon in every size and runtime state" viewport="700x280"
+ */
+export interface AgentHexProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** xs 36×31 · sm 48×42 · md 64×55 (canvas default) · lg 88×76 (hero) · xl 120×104 */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  state?: AgentState;
+  role?: 'standard' | 'coordinator' | 'specialist' | 'humanSupervised' | 'system' | 'external';
+  /** Drives energy colour: draft = none, simulation = blue, live = gold. */
+  environment?: 'draft' | 'simulation' | 'live';
+  /** Semantic-zoom tier: glyph (<50%) · name (50–120%) · meta (>120%). */
+  detail?: 'glyph' | 'name' | 'meta';
+  name?: string;
+  /** Role text under the name at detail="meta" — "Coordinator", "Human-supervised". */
+  roleLabel?: string;
+  /** Override the role glyph with any Material Symbol. */
+  glyph?: string;
+  /** LAMP status key — rendered as an adjacent dot + label, never as a fill. */
+  status?: string;
+  badgeCount?: number;
+  memoryActive?: boolean;
+  /** Count of attached Tools — renders a small pin, not individual tiles. */
+  tools?: number;
+  authority?: string;
+  task?: string;
+  cost?: string;
+  confidence?: string;
+  dashed?: boolean;
+  /** Passing onClick makes the hexagon itself focusable and hoverable — the label and
+   *  bounding box are never part of the hit area. */
+  onClick?: (e: React.MouseEvent) => void;
+}
+export declare function AgentHex(props: AgentHexProps): JSX.Element;
+export declare const AGENT_SIZES: Record<string, [number, number]>;

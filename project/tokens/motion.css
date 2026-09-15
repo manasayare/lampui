@@ -1,0 +1,54 @@
+/* ============================================================
+   LAMP — MOTION
+   At rest the interface is still. Motion marks interaction and runtime.
+   ============================================================ */
+
+:root {
+  --duration-instant: 80ms; /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-standard: 180ms; /* @kind other */
+  --duration-medium: 240ms; /* @kind other */
+  --duration-slow: 360ms; /* @kind other */
+  --duration-bond: 420ms; /* @kind other */
+  --duration-ceremonial: 600ms; /* @kind other */
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* @kind other */
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1); /* @kind other */
+  --ease-magnetic: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-critical: cubic-bezier(0.3, 0, 0.1, 1); /* @kind other */
+
+  /* bond phase timings */
+  --bond-proximity-duration: 120ms; /* @kind other */
+  --bond-snapready-duration: 180ms; /* @kind other */
+  --bond-compress-duration: 80ms; /* @kind other */
+  --bond-merge-duration: 120ms; /* @kind other */
+  --bond-pulse-duration: 180ms; /* @kind other */
+  --bond-settle-duration: 120ms; /* @kind other */
+  --bond-release-duration: 180ms; /* @kind other */
+  --bond-break-threshold: 30px; /* @kind other */
+
+  --transition-control: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard); /* @kind other */
+  --transition-panel: transform var(--duration-standard) var(--ease-standard), opacity var(--duration-standard) var(--ease-standard); /* @kind other */
+}
+
+@keyframes lamp-pulse { 0%,100% { opacity: 0.35 } 50% { opacity: 1 } }
+@keyframes lamp-run-sweep { 0% { background-position: 0 0 } 100% { background-position: 24px 0 } }
+@keyframes lamp-spin { to { transform: rotate(360deg) } }
+@keyframes lamp-energy-travel { 0% { offset-distance: 0% } 100% { offset-distance: 100% } }
+@keyframes lamp-ring-breathe { 0%,100% { box-shadow: 0 0 0 0 var(--energy-glow) } 50% { box-shadow: 0 0 0 6px var(--energy-glow) } }
+@keyframes lamp-skeleton { 0% { opacity: 0.5 } 50% { opacity: 1 } 100% { opacity: 0.5 } }
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-bond: 180ms; /* @kind other */
+    --duration-ceremonial: 180ms; /* @kind other */
+    --duration-slow: 180ms; /* @kind other */
+    --duration-medium: 150ms; /* @kind other */
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+  }
+}

@@ -1,0 +1,57 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Data & visualization" subtitle="Metrics, charts, hive heatmap, tables, usage meters" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Data & visualization</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { MetricCard, Sparkline, ChartFrame, LineChart, BarChart, DonutChart, ScatterPlot, Heatmap, HexHeatmap, Viz, ProgressBar, UsageMeter, DataTable, StatusBadge, Button, SearchInput, EmptyState } = L;
+const days=['1','5','10','15','20','25','30'];
+const runs=[18,24,21,32,28,41,38];
+const sim=[20,22,24,28,30,34,36];
+const cells=[];for(let c=0;c<7;c++)for(let r=0;r<3;r++)cells.push({col:c,row:r,value:Math.round(Math.abs(Math.sin(c*1.3+r))*40),label:'Agent '+(c*3+r+1)});
+const matrix=[[2,5,9,14,20,12,6],[1,3,7,11,18,9,4],[0,2,4,8,12,6,2]];
+function Demo(){return <div className="col">
+ <div className="row" style={{gap:12}}>
+  <MetricCard label="Automation rate" value="94.2" unit="%" delta="+2.1%" deltaLabel="vs last 7 days" />
+  <MetricCard label="Runs today" value="412" delta="+38" spark={<Sparkline data={runs} />} />
+  <MetricCard label="Cost per outcome" value="$0.14" delta="-9%" deltaTone="positive" deltaLabel="vs last 7 days" />
+  <MetricCard label="Human touches" value="11" delta="+3" deltaTone="negative" deltaLabel="more than usual" />
+ </div>
+ <div className="g2">
+  <ChartFrame title="Runs per day" subtitle="Last 30 days" legendVariant="line" legend={[{label:'Live'},{label:'Simulation',color:'var(--dataviz-2)',dashed:true}]} footnote="Dashed line is the simulation baseline.">
+   <LineChart variant="area" height={140} labels={days} series={[{data:runs},{data:sim,color:'var(--dataviz-2)',dashed:true}]} thresholds={[{value:40}]} />
+  </ChartFrame>
+  <ChartFrame title="Cost by Playbook" subtitle="Last 7 days">
+   <BarChart height={140} orientation="horizontal" showValues labels={['Vendor payment','Month-end close','Reconciliation','Onboarding']} series={[{data:[42,28,19,7]}]} format={(v)=>'$'+v} />
+  </ChartFrame>
+  <ChartFrame title="Agent workload" subtitle="Runs today · Finance Genie" footnote="One hexagon per Agent slot.">
+   <HexHeatmap cells={cells} size={30} />
+  </ChartFrame>
+  <div className="g2" style={{gridTemplateColumns:'1fr 1fr',gap:12}}>
+   <ChartFrame title="Automated"><DonutChart size={116} centerValue="94%" centerLabel="automated" data={[{value:94},{value:6,color:'var(--dataviz-neutral-4)'}]} /></ChartFrame>
+   <ChartFrame title="Cache"><DonutChart size={116} gauge max={100} centerValue="62%" centerLabel="cache hit" data={[{value:62,color:'var(--dataviz-3)'}]} /></ChartFrame>
+  </div>
+  <ChartFrame title="Tool reliability" subtitle="Failures by hour"><Heatmap rows={['Salesforce','SAP','Drive']} columns={['00','04','08','12','16','20','24']} values={matrix} ramp="risk" cellSize={16} /></ChartFrame>
+  <ChartFrame title="Automation potential" subtitle="Observed processes">
+   <ScatterPlot height={140} xLabel="Frequency / month" quadrant={{x:40,y:20}} points={[{x:62,y:34,r:5},{x:18,y:12},{x:44,y:28,r:4},{x:12,y:31},{x:71,y:9,r:6},{x:30,y:18}]} />
+  </ChartFrame>
+ </div>
+ <div className="g2" style={{gridTemplateColumns:'1fr 1fr'}}>
+  <div className="col"><div className="lbl">Usage and progress</div><UsageMeter label="Tokens this month" used={812400} limit={1000000} footnote="Resets 1 Oct" /><UsageMeter label="Seats" used={18} limit={20} /><ProgressBar value={62} /><ProgressBar indeterminate /></div>
+  <ChartFrame title="Empty and loading" state="empty" emptyLabel="No runs in this range" />
+ </div>
+ <div className="lbl">Table — compact, no stripes</div>
+ <DataTable density="compact" selectable selected={['r2']} rowKey={(r)=>r.id}
+  toolbar={<><SearchInput size="sm" placeholder="Search runs" /><span style={{flex:1}} /><Button size="sm" variant="secondary" icon="download">Export</Button></>}
+  bulkActions={<><Button size="xs" variant="secondary" icon="replay">Retry</Button><Button size="xs" variant="quiet">Clear</Button></>}
+  columns={[{key:'id',header:'Run',mono:true,pinned:true},{key:'playbook',header:'Playbook',sortable:true},{key:'status',header:'Status',render:(r)=><StatusBadge status={r.status} />},{key:'dur',header:'Duration',align:'right',mono:true},{key:'cost',header:'Cost',align:'right',mono:true,sortable:true}]}
+  sort={{key:'cost',dir:'desc'}}
+  rows={[{id:'run_8f21c4',playbook:'Vendor payment',status:'error',dur:'6.2s',cost:'$0.14'},{id:'run_8f20a1',playbook:'Month-end close',status:'success',dur:'12.8s',cost:'$0.31'},{id:'run_8f1f77',playbook:'Reconciliation',status:'needsHuman',dur:'2.1s',cost:'$0.04'},{id:'run_8f1e02',playbook:'Vendor payment',status:'success',dur:'5.9s',cost:'$0.12'}]} />
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

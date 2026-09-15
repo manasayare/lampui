@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Chat" subtitle="Hexagonal crew, visible work, evidence pills, decisions in the thread" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Chat</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { AgentChat, ChatStatus, ChatMessage, ChatComposer, ChatDayDivider, ChatActivity, ChatCitation, ApprovalCard, MemoryFact, Badge, Button, CodeFrame, EnvironmentPill } = L;
+function Demo(){
+ const [v,setV]=React.useState('');
+ const [working,setWorking]=React.useState(true);
+ return <div style={{height:530}}>
+  <AgentChat title="Vendor payment · INV-20418" scope="Finance Genie" environment="Live"
+   crew={[{name:'Invoice Matcher',initials:'IM'},{name:'Vendor Verifier',initials:'VV',state:'acting'},{name:'Payment Approver',initials:'PA'},{name:'Ledger Sync',initials:'LS',state:'failed'}]}
+   actions={<Button size="sm" variant="quiet" icon="open_in_new">Open run</Button>}
+   status={working
+     ? <ChatStatus state="working" author="Vendor Verifier" action="is checking SAP for a revised purchase order" tokens="1,204 tokens" onStop={()=>setWorking(false)} onInspect={()=>{}} />
+     : <ChatStatus state="idle" detail="Stopped by you. Nothing is running." />}
+   composer={<ChatComposer value={v} onChange={setV} onSend={()=>setV('')} scope="Finance Genie"
+     quickReplies={[{label:'Approve ₹184,200',icon:'check',tone:'primary'},{label:'Ask for the revised PO'},{label:'Reject',tone:'danger'}]}
+     onAttach={()=>{}} onVoice={()=>{}} />}>
+   <ChatDayDivider label="Today" />
+   <ChatMessage role="system" timestamp="13:58">Vendor payment started from the 06:00 schedule. 4 invoices in this batch.</ChatMessage>
+   <ChatMessage role="agent" author="Invoice Matcher" roleLabel="Specialist" initials="IM" timestamp="14:01"
+     activity={[{kind:'tool',label:'Google Drive',duration:'1.2s'},{kind:'skill',label:'Extract'},{kind:'memory',label:'Playbook memory'}]}
+     citations={[{index:1,source:'Drive · INV-20418.pdf'}]} onInspect={()=>{}} onCopy={()=>{}}>
+     Invoice INV-20418 from Meridian Supplies came in at ₹184,200 and matches PO-9921.
+   </ChatMessage>
+   <ChatMessage role="agent" author="Vendor Verifier" roleLabel="Specialist" initials="VV" timestamp="14:02" state="acting"
+     activity={[{kind:'tool',label:'SAP',duration:'0.9s'},{kind:'memory',label:'Genie memory'},{kind:'tool',label:'Salesforce',state:'failed',detail:'Credentials expired'}]}
+     citations={[{index:2,source:'SAP · PO-9921'},{index:3,source:'Genie memory'}]} streaming
+     attachment={<MemoryFact type="exception" scope="playbook" confidence="medium" evidenceCount={9} fact="Meridian invoices arrive without a PO reference in about one case in five." source="Invoice history" />}>
+     The PO total is ₹180,000, so the invoice is ₹4,200 higher. I have not paid anything. Salesforce would not confirm the banking details
+   </ChatMessage>
+   <ChatMessage role="tool" author="SAP" timestamp="14:02">GET /purchase-orders/9921 → 200 · total=180000</ChatMessage>
+   <ChatMessage role="agent" author="Payment Approver" roleLabel="Human-supervised" initials="PA" timestamp="14:03"
+     activity={[{kind:'human',label:'Checkpoint · above limit'}]}
+     attachment={<ApprovalCard tone="financial" question="Approve payment to Meridian Supplies?" amount="₹184,200" requestedBy="Payment Approver"
+       facts={[{label:'Invoice',value:'INV-20418'},{label:'Matched PO',value:'PO-9921'},{label:'Difference',value:'+₹4,200'},{label:'Your limit',value:'₹250,000'}]}
+       onApprove={()=>{}} onEdit={()=>{}} onReject={()=>{}} />}>
+     ₹184,200 is above my authority limit of ₹50,000, so this needs you.
+   </ChatMessage>
+   <ChatMessage role="user" initials="AR" timestamp="14:04" status="Delivered">Where did the extra ₹4,200 come from?</ChatMessage>
+   <ChatMessage role="user" initials="AR" timestamp="14:04" grouped status="failed" onRetry={()=>{}}>And who signed off the revision?</ChatMessage>
+  </AgentChat>
+ </div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

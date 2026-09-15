@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Dashboard" subtitle="shadcn-shaped page header, cards, grids and stat rows" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Dashboard</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { DashboardPage, PageHeader, SectionHeader, DashboardCard, DashboardGrid, StatGrid, MetricCard, Sparkline, ChartFrame, LineChart, BarChart, DataTable, StatusBadge, Button, IconButton, Badge, EnvironmentPill, ToolRow, FilterBar, Select, UsageMeter } = L;
+const days=['1','5','10','15','20','25','30'];
+function Demo(){return <DashboardPage flush
+ header={<PageHeader title="Finance Genie" description="Vendor payments, reconciliation and month-end close."
+  meta={<><EnvironmentPill environment="live" /><Badge outline icon="hexagon">23 Agents</Badge><Badge outline icon="layers">6 Playbooks</Badge><span style={{fontSize:11,color:'var(--text-tertiary)',fontFamily:'var(--font-mono)'}}>updated 12s ago</span></>}
+  actions={<><Button size="sm" variant="secondary" icon="science">Simulate</Button><Button size="sm" variant="brand" icon="bolt">Go live</Button><IconButton icon="more_horiz" label="More" size="lg" bordered /></>} />}
+ toolbar={<FilterBar activeCount={1} onClear={()=>{}}><Select size="sm" options={['Last 7 days','Last 30 days','This quarter']} /><Select size="sm" options={['All Playbooks','Vendor payment','Month-end close']} /></FilterBar>}>
+ <StatGrid>
+  <MetricCard label="Runs today" value="412" delta="+38" deltaLabel="vs yesterday" spark={<Sparkline data={[18,24,21,32,28,41,38]} />} />
+  <MetricCard label="Automation rate" value="94.2" unit="%" delta="+2.1%" deltaLabel="vs last 7 days" />
+  <MetricCard label="Cost per outcome" value="$0.14" delta="-9%" deltaTone="positive" deltaLabel="vs last 7 days" />
+  <MetricCard label="Human touches" value="11" delta="+3" deltaTone="negative" deltaLabel="more than usual" />
+ </StatGrid>
+ <SectionHeader title="Execution" actions={<Button size="xs" variant="quiet">View all runs</Button>} />
+ <DashboardGrid columns={3}>
+  <DashboardCard title="Outcomes" description="Last 30 days · Live only" span={2} footer="Failures are dominated by expired Salesforce credentials.">
+   <ChartFrame flush legend={[{label:'Success',color:'var(--dataviz-3)'},{label:'Needs human',color:'var(--dataviz-4)'},{label:'Failed',color:'var(--chart-failure)'}]}>
+    <BarChart height={132} stacked labels={days} series={[{data:[280,310,296,340,352,380,396],color:'var(--dataviz-3)'},{data:[14,11,18,9,12,8,11],color:'var(--dataviz-4)'},{data:[3,2,5,2,4,3,6],color:'var(--chart-failure)'}]} />
+   </ChartFrame>
+  </DashboardCard>
+  <DashboardCard title="Cost trend" description="Per run" actions={<IconButton icon="more_horiz" label="More" size="sm" />}>
+   <ChartFrame flush><LineChart height={132} variant="area" labels={days} series={[{data:[0.19,0.18,0.17,0.16,0.15,0.14,0.14]}]} thresholds={[{value:0.2}]} format={(v)=>'$'+v} /></ChartFrame>
+  </DashboardCard>
+ </DashboardGrid>
+ <DashboardGrid columns={2}>
+  <DashboardCard title="Recent runs" description="Across all Playbooks" flush>
+   <DataTable density="compact" columns={[{key:'id',header:'Run',mono:true},{key:'playbook',header:'Playbook'},{key:'status',header:'Status',render:(r)=><StatusBadge status={r.status} />},{key:'cost',header:'Cost',align:'right',mono:true}]}
+    rows={[{id:'run_8f21c4',playbook:'Vendor payment',status:'error',cost:'$0.14'},{id:'run_8f20a1',playbook:'Month-end close',status:'success',cost:'$0.31'},{id:'run_8f1f77',playbook:'Reconciliation',status:'needsHuman',cost:'$0.04'}]} />
+  </DashboardCard>
+  <DashboardCard title="Tool health" footer="8 of 9 Tools healthy" actions={<Badge tone="warning" icon="warning">1 degraded</Badge>} flush>
+   <ToolRow provider="sap" name="SAP" account="northwind-prod" state="connected" permission="Write" health="99.4%" />
+   <ToolRow provider="salesforce" name="Salesforce" account="finance@northwind.com" state="expired" permission="Write" health="—" />
+   <ToolRow provider="whatsapp" name="WhatsApp Business" account="+91 ••• 4821" state="degraded" permission="Write" health="92.1%" />
+   <div style={{padding:12}}><UsageMeter label="Tool calls this month" used={41200} limit={50000} /></div>
+  </DashboardCard>
+ </DashboardGrid>
+</DashboardPage>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

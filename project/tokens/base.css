@@ -1,0 +1,35 @@
+/* ============================================================
+   LAMP — BASE
+   Minimal element defaults. Components style themselves via tokens.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box }
+
+body {
+  margin: 0;
+  background: var(--surface-canvas);
+  color: var(--text-primary);
+  font: var(--font-weight-regular) var(--font-size-body)/var(--line-height-body) var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--text-link); text-decoration: none; border-bottom: 1px solid transparent; transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard) }
+a:hover { color: var(--text-link-hover); border-bottom-color: currentColor }
+
+:focus { outline: none }
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm) }
+
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: var(--font-size-mono) }
+::selection { background: var(--gold-200); color: var(--neutral-900) }
+[data-theme="dark"] ::selection { background: var(--gold-800); color: var(--neutral-50) }
+
+hr { border: none; border-top: 1px solid var(--border-subtle); margin: var(--space-4) 0 }
+
+::-webkit-scrollbar { width: 10px; height: 10px }
+::-webkit-scrollbar-track { background: transparent }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: var(--radius-round); border: 3px solid transparent; background-clip: content-box }
+::-webkit-scrollbar-thumb:hover { background: var(--neutral-400); background-clip: content-box; border: 3px solid transparent }
+
+.lamp-tabular { font-variant-numeric: tabular-nums }
+.lamp-canvas-surface { background-color: var(--canvas-background); background-image: radial-gradient(var(--canvas-grid) 1px, transparent 1px); background-size: var(--canvas-grid-major-spacing) var(--canvas-grid-major-spacing) }

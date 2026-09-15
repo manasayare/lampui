@@ -1,0 +1,28 @@
+/**
+ * @startingPoint section="Canvas" subtitle="Canvas surface with subtle grid and environment framing" viewport="900x520"
+ */
+export interface CanvasSurfaceProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** dots (8px minor) · dots-major (32px) · lines · plain. Downgrades automatically below 50% and 30% zoom. */
+  grid?: 'dots' | 'dots-major' | 'lines' | 'plain';
+  /** Scales the world layer and drives grid + semantic-zoom decisions. */
+  zoom?: number;
+  /** Adds the inset environment frame: blue in simulation, gold when live, red when stopped. */
+  environment?: 'draft' | 'simulation' | 'live' | 'killed';
+  state?: 'idle' | 'panning' | 'zooming' | 'dragging' | 'marquee';
+  locked?: boolean;
+  readOnly?: boolean;
+  /** EmptyState shown when the canvas holds nothing. */
+  empty?: React.ReactNode;
+  /** Marquee rect as CSS box values. */
+  marquee?: { left: number; top: number; width: number; height: number };
+  /** Alignment guides: { axis: 'x'|'y', at: number }. */
+  guides?: Array<{ axis: 'x' | 'y'; at: number }>;
+}
+export declare function CanvasSurface(props: CanvasSurfaceProps): JSX.Element;
+export interface SnapGuideProps {
+  rect: { left: number; top: number; width: number; height: number };
+  invalid?: boolean;
+  /** snap = dashed gold outline at the snap slot · drop = filled drop preview */
+  kind?: 'snap' | 'drop';
+}
+export declare function SnapGuide(props: SnapGuideProps): JSX.Element;

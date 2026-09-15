@@ -1,0 +1,26 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Core primitives" subtitle="Buttons, statuses, badges, tags, environment pills" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Core primitives</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { Button, SplitButton, IconButton, Badge, StatusBadge, StatusDot, Tag, EnvironmentPill, Kbd, Divider } = L;
+function Demo(){return <div className="col">
+ <div className="lbl">Buttons — graphite primary, gold only for Live, red for stop</div>
+ <div className="row"><Button variant="primary" icon="play_arrow">Run simulation</Button><Button variant="brand" icon="bolt">Go live</Button><Button variant="secondary">Cancel</Button><Button variant="ghost" icon="add">New Agent</Button><Button variant="quiet">Skip</Button><Button variant="danger" icon="dangerous">Emergency stop</Button><Button variant="danger-quiet" icon="pause">Pause</Button></div>
+ <div className="row"><Button size="xs">xs 24</Button><Button size="sm">sm 28</Button><Button size="md">md 32</Button><Button size="lg">lg 40</Button><Button loading>Saving</Button><Button disabled>Disabled</Button><SplitButton variant="secondary" icon="download">Export</SplitButton></div>
+ <div className="lbl">Icon buttons</div>
+ <div className="row"><IconButton icon="close" label="Close" size="xs" /><IconButton icon="more_horiz" label="More" size="sm" /><IconButton icon="pan_tool" label="Pan" bordered /><IconButton icon="link" label="Bond" bordered active /><IconButton icon="delete" label="Delete" tone="danger" /><Divider orientation="vertical" /><Kbd keys={['Cmd','K']} /><Kbd>S</Kbd></div>
+ <div className="lbl">Status — colour + icon + text, one system</div>
+ <div className="row"><StatusBadge status="draft" /><StatusBadge status="observed" /><StatusBadge status="inferred" /><StatusBadge status="simulation" /><StatusBadge status="validated" /><StatusBadge status="live" /><StatusBadge status="running" /><StatusBadge status="needsHuman" /><StatusBadge status="attention" /><StatusBadge status="paused" /><StatusBadge status="error" /><StatusBadge status="killed" /></div>
+ <div className="row"><StatusBadge status="running" mode="label" /><StatusDot status="live" pulse /><StatusDot status="error" size="lg" /><Badge tone="memory" micro>Policy</Badge><Badge tone="warning" icon="report">3 exceptions</Badge><Badge count tone="danger">7</Badge><Tag icon="folder">Finance</Tag><Tag mono>run_8f21…c4</Tag></div>
+ <div className="lbl">Environment</div>
+ <div className="row"><EnvironmentPill environment="draft" /><EnvironmentPill environment="simulation" scope="Finance Genie" /><EnvironmentPill environment="live" /><EnvironmentPill environment="paused" /><EnvironmentPill environment="killed" /></div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

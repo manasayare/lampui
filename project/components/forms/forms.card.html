@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Forms" subtitle="Inputs, selection, technical editors, field messaging" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Forms</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { Field, TextInput, SearchInput, NumberInput, SecretField, Textarea, Select, Checkbox, Radio, RadioGroup, Switch, Slider, TagInput, KeyValueInput, PromptEditor, VariableToken, CodeFrame } = L;
+function Demo(){const [v,setV]=React.useState('approve');const [s,setS]=React.useState(82);const [t,setT]=React.useState(['finance','vendors']);
+return <div className="col">
+ <div className="g2">
+  <Field label="Agent name" description="How this Agent appears on the canvas."><TextInput defaultValue="Invoice Matcher" /></Field>
+  <Field label="Authority limit" required error="Must be below the Genie limit of ₹250,000."><NumberInput defaultValue={500000} suffix="INR" state="error" /></Field>
+  <Field label="Search"><SearchInput shortcut="/" placeholder="Search LAMP" /></Field>
+  <Field label="Permission" optional><Select options={['Read','Write','Admin']} defaultValue="Write" /></Field>
+  <Field label="API credential" helper="Rotates every 90 days."><SecretField value="sk_live_8f21c4d9" expiring /></Field>
+  <Field label="Confidence threshold"><Slider min={0} max={100} value={s} onChange={setS} format={(x)=>x+'%'} /></Field>
+ </div>
+ <div className="lbl">Selection</div>
+ <div className="rowt"><div className="col"><Checkbox label="Require human approval above limit" description="Escalates to the Playbook owner." defaultChecked /><Checkbox label="Indeterminate" indeterminate /><Checkbox label="Disabled" disabled /></div>
+ <RadioGroup name="d" value={v} onChange={setV} options={[{value:'approve',label:'Approve and continue'},{value:'edit',label:'Edit before approving',description:'Opens the payload for correction.'}]} />
+ <div className="col"><Switch label="Allow delegation" defaultChecked /><Switch label="External writes" tone="brand" /></div></div>
+ <div className="lbl">Technical inputs</div>
+ <div className="g2"><TagInput values={t} onChange={setT} mono placeholder="Add scope" /><KeyValueInput rows={[{key:'X-Region',value:'ap-south-1'}]} onChange={()=>{}} /></div>
+ <PromptEditor tokens={['vendor.name','invoice.total']} footer={<span style={{fontSize:11,color:'var(--text-tertiary)'}}>Uses Playbook memory · 402 tokens</span>}>
+  Match the invoice to <VariableToken name="vendor.name" /> then verify the total against <VariableToken name="sap.record" kind="entity" /> before approval. Escalate if <VariableToken name="threshold" kind="missing" /> is unset.
+ </PromptEditor>
+ <CodeFrame language="json" title="Tool response" maxHeight={90}>{'{\n  "po": "PO-9921",\n  "matched": true,\n  "delta": 0\n}'}</CodeFrame>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

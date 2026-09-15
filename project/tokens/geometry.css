@@ -1,0 +1,52 @@
+/* ============================================================
+   LAMP — RADIUS, BORDER, OBJECT GEOMETRY
+   Restrained radii. Agents are hexagonal and inherit no radius.
+   ============================================================ */
+
+:root {
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-round: 999px;
+
+  --radius-control: var(--radius-md);
+  --radius-input: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-panel: var(--radius-lg);
+  --radius-dialog: var(--radius-xl);
+  --radius-pill: var(--radius-round);
+  --radius-tag: var(--radius-sm);
+
+  --border-width-hairline: 1px;
+  --border-width-emphasis: 1.5px;
+  --border-width-strong: 2px;
+
+  --opacity-disabled: 0.40; /* @kind other */
+  --opacity-secondary: 0.70; /* @kind other */
+  --opacity-tertiary: 0.55; /* @kind other */
+  --opacity-overlay: 0.72; /* @kind other */
+  --opacity-scrim: 0.56; /* @kind other */
+
+  --z-base: 0; /* @kind other */
+  --z-canvas-object: 10; /* @kind other */
+  --z-canvas-overlay: 20; /* @kind other */
+  --z-panel: 100; /* @kind other */
+  --z-sticky: 200; /* @kind other */
+  --z-popover: 300; /* @kind other */
+  --z-menu: 400; /* @kind other */
+  --z-dialog: 500; /* @kind other */
+  --z-toast: 600; /* @kind other */
+  --z-critical: 700; /* @kind other */
+
+  /* icons */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 14px;
+  --icon-size-md: 16px;
+  --icon-size-lg: 18px;
+  --icon-size-xl: 20px;
+  --icon-size-2xl: 24px;
+  --icon-stroke: 1.75; /* @kind other */
+}

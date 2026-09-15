@@ -1,0 +1,33 @@
+/* LAMP — dashboard surfaces (shadcn/ui structure, LAMP tokens) */
+.lamp-page{display:flex;flex-direction:column;gap:16px;padding:20px;min-height:0;overflow:auto}
+.lamp-page--flush{padding:0}
+.lamp-pagehead{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.lamp-pagehead__titles{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.lamp-pagehead__title{margin:0;font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.02em;color:var(--text-primary)}
+.lamp-pagehead__desc{margin:0;font-size:13px;line-height:18px;color:var(--text-tertiary);text-wrap:pretty}
+.lamp-pagehead__actions{display:flex;align-items:center;gap:6px;flex:none}
+.lamp-pagehead__meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:1px}
+
+.lamp-dcard{display:flex;flex-direction:column;background:var(--surface-primary);border:1px solid var(--border-default);border-radius:var(--radius-card);min-width:0}
+.lamp-dcard--raised{box-shadow:var(--shadow-1)}
+.lamp-dcard__head{display:flex;align-items:flex-start;gap:8px;padding:14px 14px 0}
+.lamp-dcard__titles{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lamp-dcard__title{margin:0;font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary)}
+.lamp-dcard__desc{margin:0;font-size:12px;line-height:16px;color:var(--text-tertiary)}
+.lamp-dcard__actions{display:flex;align-items:center;gap:4px;flex:none}
+.lamp-dcard__content{padding:12px 14px 14px;min-width:0}
+.lamp-dcard__content--flush{padding:0}
+.lamp-dcard__foot{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--border-subtle);font-size:12px;color:var(--text-tertiary)}
+
+.lamp-grid{display:grid;gap:12px;min-width:0}
+.lamp-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lamp-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lamp-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lamp-grid--stats{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+@media (max-width:1100px){.lamp-grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}.lamp-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.lamp-grid--2,.lamp-grid--3,.lamp-grid--4{grid-template-columns:minmax(0,1fr)}}
+
+.lamp-section{display:flex;align-items:center;gap:8px;padding-bottom:2px}
+.lamp-section__title{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.lamp-section__rule{flex:1;border-top:1px solid var(--border-subtle)}
+.lamp-section__actions{display:flex;gap:4px}

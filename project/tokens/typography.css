@@ -1,0 +1,55 @@
+/* ============================================================
+   LAMP — TYPOGRAPHY
+   One family (Geist Sans) + one mono (Geist Mono). Scale and weight
+   carry hierarchy; no third family, no light weights in UI.
+   ============================================================ */
+
+:root {
+  --font-weight-regular: 400; /* @kind other */
+  --font-weight-medium: 500; /* @kind other */
+  --font-weight-semibold: 600; /* @kind other */
+  --font-weight-bold: 700; /* @kind other */
+
+  --font-size-display: 40px;   --line-height-display: 44px;
+  --font-size-h1: 32px;        --line-height-h1: 38px;
+  --font-size-h2: 24px;        --line-height-h2: 30px;
+  --font-size-h3: 20px;        --line-height-h3: 26px;
+  --font-size-h4: 16px;        --line-height-h4: 22px;
+  --font-size-body-lg: 16px;   --line-height-body-lg: 24px;
+  --font-size-body: 14px;      --line-height-body: 20px;
+  --font-size-body-sm: 13px;   --line-height-body-sm: 18px;
+  --font-size-label: 13px;     --line-height-label: 16px;
+  --font-size-label-sm: 12px;  --line-height-label-sm: 16px;
+  --font-size-caption: 11px;   --line-height-caption: 16px;
+  --font-size-micro: 10px;     --line-height-micro: 14px;
+  --font-size-mono: 12px;      --line-height-mono: 18px;
+  --font-size-mono-sm: 11px;   --line-height-mono-sm: 16px;
+  --font-size-metric-xl: 28px; --line-height-metric-xl: 32px;
+  --font-size-metric: 18px;    --line-height-metric: 24px;
+  --font-size-metric-sm: 14px; --line-height-metric-sm: 20px;
+
+  --tracking-heading: -0.02em; /* @kind other */
+  --tracking-body: 0; /* @kind other */
+  --tracking-label: -0.005em; /* @kind other */
+  --tracking-micro-caps: 0.06em; /* @kind other */
+  --tracking-mono: 0; /* @kind other */
+}
+
+/* Text style utilities — components may use these or set properties directly. */
+.lamp-display { font: var(--font-weight-semibold) var(--font-size-display)/var(--line-height-display) var(--font-sans); letter-spacing: var(--tracking-heading); }
+.lamp-h1 { font: var(--font-weight-semibold) var(--font-size-h1)/var(--line-height-h1) var(--font-sans); letter-spacing: var(--tracking-heading); }
+.lamp-h2 { font: var(--font-weight-semibold) var(--font-size-h2)/var(--line-height-h2) var(--font-sans); letter-spacing: var(--tracking-heading); }
+.lamp-h3 { font: var(--font-weight-semibold) var(--font-size-h3)/var(--line-height-h3) var(--font-sans); letter-spacing: var(--tracking-heading); }
+.lamp-h4 { font: var(--font-weight-semibold) var(--font-size-h4)/var(--line-height-h4) var(--font-sans); letter-spacing: var(--tracking-heading); }
+.lamp-body-lg { font: var(--font-weight-regular) var(--font-size-body-lg)/var(--line-height-body-lg) var(--font-sans); }
+.lamp-body { font: var(--font-weight-regular) var(--font-size-body)/var(--line-height-body) var(--font-sans); }
+.lamp-body-sm { font: var(--font-weight-regular) var(--font-size-body-sm)/var(--line-height-body-sm) var(--font-sans); }
+.lamp-label { font: var(--font-weight-medium) var(--font-size-label)/var(--line-height-label) var(--font-sans); letter-spacing: var(--tracking-label); }
+.lamp-label-sm { font: var(--font-weight-medium) var(--font-size-label-sm)/var(--line-height-label-sm) var(--font-sans); letter-spacing: var(--tracking-label); }
+.lamp-caption { font: var(--font-weight-regular) var(--font-size-caption)/var(--line-height-caption) var(--font-sans); }
+.lamp-micro { font: var(--font-weight-medium) var(--font-size-micro)/var(--line-height-micro) var(--font-sans); letter-spacing: var(--tracking-micro-caps); text-transform: uppercase; }
+.lamp-mono { font: var(--font-weight-regular) var(--font-size-mono)/var(--line-height-mono) var(--font-mono); }
+.lamp-mono-sm { font: var(--font-weight-regular) var(--font-size-mono-sm)/var(--line-height-mono-sm) var(--font-mono); }
+.lamp-metric-xl { font: var(--font-weight-medium) var(--font-size-metric-xl)/var(--line-height-metric-xl) var(--font-sans); letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
+.lamp-metric { font: var(--font-weight-medium) var(--font-size-metric)/var(--line-height-metric) var(--font-sans); font-variant-numeric: tabular-nums; }
+.lamp-metric-sm { font: var(--font-weight-medium) var(--font-size-metric-sm)/var(--line-height-metric-sm) var(--font-sans); font-variant-numeric: tabular-nums; }

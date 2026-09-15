@@ -1,0 +1,72 @@
+/* ============================================================
+   LAMP — SPACE & DENSITY
+   4px base grid. Builder surfaces default to compact/default.
+   ============================================================ */
+
+:root {
+  --space-0: 0px;
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* rhythm */
+  --rhythm-internal: 8px;
+  --rhythm-component: 16px;
+  --rhythm-section: 24px;
+  --rhythm-structural: 32px;
+
+  /* control heights — desktop first */
+  --control-height-xs: 24px;
+  --control-height-sm: 28px;
+  --control-height-md: 32px;
+  --control-height-lg: 40px;
+
+  --header-height: 48px;
+  --toolbar-height: 40px;
+  --statusbar-height: 28px;
+  --row-height-nav: 32px;
+  --row-height-inspector: 32px;
+  --row-height-table-compact: 32px;
+  --row-height-table-default: 40px;
+  --row-height-table-comfortable: 48px;
+
+  /* panel widths */
+  --sidebar-width: 240px;
+  --sidebar-width-collapsed: 48px;
+  --inspector-width: 320px;
+  --inspector-width-wide: 400px;
+  --inspector-width-min: 280px;
+  --inspector-width-max: 480px;
+  --runtime-drawer-width: 360px;
+  --modal-width-sm: 400px;
+  --modal-width-md: 560px;
+  --modal-width-lg: 720px;
+
+  /* density multipliers — set --density on a subtree */
+  --density-pad-compact: 8px;
+  --density-pad-default: 12px;
+  --density-pad-comfortable: 16px;
+  --density-pad: var(--density-pad-default);
+}
+
+[data-density="compact"] {
+  --density-pad: var(--density-pad-compact);
+  --row-height-table-default: var(--row-height-table-compact);
+  --control-height-md: 28px;
+}
+[data-density="comfortable"] {
+  --density-pad: var(--density-pad-comfortable);
+  --row-height-table-default: var(--row-height-table-comfortable);
+  --control-height-md: 40px;
+}

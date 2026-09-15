@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Operations console" description="LAMP run history, metrics and run inspector — the live operating surface" -->
+<helmet><script src="./ds-base.js"></script><style>html,body{margin:0;height:100%}body{overflow:hidden;background:var(--surface-canvas)}</style></helmet>
+<div style="display:grid;grid-template-rows:48px 32px 1fr 28px;height:100vh;font-family:var(--font-sans);color:var(--text-primary);background:var(--surface-canvas)">
+<header style="display:flex;align-items:center;gap:10px;padding:0 8px 0 12px;border-bottom:1px solid var(--border-default);background:var(--surface-primary)">
+<span style="font-size:14px;font-weight:600;letter-spacing:0.1em">LAMP</span>
+<span style="width:1px;height:16px;background:var(--border-subtle);margin:0 2px"></span>
+<nav style="display:flex;align-items:center;gap:4px;font-size:13px;color:var(--text-secondary)"><span>Northwind</span><span style="color:var(--text-disabled)">/</span><span>Operations LAMP</span><span style="color:var(--text-disabled)">/</span><span style="color:var(--text-primary);font-weight:500">Runs</span></nav>
+<span style="margin-left:auto;display:flex;align-items:center;gap:8px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.LiveActivityIndicator" mode="live" count="{{ activeRuns }}" hint-size="100px,20px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="secondary" size="sm" icon="pause" hint-size="94px,28px">Pause all</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="danger-quiet" size="sm" icon="dangerous" hint-size="140px,28px">Emergency stop</x-import>
+</span>
+</header>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.EnvironmentBanner" environment="live" scope="3 Genies" detail="23 Agents can act on the business." hint-size="100%,32px"></x-import>
+<div style="display:flex;min-height:0;overflow:hidden">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:16px;overflow:auto">
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.MetricCard" label="Runs today" value="412" delta="+38" deltaLabel="vs yesterday" hint-size="170px,90px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.MetricCard" label="Automation rate" value="94.2" unit="%" delta="+2.1%" deltaLabel="vs last 7 days" hint-size="170px,90px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.MetricCard" label="Cost per outcome" value="$0.14" delta="-9%" deltaDirection="down" deltaLabel="vs last 7 days" hint-size="170px,90px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.MetricCard" label="Failed runs" value="6" delta="+4" deltaDirection="up" deltaLabel="Salesforce auth" hint-size="170px,90px"></x-import>
+</div>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Viz" type="stackedBar" title="Execution outcomes" subtitle="Last 30 days · Live only" legend="{{ outcomeLegend }}" labels="{{ days }}" series="{{ outcomeSeries }}" height="{{ chartHeight }}" hint-size="100%,220px"></x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.DataTable" columns="{{ runColumns }}" rows="{{ runs }}" density="compact" hint-size="100%,260px"></x-import>
+</div>
+<aside style="width:400px;flex:none;border-left:1px solid var(--border-default);background:var(--surface-primary);display:flex;flex-direction:column;min-height:0">
+<div style="display:flex;align-items:flex-start;gap:8px;padding:10px;border-bottom:1px solid var(--border-subtle)">
+<div style="flex:1;min-width:0">
+<div style="font-size:14px;font-weight:600;letter-spacing:-0.01em">Vendor payment</div>
+<div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono)">run_8f21c4 · Finance Genie</div>
+<div style="margin-top:5px;display:flex;gap:4px"><x-import component-from-global-scope="LAMPDesignSystem_980d6d.StatusBadge" status="error" hint-size="60px,20px"></x-import></div>
+</div>
+</div>
+<div style="flex:1;min-height:0;overflow:auto">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Failure" collapsible="{{ no }}" hint-size="100%,190px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.ErrorState" title="Salesforce write failed" happened="The connection was rejected after 3 attempts." notHappened="No opportunity records were created or modified." impact="4 invoices are waiting in Vendor payment." recovery="Reconnect the Salesforce account, then retry the run." code="tool_auth_expired · run_8f21c4" hint-size="100%,180px"></x-import>
+</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Execution trace" collapsible="{{ no }}" hint-size="100%,240px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.RunTimeline" steps="{{ steps }}" hint-size="100%,230px"></x-import>
+</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.InspectorSection" label="Context used" count="3,412" hint-size="100%,200px">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.MemoryUsageBar" segments="{{ context }}" hint-size="100%,180px"></x-import>
+</x-import>
+</div>
+<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-top:1px solid var(--border-subtle)">
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="secondary" size="sm" icon="replay" hint-size="82px,28px">Replay</x-import>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.Button" variant="primary" size="sm" icon="refresh" hint-size="92px,28px">Retry run</x-import>
+</div>
+</aside>
+</div>
+<x-import component-from-global-scope="LAMPDesignSystem_980d6d.StatusBar" items="{{ statusItems }}" right="{{ statusRight }}" hint-size="100%,28px"></x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:800}}">
+class Component extends DCLogic {
+  renderVals() {
+    const L = window.LAMPDesignSystem_980d6d || {};
+    const { StatusBadge } = L;
+    const runs = [
+      { id: 'run_8f21c4', playbook: 'Vendor payment', genie: 'Finance', status: 'error', started: '06:00:02', dur: '6.2s', tokens: '3,412', cost: '$0.14' },
+      { id: 'run_8f20a1', playbook: 'Month-end close', genie: 'Finance', status: 'success', started: '05:58:41', dur: '12.8s', tokens: '8,104', cost: '$0.31' },
+      { id: 'run_8f1f77', playbook: 'Reconciliation', genie: 'Finance', status: 'needsHuman', started: '05:55:10', dur: '2.1s', tokens: '1,210', cost: '$0.04' },
+      { id: 'run_8f1e02', playbook: 'Ticket triage', genie: 'Customer Ops', status: 'success', started: '05:52:00', dur: '5.9s', tokens: '2,880', cost: '$0.12' },
+      { id: 'run_8f1d55', playbook: 'Vendor payment', genie: 'Finance', status: 'success', started: '05:49:33', dur: '5.4s', tokens: '3,180', cost: '$0.13' },
+    ];
+    return {
+      runs,
+      no: false,
+      activeRuns: 7,
+      chartHeight: 150,
+      days: ['1', '5', '10', '15', '20', '25', '30'],
+      outcomeLegend: [{ label: 'Success', color: 'var(--dataviz-3)' }, { label: 'Needs human', color: 'var(--dataviz-4)' }, { label: 'Failed', color: 'var(--chart-failure)' }],
+      outcomeSeries: [
+        { label: 'Success', data: [280, 310, 296, 340, 352, 380, 396], color: 'var(--dataviz-3)' },
+        { label: 'Needs human', data: [14, 11, 18, 9, 12, 8, 11], color: 'var(--dataviz-4)' },
+        { label: 'Failed', data: [3, 2, 5, 2, 4, 3, 6], color: 'var(--chart-failure)' },
+      ],
+      runColumns: [
+        { key: 'id', header: 'Run', mono: true, pinned: true, width: 116 },
+        { key: 'playbook', header: 'Playbook', sortable: true },
+        { key: 'genie', header: 'Genie' },
+        { key: 'status', header: 'Status', render: (r) => (StatusBadge ? React.createElement(StatusBadge, { status: r.status }) : r.status) },
+        { key: 'started', header: 'Started', mono: true, align: 'right' },
+        { key: 'dur', header: 'Duration', mono: true, align: 'right', sortable: true },
+        { key: 'tokens', header: 'Tokens', mono: true, align: 'right' },
+        { key: 'cost', header: 'Cost', mono: true, align: 'right', sortable: true },
+      ],
+      steps: [
+        { state: 'success', title: 'Invoice extracted', actor: 'Invoice Intake', tools: ['Google Drive'], duration: '1.2s', tokens: '812' },
+        { state: 'success', title: 'Matched to PO-9921', actor: 'Invoice Matcher', memory: 'Genie memory', duration: '0.6s' },
+        { state: 'warning', title: 'Vendor banking details differ', actor: 'Vendor Verifier', tools: ['Salesforce'], duration: '0.9s' },
+        { state: 'waitingHuman', title: 'Approval required', detail: 'Above the Agent authority limit.', actor: 'Payment Approver', duration: '42m' },
+        { state: 'failed', title: 'Salesforce write failed', detail: 'Credentials expired. No records were created.', actor: 'Ledger Sync', tools: ['Salesforce'], duration: '3.1s' },
+      ],
+      context: [
+        { key: 'agent', label: 'Agent working memory', value: 618 },
+        { key: 'playbook', label: 'Playbook memory', value: 402 },
+        { key: 'genie', label: 'Genie memory', value: 771 },
+        { key: 'lamp', label: 'LAMP memory', value: 340 },
+        { key: 'evidence', label: 'Retrieved evidence', value: 1281 },
+      ],
+      statusItems: [{ icon: 'bolt', label: 'Live' }, { label: 'Active runs', value: 7 }, { label: 'Queue', value: 3 }],
+      statusRight: [{ icon: 'cloud_done', label: 'Synced' }, { label: 'Tools', value: '8/9 healthy' }, { label: 'Today', value: '$58.40' }],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

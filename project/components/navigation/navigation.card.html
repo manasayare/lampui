@@ -1,0 +1,42 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Shell & navigation" subtitle="Header, object path, side nav, tree, tabs, status bar, palette" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Shell & navigation</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.lamp-palette{position:absolute}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { GlobalHeader, WorkspaceSwitcher, Breadcrumb, EnvironmentPill, Button, SideNav, NavSection, NavItem, ObjectTree, Tabs, SegmentedControl, StatusBar, FilterBar, Pagination, Select, Badge, CommandPalette } = L;
+const tree=[{id:'fin',label:'Finance Genie',icon:'hive',status:'live',children:[{id:'vp',label:'Vendor payment',icon:'layers',status:'live',meta:'9'},{id:'mc',label:'Month-end close',icon:'layers',status:'simulation'}]},{id:'sales',label:'Sales Genie',icon:'hive',status:'draft'}];
+function Demo(){const [tab,setTab]=React.useState('memory');const [view,setView]=React.useState('canvas');const [sel,setSel]=React.useState('vp');
+return <div className="col">
+ <div style={{border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden',background:'var(--surface-primary)'}}>
+  <GlobalHeader brand={<WorkspaceSwitcher name="Northwind Trading" subtitle="Operations LAMP" />}
+    center={<><Breadcrumb items={[{label:'Northwind'},{label:'Operations LAMP'},{label:'Finance Genie',icon:'hive'},{label:'Vendor payment'}]} /><EnvironmentPill environment="simulation" /></>}
+    right={<><Button size="sm" variant="secondary" icon="science" shortcut="S">Simulate</Button><Button size="sm" variant="brand" icon="bolt">Go live</Button></>} />
+  <StatusBar items={[{icon:'science',label:'Simulation'},{label:'Zoom',value:'80%'},{label:'Selected',value:3}]} right={[{icon:'cloud_done',label:'Synced'},{label:'Run cost',value:'$0.42'}]} />
+ </div>
+ <div className="g2" style={{gridTemplateColumns:'240px 1fr'}}>
+  <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',height:200,display:'flex'}}>
+   <SideNav footer={<NavItem icon="settings" label="Settings" />}>
+    <NavSection label="Operate"><NavItem icon="how_to_reg" label="Approvals" meta="7" active /><NavItem icon="history" label="Runs" /><NavItem icon="bolt" label="Activity" /></NavSection>
+    <NavSection label="Structure"><ObjectTree nodes={tree} selectedId={sel} onSelect={(n)=>setSel(n.id)} /></NavSection>
+   </SideNav>
+  </div>
+  <div className="col">
+   <Tabs value={tab} onChange={setTab} tabs={[{id:'purpose',label:'Purpose'},{id:'skills',label:'Skills',count:4},{id:'memory',label:'Memory',count:12},{id:'runtime',label:'Runtime'}]} />
+   <div className="row"><SegmentedControl value={view} onChange={setView} options={[{value:'canvas',icon:'grid_view',label:'Canvas'},{value:'table',icon:'table_rows',label:'Table'},{value:'chart',icon:'bar_chart',label:'Chart'}]} /><Badge outline>Compact</Badge></div>
+   <FilterBar activeCount={2} onClear={()=>{}} right={<Pagination page={1} pageCount={24} range="1–50 of 1,180" />}><Select size="sm" options={['All statuses','Failed','Waiting']} /><Select size="sm" options={['Last 7 days','Last 30 days']} /></FilterBar>
+   <div style={{position:'relative',height:128,border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden'}}>
+    <div style={{position:'absolute',inset:0,transform:'scale(.78)',transformOrigin:'top left',width:'128%'}}>
+     <CommandPalette open query="ven" groups={[{label:'Navigate',items:[{id:'1',label:'Vendor payment',icon:'layers',context:'Finance Genie'},{id:'2',label:'Vendor Verifier',icon:'hexagon',context:'Finance Genie / Vendor payment'}]},{label:'Safety',items:[{id:'3',label:'Emergency stop Finance Genie',icon:'dangerous',danger:true}]}]} activeId="1" />
+    </div>
+   </div>
+  </div>
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

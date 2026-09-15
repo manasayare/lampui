@@ -1,0 +1,85 @@
+/* LAMP — chat: the conversational operating surface.
+   Distinctive traits: hexagonal Agent identity, visible work (tool + memory chips),
+   provenance you can open, decisions inline in the thread, and an always-visible scope. */
+.lamp-chat{display:flex;flex-direction:column;min-height:0;height:100%;background:var(--surface-primary);border:1px solid var(--border-default);border-radius:var(--radius-panel);overflow:hidden}
+.lamp-chat--flush{border:none;border-radius:0}
+.lamp-chat__head{display:flex;align-items:center;gap:10px;flex:none;min-height:44px;padding:6px 8px 6px 12px;border-bottom:1px solid var(--border-subtle);background:var(--surface-primary)}
+.lamp-chat__id{display:flex;flex-direction:column;gap:1px;min-width:0}
+.lamp-chat__title{font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lamp-chat__scope{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-tertiary);white-space:nowrap}
+.lamp-chat__scope b{font-weight:500;color:var(--text-secondary)}
+.lamp-chat__crew{display:flex;align-items:center;margin-left:auto;padding-right:2px}
+.lamp-chat__crew>span{margin-left:-3px}
+.lamp-chat__crew>span:first-child{margin-left:0}
+.lamp-chat__actions{display:flex;align-items:center;gap:2px;flex:none}
+.lamp-chat__thread{flex:1;min-height:0;overflow:auto;padding:6px 0 10px;display:flex;flex-direction:column;gap:2px;scroll-behavior:smooth}
+.lamp-chat__day{display:flex;align-items:center;gap:8px;padding:10px 14px 6px}
+.lamp-chat__day::before,.lamp-chat__day::after{content:"";flex:1;border-top:1px solid var(--border-subtle)}
+.lamp-chat__day span{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
+
+.lamp-cm{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding:7px 14px;position:relative}
+.lamp-cm:hover{background:var(--surface-hover)}
+.lamp-cm:hover .lamp-cm__tools{opacity:1}
+.lamp-cm--grouped{padding-top:1px}
+.lamp-cm--grouped .lamp-cm__avatar,.lamp-cm--grouped .lamp-cm__meta{visibility:hidden;height:0}
+.lamp-cm--grouped .lamp-cm__meta{overflow:hidden;margin:0}
+.lamp-cm--acting{background:linear-gradient(90deg,var(--surface-selected) 0%,transparent 60%)}
+.lamp-cm--acting::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:2px;border-radius:0 2px 2px 0;background:var(--gold-500)}
+.lamp-cm--failed::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:2px;border-radius:0 2px 2px 0;background:var(--status-danger)}
+.lamp-cm__avatar{position:relative;width:26px;height:26px;display:grid;place-items:center;flex:none;font:600 10px var(--font-sans)}
+.lamp-cm__hex{position:absolute;inset:0}
+.lamp-cm__ini{position:relative;z-index:1;color:var(--gold-800)}
+.lamp-cm__avatar--user{border-radius:50%;background:var(--neutral-800);color:var(--neutral-0)}
+.lamp-cm__avatar--system,.lamp-cm__avatar--tool{border-radius:var(--radius-sm);background:var(--surface-secondary);color:var(--text-tertiary);border:1px solid var(--border-subtle)}
+.lamp-cm__body{min-width:0;display:flex;flex-direction:column;gap:4px}
+.lamp-cm__meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lamp-cm__who{font-size:12px;font-weight:600;letter-spacing:-.01em;color:var(--text-primary)}
+.lamp-cm__role{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
+.lamp-cm__time{font-family:var(--font-mono);font-size:10px;color:var(--text-disabled)}
+.lamp-cm__text{font-size:13px;line-height:20px;color:var(--text-primary);text-wrap:pretty}
+.lamp-cm__text p{margin:0 0 6px}
+.lamp-cm__text p:last-child{margin:0}
+.lamp-cm--system .lamp-cm__text,.lamp-cm--tool .lamp-cm__text{font-size:12px;line-height:18px;color:var(--text-tertiary)}
+.lamp-cm--tool .lamp-cm__text{font-family:var(--font-mono);font-size:11px}
+.lamp-cm__caret{display:inline-block;width:2px;height:14px;margin-left:2px;vertical-align:-2px;background:var(--gold-500);animation:lamp-pulse 900ms var(--ease-standard) infinite}
+.lamp-cm__attach{margin-top:2px}
+.lamp-cm__tools{position:absolute;top:2px;right:8px;display:flex;gap:2px;opacity:0;transition:opacity var(--duration-fast) var(--ease-standard)}
+.lamp-cm__status{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-tertiary)}
+.lamp-cm__status--failed{color:var(--status-danger-text)}
+
+.lamp-act{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.lamp-act__chip{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 6px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);background:var(--surface-secondary);font-size:11px;color:var(--text-secondary);white-space:nowrap}
+.lamp-act__chip--tool{border-radius:var(--radius-xs)}
+.lamp-act__chip--memory{border-radius:var(--radius-round);background:var(--memory-bg);border-color:var(--memory-border);color:var(--memory-text)}
+.lamp-act__chip--skill{border-radius:var(--radius-round)}
+.lamp-act__chip--running{border-color:var(--gold-400);background:var(--surface-selected);color:var(--text-brand)}
+.lamp-act__chip--failed{border-color:var(--status-danger);background:var(--status-danger-bg);color:var(--status-danger-text)}
+.lamp-act__chip button{all:unset;cursor:pointer}
+.lamp-act__dur{font-family:var(--font-mono);font-size:10px;color:var(--text-disabled)}
+.lamp-act__more{font-size:11px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:0 2px;text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:2px}
+
+.lamp-cite{display:inline-flex;align-items:center;gap:3px;height:16px;padding:0 5px;margin:0 1px;border-radius:var(--radius-round);border:1px solid var(--memory-border);background:var(--memory-bg);color:var(--memory-text);font:500 10px var(--font-sans);vertical-align:1px;cursor:pointer}
+.lamp-cite:hover{border-color:var(--memory-accent)}
+
+.lamp-chat__status{display:flex;align-items:center;gap:8px;flex:none;padding:6px 12px;border-top:1px solid var(--border-subtle);background:var(--surface-secondary);font-size:12px;color:var(--text-secondary)}
+.lamp-chat__status--idle{color:var(--text-tertiary)}
+.lamp-chat__status-hex{width:16px;height:16px;flex:none}
+.lamp-chat__status-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.lamp-chat__dots{display:inline-flex;gap:3px;align-items:center}
+.lamp-chat__dots i{width:3px;height:3px;border-radius:50%;background:var(--gold-500);animation:lamp-pulse 1.2s var(--ease-standard) infinite}
+.lamp-chat__dots i:nth-child(2){animation-delay:.15s}
+.lamp-chat__dots i:nth-child(3){animation-delay:.3s}
+
+.lamp-cc{flex:none;border-top:1px solid var(--border-default);background:var(--surface-primary)}
+.lamp-cc__quick{display:flex;gap:6px;flex-wrap:wrap;padding:8px 10px 0}
+.lamp-cc__box{display:flex;align-items:flex-end;gap:6px;padding:8px 10px}
+.lamp-cc__field{flex:1;min-width:0;display:flex;flex-direction:column;gap:0;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--surface-primary);transition:var(--transition-control)}
+.lamp-cc__field--focus{border-color:var(--border-focus);box-shadow:0 0 0 3px var(--energy-glow)}
+.lamp-cc__scope{display:flex;align-items:center;gap:6px;padding:6px 8px 0;font-size:11px;color:var(--text-tertiary);white-space:nowrap;min-width:0}
+.lamp-cc__scope-pill{display:inline-flex;align-items:center;gap:4px;height:18px;padding:0 6px;border-radius:var(--radius-sm);background:var(--surface-selected);border:1px solid var(--gold-300);color:var(--text-brand);font-weight:500;white-space:nowrap;flex:none;line-height:16px}
+.lamp-cc__input{border:none;outline:none;resize:none;background:transparent;padding:6px 8px 8px;font:400 13px/19px var(--font-sans);color:var(--text-primary);max-height:132px}
+.lamp-cc__input::placeholder{color:var(--text-disabled)}
+.lamp-cc__row{display:flex;align-items:center;gap:2px;padding:0 6px 6px}
+.lamp-cc__hint{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-disabled);padding-right:2px}
+.lamp-cc__send{flex:none}
+.lamp-cc--disabled{opacity:var(--opacity-disabled);pointer-events:none}

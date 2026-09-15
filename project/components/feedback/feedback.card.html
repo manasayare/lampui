@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" viewport="700x460" name="Feedback & overlays" subtitle="Notifications, toasts, empty states, skeletons, dialogs, errors" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Feedback & overlays</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.lamp-scrim{position:absolute}.lamp-toast__stack{position:static}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { InlineNotification, Toast, ToastStack, EmptyState, Skeleton, Spinner, Modal, CriticalConfirmation, Drawer, Popover, ErrorState, Button, Badge } = L;
+function Demo(){return <div className="col">
+ <div className="g2">
+  <div className="col">
+   <InlineNotification tone="info" title="Simulation uses mocked Tool writes">Nothing leaves LAMP while you are in simulation.</InlineNotification>
+   <InlineNotification tone="warning" title="Salesforce authorization expires in 3 days" actions={<Button size="sm" variant="secondary" icon="autorenew">Reconnect</Button>} onDismiss={()=>{}} />
+   <InlineNotification tone="success" title="Playbook validated on 120 historical cases" />
+   <InlineNotification tone="danger" title="2 Agents stopped" actions={<Button size="sm" variant="secondary">Open runs</Button>} />
+   <InlineNotification tone="critical" title="Finance Genie is emergency stopped">External writes are blocked until it is resumed.</InlineNotification>
+  </div>
+  <div className="col">
+   <div className="lbl">Toasts</div>
+   <Toast tone="success" title="Agent archived" action={<Button size="xs" variant="quiet">Undo</Button>} onDismiss={()=>{}} />
+   <Toast tone="danger" title="Run failed" onDismiss={()=>{}}>Vendor payment · run_8f21c4</Toast>
+   <div className="lbl">Loading</div>
+   <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)',padding:12,display:'flex',gap:12,alignItems:'center'}}>
+    <Skeleton variant="hex" width={64} height={55} />
+    <div style={{flex:1}}><Skeleton variant="text" lines={3} /></div>
+    <Spinner />
+   </div>
+   <div className="lbl">Empty</div>
+   <div style={{border:'1px solid var(--border-default)',borderRadius:8,background:'var(--surface-primary)'}}>
+    <EmptyState glyph="layers" title="No Playbooks yet" description="Playbooks assemble Agents into a business process." action={<Button size="sm" variant="primary" icon="add">New Playbook</Button>} />
+   </div>
+  </div>
+ </div>
+ <div className="lbl">Errors — what happened, what did not, impact, recovery</div>
+ <ErrorState title="Salesforce write failed" happened="The connection was rejected after 3 attempts." notHappened="No opportunity records were created or modified." impact="4 invoices are waiting in the Vendor payment Playbook." recovery="Reconnect the Salesforce account, then retry the run." code="tool_auth_expired · run_8f21c4" onRetry={()=>{}} onReport={()=>{}} />
+ <div className="lbl">Overlays</div>
+ <div className="rowt">
+  <div style={{position:'relative',width:300,height:190,border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden'}}>
+   <div style={{position:'absolute',inset:0,transform:'scale(.52)',transformOrigin:'top left',width:'192%',height:'192%'}}>
+    <CriticalConfirmation title="Stop Finance Genie?" scope="All Finance automation stops immediately." consequences={['block new external write actions','stop new runs','isolate active tasks']} confirmLabel="Emergency stop" />
+   </div>
+  </div>
+  <Popover title="Tool health"><div style={{display:'flex',flexDirection:'column',gap:6,fontSize:12}}><div style={{display:'flex',gap:8}}>Uptime<span style={{marginLeft:'auto',fontFamily:'var(--font-mono)'}}>99.2%</span></div><div style={{display:'flex',gap:8}}>p95 latency<span style={{marginLeft:'auto',fontFamily:'var(--font-mono)'}}>820ms</span></div><Badge tone="warning" icon="warning">Degraded 1h ago</Badge></div></Popover>
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>

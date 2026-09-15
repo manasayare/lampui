@@ -1,0 +1,290 @@
+/* ============================================================
+   LAMP — COLOR
+   Layer 1: primitives (raw scales, never used directly in components)
+   Layer 2: semantic aliases (surface/text/border/status/runtime/...)
+   Themes: :root = light, [data-theme="dark"] = dark
+   Ratio target: 80% neutral graphite/white, 15% semantic, 5% gold.
+   ============================================================ */
+
+:root {
+  /* ---- Primitive: gold (brand) ---- */
+  --gold-50:  #FFF9E8;
+  --gold-100: #FFF0C2;
+  --gold-200: #F8DB83;
+  --gold-300: #EDC451;
+  --gold-400: #E1B33A;
+  --gold-500: #D6A82E;
+  --gold-600: #B88A1F;
+  --gold-700: #916A17;
+  --gold-800: #684B13;
+  --gold-900: #45320F;
+  --gold-950: #281C08;
+
+  /* ---- Primitive: neutral (warm graphite) ---- */
+  --neutral-0:    #FFFFFF;
+  --neutral-25:   #FCFCFB;
+  --neutral-50:   #F8F8F6;
+  --neutral-100:  #F1F1EE;
+  --neutral-150:  #E9E9E5;
+  --neutral-200:  #DEDED9;
+  --neutral-300:  #C8C8C0;
+  --neutral-400:  #A7A79F;
+  --neutral-500:  #82827A;
+  --neutral-600:  #63635D;
+  --neutral-700:  #454541;
+  --neutral-800:  #30302D;
+  --neutral-850:  #262624;
+  --neutral-900:  #1D1D1B;
+  --neutral-925:  #171716;
+  --neutral-950:  #111110;
+  --neutral-975:  #0B0B0A;
+  --neutral-1000: #050505;
+
+  /* ---- Primitive: green ---- */
+  --green-100: #EAF8F1;
+  --green-300: #6FC79E;
+  --green-400: #35B47D;
+  --green-500: #22A06B;
+  --green-600: #1A8557;
+  --green-700: #146848;
+  --green-900: #0E2B20;
+
+  /* ---- Primitive: orange ---- */
+  --orange-100: #FFF4E5;
+  --orange-300: #EFB477;
+  --orange-400: #E8953C;
+  --orange-500: #D9822B;
+  --orange-600: #B76A1D;
+  --orange-700: #8E5115;
+  --orange-900: #321D0B;
+
+  /* ---- Primitive: red ---- */
+  --red-100: #FDECEC;
+  --red-300: #EC9393;
+  --red-400: #E05C5C;
+  --red-500: #D64545;
+  --red-600: #B83535;
+  --red-700: #932B2B;
+  --red-900: #351111;
+
+  /* ---- Primitive: blue ---- */
+  --blue-100: #EBF2FF;
+  --blue-300: #94B6FA;
+  --blue-400: #5C91F7;
+  --blue-500: #3478F6;
+  --blue-600: #2361D6;
+  --blue-700: #1A4CA8;
+  --blue-900: #102040;
+
+  /* ---- Primitive: purple ---- */
+  --purple-100: #F0EEFF;
+  --purple-300: #B4AEF6;
+  --purple-400: #948BF3;
+  --purple-500: #7A6FF0;
+  --purple-600: #6155D6;
+  --purple-700: #4C42A8;
+  --purple-900: #1E193D;
+
+  /* ---- Primitive: extended hues (learning, observed, dataviz) ---- */
+  --violet-500: #9B6ED6;
+  --slate-500:  #78909C;
+  --steel-500:  #657A9A;
+  --teal-500:   #3CA6A6;
+  --magenta-500:#B55FC1;
+
+  /* ---- Primitive: memory (warm silver-violet) ---- */
+  --memory-core:   #786F90;
+  --memory-subtle: #F1EEF5;
+  --memory-dark:   #211E29;
+
+  /* ============ SEMANTIC — LIGHT ============ */
+  --surface-canvas:    #F8F8F6;
+  --surface-primary:   #FFFFFF;
+  --surface-secondary: #F1F1EE;
+  --surface-tertiary:  #E9E9E5;
+  --surface-raised:    #FFFFFF;
+  --surface-overlay:   #FFFFFF;
+  --surface-hover:     #F1F1EE;
+  --surface-active:    #E9E9E5;
+  --surface-selected:  #FFF9E8;
+  --surface-disabled:  #F8F8F6;
+  --surface-inverse:   #1D1D1B;
+  --surface-scrim:     rgba(11,11,10,0.56);
+
+  --text-primary:   #1D1D1B;
+  --text-secondary: #63635D;
+  --text-tertiary:  #82827A;
+  --text-disabled:  #A7A79F;
+  --text-inverse:   #FFFFFF;
+  --text-brand:     #916A17;
+  --text-link:      #916A17;
+  --text-link-hover:#684B13;
+
+  --border-subtle:   #E9E9E5;
+  --border-default:  #DEDED9;
+  --border-strong:   #C8C8C0;
+  --border-focus:    #D6A82E;
+  --border-selected: #D6A82E;
+
+  /* interactive (neutral-first: primary action is graphite, not gold) */
+  --interactive-primary-bg:            #1D1D1B;
+  --interactive-primary-bg-hover:      #30302D;
+  --interactive-primary-bg-active:     #454541;
+  --interactive-primary-text:          #FFFFFF;
+  --interactive-secondary-bg:          #FFFFFF;
+  --interactive-secondary-bg-hover:    #F1F1EE;
+  --interactive-secondary-border:      #DEDED9;
+  --interactive-tertiary-bg-hover:     #F1F1EE;
+  --interactive-brand-bg:              #D6A82E;
+  --interactive-brand-bg-hover:        #E1B33A;
+  --interactive-brand-bg-active:       #B88A1F;
+  --interactive-brand-text:            #111110;
+  --interactive-danger-bg:             #D64545;
+  --interactive-danger-bg-hover:       #E05C5C;
+  --interactive-danger-bg-active:      #B83535;
+  --interactive-danger-text:           #FFFFFF;
+  --interactive-danger-subtle-bg:      #FDECEC;
+  --interactive-danger-subtle-text:    #932B2B;
+
+  /* status */
+  --status-success:    #22A06B;
+  --status-success-bg: #EAF8F1;
+  --status-success-text:#146848;
+  --status-warning:    #D9822B;
+  --status-warning-bg: #FFF4E5;
+  --status-warning-text:#8E5115;
+  --status-danger:     #D64545;
+  --status-danger-bg:  #FDECEC;
+  --status-danger-text:#932B2B;
+  --status-info:       #3478F6;
+  --status-info-bg:    #EBF2FF;
+  --status-info-text:  #1A4CA8;
+  --status-waiting:    #7A6FF0;
+  --status-waiting-bg: #F0EEFF;
+  --status-waiting-text:#4C42A8;
+  --status-neutral:    #82827A;
+  --status-neutral-bg: #F1F1EE;
+  --status-neutral-text:#454541;
+
+  /* runtime / environment — gold means active LAMP intelligence */
+  --runtime-draft:      #82827A;
+  --runtime-observed:   #78909C;
+  --runtime-inferred:   #7A6FF0;
+  --runtime-learning:   #9B6ED6;
+  --runtime-simulation: #3478F6;
+  --runtime-validated:  #22A06B;
+  --runtime-live:       #D6A82E;
+  --runtime-paused:     #D9822B;
+  --runtime-stopped:    #454541;
+  --runtime-killed:     #D64545;
+
+  --runtime-simulation-bg: #EBF2FF;
+  --runtime-live-bg:       #FFF9E8;
+  --runtime-paused-bg:     #FFF4E5;
+  --runtime-killed-bg:     #FDECEC;
+  --runtime-inferred-bg:   #F0EEFF;
+  --runtime-observed-bg:   #EEF1F3;
+  --runtime-learning-bg:   #F4EEFB;
+
+  /* energy — conductive gold */
+  --energy-core:       #D6A82E;
+  --energy-bright:     #F2CA58;
+  --energy-highlight:  #FFE89B;
+  --energy-deep:       #916A17;
+  --energy-glow:       rgba(214,168,46,0.22);
+  --energy-glow-strong:rgba(225,179,58,0.38);
+  --simulation-energy: #3478F6;
+  --simulation-glow:   rgba(52,120,246,0.22);
+
+  /* memory semantic */
+  --memory-accent:  #786F90;
+  --memory-bg:      #F1EEF5;
+  --memory-border:  #D6D0E0;
+  --memory-text:    #4A4359;
+
+  /* focus ring */
+  --focus-ring: 0 0 0 2px var(--surface-canvas), 0 0 0 4px #D6A82E;
+  --focus-ring-inset: inset 0 0 0 1.5px #D6A82E;
+}
+
+/* ============ SEMANTIC — DARK ============ */
+[data-theme="dark"] {
+  --surface-canvas:    #0B0B0A;
+  --surface-primary:   #111110;
+  --surface-secondary: #171716;
+  --surface-tertiary:  #1D1D1B;
+  --surface-raised:    #262624;
+  --surface-overlay:   #30302D;
+  --surface-hover:     #1D1D1B;
+  --surface-active:    #262624;
+  --surface-selected:  #281C08;
+  --surface-disabled:  #111110;
+  --surface-inverse:   #F8F8F6;
+  --surface-scrim:     rgba(5,5,5,0.64);
+
+  --text-primary:   #F8F8F6;
+  --text-secondary: #C8C8C0;
+  --text-tertiary:  #82827A;
+  --text-disabled:  #63635D;
+  --text-inverse:   #111110;
+  --text-brand:     #EDC451;
+  --text-link:      #EDC451;
+  --text-link-hover:#F8DB83;
+
+  --border-subtle:   #262624;
+  --border-default:  #30302D;
+  --border-strong:   #454541;
+  --border-focus:    #D6A82E;
+  --border-selected: #E1B33A;
+
+  --interactive-primary-bg:         #F8F8F6;
+  --interactive-primary-bg-hover:   #DEDED9;
+  --interactive-primary-bg-active:  #C8C8C0;
+  --interactive-primary-text:       #111110;
+  --interactive-secondary-bg:       #171716;
+  --interactive-secondary-bg-hover: #1D1D1B;
+  --interactive-secondary-border:   #30302D;
+  --interactive-tertiary-bg-hover:  #1D1D1B;
+  --interactive-brand-bg:           #E1B33A;
+  --interactive-brand-bg-hover:     #EDC451;
+  --interactive-brand-bg-active:    #D6A82E;
+  --interactive-brand-text:         #111110;
+  --interactive-danger-bg:          #D64545;
+  --interactive-danger-bg-hover:    #E05C5C;
+  --interactive-danger-bg-active:   #B83535;
+  --interactive-danger-text:        #FFFFFF;
+  --interactive-danger-subtle-bg:   #351111;
+  --interactive-danger-subtle-text: #EC9393;
+
+  --status-success-bg:  #0E2B20;
+  --status-success-text:#6FC79E;
+  --status-warning-bg:  #321D0B;
+  --status-warning-text:#EFB477;
+  --status-danger-bg:   #351111;
+  --status-danger-text: #EC9393;
+  --status-info-bg:     #102040;
+  --status-info-text:   #94B6FA;
+  --status-waiting-bg:  #1E193D;
+  --status-waiting-text:#B4AEF6;
+  --status-neutral-bg:  #262624;
+  --status-neutral-text:#C8C8C0;
+
+  --runtime-live:       #E1B33A;
+  --runtime-stopped:    #82827A;
+  --runtime-simulation-bg: #102040;
+  --runtime-live-bg:       #281C08;
+  --runtime-paused-bg:     #321D0B;
+  --runtime-killed-bg:     #351111;
+  --runtime-inferred-bg:   #1E193D;
+  --runtime-observed-bg:   #1A1E21;
+  --runtime-learning-bg:   #221A2E;
+
+  --energy-core:   #E1B33A;
+  --energy-bright: #F2CA58;
+
+  --memory-bg:     #211E29;
+  --memory-border: #3A3448;
+  --memory-text:   #C4BCD6;
+
+  --focus-ring: 0 0 0 2px #0B0B0A, 0 0 0 4px #E1B33A;
+}

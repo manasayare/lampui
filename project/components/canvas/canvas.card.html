@@ -1,0 +1,34 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Canvas" subtitle="Surface, grid, snap guides, toolbars, minimap, context menu" -->
+<!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Canvas</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:14px;background:var(--surface-canvas);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rowt{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:10px}.lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:-2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const L = window.LAMPDesignSystem_980d6d;
+
+const { CanvasSurface, SnapGuide, CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap, CanvasContextMenu, IconButton, Divider, AgentHex, HexLattice, EmptyState, Button } = L;
+function Demo(){return <div className="col">
+ <div style={{position:'relative',height:250,border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden',display:'flex'}}>
+  <CanvasSurface zoom={1} environment="simulation">
+   <div style={{position:'absolute',left:40,top:44}}><HexLattice size="md" gap={0} cells={[{col:0,row:0,node:<AgentHex detail="glyph" role="coordinator" />},{col:1,row:0,node:<AgentHex detail="glyph" state="running" environment="simulation" />}]} /></div>
+   <div style={{position:'absolute',left:196,top:44}}><AgentHex detail="glyph" state="snapReady" environment="simulation" /></div>
+   <SnapGuide rect={{left:188,top:36,width:80,height:71}} />
+   <div style={{position:'absolute',left:300,top:60}}><SnapGuide kind="drop" rect={{left:0,top:0,width:72,height:62}} /></div>
+   <div style={{position:'absolute',left:392,top:60}}><SnapGuide kind="drop" invalid rect={{left:0,top:0,width:72,height:62}} /></div>
+   <CanvasObjectToolbar x={120} y={44}><IconButton icon="link" label="Bond" size="sm" /><IconButton icon="content_copy" label="Duplicate" size="sm" /><Divider orientation="vertical" /><IconButton icon="delete" label="Delete" size="sm" tone="danger" /></CanvasObjectToolbar>
+   <CanvasToolbar position="floating"><IconButton icon="near_me" label="Select" size="md" active /><IconButton icon="pan_tool" label="Pan" size="md" /><IconButton icon="add" label="Add Agent" size="md" /><Divider orientation="vertical" /><IconButton icon="link" label="Bond mode" size="md" /></CanvasToolbar>
+   <CanvasZoomControls zoom={0.8} />
+   <CanvasMinimap viewport={{left:14,top:12,width:78,height:52}} blips={[{x:24,y:22},{x:34,y:22,tone:'live'},{x:44,y:30,tone:'error'},{x:96,y:60},{x:110,y:44}]} />
+   <div style={{position:'absolute',left:430,top:130}}><CanvasContextMenu x={0} y={0} groups={[{items:[{id:'i',label:'Open in Inspector',icon:'right_panel_open',shortcut:'Enter'},{id:'b',label:'Bond to…',icon:'link',shortcut:'B'}]},{items:[{id:'u',label:'Break bond',icon:'link_off'},{id:'d',label:'Delete Agent',icon:'delete',danger:true,shortcut:'Del'}]}]} /></div>
+  </CanvasSurface>
+ </div>
+ <div className="lbl">Empty canvas</div>
+ <div style={{position:'relative',height:110,border:'1px solid var(--border-default)',borderRadius:8,overflow:'hidden',display:'flex'}}>
+  <CanvasSurface empty={<EmptyState glyph="hexagon" title="No Agents on this canvas" description="Agents snap together into a Playbook." action={<Button size="sm" variant="primary" icon="add">New Agent</Button>} />} />
+ </div>
+</div>}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script></body></html>
