@@ -2,7 +2,7 @@ export type RunStepState = 'pending' | 'running' | 'success' | 'warning' | 'fail
 /**
  * @startingPoint section="Runtime" subtitle="Run and simulation step trace" viewport="700x300"
  */
-export interface RunStepProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface RunStepProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   index?: number;
   state?: RunStepState;
   title: React.ReactNode;
@@ -20,8 +20,8 @@ export interface RunStepProps extends React.HTMLAttributes<HTMLDivElement> {
   expandable?: boolean;
   onToggle?: () => void;
 }
-export declare function RunStep(props: RunStepProps): JSX.Element;
+export declare const RunStep: React.ForwardRefExoticComponent<RunStepProps & React.RefAttributes<HTMLDivElement>>;
 export interface RunTimelineProps extends React.HTMLAttributes<HTMLDivElement> {
   steps: RunStepProps[];
 }
-export declare function RunTimeline(props: RunTimelineProps): JSX.Element;
+export declare const RunTimeline: React.ForwardRefExoticComponent<RunTimelineProps & React.RefAttributes<HTMLDivElement>>;

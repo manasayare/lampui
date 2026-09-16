@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function DashboardCard({ title, description, actions, footer, raised = false, flush = false, span, children, className = '', style, ...rest }) {
+export const DashboardCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function DashboardCard({ title, description, actions, footer, raised = false, flush = false, span, children, className = '', style, ...rest }, ref) {
   return (
-    <section className={['lamp-dcard', raised && 'lamp-dcard--raised', className].filter(Boolean).join(' ')}
+    <section ref={ref} className={['lamp-dcard', raised && 'lamp-dcard--raised', className].filter(Boolean).join(' ')}
       style={span ? { gridColumn: 'span ' + span, ...style } : style} {...rest}>
       {(title || actions) ? (
         <header className="lamp-dcard__head">
@@ -17,12 +17,12 @@ export function DashboardCard({ title, description, actions, footer, raised = fa
       {footer ? <footer className="lamp-dcard__foot">{footer}</footer> : null}
     </section>
   );
-}
+}), { displayName: 'DashboardCard' });
 
-export function DashboardGrid({ columns = 2, children, className = '', style, ...rest }) {
-  return <div className={['lamp-grid', 'lamp-grid--' + columns, className].filter(Boolean).join(' ')} style={style} {...rest}>{children}</div>;
-}
+export const DashboardGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function DashboardGrid({ columns = 2, children, className = '', style, ...rest }, ref) {
+  return <div ref={ref} className={['lamp-grid', 'lamp-grid--' + columns, className].filter(Boolean).join(' ')} style={style} {...rest}>{children}</div>;
+}), { displayName: 'DashboardGrid' });
 
-export function StatGrid({ children, className = '', ...rest }) {
-  return <div className={['lamp-grid', 'lamp-grid--stats', className].filter(Boolean).join(' ')} {...rest}>{children}</div>;
-}
+export const StatGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function StatGrid({ children, className = '', ...rest }, ref) {
+  return <div ref={ref} className={['lamp-grid', 'lamp-grid--stats', className].filter(Boolean).join(' ')} {...rest}>{children}</div>;
+}), { displayName: 'StatGrid' });

@@ -9,11 +9,11 @@ const STATE_STATUS = {
   healthy: 'success', degraded: 'attention', error: 'error', readOnly: null, writeEnabled: null, blocked: 'blocked', disabled: 'disabled',
 };
 
-export function ToolTile({ size = 'md', state = 'connected', provider, glyph = 'extension', name, brandColor, onClick, className = '', style, ...rest }) {
+export const ToolTile = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ToolTile({ size = 'md', state = 'connected', provider, glyph = 'extension', name, brandColor, onClick, className = '', style, ...rest }, ref) {
   const px = TOOL_SIZES[size] || TOOL_SIZES.md;
   const dot = STATE_STATUS[state];
   return (
-    <span className={['lamp-tool', 'lamp-tool--' + state, onClick && 'lamp-tool--interactive', className].filter(Boolean).join(' ')}
+    <span ref={ref} className={['lamp-tool', 'lamp-tool--' + state, onClick && 'lamp-tool--interactive', className].filter(Boolean).join(' ')}
       style={{ width: px, height: px, ...style }} onClick={onClick} role={onClick ? 'button' : 'img'}
       aria-label={(name || provider || 'Tool') + ' Tool'} tabIndex={onClick ? 0 : undefined} title={name || provider} {...rest}>
       {provider ? <BrandIcon slug={provider} size={px <= 24 ? 14 : px <= 32 ? 18 : 22} color={brandColor} />
@@ -21,11 +21,11 @@ export function ToolTile({ size = 'md', state = 'connected', provider, glyph = '
       {dot ? <span className="lamp-tool__dot"><StatusDot status={dot} /></span> : null}
     </span>
   );
-}
+}), { displayName: 'ToolTile' });
 
-export function ToolRow({ provider, glyph, name, account, state = 'connected', permission, usedBy, lastActivity, health, risk, actions, onClick, className = '', ...rest }) {
+export const ToolRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ToolRow({ provider, glyph, name, account, state = 'connected', permission, usedBy, lastActivity, health, risk, actions, onClick, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-toolrow ' + className} onClick={onClick} {...rest}>
+    <div ref={ref} className={'lamp-toolrow ' + className} onClick={onClick} {...rest}>
       <ToolTile provider={provider} glyph={glyph} name={name} state={state} />
       <span style={{ display: 'flex', flexDirection: 'column', gap: 1, minWidth: 0 }}>
         <span className="lamp-toolrow__name">{name}</span>
@@ -43,4 +43,4 @@ export function ToolRow({ provider, glyph, name, account, state = 'connected', p
       </span>
     </div>
   );
-}
+}), { displayName: 'ToolRow' });

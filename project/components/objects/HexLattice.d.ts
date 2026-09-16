@@ -14,7 +14,7 @@ export interface HexLatticeProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Absolutely-positioned layer behind the cells — usually an SVG of BondEdges. */
   overlay?: React.ReactNode;
 }
-export declare function HexLattice(props: HexLatticeProps): JSX.Element;
+export declare const HexLattice: React.ForwardRefExoticComponent<HexLatticeProps & React.RefAttributes<HTMLDivElement>>;
 /** Centre of a lattice slot — anchor BondEdge and energy paths with it.
  *  Use `HexCenter` from the design-system namespace; `hexCenter` is the sibling-import name. */
 export declare function hexCenter(col: number, row: number, size?: string, gap?: number): { x: number; y: number };

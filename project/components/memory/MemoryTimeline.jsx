@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function MemoryTimeline({ items = [], className = '', ...rest }) {
+export const MemoryTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryTimeline({ items = [], className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-timeline ' + className} {...rest}>
+    <div ref={ref} className={'lamp-timeline ' + className} {...rest}>
       {items.map((it, i) => (
         <div className="lamp-timeline__item" key={i}>
           <span className="lamp-timeline__rail">
@@ -18,4 +18,4 @@ export function MemoryTimeline({ items = [], className = '', ...rest }) {
       ))}
     </div>
   );
-}
+}), { displayName: 'MemoryTimeline' });

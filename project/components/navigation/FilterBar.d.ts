@@ -7,7 +7,7 @@ export interface FilterBarProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Right cluster — density switch, view switch, export. */
   right?: React.ReactNode;
 }
-export declare function FilterBar(props: FilterBarProps): JSX.Element;
+export declare const FilterBar: React.ForwardRefExoticComponent<FilterBarProps & React.RefAttributes<HTMLDivElement>>;
 export interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   page?: number;
   pageCount?: number;
@@ -15,4 +15,4 @@ export interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   range?: string;
   onPage?: (page: number) => void;
 }
-export declare function Pagination(props: PaginationProps): JSX.Element;
+export declare const Pagination: React.ForwardRefExoticComponent<PaginationProps & React.RefAttributes<HTMLDivElement>>;

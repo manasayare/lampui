@@ -5,7 +5,7 @@ import { Button } from '../core/Button.jsx';
 import { ChatAvatar } from './ChatMessage.jsx';
 
 /** What is happening right now, in words, with a way to stop it. */
-export function ChatStatus({ state = 'idle', author, action, detail, tokens, onStop, onInspect }) {
+export const ChatStatus = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ChatStatus({ state = 'idle', author, action, detail, tokens, onStop, onInspect }, ref) {
   if (state === 'idle') {
     return (
       <div className="lamp-chat__status lamp-chat__status--idle">
@@ -15,7 +15,7 @@ export function ChatStatus({ state = 'idle', author, action, detail, tokens, onS
     );
   }
   return (
-    <div className="lamp-chat__status" role="status">
+    <div ref={ref} className="lamp-chat__status" role="status">
       <span className="lamp-chat__status-hex"><ChatAvatar role="agent" glyph="bolt" state="acting" size={16} /></span>
       <span><b style={{ fontWeight: 600 }}>{author || 'Agent'}</b> {action || 'is working'}</span>
       <span className="lamp-chat__dots" aria-hidden="true"><i /><i /><i /></span>
@@ -27,19 +27,19 @@ export function ChatStatus({ state = 'idle', author, action, detail, tokens, onS
       </span>
     </div>
   );
-}
+}), { displayName: 'ChatStatus' });
 
-export function AgentChat({
+export const AgentChat = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function AgentChat({
   title, scope, scopeGlyph = 'hive', environment, crew = [], actions, status, composer,
   flush = false, autoScroll = true, children, className = '', ...rest
-}) {
+}, ref) {
   const threadRef = React.useRef(null);
   React.useEffect(() => {
     const el = threadRef.current;
     if (autoScroll && el) el.scrollTop = el.scrollHeight;
   }, [children, autoScroll]);
   return (
-    <section className={['lamp-chat', flush && 'lamp-chat--flush', className].filter(Boolean).join(' ')} aria-label={title || 'Conversation'} {...rest}>
+    <section ref={ref} className={['lamp-chat', flush && 'lamp-chat--flush', className].filter(Boolean).join(' ')} aria-label={title || 'Conversation'} {...rest}>
       <header className="lamp-chat__head">
         <span className="lamp-chat__id">
           <span className="lamp-chat__title">{title}</span>
@@ -61,4 +61,4 @@ export function AgentChat({
       {composer}
     </section>
   );
-}
+}), { displayName: 'AgentChat' });

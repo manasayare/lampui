@@ -2,7 +2,7 @@ import React from 'react';
 import { seriesColor } from './ChartFrame.jsx';
 
 /* Donut / radial gauge. Keep donuts small and never use more than 5 slices. */
-export function DonutChart({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = '', ...rest }) {
+export const DonutChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function DonutChart({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = '', ...rest }, ref) {
   const r = (size - thickness) / 2;
   const c = size / 2;
   const total = max != null ? max : data.reduce((a, d) => a + d.value, 0) || 1;
@@ -17,7 +17,7 @@ export function DonutChart({ data = [], size = 132, thickness = 12, centerValue,
     return <path key={key} d={'M' + x1 + ',' + y1 + ' A' + r + ',' + r + ' 0 ' + large + ' 1 ' + x2 + ',' + y2} fill="none" stroke={color} strokeWidth={thickness} strokeLinecap={gauge ? 'round' : 'butt'} />;
   };
   return (
-    <svg width={size} height={size} viewBox={'0 0 ' + size + ' ' + size} role="img" className={className} {...rest}>
+    <svg ref={ref} width={size} height={size} viewBox={'0 0 ' + size + ' ' + size} role="img" className={className} {...rest}>
       {arc(0, sweep - 0.01, 'var(--chart-track)', 'track')}
       {data.map((d, i) => {
         const from = (acc / total) * sweep;
@@ -33,4 +33,4 @@ export function DonutChart({ data = [], size = 132, thickness = 12, centerValue,
       ) : null}
     </svg>
   );
-}
+}), { displayName: 'DonutChart' });

@@ -4,12 +4,12 @@ import { Badge } from '../core/Badge.jsx';
 import { Icon } from '../core/Icon.jsx';
 import { StatusBadge } from '../core/StatusBadge.jsx';
 
-export function ApprovalCard({
+export const ApprovalCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ApprovalCard({
   question, amount, tone = 'default', kind = 'approve', requestedBy, playbook, dueIn, facts = [],
   options = [], onApprove, onReject, onEdit, onRequestInfo, onEscalate, evidence, className = '', ...rest
-}) {
+}, ref) {
   return (
-    <article className={['lamp-approval', tone !== 'default' && 'lamp-approval--' + tone, className].filter(Boolean).join(' ')} {...rest}>
+    <article ref={ref} className={['lamp-approval', tone !== 'default' && 'lamp-approval--' + tone, className].filter(Boolean).join(' ')} {...rest}>
       <div className="lamp-approval__top">
         <Badge tone={tone === 'critical' ? 'danger' : 'waiting'} icon="how_to_reg" micro>Approval required</Badge>
         {playbook ? <Badge outline icon="layers">{playbook}</Badge> : null}
@@ -44,14 +44,14 @@ export function ApprovalCard({
       </div>
     </article>
   );
-}
+}), { displayName: 'ApprovalCard' });
 
-export function HumanCheckpoint({ label = 'Human checkpoint', detail, ...rest }) {
+export const HumanCheckpoint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function HumanCheckpoint({ label = 'Human checkpoint', detail, ...rest }, ref) {
   return (
-    <span className="lamp-checkpoint" {...rest}>
+    <span ref={ref} className="lamp-checkpoint" {...rest}>
       <Icon name="how_to_reg" size={14} />
       <b style={{ fontWeight: 600 }}>{label}</b>
       {detail ? <span>{detail}</span> : null}
     </span>
   );
-}
+}), { displayName: 'HumanCheckpoint' });

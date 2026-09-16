@@ -5,10 +5,10 @@ import { Button } from '../core/Button.jsx';
 import { Kbd } from '../core/Kbd.jsx';
 
 /** Quick replies keep the common answer one tap away. */
-export function ChatQuickReplies({ options = [], onSelect }) {
+export const ChatQuickReplies = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ChatQuickReplies({ options = [], onSelect }, ref) {
   if (!options.length) return null;
   return (
-    <div className="lamp-cc__quick">
+    <div ref={ref} className="lamp-cc__quick">
       {options.map((o) => {
         const label = typeof o === 'string' ? o : o.label;
         const tone = typeof o === 'object' && o.tone;
@@ -20,16 +20,16 @@ export function ChatQuickReplies({ options = [], onSelect }) {
       })}
     </div>
   );
-}
+}), { displayName: 'ChatQuickReplies' });
 
-export function ChatComposer({
+export const ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ChatComposer({
   value = '', onChange, onSend, onAttach, onVoice, onSlash, placeholder = 'Ask, instruct, or answer',
   scope, scopeGlyph = 'hive', quickReplies = [], disabled = false, sending = false, hint = true, className = '', ...rest
-}) {
+}, ref) {
   const [focus, setFocus] = React.useState(false);
   const send = () => { if (!disabled && value.trim()) onSend && onSend(value); };
   return (
-    <div className={['lamp-cc', disabled && 'lamp-cc--disabled', className].filter(Boolean).join(' ')} {...rest}>
+    <div ref={ref} className={['lamp-cc', disabled && 'lamp-cc--disabled', className].filter(Boolean).join(' ')} {...rest}>
       <ChatQuickReplies options={quickReplies} onSelect={(o) => (o.onSelect ? o.onSelect() : onSend && onSend(o.label))} />
       <div className="lamp-cc__box">
         <div className={['lamp-cc__field', focus && 'lamp-cc__field--focus'].filter(Boolean).join(' ')}>
@@ -45,7 +45,7 @@ export function ChatComposer({
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }} />
           <div className="lamp-cc__row">
             {onAttach ? <IconButton icon="attach_file" label="Attach a file" size="sm" onClick={onAttach} /> : null}
-            {onSlash ? <IconButton icon="slash" label="Commands" size="sm" onClick={onSlash} /> : null}
+            {onSlash ? <IconButton icon="terminal" label="Commands" size="sm" onClick={onSlash} /> : null}
             {onVoice ? <IconButton icon="mic" label="Record a voice message" size="sm" onClick={onVoice} /> : null}
             {hint ? <span className="lamp-cc__hint"><Kbd>Enter</Kbd> to send<Kbd keys={['Shift','Enter']} /> for a new line</span> : null}
           </div>
@@ -54,4 +54,4 @@ export function ChatComposer({
       </div>
     </div>
   );
-}
+}), { displayName: 'ChatComposer' });

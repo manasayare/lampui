@@ -2,10 +2,10 @@ import React from 'react';
 
 /* A group inside a Playbook section: one bonded cluster, or a single Agent working alone.
    Bonds exist only inside an island; membership in the Playbook is carried by the frame. */
-export function AgentIsland({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = '', style, ...rest }) {
+export const AgentIsland = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function AgentIsland({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = '', style, ...rest }, ref) {
   const positioned = x != null || y != null;
   return (
-    <div className={['lamp-island', solo && 'lamp-island--solo', outlined && 'lamp-island--outlined', selected && 'lamp-island--selected', className].filter(Boolean).join(' ')}
+    <div ref={ref} className={['lamp-island', solo && 'lamp-island--solo', outlined && 'lamp-island--outlined', selected && 'lamp-island--selected', className].filter(Boolean).join(' ')}
       style={positioned ? { position: 'absolute', left: x, top: y, ...style } : style} {...rest}>
       {(name || note || actions) ? (
         <div className="lamp-island__head">
@@ -17,4 +17,4 @@ export function AgentIsland({ name, note, solo = false, outlined = false, select
       <div className="lamp-island__body">{children}</div>
     </div>
   );
-}
+}), { displayName: 'AgentIsland' });

@@ -6,10 +6,10 @@ const SCOPE_COLOR = {
   completion: 'var(--dataviz-neutral-4)', cached: 'var(--green-500)', tool: 'var(--teal-500)',
 };
 
-export function MemoryUsageBar({ segments = [], total, unit = 'tokens', legend = true, className = '', ...rest }) {
+export const MemoryUsageBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryUsageBar({ segments = [], total, unit = 'tokens', legend = true, className = '', ...rest }, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + s.value, 0);
   return (
-    <div className={'lamp-memusage ' + className} {...rest}>
+    <div ref={ref} className={'lamp-memusage ' + className} {...rest}>
       <div className="lamp-memusage__bar" role="img" aria-label={'Context breakdown, ' + sum + ' ' + unit}>
         {segments.map((s) => (
           <span key={s.label} className="lamp-memusage__seg" title={s.label + ': ' + s.value}
@@ -30,4 +30,4 @@ export function MemoryUsageBar({ segments = [], total, unit = 'tokens', legend =
       ) : null}
     </div>
   );
-}
+}), { displayName: 'MemoryUsageBar' });

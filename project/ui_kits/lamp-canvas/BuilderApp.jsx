@@ -150,7 +150,8 @@ function BuilderApp() {
         ) : (
           <EnvironmentBanner environment="live" scope="Finance Genie" actions={<Button size="sm" variant="danger-quiet" icon="pause">Pause Genie</Button>} />
         )}
-        <CanvasSurface zoom={zoom} environment={inSim ? 'simulation' : 'live'} style={{ minHeight: 0 }}>
+        {/* Space and drag pans. Marquee selection stays the default drag. */}
+        <CanvasSurface pannable zoom={zoom} environment={inSim ? 'simulation' : 'live'} style={{ minHeight: 0 }}>
           <div style={{ position: 'absolute', left: 56, top: 40 }}>
             <PlaybookCluster name="Vendor payment" state={inSim ? 'simulation' : 'live'} agents={agents.length} layout="free" resizable
               width={detail === 'glyph' ? 560 : 730} height={detail === 'glyph' ? 168 : 214}
@@ -195,7 +196,7 @@ function BuilderApp() {
       <CommandPalette open={palette} query="" onClose={() => setPalette(false)} activeId="sim"
         onSelect={(it) => { setPalette(false); if (it.id === 'sim') { setEnvironment('simulation'); setSimState('running'); setProgress(0.08); } }}
         groups={[
-          { label: 'Create', items: [{ id: 'na', label: 'Create Agent', icon: 'add', shortcut: ['A'] }, { id: 'np', label: 'Create Playbook', icon: 'layers' }, { id: 'ns', label: 'Create Skill', icon: 'auto_awesome' }] },
+          { label: 'Create', items: [{ id: 'na', label: 'Create Agent', icon: 'add', shortcut: ['A'] }, { id: 'np', label: 'Create Playbook', icon: 'layers' }, { id: 'ns', label: 'Create Skill', icon: 'flare' }] },
           { label: 'Run', items: [{ id: 'sim', label: 'Run simulation', icon: 'science', context: 'Vendor payment', shortcut: ['S'] }, { id: 'live', label: 'Go live', icon: 'bolt', context: 'Vendor payment' }] },
           { label: 'Navigate', items: [{ id: 'g1', label: 'Finance Genie', icon: 'hive', context: 'Operations LAMP' }, { id: 'm1', label: 'Inspect memory', icon: 'database', context: 'Genie memory' }] },
           { label: 'Safety', items: [{ id: 'pause', label: 'Pause Finance Genie', icon: 'pause', danger: true }, { id: 'kill', label: 'Emergency stop Finance Genie', icon: 'dangerous', danger: true }] },

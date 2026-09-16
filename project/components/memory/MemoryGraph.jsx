@@ -28,10 +28,10 @@ function shapePath(shape, r) {
   return null;
 }
 
-export function MemoryGraph({
+export const MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function MemoryGraph({
   nodes = [], links = [], width = 640, height = 360, showLabels = true, labelMinRadius = 7,
   selectedId, onSelect, onHover, legend = true, iterations = 260, className = '', style, ...rest
-}) {
+}, ref) {
   const [tick, setTick] = React.useState(0);
   const [hover, setHover] = React.useState(null);
   const sim = React.useRef({ pos: [], alpha: 1 });
@@ -125,7 +125,7 @@ export function MemoryGraph({
   const dim = (i) => (neighbours && !neighbours[i] ? 0.18 : 1);
 
   return (
-    <div className={'lamp-graph ' + className} style={style}>
+    <div ref={ref} className={'lamp-graph ' + className} style={style}>
       <svg width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} role="img"
         aria-label={'Memory graph, ' + nodes.length + ' items and ' + links.length + ' relationships'} {...rest}>
         <g>
@@ -183,4 +183,4 @@ export function MemoryGraph({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'MemoryGraph' });

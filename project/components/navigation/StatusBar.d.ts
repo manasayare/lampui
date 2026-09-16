@@ -10,4 +10,4 @@ export interface StatusBarProps extends React.HTMLAttributes<HTMLElement> {
   /** Right-aligned cluster: sync, connection, cost. */
   right?: StatusBarItem[];
 }
-export declare function StatusBar(props: StatusBarProps): JSX.Element;
+export declare const StatusBar: React.ForwardRefExoticComponent<StatusBarProps & React.RefAttributes<HTMLElement>>;

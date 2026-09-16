@@ -4,10 +4,10 @@ import { IconButton } from '../core/IconButton.jsx';
 import { Icon } from '../core/Icon.jsx';
 import { Divider } from '../core/Divider.jsx';
 
-export function SimulationBar({ mode = 'simulation', state = 'idle', progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = '', ...rest }) {
+export const SimulationBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SimulationBar({ mode = 'simulation', state = 'idle', progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = '', ...rest }, ref) {
   const running = state === 'running';
   return (
-    <div className={'lamp-simbar ' + className} role="toolbar" aria-label={mode === 'live' ? 'Live controls' : 'Simulation controls'} {...rest}>
+    <div ref={ref} className={'lamp-simbar ' + className} role="toolbar" aria-label={mode === 'live' ? 'Live controls' : 'Simulation controls'} {...rest}>
       {running
         ? <Button size="sm" variant="secondary" icon="pause" onClick={onPause}>Pause</Button>
         : <Button size="sm" variant={mode === 'live' ? 'brand' : 'primary'} icon="play_arrow" onClick={onRun}>{state === 'paused' ? 'Resume' : mode === 'live' ? 'Start run' : 'Run simulation'}</Button>}
@@ -29,4 +29,4 @@ export function SimulationBar({ mode = 'simulation', state = 'idle', progress = 
       {right}
     </div>
   );
-}
+}), { displayName: 'SimulationBar' });

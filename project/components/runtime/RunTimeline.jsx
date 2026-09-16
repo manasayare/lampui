@@ -14,10 +14,10 @@ const STEP = {
   blocked:      { glyph: 'block',          cls: 'blocked' },
 };
 
-export function RunStep({ index, state = 'pending', title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = '', ...rest }) {
+export const RunStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function RunStep({ index, state = 'pending', title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = '', ...rest }, ref) {
   const s = STEP[state] || STEP.pending;
   return (
-    <div className={'lamp-step ' + className} {...rest}>
+    <div ref={ref} className={'lamp-step ' + className} {...rest}>
       <span className={'lamp-step__icon' + (s.cls ? ' lamp-step__icon--' + s.cls : '')}>
         {s.glyph ? <Icon name={s.glyph} size={11} /> : index}
       </span>
@@ -41,12 +41,12 @@ export function RunStep({ index, state = 'pending', title, detail, actor, tools 
       </span>
     </div>
   );
-}
+}), { displayName: 'RunStep' });
 
-export function RunTimeline({ steps = [], className = '', ...rest }) {
+export const RunTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function RunTimeline({ steps = [], className = '', ...rest }, ref) {
   return (
-    <div className={className} role="list" aria-label="Run timeline" {...rest}>
+    <div ref={ref} className={className} role="list" aria-label="Run timeline" {...rest}>
       {steps.map((s, i) => <RunStep key={i} index={i + 1} {...s} />)}
     </div>
   );
-}
+}), { displayName: 'RunTimeline' });

@@ -5,4 +5,4 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   onRemove?: () => void;
   children?: React.ReactNode;
 }
-export declare function Tag(props: TagProps): JSX.Element;
+export declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLSpanElement>>;

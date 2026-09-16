@@ -14,5 +14,5 @@ export interface VoiceButtonProps extends React.HTMLAttributes<HTMLSpanElement> 
   onCancel?: () => void;
   onSend?: () => void;
 }
-export declare function VoiceButton(props: VoiceButtonProps): JSX.Element;
-export declare function VoiceWaveform(props: { levels?: number[]; bars?: number; height?: number }): JSX.Element;
+export declare const VoiceButton: React.ForwardRefExoticComponent<VoiceButtonProps & React.RefAttributes<HTMLSpanElement>>;
+export declare const VoiceWaveform: React.ForwardRefExoticComponent<{ levels?: number[]; bars?: number; height?: number } & React.RefAttributes<HTMLSpanElement>>;

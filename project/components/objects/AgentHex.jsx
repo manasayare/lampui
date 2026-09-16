@@ -20,11 +20,11 @@ const PULSE = { starting: 1, running: 1, delegating: 1, retrying: 1, succeeded: 
 const PULSE_COLOR = { succeeded: 'var(--status-success)', retrying: 'var(--status-warning)', paused: 'var(--neutral-400)' };
 const ROLE_GLYPH = { standard: 'smart_toy', coordinator: 'account_tree', specialist: 'target', humanSupervised: 'supervisor_account', system: 'settings', external: 'cloud' };
 
-export function AgentHex({
+export const AgentHex = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function AgentHex({
   size = 'md', state = 'idle', role = 'standard', environment = 'draft', detail = 'name',
   name, roleLabel, glyph, status, badgeCount, memoryActive = false, authority, task, cost, confidence,
-  tools = 0, dashed = false, onClick, className = '', style, ...rest
-}) {
+  tools = 0, dashed = false, labelWidth, onClick, className = '', style, ...rest
+}, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const border = STATE_BORDER[state] || STATE_BORDER.idle;
   const sw = ACTIVE[state] ? 1.5 : 1;
@@ -33,8 +33,9 @@ export function AgentHex({
   const energy = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-core)';
   const glyphSize = size === 'xs' ? 14 : size === 'sm' ? 16 : size === 'md' ? 18 : size === 'lg' ? 22 : 28;
   const label = (name || 'Agent') + (status ? ', ' + (STATUS[status] ? STATUS[status].label : status) : '');
+  const labelled = detail !== 'glyph' && !!(name || status);
   return (
-    <div className={['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' ')} style={style} {...rest}>
+    <div ref={ref} className={['lamp-agent', 'lamp-agent--' + state, onClick && 'lamp-agent--interactive', className].filter(Boolean).join(' ')} style={style} {...rest}>
       <div className="lamp-agent__hex" style={{ width: w, height: h }} onClick={onClick}
         tabIndex={0} role={onClick ? 'button' : 'img'} aria-label={label}>
         <svg width={w} height={h} viewBox={'0 0 ' + w + ' ' + h} style={{ display: 'block', overflow: 'visible' }}>
@@ -57,8 +58,14 @@ export function AgentHex({
           </span>
         ) : null}
       </div>
-      {detail !== 'glyph' && (name || status) ? (
-        <div className="lamp-agent__label">
+      {/* The label is wider than the hexagon, so on a lattice it can reach into
+          the neighbouring column and collide with the hexagon there — odd columns
+          sit half a row lower, which puts their body exactly in the label band.
+          The clearance rule is labelWidth <= 0.5 * hexWidth + 2 * gap; at the
+          default 104px cap that means a gap of at least 36 at size md. Pass
+          labelWidth to tighten the cap instead of opening the lattice. */}
+      {labelled ? (
+        <div className="lamp-agent__label" style={labelWidth ? { maxWidth: labelWidth } : undefined}>
           {name ? <span className="lamp-agent__name">{name}</span> : null}
           {status ? (
             <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: 'var(--text-secondary)' }}>
@@ -75,4 +82,4 @@ export function AgentHex({
       ) : null}
     </div>
   );
-}
+}), { displayName: 'AgentHex' });

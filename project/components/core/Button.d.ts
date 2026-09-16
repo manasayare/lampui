@@ -6,7 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'quiet' | 'brand' | 'danger' | 'danger-quiet';
   /** xs 24px · sm 28px · md 32px (default) · lg 40px */
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  /** Lucide name or a node. */
+  /** Material Symbol name (Outlined) or a node. */
   icon?: string | React.ReactNode;
   iconRight?: string | React.ReactNode;
   loading?: boolean;
@@ -16,6 +16,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   shortcut?: string;
   children?: React.ReactNode;
 }
-export declare function Button(props: ButtonProps): JSX.Element;
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export interface SplitButtonProps extends ButtonProps { onMenu?: () => void; menuLabel?: string }
-export declare function SplitButton(props: SplitButtonProps): JSX.Element;
+export declare const SplitButton: React.ForwardRefExoticComponent<SplitButtonProps & React.RefAttributes<HTMLSpanElement>>;

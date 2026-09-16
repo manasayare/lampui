@@ -1,18 +1,18 @@
 import React from 'react';
 
-export function Radio({ label, description, disabled = false, className = '', ...rest }) {
+export const Radio = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Radio({ label, description, disabled = false, className = '', ...rest }, ref) {
   return (
     <label className={['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')}>
-      <input type="radio" disabled={disabled} {...rest} />
+      <input ref={ref} type="radio" disabled={disabled} {...rest} />
       <span className="lamp-check__box lamp-check__box--radio"><span className="lamp-check__radio-dot" /></span>
       {label ? <span>{label}{description ? <span className="lamp-check__desc">{description}</span> : null}</span> : null}
     </label>
   );
-}
+}), { displayName: 'Radio' });
 
-export function RadioGroup({ name, options = [], value, onChange, direction = 'column', ...rest }) {
+export const RadioGroup = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function RadioGroup({ name, options = [], value, onChange, direction = 'column', ...rest }, ref) {
   return (
-    <div role="radiogroup" style={{ display: 'flex', flexDirection: direction, gap: direction === 'row' ? 16 : 8 }} {...rest}>
+    <div ref={ref} role="radiogroup" style={{ display: 'flex', flexDirection: direction, gap: direction === 'row' ? 16 : 8 }} {...rest}>
       {options.map((o) => {
         const v = typeof o === 'string' ? o : o.value;
         const l = typeof o === 'string' ? o : o.label;
@@ -20,4 +20,4 @@ export function RadioGroup({ name, options = [], value, onChange, direction = 'c
       })}
     </div>
   );
-}
+}), { displayName: 'RadioGroup' });

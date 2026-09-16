@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 import { StatusBadge } from '../core/StatusBadge.jsx';
 
-export function GenieCard({ name, purpose, status = 'draft', selected = false, live = false, stats = [], hive, actions, onClick, className = '', ...rest }) {
+export const GenieCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function GenieCard({ name, purpose, status = 'draft', selected = false, live = false, stats = [], hive, actions, onClick, className = '', ...rest }, ref) {
   return (
-    <div className={['lamp-genie', selected && 'lamp-genie--selected', live && 'lamp-genie--live', onClick && 'lamp-genie--interactive', className].filter(Boolean).join(' ')}
+    <div ref={ref} className={['lamp-genie', selected && 'lamp-genie--selected', live && 'lamp-genie--live', onClick && 'lamp-genie--interactive', className].filter(Boolean).join(' ')}
       onClick={onClick} role={onClick ? 'button' : 'group'} aria-label={'Genie ' + (name || '')} {...rest}>
       <div className="lamp-genie__head">
         <Icon name="hive" size={18} style={{ color: live ? 'var(--gold-500)' : 'var(--text-secondary)', marginTop: 1 }} />
@@ -28,4 +28,4 @@ export function GenieCard({ name, purpose, status = 'draft', selected = false, l
       ) : null}
     </div>
   );
-}
+}), { displayName: 'GenieCard' });

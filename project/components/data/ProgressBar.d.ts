@@ -7,7 +7,7 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   indeterminate?: boolean;
   label?: string;
 }
-export declare function ProgressBar(props: ProgressBarProps): JSX.Element;
+export declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
 /**
  * @startingPoint section="Data" subtitle="Usage meters — tokens, runs, seats, storage" viewport="700x180"
  */
@@ -21,4 +21,4 @@ export interface UsageMeterProps extends React.HTMLAttributes<HTMLDivElement> {
   footnote?: string;
   format?: (v: number) => string;
 }
-export declare function UsageMeter(props: UsageMeterProps): JSX.Element;
+export declare const UsageMeter: React.ForwardRefExoticComponent<UsageMeterProps & React.RefAttributes<HTMLDivElement>>;

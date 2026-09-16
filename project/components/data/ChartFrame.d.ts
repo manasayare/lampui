@@ -18,10 +18,10 @@ export interface ChartFrameProps extends React.HTMLAttributes<HTMLElement> {
   flush?: boolean;
   height?: number;
 }
-export declare function ChartFrame(props: ChartFrameProps): JSX.Element;
-export declare function ChartLegend(props: { items: Array<{ label: string; color?: string; value?: string | number; dashed?: boolean }>; variant?: 'swatch' | 'line' }): JSX.Element;
+export declare const ChartFrame: React.ForwardRefExoticComponent<ChartFrameProps & React.RefAttributes<HTMLElement>>;
+export declare const ChartLegend: React.ForwardRefExoticComponent<{ items: Array<{ label: string; color?: string; value?: string | number; dashed?: boolean }>; variant?: 'swatch' | 'line' } & React.RefAttributes<HTMLDivElement>>;
 export interface ChartTooltipProps { x: number; y: number; title?: string; rows?: Array<{ label: string; value: string | number; color?: string }> }
-export declare function ChartTooltip(props: ChartTooltipProps): JSX.Element;
+export declare const ChartTooltip: React.ForwardRefExoticComponent<ChartTooltipProps & React.RefAttributes<HTMLDivElement>>;
 /** The categorical sequence: gold, blue, green, violet, orange, teal, magenta, steel. */
 export declare const DATAVIZ: string[];
 export declare function seriesColor(i: number): string;

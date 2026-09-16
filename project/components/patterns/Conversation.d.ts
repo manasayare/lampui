@@ -9,9 +9,9 @@ export interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Delivery or execution state, e.g. "Delivered", "Waiting". */
   status?: string;
 }
-export declare function Message(props: MessageProps): JSX.Element;
-export declare function MessageList(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
-export interface ComposerProps extends React.HTMLAttributes<HTMLDivElement> {
+export declare const Message: React.ForwardRefExoticComponent<MessageProps & React.RefAttributes<HTMLDivElement>>;
+export declare const MessageList: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+export interface ComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   placeholder?: string;
   value?: string;
   onChange?: (v: string) => void;
@@ -22,7 +22,7 @@ export interface ComposerProps extends React.HTMLAttributes<HTMLDivElement> {
   quickReplies?: Array<string | { label: string; onSelect?: () => void }>;
   disabled?: boolean;
 }
-export declare function Composer(props: ComposerProps): JSX.Element;
+export declare const Composer: React.ForwardRefExoticComponent<ComposerProps & React.RefAttributes<HTMLDivElement>>;
 export interface ConversationProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   /** Context line — the Playbook or run the thread belongs to. */
@@ -33,4 +33,4 @@ export interface ConversationProps extends React.HTMLAttributes<HTMLDivElement> 
   /** A Composer element. */
   composer?: React.ReactNode;
 }
-export declare function Conversation(props: ConversationProps): JSX.Element;
+export declare const Conversation: React.ForwardRefExoticComponent<ConversationProps & React.RefAttributes<HTMLDivElement>>;

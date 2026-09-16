@@ -6,6 +6,6 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'block' | 'text' | 'circle' | 'hex';
   lines?: number;
 }
-export declare function Skeleton(props: SkeletonProps): JSX.Element;
+export declare const Skeleton: React.ForwardRefExoticComponent<SkeletonProps & React.RefAttributes<HTMLSpanElement>>;
 export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> { size?: number }
-export declare function Spinner(props: SpinnerProps): JSX.Element;
+export declare const Spinner: React.ForwardRefExoticComponent<SpinnerProps & React.RefAttributes<HTMLSpanElement>>;

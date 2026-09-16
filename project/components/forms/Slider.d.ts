@@ -1,4 +1,4 @@
-export interface SliderProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   min?: number;
   max?: number;
   step?: number;
@@ -8,4 +8,4 @@ export interface SliderProps extends React.InputHTMLAttributes<HTMLInputElement>
   format?: (v: number) => string;
   showValue?: boolean;
 }
-export declare function Slider(props: SliderProps): JSX.Element;
+export declare const Slider: React.ForwardRefExoticComponent<SliderProps & React.RefAttributes<HTMLInputElement>>;

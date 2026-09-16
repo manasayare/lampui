@@ -13,4 +13,4 @@ export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
   secondaryAction?: React.ReactNode;
   align?: 'center' | 'left';
 }
-export declare function EmptyState(props: EmptyStateProps): JSX.Element;
+export declare const EmptyState: React.ForwardRefExoticComponent<EmptyStateProps & React.RefAttributes<HTMLDivElement>>;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function Breadcrumb({ items = [], maxVisible = 5, onNavigate, className = '', ...rest }) {
+export const Breadcrumb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Breadcrumb({ items = [], maxVisible = 5, onNavigate, className = '', ...rest }, ref) {
   const overflow = items.length > maxVisible;
   const shown = overflow ? [items[0], { label: '…', overflow: true }, ...items.slice(-(maxVisible - 2))] : items;
   return (
-    <nav className={'lamp-crumb ' + className} aria-label="Object path" {...rest}>
+    <nav ref={ref} className={'lamp-crumb ' + className} aria-label="Object path" {...rest}>
       {shown.map((it, i) => (
         <React.Fragment key={i}>
           {i > 0 ? <span className="lamp-crumb__sep"><Icon name="chevron_right" size={14} /></span> : null}
@@ -18,4 +18,4 @@ export function Breadcrumb({ items = [], maxVisible = 5, onNavigate, className =
       ))}
     </nav>
   );
-}
+}), { displayName: 'Breadcrumb' });

@@ -5,4 +5,4 @@ export interface LiveActivityIndicatorProps extends React.HTMLAttributes<HTMLSpa
   /** Active run count. */
   count?: number;
 }
-export declare function LiveActivityIndicator(props: LiveActivityIndicatorProps): JSX.Element;
+export declare const LiveActivityIndicator: React.ForwardRefExoticComponent<LiveActivityIndicatorProps & React.RefAttributes<HTMLSpanElement>>;

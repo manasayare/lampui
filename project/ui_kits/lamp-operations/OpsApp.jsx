@@ -282,7 +282,7 @@ function OpsApp() {
             <NavItem icon="history" label="Runs" active={view === 'runs'} meta="412" onClick={() => setView('runs')} />
             <NavItem icon="how_to_reg" label="Approvals" active={view === 'approvals'} badge={<Badge count tone="waiting">7</Badge>} onClick={() => setView('approvals')} />
             <NavItem icon="shield" label="Safety" active={view === 'safety'} onClick={() => setView('safety')} />
-            <NavItem icon="auto_awesome" label="Intelligence" active={view === 'intelligence'} onClick={() => setView('intelligence')} />
+            <NavItem icon="flare" label="Intelligence" active={view === 'intelligence'} onClick={() => setView('intelligence')} />
           </NavSection>
           <NavSection label="Genies">
             <NavItem icon="hive" label="Finance" meta="23" />
@@ -295,7 +295,7 @@ function OpsApp() {
         <StatusBar items={[{ icon: 'bolt', label: 'Live' }, { label: 'Active runs', value: 7 }, { label: 'Queue', value: 3 }]}
           right={[{ icon: 'cloud_done', label: 'Synced' }, { label: 'Tools', value: '8/9 healthy' }, { label: 'p95', value: '6.2s' }, { label: 'Today', value: '$58.40' }]} />
       }>
-      <EnvironmentBanner environment="live" scope="3 Genies" detail="23 Agents can act on the business." actions={<SegmentedControl value={view} onChange={setView} options={[{ value: 'runs', label: 'Runs', icon: 'history' }, { value: 'approvals', label: 'Approvals', icon: 'how_to_reg' }, { value: 'safety', label: 'Safety', icon: 'shield' }, { value: 'intelligence', label: 'Intelligence', icon: 'auto_awesome' }]} />} />
+      <EnvironmentBanner environment="live" scope="3 Genies" detail="23 Agents can act on the business." actions={<SegmentedControl value={view} onChange={setView} options={[{ value: 'runs', label: 'Runs', icon: 'history' }, { value: 'approvals', label: 'Approvals', icon: 'how_to_reg' }, { value: 'safety', label: 'Safety', icon: 'shield' }, { value: 'intelligence', label: 'Intelligence', icon: 'flare' }]} />} />
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>{body()}</div>
     </AppShell>
   );

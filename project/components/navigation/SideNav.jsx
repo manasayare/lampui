@@ -1,27 +1,27 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function SideNav({ children, collapsed = false, footer, className = '', ...rest }) {
+export const SideNav = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SideNav({ children, collapsed = false, footer, className = '', ...rest }, ref) {
   return (
-    <nav className={['lamp-nav', collapsed && 'lamp-nav__rail', className].filter(Boolean).join(' ')} {...rest}>
+    <nav ref={ref} className={['lamp-nav', collapsed && 'lamp-nav__rail', className].filter(Boolean).join(' ')} {...rest}>
       <div style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>{children}</div>
       {footer ? <div className="lamp-nav__foot">{footer}</div> : null}
     </nav>
   );
-}
+}), { displayName: 'SideNav' });
 
-export function NavSection({ label, actions, children, ...rest }) {
+export const NavSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function NavSection({ label, actions, children, ...rest }, ref) {
   return (
-    <div className="lamp-nav__section" {...rest}>
+    <div ref={ref} className="lamp-nav__section" {...rest}>
       {label ? <div className="lamp-nav__label">{label}{actions ? <span style={{ marginLeft: 'auto' }}>{actions}</span> : null}</div> : null}
       {children}
     </div>
   );
-}
+}), { displayName: 'NavSection' });
 
-export function NavItem({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }) {
+export const NavItem = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function NavItem({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }, ref) {
   return (
-    <button type="button" className={'lamp-nav__item' + (active ? ' lamp-nav__item--active' : '')} onClick={onClick}
+    <button ref={ref} type="button" className={'lamp-nav__item' + (active ? ' lamp-nav__item--active' : '')} onClick={onClick}
       aria-current={active ? 'page' : undefined} title={collapsed ? label : undefined} {...rest}>
       {icon ? <Icon name={icon} size={16} /> : null}
       {!collapsed ? <span className="lamp-nav__text">{label}</span> : null}
@@ -29,4 +29,4 @@ export function NavItem({ icon, label, meta, active = false, collapsed = false, 
       {!collapsed ? badge : null}
     </button>
   );
-}
+}), { displayName: 'NavItem' });

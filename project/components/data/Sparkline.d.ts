@@ -8,4 +8,4 @@ export interface SparklineProps extends React.SVGAttributes<SVGElement> {
   /** Draws a dashed reference line at this value. */
   baseline?: number;
 }
-export declare function Sparkline(props: SparklineProps): JSX.Element;
+export declare const Sparkline: React.ForwardRefExoticComponent<SparklineProps & React.RefAttributes<SVGSVGElement>>;

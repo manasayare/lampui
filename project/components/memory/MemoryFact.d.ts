@@ -28,4 +28,4 @@ export interface MemoryFactProps extends React.HTMLAttributes<HTMLElement> {
   onIgnore?: () => void;
   actions?: React.ReactNode;
 }
-export declare function MemoryFact(props: MemoryFactProps): JSX.Element;
+export declare const MemoryFact: React.ForwardRefExoticComponent<MemoryFactProps & React.RefAttributes<HTMLElement>>;

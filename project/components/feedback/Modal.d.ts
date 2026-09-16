@@ -13,7 +13,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   footer?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function Modal(props: ModalProps): JSX.Element;
+export declare const Modal: React.ForwardRefExoticComponent<ModalProps & React.RefAttributes<HTMLDivElement>>;
 export interface CriticalConfirmationProps extends Omit<ModalProps, 'critical' | 'size'> {
   /** What is affected, in one sentence. */
   scope?: string;
@@ -24,7 +24,7 @@ export interface CriticalConfirmationProps extends Omit<ModalProps, 'critical' |
   onCancel?: () => void;
   onConfirm?: () => void;
 }
-export declare function CriticalConfirmation(props: CriticalConfirmationProps): JSX.Element;
+export declare const CriticalConfirmation: React.ForwardRefExoticComponent<CriticalConfirmationProps & React.RefAttributes<HTMLDivElement>>;
 export interface DrawerProps extends React.HTMLAttributes<HTMLElement> {
   open?: boolean;
   title?: string;
@@ -34,10 +34,10 @@ export interface DrawerProps extends React.HTMLAttributes<HTMLElement> {
   footer?: React.ReactNode;
   onClose?: () => void;
 }
-export declare function Drawer(props: DrawerProps): JSX.Element;
+export declare const Drawer: React.ForwardRefExoticComponent<DrawerProps & React.RefAttributes<HTMLElement>>;
 export interface PopoverProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   x?: number;
   y?: number;
 }
-export declare function Popover(props: PopoverProps): JSX.Element;
+export declare const Popover: React.ForwardRefExoticComponent<PopoverProps & React.RefAttributes<HTMLDivElement>>;

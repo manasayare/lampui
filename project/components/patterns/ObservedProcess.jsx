@@ -3,9 +3,9 @@ import { Icon } from '../core/Icon.jsx';
 import { Badge } from '../core/Badge.jsx';
 import { EntityChip } from '../objects/EntityChip.jsx';
 
-export function ObservedProcess({ steps = [], showLinks = true, className = '', ...rest }) {
+export const ObservedProcess = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ObservedProcess({ steps = [], showLinks = true, className = '', ...rest }, ref) {
   return (
-    <div className={'lamp-proc ' + className} role="list" {...rest}>
+    <div ref={ref} className={'lamp-proc ' + className} role="list" {...rest}>
       {steps.map((s, i) => (
         <React.Fragment key={i}>
           <div className={['lamp-proc__step', s.kind === 'exception' && 'lamp-proc__step--exception', s.kind === 'rework' && 'lamp-proc__step--rework'].filter(Boolean).join(' ')} role="listitem">
@@ -32,4 +32,4 @@ export function ObservedProcess({ steps = [], showLinks = true, className = '', 
       ))}
     </div>
   );
-}
+}), { displayName: 'ObservedProcess' });

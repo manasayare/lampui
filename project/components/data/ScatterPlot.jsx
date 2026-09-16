@@ -2,7 +2,7 @@ import React from 'react';
 import { seriesColor } from './ChartFrame.jsx';
 
 /* Scatter / bubble. Large point counts belong on the ECharts tier with the same API. */
-export function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = '', ...rest }) {
+export const ScatterPlot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = '', ...rest }, ref) {
   const xm = xMax != null ? xMax : Math.max.apply(null, points.map((p) => p.x).concat([1]));
   const ym = yMax != null ? yMax : Math.max.apply(null, points.map((p) => p.y).concat([1]));
   const iw = width - pad.l - pad.r;
@@ -11,7 +11,7 @@ export function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax
   const Y = (v) => pad.t + ih - (v / ym) * ih;
   const ticks = [0, 0.25, 0.5, 0.75, 1];
   return (
-    <svg width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} role="img" className={className} preserveAspectRatio="none" {...rest}>
+    <svg ref={ref} width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} role="img" className={className} preserveAspectRatio="none" {...rest}>
       <g className="lamp-chart__grid">
         {ticks.map((t, i) => <line key={'h' + i} x1={pad.l} x2={width - pad.r} y1={Y(ym * t)} y2={Y(ym * t)} />)}
         {ticks.map((t, i) => <line key={'v' + i} y1={pad.t} y2={pad.t + ih} x1={X(xm * t)} x2={X(xm * t)} />)}
@@ -30,4 +30,4 @@ export function ScatterPlot({ points = [], width = 640, height = 200, xMax, yMax
       ))}
     </svg>
   );
-}
+}), { displayName: 'ScatterPlot' });

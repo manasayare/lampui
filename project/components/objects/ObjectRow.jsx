@@ -9,9 +9,9 @@ const KIND_GLYPH = {
   policy: 'gavel', process: 'account_tree', integration: 'extension', member: 'person',
 };
 
-export function ObjectRow({ kind = 'agent', glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = '', ...rest }) {
+export const ObjectRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ObjectRow({ kind = 'agent', glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = '', ...rest }, ref) {
   return (
-    <div className={['lamp-objrow', compact && 'lamp-objrow--compact', selected && 'lamp-objrow--selected', className].filter(Boolean).join(' ')}
+    <div ref={ref} className={['lamp-objrow', compact && 'lamp-objrow--compact', selected && 'lamp-objrow--selected', className].filter(Boolean).join(' ')}
       onClick={onClick} role="button" tabIndex={0} aria-selected={selected} {...rest}>
       <span className="lamp-objrow__glyph"><Icon name={glyph || KIND_GLYPH[kind] || 'circle'} size={compact ? 14 : 16} /></span>
       <span className="lamp-objrow__main">
@@ -27,8 +27,8 @@ export function ObjectRow({ kind = 'agent', glyph, name, secondary, status, stat
       </span>
     </div>
   );
-}
+}), { displayName: 'ObjectRow' });
 
-export function ObjectList({ children, className = '', ...rest }) {
-  return <div className={'lamp-objlist ' + className} role="list" style={{ display: 'flex', flexDirection: 'column' }} {...rest}>{children}</div>;
-}
+export const ObjectList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function ObjectList({ children, className = '', ...rest }, ref) {
+  return <div ref={ref} className={'lamp-objlist ' + className} role="list" style={{ display: 'flex', flexDirection: 'column' }} {...rest}>{children}</div>;
+}), { displayName: 'ObjectList' });

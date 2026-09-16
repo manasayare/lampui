@@ -9,7 +9,7 @@ export interface CommandItemDef {
   danger?: boolean;
 }
 export interface CommandGroupDef { label: string; items: CommandItemDef[] }
-export interface CommandPaletteProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CommandPaletteProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   open?: boolean;
   query?: string;
   onQueryChange?: (q: string) => void;
@@ -21,4 +21,4 @@ export interface CommandPaletteProps extends React.HTMLAttributes<HTMLDivElement
   placeholder?: string;
   footer?: React.ReactNode;
 }
-export declare function CommandPalette(props: CommandPaletteProps): JSX.Element;
+export declare const CommandPalette: React.ForwardRefExoticComponent<CommandPaletteProps & React.RefAttributes<HTMLDivElement>>;

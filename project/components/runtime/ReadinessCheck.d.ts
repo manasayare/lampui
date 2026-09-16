@@ -12,4 +12,4 @@ export interface ReadinessItem {
 export interface ReadinessCheckProps extends React.HTMLAttributes<HTMLDivElement> {
   checks: ReadinessItem[];
 }
-export declare function ReadinessCheck(props: ReadinessCheckProps): JSX.Element;
+export declare const ReadinessCheck: React.ForwardRefExoticComponent<ReadinessCheckProps & React.RefAttributes<HTMLDivElement>>;

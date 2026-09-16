@@ -11,12 +11,12 @@ export interface StatusBadgeProps extends React.HTMLAttributes<HTMLSpanElement> 
   mode?: 'badge' | 'label' | 'icon';
   size?: 'sm' | 'md';
 }
-export declare function StatusBadge(props: StatusBadgeProps): JSX.Element;
+export declare const StatusBadge: React.ForwardRefExoticComponent<StatusBadgeProps & React.RefAttributes<HTMLSpanElement>>;
 export interface StatusDotProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: LampStatus;
   size?: 'md' | 'lg';
   pulse?: boolean;
   ring?: boolean;
 }
-export declare function StatusDot(props: StatusDotProps): JSX.Element;
+export declare const StatusDot: React.ForwardRefExoticComponent<StatusDotProps & React.RefAttributes<HTMLSpanElement>>;
 export declare const STATUS: Record<LampStatus, { tone: string; icon: string; label: string; color: string }>;

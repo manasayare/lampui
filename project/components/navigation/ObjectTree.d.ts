@@ -8,11 +8,11 @@ export interface ObjectTreeNode {
   meta?: string;
   children?: ObjectTreeNode[];
 }
-export interface ObjectTreeProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ObjectTreeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   nodes: ObjectTreeNode[];
   selectedId?: string;
   expanded?: Record<string, boolean>;
   onSelect?: (node: ObjectTreeNode) => void;
   onToggle?: (node: ObjectTreeNode) => void;
 }
-export declare function ObjectTree(props: ObjectTreeProps): JSX.Element;
+export declare const ObjectTree: React.ForwardRefExoticComponent<ObjectTreeProps & React.RefAttributes<HTMLDivElement>>;

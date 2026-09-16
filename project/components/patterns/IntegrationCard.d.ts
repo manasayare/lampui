@@ -24,4 +24,4 @@ export interface IntegrationCardProps extends React.HTMLAttributes<HTMLElement> 
   onTest?: () => void;
   actions?: React.ReactNode;
 }
-export declare function IntegrationCard(props: IntegrationCardProps): JSX.Element;
+export declare const IntegrationCard: React.ForwardRefExoticComponent<IntegrationCardProps & React.RefAttributes<HTMLElement>>;

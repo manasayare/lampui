@@ -11,14 +11,18 @@
 .lamp-insp__foot--sticky{position:sticky;bottom:0}
 
 .lamp-insp-sec{border-bottom:1px solid var(--border-subtle)}
-.lamp-insp-sec__head{display:flex;align-items:center;gap:6px;width:100%;min-height:32px;padding:6px 10px;border:none;background:transparent;cursor:pointer;text-align:left}
+.lamp-insp-sec__head{display:flex;align-items:center;gap:6px;width:100%;min-height:32px;padding:0 10px 0 0}
+.lamp-insp-sec__toggle{flex:1;min-width:0;display:flex;align-items:center;gap:6px;min-height:32px;padding:6px 6px 6px 10px;border:none;background:transparent;cursor:pointer;text-align:left}
+.lamp-insp-sec__toggle:disabled{cursor:default}
 .lamp-insp-sec__head:hover{background:var(--surface-hover)}
+.lamp-insp-sec__actions{display:flex;align-items:center;gap:2px;flex:none}
 .lamp-insp-sec__label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
 .lamp-insp-sec__count{font-family:var(--font-mono);font-size:11px;color:var(--text-disabled)}
 .lamp-insp-sec__twist{margin-left:auto;color:var(--text-tertiary);display:flex;transition:transform var(--duration-fast) var(--ease-standard)}
 .lamp-insp-sec__twist--open{transform:rotate(180deg)}
 .lamp-insp-sec__body{padding:2px 10px 12px;display:flex;flex-direction:column;gap:10px}
 .lamp-insp-sec--static .lamp-insp-sec__head{cursor:default}
+.lamp-insp-sec--static .lamp-insp-sec__head:hover{background:transparent}
 .lamp-insp-sec--advanced .lamp-insp-sec__label{color:var(--text-disabled)}
 
 .lamp-prop{display:grid;grid-template-columns:104px 1fr;gap:8px;align-items:center;min-height:var(--row-height-inspector);font-size:13px}
@@ -29,3 +33,26 @@
 .lamp-prop--inherited .lamp-prop__value{color:var(--text-secondary)}
 .lamp-prop__inherit{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
 .lamp-prop__empty{color:var(--text-disabled)}
+
+.lamp-insp__badges{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.lamp-insp__tabs{flex:none;border-bottom:1px solid var(--border-subtle)}
+.lamp-insp__foot--split{justify-content:space-between}
+.lamp-insp__foot--start{justify-content:flex-start}
+
+/* InspectorField — editable row on PropertyRow's label column */
+.lamp-ifield{display:grid;grid-template-columns:104px 1fr;gap:8px;align-items:start;min-height:var(--row-height-inspector);font-size:13px}
+.lamp-ifield__labelcol{display:flex;align-items:center;gap:4px;min-height:var(--control-height-md,32px);min-width:0}
+.lamp-ifield__label{font-size:12px;color:var(--text-tertiary);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lamp-ifield__req{color:var(--status-danger)}
+.lamp-ifield__opt{font-size:10px;color:var(--text-disabled)}
+.lamp-ifield__hint{display:flex;color:var(--text-disabled);cursor:help}
+.lamp-ifield__control{min-width:0;display:flex;flex-direction:column;gap:4px}
+.lamp-ifield__origin{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
+.lamp-ifield__helper{font-size:11px;color:var(--text-tertiary)}
+.lamp-ifield__msg{display:flex;align-items:center;gap:4px;font-size:11px}
+.lamp-ifield__msg--error{color:var(--status-danger-text)}
+.lamp-ifield__msg--warning{color:var(--status-warning-text)}
+.lamp-ifield--stack{grid-template-columns:1fr;gap:4px}
+.lamp-ifield--stack .lamp-ifield__labelcol{min-height:0}
+.lamp-ifield--advanced .lamp-ifield__label{color:var(--text-disabled)}
+.lamp-ifield__action{grid-column:2;display:flex;gap:4px}

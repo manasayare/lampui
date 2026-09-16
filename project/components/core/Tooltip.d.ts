@@ -1,4 +1,4 @@
-export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
   content: React.ReactNode;
   /** Keyboard hint appended on the right. */
   shortcut?: string;
@@ -6,4 +6,4 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   rich?: boolean;
   children: React.ReactNode;
 }
-export declare function Tooltip(props: TooltipProps): JSX.Element;
+export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & React.RefAttributes<HTMLSpanElement>>;

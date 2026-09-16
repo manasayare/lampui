@@ -3,7 +3,7 @@ import { heatColor } from './Heatmap.jsx';
 
 /* LAMP-native hive visualization: a value per Agent slot on the hexagonal lattice.
    Production renderer: visx — this is product language, not a generic chart. */
-export function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = 'gold', showLabels = false, onSelect, className = '', ...rest }) {
+export const HexHeatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = 'gold', showLabels = false, onSelect, className = '', ...rest }, ref) {
   const w = size;
   const h = size / 1.1547;
   const stepX = w * 0.75 + gap;
@@ -19,7 +19,7 @@ export function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = 'gold',
   });
   const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map((p) => p.join(',')).join(' ');
   return (
-    <svg width={maxX} height={maxY} viewBox={'0 0 ' + maxX + ' ' + maxY} role="img" className={className} {...rest}>
+    <svg ref={ref} width={maxX} height={maxY} viewBox={'0 0 ' + maxX + ' ' + maxY} role="img" className={className} {...rest}>
       {placed.map((c) => (
         <g key={c.key} transform={'translate(' + c.x + ',' + c.y + ')'} onClick={onSelect ? () => onSelect(c) : undefined} style={onSelect ? { cursor: 'pointer' } : undefined}>
           <polygon points={pts} fill={c.color || heatColor(c.value, m, ramp)} stroke={c.selected ? 'var(--gold-500)' : 'var(--border-subtle)'} strokeWidth={c.selected ? 1.5 : 0.75} />
@@ -29,4 +29,4 @@ export function HexHeatmap({ cells = [], size = 26, gap = 2, max, ramp = 'gold',
       ))}
     </svg>
   );
-}
+}), { displayName: 'HexHeatmap' });

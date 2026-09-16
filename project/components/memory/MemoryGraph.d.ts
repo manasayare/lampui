@@ -22,7 +22,7 @@ export interface MemoryGraphLink {
 /**
  * @startingPoint section="Memory" subtitle="Obsidian-style force graph over LAMP memory" viewport="700x420"
  */
-export interface MemoryGraphProps extends React.SVGAttributes<SVGSVGElement> {
+export interface MemoryGraphProps extends Omit<React.SVGAttributes<SVGSVGElement>, 'onSelect'> {
   nodes: MemoryGraphNode[];
   links: MemoryGraphLink[];
   width?: number;
@@ -37,4 +37,4 @@ export interface MemoryGraphProps extends React.SVGAttributes<SVGSVGElement> {
   /** Simulation frame cap. Default 260 — it settles and then stops. */
   iterations?: number;
 }
-export declare function MemoryGraph(props: MemoryGraphProps): JSX.Element;
+export declare const MemoryGraph: React.ForwardRefExoticComponent<MemoryGraphProps & React.RefAttributes<HTMLDivElement>>;

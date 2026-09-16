@@ -18,6 +18,6 @@ export interface VizProps {
   /** Renderer props may also be passed flat. */
   [key: string]: any;
 }
-export declare function Viz(props: VizProps): JSX.Element;
+export declare const Viz: React.ForwardRefExoticComponent<VizProps & React.RefAttributes<HTMLElement>>;
 /** type → renderer tier: standard (Recharts) · advanced (ECharts) · native (visx) · realtime (uPlot). */
 export declare const VIZ_TIERS: Record<VizType, 'standard' | 'advanced' | 'native' | 'realtime'>;

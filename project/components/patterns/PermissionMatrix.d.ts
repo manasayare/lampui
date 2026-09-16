@@ -17,7 +17,7 @@ export interface PermissionMatrixProps extends React.TableHTMLAttributes<HTMLTab
   onToggle?: (resource: PermissionResource, action: string, state: string) => void;
   scopeLabel?: string;
 }
-export declare function PermissionMatrix(props: PermissionMatrixProps): JSX.Element;
+export declare const PermissionMatrix: React.ForwardRefExoticComponent<PermissionMatrixProps & React.RefAttributes<HTMLTableElement>>;
 export declare function PermissionCell(props: { state?: 'granted' | 'inherited' | 'denied' | 'overridden' | 'conflict'; onClick?: () => void }): JSX.Element;
 export interface RoleBadgeProps { role: string; scope?: string }
-export declare function RoleBadge(props: RoleBadgeProps): JSX.Element;
+export declare const RoleBadge: React.ForwardRefExoticComponent<RoleBadgeProps & React.RefAttributes<HTMLSpanElement>>;

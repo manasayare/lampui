@@ -1,43 +1,131 @@
-<!-- @dsCard group="Canvas" viewport="700x400" name="Drag to snap" subtitle="Drag an Agent — it snaps to the hex lattice; arrow keys do the same" -->
+<!-- @dsCard group="Canvas" viewport="700x470" name="Drag to snap" subtitle="Snap to the lattice, outline a group, define the Playbook" -->
 <!doctype html><html data-theme="light"><head><meta charset="utf-8"><title>Drag to snap</title>
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Draggable.min.js"></script>
 <script src="../../_ds_bundle.js"></script>
 <style>body{margin:0;padding:12px;background:var(--surface-canvas);font-family:var(--font-sans)}
-.hint{display:flex;align-items:center;gap:10px;font:400 11px var(--font-mono);color:var(--text-tertiary);padding:4px 2px 8px}</style></head><body><div id="root"></div>
+.hint{display:flex;align-items:center;gap:10px;font:400 11px var(--font-mono);color:var(--text-tertiary);padding:4px 2px 8px}
+.hint b{font-weight:400;color:var(--text-brand)}</style></head><body><div id="root"></div>
 <script type="text/babel">
-const { SnapField, AgentHex, CanvasSurface, BondLayer, BondEdge, HexCenter, Kbd } = window.LAMPDesignSystem_980d6d;
+const {
+  SnapField, AgentHex, CanvasSurface, BondLayer, BondEdge, HexCenter, Kbd,
+  PlaybookComposer, GenieBlueprint, BuildGenie, BUSINESS_PROCESSES, Modal, Button,
+} = window.LAMPDesignSystem_980d6d;
+
 const START = [
-  { id:'intake', name:'Invoice Intake', col:0, row:0, role:'coordinator', state:'bonded' },
-  { id:'matcher', name:'Invoice Matcher', col:1, row:0, role:'specialist', state:'bonded' },
-  { id:'verifier', name:'Vendor Verifier', col:2, row:0, role:'specialist', state:'bonded' },
-  { id:'loose', name:'Ledger Sync', col:5, row:1, role:'standard', state:'idle' },
+  { id:'intake',   name:'Invoice Intake',  col:0, row:0, role:'coordinator', state:'bonded' },
+  { id:'matcher',  name:'Invoice Matcher', col:1, row:0, role:'specialist',  state:'bonded' },
+  { id:'verifier', name:'Vendor Verifier', col:2, row:0, role:'specialist',  state:'bonded' },
+  { id:'approver', name:'Payment Approver',col:5, row:1, role:'human-supervised', state:'idle' },
 ];
 const BONDS = [['intake','matcher'],['matcher','verifier']];
+
+/* Tools this LAMP already has, so the composer can show real connection state. */
+const TOOLS = [
+  { provider:'sap',    name:'SAP',    state:'connected' },
+  { provider:'gmail',  name:'Gmail',  state:'connected' },
+  { provider:'slack',  name:'Slack',  state:'authorizationRequired' },
+];
+
+const STATUS = {
+  idle:       'Drag any Agent, or focus one and use the arrow keys',
+  dragging:   'Release anywhere — it lands on the outlined slot',
+  proximity:  'Near a free slot',
+  snapReady:  'Release to snap',
+};
+
 function Demo(){
   const [agents, setAgents] = React.useState(START);
-  const [sel, setSel] = React.useState('matcher');
-  const [snap, setSnap] = React.useState('idle');
+  const [sel, setSel]       = React.useState('matcher');
+  const [snap, setSnap]     = React.useState('idle');
+  const [picked, setPicked] = React.useState([]);
+  const [composing, setComposing] = React.useState(null);
+  const [blueprint, setBlueprint] = React.useState(null);
+  const [created, setCreated]     = React.useState(null);
+
   const by = {}; agents.forEach(a => by[a.id] = a);
-  const gap = 22, size = 'md';
+  /* 40, not 22: names are shown, and AgentHex's clearance rule needs >= 36 at md. */
+  const gap = 40, size = 'md';
+
   return <div>
     <div className="hint">
-      <span>{snap === 'snapReady' ? 'Snap to slot' : snap === 'dragging' ? 'Dragging — no slot in range' : 'Drag any Agent, or focus one and use the arrow keys'}</span>
+      <span>{snap !== 'idle' ? <b>{STATUS[snap]}</b> : picked.length > 1
+        ? <b>{picked.length} selected — group them into a Playbook</b>
+        : STATUS.idle}</span>
       <Kbd keys={['←','→','↑','↓']} />
     </div>
-    <CanvasSurface grid="dots" environment="draft" state={snap === 'snapReady' ? 'snapping' : snap} style={{height:312,borderRadius:8,border:'1px solid var(--border-default)',overflow:'hidden'}}>
-      <SnapField agents={agents} size={size} gap={gap} width={660} height={312} onChange={setAgents}
-        selectedId={sel} onSelect={(a)=>setSel(a.id)} onSnapStateChange={setSnap} origin={{x:80,y:70}}
-        bonds={<BondLayer width={420} height={180}>{BONDS.filter(b=>by[b[0]]&&by[b[1]]).map(b=>{
+
+    <CanvasSurface grid="dots" environment="draft"
+      state={snap === 'snapReady' ? 'snapping' : snap === 'idle' ? 'idle' : 'dragging'}
+      style={{height:380,borderRadius:8,border:'1px solid var(--border-default)',overflow:'hidden'}}>
+      <SnapField
+        agents={agents} size={size} gap={gap} width={660} height={380}
+        origin={{x:70,y:64}} snapTolerance={34} proximityRange={72}
+        onChange={setAgents}
+        selectedId={sel} onSelect={(a)=>setSel(a.id)}
+        selectable selectedIds={picked} onSelectionChange={setPicked}
+        onGroup={(ids)=>setComposing(ids)}
+        onSnapStateChange={setSnap}
+        /* bonds in its function form. As a fixed node a bond stays anchored to
+           the cell the Agent was committed to, leaving a gold stub behind while
+           it is dragged away; given the live positions it follows the drag. */
+        bonds={(pos, { draggingId }) => <BondLayer width={660} height={380}>{BONDS.filter(b=>pos[b[0]]&&pos[b[1]]).map(b=>{
           const A = by[b[0]], B = by[b[1]];
           const near = Math.abs(A.col-B.col) <= 1 && Math.abs(A.row-B.row) <= 1;
-          return near ? <BondEdge key={b.join()} from={HexCenter(A.col,A.row,size,gap)} to={HexCenter(B.col,B.row,size,gap)} state="valid" /> : null;
+          const moving = draggingId === b[0] || draggingId === b[1];
+          return near || moving ? <BondEdge key={b.join()} size={size} from={pos[b[0]]} to={pos[b[1]]} state={moving ? 'preview' : 'valid'} /> : null;
         })}</BondLayer>}
-        renderAgent={(a,f)=><AgentHex size={size} detail={f.dragging?'glyph':'name'} name={a.name} role={a.role}
-          state={f.selected && !f.dragging ? 'selected' : a.state} onClick={()=>{}} />} />
+        renderAgent={(a,f)=>(
+          <AgentHex size={size} detail={f.dragging?'glyph':'name'} name={a.name} role={a.role}
+            state={f.multiSelected ? 'multiSelected'
+                 : f.selected && !f.dragging ? 'selected'
+                 : a.state}
+            onClick={()=>{}} />
+        )} />
     </CanvasSurface>
+
+    {composing ? (
+      <PlaybookComposer
+        agents={agents.filter(a => composing.indexOf(a.id) !== -1)}
+        availableTools={TOOLS}
+        onCancel={()=>setComposing(null)}
+        onPreviewGenie={(p)=>setBlueprint(BuildGenie(p, { agents: agents.filter(a => composing.indexOf(a.id) !== -1) }))}
+        onCreate={(pb)=>{
+          setComposing(null);
+          setPicked([]);
+          if (pb.createGenie) {
+            const process = BUSINESS_PROCESSES.filter(p => p.id === pb.processId)[0];
+            setBlueprint(BuildGenie(process, { agents: pb.agents }));
+          } else {
+            setCreated(pb);
+          }
+        }} />
+    ) : null}
+
+    {blueprint ? (
+      <Modal size="lg" glyph="hive" title="This is what gets created"
+        subtitle="All drafts. Nothing is connected and nothing runs." onClose={()=>setBlueprint(null)}>
+        <GenieBlueprint blueprint={blueprint}
+          onCancel={()=>setBlueprint(null)}
+          onCreate={()=>{ setCreated({ name: blueprint.name + ' Genie', outcomes: [], connectors: blueprint.connectors }); setBlueprint(null); }} />
+      </Modal>
+    ) : null}
+
+    {created ? (
+      <Modal size="sm" glyph="check_circle" title={'"' + created.name + '" created as a draft'}
+        onClose={()=>setCreated(null)}
+        footer={<Button variant="primary" onClick={()=>setCreated(null)}>Close</Button>}>
+        <p style={{margin:0,fontSize:13,color:'var(--text-secondary)'}}>
+          {created.outcomes && created.outcomes.length
+            ? created.outcomes.length + ' expected outcomes and ' + created.connectors.length + ' connectors recorded. Run a simulation to judge it against them.'
+            : created.connectors.length + ' connectors recorded. Nothing is authorized yet.'}
+        </p>
+      </Modal>
+    ) : null}
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);

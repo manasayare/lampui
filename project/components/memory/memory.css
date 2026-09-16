@@ -52,3 +52,51 @@
 .lamp-graph__swatch--square{border-radius:1px}
 .lamp-graph__swatch--diamond{border-radius:1px;transform:rotate(45deg)}
 .lamp-graph__swatch--hex{border-radius:1px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+
+/* MemoryScopeBar — the four scopes, narrow to broad */
+.lamp-scopebar{display:flex;gap:2px;padding:2px;background:var(--surface-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md)}
+.lamp-scopebar--bar{align-items:stretch}
+/* A read-out lists: four scopes with counts never fit across a 320px Inspector. */
+.lamp-scopebar--list{flex-direction:column;gap:0;padding:2px;background:transparent;border:none}
+.lamp-scopebar--list .lamp-scopebar__item{flex:none;width:100%;height:28px}
+.lamp-scopebar--list .lamp-scopebar__item+.lamp-scopebar__item{border-top:1px solid var(--border-subtle);border-radius:0}
+.lamp-scopebar__item{flex:1;min-width:0;display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;border:1px solid transparent;border-radius:var(--radius-sm);background:transparent;color:var(--text-secondary);font:500 12px/16px var(--font-sans);cursor:pointer;text-align:left;white-space:nowrap}
+.lamp-scopebar--static .lamp-scopebar__item{cursor:default}
+.lamp-scopebar__item:hover:not(.lamp-scopebar__item--active){background:var(--surface-hover)}
+.lamp-scopebar--static .lamp-scopebar__item:hover{background:transparent}
+.lamp-scopebar__item--active{background:var(--surface-primary);border-color:var(--border-default);color:var(--text-primary);box-shadow:var(--shadow-1)}
+.lamp-scopebar__item--inherited{color:var(--text-tertiary)}
+.lamp-scopebar__item--owned{background:var(--surface-primary);border-color:var(--border-default);color:var(--text-primary)}
+.lamp-scopebar__owned{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-brand)}
+.lamp-scopebar__mark{flex:none;width:3px;border-radius:1px;background:var(--memory-accent)}
+.lamp-scopebar__item--agent .lamp-scopebar__mark{height:4px}
+.lamp-scopebar__item--playbook .lamp-scopebar__mark{height:7px}
+.lamp-scopebar__item--genie .lamp-scopebar__mark{height:10px}
+.lamp-scopebar__item--lamp .lamp-scopebar__mark{height:13px}
+.lamp-scopebar__item--inherited .lamp-scopebar__mark{opacity:.5}
+.lamp-scopebar__name{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.lamp-scopebar__count{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+.lamp-scopebar--list .lamp-scopebar__inherit,.lamp-scopebar--list .lamp-scopebar__owned{margin-left:6px;flex:none}
+.lamp-scopebar--bar .lamp-scopebar__inherit,.lamp-scopebar--bar .lamp-scopebar__owned{display:none}
+.lamp-scopebar__inherit{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled)}
+
+/* MemoryConflict — two memories that cannot both be true */
+.lamp-conflict{display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid var(--status-warning-border,var(--border-default));border-radius:var(--radius-card);background:var(--surface-primary)}
+.lamp-conflict--resolved{border-color:var(--border-subtle)}
+.lamp-conflict__head{display:flex;align-items:flex-start;gap:8px}
+.lamp-conflict__glyph{flex:none;margin-top:1px;color:var(--status-warning)}
+.lamp-conflict--resolved .lamp-conflict__glyph{color:var(--status-success)}
+.lamp-conflict__titles{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lamp-conflict__title{font-size:13px;font-weight:600;color:var(--text-primary)}
+.lamp-conflict__detail{font-size:12px;color:var(--text-secondary)}
+.lamp-conflict__claims{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:640px){.lamp-conflict__claims{grid-template-columns:1fr}}
+.lamp-conflict__claim{display:flex;flex-direction:column;gap:6px;padding:10px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--surface-secondary)}
+.lamp-conflict__claim--picked{border-color:var(--gold-500);background:var(--surface-selected)}
+.lamp-conflict__claim-top{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.lamp-conflict__text{margin:0;font-size:13px;line-height:18px;color:var(--text-primary)}
+.lamp-conflict__ev{display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--text-tertiary)}
+.lamp-conflict__ev span{display:flex;align-items:center;gap:4px}
+.lamp-conflict__ev b{color:var(--text-secondary);font-weight:500}
+.lamp-conflict__resolution{margin:0;font-size:12px;color:var(--text-secondary)}
+.lamp-conflict__foot{display:flex;align-items:center;gap:6px;flex-wrap:wrap}

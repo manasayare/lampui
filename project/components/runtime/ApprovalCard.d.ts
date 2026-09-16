@@ -26,9 +26,9 @@ export interface ApprovalCardProps extends React.HTMLAttributes<HTMLElement> {
   onRequestInfo?: () => void;
   onEscalate?: () => void;
 }
-export declare function ApprovalCard(props: ApprovalCardProps): JSX.Element;
+export declare const ApprovalCard: React.ForwardRefExoticComponent<ApprovalCardProps & React.RefAttributes<HTMLElement>>;
 export interface HumanCheckpointProps extends React.HTMLAttributes<HTMLSpanElement> {
   label?: string;
   detail?: string;
 }
-export declare function HumanCheckpoint(props: HumanCheckpointProps): JSX.Element;
+export declare const HumanCheckpoint: React.ForwardRefExoticComponent<HumanCheckpointProps & React.RefAttributes<HTMLSpanElement>>;

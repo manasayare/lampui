@@ -1,7 +1,7 @@
 /**
  * @startingPoint section="Data" subtitle="Scatter — automation potential, latency vs cost" viewport="700x260"
  */
-export interface ScatterPlotProps extends React.SVGAttributes<SVGElement> {
+export interface ScatterPlotProps extends Omit<React.SVGAttributes<SVGElement>, 'format' | 'points'> {
   /** r sets bubble size; group picks the categorical colour. */
   points: Array<{ x: number; y: number; r?: number; label?: string; group?: number; color?: string }>;
   width?: number;
@@ -15,4 +15,4 @@ export interface ScatterPlotProps extends React.SVGAttributes<SVGElement> {
   pad?: { l: number; r: number; t: number; b: number };
   format?: (v: number) => string | number;
 }
-export declare function ScatterPlot(props: ScatterPlotProps): JSX.Element;
+export declare const ScatterPlot: React.ForwardRefExoticComponent<ScatterPlotProps & React.RefAttributes<SVGSVGElement>>;

@@ -49,8 +49,8 @@ export interface ChatMessageProps extends React.HTMLAttributes<HTMLElement> {
   onCopy?: () => void;
   onInspect?: () => void;
 }
-export declare function ChatMessage(props: ChatMessageProps): JSX.Element;
-export declare function ChatAvatar(props: { role?: string; initials?: string; glyph?: string; state?: string; size?: number }): JSX.Element;
+export declare const ChatMessage: React.ForwardRefExoticComponent<ChatMessageProps & React.RefAttributes<HTMLElement>>;
+export declare const ChatAvatar: React.ForwardRefExoticComponent<{ role?: string; initials?: string; glyph?: string; state?: string; size?: number } & React.RefAttributes<HTMLSpanElement>>;
 export declare function ChatActivity(props: { items: ChatActivityItem[]; max?: number; onSelect?: (a: ChatActivityItem) => void }): JSX.Element;
-export declare function ChatCitation(props: ChatCitationRef & { index: number }): JSX.Element;
-export declare function ChatDayDivider(props: { label: string }): JSX.Element;
+export declare const ChatCitation: React.ForwardRefExoticComponent<ChatCitationRef & { index: number } & React.RefAttributes<HTMLButtonElement>>;
+export declare const ChatDayDivider: React.ForwardRefExoticComponent<{ label: string } & React.RefAttributes<HTMLDivElement>>;

@@ -16,4 +16,4 @@ export interface GenieCardProps extends React.HTMLAttributes<HTMLDivElement> {
   hive?: React.ReactNode;
   actions?: React.ReactNode;
 }
-export declare function GenieCard(props: GenieCardProps): JSX.Element;
+export declare const GenieCard: React.ForwardRefExoticComponent<GenieCardProps & React.RefAttributes<HTMLDivElement>>;

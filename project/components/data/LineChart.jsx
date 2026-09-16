@@ -10,10 +10,10 @@ const niceTick = (v, max) => {
 
 
 /* LAMP line / area chart. Production renderer: shadcn Charts + Recharts, tokenised to match. */
-export function LineChart({
+export const LineChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function LineChart({
   series = [], labels = [], width = 640, height = 180, variant = 'line', yTicks = 4, yMax, yMin = 0,
   thresholds = [], showGrid = true, showAxis = true, pad = { l: 42, r: 10, t: 8, b: 20 }, format, className = '', ...rest
-}) {
+}, ref) {
   const n = Math.max.apply(null, series.map((s) => s.data.length).concat([1]));
   const flat = series.reduce((a, s) => a.concat(s.data), []);
   const max = yMax != null ? yMax : Math.max.apply(null, flat.concat(thresholds.map((t) => t.value)).concat([1]));
@@ -24,7 +24,7 @@ export function LineChart({
   const ticks = Array.from({ length: yTicks + 1 }, (_, i) => yMin + ((max - yMin) / yTicks) * i);
   const fmt = format || ((v) => niceTick(v, max));
   return (
-    <svg width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} className={'lamp-chart__svg ' + className} role="img" preserveAspectRatio="none" {...rest}>
+    <svg ref={ref} width="100%" height={height} viewBox={'0 0 ' + width + ' ' + height} className={'lamp-chart__svg ' + className} role="img" preserveAspectRatio="none" {...rest}>
       {showGrid ? <g className="lamp-chart__grid">{ticks.map((t, i) => <line key={i} x1={pad.l} x2={width - pad.r} y1={y(t)} y2={y(t)} />)}</g> : null}
       {showAxis ? (
         <g className="lamp-chart__axis">
@@ -50,4 +50,4 @@ export function LineChart({
       })}
     </svg>
   );
-}
+}), { displayName: 'LineChart' });

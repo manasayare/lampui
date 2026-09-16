@@ -15,4 +15,4 @@ export interface DonutChartProps extends React.SVGAttributes<SVGElement> {
   max?: number;
   startAngle?: number;
 }
-export declare function DonutChart(props: DonutChartProps): JSX.Element;
+export declare const DonutChart: React.ForwardRefExoticComponent<DonutChartProps & React.RefAttributes<SVGSVGElement>>;

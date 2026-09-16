@@ -15,4 +15,4 @@ export interface TimelineEntry {
 export interface MemoryTimelineProps extends React.HTMLAttributes<HTMLDivElement> {
   items: TimelineEntry[];
 }
-export declare function MemoryTimeline(props: MemoryTimelineProps): JSX.Element;
+export declare const MemoryTimeline: React.ForwardRefExoticComponent<MemoryTimelineProps & React.RefAttributes<HTMLDivElement>>;

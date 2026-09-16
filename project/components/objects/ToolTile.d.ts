@@ -14,7 +14,7 @@ export interface ToolTileProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Official brand hex. Allowed on the glyph only — the tile itself stays neutral. */
   brandColor?: string;
 }
-export declare function ToolTile(props: ToolTileProps): JSX.Element;
+export declare const ToolTile: React.ForwardRefExoticComponent<ToolTileProps & React.RefAttributes<HTMLSpanElement>>;
 export interface ToolRowProps extends React.HTMLAttributes<HTMLDivElement> {
   provider?: string;
   glyph?: string;
@@ -30,4 +30,4 @@ export interface ToolRowProps extends React.HTMLAttributes<HTMLDivElement> {
   risk?: 'Low' | 'Medium' | 'High';
   actions?: React.ReactNode;
 }
-export declare function ToolRow(props: ToolRowProps): JSX.Element;
+export declare const ToolRow: React.ForwardRefExoticComponent<ToolRowProps & React.RefAttributes<HTMLDivElement>>;

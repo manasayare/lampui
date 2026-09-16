@@ -1,0 +1,41 @@
+{
+  "name": "lamp-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LAMP Design System \u2014 tokens, primitives and LAMP object components for the enterprise AI operating environment.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-system-theme.mjs && node tools/build-bundle.mjs",
+    "assets": "node tools/vendor-assets.mjs",
+    "check": "npm run build && node tools/check-system.mjs && npm run check:types",
+    "verify": "node tools/build-bundle.mjs && node tools/verify-browser.mjs",
+    "test": "npm run check && node tools/verify-browser.mjs && node tools/verify-package.mjs",
+    "dev": "node tools/build-bundle.mjs && vite --config tools/vite.config.mjs",
+    "build:pkg": "node tools/build-package.mjs",
+    "check:types": "node tools/build-package.mjs && tsc -p packages/react/tsconfig.json && tsc -p examples/vite-app/tsconfig.json",
+    "build:example": "npm run build:pkg && vite build examples/vite-app"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.26.0",
+    "@babel/standalone": "^7.26.4",
+    "@material-symbols/svg-400": "^0.28.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "esbuild": "^0.24.0",
+    "geist": "^1.3.1",
+    "playwright": "^1.49.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "simple-icons": "^13.21.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ]
+}

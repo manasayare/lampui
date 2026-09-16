@@ -8,7 +8,7 @@ export interface ChatQuickReply {
 /**
  * @startingPoint section="Chat" subtitle="Composer with scope, quick replies, voice and attachments" viewport="700x200"
  */
-export interface ChatComposerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChatComposerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   onChange?: (v: string) => void;
   onSend?: (v: string) => void;
@@ -26,5 +26,5 @@ export interface ChatComposerProps extends React.HTMLAttributes<HTMLDivElement> 
   /** Show the Enter / Shift+Enter hint. Default true. */
   hint?: boolean;
 }
-export declare function ChatComposer(props: ChatComposerProps): JSX.Element;
+export declare const ChatComposer: React.ForwardRefExoticComponent<ChatComposerProps & React.RefAttributes<HTMLDivElement>>;
 export declare function ChatQuickReplies(props: { options: Array<string | ChatQuickReply>; onSelect?: (o: ChatQuickReply) => void }): JSX.Element;

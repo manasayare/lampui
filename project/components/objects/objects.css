@@ -1,4 +1,9 @@
 /* LAMP — product objects: Agent hexagon, Skill circle, Tool square, Playbook cluster, Genie */
+/* The label may be wider than the hexagon, so this box may be wider than the
+   hexagon too — which is correct in a flow layout and would be wrong on the
+   canvas. Positioners solve it by centring this box on the lattice point rather
+   than aligning its left edge; the hexagon is centred here, so centring the box
+   centres the hexagon. See .lamp-snapfield__cell and .lamp-lattice__cell. */
 .lamp-agent{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:6px;user-select:none;pointer-events:none}
 .lamp-agent__hex{position:relative;display:block;pointer-events:auto;transition:filter var(--duration-standard) var(--ease-standard)}
 .lamp-agent__hex polygon{transition:stroke var(--duration-fast) var(--ease-standard),fill var(--duration-fast) var(--ease-standard)}
@@ -104,8 +109,10 @@
 .lamp-island--outlined.lamp-island--selected .lamp-island__body{border-color:var(--gold-500);border-style:solid}
 
 .lamp-lattice{position:relative}
-.lamp-lattice__cell{z-index:1}
-.lamp-lattice__cell{position:absolute}
+/* Positioned by the hexagon's own box, with the Agent centred on it, so a name
+   wider than the hexagon overhangs evenly rather than displacing the hexagon. */
+.lamp-lattice__cell{position:absolute;z-index:1}
+.lamp-lattice__cell>*{position:absolute;left:50%;top:0;transform:translateX(-50%)}
 
 .lamp-genie{display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid var(--genie-border);border-radius:var(--genie-radius);background:var(--surface-primary);transition:var(--transition-control)}
 .lamp-genie--interactive{cursor:pointer}

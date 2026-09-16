@@ -1,5 +1,5 @@
 export interface KeyValueRow { key: string; value: string }
-export interface KeyValueInputProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface KeyValueInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   rows?: KeyValueRow[];
   onChange?: (rows: KeyValueRow[]) => void;
   keyPlaceholder?: string;
@@ -7,4 +7,4 @@ export interface KeyValueInputProps extends React.HTMLAttributes<HTMLDivElement>
   addLabel?: string;
   mono?: boolean;
 }
-export declare function KeyValueInput(props: KeyValueInputProps): JSX.Element;
+export declare const KeyValueInput: React.ForwardRefExoticComponent<KeyValueInputProps & React.RefAttributes<HTMLDivElement>>;

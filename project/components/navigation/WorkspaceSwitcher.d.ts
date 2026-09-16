@@ -5,4 +5,4 @@ export interface WorkspaceSwitcherProps extends React.ButtonHTMLAttributes<HTMLB
   subtitle?: string;
   initials?: string;
 }
-export declare function WorkspaceSwitcher(props: WorkspaceSwitcherProps): JSX.Element;
+export declare const WorkspaceSwitcher: React.ForwardRefExoticComponent<WorkspaceSwitcherProps & React.RefAttributes<HTMLButtonElement>>;

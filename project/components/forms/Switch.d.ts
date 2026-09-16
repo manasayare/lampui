@@ -3,4 +3,4 @@ export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement>
   /** brand = gold track; reserve for switches that arm runtime behaviour. */
   tone?: 'default' | 'brand';
 }
-export declare function Switch(props: SwitchProps): JSX.Element;
+export declare const Switch: React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLInputElement>>;

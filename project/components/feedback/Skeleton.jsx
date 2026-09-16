@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Skeleton({ width = '100%', height = 10, radius, variant = 'block', lines = 1, className = '', style, ...rest }) {
+export const Skeleton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Skeleton({ width = '100%', height = 10, radius, variant = 'block', lines = 1, className = '', style, ...rest }, ref) {
   if (variant === 'text' && lines > 1) {
     return (
       <span className={className} style={{ display: 'block' }} {...rest}>
@@ -10,10 +10,10 @@ export function Skeleton({ width = '100%', height = 10, radius, variant = 'block
       </span>
     );
   }
-  return <span className={['lamp-skel', variant === 'hex' && 'lamp-skel--hex', variant === 'circle' && 'lamp-skel--circle', className].filter(Boolean).join(' ')}
+  return <span ref={ref} className={['lamp-skel', variant === 'hex' && 'lamp-skel--hex', variant === 'circle' && 'lamp-skel--circle', className].filter(Boolean).join(' ')}
     style={{ width, height, borderRadius: variant === 'circle' ? '50%' : radius, ...style }} aria-hidden="true" {...rest} />;
-}
+}), { displayName: 'Skeleton' });
 
-export function Spinner({ size = 14, className = '', style, ...rest }) {
-  return <span className={'lamp-spin ' + className} style={{ width: size, height: size, ...style }} role="status" aria-label="Loading" {...rest} />;
-}
+export const Spinner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Spinner({ size = 14, className = '', style, ...rest }, ref) {
+  return <span ref={ref} className={'lamp-spin ' + className} style={{ width: size, height: size, ...style }} role="status" aria-label="Loading" {...rest} />;
+}), { displayName: 'Spinner' });

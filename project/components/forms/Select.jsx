@@ -1,10 +1,10 @@
 import React from 'react';
 import { Icon } from '../core/Icon.jsx';
 
-export function Select({ options = [], size = 'md', placeholder, className = '', ...rest }) {
+export const Select = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function Select({ options = [], size = 'md', placeholder, className = '', ...rest }, ref) {
   return (
     <div className={['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')}>
-      <select {...rest}>
+      <select ref={ref} {...rest}>
         {placeholder ? <option value="">{placeholder}</option> : null}
         {options.map((o) => {
           const v = typeof o === 'string' ? o : o.value;
@@ -15,4 +15,4 @@ export function Select({ options = [], size = 'md', placeholder, className = '',
       <span className="lamp-select__chev"><Icon name="keyboard_arrow_down" size={14} /></span>
     </div>
   );
-}
+}), { displayName: 'Select' });
