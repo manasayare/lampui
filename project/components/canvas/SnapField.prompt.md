@@ -18,13 +18,38 @@ Drag-to-snap composition on the hexagonal lattice, on GSAP Draggable — use it 
 
 ## Snapping
 
-**Agents cannot overlap, by construction.** A cell holding another Agent is excluded before the distance search runs, so an occupied slot can never be chosen, lit, or committed to. If a drag ends with no free cell in range, the Agent returns where it came from. Because positions are lattice cells rather than free pixels, two Agents cannot partially overlap either.
+**Agents cannot overlap, by construction.** A cell holding another Agent is excluded before the distance search runs, so an occupied slot can never be chosen, lit, or committed to. Because positions are lattice cells rather than free pixels, two Agents cannot partially overlap either.
 
 **Legal cells come from the field's own box**, not a fixed window — an Agent can never be dropped outside the field or half off its edge. Change `width`/`height` and the legal area changes with it.
 
-**Two ranges, and both matter.** `proximityRange` (72px) lights the nearest free slot while the Agent stays exactly under the pointer — "there is something here". `snapTolerance` (34px) arms that slot and the Agent begins to drift toward it — "release and it lands here". Removing the outer range gives you magnetism with no warning, which reads as the canvas glitching rather than helping. The drift is a partial pull, not a lock: the operator is still in control until they release.
+**A drag always lands.** The target cell is drawn from the first frame and a release always commits to it. The ranges below style that target and decide whether the Agent is pulled toward it; they never veto the drop. They used to, and a release into open canvas — where the nearest lattice centre can be half a step away — silently undid the drag. From the operator's side that is indistinguishable from the object being stuck.
+
+**Two ranges, and both matter.** Beyond `proximityRange` (72px) the target is drawn faintly: "this is where it lands". Inside it the slot brightens: "you are near a real position". Inside `snapTolerance` (34px) the slot arms and the Agent drifts toward it: "release and it lands here". Removing the outer range gives you magnetism with no warning, which reads as the canvas glitching rather than helping. The drift is a partial pull, not a lock: the operator is still in control until they release.
 
 `onSnapStateChange` emits `dragging` → `proximity` → `snapReady` → `idle`. Drive the canvas status line, the bond preview and the sound hooks from this one source rather than recomputing distance anywhere else.
+
+## Bonds during a drag
+
+`bonds` as a node is **fixed**: a bond drawn from an Agent's committed cell stays behind while that Agent is dragged, leaving a gold stub pointing at where it used to be. Pass a function instead and it is called with every Agent's live position, so bonds follow the drag:
+
+```jsx
+bonds={(pos) => (
+  <BondLayer>
+    <BondEdge from={pos.intake} to={pos.matcher} state="valid" />
+  </BondLayer>
+)}
+```
+
+Positions are in the same space `hexCenter` returns — the bonds layer is already offset to the lattice origin. The second argument carries `{ draggingId }` if you want to style the moving edge.
+
+## Adding Agents
+
+`AgentLibrary` reports a drop as a point in the field's coordinates; `freeCellAt(point, geometry)` turns it into a free cell, and `NewAgentDialog` names it. Pass `freeCellAt` the same `agents`, `size`, `gap`, `width`, `height` and `origin` the field has, or the two will disagree about where the lattice is.
+
+```jsx
+const geometry = { agents, size: 'md', gap: 36, width: 720, height: 380, origin };
+<AgentLibrary dropTarget={fieldRef} onDrop={(a, p) => setPending({ archetype: a, cell: freeCellAt(p, geometry) })} />
+```
 
 ## Selection and grouping
 

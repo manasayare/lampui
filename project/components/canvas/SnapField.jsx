@@ -24,17 +24,22 @@ import { useMergedRefs } from '../core/refs.js';
    cell by any sequence of drags, and because cells are a lattice they cannot
    partially overlap either.
 
-   TWO RANGES
-   ----------
-   proximityRange (72px)  the nearest free slot lights up, the Agent does not
-                          move — "there is something here"
-   snapTolerance  (34px)  the slot is armed and the Agent drifts toward it —
-                          "release and it lands here"
+   A DRAG ALWAYS LANDS
+   -------------------
+   The target cell is shown from the first frame of a drag and release always
+   commits to it. The ranges below style that target and decide whether the
+   Agent is pulled toward it; they never veto the drop.
 
-   That is the brief's bond lifecycle — proximity, then compatible proximity,
-   then snap threshold — made literal. Without the outer range the operator gets
-   no warning before the object starts moving on its own, which is what makes
-   magnetic snapping feel like a glitch rather than an affordance.
+   They used to. A release outside the tolerance returned the Agent home, which
+   meant dropping into open canvas — where the nearest lattice centre can be
+   half a step away, further than the tolerance — silently undid the drag. An
+   operator cannot tell that from the object being stuck.
+
+   THREE STATES OF THE TARGET
+   --------------------------
+   beyond proximityRange   the slot is drawn faintly: "this is where it lands"
+   within proximityRange   the slot brightens: "you are near a real position"
+   within snapTolerance    the slot is armed and the Agent drifts toward it
 
    SELECTION
    ---------
@@ -50,12 +55,73 @@ import { useMergedRefs } from '../core/refs.js';
    occupied and out-of-bounds cells. This path never touches GSAP and works even
    if GSAP never loads. Composition in LAMP is not pointer-only. */
 
-const HEX_CLIP = 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)';
-
 /* How far toward the armed slot the Agent drifts. At the 34px default tolerance
    this keeps the visible shift inside the specified 2–6px band for most of the
    approach — a hint that it is about to land, not a decision made for you. */
 const PULL = 0.35;
+
+const FIELD_DEFAULTS = { size: 'md', gap: 2, width: 720, height: 380, origin: { x: 40, y: 40 } };
+
+/**
+ * Every free lattice cell of a field, as pixel points in the field's own
+ * coordinates. Cells holding an Agent are left out entirely, which is the
+ * guarantee that nothing placed by this math can overlap.
+ *
+ * Exported because two callers need the same answer and must not each carry
+ * their own copy of the lattice arithmetic: SnapField, deciding where a drag
+ * lands, and whatever hands a dropped point from AgentLibrary to the dialog,
+ * deciding where a new Agent goes.
+ */
+export function freeCells(opts) {
+  const o = Object.assign({}, FIELD_DEFAULTS, opts);
+  const [hexW, hexH] = AGENT_SIZES[o.size] || AGENT_SIZES.md;
+  const stepX = hexW * 0.75 + o.gap;
+  const stepY = hexH + o.gap;
+
+  const taken = {};
+  (o.agents || []).forEach((a) => {
+    if (o.exclude != null && a.id === o.exclude) return;
+    taken[a.col + ':' + a.row] = true;
+  });
+
+  /* Legal cells are derived from the field's own box — a cell counts only when
+     the whole hexagon fits inside it, which is what stops anything landing half
+     off the edge without a single magic number. */
+  const minCol = Math.ceil((-o.origin.x) / stepX);
+  const maxCol = Math.floor((o.width - hexW - o.origin.x) / stepX);
+  const minRow = Math.ceil((-o.origin.y) / stepY);
+  const maxRow = Math.floor((o.height - hexH - o.origin.y) / stepY);
+
+  const points = [];
+  for (let col = minCol; col <= maxCol; col++) {
+    /* Odd columns sit half a row lower, so they lose the last row. */
+    const last = Math.abs(col % 2) ? maxRow - 1 : maxRow;
+    for (let row = minRow; row <= last; row++) {
+      if (taken[col + ':' + row]) continue;
+      const c = HexCenter(col, row, o.size, o.gap);
+      points.push({ col, row, x: o.origin.x + c.x, y: o.origin.y + c.y });
+    }
+  }
+  return points;
+}
+
+/** The free cell nearest a point, with `d` set to the distance. Null only when
+ *  the field is completely full. */
+export function freeCellAt(point, opts) {
+  const points = freeCells(opts);
+  let best = null;
+  for (let i = 0; i < points.length; i++) {
+    const d = Math.hypot(points[i].x - point.x, points[i].y - point.y);
+    if (!best || d < best.d) best = Object.assign({ d }, points[i]);
+  }
+  return best;
+}
+
+/* Capitalized aliases so the helpers are reachable on the design-system
+   namespace, which exposes capitalized exports only — the same pair HexCenter
+   forms with hexCenter. */
+export function FreeCells(opts) { return freeCells(opts); }
+export function FreeCellAt(point, opts) { return freeCellAt(point, opts); }
 
 export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SnapField({
   agents = [], size = 'md', gap = 2, width = 720, height = 380,
@@ -71,6 +137,9 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
   const [dragId, setDragId] = React.useState(null);
   const [snapState, setSnapState] = React.useState('idle');
   const [marquee, setMarquee] = React.useState(null);
+  /* Where the dragged Agent is right now, in lattice space. Only set while a
+     drag is in flight, and only read by the bonds render prop. */
+  const [dragAt, setDragAt] = React.useState(null);
 
   const nodes = React.useRef({});
   const guideRef = React.useRef(null);
@@ -84,7 +153,7 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
   /* Draggable callbacks outlive a render, so everything they read goes through
      a ref rather than a closed-over prop. */
   const live = React.useRef({});
-  live.current = { agents, origin, size, gap, snapTolerance, proximityRange, onChange, onSelect, onSnapStateChange };
+  live.current = { agents, origin, size, gap, width, height, snapTolerance, proximityRange, onChange, onSelect, onSnapStateChange };
 
   const stepX = hexW * 0.75 + gap;
   const stepY = hexH + gap;
@@ -118,22 +187,15 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
    * Every free lattice cell as a pixel point. Cells holding another Agent are
    * left out entirely, which is the guarantee that a snap can never overlap.
    * The Agent's own cell stays in — releasing where you started is a no-op, not
-   * a rejection.
+   * a rejection — which is what `exclude` does.
    */
   const freePoints = React.useCallback((selfId) => {
-    const taken = {};
-    live.current.agents.forEach((a) => { if (a.id !== selfId) taken[a.col + ':' + a.row] = true; });
-    const points = [];
-    for (let col = bounds.minCol; col <= bounds.maxCol; col++) {
-      const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
-      for (let row = bounds.minRow; row <= last; row++) {
-        if (taken[col + ':' + row]) continue;
-        const p = at(col, row);
-        points.push({ col, row, x: p.x, y: p.y });
-      }
-    }
-    return points;
-  }, [bounds, at]);
+    const l = live.current;
+    return freeCells({
+      agents: l.agents, size: l.size, gap: l.gap, origin: l.origin,
+      width: l.width, height: l.height, exclude: selfId,
+    });
+  }, []);
 
   const nearest = (points, px, py) => {
     let best = null;
@@ -177,15 +239,18 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
 
       const home = at(agent.col, agent.row);
       let points = [];
-      let armed = null;
+      let target = null;
 
-      const showGuide = (cell, ready) => {
+      /* Opacity is the whole language of the guide: it is always on-screen
+         during a drag, because it is always where the Agent will land. */
+      const GUIDE_ALPHA = { armed: 1, near: 0.7, far: 0.35 };
+      const showGuide = (cell, level) => {
         if (!guide) return;
         if (!cell) { gsap.set(guide, { autoAlpha: 0 }); return; }
         gsap.set(guide, {
           x: cell.x - hexW / 2,
           y: cell.y - hexH / 2,
-          autoAlpha: ready ? 1 : 0.45,
+          autoAlpha: GUIDE_ALPHA[level],
         });
       };
 
@@ -199,22 +264,24 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
             const cx = home.x + point.x;
             const cy = home.y + point.y;
             const cell = nearest(points, cx, cy);
-            if (!cell) { armed = null; showGuide(null); emit('dragging'); return point; }
+            /* Tracked whether or not it is in range: this is where a release
+               lands, so it is what the guide has to show. */
+            target = cell;
+            if (!cell) { showGuide(null); emit('dragging'); return point; }
 
             const { snapTolerance: tol, proximityRange: near } = live.current;
             if (cell.d <= tol) {
-              armed = cell;
-              showGuide(cell, true);
+              showGuide(cell, 'armed');
               emit('snapReady');
-              /* Drift toward the slot — a hint, not a commitment. */
+              /* Drift toward the slot. A hint that it is about to land there,
+                 not the decision — the operator still chooses by releasing. */
               return {
                 x: point.x + (cell.x - cx) * PULL,
                 y: point.y + (cell.y - cy) * PULL,
               };
             }
-            armed = null;
-            if (cell.d <= near) { showGuide(cell, false); emit('proximity'); }
-            else { showGuide(null); emit('dragging'); }
+            showGuide(cell, cell.d <= near ? 'near' : 'far');
+            emit(cell.d <= near ? 'proximity' : 'dragging');
             return point;
           },
         },
@@ -226,15 +293,26 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
           /* Recomputed per drag: which cells are free depends on where every
              other Agent is right now. */
           points = freePoints(agent.id);
-          armed = null;
+          target = null;
           setDragId(agent.id);
+          setDragAt({ id: agent.id, x: home.x, y: home.y });
           emit('dragging');
         },
+        onDrag() {
+          /* A bond anchored to the Agent's committed cell stays behind while the
+             Agent moves, leaving a gold stub pointing at where it used to be.
+             Publishing the live position lets the caller draw the bond to where
+             the Agent actually is. */
+          setDragAt({ id: agent.id, x: home.x + this.x, y: home.y + this.y });
+        },
         onRelease() {
-          const cell = armed;
-          armed = null;
+          /* Fall back to a fresh lookup: liveSnap is not guaranteed to have run
+             on the final frame of a very short drag. */
+          const cell = target || nearest(points, home.x + this.x, home.y + this.y);
+          target = null;
           showGuide(null);
           setDragId(null);
+          setDragAt(null);
           emit('idle');
 
           const commit = live.current.onChange;
@@ -317,6 +395,25 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
     onSelectionChange(hits);
   };
 
+  /* Every Agent's position in lattice space — the space HexCenter returns and
+     the bonds layer is offset into. The Agent being dragged reports where it is
+     now, not where it was committed. */
+  const positions = React.useMemo(() => {
+    const map = {};
+    agents.forEach((a) => {
+      const p = at(a.col, a.row);
+      map[a.id] = { x: p.x - origin.x, y: p.y - origin.y };
+    });
+    if (dragAt && map[dragAt.id]) {
+      map[dragAt.id] = { x: dragAt.x - origin.x, y: dragAt.y - origin.y };
+    }
+    return map;
+  }, [agents, dragAt, at, origin.x, origin.y]);
+
+  /* `bonds` may be a node (fixed) or a function of the live positions. The
+     function form is what keeps a bond attached to a moving Agent. */
+  const bondNodes = typeof bonds === 'function' ? bonds(positions, { draggingId: dragId }) : bonds;
+
   /* Centroid of the selection, for placing the floating group action. */
   const groupAnchor = React.useMemo(() => {
     if (multi.length < 2) return null;
@@ -382,16 +479,16 @@ export const SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.for
       onPointerCancel={onFieldPointerUp}
       {...rest}
     >
-      {bonds ? (
+      {bondNodes ? (
         <div className="lamp-snapfield__bonds" style={{ position: 'absolute', left: origin.x, top: origin.y, pointerEvents: 'none' }}>
-          {bonds}
+          {bondNodes}
         </div>
       ) : null}
 
       {groupOutline ? <span className="lamp-snapfield__outline" style={groupOutline} /> : null}
 
       <div ref={guideRef} className="lamp-snapfield__guide" style={{ position: 'absolute', left: 0, top: 0, width: hexW, height: hexH, opacity: 0, visibility: 'hidden', pointerEvents: 'none', zIndex: 2 }}>
-        <SnapGuide rect={{ position: 'absolute', inset: 0, clipPath: HEX_CLIP }} />
+        <SnapGuide shape="hex" rect={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
       </div>
 
       {agents.map((a) => {

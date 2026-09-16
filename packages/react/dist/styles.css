@@ -1302,6 +1302,11 @@ hr { border: none; border-top: 1px solid var(--border-subtle); margin: var(--spa
 .lamp-canvas__guide--v{width:1px;top:0;bottom:0}
 .lamp-canvas__guide--h{height:1px;left:0;right:0}
 .lamp-canvas__snapguide{position:absolute;pointer-events:none;border:1.5px dashed var(--gold-400);border-radius:2px}
+/* Hexagonal slot guide. A stroked polygon, because a CSS border behind a
+   hexagonal clip-path survives only as disconnected fragments. */
+.lamp-canvas__snapguide-hex{position:absolute;pointer-events:none;overflow:visible}
+.lamp-canvas__snapguide-hex polygon{fill:var(--energy-glow);stroke:var(--gold-400);stroke-width:1.5;stroke-dasharray:4 3}
+.lamp-canvas__snapguide-hex--invalid polygon{fill:rgba(214,69,69,.08);stroke:var(--status-danger)}
 .lamp-canvas__drop{position:absolute;pointer-events:none;border:1.5px dashed var(--gold-400);background:var(--energy-glow);border-radius:4px}
 .lamp-canvas__drop--invalid{border-color:var(--status-danger);background:rgba(214,69,69,.08)}
 .lamp-canvas__empty{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
@@ -1344,8 +1349,10 @@ hr { border: none; border-top: 1px solid var(--border-subtle); margin: var(--spa
 
 /* SnapField — proximity and armed slot */
 .lamp-snapfield__guide{will-change:transform,opacity}
-.lamp-snapfield--proximity .lamp-canvas__snapguide{border-color:var(--gold-300);border-style:dashed}
-.lamp-snapfield--ready .lamp-canvas__snapguide{border-color:var(--gold-500);box-shadow:0 0 0 3px var(--energy-glow)}
+.lamp-snapfield--proximity .lamp-canvas__snapguide-hex polygon{stroke:var(--gold-400)}
+/* Armed: solid outline, no dashes — the difference between "it would land here"
+   and "it is about to land here" has to read at a glance. */
+.lamp-snapfield--ready .lamp-canvas__snapguide-hex polygon{stroke:var(--gold-500);stroke-width:2;stroke-dasharray:none}
 /* No outline on the slot: the slot box contains the label, and the system rule is
    that selection, hover and focus follow the HEXAGON, never its bounding box.
    Multi-selection is drawn by AgentHex via state="multiSelected" instead. */
@@ -1356,6 +1363,46 @@ hr { border: none; border-top: 1px solid var(--border-subtle); margin: var(--spa
 .lamp-snapfield__group-btn{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--surface-overlay);box-shadow:var(--elevation-popover);color:var(--text-primary);font:500 12px/16px var(--font-sans);cursor:pointer;white-space:nowrap}
 .lamp-snapfield__group-btn:hover{background:var(--surface-hover);border-color:var(--border-strong)}
 .lamp-snapfield__group-count{display:grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:var(--canvas-multiselect);color:#fff;font-family:var(--font-mono);font-size:10px}
+
+/* Agent library — the palette an Agent is dragged out of */
+.lamp-agentlib{display:flex;flex-direction:column;min-height:0;background:var(--surface-primary);border:1px solid var(--border-default);border-radius:var(--radius-lg);overflow:hidden}
+.lamp-agentlib__head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:10px 12px 6px}
+.lamp-agentlib__title{font:600 13px/16px var(--font-sans);color:var(--text-primary)}
+.lamp-agentlib__hint{font:400 11px/14px var(--font-sans);color:var(--text-tertiary)}
+.lamp-agentlib__search{padding:0 12px 8px}
+.lamp-agentlib__list{flex:1;min-height:0;overflow-y:auto;padding:0 8px 8px}
+.lamp-agentlib__group{display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
+.lamp-agentlib__grouplabel{padding:6px 4px 2px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.lamp-agentlib__item{display:flex;align-items:flex-start;gap:8px;padding:7px 8px;border:1px solid transparent;border-radius:var(--radius-md);cursor:grab;user-select:none;touch-action:none}
+.lamp-agentlib__item:hover{background:var(--surface-hover);border-color:var(--border-subtle)}
+.lamp-agentlib__item:focus-visible{outline:2px solid var(--border-focus);outline-offset:1px}
+/* The item stays put while its ghost is dragged — dimmed, so the operator can
+   see which one is in flight without the panel appearing to empty itself. */
+.lamp-agentlib__item--dragging{opacity:.4;cursor:grabbing}
+.lamp-agentlib__glyph{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:var(--radius-sm);background:var(--surface-secondary);color:var(--text-secondary)}
+.lamp-agentlib__body{display:flex;flex-direction:column;gap:1px;min-width:0}
+.lamp-agentlib__name{display:flex;align-items:center;gap:6px;font:500 12px/16px var(--font-sans);color:var(--text-primary)}
+.lamp-agentlib__purpose{font:400 11px/15px var(--font-sans);color:var(--text-tertiary)}
+.lamp-agentlib__grip{flex:none;margin-left:auto;color:var(--text-disabled);opacity:0}
+.lamp-agentlib__item:hover .lamp-agentlib__grip{opacity:1}
+.lamp-agentlib__empty{padding:12px 8px;font:400 12px/16px var(--font-sans);color:var(--text-tertiary)}
+/* Fixed to the viewport so the panel cannot clip it. GSAP owns the transform. */
+.lamp-agentlib__proxy{position:absolute;left:0;top:0;width:1px;height:1px;pointer-events:none;visibility:hidden}
+.lamp-agentlib__ghost{position:fixed;left:0;top:0;pointer-events:none;opacity:0;visibility:hidden;z-index:var(--z-toast)}
+
+/* New Agent dialog */
+.lamp-newagent__preview{display:flex;align-items:center;gap:14px;padding:12px;margin-bottom:4px;background:var(--surface-secondary);border-radius:var(--radius-md)}
+.lamp-newagent__previewmeta{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.lamp-newagent__previewname{font:600 14px/18px var(--font-sans);color:var(--text-primary)}
+.lamp-newagent__cell{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary)}
+.lamp-newagent__label{display:block;margin:12px 0 4px;font:500 12px/16px var(--font-sans);color:var(--text-secondary)}
+.lamp-newagent__tools{display:flex;flex-wrap:wrap;gap:6px}
+.lamp-newagent__tool{display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 4px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--surface-primary);color:var(--text-secondary);font:400 12px/16px var(--font-sans);cursor:pointer}
+.lamp-newagent__tool:hover{background:var(--surface-hover)}
+.lamp-newagent__tool--on{border-color:var(--gold-500);background:var(--energy-glow);color:var(--text-primary)}
+.lamp-newagent__checkpoint{margin-top:14px;padding-top:12px;border-top:1px solid var(--border-subtle)}
+.lamp-newagent__footnote{margin-right:auto;font:400 11px/15px var(--font-sans);color:var(--text-tertiary)}
+.lamp-newagent__blocker{display:inline-flex;align-items:center;gap:5px;color:var(--status-warning-text)}
 
 
 /* components/inspector/inspector.css */

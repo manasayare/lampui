@@ -39,6 +39,7 @@ const EXTRA_EXPORTS = [
   ['components/core/glyphs.js', ['glyphs', 'brandGlyphs', 'registerGlyphs']],
   ['components/core/refs.js', ['useMergedRefs']],
   ['components/objects/HexLattice.jsx', ['hexCenter']],
+  ['components/canvas/SnapField.jsx', ['freeCells', 'freeCellAt']],
   ['components/data/ChartFrame.jsx', ['seriesColor']],
   ['components/data/Heatmap.jsx', ['heatColor']],
   ['components/patterns/BusinessProcess.jsx', ['matchProcess']],

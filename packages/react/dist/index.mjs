@@ -1,5 +1,5 @@
-// project/components/canvas/CanvasContextMenu.jsx
-import React2 from "react";
+// project/components/canvas/AgentLibrary.jsx
+import React8 from "react";
 
 // project/components/core/Icon.jsx
 import React from "react";
@@ -49,6 +49,7 @@ var glyphs = {
   "do_not_disturb_on": "M280-453h400v-60H280v60ZM480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z",
   "download": "M480-313 287-506l43-43 120 120v-371h60v371l120-120 43 43-193 193ZM220-160q-24 0-42-18t-18-42v-143h60v143h520v-143h60v143q0 24-18 42t-42 18H220Z",
   "draft": "M220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z",
+  "drag_indicator": "M349.91-160q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm-260-250q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm-260-250q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Z",
   "edit": "M180-180h44l472-471-44-44-472 471v44Zm-60 60v-128l575-574q8-8 19-12.5t23-4.5q11 0 22 4.5t20 12.5l44 44q9 9 13 20t4 22q0 11-4.5 22.5T823-694L248-120H120Zm659-617-41-41 41 41Zm-105 64-22-22 44 44-22-22Z",
   "edit_note": "M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z",
   "error": "M479.98-280q14.02 0 23.52-9.48t9.5-23.5q0-14.02-9.48-23.52t-23.5-9.5q-14.02 0-23.52 9.48t-9.5 23.5q0 14.02 9.48 23.52t23.5 9.5ZM453-433h60v-253h-60v253Zm27.27 353q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z",
@@ -69,7 +70,6 @@ var glyphs = {
   "groups": "M0-240v-53q0-38.57 41.5-62.78Q83-380 150.38-380q12.16 0 23.39.5t22.23 2.15q-8 17.35-12 35.17-4 17.81-4 37.18v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-19.86-3.5-37.43T765-377.27q11-1.73 22.17-2.23 11.17-.5 22.83-.5 67.5 0 108.75 23.77T960-293v53H780Zm-480-60h360v-6q0-37-50.5-60.5T480-390q-79 0-129.5 23.5T300-305v5ZM149.57-410q-28.57 0-49.07-20.56Q80-451.13 80-480q0-29 20.56-49.5Q121.13-550 150-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T149.57-410Zm660 0q-28.57 0-49.07-20.56Q740-451.13 740-480q0-29 20.56-49.5Q781.13-550 810-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T809.57-410ZM480-480q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.35-60Q506-540 523-557.35t17-43Q540-626 522.85-643t-42.5-17q-25.35 0-42.85 17.15t-17.5 42.5q0 25.35 17.35 42.85t43 17.5ZM480-300Zm0-300Z",
   "handshake": "M475-140q5 0 11.5-2.5T497-149l337-338q13-13 19.5-29.67Q860-533.33 860-550q0-17-6.5-34T834-614L654-794q-13-13-30-19.5t-34-6.5q-16.67 0-33.33 6.5Q540-807 527-794l-18 18 81 82q13 14 23 32.5t10 40.5q0 38-29.5 67T526-525q-25 0-41.5-7.5t-30.19-21.34L381-627 200-446q-5 5-7 10.53-2 5.52-2 11.84 0 12.63 8.5 21.13 8.5 8.5 21.17 8.5 6.33 0 11.83-3t9.5-7l138-138 42 42-137 137q-5 5-7 11t-2 12q0 12 9 21t21 9q6 0 11.5-2.5t9.5-6.5l138-138 42 42-137 137q-4 4-6.5 10.33-2.5 6.34-2.5 12.67 0 12 9 21t21 9q6 0 11-2t10-7l138-138 42 42-138 138q-5 5-7 11t-2 11q0 14 8 22t22 8Zm.06 60Q442-80 416-104.5t-31-60.62Q351-170 328-193t-28-57q-34-5-56.5-28.5T216-335q-37-5-61-30t-24-60q0-17 6.72-34.05Q144.45-476.1 157-489l224-224 110 110q8 8 17.33 12.5 9.34 4.5 18.67 4.5 13 0 24.5-11.5t11.5-24.65q0-5.85-3.5-13.35T548-651L405-794q-13-13-30-19.5t-34-6.5q-16.67 0-33.33 6.5-16.67 6.5-29.61 19.36L126-642q-14 14-19.5 29.5t-6.5 35q-1 19.5 7.5 38T128-506l-43 43q-20-22-32.5-53T40-579q0-30 11.5-57.5T84-685l151-151q22-22 49.79-32.5 27.8-10.5 57-10.5 29.21 0 56.71 10.5T448-836l18 18 18-18q22-22 49.79-32.5 27.8-10.5 57-10.5 29.21 0 56.71 10.5T697-836l179 179q22 22 33 50.03 11 28.04 11 57 0 28.97-11 56.47T876-444L539-107q-13 13-29.53 20t-34.41 7ZM377-626Z",
   "handyman": "M764-80q-6 0-11-2t-10-7L501-331q-5-5-7-10t-2-11q0-6 2-11t7-10l85-85q5-5 10-7t11-2q6 0 11 2t10 7l242 242q5 5 7 10t2 11q0 6-2 11t-7 10l-85 85q-5 5-10 7t-11 2Zm0-72 43-43-200-200-43 43 200 200ZM195-80q-6 0-11.5-2T173-89l-84-84q-5-5-7-10.5T80-195q0-6 2-11t7-10l225-225h85l38-38-175-175h-57L80-779l99-99 125 125v57l175 175 130-130-67-67 56-56H485l-18-18 128-128 18 18v113l56-56 169 169q15 15 23.5 34.5T870-600q0 20-6.5 38.5T845-528l-85-85-56 56-52-52-211 211v84L216-89q-5 5-10 7t-11 2Zm0-72 200-200v-43h-43L152-195l43 43Zm0 0-43-43 22 21 21 22Zm569 0 43-43-43 43Z",
-  "height": "M480-120 320-280l42-42 88 87v-490l-88 87-42-42 160-160 160 160-43 43-87-88v490l88-87 42 42-160 160Z",
   "help": "M484-247q16 0 27-11t11-27q0-16-11-27t-27-11q-16 0-27 11t-11 27q0 16 11 27t27 11Zm-35-146h59q0-26 6.5-47.5T555-490q31-26 44-51t13-55q0-53-34.5-85T486-713q-49 0-86.5 24.5T345-621l53 20q11-28 33-43.5t52-15.5q34 0 55 18.5t21 47.5q0 22-13 41.5T508-512q-30 26-44.5 51.5T449-393Zm31 313q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z",
   "hexagon": "M272-120 64-480l208-360h416l208 360-208 360H272Zm34-60h348l172-300-172-300H306L133-480l173 300Zm174-300Z",
   "history": "M477-120q-149 0-253-105.5T120-481h60q0 125 86 213t211 88q127 0 215-89t88-216q0-124-89-209.5T477-780q-68 0-127.5 31T246-667h105v60H142v-208h60v106q52-61 123.5-96T477-840q75 0 141 28t115.5 76.5Q783-687 811.5-622T840-482q0 75-28.5 141t-78 115Q684-177 618-148.5T477-120Zm128-197L451-469v-214h60v189l137 134-43 43Z",
@@ -93,6 +93,7 @@ var glyphs = {
   "memory": "M377-377v-205h205v205H377Zm60-60h85v-85h-85v85Zm-77 317v-80H260q-24 0-42-18t-18-42v-100h-80v-60h80v-124h-80v-60h80v-100q0-24 18-42t42-18h100v-76h60v76h124v-76h60v76h100q24 0 42 18t18 42v100h76v60h-76v124h76v60h-76v100q0 24-18 42t-42 18H604v80h-60v-80H420v80h-60Zm344-140v-444H260v444h444ZM480-480Z",
   "menu": "M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z",
   "mic": "M480-423q-43 0-72-30.92-29-30.91-29-75.08v-251q0-41.67 29.44-70.83Q437.88-880 479.94-880t71.56 29.17Q581-821.67 581-780v251q0 44.17-29 75.08Q523-423 480-423Zm0-228Zm-30 531v-136q-106-11-178-89t-72-184h60q0 91 64.29 153t155.5 62q91.21 0 155.71-62Q700-438 700-529h60q0 106-72 184t-178 89v136h-60Zm30-363q18 0 29.5-13.5T521-529v-251q0-17-11.79-28.5T480-820q-17.42 0-29.21 11.5T439-780v251q0 19 11.5 32.5T480-483Z",
+  "monitor": "M260-120v-73l47-47H140q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h680q24 0 42 18t18 42v480q0 24-18 42t-42 18H652l48 47v73H260ZM140-300h680v-480H140v480Zm0 0v-480 480Z",
   "more_horiz": "M207.86-432Q188-432 174-446.14t-14-34Q160-500 174.14-514t34-14Q228-528 242-513.86t14 34Q256-460 241.86-446t-34 14Zm272 0Q460-432 446-446.14t-14-34Q432-500 446.14-514t34-14Q500-528 514-513.86t14 34Q528-460 513.86-446t-34 14Zm272 0Q732-432 718-446.14t-14-34Q704-500 718.14-514t34-14Q772-528 786-513.86t14 34Q800-460 785.86-446t-34 14Z",
   "near_me": "M527-120 413-413 120-527v-43l720-270-270 720h-43Zm18-114 192-503-502 192 224 86 86 225Zm-86-225Z",
   "notifications": "M160-200v-60h80v-304q0-84 49.5-150.5T420-798v-22q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v22q81 17 130.5 83.5T720-564v304h80v60H160Zm320-302Zm0 422q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM300-260h360v-304q0-75-52.5-127.5T480-744q-75 0-127.5 52.5T300-564v304Z",
@@ -262,26 +263,173 @@ var BrandIcon = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(f
   );
 }), { displayName: "BrandIcon" });
 
-// project/components/canvas/CanvasContextMenu.jsx
-var CanvasContextMenu = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React2.forwardRef(function CanvasContextMenu2({ x = 0, y = 0, groups = [], onSelect, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React2.createElement("div", { ref, className: "lamp-cmenu " + className, style: { position: "absolute", left: x, top: y, ...style }, role: "menu", ...rest }, groups.map((g, gi) => /* @__PURE__ */ React2.createElement("div", { key: gi }, gi > 0 ? /* @__PURE__ */ React2.createElement("div", { className: "lamp-cmenu__sep" }) : null, g.label ? /* @__PURE__ */ React2.createElement("div", { className: "lamp-cmenu__label" }, g.label) : null, g.items.map((it) => /* @__PURE__ */ React2.createElement(
-    "button",
+// project/components/core/Badge.jsx
+import React2 from "react";
+var Badge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React2.forwardRef(function Badge2({ tone = "neutral", icon, shape = "pill", micro = false, count = false, outline = false, children, className = "", ...rest }, ref) {
+  const cls = ["lamp-badge", "lamp-badge--" + (outline ? "outline" : tone), shape === "square" && "lamp-badge--square", micro && "lamp-badge--micro", count && "lamp-badge--count", className].filter(Boolean).join(" ");
+  return /* @__PURE__ */ React2.createElement("span", { ref, className: cls, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React2.createElement(Icon, { name: icon, size: 11 }) : icon : null, children);
+}), { displayName: "Badge" });
+
+// project/components/forms/TextInput.jsx
+import React3 from "react";
+var TextInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React3.forwardRef(function TextInput2({ size = "md", icon, suffix, trailing, mono = false, state = "default", disabled = false, readOnly = false, loading: loading2 = false, className = "", ...rest }, ref) {
+  const [focus, setFocus] = React3.useState(false);
+  const cls = ["lamp-inputwrap", "lamp-inputwrap--" + size, focus && "lamp-inputwrap--focus", state !== "default" && "lamp-inputwrap--" + state, disabled && "lamp-inputwrap--disabled", readOnly && "lamp-inputwrap--readonly", mono && "lamp-inputwrap--mono", className].filter(Boolean).join(" ");
+  return /* @__PURE__ */ React3.createElement("div", { className: cls }, icon ? /* @__PURE__ */ React3.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ React3.createElement(Icon, { name: icon, size: 14 })) : null, /* @__PURE__ */ React3.createElement("input", { ref, className: "lamp-input", disabled, readOnly, onFocus: () => setFocus(true), onBlur: () => setFocus(false), "aria-invalid": state === "error" || void 0, ...rest }), loading2 ? /* @__PURE__ */ React3.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ React3.createElement(Icon, { name: "progress_activity", size: 14 })) : null, suffix ? /* @__PURE__ */ React3.createElement("span", { className: "lamp-inputwrap__suffix" }, suffix) : null, trailing);
+}), { displayName: "TextInput" });
+var SearchInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React3.forwardRef(function SearchInput2({ placeholder = "Search", shortcut, size = "md", ...rest }, ref) {
+  return /* @__PURE__ */ React3.createElement(TextInput, { ref, icon: "search", placeholder, size, trailing: shortcut ? /* @__PURE__ */ React3.createElement("span", { className: "lamp-inputwrap__suffix", style: { fontFamily: "var(--font-mono)", fontSize: 11 } }, shortcut) : null, ...rest });
+}), { displayName: "SearchInput" });
+var NumberInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React3.forwardRef(function NumberInput2({ suffix, step = 1, ...rest }, ref) {
+  return /* @__PURE__ */ React3.createElement(TextInput, { ref, type: "number", step, suffix, mono: true, ...rest });
+}), { displayName: "NumberInput" });
+var SecretField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React3.forwardRef(function SecretField2({ value = "", revealed: revealedProp, onReveal, expiring = false, ...rest }, ref) {
+  const [revealed, setRevealed] = React3.useState(!!revealedProp);
+  return /* @__PURE__ */ React3.createElement("div", { ref, className: "lamp-secret", ...rest }, /* @__PURE__ */ React3.createElement(TextInput, { mono: true, readOnly: true, value: revealed ? value : "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", state: expiring ? "warning" : "default" }), /* @__PURE__ */ React3.createElement("button", { type: "button", className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered", "aria-label": revealed ? "Hide value" : "Reveal value", onClick: () => {
+    setRevealed(!revealed);
+    onReveal && onReveal(!revealed);
+  } }, /* @__PURE__ */ React3.createElement(Icon, { name: revealed ? "visibility_off" : "visibility", size: 14 })));
+}), { displayName: "SecretField" });
+
+// project/components/objects/AgentHex.jsx
+import React5 from "react";
+
+// project/components/core/StatusBadge.jsx
+import React4 from "react";
+var STATUS = {
+  draft: { tone: "neutral", icon: "edit", label: "Draft", color: "var(--runtime-draft)" },
+  observed: { tone: "neutral", icon: "visibility", label: "Observed", color: "var(--runtime-observed)" },
+  inferred: { tone: "waiting", icon: "flare", label: "Inferred", color: "var(--runtime-inferred)" },
+  learning: { tone: "waiting", icon: "school", label: "Learning", color: "var(--runtime-learning)" },
+  simulation: { tone: "info", icon: "science", label: "Simulation", color: "var(--runtime-simulation)" },
+  validated: { tone: "success", icon: "check", label: "Validated", color: "var(--runtime-validated)" },
+  ready: { tone: "success", icon: "check", label: "Ready", color: "var(--status-success)" },
+  live: { tone: "brand", icon: "bolt", label: "Live", color: "var(--runtime-live)" },
+  running: { tone: "brand", icon: "sync", label: "Running", color: "var(--runtime-live)" },
+  waiting: { tone: "waiting", icon: "hourglass_top", label: "Waiting", color: "var(--status-waiting)" },
+  attention: { tone: "warning", icon: "warning", label: "Needs attention", color: "var(--status-warning)" },
+  needsHuman: { tone: "waiting", icon: "how_to_reg", label: "Needs human", color: "var(--status-waiting)" },
+  paused: { tone: "warning", icon: "pause", label: "Paused", color: "var(--runtime-paused)" },
+  stopped: { tone: "neutral", icon: "stop_circle", label: "Stopped", color: "var(--runtime-stopped)" },
+  error: { tone: "danger", icon: "cancel", label: "Error", color: "var(--status-danger)" },
+  killed: { tone: "danger", icon: "dangerous", label: "Killed", color: "var(--runtime-killed)" },
+  success: { tone: "success", icon: "check_circle", label: "Success", color: "var(--status-success)" },
+  skipped: { tone: "neutral", icon: "remove", label: "Skipped", color: "var(--status-neutral)" },
+  mocked: { tone: "info", icon: "inventory_2", label: "Mocked", color: "var(--status-info)" },
+  blocked: { tone: "danger", icon: "block", label: "Blocked", color: "var(--status-danger)" },
+  disabled: { tone: "neutral", icon: "do_not_disturb_on", label: "Disabled", color: "var(--status-neutral)" }
+};
+var StatusDot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React4.forwardRef(function StatusDot2({ status = "draft", size = "md", pulse = false, ring = false, style, ...rest }, ref) {
+  const s = STATUS[status] || STATUS.draft;
+  const cls = ["lamp-dot", size === "lg" && "lamp-dot--lg", ring && "lamp-dot--ring", pulse && "lamp-dot--pulse"].filter(Boolean).join(" ");
+  return /* @__PURE__ */ React4.createElement("span", { ref, className: cls, style: { background: s.color, color: s.color, ...style }, role: "img", "aria-label": s.label, ...rest });
+}), { displayName: "StatusDot" });
+var StatusBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React4.forwardRef(function StatusBadge2({ status = "draft", label, mode = "badge", size = "md", className = "", ...rest }, ref) {
+  const s = STATUS[status] || STATUS.draft;
+  const text = label || s.label;
+  if (mode === "label") {
+    return /* @__PURE__ */ React4.createElement("span", { className: "lamp-status-label " + className, style: { display: "inline-flex", alignItems: "center", gap: 6, fontSize: size === "sm" ? 12 : 13, fontWeight: 500, color: "var(--text-secondary)" }, ...rest }, /* @__PURE__ */ React4.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), text);
+  }
+  if (mode === "icon") {
+    return /* @__PURE__ */ React4.createElement("span", { className, style: { display: "inline-flex", color: s.color }, role: "img", "aria-label": text, ...rest }, /* @__PURE__ */ React4.createElement(Icon, { name: s.icon, size: 14 }));
+  }
+  return /* @__PURE__ */ React4.createElement("span", { ref, className: ["lamp-badge", "lamp-badge--" + s.tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React4.createElement(Icon, { name: s.icon, size: 11 }), text);
+}), { displayName: "StatusBadge" });
+
+// project/components/objects/AgentHex.jsx
+var AGENT_SIZES = { xs: [36, 31], sm: [48, 42], md: [64, 55], lg: [88, 76], xl: [120, 104] };
+var STATE_BORDER = {
+  idle: "var(--agent-border)",
+  hover: "var(--agent-border-hover)",
+  selected: "var(--agent-border-selected)",
+  multiSelected: "var(--canvas-multiselect)",
+  dragging: "var(--agent-border-selected)",
+  compatible: "var(--agent-border-compatible)",
+  snapReady: "var(--gold-500)",
+  bonding: "var(--gold-500)",
+  bonded: "var(--agent-border)",
+  running: "var(--agent-border-running)",
+  delegating: "var(--agent-border-running)",
+  waiting: "var(--agent-border-waiting)",
+  needsHuman: "var(--agent-border-waiting)",
+  success: "var(--status-success)",
+  warning: "var(--agent-border-warning)",
+  error: "var(--agent-border-error)",
+  paused: "var(--agent-border-paused)",
+  killed: "var(--agent-border-killed)",
+  disabled: "var(--agent-border)",
+  unconfigured: "var(--border-strong)",
+  queued: "var(--agent-border)",
+  retrying: "var(--agent-border-warning)",
+  degraded: "var(--agent-border-warning)"
+};
+var ACTIVE = { selected: 1, snapReady: 1, bonding: 1, running: 1, delegating: 1, error: 1, failed: 1, killed: 1, multiSelected: 1, succeeded: 1, retrying: 1 };
+var PULSE = { starting: 1, running: 1, delegating: 1, retrying: 1, succeeded: 1, paused: 1 };
+var PULSE_COLOR = { succeeded: "var(--status-success)", retrying: "var(--status-warning)", paused: "var(--neutral-400)" };
+var ROLE_GLYPH = { standard: "smart_toy", coordinator: "account_tree", specialist: "target", humanSupervised: "supervisor_account", system: "settings", external: "cloud" };
+var AgentHex = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forwardRef(function AgentHex2({
+  size = "md",
+  state = "idle",
+  role = "standard",
+  environment = "draft",
+  detail = "name",
+  name,
+  roleLabel,
+  glyph,
+  status,
+  badgeCount,
+  memoryActive = false,
+  authority,
+  task,
+  cost,
+  confidence,
+  tools = 0,
+  dashed = false,
+  labelWidth,
+  onClick,
+  className = "",
+  style,
+  ...rest
+}, ref) {
+  const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
+  const border = STATE_BORDER[state] || STATE_BORDER.idle;
+  const sw = ACTIVE[state] ? 1.5 : 1;
+  const fill = state === "selected" || state === "bonding" || state === "snapReady" ? "var(--agent-fill-selected)" : "var(--agent-fill)";
+  const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map((p) => p.join(",")).join(" ");
+  const energy = environment === "simulation" ? "var(--simulation-energy)" : "var(--energy-core)";
+  const glyphSize = size === "xs" ? 14 : size === "sm" ? 16 : size === "md" ? 18 : size === "lg" ? 22 : 28;
+  const label = (name || "Agent") + (status ? ", " + (STATUS[status] ? STATUS[status].label : status) : "");
+  const labelled = detail !== "glyph" && !!(name || status);
+  return /* @__PURE__ */ React5.createElement("div", { ref, className: ["lamp-agent", "lamp-agent--" + state, onClick && "lamp-agent--interactive", className].filter(Boolean).join(" "), style, ...rest }, /* @__PURE__ */ React5.createElement(
+    "div",
     {
-      key: it.id,
-      type: "button",
-      role: "menuitem",
-      disabled: it.disabled,
-      className: "lamp-cmenu__item" + (it.danger ? " lamp-cmenu__item--danger" : ""),
-      onClick: () => onSelect && onSelect(it)
+      className: "lamp-agent__hex",
+      style: { width: w, height: h },
+      onClick,
+      tabIndex: 0,
+      role: onClick ? "button" : "img",
+      "aria-label": label
     },
-    it.icon ? /* @__PURE__ */ React2.createElement(Icon, { name: it.icon, size: 14 }) : null,
-    /* @__PURE__ */ React2.createElement("span", null, it.label),
-    it.shortcut ? /* @__PURE__ */ React2.createElement("span", { className: "lamp-cmenu__kbd" }, it.shortcut) : null
-  )))));
-}), { displayName: "CanvasContextMenu" });
+    /* @__PURE__ */ React5.createElement("svg", { width: w, height: h, viewBox: "0 0 " + w + " " + h, style: { display: "block", overflow: "visible" } }, /* @__PURE__ */ React5.createElement(
+      "polygon",
+      {
+        points: pts,
+        fill,
+        stroke: border,
+        strokeWidth: sw,
+        strokeDasharray: dashed || state === "compatible" || state === "unconfigured" ? "3 3" : void 0,
+        strokeLinejoin: "round"
+      }
+    )),
+    PULSE[state] ? /* @__PURE__ */ React5.createElement("svg", { className: "lamp-agent__pulse", width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" }, /* @__PURE__ */ React5.createElement("polygon", { points: pts, fill: "none", strokeWidth: 2, stroke: PULSE_COLOR[state] || energy })) : null,
+    /* @__PURE__ */ React5.createElement("div", { className: "lamp-agent__glyph", style: { color: ACTIVE[state] ? "var(--text-brand)" : "var(--text-secondary)" } }, /* @__PURE__ */ React5.createElement(Icon, { name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard, size: glyphSize })),
+    badgeCount ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__badge" }, /* @__PURE__ */ React5.createElement(Badge, { tone: state === "error" ? "danger" : "waiting", count: true }, badgeCount)) : null,
+    (memoryActive || tools > 0) && detail !== "glyph" && size !== "xs" ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__pin" }, memoryActive ? /* @__PURE__ */ React5.createElement(Icon, { name: "database", size: 10, style: { color: "var(--memory-accent)" } }) : null, tools > 0 ? /* @__PURE__ */ React5.createElement(Icon, { name: "handyman", size: 10, style: { color: "var(--text-tertiary)" } }) : null) : null
+  ), labelled ? /* @__PURE__ */ React5.createElement("div", { className: "lamp-agent__label", style: labelWidth ? { maxWidth: labelWidth } : void 0 }, name ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__name" }, name) : null, status ? /* @__PURE__ */ React5.createElement("span", { style: { display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "var(--text-secondary)" } }, /* @__PURE__ */ React5.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), STATUS[status] ? STATUS[status].label : status) : null, detail === "meta" && roleLabel ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__role" }, roleLabel) : null, detail === "meta" && task ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__role" }, task) : null, detail === "meta" && (cost || confidence || authority) ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-agent__meta" }, [authority, confidence, cost].filter(Boolean).join(" \xB7 ")) : null) : null);
+}), { displayName: "AgentHex" });
 
 // project/components/canvas/CanvasMotion.jsx
-import React3 from "react";
+import React6 from "react";
 var GSAP_CDN = {
   core: "https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js",
   draggable: "https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Draggable.min.js"
@@ -356,10 +504,10 @@ function loadGsap() {
   return loading;
 }
 function useGsap() {
-  const [api, setApi] = React3.useState(
+  const [api, setApi] = React6.useState(
     () => injected || (typeof window !== "undefined" && window.gsap && window.Draggable ? { gsap: window.gsap, Draggable: window.Draggable } : null)
   );
-  React3.useEffect(() => {
+  React6.useEffect(() => {
     if (api) return;
     let alive = true;
     loadGsap().then((next) => {
@@ -375,13 +523,10 @@ function prefersReducedMotion() {
   return typeof window !== "undefined" && typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-// project/components/canvas/CanvasSurface.jsx
-import React5 from "react";
-
 // project/components/core/refs.js
-import React4 from "react";
+import React7 from "react";
 function useMergedRefs(...refs) {
-  return React4.useMemo(
+  return React7.useMemo(
     () => {
       if (refs.every((r) => r == null)) return null;
       return (node) => {
@@ -396,8 +541,250 @@ function useMergedRefs(...refs) {
   );
 }
 
+// project/components/canvas/AgentLibrary.jsx
+var AGENT_ARCHETYPES = [
+  {
+    id: "coordinator",
+    name: "Coordinator",
+    role: "coordinator",
+    glyph: "account_tree",
+    purpose: "Receives the work, decides what happens next, and hands off.",
+    skills: ["classify", "route"],
+    tools: [],
+    group: "Roles"
+  },
+  {
+    id: "specialist",
+    name: "Specialist",
+    role: "specialist",
+    glyph: "target",
+    purpose: "Does one thing well \u2014 match, reconcile, verify, extract.",
+    skills: ["extract", "verify"],
+    tools: [],
+    group: "Roles"
+  },
+  {
+    id: "approver",
+    name: "Human-supervised",
+    role: "humanSupervised",
+    glyph: "supervisor_account",
+    purpose: "Prepares a decision and waits for a person to make it.",
+    skills: ["summarize"],
+    tools: [],
+    group: "Roles",
+    checkpoint: true
+  },
+  {
+    id: "watcher",
+    name: "Watcher",
+    role: "standard",
+    glyph: "visibility",
+    purpose: "Observes a system and raises the exceptions worth acting on.",
+    skills: ["monitor", "classify"],
+    tools: [],
+    group: "Roles"
+  },
+  {
+    id: "invoice-matcher",
+    name: "Invoice Matcher",
+    role: "specialist",
+    glyph: "receipt_long",
+    purpose: "Matches an invoice to its purchase order and receipt.",
+    skills: ["extract", "reconcile"],
+    tools: ["sap"],
+    group: "Finance"
+  },
+  {
+    id: "vendor-verifier",
+    name: "Vendor Verifier",
+    role: "specialist",
+    glyph: "fact_check",
+    purpose: "Checks a supplier exists, is approved, and its bank details hold.",
+    skills: ["verify", "search"],
+    tools: ["sap"],
+    group: "Finance"
+  },
+  {
+    id: "reconciler",
+    name: "Reconciler",
+    role: "specialist",
+    glyph: "balance",
+    purpose: "Reconciles accounts and explains what does not tie out.",
+    skills: ["reconcile"],
+    tools: ["sap"],
+    group: "Finance"
+  },
+  {
+    id: "triager",
+    name: "Triager",
+    role: "coordinator",
+    glyph: "forum",
+    purpose: "Classifies an incoming issue and routes it to whoever resolves it.",
+    skills: ["classify", "route"],
+    tools: ["zendesk"],
+    group: "Customer operations"
+  },
+  {
+    id: "collections",
+    name: "Collections Agent",
+    role: "standard",
+    glyph: "schedule",
+    purpose: "Chases an overdue invoice, and stops the moment it is paid.",
+    skills: ["schedule", "summarize"],
+    tools: ["gmail"],
+    group: "Finance"
+  }
+];
+var AgentLibrary = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React8.forwardRef(function AgentLibrary2({
+  archetypes = AGENT_ARCHETYPES,
+  size = "sm",
+  title = "Agents",
+  searchable = true,
+  dropTarget,
+  onAdd,
+  onDrop,
+  disabled = false,
+  className = "",
+  ...rest
+}, ref) {
+  const api = useGsap();
+  const [query, setQuery] = React8.useState("");
+  const [dragging, setDragging] = React8.useState(null);
+  const ghostRef = React8.useRef(null);
+  const rootRef = React8.useRef(null);
+  const setRoot = useMergedRefs(ref, rootRef);
+  const itemRefs = React8.useRef({});
+  const live = React8.useRef({});
+  live.current = { onDrop, dropTarget, archetypes };
+  const shown = archetypes.filter((a) => {
+    if (!query.trim()) return true;
+    const q = query.toLowerCase();
+    return (a.name + " " + a.purpose + " " + (a.skills || []).join(" ") + " " + a.group).toLowerCase().includes(q);
+  });
+  const groups = [];
+  for (const a of shown) {
+    const g = groups.find((x) => x.name === a.group);
+    if (g) g.items.push(a);
+    else groups.push({ name: a.group, items: [a] });
+  }
+  React8.useEffect(() => {
+    if (!api || disabled) return void 0;
+    const { gsap, Draggable } = api;
+    const ghost = ghostRef.current;
+    const root = rootRef.current;
+    const instances = [];
+    const proxies = [];
+    shown.forEach((archetype) => {
+      const el = itemRefs.current[archetype.id];
+      if (!el || !ghost || !root) return;
+      const proxy = document.createElement("div");
+      proxy.className = "lamp-agentlib__proxy";
+      proxy.setAttribute("aria-hidden", "true");
+      root.appendChild(proxy);
+      proxies.push(proxy);
+      const d = Draggable.create(proxy, {
+        type: "x,y",
+        /* The press is on the list item; what moves is the proxy, which nobody
+           can see. The ghost is positioned from the pointer directly. */
+        trigger: el,
+        cursor: "grab",
+        activeCursor: "grabbing",
+        onPress() {
+          const box = el.getBoundingClientRect();
+          gsap.set(ghost, {
+            x: box.left + box.width / 2,
+            y: box.top + box.height / 2,
+            xPercent: -50,
+            yPercent: -50,
+            autoAlpha: 0
+          });
+        },
+        onDragStart() {
+          setDragging(archetype);
+          gsap.set(ghost, { autoAlpha: 1 });
+        },
+        onDrag(e) {
+          const x = e.clientX != null ? e.clientX : this.pointerX;
+          const y = e.clientY != null ? e.clientY : this.pointerY;
+          gsap.set(ghost, { x, y });
+        },
+        onRelease(e) {
+          gsap.set(proxy, { x: 0, y: 0 });
+          gsap.set(ghost, { autoAlpha: 0 });
+          setDragging(null);
+          const x = e.clientX != null ? e.clientX : this.pointerX;
+          const y = e.clientY != null ? e.clientY : this.pointerY;
+          const target = live.current.dropTarget && live.current.dropTarget.current;
+          const drop = live.current.onDrop;
+          if (!target || !drop) return;
+          const box = target.getBoundingClientRect();
+          const inside = x >= box.left && x <= box.right && y >= box.top && y <= box.bottom;
+          if (!inside) return;
+          drop(archetype, { x: x - box.left, y: y - box.top });
+        }
+      })[0];
+      if (d) instances.push(d);
+    });
+    return () => {
+      instances.forEach((d) => d.kill());
+      proxies.forEach((p) => p.remove());
+    };
+  }, [api, disabled, shown.map((a) => a.id).join("|")]);
+  return /* @__PURE__ */ React8.createElement("div", { ref: setRoot, className: ["lamp-agentlib", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React8.createElement("div", { className: "lamp-agentlib__head" }, /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__title" }, title), /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__hint" }, "Drag onto the canvas")), searchable ? /* @__PURE__ */ React8.createElement("div", { className: "lamp-agentlib__search" }, /* @__PURE__ */ React8.createElement(
+    SearchInput,
+    {
+      size: "sm",
+      value: query,
+      placeholder: "Find an Agent",
+      onChange: (e) => setQuery(e.target.value)
+    }
+  )) : null, /* @__PURE__ */ React8.createElement("div", { className: "lamp-agentlib__list" }, groups.map((g) => /* @__PURE__ */ React8.createElement("div", { key: g.name, className: "lamp-agentlib__group" }, /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__grouplabel" }, g.name), g.items.map((a) => /* @__PURE__ */ React8.createElement(
+    "div",
+    {
+      key: a.id,
+      ref: (el) => {
+        if (el) itemRefs.current[a.id] = el;
+        else delete itemRefs.current[a.id];
+      },
+      className: "lamp-agentlib__item" + (dragging && dragging.id === a.id ? " lamp-agentlib__item--dragging" : ""),
+      role: "button",
+      tabIndex: 0,
+      "aria-label": "Add " + a.name,
+      onClick: () => onAdd && onAdd(a),
+      onKeyDown: (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        if (onAdd) onAdd(a);
+      }
+    },
+    /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__glyph" }, /* @__PURE__ */ React8.createElement(Icon, { name: a.glyph, size: 16 })),
+    /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__body" }, /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__name" }, a.name, a.checkpoint ? /* @__PURE__ */ React8.createElement(Badge, { tone: "waiting", micro: true }, "Human") : null), /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__purpose" }, a.purpose)),
+    /* @__PURE__ */ React8.createElement("span", { className: "lamp-agentlib__grip", "aria-hidden": "true" }, /* @__PURE__ */ React8.createElement(Icon, { name: "drag_indicator", size: 14 }))
+  )))), !shown.length ? /* @__PURE__ */ React8.createElement("p", { className: "lamp-agentlib__empty" }, "No Agent matches \u201C", query, "\u201D.") : null), /* @__PURE__ */ React8.createElement("div", { ref: ghostRef, className: "lamp-agentlib__ghost", "aria-hidden": "true" }, dragging ? /* @__PURE__ */ React8.createElement(AgentHex, { size, detail: "glyph", glyph: dragging.glyph, role: dragging.role, state: "snapReady" }) : null));
+}), { displayName: "AgentLibrary" });
+
+// project/components/canvas/CanvasContextMenu.jsx
+import React9 from "react";
+var CanvasContextMenu = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React9.forwardRef(function CanvasContextMenu2({ x = 0, y = 0, groups = [], onSelect, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React9.createElement("div", { ref, className: "lamp-cmenu " + className, style: { position: "absolute", left: x, top: y, ...style }, role: "menu", ...rest }, groups.map((g, gi) => /* @__PURE__ */ React9.createElement("div", { key: gi }, gi > 0 ? /* @__PURE__ */ React9.createElement("div", { className: "lamp-cmenu__sep" }) : null, g.label ? /* @__PURE__ */ React9.createElement("div", { className: "lamp-cmenu__label" }, g.label) : null, g.items.map((it) => /* @__PURE__ */ React9.createElement(
+    "button",
+    {
+      key: it.id,
+      type: "button",
+      role: "menuitem",
+      disabled: it.disabled,
+      className: "lamp-cmenu__item" + (it.danger ? " lamp-cmenu__item--danger" : ""),
+      onClick: () => onSelect && onSelect(it)
+    },
+    it.icon ? /* @__PURE__ */ React9.createElement(Icon, { name: it.icon, size: 14 }) : null,
+    /* @__PURE__ */ React9.createElement("span", null, it.label),
+    it.shortcut ? /* @__PURE__ */ React9.createElement("span", { className: "lamp-cmenu__kbd" }, it.shortcut) : null
+  )))));
+}), { displayName: "CanvasContextMenu" });
+
 // project/components/canvas/CanvasSurface.jsx
-var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forwardRef(function CanvasSurface2({
+import React10 from "react";
+var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React10.forwardRef(function CanvasSurface2({
   grid = "dots",
   zoom = 1,
   environment = "draft",
@@ -417,14 +804,14 @@ var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forward
 }, ref) {
   const gridClass = zoom < 0.3 ? "plain" : zoom < 0.5 ? "dots-major" : grid;
   const api = useGsap();
-  const hostRef = React5.useRef(null);
+  const hostRef = React10.useRef(null);
   const setHost = useMergedRefs(ref, hostRef);
-  const worldRef = React5.useRef(null);
-  const [spaceHeld, setSpaceHeld] = React5.useState(false);
+  const worldRef = React10.useRef(null);
+  const [spaceHeld, setSpaceHeld] = React10.useState(false);
   const panning = pannable && !locked && (panMode || spaceHeld);
-  const report = React5.useRef(onPanChange);
+  const report = React10.useRef(onPanChange);
   report.current = onPanChange;
-  React5.useEffect(() => {
+  React10.useEffect(() => {
     if (!pannable || locked) return void 0;
     const down = (e) => {
       if (e.code !== "Space" || e.repeat) return;
@@ -446,8 +833,8 @@ var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forward
       window.removeEventListener("blur", blur);
     };
   }, [pannable, locked]);
-  const dragRef = React5.useRef(null);
-  React5.useEffect(() => {
+  const dragRef = React10.useRef(null);
+  React10.useEffect(() => {
     if (!api || !pannable || !worldRef.current) return void 0;
     const [drag] = api.Draggable.create(worldRef.current, {
       type: "x,y",
@@ -466,7 +853,7 @@ var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forward
       dragRef.current = null;
     };
   }, [api, pannable]);
-  React5.useEffect(() => {
+  React10.useEffect(() => {
     const drag = dragRef.current;
     if (!drag) return;
     if (panning) drag.enable();
@@ -481,196 +868,369 @@ var CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forward
     readOnly && "lamp-canvas--readonly",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React5.createElement("div", { ref: setHost, className: cls, style, role: "application", "aria-label": "LAMP canvas", ...rest }, /* @__PURE__ */ React5.createElement("div", { ref: worldRef, className: "lamp-canvas__world" }, /* @__PURE__ */ React5.createElement("div", { className: "lamp-canvas__scale", style: { transform: "scale(" + zoom + ")" } }, children)), guides.map((g, i) => /* @__PURE__ */ React5.createElement("span", { key: i, className: "lamp-canvas__guide lamp-canvas__guide--" + (g.axis === "x" ? "v" : "h"), style: g.axis === "x" ? { left: g.at } : { top: g.at } })), marquee ? /* @__PURE__ */ React5.createElement("span", { className: "lamp-canvas__marquee", style: marquee }) : null, empty ? /* @__PURE__ */ React5.createElement("div", { className: "lamp-canvas__empty" }, empty) : null);
+  return /* @__PURE__ */ React10.createElement("div", { ref: setHost, className: cls, style, role: "application", "aria-label": "LAMP canvas", ...rest }, /* @__PURE__ */ React10.createElement("div", { ref: worldRef, className: "lamp-canvas__world" }, /* @__PURE__ */ React10.createElement("div", { className: "lamp-canvas__scale", style: { transform: "scale(" + zoom + ")" } }, children)), guides.map((g, i) => /* @__PURE__ */ React10.createElement("span", { key: i, className: "lamp-canvas__guide lamp-canvas__guide--" + (g.axis === "x" ? "v" : "h"), style: g.axis === "x" ? { left: g.at } : { top: g.at } })), marquee ? /* @__PURE__ */ React10.createElement("span", { className: "lamp-canvas__marquee", style: marquee }) : null, empty ? /* @__PURE__ */ React10.createElement("div", { className: "lamp-canvas__empty" }, empty) : null);
 }), { displayName: "CanvasSurface" });
-var SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React5.forwardRef(function SnapGuide2({ rect, invalid = false, kind = "snap" }, ref) {
-  return /* @__PURE__ */ React5.createElement("span", { ref, className: kind === "drop" ? "lamp-canvas__drop" + (invalid ? " lamp-canvas__drop--invalid" : "") : "lamp-canvas__snapguide", style: rect });
+var HEX_POINTS = "25,0 75,0 100,50 75,100 25,100 0,50";
+var SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React10.forwardRef(function SnapGuide2({ rect, invalid = false, kind = "snap", shape = "rect" }, ref) {
+  if (shape === "hex") {
+    return /* @__PURE__ */ React10.createElement(
+      "svg",
+      {
+        ref,
+        className: "lamp-canvas__snapguide-hex" + (invalid ? " lamp-canvas__snapguide-hex--invalid" : ""),
+        viewBox: "0 0 100 100",
+        preserveAspectRatio: "none",
+        "aria-hidden": "true",
+        style: rect
+      },
+      /* @__PURE__ */ React10.createElement("polygon", { points: HEX_POINTS, vectorEffect: "non-scaling-stroke" })
+    );
+  }
+  return /* @__PURE__ */ React10.createElement("span", { ref, className: kind === "drop" ? "lamp-canvas__drop" + (invalid ? " lamp-canvas__drop--invalid" : "") : "lamp-canvas__snapguide", style: rect });
 }), { displayName: "SnapGuide" });
 
 // project/components/canvas/CanvasToolbar.jsx
-import React8 from "react";
+import React13 from "react";
 
 // project/components/core/IconButton.jsx
-import React6 from "react";
-var IconButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React6.forwardRef(function IconButton2({ icon, label, size = "md", bordered = false, active = false, tone = "default", className = "", ...rest }, ref) {
+import React11 from "react";
+var IconButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React11.forwardRef(function IconButton2({ icon, label, size = "md", bordered = false, active = false, tone = "default", className = "", ...rest }, ref) {
   const cls = ["lamp-iconbtn", "lamp-iconbtn--" + size, bordered && "lamp-iconbtn--bordered", active && "lamp-iconbtn--active", tone === "danger" && "lamp-iconbtn--danger", className].filter(Boolean).join(" ");
   const glyph = size === "xs" ? 12 : size === "sm" ? 14 : 16;
-  return /* @__PURE__ */ React6.createElement("button", { ref, type: "button", className: cls, "aria-label": label, "aria-pressed": active || void 0, title: label, ...rest }, typeof icon === "string" ? /* @__PURE__ */ React6.createElement(Icon, { name: icon, size: glyph }) : icon);
+  return /* @__PURE__ */ React11.createElement("button", { ref, type: "button", className: cls, "aria-label": label, "aria-pressed": active || void 0, title: label, ...rest }, typeof icon === "string" ? /* @__PURE__ */ React11.createElement(Icon, { name: icon, size: glyph }) : icon);
 }), { displayName: "IconButton" });
 
 // project/components/core/Divider.jsx
-import React7 from "react";
-var Divider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React7.forwardRef(function Divider2({ orientation = "horizontal", label, className = "", ...rest }, ref) {
-  if (label) return /* @__PURE__ */ React7.createElement("div", { className: "lamp-divider lamp-divider--label " + className, ...rest }, label);
-  return /* @__PURE__ */ React7.createElement("hr", { ref, className: ["lamp-divider", orientation === "vertical" && "lamp-divider--v", className].filter(Boolean).join(" "), ...rest });
+import React12 from "react";
+var Divider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React12.forwardRef(function Divider2({ orientation = "horizontal", label, className = "", ...rest }, ref) {
+  if (label) return /* @__PURE__ */ React12.createElement("div", { className: "lamp-divider lamp-divider--label " + className, ...rest }, label);
+  return /* @__PURE__ */ React12.createElement("hr", { ref, className: ["lamp-divider", orientation === "vertical" && "lamp-divider--v", className].filter(Boolean).join(" "), ...rest });
 }), { displayName: "Divider" });
 
 // project/components/canvas/CanvasToolbar.jsx
-var CanvasToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React8.forwardRef(function CanvasToolbar2({ position = "floating", children, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React8.createElement("div", { ref, className: ["lamp-ctoolbar", "lamp-ctoolbar--" + position, className].filter(Boolean).join(" "), style, role: "toolbar", ...rest }, children);
+var CanvasToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef(function CanvasToolbar2({ position = "floating", children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React13.createElement("div", { ref, className: ["lamp-ctoolbar", "lamp-ctoolbar--" + position, className].filter(Boolean).join(" "), style, role: "toolbar", ...rest }, children);
 }), { displayName: "CanvasToolbar" });
-var CanvasZoomControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React8.forwardRef(function CanvasZoomControls2({ zoom = 1, onZoomIn, onZoomOut, onFit, onReset, ...rest }, ref) {
-  return /* @__PURE__ */ React8.createElement(CanvasToolbar, { ref, position: "topright", ...rest }, /* @__PURE__ */ React8.createElement(IconButton, { icon: "remove", label: "Zoom out", size: "sm", onClick: onZoomOut }), /* @__PURE__ */ React8.createElement("button", { type: "button", className: "lamp-ctoolbar__zoom", onClick: onReset, title: "Reset zoom" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ React8.createElement(IconButton, { icon: "add", label: "Zoom in", size: "sm", onClick: onZoomIn }), /* @__PURE__ */ React8.createElement(Divider, { orientation: "vertical" }), /* @__PURE__ */ React8.createElement(IconButton, { icon: "fit_screen", label: "Fit selection", size: "sm", onClick: onFit }));
+var CanvasZoomControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef(function CanvasZoomControls2({ zoom = 1, onZoomIn, onZoomOut, onFit, onReset, ...rest }, ref) {
+  return /* @__PURE__ */ React13.createElement(CanvasToolbar, { ref, position: "topright", ...rest }, /* @__PURE__ */ React13.createElement(IconButton, { icon: "remove", label: "Zoom out", size: "sm", onClick: onZoomOut }), /* @__PURE__ */ React13.createElement("button", { type: "button", className: "lamp-ctoolbar__zoom", onClick: onReset, title: "Reset zoom" }, Math.round(zoom * 100), "%"), /* @__PURE__ */ React13.createElement(IconButton, { icon: "add", label: "Zoom in", size: "sm", onClick: onZoomIn }), /* @__PURE__ */ React13.createElement(Divider, { orientation: "vertical" }), /* @__PURE__ */ React13.createElement(IconButton, { icon: "fit_screen", label: "Fit selection", size: "sm", onClick: onFit }));
 }), { displayName: "CanvasZoomControls" });
-var CanvasObjectToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React8.forwardRef(function CanvasObjectToolbar2({ x, y, children, ...rest }, ref) {
-  return /* @__PURE__ */ React8.createElement("div", { ref, className: "lamp-ctoolbar lamp-ctoolbar--object", style: { left: x, top: y }, role: "toolbar", ...rest }, children);
+var CanvasObjectToolbar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef(function CanvasObjectToolbar2({ x, y, children, ...rest }, ref) {
+  return /* @__PURE__ */ React13.createElement("div", { ref, className: "lamp-ctoolbar lamp-ctoolbar--object", style: { left: x, top: y }, role: "toolbar", ...rest }, children);
 }), { displayName: "CanvasObjectToolbar" });
-var CanvasMinimap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React8.forwardRef(function CanvasMinimap2({ blips = [], viewport, onJump, ...rest }, ref) {
-  return /* @__PURE__ */ React8.createElement("div", { ref, className: "lamp-minimap", onClick: onJump, "aria-label": "Canvas overview", ...rest }, blips.map((b, i) => /* @__PURE__ */ React8.createElement("span", { key: i, className: "lamp-minimap__blip" + (b.tone ? " lamp-minimap__blip--" + b.tone : ""), style: { left: b.x, top: b.y, width: b.w || 4, height: b.h || 4 } })), viewport ? /* @__PURE__ */ React8.createElement("span", { className: "lamp-minimap__viewport", style: viewport }) : null);
+var CanvasMinimap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef(function CanvasMinimap2({ blips = [], viewport, onJump, ...rest }, ref) {
+  return /* @__PURE__ */ React13.createElement("div", { ref, className: "lamp-minimap", onClick: onJump, "aria-label": "Canvas overview", ...rest }, blips.map((b, i) => /* @__PURE__ */ React13.createElement("span", { key: i, className: "lamp-minimap__blip" + (b.tone ? " lamp-minimap__blip--" + b.tone : ""), style: { left: b.x, top: b.y, width: b.w || 4, height: b.h || 4 } })), viewport ? /* @__PURE__ */ React13.createElement("span", { className: "lamp-minimap__viewport", style: viewport }) : null);
 }), { displayName: "CanvasMinimap" });
 
-// project/components/canvas/SnapField.jsx
-import React13 from "react";
+// project/components/canvas/NewAgentDialog.jsx
+import React22 from "react";
 
-// project/components/objects/HexLattice.jsx
-import React12 from "react";
+// project/components/core/Button.jsx
+import React14 from "react";
+var Button = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React14.forwardRef(function Button2({ variant = "secondary", size = "md", icon, iconRight, loading: loading2 = false, disabled = false, block = false, shortcut, children, className = "", ...rest }, ref) {
+  const cls = ["lamp-btn", "lamp-btn--" + variant, "lamp-btn--" + size, block && "lamp-btn--block", loading2 && "lamp-btn--loading", className].filter(Boolean).join(" ");
+  const glyph = size === "lg" ? 16 : 14;
+  return /* @__PURE__ */ React14.createElement("button", { ref, type: "button", className: cls, disabled: disabled || loading2, "aria-busy": loading2 || void 0, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React14.createElement(Icon, { name: icon, size: glyph }) : icon : null, children, iconRight ? typeof iconRight === "string" ? /* @__PURE__ */ React14.createElement(Icon, { name: iconRight, size: glyph }) : iconRight : null, shortcut ? /* @__PURE__ */ React14.createElement("span", { className: "lamp-btn__kbd" }, shortcut) : null, loading2 ? /* @__PURE__ */ React14.createElement("span", { className: "lamp-btn__spin" }, /* @__PURE__ */ React14.createElement("i", null)) : null);
+}), { displayName: "Button" });
+var SplitButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React14.forwardRef(function SplitButton2({ variant = "secondary", size = "md", icon, children, onMenu, menuLabel = "More actions", ...rest }, ref) {
+  return /* @__PURE__ */ React14.createElement("span", { ref, className: "lamp-split" }, /* @__PURE__ */ React14.createElement(Button, { variant, size, icon, ...rest }, children), /* @__PURE__ */ React14.createElement(Button, { variant, size, onClick: onMenu, "aria-label": menuLabel, icon: "keyboard_arrow_down" }));
+}), { displayName: "SplitButton" });
 
-// project/components/objects/AgentHex.jsx
-import React11 from "react";
-
-// project/components/core/StatusBadge.jsx
-import React9 from "react";
-var STATUS = {
-  draft: { tone: "neutral", icon: "edit", label: "Draft", color: "var(--runtime-draft)" },
-  observed: { tone: "neutral", icon: "visibility", label: "Observed", color: "var(--runtime-observed)" },
-  inferred: { tone: "waiting", icon: "flare", label: "Inferred", color: "var(--runtime-inferred)" },
-  learning: { tone: "waiting", icon: "school", label: "Learning", color: "var(--runtime-learning)" },
-  simulation: { tone: "info", icon: "science", label: "Simulation", color: "var(--runtime-simulation)" },
-  validated: { tone: "success", icon: "check", label: "Validated", color: "var(--runtime-validated)" },
-  ready: { tone: "success", icon: "check", label: "Ready", color: "var(--status-success)" },
-  live: { tone: "brand", icon: "bolt", label: "Live", color: "var(--runtime-live)" },
-  running: { tone: "brand", icon: "sync", label: "Running", color: "var(--runtime-live)" },
-  waiting: { tone: "waiting", icon: "hourglass_top", label: "Waiting", color: "var(--status-waiting)" },
-  attention: { tone: "warning", icon: "warning", label: "Needs attention", color: "var(--status-warning)" },
-  needsHuman: { tone: "waiting", icon: "how_to_reg", label: "Needs human", color: "var(--status-waiting)" },
-  paused: { tone: "warning", icon: "pause", label: "Paused", color: "var(--runtime-paused)" },
-  stopped: { tone: "neutral", icon: "stop_circle", label: "Stopped", color: "var(--runtime-stopped)" },
-  error: { tone: "danger", icon: "cancel", label: "Error", color: "var(--status-danger)" },
-  killed: { tone: "danger", icon: "dangerous", label: "Killed", color: "var(--runtime-killed)" },
-  success: { tone: "success", icon: "check_circle", label: "Success", color: "var(--status-success)" },
-  skipped: { tone: "neutral", icon: "remove", label: "Skipped", color: "var(--status-neutral)" },
-  mocked: { tone: "info", icon: "inventory_2", label: "Mocked", color: "var(--status-info)" },
-  blocked: { tone: "danger", icon: "block", label: "Blocked", color: "var(--status-danger)" },
-  disabled: { tone: "neutral", icon: "do_not_disturb_on", label: "Disabled", color: "var(--status-neutral)" }
-};
-var StatusDot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React9.forwardRef(function StatusDot2({ status = "draft", size = "md", pulse = false, ring = false, style, ...rest }, ref) {
-  const s = STATUS[status] || STATUS.draft;
-  const cls = ["lamp-dot", size === "lg" && "lamp-dot--lg", ring && "lamp-dot--ring", pulse && "lamp-dot--pulse"].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React9.createElement("span", { ref, className: cls, style: { background: s.color, color: s.color, ...style }, role: "img", "aria-label": s.label, ...rest });
-}), { displayName: "StatusDot" });
-var StatusBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React9.forwardRef(function StatusBadge2({ status = "draft", label, mode = "badge", size = "md", className = "", ...rest }, ref) {
-  const s = STATUS[status] || STATUS.draft;
-  const text = label || s.label;
-  if (mode === "label") {
-    return /* @__PURE__ */ React9.createElement("span", { className: "lamp-status-label " + className, style: { display: "inline-flex", alignItems: "center", gap: 6, fontSize: size === "sm" ? 12 : 13, fontWeight: 500, color: "var(--text-secondary)" }, ...rest }, /* @__PURE__ */ React9.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), text);
-  }
-  if (mode === "icon") {
-    return /* @__PURE__ */ React9.createElement("span", { className, style: { display: "inline-flex", color: s.color }, role: "img", "aria-label": text, ...rest }, /* @__PURE__ */ React9.createElement(Icon, { name: s.icon, size: 14 }));
-  }
-  return /* @__PURE__ */ React9.createElement("span", { ref, className: ["lamp-badge", "lamp-badge--" + s.tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React9.createElement(Icon, { name: s.icon, size: 11 }), text);
-}), { displayName: "StatusBadge" });
-
-// project/components/core/Badge.jsx
-import React10 from "react";
-var Badge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React10.forwardRef(function Badge2({ tone = "neutral", icon, shape = "pill", micro = false, count = false, outline = false, children, className = "", ...rest }, ref) {
-  const cls = ["lamp-badge", "lamp-badge--" + (outline ? "outline" : tone), shape === "square" && "lamp-badge--square", micro && "lamp-badge--micro", count && "lamp-badge--count", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React10.createElement("span", { ref, className: cls, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React10.createElement(Icon, { name: icon, size: 11 }) : icon : null, children);
-}), { displayName: "Badge" });
-
-// project/components/objects/AgentHex.jsx
-var AGENT_SIZES = { xs: [36, 31], sm: [48, 42], md: [64, 55], lg: [88, 76], xl: [120, 104] };
-var STATE_BORDER = {
-  idle: "var(--agent-border)",
-  hover: "var(--agent-border-hover)",
-  selected: "var(--agent-border-selected)",
-  multiSelected: "var(--canvas-multiselect)",
-  dragging: "var(--agent-border-selected)",
-  compatible: "var(--agent-border-compatible)",
-  snapReady: "var(--gold-500)",
-  bonding: "var(--gold-500)",
-  bonded: "var(--agent-border)",
-  running: "var(--agent-border-running)",
-  delegating: "var(--agent-border-running)",
-  waiting: "var(--agent-border-waiting)",
-  needsHuman: "var(--agent-border-waiting)",
-  success: "var(--status-success)",
-  warning: "var(--agent-border-warning)",
-  error: "var(--agent-border-error)",
-  paused: "var(--agent-border-paused)",
-  killed: "var(--agent-border-killed)",
-  disabled: "var(--agent-border)",
-  unconfigured: "var(--border-strong)",
-  queued: "var(--agent-border)",
-  retrying: "var(--agent-border-warning)",
-  degraded: "var(--agent-border-warning)"
-};
-var ACTIVE = { selected: 1, snapReady: 1, bonding: 1, running: 1, delegating: 1, error: 1, failed: 1, killed: 1, multiSelected: 1, succeeded: 1, retrying: 1 };
-var PULSE = { starting: 1, running: 1, delegating: 1, retrying: 1, succeeded: 1, paused: 1 };
-var PULSE_COLOR = { succeeded: "var(--status-success)", retrying: "var(--status-warning)", paused: "var(--neutral-400)" };
-var ROLE_GLYPH = { standard: "smart_toy", coordinator: "account_tree", specialist: "target", humanSupervised: "supervisor_account", system: "settings", external: "cloud" };
-var AgentHex = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React11.forwardRef(function AgentHex2({
-  size = "md",
-  state = "idle",
-  role = "standard",
-  environment = "draft",
-  detail = "name",
-  name,
-  roleLabel,
-  glyph,
-  status,
-  badgeCount,
-  memoryActive = false,
-  authority,
-  task,
-  cost,
-  confidence,
-  tools = 0,
-  dashed = false,
-  labelWidth,
-  onClick,
-  className = "",
-  style,
-  ...rest
-}, ref) {
-  const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
-  const border = STATE_BORDER[state] || STATE_BORDER.idle;
-  const sw = ACTIVE[state] ? 1.5 : 1;
-  const fill = state === "selected" || state === "bonding" || state === "snapReady" ? "var(--agent-fill-selected)" : "var(--agent-fill)";
-  const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map((p) => p.join(",")).join(" ");
-  const energy = environment === "simulation" ? "var(--simulation-energy)" : "var(--energy-core)";
-  const glyphSize = size === "xs" ? 14 : size === "sm" ? 16 : size === "md" ? 18 : size === "lg" ? 22 : 28;
-  const label = (name || "Agent") + (status ? ", " + (STATUS[status] ? STATUS[status].label : status) : "");
-  const labelled = detail !== "glyph" && !!(name || status);
-  return /* @__PURE__ */ React11.createElement("div", { ref, className: ["lamp-agent", "lamp-agent--" + state, onClick && "lamp-agent--interactive", className].filter(Boolean).join(" "), style, ...rest }, /* @__PURE__ */ React11.createElement(
+// project/components/feedback/Modal.jsx
+import React15 from "react";
+var Modal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function Modal2({ open = true, title, subtitle, glyph, size = "md", critical = false, footer, onClose, children, className = "", ...rest }, ref) {
+  if (!open) return null;
+  const width = size === "sm" ? "var(--modal-width-sm)" : size === "lg" ? "var(--modal-width-lg)" : "var(--modal-width-md)";
+  return /* @__PURE__ */ React15.createElement("div", { ref, className: "lamp-scrim", onClick: onClose }, /* @__PURE__ */ React15.createElement(
     "div",
     {
-      className: "lamp-agent__hex",
-      style: { width: w, height: h },
-      onClick,
-      tabIndex: 0,
-      role: onClick ? "button" : "img",
-      "aria-label": label
+      className: ["lamp-modal", critical && "lamp-modal--critical", className].filter(Boolean).join(" "),
+      style: { width },
+      role: critical ? "alertdialog" : "dialog",
+      "aria-modal": "true",
+      "aria-label": title,
+      onClick: (e) => e.stopPropagation(),
+      ...rest
     },
-    /* @__PURE__ */ React11.createElement("svg", { width: w, height: h, viewBox: "0 0 " + w + " " + h, style: { display: "block", overflow: "visible" } }, /* @__PURE__ */ React11.createElement(
-      "polygon",
-      {
-        points: pts,
-        fill,
-        stroke: border,
-        strokeWidth: sw,
-        strokeDasharray: dashed || state === "compatible" || state === "unconfigured" ? "3 3" : void 0,
-        strokeLinejoin: "round"
+    /* @__PURE__ */ React15.createElement("div", { className: "lamp-modal__head" }, glyph ? /* @__PURE__ */ React15.createElement(Icon, { name: glyph, size: 18, style: { marginTop: 2, color: critical ? "var(--status-danger)" : "var(--text-secondary)" } }) : null, /* @__PURE__ */ React15.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React15.createElement("h2", { className: "lamp-modal__title" }, title), subtitle ? /* @__PURE__ */ React15.createElement("p", { className: "lamp-modal__sub" }, subtitle) : null), onClose ? /* @__PURE__ */ React15.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null),
+    /* @__PURE__ */ React15.createElement("div", { className: "lamp-modal__body" }, children),
+    footer ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-modal__foot" }, footer) : null
+  ));
+}), { displayName: "Modal" });
+var CriticalConfirmation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function CriticalConfirmation2({ open = true, title, consequences = [], scope, confirmLabel = "Confirm", cancelLabel = "Cancel", onCancel, onConfirm, children, ...rest }, ref) {
+  return /* @__PURE__ */ React15.createElement(
+    Modal,
+    {
+      ref,
+      open,
+      critical: true,
+      glyph: "dangerous",
+      size: "sm",
+      title,
+      onClose: onCancel,
+      footer: /* @__PURE__ */ React15.createElement(React15.Fragment, null, /* @__PURE__ */ React15.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, cancelLabel), /* @__PURE__ */ React15.createElement(Button, { size: "md", variant: "danger", onClick: onConfirm }, confirmLabel)),
+      ...rest
+    },
+    scope ? /* @__PURE__ */ React15.createElement("p", { style: { margin: "0 0 8px", color: "var(--text-primary)" } }, scope) : null,
+    consequences.length ? /* @__PURE__ */ React15.createElement(React15.Fragment, null, /* @__PURE__ */ React15.createElement("p", { style: { margin: "0 0 4px" } }, "Immediately:"), /* @__PURE__ */ React15.createElement("ul", { style: { margin: 0, paddingLeft: 18, lineHeight: "19px" } }, consequences.map((c) => /* @__PURE__ */ React15.createElement("li", { key: c }, c)))) : null,
+    children
+  );
+}), { displayName: "CriticalConfirmation" });
+var Drawer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function Drawer2({ open = true, title, side = "right", width, actions, footer, onClose, children, className = "", ...rest }, ref) {
+  if (!open) return null;
+  return /* @__PURE__ */ React15.createElement(
+    "aside",
+    {
+      ref,
+      className: ["lamp-drawer", side === "left" && "lamp-drawer--left", className].filter(Boolean).join(" "),
+      style: width ? { width } : void 0,
+      role: "dialog",
+      "aria-label": title,
+      ...rest
+    },
+    /* @__PURE__ */ React15.createElement("header", { className: "lamp-drawer__head" }, /* @__PURE__ */ React15.createElement("span", { className: "lamp-drawer__title" }, title), /* @__PURE__ */ React15.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, onClose ? /* @__PURE__ */ React15.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null)),
+    /* @__PURE__ */ React15.createElement("div", { className: "lamp-drawer__body" }, children),
+    footer ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-modal__foot" }, footer) : null
+  );
+}), { displayName: "Drawer" });
+var Popover = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function Popover2({ title, children, x, y, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React15.createElement("div", { ref, className: "lamp-popover " + className, style: { position: x != null ? "absolute" : void 0, left: x, top: y, ...style }, role: "dialog", ...rest }, title ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-popover__head" }, title) : null, children);
+}), { displayName: "Popover" });
+
+// project/components/forms/Textarea.jsx
+import React16 from "react";
+var Textarea = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React16.forwardRef(function Textarea2({ mono = false, state = "default", rows = 4, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React16.createElement("textarea", { ref, rows, className: ["lamp-textarea", mono && "lamp-textarea--mono", state === "error" && "lamp-textarea--error", className].filter(Boolean).join(" "), "aria-invalid": state === "error" || void 0, ...rest });
+}), { displayName: "Textarea" });
+
+// project/components/forms/Select.jsx
+import React17 from "react";
+var Select = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React17.forwardRef(function Select2({ options = [], size = "md", placeholder, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React17.createElement("div", { className: ["lamp-select", size === "sm" && "lamp-select--sm", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React17.createElement("select", { ref, ...rest }, placeholder ? /* @__PURE__ */ React17.createElement("option", { value: "" }, placeholder) : null, options.map((o) => {
+    const v = typeof o === "string" ? o : o.value;
+    const l = typeof o === "string" ? o : o.label;
+    return /* @__PURE__ */ React17.createElement("option", { key: v, value: v, disabled: typeof o === "object" && o.disabled }, l);
+  })), /* @__PURE__ */ React17.createElement("span", { className: "lamp-select__chev" }, /* @__PURE__ */ React17.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })));
+}), { displayName: "Select" });
+
+// project/components/forms/TagInput.jsx
+import React19 from "react";
+
+// project/components/core/Tag.jsx
+import React18 from "react";
+var Tag = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.forwardRef(function Tag2({ icon, mono = false, onRemove, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React18.createElement("span", { ref, className: ["lamp-tag", mono && "lamp-tag--mono", className].filter(Boolean).join(" "), ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React18.createElement(Icon, { name: icon, size: 12 }) : icon : null, children, onRemove ? /* @__PURE__ */ React18.createElement("button", { type: "button", className: "lamp-tag__x", "aria-label": "Remove", onClick: onRemove }, /* @__PURE__ */ React18.createElement(Icon, { name: "close", size: 10 })) : null);
+}), { displayName: "Tag" });
+
+// project/components/forms/TagInput.jsx
+var TagInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React19.forwardRef(function TagInput2({ values = [], onChange, placeholder = "Add\u2026", mono = false, ...rest }, ref) {
+  const [focus, setFocus] = React19.useState(false);
+  const [draft, setDraft] = React19.useState("");
+  const commit = () => {
+    const t = draft.trim();
+    if (!t) return;
+    onChange && onChange([...values, t]);
+    setDraft("");
+  };
+  return /* @__PURE__ */ React19.createElement("div", { className: ["lamp-taginput", focus && "lamp-taginput--focus"].filter(Boolean).join(" "), ...rest }, values.map((v, i) => /* @__PURE__ */ React19.createElement(Tag, { key: v + i, mono, onRemove: () => onChange && onChange(values.filter((_, j) => j !== i)) }, v)), /* @__PURE__ */ React19.createElement(
+    "input",
+    {
+      ref,
+      value: draft,
+      placeholder,
+      onFocus: () => setFocus(true),
+      onBlur: () => {
+        setFocus(false);
+        commit();
+      },
+      onChange: (e) => setDraft(e.target.value),
+      onKeyDown: (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          commit();
+        }
+        if (e.key === "Backspace" && !draft && values.length) onChange && onChange(values.slice(0, -1));
       }
-    )),
-    PULSE[state] ? /* @__PURE__ */ React11.createElement("svg", { className: "lamp-agent__pulse", width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" }, /* @__PURE__ */ React11.createElement("polygon", { points: pts, fill: "none", strokeWidth: 2, stroke: PULSE_COLOR[state] || energy })) : null,
-    /* @__PURE__ */ React11.createElement("div", { className: "lamp-agent__glyph", style: { color: ACTIVE[state] ? "var(--text-brand)" : "var(--text-secondary)" } }, /* @__PURE__ */ React11.createElement(Icon, { name: glyph || ROLE_GLYPH[role] || ROLE_GLYPH.standard, size: glyphSize })),
-    badgeCount ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__badge" }, /* @__PURE__ */ React11.createElement(Badge, { tone: state === "error" ? "danger" : "waiting", count: true }, badgeCount)) : null,
-    (memoryActive || tools > 0) && detail !== "glyph" && size !== "xs" ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__pin" }, memoryActive ? /* @__PURE__ */ React11.createElement(Icon, { name: "database", size: 10, style: { color: "var(--memory-accent)" } }) : null, tools > 0 ? /* @__PURE__ */ React11.createElement(Icon, { name: "handyman", size: 10, style: { color: "var(--text-tertiary)" } }) : null) : null
-  ), labelled ? /* @__PURE__ */ React11.createElement("div", { className: "lamp-agent__label", style: labelWidth ? { maxWidth: labelWidth } : void 0 }, name ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__name" }, name) : null, status ? /* @__PURE__ */ React11.createElement("span", { style: { display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "var(--text-secondary)" } }, /* @__PURE__ */ React11.createElement(StatusDot, { status, pulse: status === "running" || status === "live" }), STATUS[status] ? STATUS[status].label : status) : null, detail === "meta" && roleLabel ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__role" }, roleLabel) : null, detail === "meta" && task ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__role" }, task) : null, detail === "meta" && (cost || confidence || authority) ? /* @__PURE__ */ React11.createElement("span", { className: "lamp-agent__meta" }, [authority, confidence, cost].filter(Boolean).join(" \xB7 ")) : null) : null);
-}), { displayName: "AgentHex" });
+    }
+  ));
+}), { displayName: "TagInput" });
+
+// project/components/forms/Checkbox.jsx
+import React20 from "react";
+var Checkbox = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React20.forwardRef(function Checkbox2({ label, description, indeterminate = false, disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React20.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React20.createElement("input", { ref, type: "checkbox", disabled, ...rest }), /* @__PURE__ */ React20.createElement("span", { className: "lamp-check__box" }, indeterminate ? /* @__PURE__ */ React20.createElement(Icon, { name: "remove", size: 12 }) : /* @__PURE__ */ React20.createElement(Icon, { name: "check", size: 12 })), label ? /* @__PURE__ */ React20.createElement("span", null, label, description ? /* @__PURE__ */ React20.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
+}), { displayName: "Checkbox" });
+
+// project/components/objects/ToolTile.jsx
+import React21 from "react";
+var TOOL_SIZES = { sm: 24, md: 32, lg: 40, xl: 48 };
+var STATE_STATUS = {
+  available: null,
+  connected: "success",
+  authorizationRequired: "attention",
+  expired: "attention",
+  healthy: "success",
+  degraded: "attention",
+  error: "error",
+  readOnly: null,
+  writeEnabled: null,
+  blocked: "blocked",
+  disabled: "disabled"
+};
+var ToolTile = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React21.forwardRef(function ToolTile2({ size = "md", state = "connected", provider, glyph = "extension", name, brandColor, onClick, className = "", style, ...rest }, ref) {
+  const px = TOOL_SIZES[size] || TOOL_SIZES.md;
+  const dot = STATE_STATUS[state];
+  return /* @__PURE__ */ React21.createElement(
+    "span",
+    {
+      ref,
+      className: ["lamp-tool", "lamp-tool--" + state, onClick && "lamp-tool--interactive", className].filter(Boolean).join(" "),
+      style: { width: px, height: px, ...style },
+      onClick,
+      role: onClick ? "button" : "img",
+      "aria-label": (name || provider || "Tool") + " Tool",
+      tabIndex: onClick ? 0 : void 0,
+      title: name || provider,
+      ...rest
+    },
+    provider ? /* @__PURE__ */ React21.createElement(BrandIcon, { slug: provider, size: px <= 24 ? 14 : px <= 32 ? 18 : 22, color: brandColor }) : /* @__PURE__ */ React21.createElement(Icon, { name: glyph, size: px <= 24 ? 14 : px <= 32 ? 18 : 22 }),
+    dot ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-tool__dot" }, /* @__PURE__ */ React21.createElement(StatusDot, { status: dot })) : null
+  );
+}), { displayName: "ToolTile" });
+var ToolRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React21.forwardRef(function ToolRow2({ provider, glyph, name, account, state = "connected", permission, usedBy, lastActivity, health, risk, actions, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React21.createElement("div", { ref, className: "lamp-toolrow " + className, onClick, ...rest }, /* @__PURE__ */ React21.createElement(ToolTile, { provider, glyph, name, state }), /* @__PURE__ */ React21.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 1, minWidth: 0 } }, /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__name" }, name), account ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__sub" }, account) : null), /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__right" }, permission ? /* @__PURE__ */ React21.createElement(Badge, { outline: true }, permission) : null, risk ? /* @__PURE__ */ React21.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null, usedBy != null ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__sub" }, "Used by ", usedBy) : null, health ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, health) : null, lastActivity ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, lastActivity) : null, /* @__PURE__ */ React21.createElement(
+    StatusBadge,
+    {
+      status: state === "connected" || state === "healthy" ? "success" : state === "error" ? "error" : state === "blocked" ? "blocked" : "attention",
+      label: state === "authorizationRequired" ? "Auth required" : state === "expired" ? "Expired" : state === "degraded" ? "Degraded" : state === "connected" ? "Connected" : void 0
+    }
+  ), actions));
+}), { displayName: "ToolRow" });
+
+// project/components/canvas/NewAgentDialog.jsx
+var ROLES = [
+  { value: "standard", label: "Standard \u2014 works on its own" },
+  { value: "coordinator", label: "Coordinator \u2014 routes and hands off" },
+  { value: "specialist", label: "Specialist \u2014 does one thing well" },
+  { value: "humanSupervised", label: "Human-supervised \u2014 a person decides" },
+  { value: "system", label: "System \u2014 internal plumbing" },
+  { value: "external", label: "External \u2014 someone else operates it" }
+];
+var NewAgentDialog = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React22.forwardRef(function NewAgentDialog2({
+  open = true,
+  archetype,
+  cell,
+  availableTools = [],
+  onCreate,
+  onCancel,
+  className = "",
+  ...rest
+}, ref) {
+  const base = archetype || {};
+  const [name, setName] = React22.useState(base.name || "");
+  const [role, setRole] = React22.useState(base.role || "standard");
+  const [purpose, setPurpose] = React22.useState(base.purpose || "");
+  const [skills, setSkills] = React22.useState(base.skills || []);
+  const [tools, setTools] = React22.useState(base.tools || []);
+  const [checkpoint, setCheckpoint] = React22.useState(!!base.checkpoint);
+  const seed = base.id;
+  React22.useEffect(() => {
+    setName(base.name || "");
+    setRole(base.role || "standard");
+    setPurpose(base.purpose || "");
+    setSkills(base.skills || []);
+    setTools(base.tools || []);
+    setCheckpoint(!!base.checkpoint);
+  }, [seed]);
+  const named = name.trim().length > 0;
+  const toggleTool = (provider) => setTools((t) => t.includes(provider) ? t.filter((x) => x !== provider) : t.concat([provider]));
+  const build = () => ({
+    name: name.trim(),
+    role,
+    purpose: purpose.trim(),
+    skills,
+    tools,
+    checkpoint,
+    /* A new Agent proposes. Acting is a decision taken deliberately, later. */
+    authority: "propose",
+    state: "unconfigured",
+    col: cell ? cell.col : 0,
+    row: cell ? cell.row : 0
+  });
+  return /* @__PURE__ */ React22.createElement(
+    Modal,
+    {
+      ref,
+      open,
+      size: "md",
+      glyph: "hexagon",
+      title: "New Agent",
+      subtitle: archetype ? "From the " + archetype.name + " template. Correct anything that is wrong." : "Name it for the work it does.",
+      onClose: onCancel,
+      className: "lamp-newagent " + className,
+      footer: /* @__PURE__ */ React22.createElement(React22.Fragment, null, /* @__PURE__ */ React22.createElement("span", { className: "lamp-newagent__footnote" }, named ? "Created as a draft. It proposes until you raise its authority." : /* @__PURE__ */ React22.createElement("span", { className: "lamp-newagent__blocker" }, /* @__PURE__ */ React22.createElement(Icon, { name: "warning", size: 13 }), "Give it a name \u2014 Agents are named for the work they do.")), /* @__PURE__ */ React22.createElement(Button, { variant: "quiet", onClick: onCancel }, "Cancel"), /* @__PURE__ */ React22.createElement(Button, { variant: "primary", icon: "check", disabled: !named, onClick: () => onCreate && onCreate(build()) }, "Add Agent")),
+      ...rest
+    },
+    /* @__PURE__ */ React22.createElement("div", { className: "lamp-newagent__preview" }, /* @__PURE__ */ React22.createElement(AgentHex, { size: "lg", detail: "glyph", glyph: base.glyph, role, state: "unconfigured" }), /* @__PURE__ */ React22.createElement("div", { className: "lamp-newagent__previewmeta" }, /* @__PURE__ */ React22.createElement("span", { className: "lamp-newagent__previewname" }, name.trim() || "Unnamed Agent"), cell ? /* @__PURE__ */ React22.createElement("span", { className: "lamp-newagent__cell" }, /* @__PURE__ */ React22.createElement(Icon, { name: "near_me", size: 12 }), "Lands at column ", cell.col, ", row ", cell.row) : null, /* @__PURE__ */ React22.createElement(Badge, { outline: true, micro: true }, "Proposes only"))),
+    /* @__PURE__ */ React22.createElement("label", { className: "lamp-newagent__label", htmlFor: "na-name" }, "Name"),
+    /* @__PURE__ */ React22.createElement(
+      TextInput,
+      {
+        id: "na-name",
+        value: name,
+        autoFocus: true,
+        placeholder: "Invoice Matcher",
+        onChange: (e) => setName(e.target.value)
+      }
+    ),
+    /* @__PURE__ */ React22.createElement("label", { className: "lamp-newagent__label", htmlFor: "na-role" }, "Role"),
+    /* @__PURE__ */ React22.createElement(Select, { id: "na-role", value: role, options: ROLES, onChange: (e) => setRole(e.target.value) }),
+    /* @__PURE__ */ React22.createElement("label", { className: "lamp-newagent__label", htmlFor: "na-purpose" }, "Purpose"),
+    /* @__PURE__ */ React22.createElement(
+      Textarea,
+      {
+        id: "na-purpose",
+        rows: 2,
+        value: purpose,
+        placeholder: "What this Agent is for, in one sentence.",
+        onChange: (e) => setPurpose(e.target.value)
+      }
+    ),
+    /* @__PURE__ */ React22.createElement("label", { className: "lamp-newagent__label", htmlFor: "na-skills" }, "Skills"),
+    /* @__PURE__ */ React22.createElement(TagInput, { id: "na-skills", values: skills, onChange: setSkills, placeholder: "Add a Skill" }),
+    availableTools.length ? /* @__PURE__ */ React22.createElement(React22.Fragment, null, /* @__PURE__ */ React22.createElement("span", { className: "lamp-newagent__label" }, "Tools it may use"), /* @__PURE__ */ React22.createElement("div", { className: "lamp-newagent__tools" }, availableTools.map((t) => {
+      const provider = t.provider || t.id;
+      const on = tools.includes(provider);
+      return /* @__PURE__ */ React22.createElement(
+        "button",
+        {
+          key: provider,
+          type: "button",
+          className: "lamp-newagent__tool" + (on ? " lamp-newagent__tool--on" : ""),
+          "aria-pressed": on,
+          onClick: () => toggleTool(provider)
+        },
+        /* @__PURE__ */ React22.createElement(ToolTile, { size: "sm", provider, name: t.name, state: t.state || "connected" }),
+        t.name || provider
+      );
+    }))) : null,
+    /* @__PURE__ */ React22.createElement("div", { className: "lamp-newagent__checkpoint" }, /* @__PURE__ */ React22.createElement(
+      Checkbox,
+      {
+        checked: checkpoint,
+        onChange: () => setCheckpoint(!checkpoint),
+        label: "A person decides before this Agent acts",
+        description: "Adds a human checkpoint. Required for anything that spends money or writes to a system of record."
+      }
+    ))
+  );
+}), { displayName: "NewAgentDialog" });
+
+// project/components/canvas/SnapField.jsx
+import React24 from "react";
 
 // project/components/objects/HexLattice.jsx
-var HexLattice = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React12.forwardRef(function HexLattice2({ size = "md", gap = 2, cells = [], overlay, className = "", style, ...rest }, ref) {
+import React23 from "react";
+var HexLattice = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React23.forwardRef(function HexLattice2({ size = "md", gap = 2, cells = [], overlay, className = "", style, ...rest }, ref) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const stepX = w * 0.75 + gap;
   const stepY = h + gap;
@@ -682,7 +1242,7 @@ var HexLattice = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React12.forwardRe
     if (y + h > maxY) maxY = y + h;
     return { key: c.key == null ? i : c.key, x, y, node: c.node };
   });
-  return /* @__PURE__ */ React12.createElement("div", { ref, className: "lamp-lattice " + className, style: { width: maxX, height: maxY, ...style }, ...rest }, overlay, placed.map((p) => /* @__PURE__ */ React12.createElement("div", { key: p.key, className: "lamp-lattice__cell", style: { left: p.x, top: p.y, width: w, height: h } }, p.node)));
+  return /* @__PURE__ */ React23.createElement("div", { ref, className: "lamp-lattice " + className, style: { width: maxX, height: maxY, ...style }, ...rest }, overlay, placed.map((p) => /* @__PURE__ */ React23.createElement("div", { key: p.key, className: "lamp-lattice__cell", style: { left: p.x, top: p.y, width: w, height: h } }, p.node)));
 }), { displayName: "HexLattice" });
 function hexCenter(col, row, size = "md", gap = 2) {
   const [w, h] = AGENT_SIZES[size] || AGENT_SIZES.md;
@@ -695,9 +1255,49 @@ function HexCenter(col, row, size = "md", gap = 2) {
 }
 
 // project/components/canvas/SnapField.jsx
-var HEX_CLIP = "polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)";
 var PULL = 0.35;
-var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef(function SnapField2({
+var FIELD_DEFAULTS = { size: "md", gap: 2, width: 720, height: 380, origin: { x: 40, y: 40 } };
+function freeCells(opts) {
+  const o = Object.assign({}, FIELD_DEFAULTS, opts);
+  const [hexW, hexH] = AGENT_SIZES[o.size] || AGENT_SIZES.md;
+  const stepX = hexW * 0.75 + o.gap;
+  const stepY = hexH + o.gap;
+  const taken = {};
+  (o.agents || []).forEach((a) => {
+    if (o.exclude != null && a.id === o.exclude) return;
+    taken[a.col + ":" + a.row] = true;
+  });
+  const minCol = Math.ceil(-o.origin.x / stepX);
+  const maxCol = Math.floor((o.width - hexW - o.origin.x) / stepX);
+  const minRow = Math.ceil(-o.origin.y / stepY);
+  const maxRow = Math.floor((o.height - hexH - o.origin.y) / stepY);
+  const points = [];
+  for (let col = minCol; col <= maxCol; col++) {
+    const last = Math.abs(col % 2) ? maxRow - 1 : maxRow;
+    for (let row = minRow; row <= last; row++) {
+      if (taken[col + ":" + row]) continue;
+      const c = HexCenter(col, row, o.size, o.gap);
+      points.push({ col, row, x: o.origin.x + c.x, y: o.origin.y + c.y });
+    }
+  }
+  return points;
+}
+function freeCellAt(point, opts) {
+  const points = freeCells(opts);
+  let best = null;
+  for (let i = 0; i < points.length; i++) {
+    const d = Math.hypot(points[i].x - point.x, points[i].y - point.y);
+    if (!best || d < best.d) best = Object.assign({ d }, points[i]);
+  }
+  return best;
+}
+function FreeCells(opts) {
+  return freeCells(opts);
+}
+function FreeCellAt(point, opts) {
+  return freeCellAt(point, opts);
+}
+var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React24.forwardRef(function SnapField2({
   agents = [],
   size = "md",
   gap = 2,
@@ -724,52 +1324,49 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
 }, ref) {
   const [hexW, hexH] = AGENT_SIZES[size] || AGENT_SIZES.md;
   const api = useGsap();
-  const [dragId, setDragId] = React13.useState(null);
-  const [snapState, setSnapState] = React13.useState("idle");
-  const [marquee, setMarquee] = React13.useState(null);
-  const nodes = React13.useRef({});
-  const guideRef = React13.useRef(null);
-  const fieldRef = React13.useRef(null);
+  const [dragId, setDragId] = React24.useState(null);
+  const [snapState, setSnapState] = React24.useState("idle");
+  const [marquee, setMarquee] = React24.useState(null);
+  const [dragAt, setDragAt] = React24.useState(null);
+  const nodes = React24.useRef({});
+  const guideRef = React24.useRef(null);
+  const fieldRef = React24.useRef(null);
   const setField = useMergedRefs(ref, fieldRef);
   const multi = selectedIds || [];
-  const live = React13.useRef({});
-  live.current = { agents, origin, size, gap, snapTolerance, proximityRange, onChange, onSelect, onSnapStateChange };
+  const live = React24.useRef({});
+  live.current = { agents, origin, size, gap, width, height, snapTolerance, proximityRange, onChange, onSelect, onSnapStateChange };
   const stepX = hexW * 0.75 + gap;
   const stepY = hexH + gap;
-  const at = React13.useCallback((col, row) => {
+  const at = React24.useCallback((col, row) => {
     const { origin: o, size: s, gap: g } = live.current;
     const c = HexCenter(col, row, s, g);
     return { x: o.x + c.x, y: o.y + c.y };
   }, []);
-  const bounds = React13.useMemo(() => {
+  const bounds = React24.useMemo(() => {
     const minCol = Math.ceil(-origin.x / stepX);
     const maxCol = Math.floor((width - hexW - origin.x) / stepX);
     const minRow = Math.ceil(-origin.y / stepY);
     const maxRow = Math.floor((height - hexH - origin.y) / stepY);
     return { minCol, maxCol, minRow, maxRow };
   }, [origin.x, origin.y, width, height, hexW, hexH, stepX, stepY]);
-  const inBounds = React13.useCallback((col, row) => {
+  const inBounds = React24.useCallback((col, row) => {
     if (col < bounds.minCol || col > bounds.maxCol) return false;
     if (row < bounds.minRow) return false;
     const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
     return row <= last;
   }, [bounds]);
-  const freePoints = React13.useCallback((selfId) => {
-    const taken = {};
-    live.current.agents.forEach((a) => {
-      if (a.id !== selfId) taken[a.col + ":" + a.row] = true;
+  const freePoints = React24.useCallback((selfId) => {
+    const l = live.current;
+    return freeCells({
+      agents: l.agents,
+      size: l.size,
+      gap: l.gap,
+      origin: l.origin,
+      width: l.width,
+      height: l.height,
+      exclude: selfId
     });
-    const points = [];
-    for (let col = bounds.minCol; col <= bounds.maxCol; col++) {
-      const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
-      for (let row = bounds.minRow; row <= last; row++) {
-        if (taken[col + ":" + row]) continue;
-        const p = at(col, row);
-        points.push({ col, row, x: p.x, y: p.y });
-      }
-    }
-    return points;
-  }, [bounds, at]);
+  }, []);
   const nearest = (points, px, py) => {
     let best = null;
     for (let i = 0; i < points.length; i++) {
@@ -778,20 +1375,20 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
     }
     return best;
   };
-  const emit = React13.useCallback((state) => {
+  const emit = React24.useCallback((state) => {
     setSnapState((was) => was === state ? was : state);
     const fn = live.current.onSnapStateChange;
     if (fn) fn(state);
   }, []);
   const layoutKey = agents.map((a) => a.id + ":" + a.col + ":" + a.row).join("|");
-  React13.useLayoutEffect(() => {
+  React24.useLayoutEffect(() => {
     if (!api) return;
     agents.forEach((a) => {
       const el = nodes.current[a.id];
       if (el) api.gsap.set(el, { x: 0, y: 0 });
     });
   }, [api, layoutKey]);
-  React13.useEffect(() => {
+  React24.useEffect(() => {
     if (!api || readOnly) return void 0;
     const { gsap, Draggable } = api;
     const guide = guideRef.current;
@@ -801,8 +1398,9 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
       if (!el) return;
       const home = at(agent.col, agent.row);
       let points = [];
-      let armed = null;
-      const showGuide = (cell, ready) => {
+      let target = null;
+      const GUIDE_ALPHA = { armed: 1, near: 0.7, far: 0.35 };
+      const showGuide = (cell, level) => {
         if (!guide) return;
         if (!cell) {
           gsap.set(guide, { autoAlpha: 0 });
@@ -811,7 +1409,7 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
         gsap.set(guide, {
           x: cell.x - hexW / 2,
           y: cell.y - hexH / 2,
-          autoAlpha: ready ? 1 : 0.45
+          autoAlpha: GUIDE_ALPHA[level]
         });
       };
       const created = Draggable.create(el, {
@@ -824,30 +1422,23 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
             const cx = home.x + point.x;
             const cy = home.y + point.y;
             const cell = nearest(points, cx, cy);
+            target = cell;
             if (!cell) {
-              armed = null;
               showGuide(null);
               emit("dragging");
               return point;
             }
             const { snapTolerance: tol, proximityRange: near } = live.current;
             if (cell.d <= tol) {
-              armed = cell;
-              showGuide(cell, true);
+              showGuide(cell, "armed");
               emit("snapReady");
               return {
                 x: point.x + (cell.x - cx) * PULL,
                 y: point.y + (cell.y - cy) * PULL
               };
             }
-            armed = null;
-            if (cell.d <= near) {
-              showGuide(cell, false);
-              emit("proximity");
-            } else {
-              showGuide(null);
-              emit("dragging");
-            }
+            showGuide(cell, cell.d <= near ? "near" : "far");
+            emit(cell.d <= near ? "proximity" : "dragging");
             return point;
           }
         },
@@ -857,15 +1448,20 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
         },
         onDragStart() {
           points = freePoints(agent.id);
-          armed = null;
+          target = null;
           setDragId(agent.id);
+          setDragAt({ id: agent.id, x: home.x, y: home.y });
           emit("dragging");
         },
+        onDrag() {
+          setDragAt({ id: agent.id, x: home.x + this.x, y: home.y + this.y });
+        },
         onRelease() {
-          const cell = armed;
-          armed = null;
+          const cell = target || nearest(points, home.x + this.x, home.y + this.y);
+          target = null;
           showGuide(null);
           setDragId(null);
+          setDragAt(null);
           emit("idle");
           const commit = live.current.onChange;
           if (!cell || !commit || cell.col === agent.col && cell.row === agent.row) {
@@ -891,7 +1487,7 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
     });
     return () => instances.forEach((d) => d.kill());
   }, [api, readOnly, layoutKey, hexW, hexH, at, freePoints, emit]);
-  const marqueeFrom = React13.useRef(null);
+  const marqueeFrom = React24.useRef(null);
   const localPoint = (e) => {
     const box = fieldRef.current.getBoundingClientRect();
     return { x: e.clientX - box.left, y: e.clientY - box.top };
@@ -927,7 +1523,19 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
     }).map((a) => a.id);
     onSelectionChange(hits);
   };
-  const groupAnchor = React13.useMemo(() => {
+  const positions = React24.useMemo(() => {
+    const map = {};
+    agents.forEach((a) => {
+      const p = at(a.col, a.row);
+      map[a.id] = { x: p.x - origin.x, y: p.y - origin.y };
+    });
+    if (dragAt && map[dragAt.id]) {
+      map[dragAt.id] = { x: dragAt.x - origin.x, y: dragAt.y - origin.y };
+    }
+    return map;
+  }, [agents, dragAt, at, origin.x, origin.y]);
+  const bondNodes = typeof bonds === "function" ? bonds(positions, { draggingId: dragId }) : bonds;
+  const groupAnchor = React24.useMemo(() => {
     if (multi.length < 2) return null;
     const picked = agents.filter((a) => multi.indexOf(a.id) !== -1);
     if (!picked.length) return null;
@@ -937,7 +1545,7 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
       y: Math.min.apply(null, pts.map((p) => p.y)) - hexH / 2 - 12
     };
   }, [multi, agents, at, hexH]);
-  const groupOutline = React13.useMemo(() => {
+  const groupOutline = React24.useMemo(() => {
     if (multi.length < 2) return null;
     const picked = agents.filter((a) => multi.indexOf(a.id) !== -1);
     if (!picked.length) return null;
@@ -964,7 +1572,7 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
     if (agents.some((x) => x.id !== a.id && x.col === col && x.row === row)) return;
     onChange(agents.map((x) => x.id === a.id ? { ...x, col, row } : x));
   };
-  return /* @__PURE__ */ React13.createElement(
+  return /* @__PURE__ */ React24.createElement(
     "div",
     {
       ref: setField,
@@ -983,14 +1591,14 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
       onPointerCancel: onFieldPointerUp,
       ...rest
     },
-    bonds ? /* @__PURE__ */ React13.createElement("div", { className: "lamp-snapfield__bonds", style: { position: "absolute", left: origin.x, top: origin.y, pointerEvents: "none" } }, bonds) : null,
-    groupOutline ? /* @__PURE__ */ React13.createElement("span", { className: "lamp-snapfield__outline", style: groupOutline }) : null,
-    /* @__PURE__ */ React13.createElement("div", { ref: guideRef, className: "lamp-snapfield__guide", style: { position: "absolute", left: 0, top: 0, width: hexW, height: hexH, opacity: 0, visibility: "hidden", pointerEvents: "none", zIndex: 2 } }, /* @__PURE__ */ React13.createElement(SnapGuide, { rect: { position: "absolute", inset: 0, clipPath: HEX_CLIP } })),
+    bondNodes ? /* @__PURE__ */ React24.createElement("div", { className: "lamp-snapfield__bonds", style: { position: "absolute", left: origin.x, top: origin.y, pointerEvents: "none" } }, bondNodes) : null,
+    groupOutline ? /* @__PURE__ */ React24.createElement("span", { className: "lamp-snapfield__outline", style: groupOutline }) : null,
+    /* @__PURE__ */ React24.createElement("div", { ref: guideRef, className: "lamp-snapfield__guide", style: { position: "absolute", left: 0, top: 0, width: hexW, height: hexH, opacity: 0, visibility: "hidden", pointerEvents: "none", zIndex: 2 } }, /* @__PURE__ */ React24.createElement(SnapGuide, { shape: "hex", rect: { position: "absolute", inset: 0, width: "100%", height: "100%" } })),
     agents.map((a) => {
       const isDrag = dragId === a.id;
       const p = at(a.col, a.row);
       const state = isDrag && snapState !== "idle" ? snapState : a.state;
-      return /* @__PURE__ */ React13.createElement(
+      return /* @__PURE__ */ React24.createElement(
         "div",
         {
           key: a.id,
@@ -1002,7 +1610,7 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
           style: { position: "absolute", left: p.x - hexW / 2, top: p.y - hexH / 2, width: hexW, height: hexH, zIndex: isDrag ? 5 : 1 },
           onKeyDown: onKeyDown(a)
         },
-        /* @__PURE__ */ React13.createElement("div", { className: "lamp-snapfield__cell" }, renderAgent(Object.assign({}, a, { state }), {
+        /* @__PURE__ */ React24.createElement("div", { className: "lamp-snapfield__cell" }, renderAgent(Object.assign({}, a, { state }), {
           dragging: isDrag,
           proximity: isDrag && snapState === "proximity",
           snapReady: isDrag && snapState === "snapReady",
@@ -1011,45 +1619,34 @@ var SnapField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React13.forwardRef
         }))
       );
     }),
-    marquee ? /* @__PURE__ */ React13.createElement("span", { className: "lamp-canvas__marquee", style: { position: "absolute", ...marquee } }) : null,
-    groupAnchor && onGroup ? /* @__PURE__ */ React13.createElement("div", { className: "lamp-snapfield__group", style: { left: groupAnchor.x, top: groupAnchor.y } }, /* @__PURE__ */ React13.createElement("button", { type: "button", className: "lamp-snapfield__group-btn", onClick: () => onGroup(multi) }, groupLabel, /* @__PURE__ */ React13.createElement("span", { className: "lamp-snapfield__group-count" }, multi.length))) : null
+    marquee ? /* @__PURE__ */ React24.createElement("span", { className: "lamp-canvas__marquee", style: { position: "absolute", ...marquee } }) : null,
+    groupAnchor && onGroup ? /* @__PURE__ */ React24.createElement("div", { className: "lamp-snapfield__group", style: { left: groupAnchor.x, top: groupAnchor.y } }, /* @__PURE__ */ React24.createElement("button", { type: "button", className: "lamp-snapfield__group-btn", onClick: () => onGroup(multi) }, groupLabel, /* @__PURE__ */ React24.createElement("span", { className: "lamp-snapfield__group-count" }, multi.length))) : null
   );
 }), { displayName: "SnapField" });
 
 // project/components/chat/AgentChat.jsx
-import React16 from "react";
-
-// project/components/core/Button.jsx
-import React14 from "react";
-var Button = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React14.forwardRef(function Button2({ variant = "secondary", size = "md", icon, iconRight, loading: loading2 = false, disabled = false, block = false, shortcut, children, className = "", ...rest }, ref) {
-  const cls = ["lamp-btn", "lamp-btn--" + variant, "lamp-btn--" + size, block && "lamp-btn--block", loading2 && "lamp-btn--loading", className].filter(Boolean).join(" ");
-  const glyph = size === "lg" ? 16 : 14;
-  return /* @__PURE__ */ React14.createElement("button", { ref, type: "button", className: cls, disabled: disabled || loading2, "aria-busy": loading2 || void 0, ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React14.createElement(Icon, { name: icon, size: glyph }) : icon : null, children, iconRight ? typeof iconRight === "string" ? /* @__PURE__ */ React14.createElement(Icon, { name: iconRight, size: glyph }) : iconRight : null, shortcut ? /* @__PURE__ */ React14.createElement("span", { className: "lamp-btn__kbd" }, shortcut) : null, loading2 ? /* @__PURE__ */ React14.createElement("span", { className: "lamp-btn__spin" }, /* @__PURE__ */ React14.createElement("i", null)) : null);
-}), { displayName: "Button" });
-var SplitButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React14.forwardRef(function SplitButton2({ variant = "secondary", size = "md", icon, children, onMenu, menuLabel = "More actions", ...rest }, ref) {
-  return /* @__PURE__ */ React14.createElement("span", { ref, className: "lamp-split" }, /* @__PURE__ */ React14.createElement(Button, { variant, size, icon, ...rest }, children), /* @__PURE__ */ React14.createElement(Button, { variant, size, onClick: onMenu, "aria-label": menuLabel, icon: "keyboard_arrow_down" }));
-}), { displayName: "SplitButton" });
+import React26 from "react";
 
 // project/components/chat/ChatMessage.jsx
-import React15 from "react";
-var HEX_POINTS = "25,0 75,0 100,50 75,100 25,100 0,50";
-var ChatAvatar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function ChatAvatar2({ role = "agent", initials, glyph, state = "idle", size = 26 }, ref) {
+import React25 from "react";
+var HEX_POINTS2 = "25,0 75,0 100,50 75,100 25,100 0,50";
+var ChatAvatar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function ChatAvatar2({ role = "agent", initials, glyph, state = "idle", size = 26 }, ref) {
   if (role === "user") {
-    return /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--user", style: { width: size, height: size } }, initials || "You".slice(0, 2));
+    return /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--user", style: { width: size, height: size } }, initials || "You".slice(0, 2));
   }
   if (role === "system" || role === "tool") {
-    return /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--" + role, style: { width: size, height: size } }, /* @__PURE__ */ React15.createElement(Icon, { name: glyph || (role === "tool" ? "square" : "info"), size: 13 }));
+    return /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__avatar lamp-cm__avatar--" + role, style: { width: size, height: size } }, /* @__PURE__ */ React25.createElement(Icon, { name: glyph || (role === "tool" ? "square" : "info"), size: 13 }));
   }
   const stroke = state === "acting" ? "var(--gold-500)" : state === "failed" ? "var(--status-danger)" : "var(--border-strong)";
   const fill = state === "acting" ? "var(--gold-100)" : "var(--surface-secondary)";
-  return /* @__PURE__ */ React15.createElement("span", { ref, className: "lamp-cm__avatar", style: { width: size, height: size } }, /* @__PURE__ */ React15.createElement("svg", { className: "lamp-cm__hex", viewBox: "0 0 100 100", preserveAspectRatio: "none", "aria-hidden": "true" }, /* @__PURE__ */ React15.createElement("polygon", { points: HEX_POINTS, fill, stroke, strokeWidth: state === "acting" ? 6 : 4, vectorEffect: "non-scaling-stroke" })), glyph ? /* @__PURE__ */ React15.createElement(Icon, { name: glyph, size: 12, className: "lamp-cm__ini" }) : /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__ini" }, initials || "AG"));
+  return /* @__PURE__ */ React25.createElement("span", { ref, className: "lamp-cm__avatar", style: { width: size, height: size } }, /* @__PURE__ */ React25.createElement("svg", { className: "lamp-cm__hex", viewBox: "0 0 100 100", preserveAspectRatio: "none", "aria-hidden": "true" }, /* @__PURE__ */ React25.createElement("polygon", { points: HEX_POINTS2, fill, stroke, strokeWidth: state === "acting" ? 6 : 4, vectorEffect: "non-scaling-stroke" })), glyph ? /* @__PURE__ */ React25.createElement(Icon, { name: glyph, size: 12, className: "lamp-cm__ini" }) : /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__ini" }, initials || "AG"));
 }), { displayName: "ChatAvatar" });
-var ChatActivity = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function ChatActivity2({ items = [], max = 4, onSelect }, ref) {
-  const [open, setOpen] = React15.useState(false);
+var ChatActivity = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function ChatActivity2({ items = [], max = 4, onSelect }, ref) {
+  const [open, setOpen] = React25.useState(false);
   const shown = open ? items : items.slice(0, max);
   const rest = items.length - shown.length;
   const glyph = (k) => k === "tool" ? "square" : k === "memory" ? "database" : k === "skill" ? "flare" : k === "human" ? "how_to_reg" : "bolt";
-  return /* @__PURE__ */ React15.createElement("div", { ref, className: "lamp-act" }, shown.map((a, i) => /* @__PURE__ */ React15.createElement(
+  return /* @__PURE__ */ React25.createElement("div", { ref, className: "lamp-act" }, shown.map((a, i) => /* @__PURE__ */ React25.createElement(
     "span",
     {
       key: i,
@@ -1058,18 +1655,18 @@ var ChatActivity = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forward
       onClick: onSelect ? () => onSelect(a) : void 0,
       style: onSelect ? { cursor: "pointer" } : void 0
     },
-    /* @__PURE__ */ React15.createElement(Icon, { name: a.glyph || glyph(a.kind), size: 11 }),
+    /* @__PURE__ */ React25.createElement(Icon, { name: a.glyph || glyph(a.kind), size: 11 }),
     a.label,
-    a.duration ? /* @__PURE__ */ React15.createElement("span", { className: "lamp-act__dur" }, a.duration) : null
-  )), rest > 0 ? /* @__PURE__ */ React15.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(true) }, "+" + rest + " more") : null, open && items.length > max ? /* @__PURE__ */ React15.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(false) }, "Show less") : null);
+    a.duration ? /* @__PURE__ */ React25.createElement("span", { className: "lamp-act__dur" }, a.duration) : null
+  )), rest > 0 ? /* @__PURE__ */ React25.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(true) }, "+" + rest + " more") : null, open && items.length > max ? /* @__PURE__ */ React25.createElement("button", { type: "button", className: "lamp-act__more", onClick: () => setOpen(false) }, "Show less") : null);
 }), { displayName: "ChatActivity" });
-var ChatCitation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function ChatCitation2({ index, source, scope, onClick }, ref) {
-  return /* @__PURE__ */ React15.createElement("button", { ref, type: "button", className: "lamp-cite", onClick, title: [source, scope].filter(Boolean).join(" \xB7 "), "aria-label": "Evidence " + index + (source ? ": " + source : "") }, /* @__PURE__ */ React15.createElement(Icon, { name: "fact_check", size: 9 }), index);
+var ChatCitation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function ChatCitation2({ index, source, scope, onClick }, ref) {
+  return /* @__PURE__ */ React25.createElement("button", { ref, type: "button", className: "lamp-cite", onClick, title: [source, scope].filter(Boolean).join(" \xB7 "), "aria-label": "Evidence " + index + (source ? ": " + source : "") }, /* @__PURE__ */ React25.createElement(Icon, { name: "fact_check", size: 9 }), index);
 }), { displayName: "ChatCitation" });
-var ChatDayDivider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function ChatDayDivider2({ label }, ref) {
-  return /* @__PURE__ */ React15.createElement("div", { ref, className: "lamp-chat__day" }, /* @__PURE__ */ React15.createElement("span", null, label));
+var ChatDayDivider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function ChatDayDivider2({ label }, ref) {
+  return /* @__PURE__ */ React25.createElement("div", { ref, className: "lamp-chat__day" }, /* @__PURE__ */ React25.createElement("span", null, label));
 }), { displayName: "ChatDayDivider" });
-var ChatMessage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardRef(function ChatMessage2({
+var ChatMessage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function ChatMessage2({
   role = "agent",
   author,
   roleLabel,
@@ -1092,17 +1689,17 @@ var ChatMessage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React15.forwardR
   ...rest
 }, ref) {
   const failed = state === "failed" || status === "failed";
-  return /* @__PURE__ */ React15.createElement("article", { ref, className: ["lamp-cm", "lamp-cm--" + role, grouped && "lamp-cm--grouped", state === "acting" && "lamp-cm--acting", failed && "lamp-cm--failed", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React15.createElement(ChatAvatar, { role, initials, glyph, state }), /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__body" }, /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__meta" }, /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__who" }, author || (role === "user" ? "You" : role === "tool" ? "Tool" : role === "system" ? "LAMP" : "Agent")), roleLabel ? /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__role" }, roleLabel) : null, timestamp ? /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__time" }, timestamp) : null), activity.length ? /* @__PURE__ */ React15.createElement(ChatActivity, { items: activity }) : null, /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__text" }, children, citations.length ? /* @__PURE__ */ React15.createElement("span", { style: { marginLeft: 2 } }, citations.map((c, i) => /* @__PURE__ */ React15.createElement(ChatCitation, { key: i, index: c.index || i + 1, source: c.source, scope: c.scope, onClick: c.onClick }))) : null, streaming ? /* @__PURE__ */ React15.createElement("span", { className: "lamp-cm__caret" }) : null), attachment ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__attach" }, attachment) : null, status && status !== "failed" ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__status" }, /* @__PURE__ */ React15.createElement(Icon, { name: status === "sending" ? "schedule" : "check", size: 11 }), status === "sending" ? "Sending" : status) : null, failed ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__status lamp-cm__status--failed" }, /* @__PURE__ */ React15.createElement(Icon, { name: "error", size: 11 }), "Not delivered", onRetry ? /* @__PURE__ */ React15.createElement("button", { type: "button", className: "lamp-act__more", onClick: onRetry }, "Retry") : null) : null), actions ? /* @__PURE__ */ React15.createElement("div", { className: "lamp-cm__tools" }, onInspect ? /* @__PURE__ */ React15.createElement(IconButton, { icon: "open_in_new", label: "Open in Inspector", size: "xs", onClick: onInspect }) : null, onCopy ? /* @__PURE__ */ React15.createElement(IconButton, { icon: "content_copy", label: "Copy message", size: "xs", onClick: onCopy }) : null) : null);
+  return /* @__PURE__ */ React25.createElement("article", { ref, className: ["lamp-cm", "lamp-cm--" + role, grouped && "lamp-cm--grouped", state === "acting" && "lamp-cm--acting", failed && "lamp-cm--failed", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React25.createElement(ChatAvatar, { role, initials, glyph, state }), /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__body" }, /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__meta" }, /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__who" }, author || (role === "user" ? "You" : role === "tool" ? "Tool" : role === "system" ? "LAMP" : "Agent")), roleLabel ? /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__role" }, roleLabel) : null, timestamp ? /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__time" }, timestamp) : null), activity.length ? /* @__PURE__ */ React25.createElement(ChatActivity, { items: activity }) : null, /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__text" }, children, citations.length ? /* @__PURE__ */ React25.createElement("span", { style: { marginLeft: 2 } }, citations.map((c, i) => /* @__PURE__ */ React25.createElement(ChatCitation, { key: i, index: c.index || i + 1, source: c.source, scope: c.scope, onClick: c.onClick }))) : null, streaming ? /* @__PURE__ */ React25.createElement("span", { className: "lamp-cm__caret" }) : null), attachment ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__attach" }, attachment) : null, status && status !== "failed" ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__status" }, /* @__PURE__ */ React25.createElement(Icon, { name: status === "sending" ? "schedule" : "check", size: 11 }), status === "sending" ? "Sending" : status) : null, failed ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__status lamp-cm__status--failed" }, /* @__PURE__ */ React25.createElement(Icon, { name: "error", size: 11 }), "Not delivered", onRetry ? /* @__PURE__ */ React25.createElement("button", { type: "button", className: "lamp-act__more", onClick: onRetry }, "Retry") : null) : null), actions ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-cm__tools" }, onInspect ? /* @__PURE__ */ React25.createElement(IconButton, { icon: "open_in_new", label: "Open in Inspector", size: "xs", onClick: onInspect }) : null, onCopy ? /* @__PURE__ */ React25.createElement(IconButton, { icon: "content_copy", label: "Copy message", size: "xs", onClick: onCopy }) : null) : null);
 }), { displayName: "ChatMessage" });
 
 // project/components/chat/AgentChat.jsx
-var ChatStatus = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React16.forwardRef(function ChatStatus2({ state = "idle", author, action, detail, tokens, onStop, onInspect }, ref) {
+var ChatStatus = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React26.forwardRef(function ChatStatus2({ state = "idle", author, action, detail, tokens, onStop, onInspect }, ref) {
   if (state === "idle") {
-    return /* @__PURE__ */ React16.createElement("div", { className: "lamp-chat__status lamp-chat__status--idle" }, /* @__PURE__ */ React16.createElement(Icon, { name: "check_circle", size: 13 }), detail || "Up to date. Nothing is running.");
+    return /* @__PURE__ */ React26.createElement("div", { className: "lamp-chat__status lamp-chat__status--idle" }, /* @__PURE__ */ React26.createElement(Icon, { name: "check_circle", size: 13 }), detail || "Up to date. Nothing is running.");
   }
-  return /* @__PURE__ */ React16.createElement("div", { ref, className: "lamp-chat__status", role: "status" }, /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__status-hex" }, /* @__PURE__ */ React16.createElement(ChatAvatar, { role: "agent", glyph: "bolt", state: "acting", size: 16 })), /* @__PURE__ */ React16.createElement("span", null, /* @__PURE__ */ React16.createElement("b", { style: { fontWeight: 600 } }, author || "Agent"), " ", action || "is working"), /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__dots", "aria-hidden": "true" }, /* @__PURE__ */ React16.createElement("i", null), /* @__PURE__ */ React16.createElement("i", null), /* @__PURE__ */ React16.createElement("i", null)), detail ? /* @__PURE__ */ React16.createElement("span", { style: { color: "var(--text-tertiary)" } }, detail) : null, /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__status-right" }, tokens ? /* @__PURE__ */ React16.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-tertiary)" } }, tokens) : null, onInspect ? /* @__PURE__ */ React16.createElement(Button, { size: "xs", variant: "quiet", onClick: onInspect }, "Open run") : null, onStop ? /* @__PURE__ */ React16.createElement(Button, { size: "xs", variant: "secondary", icon: "stop_circle", onClick: onStop }, "Stop") : null));
+  return /* @__PURE__ */ React26.createElement("div", { ref, className: "lamp-chat__status", role: "status" }, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__status-hex" }, /* @__PURE__ */ React26.createElement(ChatAvatar, { role: "agent", glyph: "bolt", state: "acting", size: 16 })), /* @__PURE__ */ React26.createElement("span", null, /* @__PURE__ */ React26.createElement("b", { style: { fontWeight: 600 } }, author || "Agent"), " ", action || "is working"), /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__dots", "aria-hidden": "true" }, /* @__PURE__ */ React26.createElement("i", null), /* @__PURE__ */ React26.createElement("i", null), /* @__PURE__ */ React26.createElement("i", null)), detail ? /* @__PURE__ */ React26.createElement("span", { style: { color: "var(--text-tertiary)" } }, detail) : null, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__status-right" }, tokens ? /* @__PURE__ */ React26.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-tertiary)" } }, tokens) : null, onInspect ? /* @__PURE__ */ React26.createElement(Button, { size: "xs", variant: "quiet", onClick: onInspect }, "Open run") : null, onStop ? /* @__PURE__ */ React26.createElement(Button, { size: "xs", variant: "secondary", icon: "stop_circle", onClick: onStop }, "Stop") : null));
 }), { displayName: "ChatStatus" });
-var AgentChat = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React16.forwardRef(function AgentChat2({
+var AgentChat = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React26.forwardRef(function AgentChat2({
   title,
   scope,
   scopeGlyph = "hive",
@@ -1117,32 +1714,32 @@ var AgentChat = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React16.forwardRef
   className = "",
   ...rest
 }, ref) {
-  const threadRef = React16.useRef(null);
-  React16.useEffect(() => {
+  const threadRef = React26.useRef(null);
+  React26.useEffect(() => {
     const el = threadRef.current;
     if (autoScroll && el) el.scrollTop = el.scrollHeight;
   }, [children, autoScroll]);
-  return /* @__PURE__ */ React16.createElement("section", { ref, className: ["lamp-chat", flush && "lamp-chat--flush", className].filter(Boolean).join(" "), "aria-label": title || "Conversation", ...rest }, /* @__PURE__ */ React16.createElement("header", { className: "lamp-chat__head" }, /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__id" }, /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__title" }, title), scope ? /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__scope" }, /* @__PURE__ */ React16.createElement(Icon, { name: scopeGlyph, size: 11 }), /* @__PURE__ */ React16.createElement("b", null, scope), environment ? /* @__PURE__ */ React16.createElement(React16.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__crew", title: crew.map((c) => c.name).join(", ") }, crew.slice(0, 4).map((c) => /* @__PURE__ */ React16.createElement("span", { key: c.name }, /* @__PURE__ */ React16.createElement(ChatAvatar, { role: c.role || "agent", initials: c.initials, glyph: c.glyph, state: c.state, size: 22 }))), crew.length > 4 ? /* @__PURE__ */ React16.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", marginLeft: 6 } }, "+", crew.length - 4) : null) : null, /* @__PURE__ */ React16.createElement("span", { className: "lamp-chat__actions" }, actions, /* @__PURE__ */ React16.createElement(IconButton, { icon: "more_horiz", label: "Conversation actions", size: "sm" }))), /* @__PURE__ */ React16.createElement("div", { className: "lamp-chat__thread", ref: threadRef, role: "log", "aria-live": "polite" }, children), status, composer);
+  return /* @__PURE__ */ React26.createElement("section", { ref, className: ["lamp-chat", flush && "lamp-chat--flush", className].filter(Boolean).join(" "), "aria-label": title || "Conversation", ...rest }, /* @__PURE__ */ React26.createElement("header", { className: "lamp-chat__head" }, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__id" }, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__title" }, title), scope ? /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__scope" }, /* @__PURE__ */ React26.createElement(Icon, { name: scopeGlyph, size: 11 }), /* @__PURE__ */ React26.createElement("b", null, scope), environment ? /* @__PURE__ */ React26.createElement(React26.Fragment, null, "\xB7 ", environment) : null) : null), crew.length ? /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__crew", title: crew.map((c) => c.name).join(", ") }, crew.slice(0, 4).map((c) => /* @__PURE__ */ React26.createElement("span", { key: c.name }, /* @__PURE__ */ React26.createElement(ChatAvatar, { role: c.role || "agent", initials: c.initials, glyph: c.glyph, state: c.state, size: 22 }))), crew.length > 4 ? /* @__PURE__ */ React26.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", marginLeft: 6 } }, "+", crew.length - 4) : null) : null, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chat__actions" }, actions, /* @__PURE__ */ React26.createElement(IconButton, { icon: "more_horiz", label: "Conversation actions", size: "sm" }))), /* @__PURE__ */ React26.createElement("div", { className: "lamp-chat__thread", ref: threadRef, role: "log", "aria-live": "polite" }, children), status, composer);
 }), { displayName: "AgentChat" });
 
 // project/components/chat/ChatComposer.jsx
-import React18 from "react";
+import React28 from "react";
 
 // project/components/core/Kbd.jsx
-import React17 from "react";
-var Kbd = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React17.forwardRef(function Kbd2({ keys, children, className = "", ...rest }, ref) {
+import React27 from "react";
+var Kbd = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React27.forwardRef(function Kbd2({ keys, children, className = "", ...rest }, ref) {
   const list = keys || (typeof children === "string" ? children.split("+") : null);
-  if (!list) return /* @__PURE__ */ React17.createElement("kbd", { className: "lamp-kbd " + className, ...rest }, children);
-  return /* @__PURE__ */ React17.createElement("span", { ref, style: { display: "inline-flex", gap: 3, alignItems: "center" }, ...rest }, list.map((k, i) => /* @__PURE__ */ React17.createElement("kbd", { key: i, className: "lamp-kbd " + className }, k)));
+  if (!list) return /* @__PURE__ */ React27.createElement("kbd", { className: "lamp-kbd " + className, ...rest }, children);
+  return /* @__PURE__ */ React27.createElement("span", { ref, style: { display: "inline-flex", gap: 3, alignItems: "center" }, ...rest }, list.map((k, i) => /* @__PURE__ */ React27.createElement("kbd", { key: i, className: "lamp-kbd " + className }, k)));
 }), { displayName: "Kbd" });
 
 // project/components/chat/ChatComposer.jsx
-var ChatQuickReplies = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.forwardRef(function ChatQuickReplies2({ options = [], onSelect }, ref) {
+var ChatQuickReplies = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRef(function ChatQuickReplies2({ options = [], onSelect }, ref) {
   if (!options.length) return null;
-  return /* @__PURE__ */ React18.createElement("div", { ref, className: "lamp-cc__quick" }, options.map((o) => {
+  return /* @__PURE__ */ React28.createElement("div", { ref, className: "lamp-cc__quick" }, options.map((o) => {
     const label = typeof o === "string" ? o : o.label;
     const tone = typeof o === "object" && o.tone;
-    return /* @__PURE__ */ React18.createElement(
+    return /* @__PURE__ */ React28.createElement(
       Button,
       {
         key: label,
@@ -1155,7 +1752,7 @@ var ChatQuickReplies = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.for
     );
   }));
 }), { displayName: "ChatQuickReplies" });
-var ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.forwardRef(function ChatComposer2({
+var ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRef(function ChatComposer2({
   value = "",
   onChange,
   onSend,
@@ -1172,11 +1769,11 @@ var ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.forward
   className = "",
   ...rest
 }, ref) {
-  const [focus, setFocus] = React18.useState(false);
+  const [focus, setFocus] = React28.useState(false);
   const send = () => {
     if (!disabled && value.trim()) onSend && onSend(value);
   };
-  return /* @__PURE__ */ React18.createElement("div", { ref, className: ["lamp-cc", disabled && "lamp-cc--disabled", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React18.createElement(ChatQuickReplies, { options: quickReplies, onSelect: (o) => o.onSelect ? o.onSelect() : onSend && onSend(o.label) }), /* @__PURE__ */ React18.createElement("div", { className: "lamp-cc__box" }, /* @__PURE__ */ React18.createElement("div", { className: ["lamp-cc__field", focus && "lamp-cc__field--focus"].filter(Boolean).join(" ") }, scope ? /* @__PURE__ */ React18.createElement("div", { className: "lamp-cc__scope" }, "Talking to", /* @__PURE__ */ React18.createElement("span", { className: "lamp-cc__scope-pill" }, /* @__PURE__ */ React18.createElement(Icon, { name: scopeGlyph, size: 11 }), scope)) : null, /* @__PURE__ */ React18.createElement(
+  return /* @__PURE__ */ React28.createElement("div", { ref, className: ["lamp-cc", disabled && "lamp-cc--disabled", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React28.createElement(ChatQuickReplies, { options: quickReplies, onSelect: (o) => o.onSelect ? o.onSelect() : onSend && onSend(o.label) }), /* @__PURE__ */ React28.createElement("div", { className: "lamp-cc__box" }, /* @__PURE__ */ React28.createElement("div", { className: ["lamp-cc__field", focus && "lamp-cc__field--focus"].filter(Boolean).join(" ") }, scope ? /* @__PURE__ */ React28.createElement("div", { className: "lamp-cc__scope" }, "Talking to", /* @__PURE__ */ React28.createElement("span", { className: "lamp-cc__scope-pill" }, /* @__PURE__ */ React28.createElement(Icon, { name: scopeGlyph, size: 11 }), scope)) : null, /* @__PURE__ */ React28.createElement(
     "textarea",
     {
       className: "lamp-cc__input",
@@ -1194,19 +1791,19 @@ var ChatComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React18.forward
         }
       }
     }
-  ), /* @__PURE__ */ React18.createElement("div", { className: "lamp-cc__row" }, onAttach ? /* @__PURE__ */ React18.createElement(IconButton, { icon: "attach_file", label: "Attach a file", size: "sm", onClick: onAttach }) : null, onSlash ? /* @__PURE__ */ React18.createElement(IconButton, { icon: "terminal", label: "Commands", size: "sm", onClick: onSlash }) : null, onVoice ? /* @__PURE__ */ React18.createElement(IconButton, { icon: "mic", label: "Record a voice message", size: "sm", onClick: onVoice }) : null, hint ? /* @__PURE__ */ React18.createElement("span", { className: "lamp-cc__hint" }, /* @__PURE__ */ React18.createElement(Kbd, null, "Enter"), " to send", /* @__PURE__ */ React18.createElement(Kbd, { keys: ["Shift", "Enter"] }), " for a new line") : null)), /* @__PURE__ */ React18.createElement(Button, { className: "lamp-cc__send", size: "md", variant: "primary", icon: "send", loading: sending, disabled: disabled || !value.trim(), onClick: send }, "Send")));
+  ), /* @__PURE__ */ React28.createElement("div", { className: "lamp-cc__row" }, onAttach ? /* @__PURE__ */ React28.createElement(IconButton, { icon: "attach_file", label: "Attach a file", size: "sm", onClick: onAttach }) : null, onSlash ? /* @__PURE__ */ React28.createElement(IconButton, { icon: "terminal", label: "Commands", size: "sm", onClick: onSlash }) : null, onVoice ? /* @__PURE__ */ React28.createElement(IconButton, { icon: "mic", label: "Record a voice message", size: "sm", onClick: onVoice }) : null, hint ? /* @__PURE__ */ React28.createElement("span", { className: "lamp-cc__hint" }, /* @__PURE__ */ React28.createElement(Kbd, null, "Enter"), " to send", /* @__PURE__ */ React28.createElement(Kbd, { keys: ["Shift", "Enter"] }), " for a new line") : null)), /* @__PURE__ */ React28.createElement(Button, { className: "lamp-cc__send", size: "md", variant: "primary", icon: "send", loading: sending, disabled: disabled || !value.trim(), onClick: send }, "Send")));
 }), { displayName: "ChatComposer" });
 
 // project/components/core/Card.jsx
-import React19 from "react";
-var Card = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React19.forwardRef(function Card2({ padding = "md", raised = false, interactive = false, selected = false, tone = "default", header, footer, title, actions, children, className = "", ...rest }, ref) {
+import React29 from "react";
+var Card = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React29.forwardRef(function Card2({ padding = "md", raised = false, interactive = false, selected = false, tone = "default", header, footer, title, actions, children, className = "", ...rest }, ref) {
   const structured = header || footer || title || actions;
   const cls = ["lamp-card", !structured && padding === "md" && "lamp-card--pad", !structured && padding === "sm" && "lamp-card--pad-sm", raised && "lamp-card--raised", interactive && "lamp-card--interactive", selected && "lamp-card--selected", tone === "danger" && "lamp-card--danger", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React19.createElement("div", { ref, className: cls, ...rest }, structured && (header || title || actions) ? /* @__PURE__ */ React19.createElement("div", { className: "lamp-card__head" }, header || /* @__PURE__ */ React19.createElement("h3", { className: "lamp-card__title" }, title), actions ? /* @__PURE__ */ React19.createElement("div", { style: { display: "flex", gap: 4 } }, actions) : null) : null, structured ? /* @__PURE__ */ React19.createElement("div", { className: "lamp-card__body" }, children) : children, footer ? /* @__PURE__ */ React19.createElement("div", { className: "lamp-card__foot" }, footer) : null);
+  return /* @__PURE__ */ React29.createElement("div", { ref, className: cls, ...rest }, structured && (header || title || actions) ? /* @__PURE__ */ React29.createElement("div", { className: "lamp-card__head" }, header || /* @__PURE__ */ React29.createElement("h3", { className: "lamp-card__title" }, title), actions ? /* @__PURE__ */ React29.createElement("div", { style: { display: "flex", gap: 4 } }, actions) : null) : null, structured ? /* @__PURE__ */ React29.createElement("div", { className: "lamp-card__body" }, children) : children, footer ? /* @__PURE__ */ React29.createElement("div", { className: "lamp-card__foot" }, footer) : null);
 }), { displayName: "Card" });
 
 // project/components/core/EnvironmentPill.jsx
-import React20 from "react";
+import React30 from "react";
 var ENV = {
   draft: { icon: "edit", label: "Draft" },
   simulation: { icon: "science", label: "Simulation" },
@@ -1214,28 +1811,22 @@ var ENV = {
   paused: { icon: "pause", label: "Paused" },
   killed: { icon: "dangerous", label: "Emergency stopped" }
 };
-var EnvironmentPill = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React20.forwardRef(function EnvironmentPill2({ environment = "draft", label, scope, className = "", ...rest }, ref) {
+var EnvironmentPill = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React30.forwardRef(function EnvironmentPill2({ environment = "draft", label, scope, className = "", ...rest }, ref) {
   const e = ENV[environment] || ENV.draft;
-  return /* @__PURE__ */ React20.createElement("span", { ref, className: ["lamp-env", "lamp-env--" + environment, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React20.createElement(Icon, { name: e.icon, size: 12 }), label || e.label, scope ? /* @__PURE__ */ React20.createElement("span", { style: { opacity: 0.7, fontWeight: 500, letterSpacing: 0, textTransform: "none" } }, scope) : null);
+  return /* @__PURE__ */ React30.createElement("span", { ref, className: ["lamp-env", "lamp-env--" + environment, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React30.createElement(Icon, { name: e.icon, size: 12 }), label || e.label, scope ? /* @__PURE__ */ React30.createElement("span", { style: { opacity: 0.7, fontWeight: 500, letterSpacing: 0, textTransform: "none" } }, scope) : null);
 }), { displayName: "EnvironmentPill" });
 
 // project/components/core/Panel.jsx
-import React21 from "react";
-var Panel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React21.forwardRef(function Panel2({ title, actions, flush = false, width, children, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React21.createElement("section", { ref, className: ["lamp-panel", flush && "lamp-panel--flush", className].filter(Boolean).join(" "), style: { width, ...style }, ...rest }, title || actions ? /* @__PURE__ */ React21.createElement("header", { className: "lamp-panel__head" }, title ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-panel__title" }, title) : null, actions ? /* @__PURE__ */ React21.createElement("span", { className: "lamp-panel__actions" }, actions) : null) : null, /* @__PURE__ */ React21.createElement("div", { className: "lamp-panel__body" }, children));
+import React31 from "react";
+var Panel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React31.forwardRef(function Panel2({ title, actions, flush = false, width, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React31.createElement("section", { ref, className: ["lamp-panel", flush && "lamp-panel--flush", className].filter(Boolean).join(" "), style: { width, ...style }, ...rest }, title || actions ? /* @__PURE__ */ React31.createElement("header", { className: "lamp-panel__head" }, title ? /* @__PURE__ */ React31.createElement("span", { className: "lamp-panel__title" }, title) : null, actions ? /* @__PURE__ */ React31.createElement("span", { className: "lamp-panel__actions" }, actions) : null) : null, /* @__PURE__ */ React31.createElement("div", { className: "lamp-panel__body" }, children));
 }), { displayName: "Panel" });
 
-// project/components/core/Tag.jsx
-import React22 from "react";
-var Tag = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React22.forwardRef(function Tag2({ icon, mono = false, onRemove, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React22.createElement("span", { ref, className: ["lamp-tag", mono && "lamp-tag--mono", className].filter(Boolean).join(" "), ...rest }, icon ? typeof icon === "string" ? /* @__PURE__ */ React22.createElement(Icon, { name: icon, size: 12 }) : icon : null, children, onRemove ? /* @__PURE__ */ React22.createElement("button", { type: "button", className: "lamp-tag__x", "aria-label": "Remove", onClick: onRemove }, /* @__PURE__ */ React22.createElement(Icon, { name: "close", size: 10 })) : null);
-}), { displayName: "Tag" });
-
 // project/components/core/Tooltip.jsx
-import React23 from "react";
-var Tooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React23.forwardRef(function Tooltip2({ content, shortcut, rich = false, children, ...rest }, ref) {
-  const [open, setOpen] = React23.useState(false);
-  return /* @__PURE__ */ React23.createElement(
+import React32 from "react";
+var Tooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React32.forwardRef(function Tooltip2({ content, shortcut, rich = false, children, ...rest }, ref) {
+  const [open, setOpen] = React32.useState(false);
+  return /* @__PURE__ */ React32.createElement(
     "span",
     {
       ref,
@@ -1247,14 +1838,14 @@ var Tooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React23.forwardRef(f
       ...rest
     },
     children,
-    /* @__PURE__ */ React23.createElement("span", { role: "tooltip", className: ["lamp-tip__pop", rich && "lamp-tip__pop--rich"].filter(Boolean).join(" ") }, content, shortcut ? /* @__PURE__ */ React23.createElement("span", { className: "lamp-tip__kbd" }, shortcut) : null)
+    /* @__PURE__ */ React32.createElement("span", { role: "tooltip", className: ["lamp-tip__pop", rich && "lamp-tip__pop--rich"].filter(Boolean).join(" ") }, content, shortcut ? /* @__PURE__ */ React32.createElement("span", { className: "lamp-tip__kbd" }, shortcut) : null)
   );
 }), { displayName: "Tooltip" });
 
 // project/components/dashboard/DashboardCard.jsx
-import React24 from "react";
-var DashboardCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React24.forwardRef(function DashboardCard2({ title, description, actions, footer, raised = false, flush = false, span, children, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React24.createElement(
+import React33 from "react";
+var DashboardCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React33.forwardRef(function DashboardCard2({ title, description, actions, footer, raised = false, flush = false, span, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React33.createElement(
     "section",
     {
       ref,
@@ -1262,51 +1853,51 @@ var DashboardCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React24.forwar
       style: span ? { gridColumn: "span " + span, ...style } : style,
       ...rest
     },
-    title || actions ? /* @__PURE__ */ React24.createElement("header", { className: "lamp-dcard__head" }, /* @__PURE__ */ React24.createElement("div", { className: "lamp-dcard__titles" }, title ? /* @__PURE__ */ React24.createElement("h3", { className: "lamp-dcard__title" }, title) : null, description ? /* @__PURE__ */ React24.createElement("p", { className: "lamp-dcard__desc" }, description) : null), actions ? /* @__PURE__ */ React24.createElement("div", { className: "lamp-dcard__actions" }, actions) : null) : null,
-    /* @__PURE__ */ React24.createElement("div", { className: ["lamp-dcard__content", flush && "lamp-dcard__content--flush"].filter(Boolean).join(" ") }, children),
-    footer ? /* @__PURE__ */ React24.createElement("footer", { className: "lamp-dcard__foot" }, footer) : null
+    title || actions ? /* @__PURE__ */ React33.createElement("header", { className: "lamp-dcard__head" }, /* @__PURE__ */ React33.createElement("div", { className: "lamp-dcard__titles" }, title ? /* @__PURE__ */ React33.createElement("h3", { className: "lamp-dcard__title" }, title) : null, description ? /* @__PURE__ */ React33.createElement("p", { className: "lamp-dcard__desc" }, description) : null), actions ? /* @__PURE__ */ React33.createElement("div", { className: "lamp-dcard__actions" }, actions) : null) : null,
+    /* @__PURE__ */ React33.createElement("div", { className: ["lamp-dcard__content", flush && "lamp-dcard__content--flush"].filter(Boolean).join(" ") }, children),
+    footer ? /* @__PURE__ */ React33.createElement("footer", { className: "lamp-dcard__foot" }, footer) : null
   );
 }), { displayName: "DashboardCard" });
-var DashboardGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React24.forwardRef(function DashboardGrid2({ columns = 2, children, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React24.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--" + columns, className].filter(Boolean).join(" "), style, ...rest }, children);
+var DashboardGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React33.forwardRef(function DashboardGrid2({ columns = 2, children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React33.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--" + columns, className].filter(Boolean).join(" "), style, ...rest }, children);
 }), { displayName: "DashboardGrid" });
-var StatGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React24.forwardRef(function StatGrid2({ children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React24.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--stats", className].filter(Boolean).join(" "), ...rest }, children);
+var StatGrid = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React33.forwardRef(function StatGrid2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React33.createElement("div", { ref, className: ["lamp-grid", "lamp-grid--stats", className].filter(Boolean).join(" "), ...rest }, children);
 }), { displayName: "StatGrid" });
 
 // project/components/dashboard/PageHeader.jsx
-import React25 from "react";
-var PageHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function PageHeader2({ title, description, meta, actions, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React25.createElement("header", { ref, className: "lamp-pagehead " + className, ...rest }, /* @__PURE__ */ React25.createElement("div", { className: "lamp-pagehead__titles" }, /* @__PURE__ */ React25.createElement("h1", { className: "lamp-pagehead__title" }, title), description ? /* @__PURE__ */ React25.createElement("p", { className: "lamp-pagehead__desc" }, description) : null, meta ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-pagehead__meta" }, meta) : null), actions ? /* @__PURE__ */ React25.createElement("div", { className: "lamp-pagehead__actions" }, actions) : null);
+import React34 from "react";
+var PageHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React34.forwardRef(function PageHeader2({ title, description, meta, actions, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React34.createElement("header", { ref, className: "lamp-pagehead " + className, ...rest }, /* @__PURE__ */ React34.createElement("div", { className: "lamp-pagehead__titles" }, /* @__PURE__ */ React34.createElement("h1", { className: "lamp-pagehead__title" }, title), description ? /* @__PURE__ */ React34.createElement("p", { className: "lamp-pagehead__desc" }, description) : null, meta ? /* @__PURE__ */ React34.createElement("div", { className: "lamp-pagehead__meta" }, meta) : null), actions ? /* @__PURE__ */ React34.createElement("div", { className: "lamp-pagehead__actions" }, actions) : null);
 }), { displayName: "PageHeader" });
-var DashboardPage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function DashboardPage2({ header, toolbar, flush = false, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React25.createElement("div", { ref, className: ["lamp-page", flush && "lamp-page--flush", className].filter(Boolean).join(" "), ...rest }, header, toolbar, children);
+var DashboardPage = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React34.forwardRef(function DashboardPage2({ header, toolbar, flush = false, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React34.createElement("div", { ref, className: ["lamp-page", flush && "lamp-page--flush", className].filter(Boolean).join(" "), ...rest }, header, toolbar, children);
 }), { displayName: "DashboardPage" });
-var SectionHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React25.forwardRef(function SectionHeader2({ title, actions, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React25.createElement("div", { ref, className: "lamp-section " + className, ...rest }, /* @__PURE__ */ React25.createElement("span", { className: "lamp-section__title" }, title), /* @__PURE__ */ React25.createElement("span", { className: "lamp-section__rule" }), actions ? /* @__PURE__ */ React25.createElement("span", { className: "lamp-section__actions" }, actions) : null);
+var SectionHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React34.forwardRef(function SectionHeader2({ title, actions, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React34.createElement("div", { ref, className: "lamp-section " + className, ...rest }, /* @__PURE__ */ React34.createElement("span", { className: "lamp-section__title" }, title), /* @__PURE__ */ React34.createElement("span", { className: "lamp-section__rule" }), actions ? /* @__PURE__ */ React34.createElement("span", { className: "lamp-section__actions" }, actions) : null);
 }), { displayName: "SectionHeader" });
 
 // project/components/data/BarChart.jsx
-import React27 from "react";
+import React36 from "react";
 
 // project/components/data/ChartFrame.jsx
-import React26 from "react";
+import React35 from "react";
 var DATAVIZ = ["var(--dataviz-1)", "var(--dataviz-2)", "var(--dataviz-3)", "var(--dataviz-4)", "var(--dataviz-5)", "var(--dataviz-6)", "var(--dataviz-7)", "var(--dataviz-8)"];
 var seriesColor = (i) => DATAVIZ[i % DATAVIZ.length];
-var ChartLegend = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React26.forwardRef(function ChartLegend2({ items = [], variant = "swatch", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React26.createElement("div", { ref, className: "lamp-chart__legend " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__legend-item", key: it.label }, /* @__PURE__ */ React26.createElement(
+var ChartLegend = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React35.forwardRef(function ChartLegend2({ items = [], variant = "swatch", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React35.createElement("div", { ref, className: "lamp-chart__legend " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__legend-item", key: it.label }, /* @__PURE__ */ React35.createElement(
     "span",
     {
       className: "lamp-chart__swatch" + (variant === "line" ? " lamp-chart__swatch--line" : "") + (it.dashed ? " lamp-chart__swatch--dashed" : ""),
       style: it.dashed ? { color: it.color || seriesColor(i), background: "transparent" } : { background: it.color || seriesColor(i) }
     }
-  ), it.label, it.value != null ? /* @__PURE__ */ React26.createElement("span", { style: { fontFamily: "var(--font-mono)", color: "var(--text-primary)" } }, it.value) : null)));
+  ), it.label, it.value != null ? /* @__PURE__ */ React35.createElement("span", { style: { fontFamily: "var(--font-mono)", color: "var(--text-primary)" } }, it.value) : null)));
 }), { displayName: "ChartLegend" });
-var ChartFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React26.forwardRef(function ChartFrame2({ title, subtitle, actions, legend, legendVariant = "swatch", state = "ready", emptyLabel = "No data yet", errorLabel = "Could not load this chart", footnote, flush = false, height, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React26.createElement("figure", { ref, className: ["lamp-chart", flush && "lamp-chart--flush", className].filter(Boolean).join(" "), style: { margin: 0 }, ...rest }, title || actions ? /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__head" }, /* @__PURE__ */ React26.createElement("figcaption", { className: "lamp-chart__titles" }, title ? /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__title" }, title) : null, subtitle ? /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__sub" }, subtitle) : null), actions ? /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__actions" }, actions) : null) : null, legend ? /* @__PURE__ */ React26.createElement(ChartLegend, { items: legend, variant: legendVariant }) : null, /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__body", style: height ? { height } : void 0 }, state === "ready" ? children : null, state === "loading" ? /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ React26.createElement(Icon, { name: "progress_activity", size: 16 }), "Loading") : null, state === "empty" ? /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ React26.createElement(Icon, { name: "bar_chart", size: 18 }), emptyLabel) : null, state === "error" ? /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__state", style: { color: "var(--status-danger-text)" } }, /* @__PURE__ */ React26.createElement(Icon, { name: "warning", size: 16 }), errorLabel) : null), footnote ? /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__foot" }, footnote) : null);
+var ChartFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React35.forwardRef(function ChartFrame2({ title, subtitle, actions, legend, legendVariant = "swatch", state = "ready", emptyLabel = "No data yet", errorLabel = "Could not load this chart", footnote, flush = false, height, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React35.createElement("figure", { ref, className: ["lamp-chart", flush && "lamp-chart--flush", className].filter(Boolean).join(" "), style: { margin: 0 }, ...rest }, title || actions ? /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__head" }, /* @__PURE__ */ React35.createElement("figcaption", { className: "lamp-chart__titles" }, title ? /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__title" }, title) : null, subtitle ? /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__sub" }, subtitle) : null), actions ? /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__actions" }, actions) : null) : null, legend ? /* @__PURE__ */ React35.createElement(ChartLegend, { items: legend, variant: legendVariant }) : null, /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__body", style: height ? { height } : void 0 }, state === "ready" ? children : null, state === "loading" ? /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ React35.createElement(Icon, { name: "progress_activity", size: 16 }), "Loading") : null, state === "empty" ? /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__state" }, /* @__PURE__ */ React35.createElement(Icon, { name: "bar_chart", size: 18 }), emptyLabel) : null, state === "error" ? /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__state", style: { color: "var(--status-danger-text)" } }, /* @__PURE__ */ React35.createElement(Icon, { name: "warning", size: 16 }), errorLabel) : null), footnote ? /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__foot" }, footnote) : null);
 }), { displayName: "ChartFrame" });
-var ChartTooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React26.forwardRef(function ChartTooltip2({ x, y, title, rows = [], ...rest }, ref) {
-  return /* @__PURE__ */ React26.createElement("div", { ref, className: "lamp-chart__tip", style: { left: x, top: y }, ...rest }, title ? /* @__PURE__ */ React26.createElement("div", { style: { fontWeight: 500, marginBottom: 4, color: "var(--text-primary)" } }, title) : null, rows.map((r, i) => /* @__PURE__ */ React26.createElement("div", { className: "lamp-chart__tip-row", key: i }, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__swatch", style: { background: r.color || seriesColor(i) } }), r.label, /* @__PURE__ */ React26.createElement("span", { className: "lamp-chart__tip-val" }, r.value))));
+var ChartTooltip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React35.forwardRef(function ChartTooltip2({ x, y, title, rows = [], ...rest }, ref) {
+  return /* @__PURE__ */ React35.createElement("div", { ref, className: "lamp-chart__tip", style: { left: x, top: y }, ...rest }, title ? /* @__PURE__ */ React35.createElement("div", { style: { fontWeight: 500, marginBottom: 4, color: "var(--text-primary)" } }, title) : null, rows.map((r, i) => /* @__PURE__ */ React35.createElement("div", { className: "lamp-chart__tip-row", key: i }, /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__swatch", style: { background: r.color || seriesColor(i) } }), r.label, /* @__PURE__ */ React35.createElement("span", { className: "lamp-chart__tip-val" }, r.value))));
 }), { displayName: "ChartTooltip" });
 ChartFrame.seriesColor = seriesColor;
 ChartFrame.palette = DATAVIZ;
@@ -1318,7 +1909,7 @@ var niceTick = (v, max) => {
   if (max >= 1) return (Math.round(v * 10) / 10).toFixed(1);
   return (Math.round(v * 100) / 100).toFixed(2);
 };
-var BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React27.forwardRef(function BarChart2({
+var BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React36.forwardRef(function BarChart2({
   series = [],
   labels = [],
   width = 640,
@@ -1349,9 +1940,9 @@ var BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React27.forwardRef(
   const scale = (v) => (normalized ? v : v / max) * (orientation === "vertical" ? ih : iw);
   const ticks = Array.from({ length: 5 }, (_, i) => max / 4 * i);
   const fmt = format || ((v) => niceTick(v, max));
-  return /* @__PURE__ */ React27.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ React27.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => orientation === "vertical" ? /* @__PURE__ */ React27.createElement("line", { key: i, x1: p.l, x2: width - p.r, y1: p.t + ih - scale(t), y2: p.t + ih - scale(t) }) : /* @__PURE__ */ React27.createElement("line", { key: i, y1: p.t, y2: p.t + ih, x1: p.l + scale(t), x2: p.l + scale(t) }))) : null, showAxis ? /* @__PURE__ */ React27.createElement("g", { className: "lamp-chart__axis" }, orientation === "vertical" ? ticks.map((t, i) => /* @__PURE__ */ React27.createElement("text", { key: i, x: p.l - 6, y: p.t + ih - scale(t) + 4, textAnchor: "end" }, fmt(t))) : labels.map((l, i) => /* @__PURE__ */ React27.createElement("text", { key: i, x: p.l - 8, y: p.t + i * groupSize + band / 2 + 4, textAnchor: "end" }, l)), orientation === "vertical" ? labels.map((l, i) => /* @__PURE__ */ React27.createElement("text", { key: i, x: p.l + i * groupSize + band / 2, y: height - 5, textAnchor: "middle" }, l)) : null) : null, series.map((s, si) => {
+  return /* @__PURE__ */ React36.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ React36.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => orientation === "vertical" ? /* @__PURE__ */ React36.createElement("line", { key: i, x1: p.l, x2: width - p.r, y1: p.t + ih - scale(t), y2: p.t + ih - scale(t) }) : /* @__PURE__ */ React36.createElement("line", { key: i, y1: p.t, y2: p.t + ih, x1: p.l + scale(t), x2: p.l + scale(t) }))) : null, showAxis ? /* @__PURE__ */ React36.createElement("g", { className: "lamp-chart__axis" }, orientation === "vertical" ? ticks.map((t, i) => /* @__PURE__ */ React36.createElement("text", { key: i, x: p.l - 6, y: p.t + ih - scale(t) + 4, textAnchor: "end" }, fmt(t))) : labels.map((l, i) => /* @__PURE__ */ React36.createElement("text", { key: i, x: p.l - 8, y: p.t + i * groupSize + band / 2 + 4, textAnchor: "end" }, l)), orientation === "vertical" ? labels.map((l, i) => /* @__PURE__ */ React36.createElement("text", { key: i, x: p.l + i * groupSize + band / 2, y: height - 5, textAnchor: "middle" }, l)) : null) : null, series.map((s, si) => {
     const color = s.color || seriesColor(si);
-    return /* @__PURE__ */ React27.createElement("g", { key: s.label || si }, Array.from({ length: n }, (_, i) => {
+    return /* @__PURE__ */ React36.createElement("g", { key: s.label || si }, Array.from({ length: n }, (_, i) => {
       const raw = s.data[i] || 0;
       const v = normalized ? totals[i] ? raw / totals[i] : 0 : raw;
       const prior = stacked ? series.slice(0, si).reduce((a, q) => a + (normalized ? totals[i] ? (q.data[i] || 0) / totals[i] : 0 : q.data[i] || 0), 0) : 0;
@@ -1359,21 +1950,21 @@ var BarChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React27.forwardRef(
       if (orientation === "vertical") {
         const bx2 = p.l + i * groupSize + (stacked ? 0 : si * thickness);
         const by2 = p.t + ih - len - scale(prior);
-        return /* @__PURE__ */ React27.createElement("rect", { key: i, x: bx2, y: by2, width: Math.max(1, thickness), height: Math.max(0, len), fill: color, rx: 1.5 });
+        return /* @__PURE__ */ React36.createElement("rect", { key: i, x: bx2, y: by2, width: Math.max(1, thickness), height: Math.max(0, len), fill: color, rx: 1.5 });
       }
       const by = p.t + i * groupSize + (stacked ? 0 : si * thickness);
       const bx = p.l + scale(prior);
-      return /* @__PURE__ */ React27.createElement("g", { key: i }, /* @__PURE__ */ React27.createElement("rect", { x: bx, y: by, width: Math.max(0, len), height: Math.max(1, thickness), fill: color, rx: 1.5 }), showValues && !stacked ? /* @__PURE__ */ React27.createElement("text", { className: "lamp-chart__axis", x: bx + len + 6, y: by + thickness / 2 + 4, style: { fill: "var(--chart-axis-text)", fontSize: 11 } }, fmt(raw)) : null);
+      return /* @__PURE__ */ React36.createElement("g", { key: i }, /* @__PURE__ */ React36.createElement("rect", { x: bx, y: by, width: Math.max(0, len), height: Math.max(1, thickness), fill: color, rx: 1.5 }), showValues && !stacked ? /* @__PURE__ */ React36.createElement("text", { className: "lamp-chart__axis", x: bx + len + 6, y: by + thickness / 2 + 4, style: { fill: "var(--chart-axis-text)", fontSize: 11 } }, fmt(raw)) : null);
     }));
   }));
 }), { displayName: "BarChart" });
 
 // project/components/data/ContextBreakdown.jsx
-import React29 from "react";
+import React38 from "react";
 
 // project/components/data/StackedBar.jsx
-import React28 from "react";
-var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRef(function StackedBar2({
+import React37 from "react";
+var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React37.forwardRef(function StackedBar2({
   segments = [],
   total,
   unit,
@@ -1390,7 +1981,7 @@ var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRe
   const sum = total != null ? total : segments.reduce((a, s) => a + (s.value || 0), 0);
   const fmt = format || ((v) => typeof v === "number" ? v.toLocaleString() : v);
   const colorOf = (s, i) => s.color || seriesColor(i);
-  return /* @__PURE__ */ React28.createElement("div", { ref, className: "lamp-sbar " + className, ...rest }, label ? /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__label" }, label) : null, /* @__PURE__ */ React28.createElement(
+  return /* @__PURE__ */ React37.createElement("div", { ref, className: "lamp-sbar " + className, ...rest }, label ? /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__label" }, label) : null, /* @__PURE__ */ React37.createElement(
     "div",
     {
       className: "lamp-sbar__track",
@@ -1400,7 +1991,7 @@ var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRe
     },
     segments.map((s, i) => {
       const share = sum ? (s.value || 0) / sum : 0;
-      return /* @__PURE__ */ React28.createElement(
+      return /* @__PURE__ */ React37.createElement(
         "span",
         {
           key: s.key || s.label || i,
@@ -1408,10 +1999,10 @@ var StackedBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React28.forwardRe
           title: s.label + ": " + fmt(s.value) + (unit ? " " + unit : ""),
           style: { width: share * 100 + "%", background: colorOf(s, i) }
         },
-        inlineValues && share >= minLabel ? /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__inline" }, fmt(s.value)) : null
+        inlineValues && share >= minLabel ? /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__inline" }, fmt(s.value)) : null
       );
     })
-  ), legend ? /* @__PURE__ */ React28.createElement("div", { className: "lamp-sbar__legend" }, segments.map((s, i) => /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__row", key: s.key || s.label || i }, /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__swatch", style: { background: colorOf(s, i) } }), /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__name" }, s.label), /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__val" }, fmt(s.value)))), showTotal ? /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__total" }, /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__name" }, "Total"), /* @__PURE__ */ React28.createElement("span", { className: "lamp-sbar__val" }, fmt(sum), unit ? " " + unit : "")) : null) : null);
+  ), legend ? /* @__PURE__ */ React37.createElement("div", { className: "lamp-sbar__legend" }, segments.map((s, i) => /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__row", key: s.key || s.label || i }, /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__swatch", style: { background: colorOf(s, i) } }), /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__name" }, s.label), /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__val" }, fmt(s.value)))), showTotal ? /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__total" }, /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__name" }, "Total"), /* @__PURE__ */ React37.createElement("span", { className: "lamp-sbar__val" }, fmt(sum), unit ? " " + unit : "")) : null) : null);
 }), { displayName: "StackedBar" });
 
 // project/components/data/ContextBreakdown.jsx
@@ -1434,7 +2025,7 @@ var SCOPE_COLOR = {
   prompt: "var(--dataviz-neutral-3)",
   completion: "var(--dataviz-neutral-4)"
 };
-var ContextBreakdown = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React29.forwardRef(function ContextBreakdown2({
+var ContextBreakdown = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React38.forwardRef(function ContextBreakdown2({
   segments,
   context,
   unit = "tokens",
@@ -1450,20 +2041,12 @@ var ContextBreakdown = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React29.for
   const total = withColor.reduce((a, r) => a + (r.value || 0), 0);
   const fmt = (v) => v.toLocaleString();
   const pctOfLimit = limit ? Math.round(total / limit * 100) : null;
-  return /* @__PURE__ */ React29.createElement("div", { ref, className: "lamp-ctxb " + className, ...rest }, title ? /* @__PURE__ */ React29.createElement("span", { className: "lamp-ctxb__title" }, title) : null, showBar ? /* @__PURE__ */ React29.createElement(StackedBar, { segments: withColor, total, unit, height: 8 }) : null, /* @__PURE__ */ React29.createElement("table", { className: "lamp-ctxb__table" }, /* @__PURE__ */ React29.createElement("tbody", null, withColor.map((r, i) => /* @__PURE__ */ React29.createElement("tr", { key: r.key || r.label || i }, /* @__PURE__ */ React29.createElement("td", { className: "lamp-ctxb__swatchcell" }, /* @__PURE__ */ React29.createElement("span", { className: "lamp-ctxb__swatch", style: { background: r.color || "var(--dataviz-neutral-3)" } })), /* @__PURE__ */ React29.createElement("td", { className: "lamp-ctxb__name" }, r.label), /* @__PURE__ */ React29.createElement("td", { className: "lamp-ctxb__val" }, fmt(r.value))))), /* @__PURE__ */ React29.createElement("tfoot", null, /* @__PURE__ */ React29.createElement("tr", null, /* @__PURE__ */ React29.createElement("td", null), /* @__PURE__ */ React29.createElement("td", { className: "lamp-ctxb__name" }, "Total"), /* @__PURE__ */ React29.createElement("td", { className: "lamp-ctxb__val" }, fmt(total), " ", unit)))), cached != null || limit ? /* @__PURE__ */ React29.createElement("div", { className: "lamp-ctxb__meta" }, cached != null ? /* @__PURE__ */ React29.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /* @__PURE__ */ React29.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
+  return /* @__PURE__ */ React38.createElement("div", { ref, className: "lamp-ctxb " + className, ...rest }, title ? /* @__PURE__ */ React38.createElement("span", { className: "lamp-ctxb__title" }, title) : null, showBar ? /* @__PURE__ */ React38.createElement(StackedBar, { segments: withColor, total, unit, height: 8 }) : null, /* @__PURE__ */ React38.createElement("table", { className: "lamp-ctxb__table" }, /* @__PURE__ */ React38.createElement("tbody", null, withColor.map((r, i) => /* @__PURE__ */ React38.createElement("tr", { key: r.key || r.label || i }, /* @__PURE__ */ React38.createElement("td", { className: "lamp-ctxb__swatchcell" }, /* @__PURE__ */ React38.createElement("span", { className: "lamp-ctxb__swatch", style: { background: r.color || "var(--dataviz-neutral-3)" } })), /* @__PURE__ */ React38.createElement("td", { className: "lamp-ctxb__name" }, r.label), /* @__PURE__ */ React38.createElement("td", { className: "lamp-ctxb__val" }, fmt(r.value))))), /* @__PURE__ */ React38.createElement("tfoot", null, /* @__PURE__ */ React38.createElement("tr", null, /* @__PURE__ */ React38.createElement("td", null), /* @__PURE__ */ React38.createElement("td", { className: "lamp-ctxb__name" }, "Total"), /* @__PURE__ */ React38.createElement("td", { className: "lamp-ctxb__val" }, fmt(total), " ", unit)))), cached != null || limit ? /* @__PURE__ */ React38.createElement("div", { className: "lamp-ctxb__meta" }, cached != null ? /* @__PURE__ */ React38.createElement("span", null, fmt(cached), " ", unit, " served from cache") : null, limit ? /* @__PURE__ */ React38.createElement("span", null, pctOfLimit, "% of the ", fmt(limit), " ", unit, " window") : null) : null);
 }), { displayName: "ContextBreakdown" });
 
 // project/components/data/DataTable.jsx
-import React31 from "react";
-
-// project/components/forms/Checkbox.jsx
-import React30 from "react";
-var Checkbox = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React30.forwardRef(function Checkbox2({ label, description, indeterminate = false, disabled = false, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React30.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React30.createElement("input", { ref, type: "checkbox", disabled, ...rest }), /* @__PURE__ */ React30.createElement("span", { className: "lamp-check__box" }, indeterminate ? /* @__PURE__ */ React30.createElement(Icon, { name: "remove", size: 12 }) : /* @__PURE__ */ React30.createElement(Icon, { name: "check", size: 12 })), label ? /* @__PURE__ */ React30.createElement("span", null, label, description ? /* @__PURE__ */ React30.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
-}), { displayName: "Checkbox" });
-
-// project/components/data/DataTable.jsx
-var DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React31.forwardRef(function DataTable2({
+import React39 from "react";
+var DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React39.forwardRef(function DataTable2({
   columns = [],
   rows = [],
   density = "default",
@@ -1486,7 +2069,7 @@ var DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React31.forwardRef
   ...rest
 }, ref) {
   const allSelected = selectable && rows.length > 0 && selected.length === rows.length;
-  return /* @__PURE__ */ React31.createElement("div", { ref, className: "lamp-tablewrap " + className, ...rest }, toolbar ? /* @__PURE__ */ React31.createElement("div", { className: "lamp-tabletoolbar" }, toolbar) : null, selectable && selected.length > 0 ? /* @__PURE__ */ React31.createElement("div", { className: "lamp-tablebulk" }, /* @__PURE__ */ React31.createElement(Icon, { name: "check_circle", size: 14 }), selected.length, " selected", /* @__PURE__ */ React31.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 6 } }, bulkActions)) : null, /* @__PURE__ */ React31.createElement("div", { className: "lamp-tablewrap__scroll" }, /* @__PURE__ */ React31.createElement("table", { className: ["lamp-table", density !== "default" && "lamp-table--" + density, variant !== "standard" && "lamp-table--" + variant].filter(Boolean).join(" ") }, /* @__PURE__ */ React31.createElement("thead", null, /* @__PURE__ */ React31.createElement("tr", null, selectable ? /* @__PURE__ */ React31.createElement("th", { style: { width: 34 }, "data-pinned": true }, /* @__PURE__ */ React31.createElement(Checkbox, { checked: allSelected, indeterminate: selected.length > 0 && !allSelected, onChange: () => onSelectAll && onSelectAll(!allSelected), "aria-label": "Select all rows" })) : null, columns.map((c) => /* @__PURE__ */ React31.createElement(
+  return /* @__PURE__ */ React39.createElement("div", { ref, className: "lamp-tablewrap " + className, ...rest }, toolbar ? /* @__PURE__ */ React39.createElement("div", { className: "lamp-tabletoolbar" }, toolbar) : null, selectable && selected.length > 0 ? /* @__PURE__ */ React39.createElement("div", { className: "lamp-tablebulk" }, /* @__PURE__ */ React39.createElement(Icon, { name: "check_circle", size: 14 }), selected.length, " selected", /* @__PURE__ */ React39.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 6 } }, bulkActions)) : null, /* @__PURE__ */ React39.createElement("div", { className: "lamp-tablewrap__scroll" }, /* @__PURE__ */ React39.createElement("table", { className: ["lamp-table", density !== "default" && "lamp-table--" + density, variant !== "standard" && "lamp-table--" + variant].filter(Boolean).join(" ") }, /* @__PURE__ */ React39.createElement("thead", null, /* @__PURE__ */ React39.createElement("tr", null, selectable ? /* @__PURE__ */ React39.createElement("th", { style: { width: 34 }, "data-pinned": true }, /* @__PURE__ */ React39.createElement(Checkbox, { checked: allSelected, indeterminate: selected.length > 0 && !allSelected, onChange: () => onSelectAll && onSelectAll(!allSelected), "aria-label": "Select all rows" })) : null, columns.map((c) => /* @__PURE__ */ React39.createElement(
     "th",
     {
       key: c.key,
@@ -1498,17 +2081,17 @@ var DataTable = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React31.forwardRef
       "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : void 0
     },
     c.header,
-    c.sortable ? /* @__PURE__ */ React31.createElement("span", { className: "lamp-table__sort" }, /* @__PURE__ */ React31.createElement(Icon, { name: sort && sort.key === c.key ? sort.dir === "asc" ? "arrow_upward" : "arrow_downward" : "unfold_more", size: 12 })) : null
-  )))), /* @__PURE__ */ React31.createElement("tbody", null, state === "loading" ? Array.from({ length: 6 }, (_, i) => /* @__PURE__ */ React31.createElement("tr", { key: i }, /* @__PURE__ */ React31.createElement("td", { colSpan: columns.length + (selectable ? 1 : 0) }, /* @__PURE__ */ React31.createElement("span", { className: "lamp-skel", style: { display: "block", height: 10, width: "60%" } })))) : null, state === "ready" ? rows.map((r, i) => {
+    c.sortable ? /* @__PURE__ */ React39.createElement("span", { className: "lamp-table__sort" }, /* @__PURE__ */ React39.createElement(Icon, { name: sort && sort.key === c.key ? sort.dir === "asc" ? "arrow_upward" : "arrow_downward" : "unfold_more", size: 12 })) : null
+  )))), /* @__PURE__ */ React39.createElement("tbody", null, state === "loading" ? Array.from({ length: 6 }, (_, i) => /* @__PURE__ */ React39.createElement("tr", { key: i }, /* @__PURE__ */ React39.createElement("td", { colSpan: columns.length + (selectable ? 1 : 0) }, /* @__PURE__ */ React39.createElement("span", { className: "lamp-skel", style: { display: "block", height: 10, width: "60%" } })))) : null, state === "ready" ? rows.map((r, i) => {
     const key = rowKey(r, i);
     const isSel = selected.indexOf(key) !== -1;
-    return /* @__PURE__ */ React31.createElement("tr", { key, "data-selected": isSel ? "" : void 0, onClick: onRowClick ? () => onRowClick(r) : void 0, style: onRowClick ? { cursor: "pointer" } : void 0 }, selectable ? /* @__PURE__ */ React31.createElement("td", { "data-pinned": true, onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React31.createElement(Checkbox, { checked: isSel, onChange: () => onSelect && onSelect(key, !isSel), "aria-label": "Select row" })) : null, columns.map((c) => /* @__PURE__ */ React31.createElement("td", { key: c.key, "data-align": c.align, "data-mono": c.mono ? "" : void 0, "data-pinned": c.pinned ? "" : void 0 }, c.render ? c.render(r) : r[c.key])));
-  }) : null), footerRow ? /* @__PURE__ */ React31.createElement("tfoot", null, /* @__PURE__ */ React31.createElement("tr", null, footerRow)) : null), state === "empty" ? /* @__PURE__ */ React31.createElement("div", { className: "lamp-table__empty" }, emptyState) : null));
+    return /* @__PURE__ */ React39.createElement("tr", { key, "data-selected": isSel ? "" : void 0, onClick: onRowClick ? () => onRowClick(r) : void 0, style: onRowClick ? { cursor: "pointer" } : void 0 }, selectable ? /* @__PURE__ */ React39.createElement("td", { "data-pinned": true, onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React39.createElement(Checkbox, { checked: isSel, onChange: () => onSelect && onSelect(key, !isSel), "aria-label": "Select row" })) : null, columns.map((c) => /* @__PURE__ */ React39.createElement("td", { key: c.key, "data-align": c.align, "data-mono": c.mono ? "" : void 0, "data-pinned": c.pinned ? "" : void 0 }, c.render ? c.render(r) : r[c.key])));
+  }) : null), footerRow ? /* @__PURE__ */ React39.createElement("tfoot", null, /* @__PURE__ */ React39.createElement("tr", null, footerRow)) : null), state === "empty" ? /* @__PURE__ */ React39.createElement("div", { className: "lamp-table__empty" }, emptyState) : null));
 }), { displayName: "DataTable" });
 
 // project/components/data/DonutChart.jsx
-import React32 from "react";
-var DonutChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React32.forwardRef(function DonutChart2({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = "", ...rest }, ref) {
+import React40 from "react";
+var DonutChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React40.forwardRef(function DonutChart2({ data = [], size = 132, thickness = 12, centerValue, centerLabel, gauge = false, max, startAngle = -90, className = "", ...rest }, ref) {
   const r = (size - thickness) / 2;
   const c = size / 2;
   const total = max != null ? max : data.reduce((a, d) => a + d.value, 0) || 1;
@@ -1520,18 +2103,18 @@ var DonutChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React32.forwardRe
     const large = to - from > 180 ? 1 : 0;
     const x1 = c + r * Math.cos(a1), y1 = c + r * Math.sin(a1);
     const x2 = c + r * Math.cos(a2), y2 = c + r * Math.sin(a2);
-    return /* @__PURE__ */ React32.createElement("path", { key, d: "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 " + large + " 1 " + x2 + "," + y2, fill: "none", stroke: color, strokeWidth: thickness, strokeLinecap: gauge ? "round" : "butt" });
+    return /* @__PURE__ */ React40.createElement("path", { key, d: "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 " + large + " 1 " + x2 + "," + y2, fill: "none", stroke: color, strokeWidth: thickness, strokeLinecap: gauge ? "round" : "butt" });
   };
-  return /* @__PURE__ */ React32.createElement("svg", { ref, width: size, height: size, viewBox: "0 0 " + size + " " + size, role: "img", className, ...rest }, arc(0, sweep - 0.01, "var(--chart-track)", "track"), data.map((d, i) => {
+  return /* @__PURE__ */ React40.createElement("svg", { ref, width: size, height: size, viewBox: "0 0 " + size + " " + size, role: "img", className, ...rest }, arc(0, sweep - 0.01, "var(--chart-track)", "track"), data.map((d, i) => {
     const from = acc / total * sweep;
     acc += d.value;
     const to = acc / total * sweep;
     return arc(from, Math.min(to, sweep - 0.01), d.color || seriesColor(i), d.label || i);
-  }), centerValue != null ? /* @__PURE__ */ React32.createElement("g", null, /* @__PURE__ */ React32.createElement("text", { x: c, y: c + (centerLabel ? 0 : 5), textAnchor: "middle", style: { fill: "var(--text-primary)", font: "500 18px var(--font-sans)", fontVariantNumeric: "tabular-nums" } }, centerValue), centerLabel ? /* @__PURE__ */ React32.createElement("text", { x: c, y: c + 15, textAnchor: "middle", style: { fill: "var(--text-tertiary)", font: "400 10px var(--font-sans)" } }, centerLabel) : null) : null);
+  }), centerValue != null ? /* @__PURE__ */ React40.createElement("g", null, /* @__PURE__ */ React40.createElement("text", { x: c, y: c + (centerLabel ? 0 : 5), textAnchor: "middle", style: { fill: "var(--text-primary)", font: "500 18px var(--font-sans)", fontVariantNumeric: "tabular-nums" } }, centerValue), centerLabel ? /* @__PURE__ */ React40.createElement("text", { x: c, y: c + 15, textAnchor: "middle", style: { fill: "var(--text-tertiary)", font: "400 10px var(--font-sans)" } }, centerLabel) : null) : null);
 }), { displayName: "DonutChart" });
 
 // project/components/data/Heatmap.jsx
-import React33 from "react";
+import React41 from "react";
 var RAMPS = {
   gold: ["var(--gold-50)", "var(--gold-200)", "var(--gold-400)", "var(--gold-600)", "var(--gold-800)"],
   blue: ["var(--blue-100)", "var(--blue-300)", "var(--blue-500)", "var(--blue-600)", "var(--blue-700)"],
@@ -1545,9 +2128,9 @@ function heatColor(value, max, ramp = "gold") {
   const i = Math.min(steps.length - 1, Math.floor(value / (max || 1) * steps.length));
   return steps[i];
 }
-var Heatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React33.forwardRef(function Heatmap2({ rows = [], columns = [], values = [], max, ramp = "gold", cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = "", ...rest }, ref) {
+var Heatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React41.forwardRef(function Heatmap2({ rows = [], columns = [], values = [], max, ramp = "gold", cellSize = 18, gap = 2, showScale = true, format = (v) => v, className = "", ...rest }, ref) {
   const m = max != null ? max : Math.max.apply(null, values.reduce((a, r) => a.concat(r), [0]));
-  return /* @__PURE__ */ React33.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ React33.createElement("div", { style: { display: "grid", gridTemplateColumns: (rows.length ? "auto " : "") + "repeat(" + columns.length + ", " + cellSize + "px)", gap, alignItems: "center" } }, rows.length ? /* @__PURE__ */ React33.createElement("span", null) : null, columns.map((c) => /* @__PURE__ */ React33.createElement("span", { key: c, style: { fontSize: 10, color: "var(--text-tertiary)", textAlign: "center" } }, c)), values.map((row, ri) => /* @__PURE__ */ React33.createElement(React33.Fragment, { key: ri }, rows.length ? /* @__PURE__ */ React33.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", paddingRight: 6, whiteSpace: "nowrap", textAlign: "right" } }, rows[ri]) : null, row.map((v, ci) => /* @__PURE__ */ React33.createElement(
+  return /* @__PURE__ */ React41.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ React41.createElement("div", { style: { display: "grid", gridTemplateColumns: (rows.length ? "auto " : "") + "repeat(" + columns.length + ", " + cellSize + "px)", gap, alignItems: "center" } }, rows.length ? /* @__PURE__ */ React41.createElement("span", null) : null, columns.map((c) => /* @__PURE__ */ React41.createElement("span", { key: c, style: { fontSize: 10, color: "var(--text-tertiary)", textAlign: "center" } }, c)), values.map((row, ri) => /* @__PURE__ */ React41.createElement(React41.Fragment, { key: ri }, rows.length ? /* @__PURE__ */ React41.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)", paddingRight: 6, whiteSpace: "nowrap", textAlign: "right" } }, rows[ri]) : null, row.map((v, ci) => /* @__PURE__ */ React41.createElement(
     "span",
     {
       key: ci,
@@ -1555,13 +2138,13 @@ var Heatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React33.forwardRef(f
       title: (rows[ri] || "") + " " + (columns[ci] || "") + ": " + format(v),
       style: { width: cellSize, height: cellSize, background: heatColor(v, m, ramp), borderRadius: 2 }
     }
-  ))))), showScale ? /* @__PURE__ */ React33.createElement("div", { className: "lamp-heat__scale", style: { marginTop: 8 } }, /* @__PURE__ */ React33.createElement("span", null, "Low"), (RAMPS[ramp] || RAMPS.gold).map((c) => /* @__PURE__ */ React33.createElement("span", { key: c, className: "lamp-heat__scale-swatch", style: { background: c } })), /* @__PURE__ */ React33.createElement("span", null, "High"), /* @__PURE__ */ React33.createElement("span", { style: { marginLeft: "auto", fontFamily: "var(--font-mono)" } }, "max ", format(m))) : null);
+  ))))), showScale ? /* @__PURE__ */ React41.createElement("div", { className: "lamp-heat__scale", style: { marginTop: 8 } }, /* @__PURE__ */ React41.createElement("span", null, "Low"), (RAMPS[ramp] || RAMPS.gold).map((c) => /* @__PURE__ */ React41.createElement("span", { key: c, className: "lamp-heat__scale-swatch", style: { background: c } })), /* @__PURE__ */ React41.createElement("span", null, "High"), /* @__PURE__ */ React41.createElement("span", { style: { marginLeft: "auto", fontFamily: "var(--font-mono)" } }, "max ", format(m))) : null);
 }), { displayName: "Heatmap" });
 Heatmap.heatColor = heatColor;
 
 // project/components/data/HexHeatmap.jsx
-import React34 from "react";
-var HexHeatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React34.forwardRef(function HexHeatmap2({ cells = [], size = 26, gap = 2, max, ramp = "gold", showLabels = false, onSelect, className = "", ...rest }, ref) {
+import React42 from "react";
+var HexHeatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React42.forwardRef(function HexHeatmap2({ cells = [], size = 26, gap = 2, max, ramp = "gold", showLabels = false, onSelect, className = "", ...rest }, ref) {
   const w = size;
   const h = size / 1.1547;
   const stepX = w * 0.75 + gap;
@@ -1576,18 +2159,18 @@ var HexHeatmap = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React34.forwardRe
     return { ...c, x, y, key: c.key == null ? i : c.key };
   });
   const pts = [[w * 0.25, 0], [w * 0.75, 0], [w, h / 2], [w * 0.75, h], [w * 0.25, h], [0, h / 2]].map((p) => p.join(",")).join(" ");
-  return /* @__PURE__ */ React34.createElement("svg", { ref, width: maxX, height: maxY, viewBox: "0 0 " + maxX + " " + maxY, role: "img", className, ...rest }, placed.map((c) => /* @__PURE__ */ React34.createElement("g", { key: c.key, transform: "translate(" + c.x + "," + c.y + ")", onClick: onSelect ? () => onSelect(c) : void 0, style: onSelect ? { cursor: "pointer" } : void 0 }, /* @__PURE__ */ React34.createElement("polygon", { points: pts, fill: c.color || heatColor(c.value, m, ramp), stroke: c.selected ? "var(--gold-500)" : "var(--border-subtle)", strokeWidth: c.selected ? 1.5 : 0.75 }), /* @__PURE__ */ React34.createElement("title", null, (c.label || "") + (c.value != null ? ": " + c.value : "")), showLabels && c.short ? /* @__PURE__ */ React34.createElement("text", { x: w / 2, y: h / 2 + 3, textAnchor: "middle", style: { fill: "var(--text-primary)", font: "600 8px var(--font-sans)" } }, c.short) : null)));
+  return /* @__PURE__ */ React42.createElement("svg", { ref, width: maxX, height: maxY, viewBox: "0 0 " + maxX + " " + maxY, role: "img", className, ...rest }, placed.map((c) => /* @__PURE__ */ React42.createElement("g", { key: c.key, transform: "translate(" + c.x + "," + c.y + ")", onClick: onSelect ? () => onSelect(c) : void 0, style: onSelect ? { cursor: "pointer" } : void 0 }, /* @__PURE__ */ React42.createElement("polygon", { points: pts, fill: c.color || heatColor(c.value, m, ramp), stroke: c.selected ? "var(--gold-500)" : "var(--border-subtle)", strokeWidth: c.selected ? 1.5 : 0.75 }), /* @__PURE__ */ React42.createElement("title", null, (c.label || "") + (c.value != null ? ": " + c.value : "")), showLabels && c.short ? /* @__PURE__ */ React42.createElement("text", { x: w / 2, y: h / 2 + 3, textAnchor: "middle", style: { fill: "var(--text-primary)", font: "600 8px var(--font-sans)" } }, c.short) : null)));
 }), { displayName: "HexHeatmap" });
 
 // project/components/data/LineChart.jsx
-import React35 from "react";
+import React43 from "react";
 var niceTick2 = (v, max) => {
   if (max >= 1e3) return Math.round(v / 100) * 100 >= 1e3 ? Math.round(v / 100) / 10 + "k" : String(Math.round(v));
   if (max >= 10) return String(Math.round(v));
   if (max >= 1) return (Math.round(v * 10) / 10).toFixed(1);
   return (Math.round(v * 100) / 100).toFixed(2);
 };
-var LineChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React35.forwardRef(function LineChart2({
+var LineChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React43.forwardRef(function LineChart2({
   series = [],
   labels = [],
   width = 640,
@@ -1613,26 +2196,26 @@ var LineChart = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React35.forwardRef
   const y = (v) => pad.t + ih - (v - yMin) / (max - yMin || 1) * ih;
   const ticks = Array.from({ length: yTicks + 1 }, (_, i) => yMin + (max - yMin) / yTicks * i);
   const fmt = format || ((v) => niceTick2(v, max));
-  return /* @__PURE__ */ React35.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, className: "lamp-chart__svg " + className, role: "img", preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ React35.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ React35.createElement("line", { key: i, x1: pad.l, x2: width - pad.r, y1: y(t), y2: y(t) }))) : null, showAxis ? /* @__PURE__ */ React35.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ React35.createElement("text", { key: i, x: pad.l - 6, y: y(t) + 4, textAnchor: "end" }, fmt(t))), labels.map((l, i) => i % Math.ceil(labels.length / 7) === 0 ? /* @__PURE__ */ React35.createElement("text", { key: i, x: x(i), y: height - 5, textAnchor: "middle" }, l) : null)) : null, thresholds.map((t, i) => /* @__PURE__ */ React35.createElement("g", { key: i }, /* @__PURE__ */ React35.createElement("line", { x1: pad.l, x2: width - pad.r, y1: y(t.value), y2: y(t.value), stroke: t.critical ? "var(--chart-critical)" : "var(--chart-threshold)", strokeWidth: 1, strokeDasharray: "4 3" }))), series.map((s, si) => {
+  return /* @__PURE__ */ React43.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, className: "lamp-chart__svg " + className, role: "img", preserveAspectRatio: "none", ...rest }, showGrid ? /* @__PURE__ */ React43.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ React43.createElement("line", { key: i, x1: pad.l, x2: width - pad.r, y1: y(t), y2: y(t) }))) : null, showAxis ? /* @__PURE__ */ React43.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ React43.createElement("text", { key: i, x: pad.l - 6, y: y(t) + 4, textAnchor: "end" }, fmt(t))), labels.map((l, i) => i % Math.ceil(labels.length / 7) === 0 ? /* @__PURE__ */ React43.createElement("text", { key: i, x: x(i), y: height - 5, textAnchor: "middle" }, l) : null)) : null, thresholds.map((t, i) => /* @__PURE__ */ React43.createElement("g", { key: i }, /* @__PURE__ */ React43.createElement("line", { x1: pad.l, x2: width - pad.r, y1: y(t.value), y2: y(t.value), stroke: t.critical ? "var(--chart-critical)" : "var(--chart-threshold)", strokeWidth: 1, strokeDasharray: "4 3" }))), series.map((s, si) => {
     const color = s.color || seriesColor(si);
     const path = s.data.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" ");
-    return /* @__PURE__ */ React35.createElement("g", { key: s.label || si }, variant === "area" ? /* @__PURE__ */ React35.createElement("path", { d: path + " L" + x(s.data.length - 1) + "," + y(yMin) + " L" + pad.l + "," + y(yMin) + " Z", fill: color, opacity: 0.14 }) : null, /* @__PURE__ */ React35.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.5, strokeDasharray: s.dashed ? "4 3" : void 0, strokeLinejoin: "round", strokeLinecap: "round" }), s.points ? s.data.map((v, i) => /* @__PURE__ */ React35.createElement("circle", { key: i, cx: x(i), cy: y(v), r: 2, fill: "var(--surface-primary)", stroke: color, strokeWidth: 1.25 })) : null);
+    return /* @__PURE__ */ React43.createElement("g", { key: s.label || si }, variant === "area" ? /* @__PURE__ */ React43.createElement("path", { d: path + " L" + x(s.data.length - 1) + "," + y(yMin) + " L" + pad.l + "," + y(yMin) + " Z", fill: color, opacity: 0.14 }) : null, /* @__PURE__ */ React43.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.5, strokeDasharray: s.dashed ? "4 3" : void 0, strokeLinejoin: "round", strokeLinecap: "round" }), s.points ? s.data.map((v, i) => /* @__PURE__ */ React43.createElement("circle", { key: i, cx: x(i), cy: y(v), r: 2, fill: "var(--surface-primary)", stroke: color, strokeWidth: 1.25 })) : null);
   }));
 }), { displayName: "LineChart" });
 
 // project/components/data/MetricCard.jsx
-import React36 from "react";
-var MetricCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React36.forwardRef(function MetricCard2({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = "lg", flush = false, glyph, footnote, spark, actions, className = "", ...rest }, ref) {
+import React44 from "react";
+var MetricCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React44.forwardRef(function MetricCard2({ label, value, unit, delta, deltaDirection, deltaTone, deltaLabel, size = "lg", flush = false, glyph, footnote, spark, actions, className = "", ...rest }, ref) {
   const dir = deltaDirection || (delta && String(delta).trim().startsWith("-") ? "down" : delta ? "up" : "flat");
   const tone = deltaTone || (dir === "up" ? "positive" : dir === "down" ? "negative" : "flat");
-  return /* @__PURE__ */ React36.createElement("div", { ref, className: ["lamp-metric", size === "sm" && "lamp-metric--sm", flush && "lamp-metric--flush", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__label" }, glyph ? /* @__PURE__ */ React36.createElement(Icon, { name: glyph, size: 12 }) : null, label, actions ? /* @__PURE__ */ React36.createElement("span", { style: { marginLeft: "auto" } }, actions) : null), /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__row" }, /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__value" }, value), unit ? /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__unit" }, unit) : null, delta ? /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__delta lamp-metric__delta--" + tone }, /* @__PURE__ */ React36.createElement(Icon, { name: dir === "up" ? "trending_up" : dir === "down" ? "trending_down" : "trending_flat", size: 13 }), delta) : null), spark ? /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__spark" }, spark) : null, footnote || deltaLabel ? /* @__PURE__ */ React36.createElement("span", { className: "lamp-metric__foot" }, footnote || deltaLabel) : null);
+  return /* @__PURE__ */ React44.createElement("div", { ref, className: ["lamp-metric", size === "sm" && "lamp-metric--sm", flush && "lamp-metric--flush", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__label" }, glyph ? /* @__PURE__ */ React44.createElement(Icon, { name: glyph, size: 12 }) : null, label, actions ? /* @__PURE__ */ React44.createElement("span", { style: { marginLeft: "auto" } }, actions) : null), /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__row" }, /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__value" }, value), unit ? /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__unit" }, unit) : null, delta ? /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__delta lamp-metric__delta--" + tone }, /* @__PURE__ */ React44.createElement(Icon, { name: dir === "up" ? "trending_up" : dir === "down" ? "trending_down" : "trending_flat", size: 13 }), delta) : null), spark ? /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__spark" }, spark) : null, footnote || deltaLabel ? /* @__PURE__ */ React44.createElement("span", { className: "lamp-metric__foot" }, footnote || deltaLabel) : null);
 }), { displayName: "MetricCard" });
 
 // project/components/data/ProgressBar.jsx
-import React37 from "react";
-var ProgressBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React37.forwardRef(function ProgressBar2({ value = 0, max = 100, tone = "primary", height = 6, indeterminate = false, label, className = "", ...rest }, ref) {
+import React45 from "react";
+var ProgressBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React45.forwardRef(function ProgressBar2({ value = 0, max = 100, tone = "primary", height = 6, indeterminate = false, label, className = "", ...rest }, ref) {
   const pct = indeterminate ? 0 : Math.max(0, Math.min(100, value / max * 100));
-  return /* @__PURE__ */ React37.createElement("div", { ref, className: "lamp-bar-track " + className, style: { height }, role: "progressbar", "aria-valuenow": indeterminate ? void 0 : value, "aria-valuemax": max, "aria-label": label, ...rest }, /* @__PURE__ */ React37.createElement(
+  return /* @__PURE__ */ React45.createElement("div", { ref, className: "lamp-bar-track " + className, style: { height }, role: "progressbar", "aria-valuenow": indeterminate ? void 0 : value, "aria-valuemax": max, "aria-label": label, ...rest }, /* @__PURE__ */ React45.createElement(
     "div",
     {
       className: ["lamp-bar-fill", tone !== "primary" && "lamp-bar-fill--" + tone, indeterminate && "lamp-bar-fill--indeterminate"].filter(Boolean).join(" "),
@@ -1640,15 +2223,15 @@ var ProgressBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React37.forwardR
     }
   ));
 }), { displayName: "ProgressBar" });
-var UsageMeter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React37.forwardRef(function UsageMeter2({ label, used, limit, unit, tone, footnote, format = (v) => v.toLocaleString(), className = "", ...rest }, ref) {
+var UsageMeter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React45.forwardRef(function UsageMeter2({ label, used, limit, unit, tone, footnote, format = (v) => v.toLocaleString(), className = "", ...rest }, ref) {
   const pct = limit ? used / limit * 100 : 0;
   const auto = pct >= 100 ? "danger" : pct >= 85 ? "warning" : "primary";
-  return /* @__PURE__ */ React37.createElement("div", { ref, className: "lamp-usage " + className, ...rest }, /* @__PURE__ */ React37.createElement("div", { className: "lamp-usage__top" }, label, /* @__PURE__ */ React37.createElement("span", { className: "lamp-usage__val" }, format(used), " / ", format(limit), unit ? " " + unit : "")), /* @__PURE__ */ React37.createElement(ProgressBar, { value: used, max: limit, tone: tone || auto, label }), footnote ? /* @__PURE__ */ React37.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, footnote) : null);
+  return /* @__PURE__ */ React45.createElement("div", { ref, className: "lamp-usage " + className, ...rest }, /* @__PURE__ */ React45.createElement("div", { className: "lamp-usage__top" }, label, /* @__PURE__ */ React45.createElement("span", { className: "lamp-usage__val" }, format(used), " / ", format(limit), unit ? " " + unit : "")), /* @__PURE__ */ React45.createElement(ProgressBar, { value: used, max: limit, tone: tone || auto, label }), footnote ? /* @__PURE__ */ React45.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, footnote) : null);
 }), { displayName: "UsageMeter" });
 
 // project/components/data/ScatterPlot.jsx
-import React38 from "react";
-var ScatterPlot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React38.forwardRef(function ScatterPlot2({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = "", ...rest }, ref) {
+import React46 from "react";
+var ScatterPlot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React46.forwardRef(function ScatterPlot2({ points = [], width = 640, height = 200, xMax, yMax, xLabel, yLabel, quadrant, pad = { l: 36, r: 10, t: 10, b: 22 }, format = (v) => v, className = "", ...rest }, ref) {
   const xm = xMax != null ? xMax : Math.max.apply(null, points.map((p) => p.x).concat([1]));
   const ym = yMax != null ? yMax : Math.max.apply(null, points.map((p) => p.y).concat([1]));
   const iw = width - pad.l - pad.r;
@@ -1656,12 +2239,12 @@ var ScatterPlot = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React38.forwardR
   const X = (v) => pad.l + v / xm * iw;
   const Y = (v) => pad.t + ih - v / ym * ih;
   const ticks = [0, 0.25, 0.5, 0.75, 1];
-  return /* @__PURE__ */ React38.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, /* @__PURE__ */ React38.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ React38.createElement("line", { key: "h" + i, x1: pad.l, x2: width - pad.r, y1: Y(ym * t), y2: Y(ym * t) })), ticks.map((t, i) => /* @__PURE__ */ React38.createElement("line", { key: "v" + i, y1: pad.t, y2: pad.t + ih, x1: X(xm * t), x2: X(xm * t) }))), quadrant ? /* @__PURE__ */ React38.createElement("line", { x1: X(quadrant.x), x2: X(quadrant.x), y1: pad.t, y2: pad.t + ih, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, quadrant ? /* @__PURE__ */ React38.createElement("line", { y1: Y(quadrant.y), y2: Y(quadrant.y), x1: pad.l, x2: width - pad.r, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, /* @__PURE__ */ React38.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ React38.createElement("text", { key: i, x: pad.l - 6, y: Y(ym * t) + 4, textAnchor: "end" }, format(Math.round(ym * t)))), xLabel ? /* @__PURE__ */ React38.createElement("text", { x: pad.l + iw / 2, y: height - 4, textAnchor: "middle" }, xLabel) : null, yLabel ? /* @__PURE__ */ React38.createElement("text", { x: 10, y: pad.t + 4, textAnchor: "start" }, yLabel) : null), points.map((p, i) => /* @__PURE__ */ React38.createElement("circle", { key: i, cx: X(p.x), cy: Y(p.y), r: p.r || 3.5, fill: p.color || seriesColor(p.group || 0), opacity: 0.75, stroke: "var(--surface-primary)", strokeWidth: 0.75 }, p.label ? /* @__PURE__ */ React38.createElement("title", null, p.label) : null)));
+  return /* @__PURE__ */ React46.createElement("svg", { ref, width: "100%", height, viewBox: "0 0 " + width + " " + height, role: "img", className, preserveAspectRatio: "none", ...rest }, /* @__PURE__ */ React46.createElement("g", { className: "lamp-chart__grid" }, ticks.map((t, i) => /* @__PURE__ */ React46.createElement("line", { key: "h" + i, x1: pad.l, x2: width - pad.r, y1: Y(ym * t), y2: Y(ym * t) })), ticks.map((t, i) => /* @__PURE__ */ React46.createElement("line", { key: "v" + i, y1: pad.t, y2: pad.t + ih, x1: X(xm * t), x2: X(xm * t) }))), quadrant ? /* @__PURE__ */ React46.createElement("line", { x1: X(quadrant.x), x2: X(quadrant.x), y1: pad.t, y2: pad.t + ih, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, quadrant ? /* @__PURE__ */ React46.createElement("line", { y1: Y(quadrant.y), y2: Y(quadrant.y), x1: pad.l, x2: width - pad.r, stroke: "var(--chart-threshold)", strokeDasharray: "4 3" }) : null, /* @__PURE__ */ React46.createElement("g", { className: "lamp-chart__axis" }, ticks.map((t, i) => /* @__PURE__ */ React46.createElement("text", { key: i, x: pad.l - 6, y: Y(ym * t) + 4, textAnchor: "end" }, format(Math.round(ym * t)))), xLabel ? /* @__PURE__ */ React46.createElement("text", { x: pad.l + iw / 2, y: height - 4, textAnchor: "middle" }, xLabel) : null, yLabel ? /* @__PURE__ */ React46.createElement("text", { x: 10, y: pad.t + 4, textAnchor: "start" }, yLabel) : null), points.map((p, i) => /* @__PURE__ */ React46.createElement("circle", { key: i, cx: X(p.x), cy: Y(p.y), r: p.r || 3.5, fill: p.color || seriesColor(p.group || 0), opacity: 0.75, stroke: "var(--surface-primary)", strokeWidth: 0.75 }, p.label ? /* @__PURE__ */ React46.createElement("title", null, p.label) : null)));
 }), { displayName: "ScatterPlot" });
 
 // project/components/data/Sparkline.jsx
-import React39 from "react";
-var Sparkline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React39.forwardRef(function Sparkline2({ data = [], width = 96, height = 24, color = "var(--chart-primary)", variant = "line", area = true, baseline, className = "", ...rest }, ref) {
+import React47 from "react";
+var Sparkline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React47.forwardRef(function Sparkline2({ data = [], width = 96, height = 24, color = "var(--chart-primary)", variant = "line", area = true, baseline, className = "", ...rest }, ref) {
   if (!data.length) return null;
   const max = Math.max.apply(null, data);
   const min = Math.min.apply(null, data);
@@ -1670,14 +2253,14 @@ var Sparkline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React39.forwardRef
   const y = (v) => height - (v - min) / span * (height - 2) - 1;
   if (variant === "bar") {
     const bw = Math.max(1, width / data.length - 1);
-    return /* @__PURE__ */ React39.createElement("svg", { width, height, className, role: "img", "aria-hidden": "true", ...rest }, data.map((v, i) => /* @__PURE__ */ React39.createElement("rect", { key: i, x: i / data.length * width, y: y(v), width: bw, height: height - y(v), fill: color, rx: 1 })));
+    return /* @__PURE__ */ React47.createElement("svg", { width, height, className, role: "img", "aria-hidden": "true", ...rest }, data.map((v, i) => /* @__PURE__ */ React47.createElement("rect", { key: i, x: i / data.length * width, y: y(v), width: bw, height: height - y(v), fill: color, rx: 1 })));
   }
   const path = data.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1)).join(" ");
-  return /* @__PURE__ */ React39.createElement("svg", { ref, width, height, className, role: "img", "aria-hidden": "true", ...rest }, area ? /* @__PURE__ */ React39.createElement("path", { d: path + " L" + width + "," + height + " L0," + height + " Z", fill: color, opacity: 0.12 }) : null, baseline != null ? /* @__PURE__ */ React39.createElement("line", { x1: 0, x2: width, y1: y(baseline), y2: y(baseline), stroke: "var(--chart-grid)", strokeDasharray: "2 2" }) : null, /* @__PURE__ */ React39.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.25, strokeLinejoin: "round", strokeLinecap: "round" }));
+  return /* @__PURE__ */ React47.createElement("svg", { ref, width, height, className, role: "img", "aria-hidden": "true", ...rest }, area ? /* @__PURE__ */ React47.createElement("path", { d: path + " L" + width + "," + height + " L0," + height + " Z", fill: color, opacity: 0.12 }) : null, baseline != null ? /* @__PURE__ */ React47.createElement("line", { x1: 0, x2: width, y1: y(baseline), y2: y(baseline), stroke: "var(--chart-grid)", strokeDasharray: "2 2" }) : null, /* @__PURE__ */ React47.createElement("path", { d: path, fill: "none", stroke: color, strokeWidth: 1.25, strokeLinejoin: "round", strokeLinecap: "round" }));
 }), { displayName: "Sparkline" });
 
 // project/components/data/Viz.jsx
-import React40 from "react";
+import React48 from "react";
 var VIZ_TIERS = {
   line: "standard",
   area: "standard",
@@ -1704,25 +2287,25 @@ var VIZ_TIERS = {
   telemetry: "realtime"
 };
 var RENDER = {
-  line: (p) => /* @__PURE__ */ React40.createElement(LineChart, { ...p }),
-  area: (p) => /* @__PURE__ */ React40.createElement(LineChart, { variant: "area", ...p }),
-  bar: (p) => /* @__PURE__ */ React40.createElement(BarChart, { ...p }),
-  hbar: (p) => /* @__PURE__ */ React40.createElement(BarChart, { orientation: "horizontal", showValues: true, ...p }),
-  stackedBar: (p) => /* @__PURE__ */ React40.createElement(BarChart, { stacked: true, ...p }),
-  normalizedBar: (p) => /* @__PURE__ */ React40.createElement(BarChart, { stacked: true, normalized: true, ...p }),
-  histogram: (p) => /* @__PURE__ */ React40.createElement(BarChart, { barGap: 1, ...p }),
-  donut: (p) => /* @__PURE__ */ React40.createElement(DonutChart, { ...p }),
-  gauge: (p) => /* @__PURE__ */ React40.createElement(DonutChart, { gauge: true, ...p }),
-  scatter: (p) => /* @__PURE__ */ React40.createElement(ScatterPlot, { ...p }),
-  sparkline: (p) => /* @__PURE__ */ React40.createElement(Sparkline, { ...p }),
-  heatmap: (p) => /* @__PURE__ */ React40.createElement(Heatmap, { ...p }),
-  calendar: (p) => /* @__PURE__ */ React40.createElement(Heatmap, { cellSize: 11, ...p }),
-  hive: (p) => /* @__PURE__ */ React40.createElement(HexHeatmap, { ...p })
+  line: (p) => /* @__PURE__ */ React48.createElement(LineChart, { ...p }),
+  area: (p) => /* @__PURE__ */ React48.createElement(LineChart, { variant: "area", ...p }),
+  bar: (p) => /* @__PURE__ */ React48.createElement(BarChart, { ...p }),
+  hbar: (p) => /* @__PURE__ */ React48.createElement(BarChart, { orientation: "horizontal", showValues: true, ...p }),
+  stackedBar: (p) => /* @__PURE__ */ React48.createElement(BarChart, { stacked: true, ...p }),
+  normalizedBar: (p) => /* @__PURE__ */ React48.createElement(BarChart, { stacked: true, normalized: true, ...p }),
+  histogram: (p) => /* @__PURE__ */ React48.createElement(BarChart, { barGap: 1, ...p }),
+  donut: (p) => /* @__PURE__ */ React48.createElement(DonutChart, { ...p }),
+  gauge: (p) => /* @__PURE__ */ React48.createElement(DonutChart, { gauge: true, ...p }),
+  scatter: (p) => /* @__PURE__ */ React48.createElement(ScatterPlot, { ...p }),
+  sparkline: (p) => /* @__PURE__ */ React48.createElement(Sparkline, { ...p }),
+  heatmap: (p) => /* @__PURE__ */ React48.createElement(Heatmap, { ...p }),
+  calendar: (p) => /* @__PURE__ */ React48.createElement(Heatmap, { cellSize: 11, ...p }),
+  hive: (p) => /* @__PURE__ */ React48.createElement(HexHeatmap, { ...p })
 };
-var Viz = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React40.forwardRef(function Viz2({ type = "line", title, subtitle, legend, legendVariant, footnote, state = "ready", height, actions, flush, config = {}, ...rest }, ref) {
+var Viz = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React48.forwardRef(function Viz2({ type = "line", title, subtitle, legend, legendVariant, footnote, state = "ready", height, actions, flush, config = {}, ...rest }, ref) {
   const render = RENDER[type];
   const chartState = state === "ready" && !render ? "error" : state;
-  return /* @__PURE__ */ React40.createElement(
+  return /* @__PURE__ */ React48.createElement(
     ChartFrame,
     {
       ref,
@@ -1742,19 +2325,19 @@ var Viz = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React40.forwardRef(funct
 }), { displayName: "Viz" });
 
 // project/components/feedback/EmptyState.jsx
-import React41 from "react";
-var EmptyState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React41.forwardRef(function EmptyState2({ glyph = "inbox", title, description, action, secondaryAction, align = "center", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React41.createElement("div", { ref, className: ["lamp-empty", align === "left" && "lamp-empty--left", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React41.createElement("span", { className: "lamp-empty__icon" }, /* @__PURE__ */ React41.createElement(Icon, { name: glyph, size: 18 })), title ? /* @__PURE__ */ React41.createElement("span", { className: "lamp-empty__title" }, title) : null, description ? /* @__PURE__ */ React41.createElement("span", { className: "lamp-empty__text" }, description) : null, action || secondaryAction ? /* @__PURE__ */ React41.createElement("span", { className: "lamp-empty__actions" }, action, secondaryAction) : null);
+import React49 from "react";
+var EmptyState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React49.forwardRef(function EmptyState2({ glyph = "inbox", title, description, action, secondaryAction, align = "center", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React49.createElement("div", { ref, className: ["lamp-empty", align === "left" && "lamp-empty--left", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React49.createElement("span", { className: "lamp-empty__icon" }, /* @__PURE__ */ React49.createElement(Icon, { name: glyph, size: 18 })), title ? /* @__PURE__ */ React49.createElement("span", { className: "lamp-empty__title" }, title) : null, description ? /* @__PURE__ */ React49.createElement("span", { className: "lamp-empty__text" }, description) : null, action || secondaryAction ? /* @__PURE__ */ React49.createElement("span", { className: "lamp-empty__actions" }, action, secondaryAction) : null);
 }), { displayName: "EmptyState" });
 
 // project/components/feedback/ErrorState.jsx
-import React42 from "react";
-var ErrorState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React42.forwardRef(function ErrorState2({ kind = "recoverable", title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React42.createElement("div", { ref, className: "lamp-err " + className, role: "alert", ...rest }, /* @__PURE__ */ React42.createElement("div", { className: "lamp-err__title" }, /* @__PURE__ */ React42.createElement(Icon, { name: kind === "fatal" ? "dangerous" : "error", size: 16 }), title), /* @__PURE__ */ React42.createElement("div", { className: "lamp-err__facts" }, happened ? /* @__PURE__ */ React42.createElement(React42.Fragment, null, /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__k" }, "What happened"), /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__v" }, happened)) : null, notHappened ? /* @__PURE__ */ React42.createElement(React42.Fragment, null, /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__k" }, "What did not"), /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__v" }, notHappened)) : null, impact ? /* @__PURE__ */ React42.createElement(React42.Fragment, null, /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__k" }, "Impact"), /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__v" }, impact)) : null, recovery ? /* @__PURE__ */ React42.createElement(React42.Fragment, null, /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__k" }, "Recovery"), /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__v" }, recovery)) : null), children, code ? /* @__PURE__ */ React42.createElement("span", { className: "lamp-err__code" }, code) : null, actions || onRetry || onReport ? /* @__PURE__ */ React42.createElement("div", { className: "lamp-err__actions" }, actions, onRetry ? /* @__PURE__ */ React42.createElement(Button, { size: "sm", variant: "secondary", icon: "refresh", onClick: onRetry }, "Retry") : null, onReport ? /* @__PURE__ */ React42.createElement(Button, { size: "sm", variant: "quiet", onClick: onReport }, "Report problem") : null) : null);
+import React50 from "react";
+var ErrorState = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React50.forwardRef(function ErrorState2({ kind = "recoverable", title, happened, notHappened, impact, recovery, code, actions, onRetry, onReport, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React50.createElement("div", { ref, className: "lamp-err " + className, role: "alert", ...rest }, /* @__PURE__ */ React50.createElement("div", { className: "lamp-err__title" }, /* @__PURE__ */ React50.createElement(Icon, { name: kind === "fatal" ? "dangerous" : "error", size: 16 }), title), /* @__PURE__ */ React50.createElement("div", { className: "lamp-err__facts" }, happened ? /* @__PURE__ */ React50.createElement(React50.Fragment, null, /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__k" }, "What happened"), /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__v" }, happened)) : null, notHappened ? /* @__PURE__ */ React50.createElement(React50.Fragment, null, /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__k" }, "What did not"), /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__v" }, notHappened)) : null, impact ? /* @__PURE__ */ React50.createElement(React50.Fragment, null, /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__k" }, "Impact"), /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__v" }, impact)) : null, recovery ? /* @__PURE__ */ React50.createElement(React50.Fragment, null, /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__k" }, "Recovery"), /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__v" }, recovery)) : null), children, code ? /* @__PURE__ */ React50.createElement("span", { className: "lamp-err__code" }, code) : null, actions || onRetry || onReport ? /* @__PURE__ */ React50.createElement("div", { className: "lamp-err__actions" }, actions, onRetry ? /* @__PURE__ */ React50.createElement(Button, { size: "sm", variant: "secondary", icon: "refresh", onClick: onRetry }, "Retry") : null, onReport ? /* @__PURE__ */ React50.createElement(Button, { size: "sm", variant: "quiet", onClick: onReport }, "Report problem") : null) : null);
 }), { displayName: "ErrorState" });
 
 // project/components/feedback/InlineNotification.jsx
-import React43 from "react";
+import React51 from "react";
 var TONE = {
   neutral: "info",
   info: "info",
@@ -1763,8 +2346,8 @@ var TONE = {
   danger: "error",
   critical: "dangerous"
 };
-var InlineNotification = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React43.forwardRef(function InlineNotification2({ tone = "neutral", title, children, actions, banner = false, onDismiss, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React43.createElement(
+var InlineNotification = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React51.forwardRef(function InlineNotification2({ tone = "neutral", title, children, actions, banner = false, onDismiss, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React51.createElement(
     "div",
     {
       ref,
@@ -1772,86 +2355,25 @@ var InlineNotification = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React43.f
       role: tone === "danger" || tone === "critical" ? "alert" : "status",
       ...rest
     },
-    /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__icon" }, /* @__PURE__ */ React43.createElement(Icon, { name: TONE[tone] || "info", size: 16 })),
-    /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__text" }, children) : null, actions ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__actions" }, actions) : null),
-    onDismiss ? /* @__PURE__ */ React43.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null
+    /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__icon" }, /* @__PURE__ */ React51.createElement(Icon, { name: TONE[tone] || "info", size: 16 })),
+    /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__text" }, children) : null, actions ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__actions" }, actions) : null),
+    onDismiss ? /* @__PURE__ */ React51.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null
   );
 }), { displayName: "InlineNotification" });
-var Toast = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React43.forwardRef(function Toast2({ tone = "neutral", title, children, action, onDismiss, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React43.createElement("div", { ref, className: "lamp-toast " + className, role: "status", ...rest }, /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__icon", style: { color: tone === "success" ? "var(--status-success)" : tone === "danger" ? "var(--status-danger)" : tone === "warning" ? "var(--status-warning)" : "var(--text-tertiary)" } }, /* @__PURE__ */ React43.createElement(Icon, { name: TONE[tone] || "info", size: 16 })), /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-note__text" }, children) : null), action ? /* @__PURE__ */ React43.createElement("span", { className: "lamp-toast__undo" }, action) : null, onDismiss ? /* @__PURE__ */ React43.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null);
+var Toast = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React51.forwardRef(function Toast2({ tone = "neutral", title, children, action, onDismiss, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React51.createElement("div", { ref, className: "lamp-toast " + className, role: "status", ...rest }, /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__icon", style: { color: tone === "success" ? "var(--status-success)" : tone === "danger" ? "var(--status-danger)" : tone === "warning" ? "var(--status-warning)" : "var(--text-tertiary)" } }, /* @__PURE__ */ React51.createElement(Icon, { name: TONE[tone] || "info", size: 16 })), /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__body" }, title ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__title" }, title) : null, children ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-note__text" }, children) : null), action ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-toast__undo" }, action) : null, onDismiss ? /* @__PURE__ */ React51.createElement(IconButton, { icon: "close", label: "Dismiss", size: "xs", onClick: onDismiss }) : null);
 }), { displayName: "Toast" });
-var ToastStack = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React43.forwardRef(function ToastStack2({ children, ...rest }, ref) {
-  return /* @__PURE__ */ React43.createElement("div", { ref, className: "lamp-toast__stack", ...rest }, children);
+var ToastStack = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React51.forwardRef(function ToastStack2({ children, ...rest }, ref) {
+  return /* @__PURE__ */ React51.createElement("div", { ref, className: "lamp-toast__stack", ...rest }, children);
 }), { displayName: "ToastStack" });
 
-// project/components/feedback/Modal.jsx
-import React44 from "react";
-var Modal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React44.forwardRef(function Modal2({ open = true, title, subtitle, glyph, size = "md", critical = false, footer, onClose, children, className = "", ...rest }, ref) {
-  if (!open) return null;
-  const width = size === "sm" ? "var(--modal-width-sm)" : size === "lg" ? "var(--modal-width-lg)" : "var(--modal-width-md)";
-  return /* @__PURE__ */ React44.createElement("div", { ref, className: "lamp-scrim", onClick: onClose }, /* @__PURE__ */ React44.createElement(
-    "div",
-    {
-      className: ["lamp-modal", critical && "lamp-modal--critical", className].filter(Boolean).join(" "),
-      style: { width },
-      role: critical ? "alertdialog" : "dialog",
-      "aria-modal": "true",
-      "aria-label": title,
-      onClick: (e) => e.stopPropagation(),
-      ...rest
-    },
-    /* @__PURE__ */ React44.createElement("div", { className: "lamp-modal__head" }, glyph ? /* @__PURE__ */ React44.createElement(Icon, { name: glyph, size: 18, style: { marginTop: 2, color: critical ? "var(--status-danger)" : "var(--text-secondary)" } }) : null, /* @__PURE__ */ React44.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React44.createElement("h2", { className: "lamp-modal__title" }, title), subtitle ? /* @__PURE__ */ React44.createElement("p", { className: "lamp-modal__sub" }, subtitle) : null), onClose ? /* @__PURE__ */ React44.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null),
-    /* @__PURE__ */ React44.createElement("div", { className: "lamp-modal__body" }, children),
-    footer ? /* @__PURE__ */ React44.createElement("div", { className: "lamp-modal__foot" }, footer) : null
-  ));
-}), { displayName: "Modal" });
-var CriticalConfirmation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React44.forwardRef(function CriticalConfirmation2({ open = true, title, consequences = [], scope, confirmLabel = "Confirm", cancelLabel = "Cancel", onCancel, onConfirm, children, ...rest }, ref) {
-  return /* @__PURE__ */ React44.createElement(
-    Modal,
-    {
-      ref,
-      open,
-      critical: true,
-      glyph: "dangerous",
-      size: "sm",
-      title,
-      onClose: onCancel,
-      footer: /* @__PURE__ */ React44.createElement(React44.Fragment, null, /* @__PURE__ */ React44.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, cancelLabel), /* @__PURE__ */ React44.createElement(Button, { size: "md", variant: "danger", onClick: onConfirm }, confirmLabel)),
-      ...rest
-    },
-    scope ? /* @__PURE__ */ React44.createElement("p", { style: { margin: "0 0 8px", color: "var(--text-primary)" } }, scope) : null,
-    consequences.length ? /* @__PURE__ */ React44.createElement(React44.Fragment, null, /* @__PURE__ */ React44.createElement("p", { style: { margin: "0 0 4px" } }, "Immediately:"), /* @__PURE__ */ React44.createElement("ul", { style: { margin: 0, paddingLeft: 18, lineHeight: "19px" } }, consequences.map((c) => /* @__PURE__ */ React44.createElement("li", { key: c }, c)))) : null,
-    children
-  );
-}), { displayName: "CriticalConfirmation" });
-var Drawer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React44.forwardRef(function Drawer2({ open = true, title, side = "right", width, actions, footer, onClose, children, className = "", ...rest }, ref) {
-  if (!open) return null;
-  return /* @__PURE__ */ React44.createElement(
-    "aside",
-    {
-      ref,
-      className: ["lamp-drawer", side === "left" && "lamp-drawer--left", className].filter(Boolean).join(" "),
-      style: width ? { width } : void 0,
-      role: "dialog",
-      "aria-label": title,
-      ...rest
-    },
-    /* @__PURE__ */ React44.createElement("header", { className: "lamp-drawer__head" }, /* @__PURE__ */ React44.createElement("span", { className: "lamp-drawer__title" }, title), /* @__PURE__ */ React44.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, onClose ? /* @__PURE__ */ React44.createElement(IconButton, { icon: "close", label: "Close", size: "sm", onClick: onClose }) : null)),
-    /* @__PURE__ */ React44.createElement("div", { className: "lamp-drawer__body" }, children),
-    footer ? /* @__PURE__ */ React44.createElement("div", { className: "lamp-modal__foot" }, footer) : null
-  );
-}), { displayName: "Drawer" });
-var Popover = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React44.forwardRef(function Popover2({ title, children, x, y, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React44.createElement("div", { ref, className: "lamp-popover " + className, style: { position: x != null ? "absolute" : void 0, left: x, top: y, ...style }, role: "dialog", ...rest }, title ? /* @__PURE__ */ React44.createElement("div", { className: "lamp-popover__head" }, title) : null, children);
-}), { displayName: "Popover" });
-
 // project/components/feedback/Skeleton.jsx
-import React45 from "react";
-var Skeleton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React45.forwardRef(function Skeleton2({ width = "100%", height = 10, radius, variant = "block", lines = 1, className = "", style, ...rest }, ref) {
+import React52 from "react";
+var Skeleton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React52.forwardRef(function Skeleton2({ width = "100%", height = 10, radius, variant = "block", lines = 1, className = "", style, ...rest }, ref) {
   if (variant === "text" && lines > 1) {
-    return /* @__PURE__ */ React45.createElement("span", { className, style: { display: "block" }, ...rest }, Array.from({ length: lines }, (_, i) => /* @__PURE__ */ React45.createElement("span", { key: i, className: "lamp-skel lamp-skel--text", style: { width: i === lines - 1 ? "60%" : "100%" } })));
+    return /* @__PURE__ */ React52.createElement("span", { className, style: { display: "block" }, ...rest }, Array.from({ length: lines }, (_, i) => /* @__PURE__ */ React52.createElement("span", { key: i, className: "lamp-skel lamp-skel--text", style: { width: i === lines - 1 ? "60%" : "100%" } })));
   }
-  return /* @__PURE__ */ React45.createElement(
+  return /* @__PURE__ */ React52.createElement(
     "span",
     {
       ref,
@@ -1862,144 +2384,71 @@ var Skeleton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React45.forwardRef(
     }
   );
 }), { displayName: "Skeleton" });
-var Spinner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React45.forwardRef(function Spinner2({ size = 14, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React45.createElement("span", { ref, className: "lamp-spin " + className, style: { width: size, height: size, ...style }, role: "status", "aria-label": "Loading", ...rest });
+var Spinner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React52.forwardRef(function Spinner2({ size = 14, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React52.createElement("span", { ref, className: "lamp-spin " + className, style: { width: size, height: size, ...style }, role: "status", "aria-label": "Loading", ...rest });
 }), { displayName: "Spinner" });
 
 // project/components/forms/CodeFrame.jsx
-import React46 from "react";
-var CodeFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React46.forwardRef(function CodeFrame2({ language = "json", title, children, actions, maxHeight, onCopy, ...rest }, ref) {
-  return /* @__PURE__ */ React46.createElement("div", { ref, className: "lamp-codeframe", ...rest }, /* @__PURE__ */ React46.createElement("div", { className: "lamp-codeframe__bar" }, /* @__PURE__ */ React46.createElement("span", { className: "lamp-codeframe__lang" }, language), title ? /* @__PURE__ */ React46.createElement("span", { style: { fontSize: 12, color: "var(--text-secondary)" } }, title) : null, /* @__PURE__ */ React46.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, /* @__PURE__ */ React46.createElement(IconButton, { icon: "content_copy", label: "Copy", size: "xs", onClick: onCopy }))), /* @__PURE__ */ React46.createElement("pre", { className: "lamp-codeframe__body", style: maxHeight ? { maxHeight } : void 0 }, children));
+import React53 from "react";
+var CodeFrame = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React53.forwardRef(function CodeFrame2({ language = "json", title, children, actions, maxHeight, onCopy, ...rest }, ref) {
+  return /* @__PURE__ */ React53.createElement("div", { ref, className: "lamp-codeframe", ...rest }, /* @__PURE__ */ React53.createElement("div", { className: "lamp-codeframe__bar" }, /* @__PURE__ */ React53.createElement("span", { className: "lamp-codeframe__lang" }, language), title ? /* @__PURE__ */ React53.createElement("span", { style: { fontSize: 12, color: "var(--text-secondary)" } }, title) : null, /* @__PURE__ */ React53.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions, /* @__PURE__ */ React53.createElement(IconButton, { icon: "content_copy", label: "Copy", size: "xs", onClick: onCopy }))), /* @__PURE__ */ React53.createElement("pre", { className: "lamp-codeframe__body", style: maxHeight ? { maxHeight } : void 0 }, children));
 }), { displayName: "CodeFrame" });
 
 // project/components/forms/Field.jsx
-import React47 from "react";
-var Field = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React47.forwardRef(function Field2({ label, htmlFor, description, helper, error, warning, success, required = false, optional = false, count, layout = "stack", children, className = "", ...rest }, ref) {
+import React54 from "react";
+var Field = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React54.forwardRef(function Field2({ label, htmlFor, description, helper, error, warning, success, required = false, optional = false, count, layout = "stack", children, className = "", ...rest }, ref) {
   const msg = error || warning || success;
   const msgTone = error ? "error" : warning ? "warning" : "success";
   const msgIcon = error ? "cancel" : warning ? "warning" : "check_circle";
-  return /* @__PURE__ */ React47.createElement("div", { ref, className: ["lamp-field", layout === "row" && "lamp-field--row", className].filter(Boolean).join(" "), ...rest }, label ? /* @__PURE__ */ React47.createElement("div", { className: "lamp-field__top" }, /* @__PURE__ */ React47.createElement("label", { className: "lamp-field__label", htmlFor }, label, required ? /* @__PURE__ */ React47.createElement("span", { className: "lamp-field__req" }, " *") : null), optional ? /* @__PURE__ */ React47.createElement("span", { className: "lamp-field__opt" }, "Optional") : null) : null, description ? /* @__PURE__ */ React47.createElement("p", { className: "lamp-field__desc" }, description) : null, children, msg || helper || count != null ? /* @__PURE__ */ React47.createElement("div", { className: "lamp-field__foot" }, msg ? /* @__PURE__ */ React47.createElement("span", { className: "lamp-field__msg lamp-field__msg--" + msgTone }, /* @__PURE__ */ React47.createElement(Icon, { name: msgIcon, size: 12 }), msg) : helper ? /* @__PURE__ */ React47.createElement("span", null, helper) : null, count != null ? /* @__PURE__ */ React47.createElement("span", { className: "lamp-field__count" }, count) : null) : null);
+  return /* @__PURE__ */ React54.createElement("div", { ref, className: ["lamp-field", layout === "row" && "lamp-field--row", className].filter(Boolean).join(" "), ...rest }, label ? /* @__PURE__ */ React54.createElement("div", { className: "lamp-field__top" }, /* @__PURE__ */ React54.createElement("label", { className: "lamp-field__label", htmlFor }, label, required ? /* @__PURE__ */ React54.createElement("span", { className: "lamp-field__req" }, " *") : null), optional ? /* @__PURE__ */ React54.createElement("span", { className: "lamp-field__opt" }, "Optional") : null) : null, description ? /* @__PURE__ */ React54.createElement("p", { className: "lamp-field__desc" }, description) : null, children, msg || helper || count != null ? /* @__PURE__ */ React54.createElement("div", { className: "lamp-field__foot" }, msg ? /* @__PURE__ */ React54.createElement("span", { className: "lamp-field__msg lamp-field__msg--" + msgTone }, /* @__PURE__ */ React54.createElement(Icon, { name: msgIcon, size: 12 }), msg) : helper ? /* @__PURE__ */ React54.createElement("span", null, helper) : null, count != null ? /* @__PURE__ */ React54.createElement("span", { className: "lamp-field__count" }, count) : null) : null);
 }), { displayName: "Field" });
 
 // project/components/forms/KeyValueInput.jsx
-import React49 from "react";
-
-// project/components/forms/TextInput.jsx
-import React48 from "react";
-var TextInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React48.forwardRef(function TextInput2({ size = "md", icon, suffix, trailing, mono = false, state = "default", disabled = false, readOnly = false, loading: loading2 = false, className = "", ...rest }, ref) {
-  const [focus, setFocus] = React48.useState(false);
-  const cls = ["lamp-inputwrap", "lamp-inputwrap--" + size, focus && "lamp-inputwrap--focus", state !== "default" && "lamp-inputwrap--" + state, disabled && "lamp-inputwrap--disabled", readOnly && "lamp-inputwrap--readonly", mono && "lamp-inputwrap--mono", className].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React48.createElement("div", { className: cls }, icon ? /* @__PURE__ */ React48.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ React48.createElement(Icon, { name: icon, size: 14 })) : null, /* @__PURE__ */ React48.createElement("input", { ref, className: "lamp-input", disabled, readOnly, onFocus: () => setFocus(true), onBlur: () => setFocus(false), "aria-invalid": state === "error" || void 0, ...rest }), loading2 ? /* @__PURE__ */ React48.createElement("span", { className: "lamp-inputwrap__icon" }, /* @__PURE__ */ React48.createElement(Icon, { name: "progress_activity", size: 14 })) : null, suffix ? /* @__PURE__ */ React48.createElement("span", { className: "lamp-inputwrap__suffix" }, suffix) : null, trailing);
-}), { displayName: "TextInput" });
-var SearchInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React48.forwardRef(function SearchInput2({ placeholder = "Search", shortcut, size = "md", ...rest }, ref) {
-  return /* @__PURE__ */ React48.createElement(TextInput, { ref, icon: "search", placeholder, size, trailing: shortcut ? /* @__PURE__ */ React48.createElement("span", { className: "lamp-inputwrap__suffix", style: { fontFamily: "var(--font-mono)", fontSize: 11 } }, shortcut) : null, ...rest });
-}), { displayName: "SearchInput" });
-var NumberInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React48.forwardRef(function NumberInput2({ suffix, step = 1, ...rest }, ref) {
-  return /* @__PURE__ */ React48.createElement(TextInput, { ref, type: "number", step, suffix, mono: true, ...rest });
-}), { displayName: "NumberInput" });
-var SecretField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React48.forwardRef(function SecretField2({ value = "", revealed: revealedProp, onReveal, expiring = false, ...rest }, ref) {
-  const [revealed, setRevealed] = React48.useState(!!revealedProp);
-  return /* @__PURE__ */ React48.createElement("div", { ref, className: "lamp-secret", ...rest }, /* @__PURE__ */ React48.createElement(TextInput, { mono: true, readOnly: true, value: revealed ? value : "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", state: expiring ? "warning" : "default" }), /* @__PURE__ */ React48.createElement("button", { type: "button", className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered", "aria-label": revealed ? "Hide value" : "Reveal value", onClick: () => {
-    setRevealed(!revealed);
-    onReveal && onReveal(!revealed);
-  } }, /* @__PURE__ */ React48.createElement(Icon, { name: revealed ? "visibility_off" : "visibility", size: 14 })));
-}), { displayName: "SecretField" });
-
-// project/components/forms/KeyValueInput.jsx
-var KeyValueInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React49.forwardRef(function KeyValueInput2({ rows = [], onChange, keyPlaceholder = "Key", valuePlaceholder = "Value", addLabel = "Add row", mono = true, ...rest }, ref) {
+import React55 from "react";
+var KeyValueInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React55.forwardRef(function KeyValueInput2({ rows = [], onChange, keyPlaceholder = "Key", valuePlaceholder = "Value", addLabel = "Add row", mono = true, ...rest }, ref) {
   const set = (i, patch) => onChange && onChange(rows.map((r, j) => j === i ? { ...r, ...patch } : r));
-  return /* @__PURE__ */ React49.createElement("div", { ref, className: "lamp-kv", ...rest }, rows.map((r, i) => /* @__PURE__ */ React49.createElement("div", { className: "lamp-kv__row", key: i }, /* @__PURE__ */ React49.createElement(TextInput, { size: "sm", mono, value: r.key, placeholder: keyPlaceholder, onChange: (e) => set(i, { key: e.target.value }) }), /* @__PURE__ */ React49.createElement(TextInput, { size: "sm", mono, value: r.value, placeholder: valuePlaceholder, onChange: (e) => set(i, { value: e.target.value }) }), /* @__PURE__ */ React49.createElement(IconButton, { icon: "delete", label: "Remove row", size: "sm", tone: "danger", onClick: () => onChange && onChange(rows.filter((_, j) => j !== i)) }))), /* @__PURE__ */ React49.createElement(Button, { className: "lamp-kv__add", variant: "ghost", size: "sm", icon: "add", onClick: () => onChange && onChange([...rows, { key: "", value: "" }]) }, addLabel));
+  return /* @__PURE__ */ React55.createElement("div", { ref, className: "lamp-kv", ...rest }, rows.map((r, i) => /* @__PURE__ */ React55.createElement("div", { className: "lamp-kv__row", key: i }, /* @__PURE__ */ React55.createElement(TextInput, { size: "sm", mono, value: r.key, placeholder: keyPlaceholder, onChange: (e) => set(i, { key: e.target.value }) }), /* @__PURE__ */ React55.createElement(TextInput, { size: "sm", mono, value: r.value, placeholder: valuePlaceholder, onChange: (e) => set(i, { value: e.target.value }) }), /* @__PURE__ */ React55.createElement(IconButton, { icon: "delete", label: "Remove row", size: "sm", tone: "danger", onClick: () => onChange && onChange(rows.filter((_, j) => j !== i)) }))), /* @__PURE__ */ React55.createElement(Button, { className: "lamp-kv__add", variant: "ghost", size: "sm", icon: "add", onClick: () => onChange && onChange([...rows, { key: "", value: "" }]) }, addLabel));
 }), { displayName: "KeyValueInput" });
 
 // project/components/forms/PromptEditor.jsx
-import React50 from "react";
-var VariableToken = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React50.forwardRef(function VariableToken2({ name, kind = "variable", children, ...rest }, ref) {
+import React56 from "react";
+var VariableToken = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React56.forwardRef(function VariableToken2({ name, kind = "variable", children, ...rest }, ref) {
   const label = children || name;
-  return /* @__PURE__ */ React50.createElement("span", { ref, className: "lamp-vartoken" + (kind === "entity" ? " lamp-vartoken--entity" : kind === "missing" ? " lamp-vartoken--missing" : ""), ...rest }, /* @__PURE__ */ React50.createElement(Icon, { name: kind === "entity" ? "alternate_email" : kind === "missing" ? "warning" : "data_object", size: 10 }), label);
+  return /* @__PURE__ */ React56.createElement("span", { ref, className: "lamp-vartoken" + (kind === "entity" ? " lamp-vartoken--entity" : kind === "missing" ? " lamp-vartoken--missing" : ""), ...rest }, /* @__PURE__ */ React56.createElement(Icon, { name: kind === "entity" ? "alternate_email" : kind === "missing" ? "warning" : "data_object", size: 10 }), label);
 }), { displayName: "VariableToken" });
-var PromptEditor = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React50.forwardRef(function PromptEditor2({ label = "Instructions", children, tokens = [], footer, onInsert, ...rest }, ref) {
-  return /* @__PURE__ */ React50.createElement("div", { ref, className: "lamp-prompt", ...rest }, /* @__PURE__ */ React50.createElement("div", { className: "lamp-prompt__bar" }, /* @__PURE__ */ React50.createElement("span", { className: "lamp-prompt__label" }, label), /* @__PURE__ */ React50.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, tokens.map((t) => /* @__PURE__ */ React50.createElement(Button, { key: t, variant: "quiet", size: "xs", onClick: () => onInsert && onInsert(t) }, "{{" + t + "}}")))), /* @__PURE__ */ React50.createElement("div", { className: "lamp-prompt__body", contentEditable: false, suppressContentEditableWarning: true }, children), footer ? /* @__PURE__ */ React50.createElement("div", { className: "lamp-prompt__foot" }, footer) : null);
+var PromptEditor = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React56.forwardRef(function PromptEditor2({ label = "Instructions", children, tokens = [], footer, onInsert, ...rest }, ref) {
+  return /* @__PURE__ */ React56.createElement("div", { ref, className: "lamp-prompt", ...rest }, /* @__PURE__ */ React56.createElement("div", { className: "lamp-prompt__bar" }, /* @__PURE__ */ React56.createElement("span", { className: "lamp-prompt__label" }, label), /* @__PURE__ */ React56.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, tokens.map((t) => /* @__PURE__ */ React56.createElement(Button, { key: t, variant: "quiet", size: "xs", onClick: () => onInsert && onInsert(t) }, "{{" + t + "}}")))), /* @__PURE__ */ React56.createElement("div", { className: "lamp-prompt__body", contentEditable: false, suppressContentEditableWarning: true }, children), footer ? /* @__PURE__ */ React56.createElement("div", { className: "lamp-prompt__foot" }, footer) : null);
 }), { displayName: "PromptEditor" });
 
 // project/components/forms/Radio.jsx
-import React51 from "react";
-var Radio = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React51.forwardRef(function Radio2({ label, description, disabled = false, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React51.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React51.createElement("input", { ref, type: "radio", disabled, ...rest }), /* @__PURE__ */ React51.createElement("span", { className: "lamp-check__box lamp-check__box--radio" }, /* @__PURE__ */ React51.createElement("span", { className: "lamp-check__radio-dot" })), label ? /* @__PURE__ */ React51.createElement("span", null, label, description ? /* @__PURE__ */ React51.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
+import React57 from "react";
+var Radio = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React57.forwardRef(function Radio2({ label, description, disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React57.createElement("label", { className: ["lamp-check", disabled && "lamp-check--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React57.createElement("input", { ref, type: "radio", disabled, ...rest }), /* @__PURE__ */ React57.createElement("span", { className: "lamp-check__box lamp-check__box--radio" }, /* @__PURE__ */ React57.createElement("span", { className: "lamp-check__radio-dot" })), label ? /* @__PURE__ */ React57.createElement("span", null, label, description ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-check__desc" }, description) : null) : null);
 }), { displayName: "Radio" });
-var RadioGroup = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React51.forwardRef(function RadioGroup2({ name, options = [], value, onChange, direction = "column", ...rest }, ref) {
-  return /* @__PURE__ */ React51.createElement("div", { ref, role: "radiogroup", style: { display: "flex", flexDirection: direction, gap: direction === "row" ? 16 : 8 }, ...rest }, options.map((o) => {
+var RadioGroup = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React57.forwardRef(function RadioGroup2({ name, options = [], value, onChange, direction = "column", ...rest }, ref) {
+  return /* @__PURE__ */ React57.createElement("div", { ref, role: "radiogroup", style: { display: "flex", flexDirection: direction, gap: direction === "row" ? 16 : 8 }, ...rest }, options.map((o) => {
     const v = typeof o === "string" ? o : o.value;
     const l = typeof o === "string" ? o : o.label;
-    return /* @__PURE__ */ React51.createElement(Radio, { key: v, name, value: v, label: l, description: typeof o === "object" ? o.description : void 0, checked: value === v, onChange: () => onChange && onChange(v) });
+    return /* @__PURE__ */ React57.createElement(Radio, { key: v, name, value: v, label: l, description: typeof o === "object" ? o.description : void 0, checked: value === v, onChange: () => onChange && onChange(v) });
   }));
 }), { displayName: "RadioGroup" });
 
-// project/components/forms/Select.jsx
-import React52 from "react";
-var Select = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React52.forwardRef(function Select2({ options = [], size = "md", placeholder, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React52.createElement("div", { className: ["lamp-select", size === "sm" && "lamp-select--sm", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React52.createElement("select", { ref, ...rest }, placeholder ? /* @__PURE__ */ React52.createElement("option", { value: "" }, placeholder) : null, options.map((o) => {
-    const v = typeof o === "string" ? o : o.value;
-    const l = typeof o === "string" ? o : o.label;
-    return /* @__PURE__ */ React52.createElement("option", { key: v, value: v, disabled: typeof o === "object" && o.disabled }, l);
-  })), /* @__PURE__ */ React52.createElement("span", { className: "lamp-select__chev" }, /* @__PURE__ */ React52.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })));
-}), { displayName: "Select" });
-
 // project/components/forms/Slider.jsx
-import React53 from "react";
-var Slider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React53.forwardRef(function Slider2({ min = 0, max = 100, step = 1, value, onChange, format, showValue = true, ...rest }, ref) {
+import React58 from "react";
+var Slider = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React58.forwardRef(function Slider2({ min = 0, max = 100, step = 1, value, onChange, format, showValue = true, ...rest }, ref) {
   const v = value == null ? min : value;
-  return /* @__PURE__ */ React53.createElement("div", { className: "lamp-slider" }, /* @__PURE__ */ React53.createElement("input", { ref, type: "range", min, max, step, value: v, onChange: (e) => onChange && onChange(Number(e.target.value)), ...rest }), showValue ? /* @__PURE__ */ React53.createElement("span", { className: "lamp-slider__val" }, format ? format(v) : v) : null);
+  return /* @__PURE__ */ React58.createElement("div", { className: "lamp-slider" }, /* @__PURE__ */ React58.createElement("input", { ref, type: "range", min, max, step, value: v, onChange: (e) => onChange && onChange(Number(e.target.value)), ...rest }), showValue ? /* @__PURE__ */ React58.createElement("span", { className: "lamp-slider__val" }, format ? format(v) : v) : null);
 }), { displayName: "Slider" });
 
 // project/components/forms/Switch.jsx
-import React54 from "react";
-var Switch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React54.forwardRef(function Switch2({ label, tone = "default", disabled = false, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React54.createElement("label", { className: ["lamp-switch", tone === "brand" && "lamp-switch--brand", disabled && "lamp-switch--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React54.createElement("input", { ref, type: "checkbox", role: "switch", disabled, ...rest }), /* @__PURE__ */ React54.createElement("span", { className: "lamp-switch__track" }), label ? /* @__PURE__ */ React54.createElement("span", null, label) : null);
+import React59 from "react";
+var Switch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwardRef(function Switch2({ label, tone = "default", disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React59.createElement("label", { className: ["lamp-switch", tone === "brand" && "lamp-switch--brand", disabled && "lamp-switch--disabled", className].filter(Boolean).join(" ") }, /* @__PURE__ */ React59.createElement("input", { ref, type: "checkbox", role: "switch", disabled, ...rest }), /* @__PURE__ */ React59.createElement("span", { className: "lamp-switch__track" }), label ? /* @__PURE__ */ React59.createElement("span", null, label) : null);
 }), { displayName: "Switch" });
 
-// project/components/forms/TagInput.jsx
-import React55 from "react";
-var TagInput = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React55.forwardRef(function TagInput2({ values = [], onChange, placeholder = "Add\u2026", mono = false, ...rest }, ref) {
-  const [focus, setFocus] = React55.useState(false);
-  const [draft, setDraft] = React55.useState("");
-  const commit = () => {
-    const t = draft.trim();
-    if (!t) return;
-    onChange && onChange([...values, t]);
-    setDraft("");
-  };
-  return /* @__PURE__ */ React55.createElement("div", { className: ["lamp-taginput", focus && "lamp-taginput--focus"].filter(Boolean).join(" "), ...rest }, values.map((v, i) => /* @__PURE__ */ React55.createElement(Tag, { key: v + i, mono, onRemove: () => onChange && onChange(values.filter((_, j) => j !== i)) }, v)), /* @__PURE__ */ React55.createElement(
-    "input",
-    {
-      ref,
-      value: draft,
-      placeholder,
-      onFocus: () => setFocus(true),
-      onBlur: () => {
-        setFocus(false);
-        commit();
-      },
-      onChange: (e) => setDraft(e.target.value),
-      onKeyDown: (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          commit();
-        }
-        if (e.key === "Backspace" && !draft && values.length) onChange && onChange(values.slice(0, -1));
-      }
-    }
-  ));
-}), { displayName: "TagInput" });
-
-// project/components/forms/Textarea.jsx
-import React56 from "react";
-var Textarea = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React56.forwardRef(function Textarea2({ mono = false, state = "default", rows = 4, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React56.createElement("textarea", { ref, rows, className: ["lamp-textarea", mono && "lamp-textarea--mono", state === "error" && "lamp-textarea--error", className].filter(Boolean).join(" "), "aria-invalid": state === "error" || void 0, ...rest });
-}), { displayName: "Textarea" });
-
 // project/components/inspector/InspectorField.jsx
-import React57 from "react";
-var InspectorField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React57.forwardRef(function InspectorField2({
+import React60 from "react";
+var InspectorField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React60.forwardRef(function InspectorField2({
   label,
   htmlFor,
   hint,
@@ -2027,20 +2476,20 @@ var InspectorField = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React57.forwa
     inherited && "lamp-ifield--inherited",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React57.createElement("div", { ref, className: cls, ...rest }, /* @__PURE__ */ React57.createElement("div", { className: "lamp-ifield__labelcol" }, /* @__PURE__ */ React57.createElement("label", { className: "lamp-ifield__label", htmlFor }, label, required ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__req" }, " *") : null), optional ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__opt" }, "Optional") : null, hint ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__hint", title: hint }, /* @__PURE__ */ React57.createElement(Icon, { name: "help", size: 12, label: hint })) : null), /* @__PURE__ */ React57.createElement("div", { className: "lamp-ifield__control" }, children, inherited || overridden ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__origin" }, inherited ? "Inherited" + (inheritedFrom ? " from " + inheritedFrom : "") : "Overridden here") : null, msg ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__msg lamp-ifield__msg--" + tone }, /* @__PURE__ */ React57.createElement(Icon, { name: error ? "cancel" : "warning", size: 12 }), msg) : helper ? /* @__PURE__ */ React57.createElement("span", { className: "lamp-ifield__helper" }, helper) : null), action ? /* @__PURE__ */ React57.createElement("div", { className: "lamp-ifield__action" }, action) : null);
+  return /* @__PURE__ */ React60.createElement("div", { ref, className: cls, ...rest }, /* @__PURE__ */ React60.createElement("div", { className: "lamp-ifield__labelcol" }, /* @__PURE__ */ React60.createElement("label", { className: "lamp-ifield__label", htmlFor }, label, required ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__req" }, " *") : null), optional ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__opt" }, "Optional") : null, hint ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__hint", title: hint }, /* @__PURE__ */ React60.createElement(Icon, { name: "help", size: 12, label: hint })) : null), /* @__PURE__ */ React60.createElement("div", { className: "lamp-ifield__control" }, children, inherited || overridden ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__origin" }, inherited ? "Inherited" + (inheritedFrom ? " from " + inheritedFrom : "") : "Overridden here") : null, msg ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__msg lamp-ifield__msg--" + tone }, /* @__PURE__ */ React60.createElement(Icon, { name: error ? "cancel" : "warning", size: 12 }), msg) : helper ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-ifield__helper" }, helper) : null), action ? /* @__PURE__ */ React60.createElement("div", { className: "lamp-ifield__action" }, action) : null);
 }), { displayName: "InspectorField" });
 
 // project/components/inspector/InspectorPanel.jsx
-import React59 from "react";
+import React62 from "react";
 
 // project/components/navigation/Tabs.jsx
-import React58 from "react";
-var Tabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React58.forwardRef(function Tabs2({ tabs = [], value, onChange, variant = "underline", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React58.createElement("div", { ref, className: ["lamp-tabs", variant === "pill" && "lamp-tabs--pill", className].filter(Boolean).join(" "), role: "tablist", ...rest }, tabs.map((t) => {
+import React61 from "react";
+var Tabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React61.forwardRef(function Tabs2({ tabs = [], value, onChange, variant = "underline", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React61.createElement("div", { ref, className: ["lamp-tabs", variant === "pill" && "lamp-tabs--pill", className].filter(Boolean).join(" "), role: "tablist", ...rest }, tabs.map((t) => {
     const id = typeof t === "string" ? t : t.id;
     const label = typeof t === "string" ? t : t.label;
     const active = value === id;
-    return /* @__PURE__ */ React58.createElement(
+    return /* @__PURE__ */ React61.createElement(
       "button",
       {
         key: id,
@@ -2051,31 +2500,31 @@ var Tabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React58.forwardRef(func
         className: "lamp-tabs__tab" + (active ? " lamp-tabs__tab--active" : ""),
         onClick: () => onChange && onChange(id)
       },
-      typeof t === "object" && t.icon ? /* @__PURE__ */ React58.createElement(Icon, { name: t.icon, size: 14 }) : null,
+      typeof t === "object" && t.icon ? /* @__PURE__ */ React61.createElement(Icon, { name: t.icon, size: 14 }) : null,
       label,
-      typeof t === "object" && t.count != null ? /* @__PURE__ */ React58.createElement("span", { className: "lamp-tabs__count" }, t.count) : null
+      typeof t === "object" && t.count != null ? /* @__PURE__ */ React61.createElement("span", { className: "lamp-tabs__count" }, t.count) : null
     );
   }));
 }), { displayName: "Tabs" });
 
 // project/components/inspector/InspectorPanel.jsx
-var InspectorHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwardRef(function InspectorHeader2({ title, subtitle, glyph, badges, actions, onClose, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React59.createElement("header", { ref, className: "lamp-insp__head " + className, ...rest }, glyph ? /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__glyph" }, /* @__PURE__ */ React59.createElement(Icon, { name: glyph, size: 16 })) : null, /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__titles" }, /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__title" }, title), subtitle ? /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__sub" }, subtitle) : null, badges ? /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__badges" }, badges) : null), /* @__PURE__ */ React59.createElement("span", { className: "lamp-insp__actions" }, actions, onClose ? /* @__PURE__ */ React59.createElement(IconButton, { icon: "close", label: "Close inspector", size: "sm", onClick: onClose }) : null));
+var InspectorHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwardRef(function InspectorHeader2({ title, subtitle, glyph, badges, actions, onClose, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React62.createElement("header", { ref, className: "lamp-insp__head " + className, ...rest }, glyph ? /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__glyph" }, /* @__PURE__ */ React62.createElement(Icon, { name: glyph, size: 16 })) : null, /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__titles" }, /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__title" }, title), subtitle ? /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__sub" }, subtitle) : null, badges ? /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__badges" }, badges) : null), /* @__PURE__ */ React62.createElement("span", { className: "lamp-insp__actions" }, actions, onClose ? /* @__PURE__ */ React62.createElement(IconButton, { icon: "close", label: "Close inspector", size: "sm", onClick: onClose }) : null));
 }), { displayName: "InspectorHeader" });
-var InspectorTabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwardRef(function InspectorTabs2({ tabs = [], value, onChange, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React59.createElement("div", { ref, className: "lamp-insp__tabs " + className }, /* @__PURE__ */ React59.createElement(Tabs, { tabs, value, onChange, variant: "underline", ...rest }));
+var InspectorTabs = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwardRef(function InspectorTabs2({ tabs = [], value, onChange, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React62.createElement("div", { ref, className: "lamp-insp__tabs " + className }, /* @__PURE__ */ React62.createElement(Tabs, { tabs, value, onChange, variant: "underline", ...rest }));
 }), { displayName: "InspectorTabs" });
-var InspectorFooter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwardRef(function InspectorFooter2({ sticky = true, align = "end", children, className = "", ...rest }, ref) {
+var InspectorFooter = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwardRef(function InspectorFooter2({ sticky = true, align = "end", children, className = "", ...rest }, ref) {
   const cls = [
     "lamp-insp__foot",
     sticky && "lamp-insp__foot--sticky",
     align !== "end" && "lamp-insp__foot--" + align,
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ React59.createElement("footer", { ref, className: cls, ...rest }, children);
+  return /* @__PURE__ */ React62.createElement("footer", { ref, className: cls, ...rest }, children);
 }), { displayName: "InspectorFooter" });
-var InspectorPanel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwardRef(function InspectorPanel2({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React59.createElement("aside", { ref, className: "lamp-insp " + className, "aria-label": "Inspector", ...rest }, title ? /* @__PURE__ */ React59.createElement(
+var InspectorPanel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwardRef(function InspectorPanel2({ title, subtitle, glyph, badges, actions, tabs, footer, stickyFooter = true, onClose, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React62.createElement("aside", { ref, className: "lamp-insp " + className, "aria-label": "Inspector", ...rest }, title ? /* @__PURE__ */ React62.createElement(
     InspectorHeader,
     {
       title,
@@ -2085,15 +2534,15 @@ var InspectorPanel = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React59.forwa
       actions,
       onClose
     }
-  ) : null, tabs, /* @__PURE__ */ React59.createElement("div", { className: "lamp-insp__body" }, children), footer ? /* @__PURE__ */ React59.createElement(InspectorFooter, { sticky: stickyFooter }, footer) : null);
+  ) : null, tabs, /* @__PURE__ */ React62.createElement("div", { className: "lamp-insp__body" }, children), footer ? /* @__PURE__ */ React62.createElement(InspectorFooter, { sticky: stickyFooter }, footer) : null);
 }), { displayName: "InspectorPanel" });
 
 // project/components/inspector/InspectorSection.jsx
-import React60 from "react";
-var InspectorSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React60.forwardRef(function InspectorSection2({ label, count, actions, collapsible = true, defaultOpen = true, advanced = false, children, className = "", ...rest }, ref) {
-  const [open, setOpen] = React60.useState(advanced ? false : defaultOpen);
+import React63 from "react";
+var InspectorSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React63.forwardRef(function InspectorSection2({ label, count, actions, collapsible = true, defaultOpen = true, advanced = false, children, className = "", ...rest }, ref) {
+  const [open, setOpen] = React63.useState(advanced ? false : defaultOpen);
   const isOpen = collapsible ? open : true;
-  return /* @__PURE__ */ React60.createElement("section", { ref, className: ["lamp-insp-sec", !collapsible && "lamp-insp-sec--static", advanced && "lamp-insp-sec--advanced", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React60.createElement("div", { className: "lamp-insp-sec__head" }, /* @__PURE__ */ React60.createElement(
+  return /* @__PURE__ */ React63.createElement("section", { ref, className: ["lamp-insp-sec", !collapsible && "lamp-insp-sec--static", advanced && "lamp-insp-sec--advanced", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React63.createElement("div", { className: "lamp-insp-sec__head" }, /* @__PURE__ */ React63.createElement(
     "button",
     {
       type: "button",
@@ -2102,18 +2551,18 @@ var InspectorSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React60.for
       "aria-expanded": isOpen,
       disabled: !collapsible
     },
-    /* @__PURE__ */ React60.createElement("span", { className: "lamp-insp-sec__label" }, label),
-    count != null ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-insp-sec__count" }, count) : null,
-    collapsible ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-insp-sec__twist" + (isOpen ? " lamp-insp-sec__twist--open" : "") }, /* @__PURE__ */ React60.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })) : null
-  ), actions ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-insp-sec__actions" }, actions) : null), isOpen ? /* @__PURE__ */ React60.createElement("div", { className: "lamp-insp-sec__body" }, children) : null);
+    /* @__PURE__ */ React63.createElement("span", { className: "lamp-insp-sec__label" }, label),
+    count != null ? /* @__PURE__ */ React63.createElement("span", { className: "lamp-insp-sec__count" }, count) : null,
+    collapsible ? /* @__PURE__ */ React63.createElement("span", { className: "lamp-insp-sec__twist" + (isOpen ? " lamp-insp-sec__twist--open" : "") }, /* @__PURE__ */ React63.createElement(Icon, { name: "keyboard_arrow_down", size: 14 })) : null
+  ), actions ? /* @__PURE__ */ React63.createElement("span", { className: "lamp-insp-sec__actions" }, actions) : null), isOpen ? /* @__PURE__ */ React63.createElement("div", { className: "lamp-insp-sec__body" }, children) : null);
 }), { displayName: "InspectorSection" });
-var PropertyRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React60.forwardRef(function PropertyRow2({ label, value, mono = false, stack = false, inherited = false, empty, children, className = "", ...rest }, ref) {
-  const content = children != null ? children : value == null || value === "" ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-prop__empty" }, empty || "Not set") : value;
-  return /* @__PURE__ */ React60.createElement("div", { ref, className: ["lamp-prop", stack && "lamp-prop--stack", inherited && "lamp-prop--inherited", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React60.createElement("span", { className: "lamp-prop__label" }, label), /* @__PURE__ */ React60.createElement("span", { className: "lamp-prop__value" + (mono ? " lamp-prop__value--mono" : "") }, content, inherited ? /* @__PURE__ */ React60.createElement("span", { className: "lamp-prop__inherit" }, "Inherited") : null));
+var PropertyRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React63.forwardRef(function PropertyRow2({ label, value, mono = false, stack = false, inherited = false, empty, children, className = "", ...rest }, ref) {
+  const content = children != null ? children : value == null || value === "" ? /* @__PURE__ */ React63.createElement("span", { className: "lamp-prop__empty" }, empty || "Not set") : value;
+  return /* @__PURE__ */ React63.createElement("div", { ref, className: ["lamp-prop", stack && "lamp-prop--stack", inherited && "lamp-prop--inherited", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React63.createElement("span", { className: "lamp-prop__label" }, label), /* @__PURE__ */ React63.createElement("span", { className: "lamp-prop__value" + (mono ? " lamp-prop__value--mono" : "") }, content, inherited ? /* @__PURE__ */ React63.createElement("span", { className: "lamp-prop__inherit" }, "Inherited") : null));
 }), { displayName: "PropertyRow" });
 
 // project/components/memory/MemoryBadge.jsx
-import React61 from "react";
+import React64 from "react";
 var FACT_TYPES = {
   explicitFact: { label: "Fact", glyph: "check_circle", tone: "memory" },
   observedPattern: { label: "Observed", glyph: "visibility", tone: "neutral" },
@@ -2135,25 +2584,25 @@ var MEMORY_SCOPES = {
   genie: { label: "Genie memory", short: "Genie" },
   lamp: { label: "LAMP memory", short: "LAMP" }
 };
-var MemoryBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React61.forwardRef(function MemoryBadge2({ type = "explicitFact", label, micro = true, ...rest }, ref) {
+var MemoryBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardRef(function MemoryBadge2({ type = "explicitFact", label, micro = true, ...rest }, ref) {
   const t = FACT_TYPES[type] || FACT_TYPES.explicitFact;
-  return /* @__PURE__ */ React61.createElement(Badge, { ref, tone: t.tone, icon: t.glyph, micro, ...rest }, label || t.label);
+  return /* @__PURE__ */ React64.createElement(Badge, { ref, tone: t.tone, icon: t.glyph, micro, ...rest }, label || t.label);
 }), { displayName: "MemoryBadge" });
-var MemoryScope = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React61.forwardRef(function MemoryScope2({ scope = "agent", full = false, ...rest }, ref) {
+var MemoryScope = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardRef(function MemoryScope2({ scope = "agent", full = false, ...rest }, ref) {
   const s = MEMORY_SCOPES[scope] || MEMORY_SCOPES.agent;
-  return /* @__PURE__ */ React61.createElement("span", { ref, className: "lamp-mem-scope lamp-mem-scope--" + scope, title: s.label, ...rest }, /* @__PURE__ */ React61.createElement("span", { className: "lamp-mem-scope__bar" }), full ? s.label : s.short);
+  return /* @__PURE__ */ React64.createElement("span", { ref, className: "lamp-mem-scope lamp-mem-scope--" + scope, title: s.label, ...rest }, /* @__PURE__ */ React64.createElement("span", { className: "lamp-mem-scope__bar" }), full ? s.label : s.short);
 }), { displayName: "MemoryScope" });
-var MemoryConfidence = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React61.forwardRef(function MemoryConfidence2({ level = "high", value, showValue = false, ...rest }, ref) {
+var MemoryConfidence = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardRef(function MemoryConfidence2({ level = "high", value, showValue = false, ...rest }, ref) {
   const pct = value != null ? value : level === "veryHigh" ? 96 : level === "high" ? 84 : level === "medium" ? 62 : 34;
   const label = level === "veryHigh" ? "Very high" : level === "high" ? "High" : level === "medium" ? "Medium" : "Low";
   const tone = pct >= 80 ? "high" : pct >= 55 ? "" : "low";
-  return /* @__PURE__ */ React61.createElement("span", { ref, className: "lamp-conf", ...rest }, /* @__PURE__ */ React61.createElement("span", { className: "lamp-conf__track" }, /* @__PURE__ */ React61.createElement("span", { className: "lamp-conf__fill" + (tone ? " lamp-conf__fill--" + tone : ""), style: { width: pct + "%" } })), /* @__PURE__ */ React61.createElement("span", { className: "lamp-conf__label" }, showValue ? pct + "%" : label));
+  return /* @__PURE__ */ React64.createElement("span", { ref, className: "lamp-conf", ...rest }, /* @__PURE__ */ React64.createElement("span", { className: "lamp-conf__track" }, /* @__PURE__ */ React64.createElement("span", { className: "lamp-conf__fill" + (tone ? " lamp-conf__fill--" + tone : ""), style: { width: pct + "%" } })), /* @__PURE__ */ React64.createElement("span", { className: "lamp-conf__label" }, showValue ? pct + "%" : label));
 }), { displayName: "MemoryConfidence" });
 
 // project/components/memory/MemoryConflict.jsx
-import React62 from "react";
+import React65 from "react";
 function Claim({ claim, index, selected, onPick, pickLabel, readOnly }) {
-  return /* @__PURE__ */ React62.createElement("div", { className: ["lamp-conflict__claim", selected && "lamp-conflict__claim--picked"].filter(Boolean).join(" ") }, /* @__PURE__ */ React62.createElement("div", { className: "lamp-conflict__claim-top" }, claim.type ? /* @__PURE__ */ React62.createElement(MemoryBadge, { type: claim.type }) : null, claim.scope ? /* @__PURE__ */ React62.createElement(MemoryScope, { scope: claim.scope }) : null, /* @__PURE__ */ React62.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React62.createElement(MemoryConfidence, { level: claim.confidence || "medium", value: claim.confidenceValue }))), /* @__PURE__ */ React62.createElement("p", { className: "lamp-conflict__text" }, claim.fact), /* @__PURE__ */ React62.createElement("div", { className: "lamp-conflict__ev" }, claim.evidenceCount != null ? /* @__PURE__ */ React62.createElement("span", null, /* @__PURE__ */ React62.createElement(Icon, { name: "fact_check", size: 12 }), /* @__PURE__ */ React62.createElement("b", null, claim.evidenceCount), " pieces of evidence") : null, claim.occurrences != null ? /* @__PURE__ */ React62.createElement("span", null, "Seen ", /* @__PURE__ */ React62.createElement("b", null, claim.occurrences), " times") : null, claim.source ? /* @__PURE__ */ React62.createElement("span", null, claim.source) : null, claim.lastConfirmed ? /* @__PURE__ */ React62.createElement("span", null, "Last confirmed ", /* @__PURE__ */ React62.createElement("b", null, claim.lastConfirmed)) : null), !readOnly && onPick ? /* @__PURE__ */ React62.createElement(
+  return /* @__PURE__ */ React65.createElement("div", { className: ["lamp-conflict__claim", selected && "lamp-conflict__claim--picked"].filter(Boolean).join(" ") }, /* @__PURE__ */ React65.createElement("div", { className: "lamp-conflict__claim-top" }, claim.type ? /* @__PURE__ */ React65.createElement(MemoryBadge, { type: claim.type }) : null, claim.scope ? /* @__PURE__ */ React65.createElement(MemoryScope, { scope: claim.scope }) : null, /* @__PURE__ */ React65.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React65.createElement(MemoryConfidence, { level: claim.confidence || "medium", value: claim.confidenceValue }))), /* @__PURE__ */ React65.createElement("p", { className: "lamp-conflict__text" }, claim.fact), /* @__PURE__ */ React65.createElement("div", { className: "lamp-conflict__ev" }, claim.evidenceCount != null ? /* @__PURE__ */ React65.createElement("span", null, /* @__PURE__ */ React65.createElement(Icon, { name: "fact_check", size: 12 }), /* @__PURE__ */ React65.createElement("b", null, claim.evidenceCount), " pieces of evidence") : null, claim.occurrences != null ? /* @__PURE__ */ React65.createElement("span", null, "Seen ", /* @__PURE__ */ React65.createElement("b", null, claim.occurrences), " times") : null, claim.source ? /* @__PURE__ */ React65.createElement("span", null, claim.source) : null, claim.lastConfirmed ? /* @__PURE__ */ React65.createElement("span", null, "Last confirmed ", /* @__PURE__ */ React65.createElement("b", null, claim.lastConfirmed)) : null), !readOnly && onPick ? /* @__PURE__ */ React65.createElement(
     Button,
     {
       size: "sm",
@@ -2164,7 +2613,7 @@ function Claim({ claim, index, selected, onPick, pickLabel, readOnly }) {
     pickLabel || "Keep this"
   ) : null);
 }
-var MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwardRef(function MemoryConflict2({
+var MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React65.forwardRef(function MemoryConflict2({
   claims = [],
   title = "Two memories disagree",
   detail,
@@ -2179,15 +2628,15 @@ var MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwa
   className = "",
   ...rest
 }, ref) {
-  return /* @__PURE__ */ React62.createElement(
+  return /* @__PURE__ */ React65.createElement(
     "article",
     {
       ref,
       className: ["lamp-conflict", resolved && "lamp-conflict--resolved", className].filter(Boolean).join(" "),
       ...rest
     },
-    /* @__PURE__ */ React62.createElement("header", { className: "lamp-conflict__head" }, /* @__PURE__ */ React62.createElement("span", { className: "lamp-conflict__glyph" }, /* @__PURE__ */ React62.createElement(Icon, { name: resolved ? "check_circle" : "warning", size: 14 })), /* @__PURE__ */ React62.createElement("span", { className: "lamp-conflict__titles" }, /* @__PURE__ */ React62.createElement("span", { className: "lamp-conflict__title" }, title), detail ? /* @__PURE__ */ React62.createElement("span", { className: "lamp-conflict__detail" }, detail) : null), resolved ? /* @__PURE__ */ React62.createElement(Badge, { tone: "success", icon: "check", micro: true }, "Resolved") : null),
-    /* @__PURE__ */ React62.createElement("div", { className: "lamp-conflict__claims" }, claims.map((c, i) => /* @__PURE__ */ React62.createElement(
+    /* @__PURE__ */ React65.createElement("header", { className: "lamp-conflict__head" }, /* @__PURE__ */ React65.createElement("span", { className: "lamp-conflict__glyph" }, /* @__PURE__ */ React65.createElement(Icon, { name: resolved ? "check_circle" : "warning", size: 14 })), /* @__PURE__ */ React65.createElement("span", { className: "lamp-conflict__titles" }, /* @__PURE__ */ React65.createElement("span", { className: "lamp-conflict__title" }, title), detail ? /* @__PURE__ */ React65.createElement("span", { className: "lamp-conflict__detail" }, detail) : null), resolved ? /* @__PURE__ */ React65.createElement(Badge, { tone: "success", icon: "check", micro: true }, "Resolved") : null),
+    /* @__PURE__ */ React65.createElement("div", { className: "lamp-conflict__claims" }, claims.map((c, i) => /* @__PURE__ */ React65.createElement(
       Claim,
       {
         key: c.id != null ? c.id : i,
@@ -2199,14 +2648,14 @@ var MemoryConflict = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React62.forwa
         readOnly: readOnly || resolved
       }
     ))),
-    resolved && resolution ? /* @__PURE__ */ React62.createElement("p", { className: "lamp-conflict__resolution" }, resolution) : null,
-    !resolved && !readOnly && (onKeepBoth || onInvestigate || actions) ? /* @__PURE__ */ React62.createElement("footer", { className: "lamp-conflict__foot" }, actions, onKeepBoth ? /* @__PURE__ */ React62.createElement(Button, { size: "sm", variant: "secondary", icon: "call_split", onClick: onKeepBoth }, "Keep both, scoped") : null, onInvestigate ? /* @__PURE__ */ React62.createElement(Button, { size: "sm", variant: "quiet", icon: "search", onClick: onInvestigate }, "See the evidence") : null) : null
+    resolved && resolution ? /* @__PURE__ */ React65.createElement("p", { className: "lamp-conflict__resolution" }, resolution) : null,
+    !resolved && !readOnly && (onKeepBoth || onInvestigate || actions) ? /* @__PURE__ */ React65.createElement("footer", { className: "lamp-conflict__foot" }, actions, onKeepBoth ? /* @__PURE__ */ React65.createElement(Button, { size: "sm", variant: "secondary", icon: "call_split", onClick: onKeepBoth }, "Keep both, scoped") : null, onInvestigate ? /* @__PURE__ */ React65.createElement(Button, { size: "sm", variant: "quiet", icon: "search", onClick: onInvestigate }, "See the evidence") : null) : null
   );
 }), { displayName: "MemoryConflict" });
 
 // project/components/memory/MemoryFact.jsx
-import React63 from "react";
-var MemoryFact = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React63.forwardRef(function MemoryFact2({
+import React66 from "react";
+var MemoryFact = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React66.forwardRef(function MemoryFact2({
   type = "explicitFact",
   scope = "genie",
   fact,
@@ -2229,11 +2678,11 @@ var MemoryFact = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React63.forwardRe
   ...rest
 }, ref) {
   const conflict = contradictions > 0;
-  return /* @__PURE__ */ React63.createElement("article", { ref, className: ["lamp-fact", conflict && "lamp-fact--conflict", "lamp-fact--" + state, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React63.createElement("div", { className: "lamp-fact__top" }, /* @__PURE__ */ React63.createElement(MemoryBadge, { type }), /* @__PURE__ */ React63.createElement(MemoryScope, { scope }), access ? /* @__PURE__ */ React63.createElement(Badge, { outline: true, icon: access === "Private" ? "lock" : "group" }, access) : null, state === "stale" ? /* @__PURE__ */ React63.createElement(Badge, { tone: "warning", icon: "schedule" }, "Stale") : null, state === "pendingReview" ? /* @__PURE__ */ React63.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Needs confirmation") : null, conflict ? /* @__PURE__ */ React63.createElement(Badge, { tone: "warning", icon: "warning" }, contradictions, " contradiction", contradictions > 1 ? "s" : "") : null, /* @__PURE__ */ React63.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React63.createElement(MemoryConfidence, { level: confidence, value: confidenceValue, showValue: showConfidenceValue }))), /* @__PURE__ */ React63.createElement("p", { className: "lamp-fact__text" }, fact), source || evidenceCount != null ? /* @__PURE__ */ React63.createElement("div", { className: "lamp-fact__ev" }, /* @__PURE__ */ React63.createElement(Icon, { name: "fact_check", size: 13, style: { color: "var(--memory-accent)" } }), evidenceCount != null ? /* @__PURE__ */ React63.createElement("span", null, /* @__PURE__ */ React63.createElement("b", null, evidenceCount), " pieces of evidence") : null, source ? /* @__PURE__ */ React63.createElement("span", null, evidenceCount != null ? "\xB7 " : "", source) : null) : null, /* @__PURE__ */ React63.createElement("div", { className: "lamp-fact__meta" }, lastConfirmed ? /* @__PURE__ */ React63.createElement("span", null, "Last confirmed ", /* @__PURE__ */ React63.createElement("b", null, lastConfirmed)) : null, freshness ? /* @__PURE__ */ React63.createElement("span", null, "Updated ", /* @__PURE__ */ React63.createElement("b", null, freshness)) : null, owner ? /* @__PURE__ */ React63.createElement("span", null, "Owner ", /* @__PURE__ */ React63.createElement("b", null, owner)) : null), actions || onConfirm || onCorrect || onIgnore ? /* @__PURE__ */ React63.createElement("div", { className: "lamp-fact__actions" }, actions, onConfirm ? /* @__PURE__ */ React63.createElement(Button, { size: "sm", variant: "secondary", icon: "check", onClick: onConfirm }, "Confirm") : null, onCorrect ? /* @__PURE__ */ React63.createElement(Button, { size: "sm", variant: "ghost", icon: "edit", onClick: onCorrect }, "Correct") : null, onIgnore ? /* @__PURE__ */ React63.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null) : null);
+  return /* @__PURE__ */ React66.createElement("article", { ref, className: ["lamp-fact", conflict && "lamp-fact--conflict", "lamp-fact--" + state, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React66.createElement("div", { className: "lamp-fact__top" }, /* @__PURE__ */ React66.createElement(MemoryBadge, { type }), /* @__PURE__ */ React66.createElement(MemoryScope, { scope }), access ? /* @__PURE__ */ React66.createElement(Badge, { outline: true, icon: access === "Private" ? "lock" : "group" }, access) : null, state === "stale" ? /* @__PURE__ */ React66.createElement(Badge, { tone: "warning", icon: "schedule" }, "Stale") : null, state === "pendingReview" ? /* @__PURE__ */ React66.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Needs confirmation") : null, conflict ? /* @__PURE__ */ React66.createElement(Badge, { tone: "warning", icon: "warning" }, contradictions, " contradiction", contradictions > 1 ? "s" : "") : null, /* @__PURE__ */ React66.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React66.createElement(MemoryConfidence, { level: confidence, value: confidenceValue, showValue: showConfidenceValue }))), /* @__PURE__ */ React66.createElement("p", { className: "lamp-fact__text" }, fact), source || evidenceCount != null ? /* @__PURE__ */ React66.createElement("div", { className: "lamp-fact__ev" }, /* @__PURE__ */ React66.createElement(Icon, { name: "fact_check", size: 13, style: { color: "var(--memory-accent)" } }), evidenceCount != null ? /* @__PURE__ */ React66.createElement("span", null, /* @__PURE__ */ React66.createElement("b", null, evidenceCount), " pieces of evidence") : null, source ? /* @__PURE__ */ React66.createElement("span", null, evidenceCount != null ? "\xB7 " : "", source) : null) : null, /* @__PURE__ */ React66.createElement("div", { className: "lamp-fact__meta" }, lastConfirmed ? /* @__PURE__ */ React66.createElement("span", null, "Last confirmed ", /* @__PURE__ */ React66.createElement("b", null, lastConfirmed)) : null, freshness ? /* @__PURE__ */ React66.createElement("span", null, "Updated ", /* @__PURE__ */ React66.createElement("b", null, freshness)) : null, owner ? /* @__PURE__ */ React66.createElement("span", null, "Owner ", /* @__PURE__ */ React66.createElement("b", null, owner)) : null), actions || onConfirm || onCorrect || onIgnore ? /* @__PURE__ */ React66.createElement("div", { className: "lamp-fact__actions" }, actions, onConfirm ? /* @__PURE__ */ React66.createElement(Button, { size: "sm", variant: "secondary", icon: "check", onClick: onConfirm }, "Confirm") : null, onCorrect ? /* @__PURE__ */ React66.createElement(Button, { size: "sm", variant: "ghost", icon: "edit", onClick: onCorrect }, "Correct") : null, onIgnore ? /* @__PURE__ */ React66.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null) : null);
 }), { displayName: "MemoryFact" });
 
 // project/components/memory/MemoryGraph.jsx
-import React64 from "react";
+import React67 from "react";
 var KIND_COLOR = {
   fact: "var(--memory-core)",
   policy: "var(--gold-600)",
@@ -2255,7 +2704,7 @@ function shapePath(shape, r) {
   }
   return null;
 }
-var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardRef(function MemoryGraph2({
+var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React67.forwardRef(function MemoryGraph2({
   nodes = [],
   links = [],
   width = 640,
@@ -2271,12 +2720,12 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
   style,
   ...rest
 }, ref) {
-  const [tick, setTick] = React64.useState(0);
-  const [hover, setHover] = React64.useState(null);
-  const sim = React64.useRef({ pos: [], alpha: 1 });
+  const [tick, setTick] = React67.useState(0);
+  const [hover, setHover] = React67.useState(null);
+  const sim = React67.useRef({ pos: [], alpha: 1 });
   const key = nodes.map((n) => n.id).join("|") + "#" + links.length + "#" + width + "x" + height;
   const reduced = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  React64.useEffect(() => {
+  React67.useEffect(() => {
     const n = nodes.length;
     const cx = width / 2, cy = height / 2;
     const R = Math.min(width, height) * 0.34;
@@ -2347,7 +2796,7 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
     return () => cancelAnimationFrame(frame);
   }, [key]);
   const { pos, radius, edges, index } = sim.current;
-  const neighbours = React64.useMemo(() => {
+  const neighbours = React67.useMemo(() => {
     if (!hover || !edges || !index) return null;
     const i = index[hover];
     const set = { [i]: 1 };
@@ -2357,9 +2806,9 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
     });
     return set;
   }, [hover, key, tick > 0]);
-  if (!pos || !pos.length) return /* @__PURE__ */ React64.createElement("div", { className: "lamp-graph " + className, style }, /* @__PURE__ */ React64.createElement("svg", { width: "100%", height }));
+  if (!pos || !pos.length) return /* @__PURE__ */ React67.createElement("div", { className: "lamp-graph " + className, style }, /* @__PURE__ */ React67.createElement("svg", { width: "100%", height }));
   const dim = (i) => neighbours && !neighbours[i] ? 0.18 : 1;
-  return /* @__PURE__ */ React64.createElement("div", { ref, className: "lamp-graph " + className, style }, /* @__PURE__ */ React64.createElement(
+  return /* @__PURE__ */ React67.createElement("div", { ref, className: "lamp-graph " + className, style }, /* @__PURE__ */ React67.createElement(
     "svg",
     {
       width: "100%",
@@ -2369,10 +2818,10 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
       "aria-label": "Memory graph, " + nodes.length + " items and " + links.length + " relationships",
       ...rest
     },
-    /* @__PURE__ */ React64.createElement("g", null, (edges || []).map((e, i) => {
+    /* @__PURE__ */ React67.createElement("g", null, (edges || []).map((e, i) => {
       const l = links[i] || {};
       const on = !neighbours || neighbours[e.a] && neighbours[e.b];
-      return /* @__PURE__ */ React64.createElement(
+      return /* @__PURE__ */ React67.createElement(
         "line",
         {
           key: i,
@@ -2387,13 +2836,13 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
         }
       );
     })),
-    /* @__PURE__ */ React64.createElement("g", null, nodes.map((nd, i) => {
+    /* @__PURE__ */ React67.createElement("g", null, nodes.map((nd, i) => {
       const r = radius[i];
       const color = nd.color || KIND_COLOR[nd.kind] || KIND_COLOR.fact;
       const shape = SHAPE[nd.kind];
       const isSel = selectedId === nd.id;
       const path = shapePath(shape, r);
-      return /* @__PURE__ */ React64.createElement(
+      return /* @__PURE__ */ React67.createElement(
         "g",
         {
           key: nd.id,
@@ -2410,19 +2859,19 @@ var MemoryGraph = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React64.forwardR
           },
           onClick: onSelect ? () => onSelect(nd) : void 0
         },
-        isSel ? path ? /* @__PURE__ */ React64.createElement("path", { d: shapePath(shape, r + 4), fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : /* @__PURE__ */ React64.createElement("circle", { r: r + 4, fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : null,
-        path ? /* @__PURE__ */ React64.createElement("path", { d: path, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }) : /* @__PURE__ */ React64.createElement("circle", { r, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }),
-        showLabels && r >= labelMinRadius ? /* @__PURE__ */ React64.createElement("text", { y: r + 11, textAnchor: "middle", style: { fill: "var(--text-secondary)", font: "500 10px var(--font-sans)", pointerEvents: "none" } }, nd.label) : null,
-        /* @__PURE__ */ React64.createElement("title", null, nd.label + (nd.detail ? " \u2014 " + nd.detail : ""))
+        isSel ? path ? /* @__PURE__ */ React67.createElement("path", { d: shapePath(shape, r + 4), fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : /* @__PURE__ */ React67.createElement("circle", { r: r + 4, fill: "none", stroke: "var(--gold-500)", strokeWidth: 1.5 }) : null,
+        path ? /* @__PURE__ */ React67.createElement("path", { d: path, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }) : /* @__PURE__ */ React67.createElement("circle", { r, fill: color, stroke: "var(--surface-primary)", strokeWidth: 1 }),
+        showLabels && r >= labelMinRadius ? /* @__PURE__ */ React67.createElement("text", { y: r + 11, textAnchor: "middle", style: { fill: "var(--text-secondary)", font: "500 10px var(--font-sans)", pointerEvents: "none" } }, nd.label) : null,
+        /* @__PURE__ */ React67.createElement("title", null, nd.label + (nd.detail ? " \u2014 " + nd.detail : ""))
       );
     }))
-  ), legend ? /* @__PURE__ */ React64.createElement("div", { className: "lamp-graph__legend" }, [["fact", "Fact"], ["policy", "Policy"], ["observed", "Observed"], ["inferred", "Inferred"], ["exception", "Exception"], ["entity", "Entity"], ["agent", "Agent"], ["tool", "Tool"], ["scope", "Scope"]].map(([k, label]) => /* @__PURE__ */ React64.createElement("span", { className: "lamp-graph__key", key: k }, /* @__PURE__ */ React64.createElement("span", { className: "lamp-graph__swatch lamp-graph__swatch--" + (SHAPE[k] || "circle"), style: { background: KIND_COLOR[k] } }), label))) : null);
+  ), legend ? /* @__PURE__ */ React67.createElement("div", { className: "lamp-graph__legend" }, [["fact", "Fact"], ["policy", "Policy"], ["observed", "Observed"], ["inferred", "Inferred"], ["exception", "Exception"], ["entity", "Entity"], ["agent", "Agent"], ["tool", "Tool"], ["scope", "Scope"]].map(([k, label]) => /* @__PURE__ */ React67.createElement("span", { className: "lamp-graph__key", key: k }, /* @__PURE__ */ React67.createElement("span", { className: "lamp-graph__swatch lamp-graph__swatch--" + (SHAPE[k] || "circle"), style: { background: KIND_COLOR[k] } }), label))) : null);
 }), { displayName: "MemoryGraph" });
 
 // project/components/memory/MemoryScopeBar.jsx
-import React65 from "react";
+import React68 from "react";
 var ORDER = ["agent", "playbook", "genie", "lamp"];
-var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React65.forwardRef(function MemoryScopeBar2({
+var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React68.forwardRef(function MemoryScopeBar2({
   value,
   counts = {},
   inherited = [],
@@ -2439,7 +2888,7 @@ var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React65.forwa
   const asList = (layout || (readOnly ? "list" : "bar")) === "list";
   const ownedAt = owned ? scopes.indexOf(owned) : -1;
   const isInherited = (k) => inherited.indexOf(k) !== -1 || ownedAt >= 0 && scopes.indexOf(k) > ownedAt;
-  return /* @__PURE__ */ React65.createElement(
+  return /* @__PURE__ */ React68.createElement(
     "div",
     {
       ref,
@@ -2467,11 +2916,11 @@ var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React65.forwa
         isOwned && "lamp-scopebar__item--owned",
         dim && "lamp-scopebar__item--inherited"
       ].filter(Boolean).join(" ");
-      const body = /* @__PURE__ */ React65.createElement(React65.Fragment, null, /* @__PURE__ */ React65.createElement("span", { className: "lamp-scopebar__mark" }), /* @__PURE__ */ React65.createElement("span", { className: "lamp-scopebar__name" }, asList || full ? s.label : s.short), showCounts && count != null ? /* @__PURE__ */ React65.createElement("span", { className: "lamp-scopebar__count" }, count) : null, isOwned ? /* @__PURE__ */ React65.createElement("span", { className: "lamp-scopebar__owned" }, "Owns") : null, dim ? /* @__PURE__ */ React65.createElement("span", { className: "lamp-scopebar__inherit" }, "Inherited") : null);
+      const body = /* @__PURE__ */ React68.createElement(React68.Fragment, null, /* @__PURE__ */ React68.createElement("span", { className: "lamp-scopebar__mark" }), /* @__PURE__ */ React68.createElement("span", { className: "lamp-scopebar__name" }, asList || full ? s.label : s.short), showCounts && count != null ? /* @__PURE__ */ React68.createElement("span", { className: "lamp-scopebar__count" }, count) : null, isOwned ? /* @__PURE__ */ React68.createElement("span", { className: "lamp-scopebar__owned" }, "Owns") : null, dim ? /* @__PURE__ */ React68.createElement("span", { className: "lamp-scopebar__inherit" }, "Inherited") : null);
       if (readOnly) {
-        return /* @__PURE__ */ React65.createElement("span", { key: k, className: cls, title: s.label }, body);
+        return /* @__PURE__ */ React68.createElement("span", { key: k, className: cls, title: s.label }, body);
       }
-      return /* @__PURE__ */ React65.createElement(
+      return /* @__PURE__ */ React68.createElement(
         "button",
         {
           key: k,
@@ -2489,13 +2938,13 @@ var MemoryScopeBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React65.forwa
 }), { displayName: "MemoryScopeBar" });
 
 // project/components/memory/MemoryTimeline.jsx
-import React66 from "react";
-var MemoryTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React66.forwardRef(function MemoryTimeline2({ items = [], className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React66.createElement("div", { ref, className: "lamp-timeline " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ React66.createElement("div", { className: "lamp-timeline__item", key: i }, /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__rail" }, /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__dot" + (it.current ? " lamp-timeline__dot--current" : it.accent ? " lamp-timeline__dot--accent" : "") }), i < items.length - 1 ? /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__line" }) : null), /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__body" }, /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__title" }, it.title), it.detail ? /* @__PURE__ */ React66.createElement("span", { style: { fontSize: 12, color: "var(--text-tertiary)" } }, it.detail) : null, /* @__PURE__ */ React66.createElement("span", { className: "lamp-timeline__meta" }, [it.actor, it.timestamp].filter(Boolean).join(" \xB7 "))))));
+import React69 from "react";
+var MemoryTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React69.forwardRef(function MemoryTimeline2({ items = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React69.createElement("div", { ref, className: "lamp-timeline " + className, ...rest }, items.map((it, i) => /* @__PURE__ */ React69.createElement("div", { className: "lamp-timeline__item", key: i }, /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__rail" }, /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__dot" + (it.current ? " lamp-timeline__dot--current" : it.accent ? " lamp-timeline__dot--accent" : "") }), i < items.length - 1 ? /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__line" }) : null), /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__body" }, /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__title" }, it.title), it.detail ? /* @__PURE__ */ React69.createElement("span", { style: { fontSize: 12, color: "var(--text-tertiary)" } }, it.detail) : null, /* @__PURE__ */ React69.createElement("span", { className: "lamp-timeline__meta" }, [it.actor, it.timestamp].filter(Boolean).join(" \xB7 "))))));
 }), { displayName: "MemoryTimeline" });
 
 // project/components/memory/MemoryUsageBar.jsx
-import React67 from "react";
+import React70 from "react";
 var SCOPE_COLOR2 = {
   agent: "var(--memory-accent)",
   playbook: "var(--purple-400)",
@@ -2507,9 +2956,9 @@ var SCOPE_COLOR2 = {
   cached: "var(--green-500)",
   tool: "var(--teal-500)"
 };
-var MemoryUsageBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React67.forwardRef(function MemoryUsageBar2({ segments = [], total, unit = "tokens", legend = true, className = "", ...rest }, ref) {
+var MemoryUsageBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React70.forwardRef(function MemoryUsageBar2({ segments = [], total, unit = "tokens", legend = true, className = "", ...rest }, ref) {
   const sum = total != null ? total : segments.reduce((a, s) => a + s.value, 0);
-  return /* @__PURE__ */ React67.createElement("div", { ref, className: "lamp-memusage " + className, ...rest }, /* @__PURE__ */ React67.createElement("div", { className: "lamp-memusage__bar", role: "img", "aria-label": "Context breakdown, " + sum + " " + unit }, segments.map((s) => /* @__PURE__ */ React67.createElement(
+  return /* @__PURE__ */ React70.createElement("div", { ref, className: "lamp-memusage " + className, ...rest }, /* @__PURE__ */ React70.createElement("div", { className: "lamp-memusage__bar", role: "img", "aria-label": "Context breakdown, " + sum + " " + unit }, segments.map((s) => /* @__PURE__ */ React70.createElement(
     "span",
     {
       key: s.label,
@@ -2517,21 +2966,21 @@ var MemoryUsageBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React67.forwa
       title: s.label + ": " + s.value,
       style: { width: s.value / sum * 100 + "%", background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" }
     }
-  ))), legend ? /* @__PURE__ */ React67.createElement("div", { className: "lamp-memusage__legend" }, segments.map((s) => /* @__PURE__ */ React67.createElement("span", { className: "lamp-memusage__row", key: s.label }, /* @__PURE__ */ React67.createElement("span", { className: "lamp-memusage__swatch", style: { background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" } }), s.label, /* @__PURE__ */ React67.createElement("span", { className: "lamp-memusage__val" }, s.value.toLocaleString()))), /* @__PURE__ */ React67.createElement("span", { className: "lamp-memusage__total" }, "Total", /* @__PURE__ */ React67.createElement("span", { className: "lamp-memusage__val" }, sum.toLocaleString(), " ", unit))) : null);
+  ))), legend ? /* @__PURE__ */ React70.createElement("div", { className: "lamp-memusage__legend" }, segments.map((s) => /* @__PURE__ */ React70.createElement("span", { className: "lamp-memusage__row", key: s.label }, /* @__PURE__ */ React70.createElement("span", { className: "lamp-memusage__swatch", style: { background: s.color || SCOPE_COLOR2[s.key] || "var(--dataviz-neutral-3)" } }), s.label, /* @__PURE__ */ React70.createElement("span", { className: "lamp-memusage__val" }, s.value.toLocaleString()))), /* @__PURE__ */ React70.createElement("span", { className: "lamp-memusage__total" }, "Total", /* @__PURE__ */ React70.createElement("span", { className: "lamp-memusage__val" }, sum.toLocaleString(), " ", unit))) : null);
 }), { displayName: "MemoryUsageBar" });
 
 // project/components/navigation/AppShell.jsx
-import React68 from "react";
-var AppShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React68.forwardRef(function AppShell2({ header, rail, dock, bottom, statusBar, dockWidth = "var(--inspector-width)", children, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React68.createElement("div", { ref, className: "lamp-shell " + className, style: { height: "100%", ...style }, ...rest }, header, /* @__PURE__ */ React68.createElement("div", { className: "lamp-shell__body" }, rail ? /* @__PURE__ */ React68.createElement("div", { className: "lamp-shell__rail" }, rail) : null, /* @__PURE__ */ React68.createElement("div", { className: "lamp-shell__main" }, children, bottom ? /* @__PURE__ */ React68.createElement("div", { className: "lamp-shell__bottom" }, bottom) : null), dock ? /* @__PURE__ */ React68.createElement("div", { className: "lamp-shell__dock", style: { width: dockWidth } }, dock) : null), statusBar);
+import React71 from "react";
+var AppShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React71.forwardRef(function AppShell2({ header, rail, dock, bottom, statusBar, dockWidth = "var(--inspector-width)", children, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React71.createElement("div", { ref, className: "lamp-shell " + className, style: { height: "100%", ...style }, ...rest }, header, /* @__PURE__ */ React71.createElement("div", { className: "lamp-shell__body" }, rail ? /* @__PURE__ */ React71.createElement("div", { className: "lamp-shell__rail" }, rail) : null, /* @__PURE__ */ React71.createElement("div", { className: "lamp-shell__main" }, children, bottom ? /* @__PURE__ */ React71.createElement("div", { className: "lamp-shell__bottom" }, bottom) : null), dock ? /* @__PURE__ */ React71.createElement("div", { className: "lamp-shell__dock", style: { width: dockWidth } }, dock) : null), statusBar);
 }), { displayName: "AppShell" });
 
 // project/components/navigation/Breadcrumb.jsx
-import React69 from "react";
-var Breadcrumb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React69.forwardRef(function Breadcrumb2({ items = [], maxVisible = 5, onNavigate, className = "", ...rest }, ref) {
+import React72 from "react";
+var Breadcrumb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React72.forwardRef(function Breadcrumb2({ items = [], maxVisible = 5, onNavigate, className = "", ...rest }, ref) {
   const overflow = items.length > maxVisible;
   const shown = overflow ? [items[0], { label: "\u2026", overflow: true }, ...items.slice(-(maxVisible - 2))] : items;
-  return /* @__PURE__ */ React69.createElement("nav", { ref, className: "lamp-crumb " + className, "aria-label": "Object path", ...rest }, shown.map((it, i) => /* @__PURE__ */ React69.createElement(React69.Fragment, { key: i }, i > 0 ? /* @__PURE__ */ React69.createElement("span", { className: "lamp-crumb__sep" }, /* @__PURE__ */ React69.createElement(Icon, { name: "chevron_right", size: 14 })) : null, /* @__PURE__ */ React69.createElement(
+  return /* @__PURE__ */ React72.createElement("nav", { ref, className: "lamp-crumb " + className, "aria-label": "Object path", ...rest }, shown.map((it, i) => /* @__PURE__ */ React72.createElement(React72.Fragment, { key: i }, i > 0 ? /* @__PURE__ */ React72.createElement("span", { className: "lamp-crumb__sep" }, /* @__PURE__ */ React72.createElement(Icon, { name: "chevron_right", size: 14 })) : null, /* @__PURE__ */ React72.createElement(
     "button",
     {
       type: "button",
@@ -2539,16 +2988,16 @@ var Breadcrumb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React69.forwardRe
       onClick: () => onNavigate && !it.overflow && onNavigate(it, i),
       "aria-current": i === shown.length - 1 ? "page" : void 0
     },
-    it.icon ? /* @__PURE__ */ React69.createElement(Icon, { name: it.icon, size: 14 }) : null,
+    it.icon ? /* @__PURE__ */ React72.createElement(Icon, { name: it.icon, size: 14 }) : null,
     it.label
   ))));
 }), { displayName: "Breadcrumb" });
 
 // project/components/navigation/CommandPalette.jsx
-import React70 from "react";
-var CommandPalette = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React70.forwardRef(function CommandPalette2({ open = true, query = "", onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = "Search or run a command", footer, className = "", ...rest }, ref) {
+import React73 from "react";
+var CommandPalette = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React73.forwardRef(function CommandPalette2({ open = true, query = "", onQueryChange, groups = [], activeId, onSelect, onClose, placeholder = "Search or run a command", footer, className = "", ...rest }, ref) {
   if (!open) return null;
-  return /* @__PURE__ */ React70.createElement("div", { ref, className: "lamp-palette " + className, role: "dialog", "aria-modal": "true", "aria-label": "Command palette", onClick: onClose, ...rest }, /* @__PURE__ */ React70.createElement("div", { className: "lamp-palette__box", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React70.createElement("div", { className: "lamp-palette__search" }, /* @__PURE__ */ React70.createElement(Icon, { name: "search", size: 16 }), /* @__PURE__ */ React70.createElement("input", { autoFocus: true, value: query, placeholder, onChange: (e) => onQueryChange && onQueryChange(e.target.value) }), /* @__PURE__ */ React70.createElement(Kbd, null, "Esc")), /* @__PURE__ */ React70.createElement("div", { className: "lamp-palette__list", role: "listbox" }, groups.length === 0 ? /* @__PURE__ */ React70.createElement("div", { style: { padding: "24px 12px", textAlign: "center", fontSize: 13, color: "var(--text-tertiary)" } }, "No matches") : null, groups.map((g) => /* @__PURE__ */ React70.createElement("div", { key: g.label }, /* @__PURE__ */ React70.createElement("div", { className: "lamp-palette__group" }, g.label), g.items.map((it) => /* @__PURE__ */ React70.createElement(
+  return /* @__PURE__ */ React73.createElement("div", { ref, className: "lamp-palette " + className, role: "dialog", "aria-modal": "true", "aria-label": "Command palette", onClick: onClose, ...rest }, /* @__PURE__ */ React73.createElement("div", { className: "lamp-palette__box", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React73.createElement("div", { className: "lamp-palette__search" }, /* @__PURE__ */ React73.createElement(Icon, { name: "search", size: 16 }), /* @__PURE__ */ React73.createElement("input", { autoFocus: true, value: query, placeholder, onChange: (e) => onQueryChange && onQueryChange(e.target.value) }), /* @__PURE__ */ React73.createElement(Kbd, null, "Esc")), /* @__PURE__ */ React73.createElement("div", { className: "lamp-palette__list", role: "listbox" }, groups.length === 0 ? /* @__PURE__ */ React73.createElement("div", { style: { padding: "24px 12px", textAlign: "center", fontSize: 13, color: "var(--text-tertiary)" } }, "No matches") : null, groups.map((g) => /* @__PURE__ */ React73.createElement("div", { key: g.label }, /* @__PURE__ */ React73.createElement("div", { className: "lamp-palette__group" }, g.label), g.items.map((it) => /* @__PURE__ */ React73.createElement(
     "button",
     {
       key: it.id,
@@ -2558,35 +3007,35 @@ var CommandPalette = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React70.forwa
       className: "lamp-palette__item" + (activeId === it.id ? " lamp-palette__item--active" : "") + (it.danger ? " lamp-palette__item--danger" : ""),
       onClick: () => onSelect && onSelect(it)
     },
-    it.icon ? /* @__PURE__ */ React70.createElement(Icon, { name: it.icon, size: 16 }) : null,
-    /* @__PURE__ */ React70.createElement("span", null, it.label),
-    it.context ? /* @__PURE__ */ React70.createElement("span", { style: { color: "var(--text-tertiary)", fontSize: 12 } }, it.context) : null,
-    it.shortcut ? /* @__PURE__ */ React70.createElement("span", { className: "lamp-palette__hint" }, /* @__PURE__ */ React70.createElement(Kbd, { keys: it.shortcut })) : null
-  ))))), /* @__PURE__ */ React70.createElement("div", { className: "lamp-palette__foot" }, footer || /* @__PURE__ */ React70.createElement(React70.Fragment, null, /* @__PURE__ */ React70.createElement("span", null, "Navigate"), /* @__PURE__ */ React70.createElement(Kbd, { keys: ["\u2191", "\u2193"] }), /* @__PURE__ */ React70.createElement("span", null, "Open"), /* @__PURE__ */ React70.createElement(Kbd, null, "Enter")))));
+    it.icon ? /* @__PURE__ */ React73.createElement(Icon, { name: it.icon, size: 16 }) : null,
+    /* @__PURE__ */ React73.createElement("span", null, it.label),
+    it.context ? /* @__PURE__ */ React73.createElement("span", { style: { color: "var(--text-tertiary)", fontSize: 12 } }, it.context) : null,
+    it.shortcut ? /* @__PURE__ */ React73.createElement("span", { className: "lamp-palette__hint" }, /* @__PURE__ */ React73.createElement(Kbd, { keys: it.shortcut })) : null
+  ))))), /* @__PURE__ */ React73.createElement("div", { className: "lamp-palette__foot" }, footer || /* @__PURE__ */ React73.createElement(React73.Fragment, null, /* @__PURE__ */ React73.createElement("span", null, "Navigate"), /* @__PURE__ */ React73.createElement(Kbd, { keys: ["\u2191", "\u2193"] }), /* @__PURE__ */ React73.createElement("span", null, "Open"), /* @__PURE__ */ React73.createElement(Kbd, null, "Enter")))));
 }), { displayName: "CommandPalette" });
 
 // project/components/navigation/FilterBar.jsx
-import React71 from "react";
-var FilterBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React71.forwardRef(function FilterBar2({ children, activeCount = 0, onClear, right, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React71.createElement("div", { ref, className: "lamp-filterbar " + className, ...rest }, /* @__PURE__ */ React71.createElement(Icon, { name: "filter_list", size: 14, style: { color: "var(--text-tertiary)" } }), children, activeCount > 0 ? /* @__PURE__ */ React71.createElement(Button, { variant: "quiet", size: "xs", onClick: onClear }, "Clear ", activeCount) : null, /* @__PURE__ */ React71.createElement("span", { className: "lamp-filterbar__spacer" }), right);
+import React74 from "react";
+var FilterBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React74.forwardRef(function FilterBar2({ children, activeCount = 0, onClear, right, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React74.createElement("div", { ref, className: "lamp-filterbar " + className, ...rest }, /* @__PURE__ */ React74.createElement(Icon, { name: "filter_list", size: 14, style: { color: "var(--text-tertiary)" } }), children, activeCount > 0 ? /* @__PURE__ */ React74.createElement(Button, { variant: "quiet", size: "xs", onClick: onClear }, "Clear ", activeCount) : null, /* @__PURE__ */ React74.createElement("span", { className: "lamp-filterbar__spacer" }), right);
 }), { displayName: "FilterBar" });
-var Pagination = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React71.forwardRef(function Pagination2({ page = 1, pageCount = 1, range, onPage, pageSize, onPageSize, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React71.createElement("div", { ref, className: "lamp-pager " + className, ...rest }, range ? /* @__PURE__ */ React71.createElement("span", { className: "lamp-pager__range" }, range) : null, /* @__PURE__ */ React71.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_left", "aria-label": "Previous page", disabled: page <= 1, onClick: () => onPage && onPage(page - 1) }), /* @__PURE__ */ React71.createElement("span", { className: "lamp-pager__range" }, page, " / ", pageCount), /* @__PURE__ */ React71.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_right", "aria-label": "Next page", disabled: page >= pageCount, onClick: () => onPage && onPage(page + 1) }));
+var Pagination = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React74.forwardRef(function Pagination2({ page = 1, pageCount = 1, range, onPage, pageSize, onPageSize, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React74.createElement("div", { ref, className: "lamp-pager " + className, ...rest }, range ? /* @__PURE__ */ React74.createElement("span", { className: "lamp-pager__range" }, range) : null, /* @__PURE__ */ React74.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_left", "aria-label": "Previous page", disabled: page <= 1, onClick: () => onPage && onPage(page - 1) }), /* @__PURE__ */ React74.createElement("span", { className: "lamp-pager__range" }, page, " / ", pageCount), /* @__PURE__ */ React74.createElement(Button, { variant: "secondary", size: "xs", icon: "chevron_right", "aria-label": "Next page", disabled: page >= pageCount, onClick: () => onPage && onPage(page + 1) }));
 }), { displayName: "Pagination" });
 
 // project/components/navigation/GlobalHeader.jsx
-import React72 from "react";
-var GlobalHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React72.forwardRef(function GlobalHeader2({ brand, center, right, wordmark = "LAMP", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React72.createElement("header", { ref, className: "lamp-header " + className, ...rest }, /* @__PURE__ */ React72.createElement("div", { className: "lamp-header__brand" }, brand || /* @__PURE__ */ React72.createElement("span", { className: "lamp-header__wordmark" }, wordmark)), /* @__PURE__ */ React72.createElement("div", { className: "lamp-header__center" }, center), /* @__PURE__ */ React72.createElement("div", { className: "lamp-header__right" }, right));
+import React75 from "react";
+var GlobalHeader = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React75.forwardRef(function GlobalHeader2({ brand, center, right, wordmark = "LAMP", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React75.createElement("header", { ref, className: "lamp-header " + className, ...rest }, /* @__PURE__ */ React75.createElement("div", { className: "lamp-header__brand" }, brand || /* @__PURE__ */ React75.createElement("span", { className: "lamp-header__wordmark" }, wordmark)), /* @__PURE__ */ React75.createElement("div", { className: "lamp-header__center" }, center), /* @__PURE__ */ React75.createElement("div", { className: "lamp-header__right" }, right));
 }), { displayName: "GlobalHeader" });
 
 // project/components/navigation/ObjectTree.jsx
-import React73 from "react";
-var ObjectTree = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React73.forwardRef(function ObjectTree2({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = "", ...rest }, ref) {
+import React76 from "react";
+var ObjectTree = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React76.forwardRef(function ObjectTree2({ nodes = [], selectedId, onSelect, onToggle, expanded = {}, className = "", ...rest }, ref) {
   const render = (node, depth) => {
     const open = expanded[node.id] !== false;
     const kids = node.children || [];
-    return /* @__PURE__ */ React73.createElement(React73.Fragment, { key: node.id }, /* @__PURE__ */ React73.createElement(
+    return /* @__PURE__ */ React76.createElement(React76.Fragment, { key: node.id }, /* @__PURE__ */ React76.createElement(
       "div",
       {
         className: "lamp-tree__row" + (selectedId === node.id ? " lamp-tree__row--selected" : ""),
@@ -2597,40 +3046,40 @@ var ObjectTree = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React73.forwardRe
         "aria-expanded": kids.length ? open : void 0,
         tabIndex: 0
       },
-      kids.length ? /* @__PURE__ */ React73.createElement("span", { className: "lamp-tree__twist" + (open ? " lamp-tree__twist--open" : ""), onClick: (e) => {
+      kids.length ? /* @__PURE__ */ React76.createElement("span", { className: "lamp-tree__twist" + (open ? " lamp-tree__twist--open" : ""), onClick: (e) => {
         e.stopPropagation();
         onToggle && onToggle(node);
-      } }, /* @__PURE__ */ React73.createElement(Icon, { name: "chevron_right", size: 14 })) : /* @__PURE__ */ React73.createElement("span", { className: "lamp-tree__twist" }),
-      node.icon ? /* @__PURE__ */ React73.createElement(Icon, { name: node.icon, size: 14 }) : null,
-      /* @__PURE__ */ React73.createElement("span", { className: "lamp-tree__text" }, node.label),
-      node.status ? /* @__PURE__ */ React73.createElement(StatusDot, { status: node.status }) : null,
-      node.meta ? /* @__PURE__ */ React73.createElement("span", { className: "lamp-nav__meta" }, node.meta) : null
+      } }, /* @__PURE__ */ React76.createElement(Icon, { name: "chevron_right", size: 14 })) : /* @__PURE__ */ React76.createElement("span", { className: "lamp-tree__twist" }),
+      node.icon ? /* @__PURE__ */ React76.createElement(Icon, { name: node.icon, size: 14 }) : null,
+      /* @__PURE__ */ React76.createElement("span", { className: "lamp-tree__text" }, node.label),
+      node.status ? /* @__PURE__ */ React76.createElement(StatusDot, { status: node.status }) : null,
+      node.meta ? /* @__PURE__ */ React76.createElement("span", { className: "lamp-nav__meta" }, node.meta) : null
     ), open && kids.map((k) => render(k, depth + 1)));
   };
-  return /* @__PURE__ */ React73.createElement("div", { ref, className: "lamp-tree " + className, role: "tree", ...rest }, nodes.map((n) => render(n, 0)));
+  return /* @__PURE__ */ React76.createElement("div", { ref, className: "lamp-tree " + className, role: "tree", ...rest }, nodes.map((n) => render(n, 0)));
 }), { displayName: "ObjectTree" });
 
 // project/components/navigation/SegmentedControl.jsx
-import React74 from "react";
-var SegmentedControl = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React74.forwardRef(function SegmentedControl2({ options = [], value, onChange, size = "sm", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React74.createElement("div", { ref, className: ["lamp-seg", size === "md" && "lamp-seg--lg", className].filter(Boolean).join(" "), role: "group", ...rest }, options.map((o) => {
+import React77 from "react";
+var SegmentedControl = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React77.forwardRef(function SegmentedControl2({ options = [], value, onChange, size = "sm", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React77.createElement("div", { ref, className: ["lamp-seg", size === "md" && "lamp-seg--lg", className].filter(Boolean).join(" "), role: "group", ...rest }, options.map((o) => {
     const id = typeof o === "string" ? o : o.value;
     const label = typeof o === "string" ? o : o.label;
     const active = value === id;
-    return /* @__PURE__ */ React74.createElement("button", { key: id, type: "button", "aria-pressed": active, className: "lamp-seg__item" + (active ? " lamp-seg__item--active" : ""), onClick: () => onChange && onChange(id) }, typeof o === "object" && o.icon ? /* @__PURE__ */ React74.createElement(Icon, { name: o.icon, size: 14 }) : null, label);
+    return /* @__PURE__ */ React77.createElement("button", { key: id, type: "button", "aria-pressed": active, className: "lamp-seg__item" + (active ? " lamp-seg__item--active" : ""), onClick: () => onChange && onChange(id) }, typeof o === "object" && o.icon ? /* @__PURE__ */ React77.createElement(Icon, { name: o.icon, size: 14 }) : null, label);
   }));
 }), { displayName: "SegmentedControl" });
 
 // project/components/navigation/SideNav.jsx
-import React75 from "react";
-var SideNav = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React75.forwardRef(function SideNav2({ children, collapsed = false, footer, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React75.createElement("nav", { ref, className: ["lamp-nav", collapsed && "lamp-nav__rail", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React75.createElement("div", { style: { flex: 1, minHeight: 0, overflow: "auto" } }, children), footer ? /* @__PURE__ */ React75.createElement("div", { className: "lamp-nav__foot" }, footer) : null);
+import React78 from "react";
+var SideNav = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React78.forwardRef(function SideNav2({ children, collapsed = false, footer, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React78.createElement("nav", { ref, className: ["lamp-nav", collapsed && "lamp-nav__rail", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React78.createElement("div", { style: { flex: 1, minHeight: 0, overflow: "auto" } }, children), footer ? /* @__PURE__ */ React78.createElement("div", { className: "lamp-nav__foot" }, footer) : null);
 }), { displayName: "SideNav" });
-var NavSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React75.forwardRef(function NavSection2({ label, actions, children, ...rest }, ref) {
-  return /* @__PURE__ */ React75.createElement("div", { ref, className: "lamp-nav__section", ...rest }, label ? /* @__PURE__ */ React75.createElement("div", { className: "lamp-nav__label" }, label, actions ? /* @__PURE__ */ React75.createElement("span", { style: { marginLeft: "auto" } }, actions) : null) : null, children);
+var NavSection = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React78.forwardRef(function NavSection2({ label, actions, children, ...rest }, ref) {
+  return /* @__PURE__ */ React78.createElement("div", { ref, className: "lamp-nav__section", ...rest }, label ? /* @__PURE__ */ React78.createElement("div", { className: "lamp-nav__label" }, label, actions ? /* @__PURE__ */ React78.createElement("span", { style: { marginLeft: "auto" } }, actions) : null) : null, children);
 }), { displayName: "NavSection" });
-var NavItem = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React75.forwardRef(function NavItem2({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }, ref) {
-  return /* @__PURE__ */ React75.createElement(
+var NavItem = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React78.forwardRef(function NavItem2({ icon, label, meta, active = false, collapsed = false, badge, onClick, ...rest }, ref) {
+  return /* @__PURE__ */ React78.createElement(
     "button",
     {
       ref,
@@ -2641,31 +3090,31 @@ var NavItem = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React75.forwardRef(f
       title: collapsed ? label : void 0,
       ...rest
     },
-    icon ? /* @__PURE__ */ React75.createElement(Icon, { name: icon, size: 16 }) : null,
-    !collapsed ? /* @__PURE__ */ React75.createElement("span", { className: "lamp-nav__text" }, label) : null,
-    !collapsed && meta ? /* @__PURE__ */ React75.createElement("span", { className: "lamp-nav__meta" }, meta) : null,
+    icon ? /* @__PURE__ */ React78.createElement(Icon, { name: icon, size: 16 }) : null,
+    !collapsed ? /* @__PURE__ */ React78.createElement("span", { className: "lamp-nav__text" }, label) : null,
+    !collapsed && meta ? /* @__PURE__ */ React78.createElement("span", { className: "lamp-nav__meta" }, meta) : null,
     !collapsed ? badge : null
   );
 }), { displayName: "NavItem" });
 
 // project/components/navigation/StatusBar.jsx
-import React76 from "react";
-var StatusBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React76.forwardRef(function StatusBar2({ items = [], right = [], className = "", ...rest }, ref) {
-  const cell = (it, i, isRight) => /* @__PURE__ */ React76.createElement("span", { key: i, className: "lamp-statusbar__item" + (isRight && i === 0 ? " lamp-statusbar__item--right" : ""), title: it.title }, it.icon ? /* @__PURE__ */ React76.createElement(Icon, { name: it.icon, size: 12 }) : null, it.label ? /* @__PURE__ */ React76.createElement("span", null, it.label) : null, it.value != null ? /* @__PURE__ */ React76.createElement("span", { className: "lamp-statusbar__val" }, it.value) : null);
-  return /* @__PURE__ */ React76.createElement("footer", { ref, className: "lamp-statusbar " + className, ...rest }, items.map((it, i) => cell(it, i, false)), right.map((it, i) => cell(it, i, true)));
+import React79 from "react";
+var StatusBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React79.forwardRef(function StatusBar2({ items = [], right = [], className = "", ...rest }, ref) {
+  const cell = (it, i, isRight) => /* @__PURE__ */ React79.createElement("span", { key: i, className: "lamp-statusbar__item" + (isRight && i === 0 ? " lamp-statusbar__item--right" : ""), title: it.title }, it.icon ? /* @__PURE__ */ React79.createElement(Icon, { name: it.icon, size: 12 }) : null, it.label ? /* @__PURE__ */ React79.createElement("span", null, it.label) : null, it.value != null ? /* @__PURE__ */ React79.createElement("span", { className: "lamp-statusbar__val" }, it.value) : null);
+  return /* @__PURE__ */ React79.createElement("footer", { ref, className: "lamp-statusbar " + className, ...rest }, items.map((it, i) => cell(it, i, false)), right.map((it, i) => cell(it, i, true)));
 }), { displayName: "StatusBar" });
 
 // project/components/navigation/WorkspaceSwitcher.jsx
-import React77 from "react";
-var WorkspaceSwitcher = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React77.forwardRef(function WorkspaceSwitcher2({ name, subtitle, initials, onClick, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React77.createElement("button", { ref, type: "button", className: "lamp-wsw " + className, onClick, ...rest }, /* @__PURE__ */ React77.createElement("span", { className: "lamp-wsw__avatar" }, initials || String(name || "?").slice(0, 2).toUpperCase()), /* @__PURE__ */ React77.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: 0 } }, /* @__PURE__ */ React77.createElement("span", { className: "lamp-wsw__name" }, name), subtitle ? /* @__PURE__ */ React77.createElement("span", { className: "lamp-wsw__sub" }, subtitle) : null), /* @__PURE__ */ React77.createElement(Icon, { name: "unfold_more", size: 14, style: { color: "var(--text-tertiary)" } }));
+import React80 from "react";
+var WorkspaceSwitcher = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React80.forwardRef(function WorkspaceSwitcher2({ name, subtitle, initials, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React80.createElement("button", { ref, type: "button", className: "lamp-wsw " + className, onClick, ...rest }, /* @__PURE__ */ React80.createElement("span", { className: "lamp-wsw__avatar" }, initials || String(name || "?").slice(0, 2).toUpperCase()), /* @__PURE__ */ React80.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: 0 } }, /* @__PURE__ */ React80.createElement("span", { className: "lamp-wsw__name" }, name), subtitle ? /* @__PURE__ */ React80.createElement("span", { className: "lamp-wsw__sub" }, subtitle) : null), /* @__PURE__ */ React80.createElement(Icon, { name: "unfold_more", size: 14, style: { color: "var(--text-tertiary)" } }));
 }), { displayName: "WorkspaceSwitcher" });
 
 // project/components/objects/AgentIsland.jsx
-import React78 from "react";
-var AgentIsland = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React78.forwardRef(function AgentIsland2({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = "", style, ...rest }, ref) {
+import React81 from "react";
+var AgentIsland = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React81.forwardRef(function AgentIsland2({ name, note, solo = false, outlined = false, selected = false, x, y, actions, children, className = "", style, ...rest }, ref) {
   const positioned = x != null || y != null;
-  return /* @__PURE__ */ React78.createElement(
+  return /* @__PURE__ */ React81.createElement(
     "div",
     {
       ref,
@@ -2673,13 +3122,21 @@ var AgentIsland = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React78.forwardR
       style: positioned ? { position: "absolute", left: x, top: y, ...style } : style,
       ...rest
     },
-    name || note || actions ? /* @__PURE__ */ React78.createElement("div", { className: "lamp-island__head" }, name ? /* @__PURE__ */ React78.createElement("span", { className: "lamp-island__name" }, name) : null, note ? /* @__PURE__ */ React78.createElement("span", { className: "lamp-island__note" }, note) : null, actions ? /* @__PURE__ */ React78.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions) : null) : null,
-    /* @__PURE__ */ React78.createElement("div", { className: "lamp-island__body" }, children)
+    name || note || actions ? /* @__PURE__ */ React81.createElement("div", { className: "lamp-island__head" }, name ? /* @__PURE__ */ React81.createElement("span", { className: "lamp-island__name" }, name) : null, note ? /* @__PURE__ */ React81.createElement("span", { className: "lamp-island__note" }, note) : null, actions ? /* @__PURE__ */ React81.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 2 } }, actions) : null) : null,
+    /* @__PURE__ */ React81.createElement("div", { className: "lamp-island__body" }, children)
   );
 }), { displayName: "AgentIsland" });
 
 // project/components/objects/BondEdge.jsx
-import React79 from "react";
+import React82 from "react";
+function hexReach(w, h, angle) {
+  const sixty = Math.PI / 3;
+  const thirty = Math.PI / 6;
+  let rel = ((angle - thirty) % sixty + sixty) % sixty;
+  if (rel > thirty) rel -= sixty;
+  const apothem = h / 2;
+  return Math.min(apothem / Math.cos(rel), w / 2);
+}
 var BOND_STROKE = {
   valid: "var(--bond-edge-confirmed)",
   incomplete: "var(--bond-edge)",
@@ -2691,15 +3148,30 @@ var BOND_STROKE = {
   locked: "var(--bond-edge-locked)",
   preview: "var(--gold-400)"
 };
-var BondEdge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React79.forwardRef(function BondEdge2({ from, to, state = "valid", energy = false, environment = "draft", junction = true, className = "", ...rest }, ref) {
+var BondEdge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React82.forwardRef(function BondEdge2({ from, to, size = "md", state = "valid", energy = false, environment = "draft", junction = true, className = "", ...rest }, ref) {
   const stroke = BOND_STROKE[state] || BOND_STROKE.valid;
   const dashed = state === "suggested" || state === "learned" || state === "preview" || state === "incomplete";
   const mid = { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
-  const t = 0.34;
-  const a = { x: from.x + (to.x - from.x) * t, y: from.y + (to.y - from.y) * t };
-  const b = { x: to.x + (from.x - to.x) * t, y: to.y + (from.y - to.y) * t };
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const span = Math.hypot(dx, dy) || 1;
+  const angle = Math.atan2(dy, dx);
+  const [hw, hh] = AGENT_SIZES[size] || AGENT_SIZES.md;
+  const PAD = 3;
+  const reachFrom = hexReach(hw, hh, angle) + PAD;
+  const reachTo = hexReach(hw, hh, angle + Math.PI) + PAD;
+  let a;
+  let b;
+  if (span - reachFrom - reachTo < 6) {
+    const t = 0.34;
+    a = { x: from.x + dx * t, y: from.y + dy * t };
+    b = { x: to.x - dx * t, y: to.y - dy * t };
+  } else {
+    a = { x: from.x + dx / span * reachFrom, y: from.y + dy / span * reachFrom };
+    b = { x: to.x - dx / span * reachTo, y: to.y - dy / span * reachTo };
+  }
   const spark = environment === "simulation" ? "var(--simulation-energy)" : "var(--energy-bright)";
-  return /* @__PURE__ */ React79.createElement("g", { ref, className: ["lamp-bond", energy && "lamp-bond--energy", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React79.createElement(
+  return /* @__PURE__ */ React82.createElement("g", { ref, className: ["lamp-bond", energy && "lamp-bond--energy", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React82.createElement(
     "line",
     {
       className: "lamp-bond__line",
@@ -2713,14 +3185,14 @@ var BondEdge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React79.forwardRef(
       strokeDasharray: dashed ? "3 3" : void 0,
       opacity: state === "preview" ? 0.85 : 1
     }
-  ), junction ? /* @__PURE__ */ React79.createElement("circle", { cx: mid.x, cy: mid.y, r: 3.5, fill: stroke, stroke: "var(--surface-primary)", strokeWidth: 1 }) : null, state === "locked" ? /* @__PURE__ */ React79.createElement("circle", { cx: mid.x, cy: mid.y, r: 5, fill: "none", stroke, strokeWidth: 1 }) : null, energy ? /* @__PURE__ */ React79.createElement("circle", { className: "lamp-bond__spark", r: 2.5, fill: spark, style: { offsetPath: 'path("M' + a.x + "," + a.y + " L" + b.x + "," + b.y + '")' } }) : null);
+  ), junction ? /* @__PURE__ */ React82.createElement("circle", { cx: mid.x, cy: mid.y, r: 3.5, fill: stroke, stroke: "var(--surface-primary)", strokeWidth: 1 }) : null, state === "locked" ? /* @__PURE__ */ React82.createElement("circle", { cx: mid.x, cy: mid.y, r: 5, fill: "none", stroke, strokeWidth: 1 }) : null, energy ? /* @__PURE__ */ React82.createElement("circle", { className: "lamp-bond__spark", r: 2.5, fill: spark, style: { offsetPath: 'path("M' + a.x + "," + a.y + " L" + b.x + "," + b.y + '")' } }) : null);
 }), { displayName: "BondEdge" });
-var BondLayer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React79.forwardRef(function BondLayer2({ width, height, children, ...rest }, ref) {
-  return /* @__PURE__ */ React79.createElement("svg", { ref, width, height, style: { position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none", zIndex: 2 }, "aria-hidden": "true", ...rest }, children);
+var BondLayer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React82.forwardRef(function BondLayer2({ width, height, children, ...rest }, ref) {
+  return /* @__PURE__ */ React82.createElement("svg", { ref, width, height, style: { position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none", zIndex: 2 }, "aria-hidden": "true", ...rest }, children);
 }), { displayName: "BondLayer" });
 
 // project/components/objects/EntityChip.jsx
-import React80 from "react";
+import React83 from "react";
 var ENTITY_GLYPH = {
   person: "person",
   team: "groups",
@@ -2742,9 +3214,9 @@ var ENTITY_GLYPH = {
   exception: "report",
   relationship: "link"
 };
-var EntityChip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React80.forwardRef(function EntityChip2({ type = "person", name, initials, showType = false, glyph, onClick, className = "", ...rest }, ref) {
+var EntityChip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React83.forwardRef(function EntityChip2({ type = "person", name, initials, showType = false, glyph, onClick, className = "", ...rest }, ref) {
   const round = type === "person";
-  return /* @__PURE__ */ React80.createElement(
+  return /* @__PURE__ */ React83.createElement(
     "span",
     {
       ref,
@@ -2754,16 +3226,16 @@ var EntityChip = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React80.forwardRe
       tabIndex: onClick ? 0 : void 0,
       ...rest
     },
-    initials ? /* @__PURE__ */ React80.createElement("span", { className: "lamp-entity__avatar" + (round ? " lamp-entity__avatar--round" : "") }, initials) : /* @__PURE__ */ React80.createElement(Icon, { name: glyph || ENTITY_GLYPH[type] || "circle", size: 13, style: { color: "var(--text-tertiary)" } }),
-    showType ? /* @__PURE__ */ React80.createElement("span", { className: "lamp-entity__type" }, type) : null,
-    /* @__PURE__ */ React80.createElement("span", null, name)
+    initials ? /* @__PURE__ */ React83.createElement("span", { className: "lamp-entity__avatar" + (round ? " lamp-entity__avatar--round" : "") }, initials) : /* @__PURE__ */ React83.createElement(Icon, { name: glyph || ENTITY_GLYPH[type] || "circle", size: 13, style: { color: "var(--text-tertiary)" } }),
+    showType ? /* @__PURE__ */ React83.createElement("span", { className: "lamp-entity__type" }, type) : null,
+    /* @__PURE__ */ React83.createElement("span", null, name)
   );
 }), { displayName: "EntityChip" });
 
 // project/components/objects/GenieCard.jsx
-import React81 from "react";
-var GenieCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React81.forwardRef(function GenieCard2({ name, purpose, status = "draft", selected = false, live = false, stats = [], hive, actions, onClick, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React81.createElement(
+import React84 from "react";
+var GenieCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React84.forwardRef(function GenieCard2({ name, purpose, status = "draft", selected = false, live = false, stats = [], hive, actions, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React84.createElement(
     "div",
     {
       ref,
@@ -2773,14 +3245,14 @@ var GenieCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React81.forwardRef
       "aria-label": "Genie " + (name || ""),
       ...rest
     },
-    /* @__PURE__ */ React81.createElement("div", { className: "lamp-genie__head" }, /* @__PURE__ */ React81.createElement(Icon, { name: "hive", size: 18, style: { color: live ? "var(--gold-500)" : "var(--text-secondary)", marginTop: 1 } }), /* @__PURE__ */ React81.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 } }, /* @__PURE__ */ React81.createElement("span", { className: "lamp-genie__name" }, name), purpose ? /* @__PURE__ */ React81.createElement("p", { className: "lamp-genie__purpose" }, purpose) : null), /* @__PURE__ */ React81.createElement(StatusBadge, { status }), actions),
-    hive ? /* @__PURE__ */ React81.createElement("div", { className: "lamp-genie__hive" }, hive) : null,
-    stats.length ? /* @__PURE__ */ React81.createElement("div", { className: "lamp-genie__stats" }, stats.map((s) => /* @__PURE__ */ React81.createElement("span", { className: "lamp-genie__stat", key: s.label }, /* @__PURE__ */ React81.createElement("span", { className: "lamp-genie__stat-v" }, s.value), /* @__PURE__ */ React81.createElement("span", { className: "lamp-genie__stat-l" }, s.label)))) : null
+    /* @__PURE__ */ React84.createElement("div", { className: "lamp-genie__head" }, /* @__PURE__ */ React84.createElement(Icon, { name: "hive", size: 18, style: { color: live ? "var(--gold-500)" : "var(--text-secondary)", marginTop: 1 } }), /* @__PURE__ */ React84.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: 1 } }, /* @__PURE__ */ React84.createElement("span", { className: "lamp-genie__name" }, name), purpose ? /* @__PURE__ */ React84.createElement("p", { className: "lamp-genie__purpose" }, purpose) : null), /* @__PURE__ */ React84.createElement(StatusBadge, { status }), actions),
+    hive ? /* @__PURE__ */ React84.createElement("div", { className: "lamp-genie__hive" }, hive) : null,
+    stats.length ? /* @__PURE__ */ React84.createElement("div", { className: "lamp-genie__stats" }, stats.map((s) => /* @__PURE__ */ React84.createElement("span", { className: "lamp-genie__stat", key: s.label }, /* @__PURE__ */ React84.createElement("span", { className: "lamp-genie__stat-v" }, s.value), /* @__PURE__ */ React84.createElement("span", { className: "lamp-genie__stat-l" }, s.label)))) : null
   );
 }), { displayName: "GenieCard" });
 
 // project/components/objects/ObjectRow.jsx
-import React82 from "react";
+import React85 from "react";
 var KIND_GLYPH = {
   agent: "hexagon",
   skill: "circle",
@@ -2803,8 +3275,8 @@ var KIND_GLYPH = {
   integration: "extension",
   member: "person"
 };
-var ObjectRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React82.forwardRef(function ObjectRow2({ kind = "agent", glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React82.createElement(
+var ObjectRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React85.forwardRef(function ObjectRow2({ kind = "agent", glyph, name, secondary, status, statusLabel, badges, meta, timestamp, actions, selected = false, compact = false, onClick, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React85.createElement(
     "div",
     {
       ref,
@@ -2815,18 +3287,18 @@ var ObjectRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React82.forwardRef
       "aria-selected": selected,
       ...rest
     },
-    /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__glyph" }, /* @__PURE__ */ React82.createElement(Icon, { name: glyph || KIND_GLYPH[kind] || "circle", size: compact ? 14 : 16 })),
-    /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__main" }, /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__name" }, name), secondary ? /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__sub" }, secondary) : null),
-    /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__right" }, badges, meta ? /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__sub" }, meta) : null, status ? /* @__PURE__ */ React82.createElement(StatusBadge, { status, label: statusLabel, mode: compact ? "label" : "badge" }) : null, timestamp ? /* @__PURE__ */ React82.createElement("span", { className: "lamp-objrow__time" }, timestamp) : null, actions)
+    /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__glyph" }, /* @__PURE__ */ React85.createElement(Icon, { name: glyph || KIND_GLYPH[kind] || "circle", size: compact ? 14 : 16 })),
+    /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__main" }, /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__name" }, name), secondary ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__sub" }, secondary) : null),
+    /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__right" }, badges, meta ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__sub" }, meta) : null, status ? /* @__PURE__ */ React85.createElement(StatusBadge, { status, label: statusLabel, mode: compact ? "label" : "badge" }) : null, timestamp ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-objrow__time" }, timestamp) : null, actions)
   );
 }), { displayName: "ObjectRow" });
-var ObjectList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React82.forwardRef(function ObjectList2({ children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React82.createElement("div", { ref, className: "lamp-objlist " + className, role: "list", style: { display: "flex", flexDirection: "column" }, ...rest }, children);
+var ObjectList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React85.forwardRef(function ObjectList2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React85.createElement("div", { ref, className: "lamp-objlist " + className, role: "list", style: { display: "flex", flexDirection: "column" }, ...rest }, children);
 }), { displayName: "ObjectList" });
 
 // project/components/objects/PlaybookCluster.jsx
-import React83 from "react";
-var STATE_STATUS = {
+import React86 from "react";
+var STATE_STATUS2 = {
   observed: "observed",
   inferred: "inferred",
   draft: "draft",
@@ -2844,8 +3316,8 @@ var STATE_STATUS = {
   disabled: "disabled",
   deprecated: "disabled"
 };
-var PlaybookCluster = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React83.forwardRef(function PlaybookCluster2({ name, state = "draft", selected = false, agents, meta = [], actions, padding, layout = "flow", dropState, collapsed = false, resizable = false, width, height, children, onClick, className = "", style, ...rest }, ref) {
-  return /* @__PURE__ */ React83.createElement(
+var PlaybookCluster = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React86.forwardRef(function PlaybookCluster2({ name, state = "draft", selected = false, agents, meta = [], actions, padding, layout = "flow", dropState, collapsed = false, resizable = false, width, height, children, onClick, className = "", style, ...rest }, ref) {
+  return /* @__PURE__ */ React86.createElement(
     "div",
     {
       ref,
@@ -2865,19 +3337,19 @@ var PlaybookCluster = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React83.forw
       "aria-label": "Playbook " + (name || ""),
       ...rest
     },
-    name || actions ? /* @__PURE__ */ React83.createElement("div", { className: "lamp-pb__head" }, /* @__PURE__ */ React83.createElement(Icon, { name: "layers", size: 13, style: { color: "var(--text-tertiary)" } }), /* @__PURE__ */ React83.createElement("span", { className: "lamp-pb__title" }, name), /* @__PURE__ */ React83.createElement(StatusBadge, { status: STATE_STATUS[state] || "draft" }), agents != null ? /* @__PURE__ */ React83.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--text-tertiary)" } }, agents, " Agents") : null, actions) : null,
-    collapsed ? null : /* @__PURE__ */ React83.createElement("div", { className: "lamp-pb__body" }, children),
-    resizable && !collapsed ? /* @__PURE__ */ React83.createElement("span", { className: "lamp-pb__grip", "aria-hidden": "true" }) : null,
-    meta.length ? /* @__PURE__ */ React83.createElement("div", { className: "lamp-pb__foot" }, meta.map((m, i) => /* @__PURE__ */ React83.createElement("span", { key: i }, m))) : null
+    name || actions ? /* @__PURE__ */ React86.createElement("div", { className: "lamp-pb__head" }, /* @__PURE__ */ React86.createElement(Icon, { name: "layers", size: 13, style: { color: "var(--text-tertiary)" } }), /* @__PURE__ */ React86.createElement("span", { className: "lamp-pb__title" }, name), /* @__PURE__ */ React86.createElement(StatusBadge, { status: STATE_STATUS2[state] || "draft" }), agents != null ? /* @__PURE__ */ React86.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--text-tertiary)" } }, agents, " Agents") : null, actions) : null,
+    collapsed ? null : /* @__PURE__ */ React86.createElement("div", { className: "lamp-pb__body" }, children),
+    resizable && !collapsed ? /* @__PURE__ */ React86.createElement("span", { className: "lamp-pb__grip", "aria-hidden": "true" }) : null,
+    meta.length ? /* @__PURE__ */ React86.createElement("div", { className: "lamp-pb__foot" }, meta.map((m, i) => /* @__PURE__ */ React86.createElement("span", { key: i }, m))) : null
   );
 }), { displayName: "PlaybookCluster" });
 
 // project/components/objects/SkillOrb.jsx
-import React84 from "react";
+import React87 from "react";
 var SKILL_SIZES = { xs: 16, sm: 20, md: 28, lg: 36, xl: 48 };
-var SkillOrb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React84.forwardRef(function SkillOrb2({ size = "md", state = "available", glyph = "flare", name, label, onClick, className = "", style, ...rest }, ref) {
+var SkillOrb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(function SkillOrb2({ size = "md", state = "available", glyph = "flare", name, label, onClick, className = "", style, ...rest }, ref) {
   const px = SKILL_SIZES[size] || SKILL_SIZES.md;
-  const orb = /* @__PURE__ */ React84.createElement(
+  const orb = /* @__PURE__ */ React87.createElement(
     "span",
     {
       className: ["lamp-skill", "lamp-skill--" + state, onClick && "lamp-skill--interactive", className].filter(Boolean).join(" "),
@@ -2889,61 +3361,15 @@ var SkillOrb = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React84.forwardRef(
       title: name,
       ...rest
     },
-    /* @__PURE__ */ React84.createElement(Icon, { name: glyph, size: px <= 20 ? 10 : px <= 28 ? 14 : 18 }),
-    state === "error" || state === "waiting" ? /* @__PURE__ */ React84.createElement("span", { className: "lamp-skill__dot" }, /* @__PURE__ */ React84.createElement(StatusDot, { status: state === "error" ? "error" : "waiting" })) : null
+    /* @__PURE__ */ React87.createElement(Icon, { name: glyph, size: px <= 20 ? 10 : px <= 28 ? 14 : 18 }),
+    state === "error" || state === "waiting" ? /* @__PURE__ */ React87.createElement("span", { className: "lamp-skill__dot" }, /* @__PURE__ */ React87.createElement(StatusDot, { status: state === "error" ? "error" : "waiting" })) : null
   );
   if (!label) return orb;
-  return /* @__PURE__ */ React84.createElement("span", { ref, className: "lamp-skillrow" }, orb, /* @__PURE__ */ React84.createElement("span", { className: "lamp-skillrow__name" }, name));
+  return /* @__PURE__ */ React87.createElement("span", { ref, className: "lamp-skillrow" }, orb, /* @__PURE__ */ React87.createElement("span", { className: "lamp-skillrow__name" }, name));
 }), { displayName: "SkillOrb" });
 
-// project/components/objects/ToolTile.jsx
-import React85 from "react";
-var TOOL_SIZES = { sm: 24, md: 32, lg: 40, xl: 48 };
-var STATE_STATUS2 = {
-  available: null,
-  connected: "success",
-  authorizationRequired: "attention",
-  expired: "attention",
-  healthy: "success",
-  degraded: "attention",
-  error: "error",
-  readOnly: null,
-  writeEnabled: null,
-  blocked: "blocked",
-  disabled: "disabled"
-};
-var ToolTile = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React85.forwardRef(function ToolTile2({ size = "md", state = "connected", provider, glyph = "extension", name, brandColor, onClick, className = "", style, ...rest }, ref) {
-  const px = TOOL_SIZES[size] || TOOL_SIZES.md;
-  const dot = STATE_STATUS2[state];
-  return /* @__PURE__ */ React85.createElement(
-    "span",
-    {
-      ref,
-      className: ["lamp-tool", "lamp-tool--" + state, onClick && "lamp-tool--interactive", className].filter(Boolean).join(" "),
-      style: { width: px, height: px, ...style },
-      onClick,
-      role: onClick ? "button" : "img",
-      "aria-label": (name || provider || "Tool") + " Tool",
-      tabIndex: onClick ? 0 : void 0,
-      title: name || provider,
-      ...rest
-    },
-    provider ? /* @__PURE__ */ React85.createElement(BrandIcon, { slug: provider, size: px <= 24 ? 14 : px <= 32 ? 18 : 22, color: brandColor }) : /* @__PURE__ */ React85.createElement(Icon, { name: glyph, size: px <= 24 ? 14 : px <= 32 ? 18 : 22 }),
-    dot ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-tool__dot" }, /* @__PURE__ */ React85.createElement(StatusDot, { status: dot })) : null
-  );
-}), { displayName: "ToolTile" });
-var ToolRow = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React85.forwardRef(function ToolRow2({ provider, glyph, name, account, state = "connected", permission, usedBy, lastActivity, health, risk, actions, onClick, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React85.createElement("div", { ref, className: "lamp-toolrow " + className, onClick, ...rest }, /* @__PURE__ */ React85.createElement(ToolTile, { provider, glyph, name, state }), /* @__PURE__ */ React85.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 1, minWidth: 0 } }, /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__name" }, name), account ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__sub" }, account) : null), /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__right" }, permission ? /* @__PURE__ */ React85.createElement(Badge, { outline: true }, permission) : null, risk ? /* @__PURE__ */ React85.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null, usedBy != null ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__sub" }, "Used by ", usedBy) : null, health ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, health) : null, lastActivity ? /* @__PURE__ */ React85.createElement("span", { className: "lamp-toolrow__sub", style: { fontFamily: "var(--font-mono)" } }, lastActivity) : null, /* @__PURE__ */ React85.createElement(
-    StatusBadge,
-    {
-      status: state === "connected" || state === "healthy" ? "success" : state === "error" ? "error" : state === "blocked" ? "blocked" : "attention",
-      label: state === "authorizationRequired" ? "Auth required" : state === "expired" ? "Expired" : state === "degraded" ? "Degraded" : state === "connected" ? "Connected" : void 0
-    }
-  ), actions));
-}), { displayName: "ToolRow" });
-
 // project/components/patterns/BusinessProcess.jsx
-import React86 from "react";
+import React88 from "react";
 var BUSINESS_PROCESSES = [
   {
     id: "procure-to-pay",
@@ -3267,7 +3693,7 @@ function MatchProcess(context = {}) {
   return scored.filter((m) => m.score > 0).sort((a, b) => b.score - a.score);
 }
 var matchProcess = MatchProcess;
-var ProcessProposal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React86.forwardRef(function ProcessProposal2({
+var ProcessProposal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React88.forwardRef(function ProcessProposal2({
   match,
   selected = false,
   primary = false,
@@ -3280,33 +3706,33 @@ var ProcessProposal = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React86.forw
 }, ref) {
   if (!match) return null;
   const { process, confidence, evidence = [], roleHits = [] } = match;
-  return /* @__PURE__ */ React86.createElement(
+  return /* @__PURE__ */ React88.createElement(
     "article",
     {
       ref,
       className: ["lamp-proposal", primary && "lamp-proposal--primary", selected && "lamp-proposal--selected", compact && "lamp-proposal--compact", className].filter(Boolean).join(" "),
       ...rest
     },
-    /* @__PURE__ */ React86.createElement("div", { className: "lamp-proposal__top" }, /* @__PURE__ */ React86.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ React86.createElement("span", { className: "lamp-proposal__note" }, "LAMP thinks this is"), /* @__PURE__ */ React86.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React86.createElement(MemoryConfidence, { level: confidence }))),
-    /* @__PURE__ */ React86.createElement("div", { className: "lamp-proposal__name" }, process.name, /* @__PURE__ */ React86.createElement(Badge, { outline: true, micro: true }, process.domain), process.aka && process.aka.length ? /* @__PURE__ */ React86.createElement("span", { className: "lamp-proposal__aka" }, process.aka[0]) : null),
-    /* @__PURE__ */ React86.createElement("p", { className: "lamp-proposal__purpose" }, process.purpose),
-    !compact && evidence.length ? /* @__PURE__ */ React86.createElement("ul", { className: "lamp-proposal__ev" }, evidence.map((e) => /* @__PURE__ */ React86.createElement("li", { key: e }, e))) : null,
-    !compact && roleHits.length < process.roles.length ? /* @__PURE__ */ React86.createElement("p", { className: "lamp-proposal__gap" }, "Usually also has: ", process.roles.filter((r) => roleHits.indexOf(r) === -1).join(", ")) : null,
-    onUse || onReview || onDismiss ? /* @__PURE__ */ React86.createElement("div", { className: "lamp-proposal__actions" }, onUse ? /* @__PURE__ */ React86.createElement(Button, { size: "sm", variant: selected ? "brand" : "primary", icon: selected ? "check" : void 0, onClick: () => onUse(process) }, selected ? "Selected" : "Use this process") : null, onReview ? /* @__PURE__ */ React86.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onReview(process) }, "Review steps") : null, onDismiss ? /* @__PURE__ */ React86.createElement(Button, { size: "sm", variant: "quiet", onClick: () => onDismiss(process) }, "Not this") : null) : null
+    /* @__PURE__ */ React88.createElement("div", { className: "lamp-proposal__top" }, /* @__PURE__ */ React88.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ React88.createElement("span", { className: "lamp-proposal__note" }, "LAMP thinks this is"), /* @__PURE__ */ React88.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React88.createElement(MemoryConfidence, { level: confidence }))),
+    /* @__PURE__ */ React88.createElement("div", { className: "lamp-proposal__name" }, process.name, /* @__PURE__ */ React88.createElement(Badge, { outline: true, micro: true }, process.domain), process.aka && process.aka.length ? /* @__PURE__ */ React88.createElement("span", { className: "lamp-proposal__aka" }, process.aka[0]) : null),
+    /* @__PURE__ */ React88.createElement("p", { className: "lamp-proposal__purpose" }, process.purpose),
+    !compact && evidence.length ? /* @__PURE__ */ React88.createElement("ul", { className: "lamp-proposal__ev" }, evidence.map((e) => /* @__PURE__ */ React88.createElement("li", { key: e }, e))) : null,
+    !compact && roleHits.length < process.roles.length ? /* @__PURE__ */ React88.createElement("p", { className: "lamp-proposal__gap" }, "Usually also has: ", process.roles.filter((r) => roleHits.indexOf(r) === -1).join(", ")) : null,
+    onUse || onReview || onDismiss ? /* @__PURE__ */ React88.createElement("div", { className: "lamp-proposal__actions" }, onUse ? /* @__PURE__ */ React88.createElement(Button, { size: "sm", variant: selected ? "brand" : "primary", icon: selected ? "check" : void 0, onClick: () => onUse(process) }, selected ? "Selected" : "Use this process") : null, onReview ? /* @__PURE__ */ React88.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onReview(process) }, "Review steps") : null, onDismiss ? /* @__PURE__ */ React88.createElement(Button, { size: "sm", variant: "quiet", onClick: () => onDismiss(process) }, "Not this") : null) : null
   );
 }), { displayName: "ProcessProposal" });
 
 // project/components/patterns/Conversation.jsx
-import React87 from "react";
-var Message = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(function Message2({ role = "agent", author, timestamp, status, children, className = "", ...rest }, ref) {
+import React89 from "react";
+var Message = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forwardRef(function Message2({ role = "agent", author, timestamp, status, children, className = "", ...rest }, ref) {
   const initials = (author || (role === "user" ? "You" : "A")).slice(0, 2).toUpperCase();
-  return /* @__PURE__ */ React87.createElement("div", { ref, className: ["lamp-msg", "lamp-msg--" + role, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React87.createElement("span", { className: "lamp-msg__av lamp-msg__av--" + role }, role === "system" ? /* @__PURE__ */ React87.createElement(Icon, { name: "info", size: 13 }) : role === "tool" ? /* @__PURE__ */ React87.createElement(Icon, { name: "square", size: 13 }) : initials), /* @__PURE__ */ React87.createElement("span", { className: "lamp-msg__body" }, /* @__PURE__ */ React87.createElement("span", { className: "lamp-msg__meta" }, /* @__PURE__ */ React87.createElement("span", { className: "lamp-msg__who" }, author || (role === "user" ? "You" : role === "agent" ? "Agent" : role === "tool" ? "Tool" : "LAMP")), timestamp ? /* @__PURE__ */ React87.createElement("span", null, timestamp) : null, status ? /* @__PURE__ */ React87.createElement("span", null, status) : null), /* @__PURE__ */ React87.createElement("span", { className: "lamp-msg__text" }, children)));
+  return /* @__PURE__ */ React89.createElement("div", { ref, className: ["lamp-msg", "lamp-msg--" + role, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React89.createElement("span", { className: "lamp-msg__av lamp-msg__av--" + role }, role === "system" ? /* @__PURE__ */ React89.createElement(Icon, { name: "info", size: 13 }) : role === "tool" ? /* @__PURE__ */ React89.createElement(Icon, { name: "square", size: 13 }) : initials), /* @__PURE__ */ React89.createElement("span", { className: "lamp-msg__body" }, /* @__PURE__ */ React89.createElement("span", { className: "lamp-msg__meta" }, /* @__PURE__ */ React89.createElement("span", { className: "lamp-msg__who" }, author || (role === "user" ? "You" : role === "agent" ? "Agent" : role === "tool" ? "Tool" : "LAMP")), timestamp ? /* @__PURE__ */ React89.createElement("span", null, timestamp) : null, status ? /* @__PURE__ */ React89.createElement("span", null, status) : null), /* @__PURE__ */ React89.createElement("span", { className: "lamp-msg__text" }, children)));
 }), { displayName: "Message" });
-var MessageList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(function MessageList2({ children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React87.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", overflow: "auto", minHeight: 0 }, role: "log", ...rest }, children);
+var MessageList = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forwardRef(function MessageList2({ children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React89.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", overflow: "auto", minHeight: 0 }, role: "log", ...rest }, children);
 }), { displayName: "MessageList" });
-var Composer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(function Composer2({ placeholder = "Write a message", value, onChange, onSend, onAttach, onVoice, quickReplies = [], disabled = false, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React87.createElement("div", { ref, className, ...rest }, quickReplies.length ? /* @__PURE__ */ React87.createElement("div", { className: "lamp-quick" }, quickReplies.map((q) => /* @__PURE__ */ React87.createElement(Button, { key: q.label || q, size: "sm", variant: "secondary", onClick: q.onSelect }, q.label || q))) : null, /* @__PURE__ */ React87.createElement("div", { className: "lamp-composer" }, onAttach ? /* @__PURE__ */ React87.createElement(IconButton, { icon: "attach_file", label: "Attach file", size: "lg", onClick: onAttach }) : null, /* @__PURE__ */ React87.createElement(
+var Composer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forwardRef(function Composer2({ placeholder = "Write a message", value, onChange, onSend, onAttach, onVoice, quickReplies = [], disabled = false, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React89.createElement("div", { ref, className, ...rest }, quickReplies.length ? /* @__PURE__ */ React89.createElement("div", { className: "lamp-quick" }, quickReplies.map((q) => /* @__PURE__ */ React89.createElement(Button, { key: q.label || q, size: "sm", variant: "secondary", onClick: q.onSelect }, q.label || q))) : null, /* @__PURE__ */ React89.createElement("div", { className: "lamp-composer" }, onAttach ? /* @__PURE__ */ React89.createElement(IconButton, { icon: "attach_file", label: "Attach file", size: "lg", onClick: onAttach }) : null, /* @__PURE__ */ React89.createElement(
     "textarea",
     {
       className: "lamp-composer__field",
@@ -3322,14 +3748,14 @@ var Composer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(
         }
       }
     }
-  ), onVoice ? /* @__PURE__ */ React87.createElement(IconButton, { icon: "mic", label: "Record voice message", size: "lg", onClick: onVoice }) : null, /* @__PURE__ */ React87.createElement(Button, { size: "md", variant: "primary", icon: "send", onClick: onSend, disabled }, "Send")));
+  ), onVoice ? /* @__PURE__ */ React89.createElement(IconButton, { icon: "mic", label: "Record voice message", size: "lg", onClick: onVoice }) : null, /* @__PURE__ */ React89.createElement(Button, { size: "md", variant: "primary", icon: "send", onClick: onSend, disabled }, "Send")));
 }), { displayName: "Composer" });
-var Conversation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React87.forwardRef(function Conversation2({ title, subtitle, actions, messages, composer, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React87.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", minHeight: 0, height: "100%", background: "var(--surface-primary)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-panel)", overflow: "hidden" }, ...rest }, /* @__PURE__ */ React87.createElement("header", { style: { display: "flex", alignItems: "center", gap: 8, height: 40, padding: "0 10px 0 12px", borderBottom: "1px solid var(--border-subtle)", flex: "none" } }, /* @__PURE__ */ React87.createElement("span", { style: { display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React87.createElement("span", { style: { fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--text-primary)" } }, title), subtitle ? /* @__PURE__ */ React87.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, subtitle) : null), /* @__PURE__ */ React87.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), /* @__PURE__ */ React87.createElement(MessageList, { style: { flex: 1 } }, messages), composer);
+var Conversation = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forwardRef(function Conversation2({ title, subtitle, actions, messages, composer, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React89.createElement("div", { ref, className, style: { display: "flex", flexDirection: "column", minHeight: 0, height: "100%", background: "var(--surface-primary)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-panel)", overflow: "hidden" }, ...rest }, /* @__PURE__ */ React89.createElement("header", { style: { display: "flex", alignItems: "center", gap: 8, height: 40, padding: "0 10px 0 12px", borderBottom: "1px solid var(--border-subtle)", flex: "none" } }, /* @__PURE__ */ React89.createElement("span", { style: { display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React89.createElement("span", { style: { fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--text-primary)" } }, title), subtitle ? /* @__PURE__ */ React89.createElement("span", { style: { fontSize: 11, color: "var(--text-tertiary)" } }, subtitle) : null), /* @__PURE__ */ React89.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), /* @__PURE__ */ React89.createElement(MessageList, { style: { flex: 1 } }, messages), composer);
 }), { displayName: "Conversation" });
 
 // project/components/patterns/GenieBlueprint.jsx
-import React88 from "react";
+import React90 from "react";
 var DOMAIN_GLYPH = {
   Finance: "account_balance",
   Sales: "trending_up",
@@ -3403,7 +3829,7 @@ function BuildGenie(businessProcess, options = {}) {
   };
 }
 var buildGenie = BuildGenie;
-var GenieBlueprint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React88.forwardRef(function GenieBlueprint2({
+var GenieBlueprint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React90.forwardRef(function GenieBlueprint2({
   blueprint,
   onCreate,
   onCancel,
@@ -3416,21 +3842,21 @@ var GenieBlueprint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React88.forwa
   if (!blueprint) return null;
   const isOut = (id) => excluded.indexOf(id) !== -1;
   const included = blueprint.playbooks.filter((pb) => !isOut(pb.process.id));
-  return /* @__PURE__ */ React88.createElement("section", { ref, className: ["lamp-blueprint", compact && "lamp-blueprint--compact", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React88.createElement("header", { className: "lamp-blueprint__head" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__glyph" }, /* @__PURE__ */ React88.createElement(Icon, { name: blueprint.glyph, size: 18 })), /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__titles" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__name" }, blueprint.name, " Genie"), /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__purpose" }, blueprint.purpose)), /* @__PURE__ */ React88.createElement(Badge, { tone: "neutral", icon: "edit_note", micro: true }, "Draft")), /* @__PURE__ */ React88.createElement("div", { className: "lamp-blueprint__summary" }, /* @__PURE__ */ React88.createElement("span", null, /* @__PURE__ */ React88.createElement("b", null, included.length), " Playbooks"), /* @__PURE__ */ React88.createElement("span", null, /* @__PURE__ */ React88.createElement("b", null, blueprint.roles.length), " Agent roles"), /* @__PURE__ */ React88.createElement("span", null, /* @__PURE__ */ React88.createElement("b", null, blueprint.connectors.length), " connectors"), /* @__PURE__ */ React88.createElement("span", null, /* @__PURE__ */ React88.createElement("b", null, blueprint.guardrails.length), " guardrails")), /* @__PURE__ */ React88.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__label" }, "Playbooks"), blueprint.playbooks.map((pb) => /* @__PURE__ */ React88.createElement(
+  return /* @__PURE__ */ React90.createElement("section", { ref, className: ["lamp-blueprint", compact && "lamp-blueprint--compact", className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React90.createElement("header", { className: "lamp-blueprint__head" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__glyph" }, /* @__PURE__ */ React90.createElement(Icon, { name: blueprint.glyph, size: 18 })), /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__titles" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__name" }, blueprint.name, " Genie"), /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__purpose" }, blueprint.purpose)), /* @__PURE__ */ React90.createElement(Badge, { tone: "neutral", icon: "edit_note", micro: true }, "Draft")), /* @__PURE__ */ React90.createElement("div", { className: "lamp-blueprint__summary" }, /* @__PURE__ */ React90.createElement("span", null, /* @__PURE__ */ React90.createElement("b", null, included.length), " Playbooks"), /* @__PURE__ */ React90.createElement("span", null, /* @__PURE__ */ React90.createElement("b", null, blueprint.roles.length), " Agent roles"), /* @__PURE__ */ React90.createElement("span", null, /* @__PURE__ */ React90.createElement("b", null, blueprint.connectors.length), " connectors"), /* @__PURE__ */ React90.createElement("span", null, /* @__PURE__ */ React90.createElement("b", null, blueprint.guardrails.length), " guardrails")), /* @__PURE__ */ React90.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__label" }, "Playbooks"), blueprint.playbooks.map((pb) => /* @__PURE__ */ React90.createElement(
     "div",
     {
       key: pb.process.id,
       className: ["lamp-blueprint__pb", isOut(pb.process.id) && "lamp-blueprint__pb--out"].filter(Boolean).join(" ")
     },
-    /* @__PURE__ */ React88.createElement(Icon, { name: "layers", size: 14 }),
-    /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__pb-main" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__pb-name" }, pb.process.name), /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__pb-purpose" }, pb.process.purpose)),
-    pb.primary ? /* @__PURE__ */ React88.createElement(Badge, { tone: "brand", micro: true }, "The one you just made") : /* @__PURE__ */ React88.createElement(Badge, { outline: true, micro: true }, "Suggested"),
-    onTogglePlaybook && !pb.primary ? /* @__PURE__ */ React88.createElement(Button, { size: "xs", variant: "quiet", onClick: () => onTogglePlaybook(pb.process.id) }, isOut(pb.process.id) ? "Include" : "Skip") : null
-  ))), /* @__PURE__ */ React88.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__label" }, "Access this Genie will ask for"), blueprint.connectors.map((c) => /* @__PURE__ */ React88.createElement("div", { key: c.category, className: "lamp-blueprint__conn" }, /* @__PURE__ */ React88.createElement(StatusDot, { status: "blocked" }), /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__conn-name" }, c.category), /* @__PURE__ */ React88.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__conn-used" }, "Used by ", c.usedBy.join(", ")))), /* @__PURE__ */ React88.createElement("p", { className: "lamp-blueprint__note" }, "Nothing is authorized by creating the Genie. Each connector is granted separately, by you.")), /* @__PURE__ */ React88.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__label" }, "Guardrails it starts with"), /* @__PURE__ */ React88.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.guardrails.map((g) => /* @__PURE__ */ React88.createElement("li", { key: g }, /* @__PURE__ */ React88.createElement(Icon, { name: "shield", size: 12 }), g)))), /* @__PURE__ */ React88.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React88.createElement("span", { className: "lamp-blueprint__label" }, "Memory"), /* @__PURE__ */ React88.createElement(MemoryScopeBar, { readOnly: true, owned: "genie", full: false, showCounts: false }), /* @__PURE__ */ React88.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.memory.seeded.map((m) => /* @__PURE__ */ React88.createElement("li", { key: m }, /* @__PURE__ */ React88.createElement(Icon, { name: "database", size: 12 }), m)))), onCreate || onCancel ? /* @__PURE__ */ React88.createElement("footer", { className: "lamp-blueprint__foot" }, onCancel ? /* @__PURE__ */ React88.createElement(Button, { variant: "quiet", onClick: onCancel }, "Just the Playbook") : null, onCreate ? /* @__PURE__ */ React88.createElement(Button, { variant: "primary", icon: "check", onClick: () => onCreate(blueprint, excluded) }, "Create ", included.length, " Playbooks as drafts") : null) : null);
+    /* @__PURE__ */ React90.createElement(Icon, { name: "layers", size: 14 }),
+    /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__pb-main" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__pb-name" }, pb.process.name), /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__pb-purpose" }, pb.process.purpose)),
+    pb.primary ? /* @__PURE__ */ React90.createElement(Badge, { tone: "brand", micro: true }, "The one you just made") : /* @__PURE__ */ React90.createElement(Badge, { outline: true, micro: true }, "Suggested"),
+    onTogglePlaybook && !pb.primary ? /* @__PURE__ */ React90.createElement(Button, { size: "xs", variant: "quiet", onClick: () => onTogglePlaybook(pb.process.id) }, isOut(pb.process.id) ? "Include" : "Skip") : null
+  ))), /* @__PURE__ */ React90.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__label" }, "Access this Genie will ask for"), blueprint.connectors.map((c) => /* @__PURE__ */ React90.createElement("div", { key: c.category, className: "lamp-blueprint__conn" }, /* @__PURE__ */ React90.createElement(StatusDot, { status: "blocked" }), /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__conn-name" }, c.category), /* @__PURE__ */ React90.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__conn-used" }, "Used by ", c.usedBy.join(", ")))), /* @__PURE__ */ React90.createElement("p", { className: "lamp-blueprint__note" }, "Nothing is authorized by creating the Genie. Each connector is granted separately, by you.")), /* @__PURE__ */ React90.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__label" }, "Guardrails it starts with"), /* @__PURE__ */ React90.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.guardrails.map((g) => /* @__PURE__ */ React90.createElement("li", { key: g }, /* @__PURE__ */ React90.createElement(Icon, { name: "shield", size: 12 }), g)))), /* @__PURE__ */ React90.createElement("div", { className: "lamp-blueprint__group" }, /* @__PURE__ */ React90.createElement("span", { className: "lamp-blueprint__label" }, "Memory"), /* @__PURE__ */ React90.createElement(MemoryScopeBar, { readOnly: true, owned: "genie", full: false, showCounts: false }), /* @__PURE__ */ React90.createElement("ul", { className: "lamp-blueprint__rules" }, blueprint.memory.seeded.map((m) => /* @__PURE__ */ React90.createElement("li", { key: m }, /* @__PURE__ */ React90.createElement(Icon, { name: "database", size: 12 }), m)))), onCreate || onCancel ? /* @__PURE__ */ React90.createElement("footer", { className: "lamp-blueprint__foot" }, onCancel ? /* @__PURE__ */ React90.createElement(Button, { variant: "quiet", onClick: onCancel }, "Just the Playbook") : null, onCreate ? /* @__PURE__ */ React90.createElement(Button, { variant: "primary", icon: "check", onClick: () => onCreate(blueprint, excluded) }, "Create ", included.length, " Playbooks as drafts") : null) : null);
 }), { displayName: "GenieBlueprint" });
 
 // project/components/patterns/IntegrationCard.jsx
-import React89 from "react";
+import React91 from "react";
 var STATE = {
   connected: { status: "success", label: "Connected" },
   requiresAuth: { status: "attention", label: "Authorization required" },
@@ -3440,7 +3866,7 @@ var STATE = {
   disabled: { status: "disabled", label: "Disabled" },
   available: { status: "draft", label: "Not connected" }
 };
-var IntegrationCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forwardRef(function IntegrationCard2({
+var IntegrationCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React91.forwardRef(function IntegrationCard2({
   name,
   provider,
   glyph,
@@ -3462,12 +3888,12 @@ var IntegrationCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React89.forw
 }, ref) {
   const s = STATE[state] || STATE.connected;
   const tone = state === "error" ? "error" : state === "requiresAuth" || state === "expired" || state === "degraded" ? "attention" : "";
-  return /* @__PURE__ */ React89.createElement("article", { ref, className: ["lamp-integ", tone && "lamp-integ--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React89.createElement("div", { className: "lamp-integ__head" }, /* @__PURE__ */ React89.createElement(ToolTile, { provider, glyph, name, size: "lg", state: state === "connected" ? "connected" : state === "error" ? "error" : "authorizationRequired" }), /* @__PURE__ */ React89.createElement("span", { style: { flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ React89.createElement("span", { className: "lamp-integ__name" }, name), account ? /* @__PURE__ */ React89.createElement("span", { className: "lamp-integ__account" }, account) : null), /* @__PURE__ */ React89.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 } }, /* @__PURE__ */ React89.createElement(StatusBadge, { status: s.status, label: s.label }), permission ? /* @__PURE__ */ React89.createElement(Badge, { outline: true, icon: permission === "Admin" ? "shield" : permission === "Write" ? "edit" : "visibility" }, permission) : null)), scopes.length ? /* @__PURE__ */ React89.createElement("div", { className: "lamp-integ__scopes" }, scopes.map((sc) => /* @__PURE__ */ React89.createElement("span", { className: "lamp-integ__scope", key: sc.label }, /* @__PURE__ */ React89.createElement(Icon, { name: sc.write ? "edit" : "visibility", size: 13, style: { color: sc.write ? "var(--status-warning)" : "var(--text-tertiary)" } }), sc.label, sc.key ? /* @__PURE__ */ React89.createElement("span", { className: "lamp-integ__scope-k" }, sc.key) : null))) : null, usedBy.length || health || expiry || risk ? /* @__PURE__ */ React89.createElement("div", { className: "lamp-integ__users" }, usedBy.length ? /* @__PURE__ */ React89.createElement(React89.Fragment, null, /* @__PURE__ */ React89.createElement(Icon, { name: "hexagon", size: 13 }), usedBy.join(", ")) : null, health ? /* @__PURE__ */ React89.createElement("span", null, "Health ", health) : null, expiry ? /* @__PURE__ */ React89.createElement("span", null, "Expires ", expiry) : null, risk ? /* @__PURE__ */ React89.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null) : null, /* @__PURE__ */ React89.createElement("div", { className: "lamp-integ__actions" }, actions, onConnect ? /* @__PURE__ */ React89.createElement(Button, { size: "sm", variant: "primary", icon: "link" }, "Connect") : null, onReconnect ? /* @__PURE__ */ React89.createElement(Button, { size: "sm", variant: "primary", icon: "autorenew", onClick: onReconnect }, "Reconnect") : null, onTest ? /* @__PURE__ */ React89.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onTest }, "Test connection") : null, onDisconnect ? /* @__PURE__ */ React89.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "link_off", onClick: onDisconnect }, "Disconnect") : null));
+  return /* @__PURE__ */ React91.createElement("article", { ref, className: ["lamp-integ", tone && "lamp-integ--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React91.createElement("div", { className: "lamp-integ__head" }, /* @__PURE__ */ React91.createElement(ToolTile, { provider, glyph, name, size: "lg", state: state === "connected" ? "connected" : state === "error" ? "error" : "authorizationRequired" }), /* @__PURE__ */ React91.createElement("span", { style: { flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 } }, /* @__PURE__ */ React91.createElement("span", { className: "lamp-integ__name" }, name), account ? /* @__PURE__ */ React91.createElement("span", { className: "lamp-integ__account" }, account) : null), /* @__PURE__ */ React91.createElement("span", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 } }, /* @__PURE__ */ React91.createElement(StatusBadge, { status: s.status, label: s.label }), permission ? /* @__PURE__ */ React91.createElement(Badge, { outline: true, icon: permission === "Admin" ? "shield" : permission === "Write" ? "edit" : "visibility" }, permission) : null)), scopes.length ? /* @__PURE__ */ React91.createElement("div", { className: "lamp-integ__scopes" }, scopes.map((sc) => /* @__PURE__ */ React91.createElement("span", { className: "lamp-integ__scope", key: sc.label }, /* @__PURE__ */ React91.createElement(Icon, { name: sc.write ? "edit" : "visibility", size: 13, style: { color: sc.write ? "var(--status-warning)" : "var(--text-tertiary)" } }), sc.label, sc.key ? /* @__PURE__ */ React91.createElement("span", { className: "lamp-integ__scope-k" }, sc.key) : null))) : null, usedBy.length || health || expiry || risk ? /* @__PURE__ */ React91.createElement("div", { className: "lamp-integ__users" }, usedBy.length ? /* @__PURE__ */ React91.createElement(React91.Fragment, null, /* @__PURE__ */ React91.createElement(Icon, { name: "hexagon", size: 13 }), usedBy.join(", ")) : null, health ? /* @__PURE__ */ React91.createElement("span", null, "Health ", health) : null, expiry ? /* @__PURE__ */ React91.createElement("span", null, "Expires ", expiry) : null, risk ? /* @__PURE__ */ React91.createElement(Badge, { tone: risk === "High" ? "danger" : risk === "Medium" ? "warning" : "neutral" }, risk, " risk") : null) : null, /* @__PURE__ */ React91.createElement("div", { className: "lamp-integ__actions" }, actions, onConnect ? /* @__PURE__ */ React91.createElement(Button, { size: "sm", variant: "primary", icon: "link" }, "Connect") : null, onReconnect ? /* @__PURE__ */ React91.createElement(Button, { size: "sm", variant: "primary", icon: "autorenew", onClick: onReconnect }, "Reconnect") : null, onTest ? /* @__PURE__ */ React91.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onTest }, "Test connection") : null, onDisconnect ? /* @__PURE__ */ React91.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "link_off", onClick: onDisconnect }, "Disconnect") : null));
 }), { displayName: "IntegrationCard" });
 
 // project/components/patterns/LearnedPattern.jsx
-import React90 from "react";
-var LearnedPattern = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React90.forwardRef(function LearnedPattern2({
+import React92 from "react";
+var LearnedPattern = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React92.forwardRef(function LearnedPattern2({
   kind = "observed",
   observation,
   occurrences,
@@ -3484,13 +3910,13 @@ var LearnedPattern = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React90.forwa
   ...rest
 }, ref) {
   const label = kind === "inferred" ? "LAMP inferred" : kind === "suggested" ? "LAMP suggests" : kind === "proposal" ? "Process proposal" : "LAMP noticed";
-  return /* @__PURE__ */ React90.createElement("article", { ref, className: "lamp-learn " + className, ...rest }, /* @__PURE__ */ React90.createElement("div", { className: "lamp-learn__top" }, /* @__PURE__ */ React90.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ React90.createElement("span", { className: "lamp-learn__note" }, note || label), /* @__PURE__ */ React90.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React90.createElement(MemoryConfidence, { level: confidence }))), /* @__PURE__ */ React90.createElement("p", { className: "lamp-learn__quote" }, observation), /* @__PURE__ */ React90.createElement("div", { className: "lamp-learn__ev" }, occurrences != null ? /* @__PURE__ */ React90.createElement("span", null, "Observed ", /* @__PURE__ */ React90.createElement("b", null, occurrences, " times"), period ? " over " + period : "") : null, evidence.map((e) => /* @__PURE__ */ React90.createElement("span", { key: e }, e))), entities ? /* @__PURE__ */ React90.createElement("div", { className: "lamp-learn__ev" }, entities) : null, /* @__PURE__ */ React90.createElement("div", { className: "lamp-learn__actions" }, actions, onUse ? /* @__PURE__ */ React90.createElement(Button, { size: "sm", variant: "primary", icon: "check", onClick: onUse }, "Use this pattern") : null, onReview ? /* @__PURE__ */ React90.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: onReview }, "Review") : null, onIgnore ? /* @__PURE__ */ React90.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null));
+  return /* @__PURE__ */ React92.createElement("article", { ref, className: "lamp-learn " + className, ...rest }, /* @__PURE__ */ React92.createElement("div", { className: "lamp-learn__top" }, /* @__PURE__ */ React92.createElement(Icon, { name: "flare", size: 14, style: { color: "var(--status-waiting-text)" } }), /* @__PURE__ */ React92.createElement("span", { className: "lamp-learn__note" }, note || label), /* @__PURE__ */ React92.createElement("span", { style: { marginLeft: "auto" } }, /* @__PURE__ */ React92.createElement(MemoryConfidence, { level: confidence }))), /* @__PURE__ */ React92.createElement("p", { className: "lamp-learn__quote" }, observation), /* @__PURE__ */ React92.createElement("div", { className: "lamp-learn__ev" }, occurrences != null ? /* @__PURE__ */ React92.createElement("span", null, "Observed ", /* @__PURE__ */ React92.createElement("b", null, occurrences, " times"), period ? " over " + period : "") : null, evidence.map((e) => /* @__PURE__ */ React92.createElement("span", { key: e }, e))), entities ? /* @__PURE__ */ React92.createElement("div", { className: "lamp-learn__ev" }, entities) : null, /* @__PURE__ */ React92.createElement("div", { className: "lamp-learn__actions" }, actions, onUse ? /* @__PURE__ */ React92.createElement(Button, { size: "sm", variant: "primary", icon: "check", onClick: onUse }, "Use this pattern") : null, onReview ? /* @__PURE__ */ React92.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: onReview }, "Review") : null, onIgnore ? /* @__PURE__ */ React92.createElement(Button, { size: "sm", variant: "quiet", onClick: onIgnore }, "Ignore") : null));
 }), { displayName: "LearnedPattern" });
 
 // project/components/patterns/MobileShell.jsx
-import React91 from "react";
-var MobileShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React91.forwardRef(function MobileShell2({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React91.createElement("div", { ref, className: "lamp-mobile " + className, ...rest }, /* @__PURE__ */ React91.createElement("header", { className: "lamp-mobile__top" }, leading, /* @__PURE__ */ React91.createElement("span", { className: "lamp-mobile__title" }, title), /* @__PURE__ */ React91.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), banner, /* @__PURE__ */ React91.createElement("div", { className: "lamp-mobile__body" }, children), tabs.length ? /* @__PURE__ */ React91.createElement("nav", { className: "lamp-mobile__nav" }, tabs.map((t) => /* @__PURE__ */ React91.createElement(
+import React93 from "react";
+var MobileShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React93.forwardRef(function MobileShell2({ title, leading, actions, tabs = [], activeTab, onTab, banner, children, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React93.createElement("div", { ref, className: "lamp-mobile " + className, ...rest }, /* @__PURE__ */ React93.createElement("header", { className: "lamp-mobile__top" }, leading, /* @__PURE__ */ React93.createElement("span", { className: "lamp-mobile__title" }, title), /* @__PURE__ */ React93.createElement("span", { style: { marginLeft: "auto", display: "flex", gap: 4 } }, actions)), banner, /* @__PURE__ */ React93.createElement("div", { className: "lamp-mobile__body" }, children), tabs.length ? /* @__PURE__ */ React93.createElement("nav", { className: "lamp-mobile__nav" }, tabs.map((t) => /* @__PURE__ */ React93.createElement(
     "button",
     {
       key: t.id,
@@ -3499,19 +3925,19 @@ var MobileShell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React91.forwardR
       onClick: () => onTab && onTab(t.id),
       "aria-current": activeTab === t.id ? "page" : void 0
     },
-    /* @__PURE__ */ React91.createElement(Icon, { name: t.icon, size: 20 }),
+    /* @__PURE__ */ React93.createElement(Icon, { name: t.icon, size: 20 }),
     t.label
   ))) : null);
 }), { displayName: "MobileShell" });
 
 // project/components/patterns/ObservedProcess.jsx
-import React92 from "react";
-var ObservedProcess = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React92.forwardRef(function ObservedProcess2({ steps = [], showLinks = true, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React92.createElement("div", { ref, className: "lamp-proc " + className, role: "list", ...rest }, steps.map((s, i) => /* @__PURE__ */ React92.createElement(React92.Fragment, { key: i }, /* @__PURE__ */ React92.createElement("div", { className: ["lamp-proc__step", s.kind === "exception" && "lamp-proc__step--exception", s.kind === "rework" && "lamp-proc__step--rework"].filter(Boolean).join(" "), role: "listitem" }, /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__n" }, i + 1), /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__main" }, /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__title" }, s.title), /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__who" }, s.actor ? /* @__PURE__ */ React92.createElement(EntityChip, { type: "person", name: s.actor }) : null, s.tool ? /* @__PURE__ */ React92.createElement(Badge, { outline: true, icon: "square" }, s.tool) : null, s.channel ? /* @__PURE__ */ React92.createElement(Badge, { outline: true, icon: "forum" }, s.channel) : null, s.kind === "approval" ? /* @__PURE__ */ React92.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Approval") : null, s.kind === "handoff" ? /* @__PURE__ */ React92.createElement(Badge, { outline: true, icon: "swap_horiz" }, "Handoff") : null, s.kind === "exception" ? /* @__PURE__ */ React92.createElement(Badge, { tone: "warning", icon: "report" }, "Exception") : null, s.kind === "rework" ? /* @__PURE__ */ React92.createElement(Badge, { tone: "warning", icon: "refresh" }, "Rework") : null)), /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__right" }, s.frequency ? /* @__PURE__ */ React92.createElement("span", null, s.frequency) : null, s.duration ? /* @__PURE__ */ React92.createElement("span", null, s.duration) : null)), showLinks && i < steps.length - 1 ? /* @__PURE__ */ React92.createElement("span", { className: "lamp-proc__link" }) : null)));
+import React94 from "react";
+var ObservedProcess = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.forwardRef(function ObservedProcess2({ steps = [], showLinks = true, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React94.createElement("div", { ref, className: "lamp-proc " + className, role: "list", ...rest }, steps.map((s, i) => /* @__PURE__ */ React94.createElement(React94.Fragment, { key: i }, /* @__PURE__ */ React94.createElement("div", { className: ["lamp-proc__step", s.kind === "exception" && "lamp-proc__step--exception", s.kind === "rework" && "lamp-proc__step--rework"].filter(Boolean).join(" "), role: "listitem" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__n" }, i + 1), /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__main" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__title" }, s.title), /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__who" }, s.actor ? /* @__PURE__ */ React94.createElement(EntityChip, { type: "person", name: s.actor }) : null, s.tool ? /* @__PURE__ */ React94.createElement(Badge, { outline: true, icon: "square" }, s.tool) : null, s.channel ? /* @__PURE__ */ React94.createElement(Badge, { outline: true, icon: "forum" }, s.channel) : null, s.kind === "approval" ? /* @__PURE__ */ React94.createElement(Badge, { tone: "waiting", icon: "how_to_reg" }, "Approval") : null, s.kind === "handoff" ? /* @__PURE__ */ React94.createElement(Badge, { outline: true, icon: "swap_horiz" }, "Handoff") : null, s.kind === "exception" ? /* @__PURE__ */ React94.createElement(Badge, { tone: "warning", icon: "report" }, "Exception") : null, s.kind === "rework" ? /* @__PURE__ */ React94.createElement(Badge, { tone: "warning", icon: "refresh" }, "Rework") : null)), /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__right" }, s.frequency ? /* @__PURE__ */ React94.createElement("span", null, s.frequency) : null, s.duration ? /* @__PURE__ */ React94.createElement("span", null, s.duration) : null)), showLinks && i < steps.length - 1 ? /* @__PURE__ */ React94.createElement("span", { className: "lamp-proc__link" }) : null)));
 }), { displayName: "ObservedProcess" });
 
 // project/components/patterns/PermissionMatrix.jsx
-import React93 from "react";
+import React95 from "react";
 var CELL = {
   granted: { glyph: "check", cls: "granted", label: "Granted" },
   inherited: { glyph: "check", cls: "inherited", label: "Inherited" },
@@ -3519,23 +3945,23 @@ var CELL = {
   overridden: { glyph: "edit", cls: "granted", label: "Overridden" },
   conflict: { glyph: "warning", cls: "conflict", label: "Conflict" }
 };
-var PermissionCell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React93.forwardRef(function PermissionCell2({ state = "denied", onClick, ...rest }, ref) {
+var PermissionCell = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardRef(function PermissionCell2({ state = "denied", onClick, ...rest }, ref) {
   const c = CELL[state] || CELL.denied;
-  return /* @__PURE__ */ React93.createElement("span", { ref, className: "lamp-perm__cell lamp-perm__cell--" + c.cls, role: onClick ? "button" : "img", "aria-label": c.label, title: c.label, onClick, ...rest }, /* @__PURE__ */ React93.createElement(Icon, { name: c.glyph, size: 14 }));
+  return /* @__PURE__ */ React95.createElement("span", { ref, className: "lamp-perm__cell lamp-perm__cell--" + c.cls, role: onClick ? "button" : "img", "aria-label": c.label, title: c.label, onClick, ...rest }, /* @__PURE__ */ React95.createElement(Icon, { name: c.glyph, size: 14 }));
 }), { displayName: "PermissionCell" });
-var PermissionMatrix = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React93.forwardRef(function PermissionMatrix2({ resources = [], actions = [], values = {}, onToggle, scopeLabel = "Resource", className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React93.createElement("table", { ref, className: "lamp-perm " + className, ...rest }, /* @__PURE__ */ React93.createElement("thead", null, /* @__PURE__ */ React93.createElement("tr", null, /* @__PURE__ */ React93.createElement("th", null, /* @__PURE__ */ React93.createElement("span", { className: "lamp-perm__scope" }, scopeLabel)), actions.map((a) => /* @__PURE__ */ React93.createElement("th", { key: a }, a)))), /* @__PURE__ */ React93.createElement("tbody", null, resources.map((r) => /* @__PURE__ */ React93.createElement("tr", { key: r.key || r.label }, /* @__PURE__ */ React93.createElement("td", null, /* @__PURE__ */ React93.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 6 } }, r.glyph ? /* @__PURE__ */ React93.createElement(Icon, { name: r.glyph, size: 14, style: { color: "var(--text-tertiary)" } }) : null, r.label, r.scope ? /* @__PURE__ */ React93.createElement(Badge, { outline: true }, r.scope) : null)), actions.map((a) => {
+var PermissionMatrix = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardRef(function PermissionMatrix2({ resources = [], actions = [], values = {}, onToggle, scopeLabel = "Resource", className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React95.createElement("table", { ref, className: "lamp-perm " + className, ...rest }, /* @__PURE__ */ React95.createElement("thead", null, /* @__PURE__ */ React95.createElement("tr", null, /* @__PURE__ */ React95.createElement("th", null, /* @__PURE__ */ React95.createElement("span", { className: "lamp-perm__scope" }, scopeLabel)), actions.map((a) => /* @__PURE__ */ React95.createElement("th", { key: a }, a)))), /* @__PURE__ */ React95.createElement("tbody", null, resources.map((r) => /* @__PURE__ */ React95.createElement("tr", { key: r.key || r.label }, /* @__PURE__ */ React95.createElement("td", null, /* @__PURE__ */ React95.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 6 } }, r.glyph ? /* @__PURE__ */ React95.createElement(Icon, { name: r.glyph, size: 14, style: { color: "var(--text-tertiary)" } }) : null, r.label, r.scope ? /* @__PURE__ */ React95.createElement(Badge, { outline: true }, r.scope) : null)), actions.map((a) => {
     const state = (values[r.key || r.label] || {})[a] || "denied";
-    return /* @__PURE__ */ React93.createElement("td", { key: a }, /* @__PURE__ */ React93.createElement(PermissionCell, { state, onClick: onToggle ? () => onToggle(r, a, state) : void 0 }));
+    return /* @__PURE__ */ React95.createElement("td", { key: a }, /* @__PURE__ */ React95.createElement(PermissionCell, { state, onClick: onToggle ? () => onToggle(r, a, state) : void 0 }));
   })))));
 }), { displayName: "PermissionMatrix" });
-var RoleBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React93.forwardRef(function RoleBadge2({ role, scope, ...rest }, ref) {
+var RoleBadge = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardRef(function RoleBadge2({ role, scope, ...rest }, ref) {
   const tone = role === "Owner" ? "brand" : role === "Admin" ? "info" : role === "Viewer" ? "neutral" : "neutral";
-  return /* @__PURE__ */ React93.createElement(Badge, { ref, tone, icon: role === "Owner" ? "workspace_premium" : role === "Admin" ? "shield" : "person", ...rest }, scope ? role + " \xB7 " + scope : role);
+  return /* @__PURE__ */ React95.createElement(Badge, { ref, tone, icon: role === "Owner" ? "workspace_premium" : role === "Admin" ? "shield" : "person", ...rest }, scope ? role + " \xB7 " + scope : role);
 }), { displayName: "RoleBadge" });
 
 // project/components/patterns/PlaybookComposer.jsx
-import React94 from "react";
+import React96 from "react";
 var STEP_GLYPH = { agent: "hexagon", human: "how_to_reg", tool: "square", decision: "call_split" };
 function keyOf(list) {
   const map = {};
@@ -3544,7 +3970,7 @@ function keyOf(list) {
   });
   return map;
 }
-var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.forwardRef(function PlaybookComposer2({
+var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React96.forwardRef(function PlaybookComposer2({
   open = true,
   agents = [],
   availableTools = [],
@@ -3556,23 +3982,23 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
   className = "",
   ...rest
 }, ref) {
-  const matches = React94.useMemo(
+  const matches = React96.useMemo(
     () => suggestions || MatchProcess({ agents, tools: availableTools }),
     [suggestions, agents, availableTools]
   );
   const best = matches[0] || null;
-  const [chosen, setChosen] = React94.useState(() => best ? best.process : BLANK_PROCESS);
-  const [tab, setTab] = React94.useState("process");
-  const [browsing, setBrowsing] = React94.useState(false);
-  const [name, setName] = React94.useState(chosen.name === BLANK_PROCESS.name ? "" : chosen.name);
-  const [purpose, setPurpose] = React94.useState(chosen.purpose);
-  const [trigger, setTrigger] = React94.useState(chosen.trigger);
-  const [outcomes, setOutcomes] = React94.useState(() => keyOf(chosen.outcomes || []));
-  const [connectors, setConnectors] = React94.useState(() => keyOf(chosen.connectors || []));
-  const [checkpoints, setCheckpoints] = React94.useState(() => keyOf(chosen.checkpoints || []));
-  const [extraOutcome, setExtraOutcome] = React94.useState("");
-  const [extras, setExtras] = React94.useState([]);
-  const [makeGenie, setMakeGenie] = React94.useState(false);
+  const [chosen, setChosen] = React96.useState(() => best ? best.process : BLANK_PROCESS);
+  const [tab, setTab] = React96.useState("process");
+  const [browsing, setBrowsing] = React96.useState(false);
+  const [name, setName] = React96.useState(chosen.name === BLANK_PROCESS.name ? "" : chosen.name);
+  const [purpose, setPurpose] = React96.useState(chosen.purpose);
+  const [trigger, setTrigger] = React96.useState(chosen.trigger);
+  const [outcomes, setOutcomes] = React96.useState(() => keyOf(chosen.outcomes || []));
+  const [connectors, setConnectors] = React96.useState(() => keyOf(chosen.connectors || []));
+  const [checkpoints, setCheckpoints] = React96.useState(() => keyOf(chosen.checkpoints || []));
+  const [extraOutcome, setExtraOutcome] = React96.useState("");
+  const [extras, setExtras] = React96.useState([]);
+  const [makeGenie, setMakeGenie] = React96.useState(false);
   const pick = (process) => {
     setChosen(process);
     setBrowsing(false);
@@ -3624,7 +4050,7 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
     { id: "connectors", label: "Connectors", count: chosenConnectors.length },
     { id: "outcomes", label: "Outcomes", count: chosenOutcomes.length }
   ];
-  return /* @__PURE__ */ React94.createElement(
+  return /* @__PURE__ */ React96.createElement(
     Modal,
     {
       ref,
@@ -3635,7 +4061,7 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
       subtitle: agents.length + " Agents selected. LAMP has suggested what this process is \u2014 correct anything that is wrong.",
       onClose: onCancel,
       className: "lamp-composer " + className,
-      footer: /* @__PURE__ */ React94.createElement(React94.Fragment, null, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__footnote" }, blockers.length ? /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ React94.createElement(Icon, { name: "warning", size: 13 }), blockers[0]) : missingConnectors.length ? /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ React94.createElement(Icon, { name: "link_off", size: 13 }), missingConnectors.length, " connector", missingConnectors.length > 1 ? "s" : "", " still need authorizing. The Playbook can be drafted without them.") : /* @__PURE__ */ React94.createElement("span", null, "Draft only. Nothing runs until you simulate it.")), /* @__PURE__ */ React94.createElement(Button, { variant: "quiet", onClick: onCancel }, "Cancel"), /* @__PURE__ */ React94.createElement(
+      footer: /* @__PURE__ */ React96.createElement(React96.Fragment, null, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__footnote" }, blockers.length ? /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ React96.createElement(Icon, { name: "warning", size: 13 }), blockers[0]) : missingConnectors.length ? /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__blocker" }, /* @__PURE__ */ React96.createElement(Icon, { name: "link_off", size: 13 }), missingConnectors.length, " connector", missingConnectors.length > 1 ? "s" : "", " still need authorizing. The Playbook can be drafted without them.") : /* @__PURE__ */ React96.createElement("span", null, "Draft only. Nothing runs until you simulate it.")), /* @__PURE__ */ React96.createElement(Button, { variant: "quiet", onClick: onCancel }, "Cancel"), /* @__PURE__ */ React96.createElement(
         Button,
         {
           variant: "primary",
@@ -3647,8 +4073,8 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
       )),
       ...rest
     },
-    /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__selection" }, agents.map((a) => /* @__PURE__ */ React94.createElement("span", { key: a.id || a.name, className: "lamp-composer__agent" }, /* @__PURE__ */ React94.createElement(Icon, { name: "hexagon", size: 13 }), a.name || "Unnamed Agent", a.role ? /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__role" }, a.role) : null))),
-    best && !browsing ? /* @__PURE__ */ React94.createElement(
+    /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__selection" }, agents.map((a) => /* @__PURE__ */ React96.createElement("span", { key: a.id || a.name, className: "lamp-composer__agent" }, /* @__PURE__ */ React96.createElement(Icon, { name: "hexagon", size: 13 }), a.name || "Unnamed Agent", a.role ? /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__role" }, a.role) : null))),
+    best && !browsing ? /* @__PURE__ */ React96.createElement(
       ProcessProposal,
       {
         primary: true,
@@ -3658,7 +4084,7 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
         onDismiss: () => setBrowsing(true)
       }
     ) : null,
-    browsing || !best ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__browse" }, /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__browse-head" }, /* @__PURE__ */ React94.createElement("span", null, "Pick the process this is"), best ? /* @__PURE__ */ React94.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setBrowsing(false) }, "Back to the suggestion") : null), /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__browse-list" }, BUSINESS_PROCESSES.concat([BLANK_PROCESS]).map((p) => /* @__PURE__ */ React94.createElement(
+    browsing || !best ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__browse" }, /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__browse-head" }, /* @__PURE__ */ React96.createElement("span", null, "Pick the process this is"), best ? /* @__PURE__ */ React96.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setBrowsing(false) }, "Back to the suggestion") : null), /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__browse-list" }, BUSINESS_PROCESSES.concat([BLANK_PROCESS]).map((p) => /* @__PURE__ */ React96.createElement(
       "button",
       {
         key: p.id,
@@ -3666,21 +4092,21 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
         className: "lamp-composer__browse-item" + (chosen.id === p.id ? " lamp-composer__browse-item--active" : ""),
         onClick: () => pick(p)
       },
-      /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__browse-name" }, p.name),
-      /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__browse-domain" }, p.domain)
+      /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__browse-name" }, p.name),
+      /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__browse-domain" }, p.domain)
     )))) : null,
-    matches.length > 1 && !browsing ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__alts" }, /* @__PURE__ */ React94.createElement("span", null, "Or:"), matches.slice(1, 4).map((m) => /* @__PURE__ */ React94.createElement("button", { key: m.process.id, type: "button", className: "lamp-composer__alt", onClick: () => pick(m.process) }, m.process.name)), /* @__PURE__ */ React94.createElement("button", { type: "button", className: "lamp-composer__alt", onClick: () => setBrowsing(true) }, "Something else")) : null,
-    /* @__PURE__ */ React94.createElement(Tabs, { tabs, value: tab, onChange: setTab }),
-    tab === "process" ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React94.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-name" }, "Name"), /* @__PURE__ */ React94.createElement(TextInput, { id: "pb-name", value: name, placeholder: "Vendor payment", onChange: (e) => setName(e.target.value) }), /* @__PURE__ */ React94.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-purpose" }, "Purpose"), /* @__PURE__ */ React94.createElement(Textarea, { id: "pb-purpose", rows: 2, value: purpose, placeholder: "What this process is for, in one sentence.", onChange: (e) => setPurpose(e.target.value) }), /* @__PURE__ */ React94.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-trigger" }, "Trigger"), /* @__PURE__ */ React94.createElement(TextInput, { id: "pb-trigger", value: trigger, placeholder: "What starts a run.", onChange: (e) => setTrigger(e.target.value) }), chosen.steps && chosen.steps.length ? /* @__PURE__ */ React94.createElement(React94.Fragment, null, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__label" }, "Usual shape of this process"), /* @__PURE__ */ React94.createElement("ol", { className: "lamp-composer__steps" }, chosen.steps.map((s, i) => /* @__PURE__ */ React94.createElement("li", { key: s.name, className: "lamp-composer__step lamp-composer__step--" + s.kind }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__step-n" }, i + 1), /* @__PURE__ */ React94.createElement(Icon, { name: STEP_GLYPH[s.kind] || "hexagon", size: 13 }), /* @__PURE__ */ React94.createElement("span", null, s.name), s.kind === "human" ? /* @__PURE__ */ React94.createElement(Badge, { tone: "waiting", micro: true }, "Human") : null))), /* @__PURE__ */ React94.createElement("p", { className: "lamp-composer__hint" }, "Execution order lives in the runtime, not in how the Agents are arranged on the canvas. You can change this later in the Inspector.")) : null, chosen.exceptions && chosen.exceptions.length ? /* @__PURE__ */ React94.createElement(React94.Fragment, null, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__label" }, "What usually goes wrong"), /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__chips" }, chosen.exceptions.map((e) => /* @__PURE__ */ React94.createElement(Badge, { key: e, tone: "warning", icon: "report", micro: true }, e)))) : null) : null,
-    tab === "connectors" ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React94.createElement("p", { className: "lamp-composer__hint" }, "The systems this process has to touch. Untick anything it does not need \u2014 each one is an access grant."), (chosen.connectors || []).length === 0 ? /* @__PURE__ */ React94.createElement("p", { className: "lamp-composer__empty" }, "No connectors suggested. Add Tools to the Agents and they will appear here.") : null, (chosen.connectors || []).map((c, i) => {
+    matches.length > 1 && !browsing ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__alts" }, /* @__PURE__ */ React96.createElement("span", null, "Or:"), matches.slice(1, 4).map((m) => /* @__PURE__ */ React96.createElement("button", { key: m.process.id, type: "button", className: "lamp-composer__alt", onClick: () => pick(m.process) }, m.process.name)), /* @__PURE__ */ React96.createElement("button", { type: "button", className: "lamp-composer__alt", onClick: () => setBrowsing(true) }, "Something else")) : null,
+    /* @__PURE__ */ React96.createElement(Tabs, { tabs, value: tab, onChange: setTab }),
+    tab === "process" ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React96.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-name" }, "Name"), /* @__PURE__ */ React96.createElement(TextInput, { id: "pb-name", value: name, placeholder: "Vendor payment", onChange: (e) => setName(e.target.value) }), /* @__PURE__ */ React96.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-purpose" }, "Purpose"), /* @__PURE__ */ React96.createElement(Textarea, { id: "pb-purpose", rows: 2, value: purpose, placeholder: "What this process is for, in one sentence.", onChange: (e) => setPurpose(e.target.value) }), /* @__PURE__ */ React96.createElement("label", { className: "lamp-composer__label", htmlFor: "pb-trigger" }, "Trigger"), /* @__PURE__ */ React96.createElement(TextInput, { id: "pb-trigger", value: trigger, placeholder: "What starts a run.", onChange: (e) => setTrigger(e.target.value) }), chosen.steps && chosen.steps.length ? /* @__PURE__ */ React96.createElement(React96.Fragment, null, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__label" }, "Usual shape of this process"), /* @__PURE__ */ React96.createElement("ol", { className: "lamp-composer__steps" }, chosen.steps.map((s, i) => /* @__PURE__ */ React96.createElement("li", { key: s.name, className: "lamp-composer__step lamp-composer__step--" + s.kind }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__step-n" }, i + 1), /* @__PURE__ */ React96.createElement(Icon, { name: STEP_GLYPH[s.kind] || "hexagon", size: 13 }), /* @__PURE__ */ React96.createElement("span", null, s.name), s.kind === "human" ? /* @__PURE__ */ React96.createElement(Badge, { tone: "waiting", micro: true }, "Human") : null))), /* @__PURE__ */ React96.createElement("p", { className: "lamp-composer__hint" }, "Execution order lives in the runtime, not in how the Agents are arranged on the canvas. You can change this later in the Inspector.")) : null, chosen.exceptions && chosen.exceptions.length ? /* @__PURE__ */ React96.createElement(React96.Fragment, null, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__label" }, "What usually goes wrong"), /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__chips" }, chosen.exceptions.map((e) => /* @__PURE__ */ React96.createElement(Badge, { key: e, tone: "warning", icon: "report", micro: true }, e)))) : null) : null,
+    tab === "connectors" ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React96.createElement("p", { className: "lamp-composer__hint" }, "The systems this process has to touch. Untick anything it does not need \u2014 each one is an access grant."), (chosen.connectors || []).length === 0 ? /* @__PURE__ */ React96.createElement("p", { className: "lamp-composer__empty" }, "No connectors suggested. Add Tools to the Agents and they will appear here.") : null, (chosen.connectors || []).map((c, i) => {
       const key = c.id != null ? c.id : i;
       const conn = connectionFor(c);
-      return /* @__PURE__ */ React94.createElement("div", { key, className: "lamp-composer__conn" }, /* @__PURE__ */ React94.createElement(Checkbox, { checked: !!connectors[key], onChange: () => toggle(setConnectors)(key) }), /* @__PURE__ */ React94.createElement(ToolTile, { size: "sm", provider: conn.provider, state: conn.state === "missing" ? "available" : conn.state, name: c.category }), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__conn-main" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__conn-name" }, c.category), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__conn-why" }, c.why)), /* @__PURE__ */ React94.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__conn-state lamp-composer__conn-state--" + conn.state }, /* @__PURE__ */ React94.createElement(StatusDot, { status: conn.state === "missing" ? "blocked" : conn.state === "connected" || conn.state === "healthy" ? "success" : "attention" }), conn.label));
+      return /* @__PURE__ */ React96.createElement("div", { key, className: "lamp-composer__conn" }, /* @__PURE__ */ React96.createElement(Checkbox, { checked: !!connectors[key], onChange: () => toggle(setConnectors)(key) }), /* @__PURE__ */ React96.createElement(ToolTile, { size: "sm", provider: conn.provider, state: conn.state === "missing" ? "available" : conn.state, name: c.category }), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__conn-main" }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__conn-name" }, c.category), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__conn-why" }, c.why)), /* @__PURE__ */ React96.createElement(Badge, { outline: true, micro: true }, c.permission), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__conn-state lamp-composer__conn-state--" + conn.state }, /* @__PURE__ */ React96.createElement(StatusDot, { status: conn.state === "missing" ? "blocked" : conn.state === "connected" || conn.state === "healthy" ? "success" : "attention" }), conn.label));
     })) : null,
-    tab === "outcomes" ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React94.createElement("p", { className: "lamp-composer__hint" }, "What this Playbook is supposed to achieve, and how you would know. Simulation is judged against these, so a Playbook with none cannot pass or fail."), (chosen.outcomes || []).map((o, i) => {
+    tab === "outcomes" ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__pane" }, /* @__PURE__ */ React96.createElement("p", { className: "lamp-composer__hint" }, "What this Playbook is supposed to achieve, and how you would know. Simulation is judged against these, so a Playbook with none cannot pass or fail."), (chosen.outcomes || []).map((o, i) => {
       const key = o.id != null ? o.id : i;
-      return /* @__PURE__ */ React94.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ React94.createElement(Checkbox, { checked: !!outcomes[key], onChange: () => toggle(setOutcomes)(key) }), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-label" }, o.label), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-measure" }, o.measure)), o.target ? /* @__PURE__ */ React94.createElement(Badge, { outline: true, micro: true }, o.target) : null);
-    }), extras.map((label) => /* @__PURE__ */ React94.createElement("div", { key: label, className: "lamp-composer__outcome" }, /* @__PURE__ */ React94.createElement(Checkbox, { checked: true, readOnly: true }), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-label" }, label), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-measure" }, "Added by you")), /* @__PURE__ */ React94.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setExtras(extras.filter((x) => x !== label)) }, "Remove"))), /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__addrow" }, /* @__PURE__ */ React94.createElement(
+      return /* @__PURE__ */ React96.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ React96.createElement(Checkbox, { checked: !!outcomes[key], onChange: () => toggle(setOutcomes)(key) }), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-label" }, o.label), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-measure" }, o.measure)), o.target ? /* @__PURE__ */ React96.createElement(Badge, { outline: true, micro: true }, o.target) : null);
+    }), extras.map((label) => /* @__PURE__ */ React96.createElement("div", { key: label, className: "lamp-composer__outcome" }, /* @__PURE__ */ React96.createElement(Checkbox, { checked: true, readOnly: true }), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-label" }, label), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-measure" }, "Added by you")), /* @__PURE__ */ React96.createElement(Button, { size: "xs", variant: "quiet", onClick: () => setExtras(extras.filter((x) => x !== label)) }, "Remove"))), /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__addrow" }, /* @__PURE__ */ React96.createElement(
       TextInput,
       {
         value: extraOutcome,
@@ -3693,7 +4119,7 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
           setExtraOutcome("");
         }
       }
-    ), /* @__PURE__ */ React94.createElement(
+    ), /* @__PURE__ */ React96.createElement(
       Button,
       {
         size: "sm",
@@ -3706,11 +4132,11 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
         }
       },
       "Add"
-    )), (chosen.checkpoints || []).length ? /* @__PURE__ */ React94.createElement(React94.Fragment, null, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__label" }, "Where a person decides"), (chosen.checkpoints || []).map((c, i) => {
+    )), (chosen.checkpoints || []).length ? /* @__PURE__ */ React96.createElement(React96.Fragment, null, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__label" }, "Where a person decides"), (chosen.checkpoints || []).map((c, i) => {
       const key = c.id != null ? c.id : i;
-      return /* @__PURE__ */ React94.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ React94.createElement(Checkbox, { checked: !!checkpoints[key], onChange: () => toggle(setCheckpoints)(key) }), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-label" }, c.name), /* @__PURE__ */ React94.createElement("span", { className: "lamp-composer__outcome-measure" }, c.when)));
+      return /* @__PURE__ */ React96.createElement("div", { key, className: "lamp-composer__outcome" }, /* @__PURE__ */ React96.createElement(Checkbox, { checked: !!checkpoints[key], onChange: () => toggle(setCheckpoints)(key) }), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-main" }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-label" }, c.name), /* @__PURE__ */ React96.createElement("span", { className: "lamp-composer__outcome-measure" }, c.when)));
     })) : null) : null,
-    allowGenie && chosen.id !== BLANK_PROCESS.id ? /* @__PURE__ */ React94.createElement("div", { className: "lamp-composer__genie" }, /* @__PURE__ */ React94.createElement(
+    allowGenie && chosen.id !== BLANK_PROCESS.id ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-composer__genie" }, /* @__PURE__ */ React96.createElement(
       Checkbox,
       {
         checked: makeGenie,
@@ -3718,21 +4144,21 @@ var PlaybookComposer = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React94.for
         label: "Also create a " + chosen.domain + " Genie",
         description: "Sets up the Genie this process belongs to, with its memory, guardrails and the other Playbooks it usually contains \u2014 as drafts."
       }
-    ), makeGenie && onPreviewGenie ? /* @__PURE__ */ React94.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onPreviewGenie(chosen) }, "Preview what gets created") : null) : null
+    ), makeGenie && onPreviewGenie ? /* @__PURE__ */ React96.createElement(Button, { size: "sm", variant: "secondary", icon: "visibility", onClick: () => onPreviewGenie(chosen) }, "Preview what gets created") : null) : null
   );
 }), { displayName: "PlaybookComposer" });
 
 // project/components/patterns/VoiceButton.jsx
-import React95 from "react";
-var VoiceWaveform = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardRef(function VoiceWaveform2({ levels = [], bars = 18, height = 20 }, ref) {
+import React97 from "react";
+var VoiceWaveform = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React97.forwardRef(function VoiceWaveform2({ levels = [], bars = 18, height = 20 }, ref) {
   const data = levels.length ? levels : Array.from({ length: bars }, (_, i) => 0.3 + 0.7 * Math.abs(Math.sin(i * 1.1)));
-  return /* @__PURE__ */ React95.createElement("span", { ref, className: "lamp-voice__wave", style: { height }, "aria-hidden": "true" }, data.map((v, i) => /* @__PURE__ */ React95.createElement("span", { key: i, className: "lamp-voice__bar", style: { height: Math.max(2, v * height) } })));
+  return /* @__PURE__ */ React97.createElement("span", { ref, className: "lamp-voice__wave", style: { height }, "aria-hidden": "true" }, data.map((v, i) => /* @__PURE__ */ React97.createElement("span", { key: i, className: "lamp-voice__bar", style: { height: Math.max(2, v * height) } })));
 }), { displayName: "VoiceWaveform" });
-var VoiceButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardRef(function VoiceButton2({ state = "idle", size = "md", duration, levels, label, onPress, onCancel, onSend, className = "", ...rest }, ref) {
+var VoiceButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React97.forwardRef(function VoiceButton2({ state = "idle", size = "md", duration, levels, label, onPress, onCancel, onSend, className = "", ...rest }, ref) {
   const recording = state === "recording";
   const glyph = state === "processing" ? "progress_activity" : state === "speaking" ? "volume_up" : recording ? "stop" : "mic";
   const text = label || (recording ? "Recording" : state === "processing" ? "Processing" : state === "speaking" ? "Speaking" : state === "error" ? "Microphone unavailable" : "Hold to speak");
-  return /* @__PURE__ */ React95.createElement("span", { ref, className: "lamp-voice " + className, ...rest }, /* @__PURE__ */ React95.createElement(
+  return /* @__PURE__ */ React97.createElement("span", { ref, className: "lamp-voice " + className, ...rest }, /* @__PURE__ */ React97.createElement(
     "button",
     {
       type: "button",
@@ -3741,13 +4167,13 @@ var VoiceButton = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React95.forwardR
       className: ["lamp-voice__btn", recording && "lamp-voice__btn--recording", size === "lg" && "lamp-voice__btn--lg"].filter(Boolean).join(" "),
       onClick: onPress
     },
-    /* @__PURE__ */ React95.createElement(Icon, { name: glyph, size: size === "lg" ? 28 : 22 })
-  ), recording ? /* @__PURE__ */ React95.createElement(VoiceWaveform, { levels }) : null, duration ? /* @__PURE__ */ React95.createElement("span", { className: "lamp-voice__time" }, duration) : null, !recording && state === "idle" ? /* @__PURE__ */ React95.createElement("span", { style: { fontSize: 13, color: "var(--text-secondary)" } }, text) : null);
+    /* @__PURE__ */ React97.createElement(Icon, { name: glyph, size: size === "lg" ? 28 : 22 })
+  ), recording ? /* @__PURE__ */ React97.createElement(VoiceWaveform, { levels }) : null, duration ? /* @__PURE__ */ React97.createElement("span", { className: "lamp-voice__time" }, duration) : null, !recording && state === "idle" ? /* @__PURE__ */ React97.createElement("span", { style: { fontSize: 13, color: "var(--text-secondary)" } }, text) : null);
 }), { displayName: "VoiceButton" });
 
 // project/components/runtime/ApprovalCard.jsx
-import React96 from "react";
-var ApprovalCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React96.forwardRef(function ApprovalCard2({
+import React98 from "react";
+var ApprovalCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React98.forwardRef(function ApprovalCard2({
   question,
   amount,
   tone = "default",
@@ -3766,14 +4192,14 @@ var ApprovalCard = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React96.forward
   className = "",
   ...rest
 }, ref) {
-  return /* @__PURE__ */ React96.createElement("article", { ref, className: ["lamp-approval", tone !== "default" && "lamp-approval--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React96.createElement("div", { className: "lamp-approval__top" }, /* @__PURE__ */ React96.createElement(Badge, { tone: tone === "critical" ? "danger" : "waiting", icon: "how_to_reg", micro: true }, "Approval required"), playbook ? /* @__PURE__ */ React96.createElement(Badge, { outline: true, icon: "layers" }, playbook) : null, requestedBy ? /* @__PURE__ */ React96.createElement(Badge, { outline: true, icon: "hexagon" }, requestedBy) : null, dueIn ? /* @__PURE__ */ React96.createElement("span", { className: "lamp-approval__timer" }, dueIn) : null), /* @__PURE__ */ React96.createElement("h3", { className: "lamp-approval__q" }, question), amount ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-approval__amount" }, amount) : null, facts.length ? /* @__PURE__ */ React96.createElement("div", { className: "lamp-approval__facts" }, facts.map((f) => /* @__PURE__ */ React96.createElement(React96.Fragment, { key: f.label }, /* @__PURE__ */ React96.createElement("span", { className: "lamp-approval__k" }, f.label), /* @__PURE__ */ React96.createElement("span", { className: "lamp-approval__v" }, f.value)))) : null, evidence, /* @__PURE__ */ React96.createElement("div", { className: "lamp-approval__actions" }, kind === "choice" ? options.map((o) => /* @__PURE__ */ React96.createElement(Button, { key: o.id, size: "md", variant: o.primary ? "primary" : "secondary", onClick: o.onSelect }, o.label)) : /* @__PURE__ */ React96.createElement(React96.Fragment, null, onApprove ? /* @__PURE__ */ React96.createElement(Button, { size: "md", variant: tone === "critical" ? "danger" : "primary", icon: "check", onClick: onApprove }, tone === "critical" ? "Approve anyway" : "Approve") : null, onEdit ? /* @__PURE__ */ React96.createElement(Button, { size: "md", variant: "secondary", icon: "edit", onClick: onEdit }, "Edit before approving") : null, onReject ? /* @__PURE__ */ React96.createElement(Button, { size: "md", variant: "secondary", icon: "close", onClick: onReject }, "Reject") : null, onRequestInfo ? /* @__PURE__ */ React96.createElement(Button, { size: "md", variant: "ghost", onClick: onRequestInfo }, "Request information") : null, onEscalate ? /* @__PURE__ */ React96.createElement(Button, { size: "md", variant: "quiet", onClick: onEscalate }, "Escalate") : null)));
+  return /* @__PURE__ */ React98.createElement("article", { ref, className: ["lamp-approval", tone !== "default" && "lamp-approval--" + tone, className].filter(Boolean).join(" "), ...rest }, /* @__PURE__ */ React98.createElement("div", { className: "lamp-approval__top" }, /* @__PURE__ */ React98.createElement(Badge, { tone: tone === "critical" ? "danger" : "waiting", icon: "how_to_reg", micro: true }, "Approval required"), playbook ? /* @__PURE__ */ React98.createElement(Badge, { outline: true, icon: "layers" }, playbook) : null, requestedBy ? /* @__PURE__ */ React98.createElement(Badge, { outline: true, icon: "hexagon" }, requestedBy) : null, dueIn ? /* @__PURE__ */ React98.createElement("span", { className: "lamp-approval__timer" }, dueIn) : null), /* @__PURE__ */ React98.createElement("h3", { className: "lamp-approval__q" }, question), amount ? /* @__PURE__ */ React98.createElement("div", { className: "lamp-approval__amount" }, amount) : null, facts.length ? /* @__PURE__ */ React98.createElement("div", { className: "lamp-approval__facts" }, facts.map((f) => /* @__PURE__ */ React98.createElement(React98.Fragment, { key: f.label }, /* @__PURE__ */ React98.createElement("span", { className: "lamp-approval__k" }, f.label), /* @__PURE__ */ React98.createElement("span", { className: "lamp-approval__v" }, f.value)))) : null, evidence, /* @__PURE__ */ React98.createElement("div", { className: "lamp-approval__actions" }, kind === "choice" ? options.map((o) => /* @__PURE__ */ React98.createElement(Button, { key: o.id, size: "md", variant: o.primary ? "primary" : "secondary", onClick: o.onSelect }, o.label)) : /* @__PURE__ */ React98.createElement(React98.Fragment, null, onApprove ? /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: tone === "critical" ? "danger" : "primary", icon: "check", onClick: onApprove }, tone === "critical" ? "Approve anyway" : "Approve") : null, onEdit ? /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "secondary", icon: "edit", onClick: onEdit }, "Edit before approving") : null, onReject ? /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "secondary", icon: "close", onClick: onReject }, "Reject") : null, onRequestInfo ? /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "ghost", onClick: onRequestInfo }, "Request information") : null, onEscalate ? /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "quiet", onClick: onEscalate }, "Escalate") : null)));
 }), { displayName: "ApprovalCard" });
-var HumanCheckpoint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React96.forwardRef(function HumanCheckpoint2({ label = "Human checkpoint", detail, ...rest }, ref) {
-  return /* @__PURE__ */ React96.createElement("span", { ref, className: "lamp-checkpoint", ...rest }, /* @__PURE__ */ React96.createElement(Icon, { name: "how_to_reg", size: 14 }), /* @__PURE__ */ React96.createElement("b", { style: { fontWeight: 600 } }, label), detail ? /* @__PURE__ */ React96.createElement("span", null, detail) : null);
+var HumanCheckpoint = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React98.forwardRef(function HumanCheckpoint2({ label = "Human checkpoint", detail, ...rest }, ref) {
+  return /* @__PURE__ */ React98.createElement("span", { ref, className: "lamp-checkpoint", ...rest }, /* @__PURE__ */ React98.createElement(Icon, { name: "how_to_reg", size: 14 }), /* @__PURE__ */ React98.createElement("b", { style: { fontWeight: 600 } }, label), detail ? /* @__PURE__ */ React98.createElement("span", null, detail) : null);
 }), { displayName: "HumanCheckpoint" });
 
 // project/components/runtime/EnvironmentBanner.jsx
-import React97 from "react";
+import React99 from "react";
 var ENV2 = {
   draft: { glyph: "edit", label: "Draft", detail: "Nothing here can act on the business yet." },
   simulation: { glyph: "science", label: "Simulation", detail: "Tool writes are mocked. Nothing leaves LAMP." },
@@ -3781,47 +4207,47 @@ var ENV2 = {
   paused: { glyph: "pause", label: "Paused", detail: "No new runs will start." },
   killed: { glyph: "dangerous", label: "Emergency stopped", detail: "All external writes are blocked." }
 };
-var EnvironmentBanner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React97.forwardRef(function EnvironmentBanner2({ environment = "draft", scope, detail, actions, className = "", ...rest }, ref) {
+var EnvironmentBanner = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React99.forwardRef(function EnvironmentBanner2({ environment = "draft", scope, detail, actions, className = "", ...rest }, ref) {
   const e = ENV2[environment] || ENV2.draft;
-  return /* @__PURE__ */ React97.createElement("div", { ref, className: ["lamp-envbar", "lamp-envbar--" + environment, className].filter(Boolean).join(" "), role: environment === "killed" ? "alert" : "status", ...rest }, /* @__PURE__ */ React97.createElement("span", { className: "lamp-envbar__label" }, /* @__PURE__ */ React97.createElement(Icon, { name: e.glyph, size: 14 }), e.label), scope ? /* @__PURE__ */ React97.createElement("span", { style: { fontWeight: 500 } }, scope) : null, /* @__PURE__ */ React97.createElement("span", { className: "lamp-envbar__detail" }, detail || e.detail), actions ? /* @__PURE__ */ React97.createElement("span", { className: "lamp-envbar__right" }, actions) : null);
+  return /* @__PURE__ */ React99.createElement("div", { ref, className: ["lamp-envbar", "lamp-envbar--" + environment, className].filter(Boolean).join(" "), role: environment === "killed" ? "alert" : "status", ...rest }, /* @__PURE__ */ React99.createElement("span", { className: "lamp-envbar__label" }, /* @__PURE__ */ React99.createElement(Icon, { name: e.glyph, size: 14 }), e.label), scope ? /* @__PURE__ */ React99.createElement("span", { style: { fontWeight: 500 } }, scope) : null, /* @__PURE__ */ React99.createElement("span", { className: "lamp-envbar__detail" }, detail || e.detail), actions ? /* @__PURE__ */ React99.createElement("span", { className: "lamp-envbar__right" }, actions) : null);
 }), { displayName: "EnvironmentBanner" });
 
 // project/components/runtime/KillSwitch.jsx
-import React98 from "react";
-var KillSwitch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React98.forwardRef(function KillSwitch2({ scope = "this Genie", consequences, activeRuns, onCancel, onConfirm, requireAcknowledge = true, confirmLabel = "Emergency stop", className = "", ...rest }, ref) {
-  const [ack, setAck] = React98.useState(!requireAcknowledge);
+import React100 from "react";
+var KillSwitch = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React100.forwardRef(function KillSwitch2({ scope = "this Genie", consequences, activeRuns, onCancel, onConfirm, requireAcknowledge = true, confirmLabel = "Emergency stop", className = "", ...rest }, ref) {
+  const [ack, setAck] = React100.useState(!requireAcknowledge);
   const list = consequences || ["block new external write actions", "stop new runs", "isolate active tasks"];
-  return /* @__PURE__ */ React98.createElement("div", { ref, className: "lamp-kill " + className, role: "alertdialog", "aria-label": "Stop " + scope, ...rest }, /* @__PURE__ */ React98.createElement("div", { className: "lamp-kill__title" }, /* @__PURE__ */ React98.createElement(Icon, { name: "dangerous", size: 16 }), "Stop ", scope, "?"), /* @__PURE__ */ React98.createElement("div", { style: { fontSize: 12, color: "var(--text-secondary)" } }, "Immediately:"), /* @__PURE__ */ React98.createElement("ul", { className: "lamp-kill__list" }, list.map((c) => /* @__PURE__ */ React98.createElement("li", { key: c }, c))), activeRuns != null ? /* @__PURE__ */ React98.createElement("div", { className: "lamp-kill__armed" }, /* @__PURE__ */ React98.createElement(Icon, { name: "warning", size: 14 }), activeRuns, " runs are active right now. Their completed steps are not reversed.") : null, requireAcknowledge ? /* @__PURE__ */ React98.createElement(Checkbox, { label: "I understand this stops all automation in " + scope + ".", checked: ack, onChange: (e) => setAck(e.target.checked) }) : null, /* @__PURE__ */ React98.createElement("div", { className: "lamp-kill__actions" }, /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, "Cancel"), /* @__PURE__ */ React98.createElement(Button, { size: "md", variant: "danger", icon: "dangerous", disabled: !ack, onClick: onConfirm }, confirmLabel)));
+  return /* @__PURE__ */ React100.createElement("div", { ref, className: "lamp-kill " + className, role: "alertdialog", "aria-label": "Stop " + scope, ...rest }, /* @__PURE__ */ React100.createElement("div", { className: "lamp-kill__title" }, /* @__PURE__ */ React100.createElement(Icon, { name: "dangerous", size: 16 }), "Stop ", scope, "?"), /* @__PURE__ */ React100.createElement("div", { style: { fontSize: 12, color: "var(--text-secondary)" } }, "Immediately:"), /* @__PURE__ */ React100.createElement("ul", { className: "lamp-kill__list" }, list.map((c) => /* @__PURE__ */ React100.createElement("li", { key: c }, c))), activeRuns != null ? /* @__PURE__ */ React100.createElement("div", { className: "lamp-kill__armed" }, /* @__PURE__ */ React100.createElement(Icon, { name: "warning", size: 14 }), activeRuns, " runs are active right now. Their completed steps are not reversed.") : null, requireAcknowledge ? /* @__PURE__ */ React100.createElement(Checkbox, { label: "I understand this stops all automation in " + scope + ".", checked: ack, onChange: (e) => setAck(e.target.checked) }) : null, /* @__PURE__ */ React100.createElement("div", { className: "lamp-kill__actions" }, /* @__PURE__ */ React100.createElement(Button, { size: "md", variant: "secondary", onClick: onCancel }, "Cancel"), /* @__PURE__ */ React100.createElement(Button, { size: "md", variant: "danger", icon: "dangerous", disabled: !ack, onClick: onConfirm }, confirmLabel)));
 }), { displayName: "KillSwitch" });
-var SafetyControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React98.forwardRef(function SafetyControls2({ state = "live", onPause, onSafeStop, onEmergency, onResume, className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React98.createElement("div", { ref, style: { display: "flex", alignItems: "center", gap: 6 }, className, ...rest }, state === "paused" ? /* @__PURE__ */ React98.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onResume }, "Resume") : /* @__PURE__ */ React98.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause"), /* @__PURE__ */ React98.createElement(Button, { size: "sm", variant: "secondary", icon: "stop_circle", onClick: onSafeStop }, "Safe stop"), /* @__PURE__ */ React98.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "dangerous", onClick: onEmergency }, "Emergency stop"));
+var SafetyControls = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React100.forwardRef(function SafetyControls2({ state = "live", onPause, onSafeStop, onEmergency, onResume, className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React100.createElement("div", { ref, style: { display: "flex", alignItems: "center", gap: 6 }, className, ...rest }, state === "paused" ? /* @__PURE__ */ React100.createElement(Button, { size: "sm", variant: "secondary", icon: "play_arrow", onClick: onResume }, "Resume") : /* @__PURE__ */ React100.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause"), /* @__PURE__ */ React100.createElement(Button, { size: "sm", variant: "secondary", icon: "stop_circle", onClick: onSafeStop }, "Safe stop"), /* @__PURE__ */ React100.createElement(Button, { size: "sm", variant: "danger-quiet", icon: "dangerous", onClick: onEmergency }, "Emergency stop"));
 }), { displayName: "SafetyControls" });
 
 // project/components/runtime/LiveActivityIndicator.jsx
-import React99 from "react";
-var LiveActivityIndicator = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React99.forwardRef(function LiveActivityIndicator2({ mode = "live", label, count, className = "", ...rest }, ref) {
+import React101 from "react";
+var LiveActivityIndicator = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React101.forwardRef(function LiveActivityIndicator2({ mode = "live", label, count, className = "", ...rest }, ref) {
   const text = label || (mode === "live" ? "Live" : mode === "simulation" ? "Simulating" : "Idle");
-  return /* @__PURE__ */ React99.createElement("span", { ref, className: ["lamp-live", mode !== "live" && "lamp-live--" + mode, className].filter(Boolean).join(" "), role: "status", ...rest }, /* @__PURE__ */ React99.createElement("span", { className: "lamp-live__pulse" }), text, count != null ? /* @__PURE__ */ React99.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, opacity: 0.8 } }, count, " active") : null);
+  return /* @__PURE__ */ React101.createElement("span", { ref, className: ["lamp-live", mode !== "live" && "lamp-live--" + mode, className].filter(Boolean).join(" "), role: "status", ...rest }, /* @__PURE__ */ React101.createElement("span", { className: "lamp-live__pulse" }), text, count != null ? /* @__PURE__ */ React101.createElement("span", { style: { fontFamily: "var(--font-mono)", fontSize: 11, opacity: 0.8 } }, count, " active") : null);
 }), { displayName: "LiveActivityIndicator" });
 
 // project/components/runtime/ReadinessCheck.jsx
-import React100 from "react";
+import React102 from "react";
 var TONE2 = {
   passed: { glyph: "check_circle", color: "var(--status-success)" },
   warning: { glyph: "warning", color: "var(--status-warning)" },
   failed: { glyph: "cancel", color: "var(--status-danger)" },
   pending: { glyph: "radio_button_unchecked", color: "var(--text-disabled)" }
 };
-var ReadinessCheck = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React100.forwardRef(function ReadinessCheck2({ checks = [], className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React100.createElement("div", { ref, className: "lamp-readiness " + className, role: "list", ...rest }, checks.map((c) => {
+var ReadinessCheck = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React102.forwardRef(function ReadinessCheck2({ checks = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React102.createElement("div", { ref, className: "lamp-readiness " + className, role: "list", ...rest }, checks.map((c) => {
     const t = TONE2[c.state] || TONE2.pending;
-    return /* @__PURE__ */ React100.createElement("div", { className: "lamp-readiness__row", key: c.label, role: "listitem" }, /* @__PURE__ */ React100.createElement(Icon, { name: t.glyph, size: 15, style: { color: t.color } }), /* @__PURE__ */ React100.createElement("span", null, c.label), c.detail ? /* @__PURE__ */ React100.createElement("span", { className: "lamp-readiness__detail" }, c.detail) : null, c.action);
+    return /* @__PURE__ */ React102.createElement("div", { className: "lamp-readiness__row", key: c.label, role: "listitem" }, /* @__PURE__ */ React102.createElement(Icon, { name: t.glyph, size: 15, style: { color: t.color } }), /* @__PURE__ */ React102.createElement("span", null, c.label), c.detail ? /* @__PURE__ */ React102.createElement("span", { className: "lamp-readiness__detail" }, c.detail) : null, c.action);
   }));
 }), { displayName: "ReadinessCheck" });
 
 // project/components/runtime/RunSummary.jsx
-import React101 from "react";
-var RunSummary = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React101.forwardRef(function RunSummary2({ runId, status = "success", trigger, started, completed, duration, agents, toolCalls, llmCalls, cacheRate, tokens, cost, interventions, environment, className = "", ...rest }, ref) {
+import React103 from "react";
+var RunSummary = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React103.forwardRef(function RunSummary2({ runId, status = "success", trigger, started, completed, duration, agents, toolCalls, llmCalls, cacheRate, tokens, cost, interventions, environment, className = "", ...rest }, ref) {
   const rows = [
     ["Run ID", runId, true],
     ["Environment", environment],
@@ -3837,11 +4263,11 @@ var RunSummary = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React101.forwardR
     ["Estimated cost", cost, true],
     ["Human interventions", interventions, true]
   ].filter((r) => r[1] != null && r[1] !== "");
-  return /* @__PURE__ */ React101.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ React101.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 } }, /* @__PURE__ */ React101.createElement(StatusBadge, { status })), rows.map(([label, value, mono]) => /* @__PURE__ */ React101.createElement(PropertyRow, { key: label, label, value, mono: !!mono })));
+  return /* @__PURE__ */ React103.createElement("div", { ref, className, ...rest }, /* @__PURE__ */ React103.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, paddingBottom: 8 } }, /* @__PURE__ */ React103.createElement(StatusBadge, { status })), rows.map(([label, value, mono]) => /* @__PURE__ */ React103.createElement(PropertyRow, { key: label, label, value, mono: !!mono })));
 }), { displayName: "RunSummary" });
 
 // project/components/runtime/RunTimeline.jsx
-import React102 from "react";
+import React104 from "react";
 var STEP = {
   pending: { glyph: null, cls: "" },
   running: { glyph: "sync", cls: "running" },
@@ -3853,30 +4279,30 @@ var STEP = {
   mocked: { glyph: "inventory_2", cls: "skipped" },
   blocked: { glyph: "block", cls: "blocked" }
 };
-var RunStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React102.forwardRef(function RunStep2({ index, state = "pending", title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = "", ...rest }, ref) {
+var RunStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React104.forwardRef(function RunStep2({ index, state = "pending", title, detail, actor, tools = [], memory, duration, tokens, cost, expandable = false, onToggle, children, className = "", ...rest }, ref) {
   const s = STEP[state] || STEP.pending;
-  return /* @__PURE__ */ React102.createElement("div", { ref, className: "lamp-step " + className, ...rest }, /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__icon" + (s.cls ? " lamp-step__icon--" + s.cls : "") }, s.glyph ? /* @__PURE__ */ React102.createElement(Icon, { name: s.glyph, size: 11 }) : index), /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__main" }, /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__title" }, title), detail ? /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__sub" }, detail) : null, actor || tools.length || memory ? /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__chips" }, actor ? /* @__PURE__ */ React102.createElement(Badge, { outline: true, icon: "hexagon" }, actor) : null, tools.map((t) => /* @__PURE__ */ React102.createElement(Badge, { key: t, outline: true, icon: "square" }, t)), memory ? /* @__PURE__ */ React102.createElement(Badge, { tone: "memory", icon: "database" }, memory) : null) : null, children), /* @__PURE__ */ React102.createElement("span", { className: "lamp-step__right" }, tokens ? /* @__PURE__ */ React102.createElement("span", null, tokens) : null, cost ? /* @__PURE__ */ React102.createElement("span", null, cost) : null, duration ? /* @__PURE__ */ React102.createElement("span", null, duration) : null, expandable ? /* @__PURE__ */ React102.createElement(Icon, { name: "keyboard_arrow_down", size: 14 }) : null));
+  return /* @__PURE__ */ React104.createElement("div", { ref, className: "lamp-step " + className, ...rest }, /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__icon" + (s.cls ? " lamp-step__icon--" + s.cls : "") }, s.glyph ? /* @__PURE__ */ React104.createElement(Icon, { name: s.glyph, size: 11 }) : index), /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__main" }, /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__title" }, title), detail ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__sub" }, detail) : null, actor || tools.length || memory ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__chips" }, actor ? /* @__PURE__ */ React104.createElement(Badge, { outline: true, icon: "hexagon" }, actor) : null, tools.map((t) => /* @__PURE__ */ React104.createElement(Badge, { key: t, outline: true, icon: "square" }, t)), memory ? /* @__PURE__ */ React104.createElement(Badge, { tone: "memory", icon: "database" }, memory) : null) : null, children), /* @__PURE__ */ React104.createElement("span", { className: "lamp-step__right" }, tokens ? /* @__PURE__ */ React104.createElement("span", null, tokens) : null, cost ? /* @__PURE__ */ React104.createElement("span", null, cost) : null, duration ? /* @__PURE__ */ React104.createElement("span", null, duration) : null, expandable ? /* @__PURE__ */ React104.createElement(Icon, { name: "keyboard_arrow_down", size: 14 }) : null));
 }), { displayName: "RunStep" });
-var RunTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React102.forwardRef(function RunTimeline2({ steps = [], className = "", ...rest }, ref) {
-  return /* @__PURE__ */ React102.createElement("div", { ref, className, role: "list", "aria-label": "Run timeline", ...rest }, steps.map((s, i) => /* @__PURE__ */ React102.createElement(RunStep, { key: i, index: i + 1, ...s })));
+var RunTimeline = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React104.forwardRef(function RunTimeline2({ steps = [], className = "", ...rest }, ref) {
+  return /* @__PURE__ */ React104.createElement("div", { ref, className, role: "list", "aria-label": "Run timeline", ...rest }, steps.map((s, i) => /* @__PURE__ */ React104.createElement(RunStep, { key: i, index: i + 1, ...s })));
 }), { displayName: "RunTimeline" });
 
 // project/components/runtime/SimulationBar.jsx
-import React103 from "react";
-var SimulationBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React103.forwardRef(function SimulationBar2({ mode = "simulation", state = "idle", progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = "", ...rest }, ref) {
+import React105 from "react";
+var SimulationBar = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React105.forwardRef(function SimulationBar2({ mode = "simulation", state = "idle", progress = 0, step, stepCount, scenario, elapsed, cost, onRun, onPause, onStop, onStepForward, onReplay, onScenario, right, className = "", ...rest }, ref) {
   const running = state === "running";
-  return /* @__PURE__ */ React103.createElement("div", { ref, className: "lamp-simbar " + className, role: "toolbar", "aria-label": mode === "live" ? "Live controls" : "Simulation controls", ...rest }, running ? /* @__PURE__ */ React103.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause") : /* @__PURE__ */ React103.createElement(Button, { size: "sm", variant: mode === "live" ? "brand" : "primary", icon: "play_arrow", onClick: onRun }, state === "paused" ? "Resume" : mode === "live" ? "Start run" : "Run simulation"), /* @__PURE__ */ React103.createElement(IconButton, { icon: "skip_next", label: "Step forward", size: "md", onClick: onStepForward, disabled: running }), /* @__PURE__ */ React103.createElement(IconButton, { icon: "stop_circle", label: "Stop", size: "md", onClick: onStop, disabled: state === "idle" }), /* @__PURE__ */ React103.createElement(Divider, { orientation: "vertical" }), scenario ? /* @__PURE__ */ React103.createElement("button", { type: "button", onClick: onScenario, style: { display: "flex", alignItems: "center", gap: 6, height: 24, padding: "0 6px", border: "1px solid var(--border-default)", borderRadius: "var(--radius-sm)", background: "var(--surface-primary)", font: "500 12px var(--font-sans)", color: "var(--text-primary)", cursor: "pointer" } }, /* @__PURE__ */ React103.createElement(Icon, { name: "dataset", size: 13 }), scenario) : null, /* @__PURE__ */ React103.createElement("span", { className: "lamp-simbar__progress" }, /* @__PURE__ */ React103.createElement("span", { className: "lamp-simbar__fill" + (mode === "live" ? " lamp-simbar__fill--live" : ""), style: { width: Math.round(progress * 100) + "%" } })), /* @__PURE__ */ React103.createElement("span", { className: "lamp-simbar__meta" }, stepCount ? /* @__PURE__ */ React103.createElement("span", null, "Step ", step, "/", stepCount) : null, elapsed ? /* @__PURE__ */ React103.createElement("span", null, elapsed) : null, cost ? /* @__PURE__ */ React103.createElement("span", null, cost) : null), onReplay ? /* @__PURE__ */ React103.createElement(IconButton, { icon: "replay", label: "Replay run", size: "md", onClick: onReplay }) : null, right);
+  return /* @__PURE__ */ React105.createElement("div", { ref, className: "lamp-simbar " + className, role: "toolbar", "aria-label": mode === "live" ? "Live controls" : "Simulation controls", ...rest }, running ? /* @__PURE__ */ React105.createElement(Button, { size: "sm", variant: "secondary", icon: "pause", onClick: onPause }, "Pause") : /* @__PURE__ */ React105.createElement(Button, { size: "sm", variant: mode === "live" ? "brand" : "primary", icon: "play_arrow", onClick: onRun }, state === "paused" ? "Resume" : mode === "live" ? "Start run" : "Run simulation"), /* @__PURE__ */ React105.createElement(IconButton, { icon: "skip_next", label: "Step forward", size: "md", onClick: onStepForward, disabled: running }), /* @__PURE__ */ React105.createElement(IconButton, { icon: "stop_circle", label: "Stop", size: "md", onClick: onStop, disabled: state === "idle" }), /* @__PURE__ */ React105.createElement(Divider, { orientation: "vertical" }), scenario ? /* @__PURE__ */ React105.createElement("button", { type: "button", onClick: onScenario, style: { display: "flex", alignItems: "center", gap: 6, height: 24, padding: "0 6px", border: "1px solid var(--border-default)", borderRadius: "var(--radius-sm)", background: "var(--surface-primary)", font: "500 12px var(--font-sans)", color: "var(--text-primary)", cursor: "pointer" } }, /* @__PURE__ */ React105.createElement(Icon, { name: "dataset", size: 13 }), scenario) : null, /* @__PURE__ */ React105.createElement("span", { className: "lamp-simbar__progress" }, /* @__PURE__ */ React105.createElement("span", { className: "lamp-simbar__fill" + (mode === "live" ? " lamp-simbar__fill--live" : ""), style: { width: Math.round(progress * 100) + "%" } })), /* @__PURE__ */ React105.createElement("span", { className: "lamp-simbar__meta" }, stepCount ? /* @__PURE__ */ React105.createElement("span", null, "Step ", step, "/", stepCount) : null, elapsed ? /* @__PURE__ */ React105.createElement("span", null, elapsed) : null, cost ? /* @__PURE__ */ React105.createElement("span", null, cost) : null), onReplay ? /* @__PURE__ */ React105.createElement(IconButton, { icon: "replay", label: "Replay run", size: "md", onClick: onReplay }) : null, right);
 }), { displayName: "SimulationBar" });
 
 // project/components/runtime/SimulationStep.jsx
-import React104 from "react";
+import React106 from "react";
 var SIM_NOTE = {
   mocked: { label: "Mocked", glyph: "inventory_2", tone: "neutral" },
   blocked: { label: "Blocked", glyph: "block", tone: "warning" },
   waitingHuman: { label: "Awaiting approval", glyph: "how_to_reg", tone: "waiting" },
   skipped: { label: "Skipped", glyph: "remove", tone: "neutral" }
 };
-var SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React104.forwardRef(function SimulationStep2({
+var SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React106.forwardRef(function SimulationStep2({
   state = "pending",
   mockedValue,
   blockedReason,
@@ -3888,7 +4314,7 @@ var SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React104.forw
   ...rest
 }, ref) {
   const note = SIM_NOTE[state];
-  return /* @__PURE__ */ React104.createElement(
+  return /* @__PURE__ */ React106.createElement(
     RunStep,
     {
       ref,
@@ -3896,18 +4322,20 @@ var SimulationStep = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React104.forw
       className: ["lamp-simstep", "lamp-simstep--" + state, divergence && "lamp-simstep--diverged", className].filter(Boolean).join(" "),
       ...rest
     },
-    note || divergence || scenario ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__chips" }, note ? /* @__PURE__ */ React104.createElement(Badge, { tone: note.tone, icon: note.glyph, micro: true }, note.label) : null, scenario ? /* @__PURE__ */ React104.createElement(Badge, { outline: true, icon: "science", micro: true }, scenario) : null, divergence ? /* @__PURE__ */ React104.createElement(Badge, { tone: "warning", icon: "swap_horiz", micro: true }, "Differs from live") : null) : null,
-    state === "mocked" && mockedValue ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__mock" }, /* @__PURE__ */ React104.createElement(Icon, { name: "inventory_2", size: 12 }), /* @__PURE__ */ React104.createElement("span", null, "Stand-in value: ", /* @__PURE__ */ React104.createElement("b", null, mockedValue))) : null,
-    state === "blocked" && blockedReason ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__blocked" }, /* @__PURE__ */ React104.createElement(Icon, { name: "block", size: 12 }), /* @__PURE__ */ React104.createElement("span", null, blockedReason)) : null,
-    divergence && expected ? /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__diverge" }, /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ React104.createElement("span", null, "Live"), /* @__PURE__ */ React104.createElement("b", null, expected)), /* @__PURE__ */ React104.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ React104.createElement("span", null, "Simulated"), /* @__PURE__ */ React104.createElement("b", null, divergence))) : null,
+    note || divergence || scenario ? /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__chips" }, note ? /* @__PURE__ */ React106.createElement(Badge, { tone: note.tone, icon: note.glyph, micro: true }, note.label) : null, scenario ? /* @__PURE__ */ React106.createElement(Badge, { outline: true, icon: "science", micro: true }, scenario) : null, divergence ? /* @__PURE__ */ React106.createElement(Badge, { tone: "warning", icon: "swap_horiz", micro: true }, "Differs from live") : null) : null,
+    state === "mocked" && mockedValue ? /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__mock" }, /* @__PURE__ */ React106.createElement(Icon, { name: "inventory_2", size: 12 }), /* @__PURE__ */ React106.createElement("span", null, "Stand-in value: ", /* @__PURE__ */ React106.createElement("b", null, mockedValue))) : null,
+    state === "blocked" && blockedReason ? /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__blocked" }, /* @__PURE__ */ React106.createElement(Icon, { name: "block", size: 12 }), /* @__PURE__ */ React106.createElement("span", null, blockedReason)) : null,
+    divergence && expected ? /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__diverge" }, /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ React106.createElement("span", null, "Live"), /* @__PURE__ */ React106.createElement("b", null, expected)), /* @__PURE__ */ React106.createElement("span", { className: "lamp-simstep__diverge-row" }, /* @__PURE__ */ React106.createElement("span", null, "Simulated"), /* @__PURE__ */ React106.createElement("b", null, divergence))) : null,
     children
   );
 }), { displayName: "SimulationStep" });
 export {
+  AGENT_ARCHETYPES,
   AGENT_SIZES,
   AgentChat,
   AgentHex,
   AgentIsland,
+  AgentLibrary,
   AppShell,
   ApprovalCard,
   BLANK_PROCESS,
@@ -3963,6 +4391,8 @@ export {
   FACT_TYPES,
   Field,
   FilterBar,
+  FreeCellAt,
+  FreeCells,
   GSAP_CDN,
   GSAP_DURATION,
   GSAP_EASE,
@@ -4010,6 +4440,7 @@ export {
   Modal,
   NavItem,
   NavSection,
+  NewAgentDialog,
   NumberInput,
   ObjectList,
   ObjectRow,
@@ -4080,6 +4511,8 @@ export {
   WorkspaceSwitcher,
   brandGlyphs,
   buildGenie,
+  freeCellAt,
+  freeCells,
   glyphs,
   heatColor,
   hexCenter,

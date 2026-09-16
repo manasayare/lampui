@@ -108,6 +108,30 @@ export const CanvasSurface = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React
   );
 }), { displayName: 'CanvasSurface' });
 
-export const SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SnapGuide({ rect, invalid = false, kind = 'snap' }, ref) {
+/* The slot an object will land on.
+
+   `shape="hex"` draws a real hexagon outline as SVG rather than a bordered box
+   behind a clip-path. Clipping a border to a hexagon keeps only the fragments
+   of the border that fall inside the clip — which renders as a few disconnected
+   dashes floating near the object, reading as leftover debris rather than as a
+   target. A stroked polygon is the whole outline. */
+
+const HEX_POINTS = '25,0 75,0 100,50 75,100 25,100 0,50';
+
+export const SnapGuide = /* @__PURE__ */ Object.assign(/* @__PURE__ */ React.forwardRef(function SnapGuide({ rect, invalid = false, kind = 'snap', shape = 'rect' }, ref) {
+  if (shape === 'hex') {
+    return (
+      <svg
+        ref={ref}
+        className={'lamp-canvas__snapguide-hex' + (invalid ? ' lamp-canvas__snapguide-hex--invalid' : '')}
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        style={rect}
+      >
+        <polygon points={HEX_POINTS} vectorEffect="non-scaling-stroke" />
+      </svg>
+    );
+  }
   return <span ref={ref} className={kind === 'drop' ? ('lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '')) : 'lamp-canvas__snapguide'} style={rect} />;
 }), { displayName: 'SnapGuide' });

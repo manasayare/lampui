@@ -18,6 +18,37 @@ export interface SnapFieldAgent {
   [key: string]: any;
 }
 
+export interface FieldGeometry {
+  agents?: Array<{ id?: string; col: number; row: number }>;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  gap?: number;
+  width?: number;
+  height?: number;
+  origin?: { x: number; y: number };
+  /** Agent id whose own cell stays a candidate — used while dragging it. */
+  exclude?: string | null;
+}
+
+export interface FreeCell {
+  col: number;
+  row: number;
+  /** Centre, in the field's own coordinates. */
+  x: number;
+  y: number;
+}
+
+/** Every free lattice cell of a field, as pixel points. Cells holding an Agent
+ *  are omitted, which is why nothing placed by this math can overlap. */
+export declare function freeCells(opts: FieldGeometry): FreeCell[];
+
+/** The free cell nearest a point in field coordinates — the other half of
+ *  AgentLibrary's `onDrop`, which reports exactly that point. Null only when the
+ *  field is completely full. */
+export declare function freeCellAt(
+  point: { x: number; y: number },
+  opts: FieldGeometry,
+): (FreeCell & { d: number }) | null;
+
 export interface SnapFieldFlags {
   dragging: boolean;
   /** Within proximityRange of a free slot — the slot is lit, the Agent has not moved. */
@@ -55,8 +86,23 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   proximityRange?: number;
   /** (agent, flags) => node. Return an AgentHex. */
   renderAgent: (agent: SnapFieldAgent, flags: SnapFieldFlags) => React.ReactNode;
-  /** BondLayer positioned at the lattice origin. */
-  bonds?: React.ReactNode;
+  /** BondLayer positioned at the lattice origin.
+   *
+   *  As a node it is fixed, so a bond drawn from an Agent's committed cell stays
+   *  behind while that Agent is dragged — a gold stub pointing at where it used
+   *  to be. Pass a function instead and it is called with every Agent's live
+   *  position (in the same space HexCenter returns), so bonds follow the drag:
+   *
+   *    bonds={(pos) => (
+   *      <BondLayer>
+   *        <BondEdge from={pos.intake} to={pos.matcher} state="valid" />
+   *      </BondLayer>
+   *    )}
+   */
+  bonds?: React.ReactNode | ((
+    positions: Record<string, { x: number; y: number }>,
+    info: { draggingId: string | null },
+  ) => React.ReactNode);
   /** Single selection — the Inspector's subject. */
   selectedId?: string;
   onSelect?: (agent: SnapFieldAgent) => void;
@@ -78,3 +124,10 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   readOnly?: boolean;
 }
 export declare const SnapField: React.ForwardRefExoticComponent<SnapFieldProps & React.RefAttributes<HTMLDivElement>>;
+
+/** Capitalized aliases, reachable on the design-system namespace. */
+export declare function FreeCells(opts: FieldGeometry): FreeCell[];
+export declare function FreeCellAt(
+  point: { x: number; y: number },
+  opts: FieldGeometry,
+): (FreeCell & { d: number }) | null;

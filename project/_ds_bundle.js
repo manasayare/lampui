@@ -1,4 +1,4 @@
-/* @ds-bundle: {"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"ICON_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"BRAND_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"GSAP_CDN","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_EASE","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_DURATION","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"StackedBar","sourcePath":"components/data/StackedBar.jsx"},{"name":"ContextBreakdown","sourcePath":"components/data/ContextBreakdown.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"InspectorField","sourcePath":"components/inspector/InspectorField.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"InspectorHeader","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorTabs","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorFooter","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConflict","sourcePath":"components/memory/MemoryConflict.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryScopeBar","sourcePath":"components/memory/MemoryScopeBar.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"BUSINESS_PROCESSES","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"BLANK_PROCESS","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"MatchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"ProcessProposal","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"BuildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"GenieBlueprint","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PlaybookComposer","sourcePath":"components/patterns/PlaybookComposer.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"},{"name":"SimulationStep","sourcePath":"components/runtime/SimulationStep.jsx"}],"sourceHashes":{"components/canvas/CanvasContextMenu.jsx":"642e509a361f","components/canvas/CanvasMotion.jsx":"5b16c55bf142","components/canvas/CanvasSurface.jsx":"db0572d24abf","components/canvas/CanvasToolbar.jsx":"1e90531bb5b7","components/canvas/SnapField.jsx":"ff8fd88944ba","components/chat/AgentChat.jsx":"a993ce5d5724","components/chat/ChatComposer.jsx":"e4797b124cad","components/chat/ChatMessage.jsx":"ec98b6317ffe","components/core/Badge.jsx":"02ec3798d471","components/core/Button.jsx":"01703e75087c","components/core/Card.jsx":"4f07d92ba8fb","components/core/Divider.jsx":"bbef0f29f18a","components/core/EnvironmentPill.jsx":"4b6cb0f1c6e7","components/core/glyphs.js":"76e625feea12","components/core/Icon.jsx":"da94632bafd0","components/core/IconButton.jsx":"fe79c7a872c7","components/core/Kbd.jsx":"c907f3fefbd3","components/core/Panel.jsx":"6eafedbbe0e4","components/core/refs.js":"84615fb1a4c1","components/core/StatusBadge.jsx":"e66478913946","components/core/Tag.jsx":"58ae1ed9706a","components/core/Tooltip.jsx":"286494380b24","components/dashboard/DashboardCard.jsx":"9cfc7f7bde21","components/dashboard/PageHeader.jsx":"e64443109f78","components/data/BarChart.jsx":"31b05f10899b","components/data/ChartFrame.jsx":"9c7fb4937c47","components/data/ContextBreakdown.jsx":"183ef6ed90f6","components/data/DataTable.jsx":"dd3c70054ef9","components/data/DonutChart.jsx":"2fd6b68fe28f","components/data/Heatmap.jsx":"ba7d9f459273","components/data/HexHeatmap.jsx":"489204584f86","components/data/LineChart.jsx":"31f3b752c5c7","components/data/MetricCard.jsx":"0c82c139d8a0","components/data/ProgressBar.jsx":"6c205eaea379","components/data/ScatterPlot.jsx":"20ecb73c12b1","components/data/Sparkline.jsx":"aa96565d6ac1","components/data/StackedBar.jsx":"583970cae7e6","components/data/Viz.jsx":"60bdb93790cb","components/feedback/EmptyState.jsx":"6eb22e48bc12","components/feedback/ErrorState.jsx":"dd1ce27be581","components/feedback/InlineNotification.jsx":"830b9b9df14f","components/feedback/Modal.jsx":"dc13ceaf26fe","components/feedback/Skeleton.jsx":"7e7e5393f0c4","components/forms/Checkbox.jsx":"4b0aaee3abcc","components/forms/CodeFrame.jsx":"51033b535629","components/forms/Field.jsx":"811e3e3f47e3","components/forms/KeyValueInput.jsx":"b0cb689d5e7e","components/forms/PromptEditor.jsx":"dad958373036","components/forms/Radio.jsx":"b9664a441848","components/forms/Select.jsx":"a52362727edc","components/forms/Slider.jsx":"6e80bed5923b","components/forms/Switch.jsx":"b3289d2b42ce","components/forms/TagInput.jsx":"bec9c50f529e","components/forms/Textarea.jsx":"e832fc3b06f1","components/forms/TextInput.jsx":"a4fa3bc4afa8","components/inspector/InspectorField.jsx":"a032f02cf6e3","components/inspector/InspectorPanel.jsx":"35f85d629b56","components/inspector/InspectorSection.jsx":"9d41f88569ed","components/memory/MemoryBadge.jsx":"89ce91afc4db","components/memory/MemoryConflict.jsx":"17550dcb5a46","components/memory/MemoryFact.jsx":"62129a1c0b5c","components/memory/MemoryGraph.jsx":"046b34c84f8d","components/memory/MemoryScopeBar.jsx":"130c4cbe8833","components/memory/MemoryTimeline.jsx":"4b619bc0e8ab","components/memory/MemoryUsageBar.jsx":"90444b76b37a","components/navigation/AppShell.jsx":"87a170d10720","components/navigation/Breadcrumb.jsx":"c383403d3e56","components/navigation/CommandPalette.jsx":"a7c890578772","components/navigation/FilterBar.jsx":"71dd18237784","components/navigation/GlobalHeader.jsx":"6b28673c28e5","components/navigation/ObjectTree.jsx":"81286028842a","components/navigation/SegmentedControl.jsx":"e91d309d3a8f","components/navigation/SideNav.jsx":"98c62576a989","components/navigation/StatusBar.jsx":"659853140d5e","components/navigation/Tabs.jsx":"7241285ac4cc","components/navigation/WorkspaceSwitcher.jsx":"22ee04da69fb","components/objects/AgentHex.jsx":"c6265b3c233e","components/objects/AgentIsland.jsx":"156dc2b6faa3","components/objects/BondEdge.jsx":"9bd98b574165","components/objects/EntityChip.jsx":"663c05d1ef94","components/objects/GenieCard.jsx":"533d66206fd8","components/objects/HexLattice.jsx":"8537ceef3be7","components/objects/ObjectRow.jsx":"4622e3c808f7","components/objects/PlaybookCluster.jsx":"45ba9a3da286","components/objects/SkillOrb.jsx":"02119f0c065b","components/objects/ToolTile.jsx":"6e0f665f9515","components/patterns/BusinessProcess.jsx":"7a5f6eb4e465","components/patterns/Conversation.jsx":"48f4290ca7d8","components/patterns/GenieBlueprint.jsx":"79e140ba2dc3","components/patterns/IntegrationCard.jsx":"35fd077fbe8c","components/patterns/LearnedPattern.jsx":"b78185ee2421","components/patterns/MobileShell.jsx":"ef4cec47dab5","components/patterns/ObservedProcess.jsx":"ac26151b779e","components/patterns/PermissionMatrix.jsx":"02fee98ef531","components/patterns/PlaybookComposer.jsx":"f13e60998ce5","components/patterns/VoiceButton.jsx":"17f3f0fb72a7","components/runtime/ApprovalCard.jsx":"7fa6f7a21338","components/runtime/EnvironmentBanner.jsx":"2978da634f79","components/runtime/KillSwitch.jsx":"241913ac79c5","components/runtime/LiveActivityIndicator.jsx":"965485edd7c9","components/runtime/ReadinessCheck.jsx":"1aea9f9b4018","components/runtime/RunSummary.jsx":"c3fda9026198","components/runtime/RunTimeline.jsx":"cbfa22f31999","components/runtime/SimulationBar.jsx":"9f436079df88","components/runtime/SimulationStep.jsx":"7ae0bd2ac1dc","ui_kits/lamp-canvas/BuilderApp.jsx":"0921bf677a52","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-operations/OpsApp.jsx":"e7c0627e0660"},"inlinedExternals":[],"unexposedExports":[{"name":"brandGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"buildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"glyphs","sourcePath":"components/core/glyphs.js"},{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"loadGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"matchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"prefersReducedMotion","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"registerGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"},{"name":"setGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useMergedRefs","sourcePath":"components/core/refs.js"}]} */
+/* @ds-bundle: {"namespace":"LAMPDesignSystem_980d6d","components":[{"name":"ICON_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"BRAND_VIEWBOX","sourcePath":"components/core/glyphs.js"},{"name":"MATERIAL_SYMBOLS_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"BRAND_ICON_BASE","sourcePath":"components/core/Icon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"BrandIcon","sourcePath":"components/core/Icon.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"TextInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SearchInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"NumberInput","sourcePath":"components/forms/TextInput.jsx"},{"name":"SecretField","sourcePath":"components/forms/TextInput.jsx"},{"name":"STATUS","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusDot","sourcePath":"components/core/StatusBadge.jsx"},{"name":"StatusBadge","sourcePath":"components/core/StatusBadge.jsx"},{"name":"AGENT_SIZES","sourcePath":"components/objects/AgentHex.jsx"},{"name":"AgentHex","sourcePath":"components/objects/AgentHex.jsx"},{"name":"GSAP_CDN","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_EASE","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"GSAP_DURATION","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"AGENT_ARCHETYPES","sourcePath":"components/canvas/AgentLibrary.jsx"},{"name":"AgentLibrary","sourcePath":"components/canvas/AgentLibrary.jsx"},{"name":"CanvasContextMenu","sourcePath":"components/canvas/CanvasContextMenu.jsx"},{"name":"CanvasSurface","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"SnapGuide","sourcePath":"components/canvas/CanvasSurface.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Divider","sourcePath":"components/core/Divider.jsx"},{"name":"CanvasToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasZoomControls","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasObjectToolbar","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"CanvasMinimap","sourcePath":"components/canvas/CanvasToolbar.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"SplitButton","sourcePath":"components/core/Button.jsx"},{"name":"Modal","sourcePath":"components/feedback/Modal.jsx"},{"name":"CriticalConfirmation","sourcePath":"components/feedback/Modal.jsx"},{"name":"Drawer","sourcePath":"components/feedback/Modal.jsx"},{"name":"Popover","sourcePath":"components/feedback/Modal.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"TOOL_SIZES","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolTile","sourcePath":"components/objects/ToolTile.jsx"},{"name":"ToolRow","sourcePath":"components/objects/ToolTile.jsx"},{"name":"NewAgentDialog","sourcePath":"components/canvas/NewAgentDialog.jsx"},{"name":"HexLattice","sourcePath":"components/objects/HexLattice.jsx"},{"name":"HexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"FreeCells","sourcePath":"components/canvas/SnapField.jsx"},{"name":"FreeCellAt","sourcePath":"components/canvas/SnapField.jsx"},{"name":"SnapField","sourcePath":"components/canvas/SnapField.jsx"},{"name":"ChatAvatar","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatActivity","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatCitation","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatDayDivider","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatMessage","sourcePath":"components/chat/ChatMessage.jsx"},{"name":"ChatStatus","sourcePath":"components/chat/AgentChat.jsx"},{"name":"AgentChat","sourcePath":"components/chat/AgentChat.jsx"},{"name":"Kbd","sourcePath":"components/core/Kbd.jsx"},{"name":"ChatQuickReplies","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"ChatComposer","sourcePath":"components/chat/ChatComposer.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"EnvironmentPill","sourcePath":"components/core/EnvironmentPill.jsx"},{"name":"Panel","sourcePath":"components/core/Panel.jsx"},{"name":"Tooltip","sourcePath":"components/core/Tooltip.jsx"},{"name":"DashboardCard","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"DashboardGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"StatGrid","sourcePath":"components/dashboard/DashboardCard.jsx"},{"name":"PageHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DashboardPage","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"SectionHeader","sourcePath":"components/dashboard/PageHeader.jsx"},{"name":"DATAVIZ","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartLegend","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartFrame","sourcePath":"components/data/ChartFrame.jsx"},{"name":"ChartTooltip","sourcePath":"components/data/ChartFrame.jsx"},{"name":"BarChart","sourcePath":"components/data/BarChart.jsx"},{"name":"StackedBar","sourcePath":"components/data/StackedBar.jsx"},{"name":"ContextBreakdown","sourcePath":"components/data/ContextBreakdown.jsx"},{"name":"DataTable","sourcePath":"components/data/DataTable.jsx"},{"name":"DonutChart","sourcePath":"components/data/DonutChart.jsx"},{"name":"Heatmap","sourcePath":"components/data/Heatmap.jsx"},{"name":"HexHeatmap","sourcePath":"components/data/HexHeatmap.jsx"},{"name":"LineChart","sourcePath":"components/data/LineChart.jsx"},{"name":"MetricCard","sourcePath":"components/data/MetricCard.jsx"},{"name":"ProgressBar","sourcePath":"components/data/ProgressBar.jsx"},{"name":"UsageMeter","sourcePath":"components/data/ProgressBar.jsx"},{"name":"ScatterPlot","sourcePath":"components/data/ScatterPlot.jsx"},{"name":"Sparkline","sourcePath":"components/data/Sparkline.jsx"},{"name":"VIZ_TIERS","sourcePath":"components/data/Viz.jsx"},{"name":"Viz","sourcePath":"components/data/Viz.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ErrorState","sourcePath":"components/feedback/ErrorState.jsx"},{"name":"InlineNotification","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Toast","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/InlineNotification.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"CodeFrame","sourcePath":"components/forms/CodeFrame.jsx"},{"name":"Field","sourcePath":"components/forms/Field.jsx"},{"name":"KeyValueInput","sourcePath":"components/forms/KeyValueInput.jsx"},{"name":"VariableToken","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"PromptEditor","sourcePath":"components/forms/PromptEditor.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/Radio.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"InspectorField","sourcePath":"components/inspector/InspectorField.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"InspectorHeader","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorTabs","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorFooter","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorPanel","sourcePath":"components/inspector/InspectorPanel.jsx"},{"name":"InspectorSection","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"PropertyRow","sourcePath":"components/inspector/InspectorSection.jsx"},{"name":"FACT_TYPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MEMORY_SCOPES","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryBadge","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryScope","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConfidence","sourcePath":"components/memory/MemoryBadge.jsx"},{"name":"MemoryConflict","sourcePath":"components/memory/MemoryConflict.jsx"},{"name":"MemoryFact","sourcePath":"components/memory/MemoryFact.jsx"},{"name":"MemoryGraph","sourcePath":"components/memory/MemoryGraph.jsx"},{"name":"MemoryScopeBar","sourcePath":"components/memory/MemoryScopeBar.jsx"},{"name":"MemoryTimeline","sourcePath":"components/memory/MemoryTimeline.jsx"},{"name":"MemoryUsageBar","sourcePath":"components/memory/MemoryUsageBar.jsx"},{"name":"AppShell","sourcePath":"components/navigation/AppShell.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"FilterBar","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"Pagination","sourcePath":"components/navigation/FilterBar.jsx"},{"name":"GlobalHeader","sourcePath":"components/navigation/GlobalHeader.jsx"},{"name":"ObjectTree","sourcePath":"components/navigation/ObjectTree.jsx"},{"name":"SegmentedControl","sourcePath":"components/navigation/SegmentedControl.jsx"},{"name":"SideNav","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavSection","sourcePath":"components/navigation/SideNav.jsx"},{"name":"NavItem","sourcePath":"components/navigation/SideNav.jsx"},{"name":"StatusBar","sourcePath":"components/navigation/StatusBar.jsx"},{"name":"WorkspaceSwitcher","sourcePath":"components/navigation/WorkspaceSwitcher.jsx"},{"name":"AgentIsland","sourcePath":"components/objects/AgentIsland.jsx"},{"name":"BondEdge","sourcePath":"components/objects/BondEdge.jsx"},{"name":"BondLayer","sourcePath":"components/objects/BondEdge.jsx"},{"name":"EntityChip","sourcePath":"components/objects/EntityChip.jsx"},{"name":"GenieCard","sourcePath":"components/objects/GenieCard.jsx"},{"name":"ObjectRow","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"ObjectList","sourcePath":"components/objects/ObjectRow.jsx"},{"name":"PlaybookCluster","sourcePath":"components/objects/PlaybookCluster.jsx"},{"name":"SKILL_SIZES","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"SkillOrb","sourcePath":"components/objects/SkillOrb.jsx"},{"name":"BUSINESS_PROCESSES","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"BLANK_PROCESS","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"MatchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"ProcessProposal","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"Message","sourcePath":"components/patterns/Conversation.jsx"},{"name":"MessageList","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Composer","sourcePath":"components/patterns/Conversation.jsx"},{"name":"Conversation","sourcePath":"components/patterns/Conversation.jsx"},{"name":"BuildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"GenieBlueprint","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"IntegrationCard","sourcePath":"components/patterns/IntegrationCard.jsx"},{"name":"LearnedPattern","sourcePath":"components/patterns/LearnedPattern.jsx"},{"name":"MobileShell","sourcePath":"components/patterns/MobileShell.jsx"},{"name":"ObservedProcess","sourcePath":"components/patterns/ObservedProcess.jsx"},{"name":"PermissionCell","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PermissionMatrix","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"RoleBadge","sourcePath":"components/patterns/PermissionMatrix.jsx"},{"name":"PlaybookComposer","sourcePath":"components/patterns/PlaybookComposer.jsx"},{"name":"VoiceWaveform","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"VoiceButton","sourcePath":"components/patterns/VoiceButton.jsx"},{"name":"ApprovalCard","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"HumanCheckpoint","sourcePath":"components/runtime/ApprovalCard.jsx"},{"name":"EnvironmentBanner","sourcePath":"components/runtime/EnvironmentBanner.jsx"},{"name":"KillSwitch","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"SafetyControls","sourcePath":"components/runtime/KillSwitch.jsx"},{"name":"LiveActivityIndicator","sourcePath":"components/runtime/LiveActivityIndicator.jsx"},{"name":"ReadinessCheck","sourcePath":"components/runtime/ReadinessCheck.jsx"},{"name":"RunSummary","sourcePath":"components/runtime/RunSummary.jsx"},{"name":"RunStep","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"RunTimeline","sourcePath":"components/runtime/RunTimeline.jsx"},{"name":"SimulationBar","sourcePath":"components/runtime/SimulationBar.jsx"},{"name":"SimulationStep","sourcePath":"components/runtime/SimulationStep.jsx"}],"sourceHashes":{"components/canvas/AgentLibrary.jsx":"a0065e70fad8","components/canvas/CanvasContextMenu.jsx":"642e509a361f","components/canvas/CanvasMotion.jsx":"5b16c55bf142","components/canvas/CanvasSurface.jsx":"c75db64ccc44","components/canvas/CanvasToolbar.jsx":"1e90531bb5b7","components/canvas/NewAgentDialog.jsx":"76adfcdd27ad","components/canvas/SnapField.jsx":"a464e4dd3d79","components/chat/AgentChat.jsx":"a993ce5d5724","components/chat/ChatComposer.jsx":"e4797b124cad","components/chat/ChatMessage.jsx":"ec98b6317ffe","components/core/Badge.jsx":"02ec3798d471","components/core/Button.jsx":"01703e75087c","components/core/Card.jsx":"4f07d92ba8fb","components/core/Divider.jsx":"bbef0f29f18a","components/core/EnvironmentPill.jsx":"4b6cb0f1c6e7","components/core/glyphs.js":"64077623c154","components/core/Icon.jsx":"da94632bafd0","components/core/IconButton.jsx":"fe79c7a872c7","components/core/Kbd.jsx":"c907f3fefbd3","components/core/Panel.jsx":"6eafedbbe0e4","components/core/refs.js":"84615fb1a4c1","components/core/StatusBadge.jsx":"e66478913946","components/core/Tag.jsx":"58ae1ed9706a","components/core/Tooltip.jsx":"286494380b24","components/dashboard/DashboardCard.jsx":"9cfc7f7bde21","components/dashboard/PageHeader.jsx":"e64443109f78","components/data/BarChart.jsx":"31b05f10899b","components/data/ChartFrame.jsx":"9c7fb4937c47","components/data/ContextBreakdown.jsx":"183ef6ed90f6","components/data/DataTable.jsx":"dd3c70054ef9","components/data/DonutChart.jsx":"2fd6b68fe28f","components/data/Heatmap.jsx":"ba7d9f459273","components/data/HexHeatmap.jsx":"489204584f86","components/data/LineChart.jsx":"31f3b752c5c7","components/data/MetricCard.jsx":"0c82c139d8a0","components/data/ProgressBar.jsx":"6c205eaea379","components/data/ScatterPlot.jsx":"20ecb73c12b1","components/data/Sparkline.jsx":"aa96565d6ac1","components/data/StackedBar.jsx":"583970cae7e6","components/data/Viz.jsx":"60bdb93790cb","components/feedback/EmptyState.jsx":"6eb22e48bc12","components/feedback/ErrorState.jsx":"dd1ce27be581","components/feedback/InlineNotification.jsx":"830b9b9df14f","components/feedback/Modal.jsx":"dc13ceaf26fe","components/feedback/Skeleton.jsx":"7e7e5393f0c4","components/forms/Checkbox.jsx":"4b0aaee3abcc","components/forms/CodeFrame.jsx":"51033b535629","components/forms/Field.jsx":"811e3e3f47e3","components/forms/KeyValueInput.jsx":"b0cb689d5e7e","components/forms/PromptEditor.jsx":"dad958373036","components/forms/Radio.jsx":"b9664a441848","components/forms/Select.jsx":"a52362727edc","components/forms/Slider.jsx":"6e80bed5923b","components/forms/Switch.jsx":"b3289d2b42ce","components/forms/TagInput.jsx":"bec9c50f529e","components/forms/Textarea.jsx":"e832fc3b06f1","components/forms/TextInput.jsx":"a4fa3bc4afa8","components/inspector/InspectorField.jsx":"a032f02cf6e3","components/inspector/InspectorPanel.jsx":"35f85d629b56","components/inspector/InspectorSection.jsx":"9d41f88569ed","components/memory/MemoryBadge.jsx":"89ce91afc4db","components/memory/MemoryConflict.jsx":"17550dcb5a46","components/memory/MemoryFact.jsx":"62129a1c0b5c","components/memory/MemoryGraph.jsx":"046b34c84f8d","components/memory/MemoryScopeBar.jsx":"130c4cbe8833","components/memory/MemoryTimeline.jsx":"4b619bc0e8ab","components/memory/MemoryUsageBar.jsx":"90444b76b37a","components/navigation/AppShell.jsx":"87a170d10720","components/navigation/Breadcrumb.jsx":"c383403d3e56","components/navigation/CommandPalette.jsx":"a7c890578772","components/navigation/FilterBar.jsx":"71dd18237784","components/navigation/GlobalHeader.jsx":"6b28673c28e5","components/navigation/ObjectTree.jsx":"81286028842a","components/navigation/SegmentedControl.jsx":"e91d309d3a8f","components/navigation/SideNav.jsx":"98c62576a989","components/navigation/StatusBar.jsx":"659853140d5e","components/navigation/Tabs.jsx":"7241285ac4cc","components/navigation/WorkspaceSwitcher.jsx":"22ee04da69fb","components/objects/AgentHex.jsx":"c6265b3c233e","components/objects/AgentIsland.jsx":"156dc2b6faa3","components/objects/BondEdge.jsx":"be79bc03e232","components/objects/EntityChip.jsx":"663c05d1ef94","components/objects/GenieCard.jsx":"533d66206fd8","components/objects/HexLattice.jsx":"8537ceef3be7","components/objects/ObjectRow.jsx":"4622e3c808f7","components/objects/PlaybookCluster.jsx":"45ba9a3da286","components/objects/SkillOrb.jsx":"02119f0c065b","components/objects/ToolTile.jsx":"6e0f665f9515","components/patterns/BusinessProcess.jsx":"7a5f6eb4e465","components/patterns/Conversation.jsx":"48f4290ca7d8","components/patterns/GenieBlueprint.jsx":"79e140ba2dc3","components/patterns/IntegrationCard.jsx":"35fd077fbe8c","components/patterns/LearnedPattern.jsx":"b78185ee2421","components/patterns/MobileShell.jsx":"ef4cec47dab5","components/patterns/ObservedProcess.jsx":"ac26151b779e","components/patterns/PermissionMatrix.jsx":"02fee98ef531","components/patterns/PlaybookComposer.jsx":"f13e60998ce5","components/patterns/VoiceButton.jsx":"17f3f0fb72a7","components/runtime/ApprovalCard.jsx":"7fa6f7a21338","components/runtime/EnvironmentBanner.jsx":"2978da634f79","components/runtime/KillSwitch.jsx":"241913ac79c5","components/runtime/LiveActivityIndicator.jsx":"965485edd7c9","components/runtime/ReadinessCheck.jsx":"1aea9f9b4018","components/runtime/RunSummary.jsx":"c3fda9026198","components/runtime/RunTimeline.jsx":"cbfa22f31999","components/runtime/SimulationBar.jsx":"9f436079df88","components/runtime/SimulationStep.jsx":"7ae0bd2ac1dc","ui_kits/lamp-canvas/BuilderApp.jsx":"0921bf677a52","ui_kits/lamp-canvas/data.jsx":"344e3f41aa89","ui_kits/lamp-canvas/InspectorBody.jsx":"acf3dc1938ec","ui_kits/lamp-operations/OpsApp.jsx":"e7c0627e0660"},"inlinedExternals":[],"unexposedExports":[{"name":"brandGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"buildGenie","sourcePath":"components/patterns/GenieBlueprint.jsx"},{"name":"freeCellAt","sourcePath":"components/canvas/SnapField.jsx"},{"name":"freeCells","sourcePath":"components/canvas/SnapField.jsx"},{"name":"glyphs","sourcePath":"components/core/glyphs.js"},{"name":"heatColor","sourcePath":"components/data/Heatmap.jsx"},{"name":"hexCenter","sourcePath":"components/objects/HexLattice.jsx"},{"name":"loadGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"matchProcess","sourcePath":"components/patterns/BusinessProcess.jsx"},{"name":"prefersReducedMotion","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"registerGlyphs","sourcePath":"components/core/glyphs.js"},{"name":"seriesColor","sourcePath":"components/data/ChartFrame.jsx"},{"name":"setGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useGsap","sourcePath":"components/canvas/CanvasMotion.jsx"},{"name":"useMergedRefs","sourcePath":"components/core/refs.js"}]} */
 
 (() => {
 
@@ -64,6 +64,7 @@ const glyphs = {
   "do_not_disturb_on": "M280-453h400v-60H280v60ZM480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z",
   "download": "M480-313 287-506l43-43 120 120v-371h60v371l120-120 43 43-193 193ZM220-160q-24 0-42-18t-18-42v-143h60v143h520v-143h60v143q0 24-18 42t-42 18H220Z",
   "draft": "M220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z",
+  "drag_indicator": "M349.91-160q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm-260-250q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm-260-250q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Zm260 0q-28.91 0-49.41-20.59-20.5-20.59-20.5-49.5t20.59-49.41q20.59-20.5 49.5-20.5t49.41 20.59q20.5 20.59 20.5 49.5t-20.59 49.41q-20.59 20.5-49.5 20.5Z",
   "edit": "M180-180h44l472-471-44-44-472 471v44Zm-60 60v-128l575-574q8-8 19-12.5t23-4.5q11 0 22 4.5t20 12.5l44 44q9 9 13 20t4 22q0 11-4.5 22.5T823-694L248-120H120Zm659-617-41-41 41 41Zm-105 64-22-22 44 44-22-22Z",
   "edit_note": "M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z",
   "error": "M479.98-280q14.02 0 23.52-9.48t9.5-23.5q0-14.02-9.48-23.52t-23.5-9.5q-14.02 0-23.52 9.48t-9.5 23.5q0 14.02 9.48 23.52t23.5 9.5ZM453-433h60v-253h-60v253Zm27.27 353q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Z",
@@ -84,7 +85,6 @@ const glyphs = {
   "groups": "M0-240v-53q0-38.57 41.5-62.78Q83-380 150.38-380q12.16 0 23.39.5t22.23 2.15q-8 17.35-12 35.17-4 17.81-4 37.18v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-19.86-3.5-37.43T765-377.27q11-1.73 22.17-2.23 11.17-.5 22.83-.5 67.5 0 108.75 23.77T960-293v53H780Zm-480-60h360v-6q0-37-50.5-60.5T480-390q-79 0-129.5 23.5T300-305v5ZM149.57-410q-28.57 0-49.07-20.56Q80-451.13 80-480q0-29 20.56-49.5Q121.13-550 150-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T149.57-410Zm660 0q-28.57 0-49.07-20.56Q740-451.13 740-480q0-29 20.56-49.5Q781.13-550 810-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T809.57-410ZM480-480q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.35-60Q506-540 523-557.35t17-43Q540-626 522.85-643t-42.5-17q-25.35 0-42.85 17.15t-17.5 42.5q0 25.35 17.35 42.85t43 17.5ZM480-300Zm0-300Z",
   "handshake": "M475-140q5 0 11.5-2.5T497-149l337-338q13-13 19.5-29.67Q860-533.33 860-550q0-17-6.5-34T834-614L654-794q-13-13-30-19.5t-34-6.5q-16.67 0-33.33 6.5Q540-807 527-794l-18 18 81 82q13 14 23 32.5t10 40.5q0 38-29.5 67T526-525q-25 0-41.5-7.5t-30.19-21.34L381-627 200-446q-5 5-7 10.53-2 5.52-2 11.84 0 12.63 8.5 21.13 8.5 8.5 21.17 8.5 6.33 0 11.83-3t9.5-7l138-138 42 42-137 137q-5 5-7 11t-2 12q0 12 9 21t21 9q6 0 11.5-2.5t9.5-6.5l138-138 42 42-137 137q-4 4-6.5 10.33-2.5 6.34-2.5 12.67 0 12 9 21t21 9q6 0 11-2t10-7l138-138 42 42-138 138q-5 5-7 11t-2 11q0 14 8 22t22 8Zm.06 60Q442-80 416-104.5t-31-60.62Q351-170 328-193t-28-57q-34-5-56.5-28.5T216-335q-37-5-61-30t-24-60q0-17 6.72-34.05Q144.45-476.1 157-489l224-224 110 110q8 8 17.33 12.5 9.34 4.5 18.67 4.5 13 0 24.5-11.5t11.5-24.65q0-5.85-3.5-13.35T548-651L405-794q-13-13-30-19.5t-34-6.5q-16.67 0-33.33 6.5-16.67 6.5-29.61 19.36L126-642q-14 14-19.5 29.5t-6.5 35q-1 19.5 7.5 38T128-506l-43 43q-20-22-32.5-53T40-579q0-30 11.5-57.5T84-685l151-151q22-22 49.79-32.5 27.8-10.5 57-10.5 29.21 0 56.71 10.5T448-836l18 18 18-18q22-22 49.79-32.5 27.8-10.5 57-10.5 29.21 0 56.71 10.5T697-836l179 179q22 22 33 50.03 11 28.04 11 57 0 28.97-11 56.47T876-444L539-107q-13 13-29.53 20t-34.41 7ZM377-626Z",
   "handyman": "M764-80q-6 0-11-2t-10-7L501-331q-5-5-7-10t-2-11q0-6 2-11t7-10l85-85q5-5 10-7t11-2q6 0 11 2t10 7l242 242q5 5 7 10t2 11q0 6-2 11t-7 10l-85 85q-5 5-10 7t-11 2Zm0-72 43-43-200-200-43 43 200 200ZM195-80q-6 0-11.5-2T173-89l-84-84q-5-5-7-10.5T80-195q0-6 2-11t7-10l225-225h85l38-38-175-175h-57L80-779l99-99 125 125v57l175 175 130-130-67-67 56-56H485l-18-18 128-128 18 18v113l56-56 169 169q15 15 23.5 34.5T870-600q0 20-6.5 38.5T845-528l-85-85-56 56-52-52-211 211v84L216-89q-5 5-10 7t-11 2Zm0-72 200-200v-43h-43L152-195l43 43Zm0 0-43-43 22 21 21 22Zm569 0 43-43-43 43Z",
-  "height": "M480-120 320-280l42-42 88 87v-490l-88 87-42-42 160-160 160 160-43 43-87-88v490l88-87 42 42-160 160Z",
   "help": "M484-247q16 0 27-11t11-27q0-16-11-27t-27-11q-16 0-27 11t-11 27q0 16 11 27t27 11Zm-35-146h59q0-26 6.5-47.5T555-490q31-26 44-51t13-55q0-53-34.5-85T486-713q-49 0-86.5 24.5T345-621l53 20q11-28 33-43.5t52-15.5q34 0 55 18.5t21 47.5q0 22-13 41.5T508-512q-30 26-44.5 51.5T449-393Zm31 313q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z",
   "hexagon": "M272-120 64-480l208-360h416l208 360-208 360H272Zm34-60h348l172-300-172-300H306L133-480l173 300Zm174-300Z",
   "history": "M477-120q-149 0-253-105.5T120-481h60q0 125 86 213t211 88q127 0 215-89t88-216q0-124-89-209.5T477-780q-68 0-127.5 31T246-667h105v60H142v-208h60v106q52-61 123.5-96T477-840q75 0 141 28t115.5 76.5Q783-687 811.5-622T840-482q0 75-28.5 141t-78 115Q684-177 618-148.5T477-120Zm128-197L451-469v-214h60v189l137 134-43 43Z",
@@ -108,6 +108,7 @@ const glyphs = {
   "memory": "M377-377v-205h205v205H377Zm60-60h85v-85h-85v85Zm-77 317v-80H260q-24 0-42-18t-18-42v-100h-80v-60h80v-124h-80v-60h80v-100q0-24 18-42t42-18h100v-76h60v76h124v-76h60v76h100q24 0 42 18t18 42v100h76v60h-76v124h76v60h-76v100q0 24-18 42t-42 18H604v80h-60v-80H420v80h-60Zm344-140v-444H260v444h444ZM480-480Z",
   "menu": "M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z",
   "mic": "M480-423q-43 0-72-30.92-29-30.91-29-75.08v-251q0-41.67 29.44-70.83Q437.88-880 479.94-880t71.56 29.17Q581-821.67 581-780v251q0 44.17-29 75.08Q523-423 480-423Zm0-228Zm-30 531v-136q-106-11-178-89t-72-184h60q0 91 64.29 153t155.5 62q91.21 0 155.71-62Q700-438 700-529h60q0 106-72 184t-178 89v136h-60Zm30-363q18 0 29.5-13.5T521-529v-251q0-17-11.79-28.5T480-820q-17.42 0-29.21 11.5T439-780v251q0 19 11.5 32.5T480-483Z",
+  "monitor": "M260-120v-73l47-47H140q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h680q24 0 42 18t18 42v480q0 24-18 42t-42 18H652l48 47v73H260ZM140-300h680v-480H140v480Zm0 0v-480 480Z",
   "more_horiz": "M207.86-432Q188-432 174-446.14t-14-34Q160-500 174.14-514t34-14Q228-528 242-513.86t14 34Q256-460 241.86-446t-34 14Zm272 0Q460-432 446-446.14t-14-34Q432-500 446.14-514t34-14Q500-528 514-513.86t14 34Q528-460 513.86-446t-34 14Zm272 0Q732-432 718-446.14t-14-34Q704-500 718.14-514t34-14Q772-528 786-513.86t14 34Q800-460 785.86-446t-34 14Z",
   "near_me": "M527-120 413-413 120-527v-43l720-270-270 720h-43Zm18-114 192-503-502 192 224 86 86 225Zm-86-225Z",
   "notifications": "M160-200v-60h80v-304q0-84 49.5-150.5T420-798v-22q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v22q81 17 130.5 83.5T720-564v304h80v60H160Zm320-302Zm0 422q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM300-260h360v-304q0-75-52.5-127.5T480-744q-75 0-127.5 52.5T300-564v304Z",
@@ -393,7 +394,7 @@ const BrandIcon = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
 Object.assign(__ds_scope, { MATERIAL_SYMBOLS_BASE, BRAND_ICON_BASE, Icon, BrandIcon });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Icon.jsx", error: String((e && e.message) || e) }); }
 
-// components/canvas/CanvasContextMenu.jsx
+// components/core/Badge.jsx
 try { (() => {
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -404,433 +405,32 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-const CanvasContextMenu = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasContextMenu({
-  x = 0,
-  y = 0,
-  groups = [],
-  onSelect,
-  className = '',
-  style,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: 'lamp-cmenu ' + className,
-    style: {
-      position: 'absolute',
-      left: x,
-      top: y,
-      ...style
-    },
-    role: "menu"
-  }, rest), groups.map((g, gi) => /*#__PURE__*/React.createElement("div", {
-    key: gi
-  }, gi > 0 ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cmenu__sep"
-  }) : null, g.label ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-cmenu__label"
-  }, g.label) : null, g.items.map(it => /*#__PURE__*/React.createElement("button", {
-    key: it.id,
-    type: "button",
-    role: "menuitem",
-    disabled: it.disabled,
-    className: 'lamp-cmenu__item' + (it.danger ? ' lamp-cmenu__item--danger' : ''),
-    onClick: () => onSelect && onSelect(it)
-  }, it.icon ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: it.icon,
-    size: 14
-  }) : null, /*#__PURE__*/React.createElement("span", null, it.label), it.shortcut ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-cmenu__kbd"
-  }, it.shortcut) : null)))));
-}), {
-  displayName: 'CanvasContextMenu'
-});
-Object.assign(__ds_scope, { CanvasContextMenu });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasContextMenu.jsx", error: String((e && e.message) || e) }); }
-
-// components/canvas/CanvasMotion.jsx
-try { (() => {
-/* GSAP runtime for the canvas.
-
-   Direct manipulation on the LAMP canvas runs on GSAP Draggable
-   (https://gsap.com/docs/v3/Plugins/Draggable/). Draggable owns the pointer
-   maths — capture, touch-action, transforms, bounds, the pointer/touch/pen
-   differences — so SnapField and CanvasSurface only have to answer the two
-   questions that are actually LAMP's: which lattice slot is nearest, and is it
-   free.
-
-   GSAP is resolved at first use rather than imported, in this order:
-
-     1. whatever was handed to setGsap()   — the React path
-     2. window.gsap / window.Draggable     — a page that loaded the tags itself
-     3. the CDN                            — the design-system cards and kits
-
-   It is deliberately NOT a static import. A library that imports gsap forces
-   the dependency on every consumer, including one who only wanted a Button, and
-   a bundler cannot tree-shake a dependency out of a dynamic import it must
-   still resolve at build time. Injection keeps gsap a true optional peer:
-
-     import gsap from 'gsap';
-     import { Draggable } from 'gsap/Draggable';
-     import { setGsap } from '@lamp/design-system';
-     setGsap({ gsap, Draggable });
-
-   Everything degrades: if GSAP cannot load, drag is unavailable but the canvas
-   still renders and every Agent is still movable from the keyboard. Composition
-   in LAMP is never pointer-only, so the keyboard path is not a fallback — it is
-   the guaranteed path, and the drag is the enhancement. */
-
-const GSAP_CDN = {
-  core: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js',
-  draggable: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Draggable.min.js'
-};
-
-/* Token easings (tokens/motion.css) mapped to their nearest GSAP equivalent.
-   ease.magnetic cubic-bezier(.16,1,.3,1) is the snap ease — a hard decelerating
-   curve, which is what makes an Agent feel pulled rather than placed. */
-const GSAP_EASE = {
-  standard: 'power2.out',
-  enter: 'power2.out',
-  exit: 'power2.in',
-  magnetic: 'power4.out',
-  critical: 'power3.inOut'
-};
-
-/* Durations in seconds, mirroring tokens/motion.css which is authored in ms. */
-const GSAP_DURATION = {
-  instant: 0.08,
-  fast: 0.12,
-  standard: 0.18,
-  medium: 0.24,
-  slow: 0.36,
-  bond: 0.42,
-  ceremonial: 0.6
-};
-let injected = null;
-let loading = null;
-
-/**
- * Hand the canvas a GSAP instance you imported yourself. Call once, before the
- * first canvas surface mounts. This is the path a bundled React app should use;
- * it removes the CDN entirely and keeps gsap an optional peer dependency.
- */
-function setGsap(api) {
-  if (!api || !api.gsap || !api.Draggable) {
-    console.warn('[LAMP] setGsap needs { gsap, Draggable }');
-    return;
-  }
-  injected = {
-    gsap: api.gsap,
-    Draggable: api.Draggable
-  };
-  if (typeof injected.gsap.registerPlugin === 'function') {
-    injected.gsap.registerPlugin(injected.Draggable);
-  }
-  loading = Promise.resolve(injected);
-}
-function injectScript(src) {
-  return new Promise((done, fail) => {
-    const existing = document.querySelector('script[src="' + src + '"]');
-    if (existing) {
-      if (existing.dataset.loaded) return done();
-      existing.addEventListener('load', () => done());
-      existing.addEventListener('error', () => fail(new Error('failed: ' + src)));
-      return;
-    }
-    const tag = document.createElement('script');
-    tag.src = src;
-    tag.crossOrigin = 'anonymous';
-    tag.addEventListener('load', () => {
-      tag.dataset.loaded = '1';
-      done();
-    });
-    tag.addEventListener('error', () => fail(new Error('failed: ' + src)));
-    document.head.appendChild(tag);
-  });
-}
-
-/** Resolves to { gsap, Draggable }, or null if GSAP is unavailable. */
-function loadGsap() {
-  if (injected) return Promise.resolve(injected);
-  if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return Promise.resolve(null);
-  }
-  if (window.gsap && window.Draggable) {
-    return Promise.resolve({
-      gsap: window.gsap,
-      Draggable: window.Draggable
-    });
-  }
-  if (!loading) {
-    loading = injectScript(GSAP_CDN.core).then(() => injectScript(GSAP_CDN.draggable)).then(() => {
-      if (!window.gsap || !window.Draggable) return null;
-      window.gsap.registerPlugin(window.Draggable);
-      return {
-        gsap: window.gsap,
-        Draggable: window.Draggable
-      };
-    }).catch(e => {
-      console.warn('[LAMP] GSAP unavailable, canvas drag disabled (keyboard still works):', e.message);
-      return null;
-    });
-  }
-  return loading;
-}
-
-/**
- * Returns { gsap, Draggable } once loaded, or null. Re-renders the caller when
- * it arrives so Draggable instances can be created in a later effect.
- */
-function useGsap() {
-  const [api, setApi] = React.useState(() => injected || (typeof window !== 'undefined' && window.gsap && window.Draggable ? {
-    gsap: window.gsap,
-    Draggable: window.Draggable
-  } : null));
-  React.useEffect(() => {
-    if (api) return;
-    let alive = true;
-    loadGsap().then(next => {
-      if (alive && next) setApi(next);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [api]);
-  return api;
-}
-
-/** True when the viewer has asked for reduced motion. Energy becomes state change. */
-function prefersReducedMotion() {
-  return typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-Object.assign(__ds_scope, { GSAP_CDN, GSAP_EASE, GSAP_DURATION, setGsap, loadGsap, useGsap, prefersReducedMotion });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasMotion.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/refs.js
-try { (() => {
-/* Ref merging.
-
-   Most components hand the forwarded ref straight to their root element. A few
-   need that element themselves — SnapField measures the field to convert pointer
-   coordinates, CanvasSurface gives it to Draggable as the drag trigger — and a
-   DOM node takes exactly one `ref` attribute. Those components merge instead.
-
-   Memoised on the refs so the merged callback is stable between renders: an
-   inline callback ref is called with null and then the node again on every
-   render, which would tear down and recreate the Draggable instance each time.
-
-   Exported from the package as `useMergedRefs` — a consumer composing two LAMP
-   components, or putting a Radix trigger ref on one that already takes its own,
-   needs exactly the same thing. */
-
-function useMergedRefs(...refs) {
-  return React.useMemo(() => {
-    if (refs.every(r => r == null)) return null;
-    return node => {
-      for (const ref of refs) {
-        if (typeof ref === 'function') ref(node);else if (ref && typeof ref === 'object') ref.current = node;
-      }
-    };
-  }, refs // eslint-disable-line react-hooks/exhaustive-deps
-  );
-}
-Object.assign(__ds_scope, { useMergedRefs });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/refs.js", error: String((e && e.message) || e) }); }
-
-// components/canvas/CanvasSurface.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-/* The canvas surface: grid, environment tint, guides, marquee, empty state, and
-   — when `pannable` — space-and-drag panning on GSAP Draggable.
-
-   Pan and zoom live on two different nodes on purpose. GSAP owns the transform
-   of `__world` (the pan) and React owns the transform of `__scale` (the zoom),
-   so neither clobbers the other on re-render. */
-
-const CanvasSurface = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasSurface({
-  grid = 'dots',
-  zoom = 1,
-  environment = 'draft',
-  state = 'idle',
-  locked = false,
-  readOnly = false,
-  empty,
-  marquee,
-  guides = [],
-  pannable = false,
-  panMode = false,
-  onPanChange,
+const Badge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Badge({
+  tone = 'neutral',
+  icon,
+  shape = 'pill',
+  micro = false,
+  count = false,
+  outline = false,
   children,
   className = '',
-  style,
   ...rest
 }, ref) {
-  const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
-  const api = __ds_scope.useGsap();
-  const hostRef = React.useRef(null);
-  /* Draggable needs this node as its trigger, so the forwarded ref is merged
-     rather than replaced. */
-  const setHost = __ds_scope.useMergedRefs(ref, hostRef);
-  const worldRef = React.useRef(null);
-
-  /* Space is held, or the caller has put the canvas in an explicit pan mode.
-     Held-key state rather than a toggle, so releasing space returns you to
-     selection without a second keystroke. */
-  const [spaceHeld, setSpaceHeld] = React.useState(false);
-  const panning = pannable && !locked && (panMode || spaceHeld);
-  const report = React.useRef(onPanChange);
-  report.current = onPanChange;
-  React.useEffect(() => {
-    if (!pannable || locked) return undefined;
-    const down = e => {
-      if (e.code !== 'Space' || e.repeat) return;
-      const el = e.target;
-      /* Space belongs to the focused control if there is one. */
-      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName))) return;
-      e.preventDefault();
-      setSpaceHeld(true);
-    };
-    const up = e => {
-      if (e.code === 'Space') setSpaceHeld(false);
-    };
-    const blur = () => setSpaceHeld(false);
-    window.addEventListener('keydown', down);
-    window.addEventListener('keyup', up);
-    window.addEventListener('blur', blur);
-    return () => {
-      window.removeEventListener('keydown', down);
-      window.removeEventListener('keyup', up);
-      window.removeEventListener('blur', blur);
-    };
-  }, [pannable, locked]);
-  const dragRef = React.useRef(null);
-  React.useEffect(() => {
-    if (!api || !pannable || !worldRef.current) return undefined;
-    const [drag] = api.Draggable.create(worldRef.current, {
-      type: 'x,y',
-      trigger: hostRef.current,
-      cursor: 'grab',
-      activeCursor: 'grabbing',
-      allowContextMenu: true,
-      onDrag() {
-        const fn = report.current;
-        if (fn) fn({
-          x: this.x,
-          y: this.y
-        });
-      }
-    });
-    dragRef.current = drag || null;
-    return () => {
-      if (drag) drag.kill();
-      dragRef.current = null;
-    };
-  }, [api, pannable]);
-
-  /* Enabled only while panning, so a drag on the canvas is a marquee selection by
-     default and a pan only when the operator asks for one. */
-  React.useEffect(() => {
-    const drag = dragRef.current;
-    if (!drag) return;
-    if (panning) drag.enable();else drag.disable();
-  }, [api, pannable, panning]);
-  const cls = ['lamp-canvas', 'lamp-canvas--' + gridClass, environment !== 'draft' && 'lamp-canvas--' + environment, (state === 'panning' || panning) && 'lamp-canvas--panning', locked && 'lamp-canvas--locked', readOnly && 'lamp-canvas--readonly', className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: setHost,
-    className: cls,
-    style: style,
-    role: "application",
-    "aria-label": "LAMP canvas"
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    ref: worldRef,
-    className: "lamp-canvas__world"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "lamp-canvas__scale",
-    style: {
-      transform: 'scale(' + zoom + ')'
-    }
-  }, children)), guides.map((g, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: 'lamp-canvas__guide lamp-canvas__guide--' + (g.axis === 'x' ? 'v' : 'h'),
-    style: g.axis === 'x' ? {
-      left: g.at
-    } : {
-      top: g.at
-    }
-  })), marquee ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-canvas__marquee",
-    style: marquee
-  }) : null, empty ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-canvas__empty"
-  }, empty) : null);
-}), {
-  displayName: 'CanvasSurface'
-});
-const SnapGuide = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SnapGuide({
-  rect,
-  invalid = false,
-  kind = 'snap'
-}, ref) {
-  return /*#__PURE__*/React.createElement("span", {
+  const cls = ['lamp-badge', 'lamp-badge--' + (outline ? 'outline' : tone), shape === 'square' && 'lamp-badge--square', micro && 'lamp-badge--micro', count && 'lamp-badge--count', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("span", _extends({
     ref: ref,
-    className: kind === 'drop' ? 'lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '') : 'lamp-canvas__snapguide',
-    style: rect
-  });
-}), {
-  displayName: 'SnapGuide'
-});
-Object.assign(__ds_scope, { CanvasSurface, SnapGuide });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasSurface.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/IconButton.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const IconButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function IconButton({
-  icon,
-  label,
-  size = 'md',
-  bordered = false,
-  active = false,
-  tone = 'default',
-  className = '',
-  ...rest
-}, ref) {
-  const cls = ['lamp-iconbtn', 'lamp-iconbtn--' + size, bordered && 'lamp-iconbtn--bordered', active && 'lamp-iconbtn--active', tone === 'danger' && 'lamp-iconbtn--danger', className].filter(Boolean).join(' ');
-  const glyph = size === 'xs' ? 12 : size === 'sm' ? 14 : 16;
-  return /*#__PURE__*/React.createElement("button", _extends({
-    ref: ref,
-    type: "button",
-    className: cls,
-    "aria-label": label,
-    "aria-pressed": active || undefined,
-    title: label
-  }, rest), typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    className: cls
+  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: icon,
-    size: glyph
-  }) : icon);
+    size: 11
+  }) : icon : null, children);
 }), {
-  displayName: 'IconButton'
+  displayName: 'Badge'
 });
-Object.assign(__ds_scope, { IconButton });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/IconButton.jsx", error: String((e && e.message) || e) }); }
+Object.assign(__ds_scope, { Badge });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Badge.jsx", error: String((e && e.message) || e) }); }
 
-// components/core/Divider.jsx
+// components/forms/TextInput.jsx
 try { (() => {
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -841,136 +441,117 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
-const Divider = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Divider({
-  orientation = 'horizontal',
-  label,
+const TextInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TextInput({
+  size = 'md',
+  icon,
+  suffix,
+  trailing,
+  mono = false,
+  state = 'default',
+  disabled = false,
+  readOnly = false,
+  loading = false,
   className = '',
   ...rest
 }, ref) {
-  if (label) return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'lamp-divider lamp-divider--label ' + className
-  }, rest), label);
-  return /*#__PURE__*/React.createElement("hr", _extends({
+  const [focus, setFocus] = React.useState(false);
+  const cls = ['lamp-inputwrap', 'lamp-inputwrap--' + size, focus && 'lamp-inputwrap--focus', state !== 'default' && 'lamp-inputwrap--' + state, disabled && 'lamp-inputwrap--disabled', readOnly && 'lamp-inputwrap--readonly', mono && 'lamp-inputwrap--mono', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("div", {
+    className: cls
+  }, icon ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-inputwrap__icon"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: 14
+  })) : null, /*#__PURE__*/React.createElement("input", _extends({
     ref: ref,
-    className: ['lamp-divider', orientation === 'vertical' && 'lamp-divider--v', className].filter(Boolean).join(' ')
+    className: "lamp-input",
+    disabled: disabled,
+    readOnly: readOnly,
+    onFocus: () => setFocus(true),
+    onBlur: () => setFocus(false),
+    "aria-invalid": state === 'error' || undefined
+  }, rest)), loading ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-inputwrap__icon"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "progress_activity",
+    size: 14
+  })) : null, suffix ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-inputwrap__suffix"
+  }, suffix) : null, trailing);
+}), {
+  displayName: 'TextInput'
+});
+const SearchInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SearchInput({
+  placeholder = 'Search',
+  shortcut,
+  size = 'md',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement(TextInput, _extends({
+    ref: ref,
+    icon: "search",
+    placeholder: placeholder,
+    size: size,
+    trailing: shortcut ? /*#__PURE__*/React.createElement("span", {
+      className: "lamp-inputwrap__suffix",
+      style: {
+        fontFamily: 'var(--font-mono)',
+        fontSize: 11
+      }
+    }, shortcut) : null
   }, rest));
 }), {
-  displayName: 'Divider'
+  displayName: 'SearchInput'
 });
-Object.assign(__ds_scope, { Divider });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
-
-// components/canvas/CanvasToolbar.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const CanvasToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasToolbar({
-  position = 'floating',
-  children,
-  className = '',
-  style,
+const NumberInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NumberInput({
+  suffix,
+  step = 1,
   ...rest
 }, ref) {
+  return /*#__PURE__*/React.createElement(TextInput, _extends({
+    ref: ref,
+    type: "number",
+    step: step,
+    suffix: suffix,
+    mono: true
+  }, rest));
+}), {
+  displayName: 'NumberInput'
+});
+const SecretField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SecretField({
+  value = '',
+  revealed: revealedProp,
+  onReveal,
+  expiring = false,
+  ...rest
+}, ref) {
+  const [revealed, setRevealed] = React.useState(!!revealedProp);
   return /*#__PURE__*/React.createElement("div", _extends({
     ref: ref,
-    className: ['lamp-ctoolbar', 'lamp-ctoolbar--' + position, className].filter(Boolean).join(' '),
-    style: style,
-    role: "toolbar"
-  }, rest), children);
-}), {
-  displayName: 'CanvasToolbar'
-});
-const CanvasZoomControls = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasZoomControls({
-  zoom = 1,
-  onZoomIn,
-  onZoomOut,
-  onFit,
-  onReset,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement(CanvasToolbar, _extends({
-    ref: ref,
-    position: "topright"
-  }, rest), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "remove",
-    label: "Zoom out",
-    size: "sm",
-    onClick: onZoomOut
+    className: "lamp-secret"
+  }, rest), /*#__PURE__*/React.createElement(TextInput, {
+    mono: true,
+    readOnly: true,
+    value: revealed ? value : '••••••••••••••••',
+    state: expiring ? 'warning' : 'default'
   }), /*#__PURE__*/React.createElement("button", {
     type: "button",
-    className: "lamp-ctoolbar__zoom",
-    onClick: onReset,
-    title: "Reset zoom"
-  }, Math.round(zoom * 100), "%"), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "add",
-    label: "Zoom in",
-    size: "sm",
-    onClick: onZoomIn
-  }), /*#__PURE__*/React.createElement(__ds_scope.Divider, {
-    orientation: "vertical"
-  }), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "fit_screen",
-    label: "Fit selection",
-    size: "sm",
-    onClick: onFit
-  }));
-}), {
-  displayName: 'CanvasZoomControls'
-});
-const CanvasObjectToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasObjectToolbar({
-  x,
-  y,
-  children,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: "lamp-ctoolbar lamp-ctoolbar--object",
-    style: {
-      left: x,
-      top: y
-    },
-    role: "toolbar"
-  }, rest), children);
-}), {
-  displayName: 'CanvasObjectToolbar'
-});
-const CanvasMinimap = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasMinimap({
-  blips = [],
-  viewport,
-  onJump,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: "lamp-minimap",
-    onClick: onJump,
-    "aria-label": "Canvas overview"
-  }, rest), blips.map((b, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: 'lamp-minimap__blip' + (b.tone ? ' lamp-minimap__blip--' + b.tone : ''),
-    style: {
-      left: b.x,
-      top: b.y,
-      width: b.w || 4,
-      height: b.h || 4
+    className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered",
+    "aria-label": revealed ? 'Hide value' : 'Reveal value',
+    onClick: () => {
+      setRevealed(!revealed);
+      onReveal && onReveal(!revealed);
     }
-  })), viewport ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-minimap__viewport",
-    style: viewport
-  }) : null);
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: revealed ? 'visibility_off' : 'visibility',
+    size: 14
+  })));
 }), {
-  displayName: 'CanvasMinimap'
+  displayName: 'SecretField'
 });
-Object.assign(__ds_scope, { CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasToolbar.jsx", error: String((e && e.message) || e) }); }
+Object.assign(__ds_scope, { TextInput, SearchInput, NumberInput, SecretField });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TextInput.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/StatusBadge.jsx
 try { (() => {
@@ -1189,42 +770,6 @@ const StatusBadge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef
 Object.assign(__ds_scope, { STATUS, StatusDot, StatusBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/StatusBadge.jsx", error: String((e && e.message) || e) }); }
 
-// components/core/Badge.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Badge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Badge({
-  tone = 'neutral',
-  icon,
-  shape = 'pill',
-  micro = false,
-  count = false,
-  outline = false,
-  children,
-  className = '',
-  ...rest
-}, ref) {
-  const cls = ['lamp-badge', 'lamp-badge--' + (outline ? 'outline' : tone), shape === 'square' && 'lamp-badge--square', micro && 'lamp-badge--micro', count && 'lamp-badge--count', className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React.createElement("span", _extends({
-    ref: ref,
-    className: cls
-  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: 11
-  }) : icon : null, children);
-}), {
-  displayName: 'Badge'
-});
-Object.assign(__ds_scope, { Badge });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Badge.jsx", error: String((e && e.message) || e) }); }
-
 // components/objects/AgentHex.jsx
 try { (() => {
 function _extends() {
@@ -1434,6 +979,1753 @@ const AgentHex = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(fu
 Object.assign(__ds_scope, { AGENT_SIZES, AgentHex });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/AgentHex.jsx", error: String((e && e.message) || e) }); }
 
+// components/canvas/CanvasMotion.jsx
+try { (() => {
+/* GSAP runtime for the canvas.
+
+   Direct manipulation on the LAMP canvas runs on GSAP Draggable
+   (https://gsap.com/docs/v3/Plugins/Draggable/). Draggable owns the pointer
+   maths — capture, touch-action, transforms, bounds, the pointer/touch/pen
+   differences — so SnapField and CanvasSurface only have to answer the two
+   questions that are actually LAMP's: which lattice slot is nearest, and is it
+   free.
+
+   GSAP is resolved at first use rather than imported, in this order:
+
+     1. whatever was handed to setGsap()   — the React path
+     2. window.gsap / window.Draggable     — a page that loaded the tags itself
+     3. the CDN                            — the design-system cards and kits
+
+   It is deliberately NOT a static import. A library that imports gsap forces
+   the dependency on every consumer, including one who only wanted a Button, and
+   a bundler cannot tree-shake a dependency out of a dynamic import it must
+   still resolve at build time. Injection keeps gsap a true optional peer:
+
+     import gsap from 'gsap';
+     import { Draggable } from 'gsap/Draggable';
+     import { setGsap } from '@lamp/design-system';
+     setGsap({ gsap, Draggable });
+
+   Everything degrades: if GSAP cannot load, drag is unavailable but the canvas
+   still renders and every Agent is still movable from the keyboard. Composition
+   in LAMP is never pointer-only, so the keyboard path is not a fallback — it is
+   the guaranteed path, and the drag is the enhancement. */
+
+const GSAP_CDN = {
+  core: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js',
+  draggable: 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/Draggable.min.js'
+};
+
+/* Token easings (tokens/motion.css) mapped to their nearest GSAP equivalent.
+   ease.magnetic cubic-bezier(.16,1,.3,1) is the snap ease — a hard decelerating
+   curve, which is what makes an Agent feel pulled rather than placed. */
+const GSAP_EASE = {
+  standard: 'power2.out',
+  enter: 'power2.out',
+  exit: 'power2.in',
+  magnetic: 'power4.out',
+  critical: 'power3.inOut'
+};
+
+/* Durations in seconds, mirroring tokens/motion.css which is authored in ms. */
+const GSAP_DURATION = {
+  instant: 0.08,
+  fast: 0.12,
+  standard: 0.18,
+  medium: 0.24,
+  slow: 0.36,
+  bond: 0.42,
+  ceremonial: 0.6
+};
+let injected = null;
+let loading = null;
+
+/**
+ * Hand the canvas a GSAP instance you imported yourself. Call once, before the
+ * first canvas surface mounts. This is the path a bundled React app should use;
+ * it removes the CDN entirely and keeps gsap an optional peer dependency.
+ */
+function setGsap(api) {
+  if (!api || !api.gsap || !api.Draggable) {
+    console.warn('[LAMP] setGsap needs { gsap, Draggable }');
+    return;
+  }
+  injected = {
+    gsap: api.gsap,
+    Draggable: api.Draggable
+  };
+  if (typeof injected.gsap.registerPlugin === 'function') {
+    injected.gsap.registerPlugin(injected.Draggable);
+  }
+  loading = Promise.resolve(injected);
+}
+function injectScript(src) {
+  return new Promise((done, fail) => {
+    const existing = document.querySelector('script[src="' + src + '"]');
+    if (existing) {
+      if (existing.dataset.loaded) return done();
+      existing.addEventListener('load', () => done());
+      existing.addEventListener('error', () => fail(new Error('failed: ' + src)));
+      return;
+    }
+    const tag = document.createElement('script');
+    tag.src = src;
+    tag.crossOrigin = 'anonymous';
+    tag.addEventListener('load', () => {
+      tag.dataset.loaded = '1';
+      done();
+    });
+    tag.addEventListener('error', () => fail(new Error('failed: ' + src)));
+    document.head.appendChild(tag);
+  });
+}
+
+/** Resolves to { gsap, Draggable }, or null if GSAP is unavailable. */
+function loadGsap() {
+  if (injected) return Promise.resolve(injected);
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return Promise.resolve(null);
+  }
+  if (window.gsap && window.Draggable) {
+    return Promise.resolve({
+      gsap: window.gsap,
+      Draggable: window.Draggable
+    });
+  }
+  if (!loading) {
+    loading = injectScript(GSAP_CDN.core).then(() => injectScript(GSAP_CDN.draggable)).then(() => {
+      if (!window.gsap || !window.Draggable) return null;
+      window.gsap.registerPlugin(window.Draggable);
+      return {
+        gsap: window.gsap,
+        Draggable: window.Draggable
+      };
+    }).catch(e => {
+      console.warn('[LAMP] GSAP unavailable, canvas drag disabled (keyboard still works):', e.message);
+      return null;
+    });
+  }
+  return loading;
+}
+
+/**
+ * Returns { gsap, Draggable } once loaded, or null. Re-renders the caller when
+ * it arrives so Draggable instances can be created in a later effect.
+ */
+function useGsap() {
+  const [api, setApi] = React.useState(() => injected || (typeof window !== 'undefined' && window.gsap && window.Draggable ? {
+    gsap: window.gsap,
+    Draggable: window.Draggable
+  } : null));
+  React.useEffect(() => {
+    if (api) return;
+    let alive = true;
+    loadGsap().then(next => {
+      if (alive && next) setApi(next);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [api]);
+  return api;
+}
+
+/** True when the viewer has asked for reduced motion. Energy becomes state change. */
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+Object.assign(__ds_scope, { GSAP_CDN, GSAP_EASE, GSAP_DURATION, setGsap, loadGsap, useGsap, prefersReducedMotion });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasMotion.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/refs.js
+try { (() => {
+/* Ref merging.
+
+   Most components hand the forwarded ref straight to their root element. A few
+   need that element themselves — SnapField measures the field to convert pointer
+   coordinates, CanvasSurface gives it to Draggable as the drag trigger — and a
+   DOM node takes exactly one `ref` attribute. Those components merge instead.
+
+   Memoised on the refs so the merged callback is stable between renders: an
+   inline callback ref is called with null and then the node again on every
+   render, which would tear down and recreate the Draggable instance each time.
+
+   Exported from the package as `useMergedRefs` — a consumer composing two LAMP
+   components, or putting a Radix trigger ref on one that already takes its own,
+   needs exactly the same thing. */
+
+function useMergedRefs(...refs) {
+  return React.useMemo(() => {
+    if (refs.every(r => r == null)) return null;
+    return node => {
+      for (const ref of refs) {
+        if (typeof ref === 'function') ref(node);else if (ref && typeof ref === 'object') ref.current = node;
+      }
+    };
+  }, refs // eslint-disable-line react-hooks/exhaustive-deps
+  );
+}
+Object.assign(__ds_scope, { useMergedRefs });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/refs.js", error: String((e && e.message) || e) }); }
+
+// components/canvas/AgentLibrary.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The library an Agent is dragged onto the canvas from.
+
+   Creating an Agent used to mean a command-palette entry that dropped a blank
+   hexagon somewhere and left the operator to configure it afterwards. Dragging
+   one out of a library answers two questions the blank hexagon leaves open —
+   what kind of Agent, and where it goes — in the same gesture, and the archetype
+   arrives already carrying a purpose, the Skills it needs and the Tools it
+   usually touches.
+
+   The drag is a GHOST, not the list item. The item stays put, so the library
+   never looks like it is being emptied, and the ghost is the Agent as it will
+   appear on the canvas — an AgentHex at the real lattice size, so the operator
+   is judging the actual object against the actual spacing while they aim.
+
+   Dropping does not create anything on its own. It reports the point, and the
+   canvas resolves it to a free lattice cell and opens NewAgentDialog. An Agent
+   that appears the instant a pointer is released is an Agent nobody named, and
+   the whole system rests on Agents being named for the work they do. */
+
+/** Sensible starting archetypes. Replace wholesale via the `archetypes` prop. */
+const AGENT_ARCHETYPES = [{
+  id: 'coordinator',
+  name: 'Coordinator',
+  role: 'coordinator',
+  glyph: 'account_tree',
+  purpose: 'Receives the work, decides what happens next, and hands off.',
+  skills: ['classify', 'route'],
+  tools: [],
+  group: 'Roles'
+}, {
+  id: 'specialist',
+  name: 'Specialist',
+  role: 'specialist',
+  glyph: 'target',
+  purpose: 'Does one thing well — match, reconcile, verify, extract.',
+  skills: ['extract', 'verify'],
+  tools: [],
+  group: 'Roles'
+}, {
+  id: 'approver',
+  name: 'Human-supervised',
+  role: 'humanSupervised',
+  glyph: 'supervisor_account',
+  purpose: 'Prepares a decision and waits for a person to make it.',
+  skills: ['summarize'],
+  tools: [],
+  group: 'Roles',
+  checkpoint: true
+}, {
+  id: 'watcher',
+  name: 'Watcher',
+  role: 'standard',
+  glyph: 'visibility',
+  purpose: 'Observes a system and raises the exceptions worth acting on.',
+  skills: ['monitor', 'classify'],
+  tools: [],
+  group: 'Roles'
+}, {
+  id: 'invoice-matcher',
+  name: 'Invoice Matcher',
+  role: 'specialist',
+  glyph: 'receipt_long',
+  purpose: 'Matches an invoice to its purchase order and receipt.',
+  skills: ['extract', 'reconcile'],
+  tools: ['sap'],
+  group: 'Finance'
+}, {
+  id: 'vendor-verifier',
+  name: 'Vendor Verifier',
+  role: 'specialist',
+  glyph: 'fact_check',
+  purpose: 'Checks a supplier exists, is approved, and its bank details hold.',
+  skills: ['verify', 'search'],
+  tools: ['sap'],
+  group: 'Finance'
+}, {
+  id: 'reconciler',
+  name: 'Reconciler',
+  role: 'specialist',
+  glyph: 'balance',
+  purpose: 'Reconciles accounts and explains what does not tie out.',
+  skills: ['reconcile'],
+  tools: ['sap'],
+  group: 'Finance'
+}, {
+  id: 'triager',
+  name: 'Triager',
+  role: 'coordinator',
+  glyph: 'forum',
+  purpose: 'Classifies an incoming issue and routes it to whoever resolves it.',
+  skills: ['classify', 'route'],
+  tools: ['zendesk'],
+  group: 'Customer operations'
+}, {
+  id: 'collections',
+  name: 'Collections Agent',
+  role: 'standard',
+  glyph: 'schedule',
+  purpose: 'Chases an overdue invoice, and stops the moment it is paid.',
+  skills: ['schedule', 'summarize'],
+  tools: ['gmail'],
+  group: 'Finance'
+}];
+const AgentLibrary = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function AgentLibrary({
+  archetypes = AGENT_ARCHETYPES,
+  size = 'sm',
+  title = 'Agents',
+  searchable = true,
+  dropTarget,
+  onAdd,
+  onDrop,
+  disabled = false,
+  className = '',
+  ...rest
+}, ref) {
+  const api = __ds_scope.useGsap();
+  const [query, setQuery] = React.useState('');
+  const [dragging, setDragging] = React.useState(null);
+  const ghostRef = React.useRef(null);
+  const rootRef = React.useRef(null);
+  const setRoot = __ds_scope.useMergedRefs(ref, rootRef);
+  const itemRefs = React.useRef({});
+  const live = React.useRef({});
+  live.current = {
+    onDrop,
+    dropTarget,
+    archetypes
+  };
+  const shown = archetypes.filter(a => {
+    if (!query.trim()) return true;
+    const q = query.toLowerCase();
+    return (a.name + ' ' + a.purpose + ' ' + (a.skills || []).join(' ') + ' ' + a.group).toLowerCase().includes(q);
+  });
+  const groups = [];
+  for (const a of shown) {
+    const g = groups.find(x => x.name === a.group);
+    if (g) g.items.push(a);else groups.push({
+      name: a.group,
+      items: [a]
+    });
+  }
+
+  /* One Draggable per item, dragging a proxy and drawing a ghost.
+      Draggable always transforms the element it is created on. Created on the
+     list item, it carries the item out of the panel and leaves a hole in the
+     list, so it is created on a throwaway proxy instead and only `trigger`
+     points at the item — the item is then genuinely never moved.
+      Each item needs its OWN proxy: Draggable allows one instance per element,
+     and creating a second on the same node replaces the first, which would
+     leave only the last item in the list draggable. */
+  React.useEffect(() => {
+    if (!api || disabled) return undefined;
+    const {
+      gsap,
+      Draggable
+    } = api;
+    const ghost = ghostRef.current;
+    const root = rootRef.current;
+    const instances = [];
+    const proxies = [];
+    shown.forEach(archetype => {
+      const el = itemRefs.current[archetype.id];
+      if (!el || !ghost || !root) return;
+      const proxy = document.createElement('div');
+      proxy.className = 'lamp-agentlib__proxy';
+      proxy.setAttribute('aria-hidden', 'true');
+      root.appendChild(proxy);
+      proxies.push(proxy);
+      const d = Draggable.create(proxy, {
+        type: 'x,y',
+        /* The press is on the list item; what moves is the proxy, which nobody
+           can see. The ghost is positioned from the pointer directly. */
+        trigger: el,
+        cursor: 'grab',
+        activeCursor: 'grabbing',
+        onPress() {
+          const box = el.getBoundingClientRect();
+          gsap.set(ghost, {
+            x: box.left + box.width / 2,
+            y: box.top + box.height / 2,
+            xPercent: -50,
+            yPercent: -50,
+            autoAlpha: 0
+          });
+        },
+        onDragStart() {
+          setDragging(archetype);
+          gsap.set(ghost, {
+            autoAlpha: 1
+          });
+        },
+        onDrag(e) {
+          const x = e.clientX != null ? e.clientX : this.pointerX;
+          const y = e.clientY != null ? e.clientY : this.pointerY;
+          gsap.set(ghost, {
+            x,
+            y
+          });
+        },
+        onRelease(e) {
+          gsap.set(proxy, {
+            x: 0,
+            y: 0
+          });
+          gsap.set(ghost, {
+            autoAlpha: 0
+          });
+          setDragging(null);
+          const x = e.clientX != null ? e.clientX : this.pointerX;
+          const y = e.clientY != null ? e.clientY : this.pointerY;
+          const target = live.current.dropTarget && live.current.dropTarget.current;
+          const drop = live.current.onDrop;
+          if (!target || !drop) return;
+          const box = target.getBoundingClientRect();
+          const inside = x >= box.left && x <= box.right && y >= box.top && y <= box.bottom;
+          if (!inside) return;
+          /* Point reported in the target's own coordinates — the canvas owns
+             turning it into a lattice cell. */
+          drop(archetype, {
+            x: x - box.left,
+            y: y - box.top
+          });
+        }
+      })[0];
+      if (d) instances.push(d);
+    });
+    return () => {
+      instances.forEach(d => d.kill());
+      proxies.forEach(p => p.remove());
+    };
+  }, [api, disabled, shown.map(a => a.id).join('|')]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: setRoot,
+    className: ['lamp-agentlib', className].filter(Boolean).join(' ')
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agentlib__head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__title"
+  }, title), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__hint"
+  }, "Drag onto the canvas")), searchable ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agentlib__search"
+  }, /*#__PURE__*/React.createElement(__ds_scope.SearchInput, {
+    size: "sm",
+    value: query,
+    placeholder: "Find an Agent",
+    onChange: e => setQuery(e.target.value)
+  })) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-agentlib__list"
+  }, groups.map(g => /*#__PURE__*/React.createElement("div", {
+    key: g.name,
+    className: "lamp-agentlib__group"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__grouplabel"
+  }, g.name), g.items.map(a => /*#__PURE__*/React.createElement("div", {
+    key: a.id,
+    ref: el => {
+      if (el) itemRefs.current[a.id] = el;else delete itemRefs.current[a.id];
+    },
+    className: 'lamp-agentlib__item' + (dragging && dragging.id === a.id ? ' lamp-agentlib__item--dragging' : ''),
+    role: "button",
+    tabIndex: 0,
+    "aria-label": 'Add ' + a.name
+    /* Click and Enter are the non-drag path — every creation route
+       in LAMP has one. Both open the same dialog. */,
+    onClick: () => onAdd && onAdd(a),
+    onKeyDown: e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      if (onAdd) onAdd(a);
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__glyph"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: a.glyph,
+    size: 16
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__body"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__name"
+  }, a.name, a.checkpoint ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: "waiting",
+    micro: true
+  }, "Human") : null), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__purpose"
+  }, a.purpose)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-agentlib__grip",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "drag_indicator",
+    size: 14
+  })))))), !shown.length ? /*#__PURE__*/React.createElement("p", {
+    className: "lamp-agentlib__empty"
+  }, "No Agent matches \u201C", query, "\u201D.") : null), /*#__PURE__*/React.createElement("div", {
+    ref: ghostRef,
+    className: "lamp-agentlib__ghost",
+    "aria-hidden": "true"
+  }, dragging ? /*#__PURE__*/React.createElement(__ds_scope.AgentHex, {
+    size: size,
+    detail: "glyph",
+    glyph: dragging.glyph,
+    role: dragging.role,
+    state: "snapReady"
+  }) : null));
+}), {
+  displayName: 'AgentLibrary'
+});
+Object.assign(__ds_scope, { AGENT_ARCHETYPES, AgentLibrary });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/AgentLibrary.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/CanvasContextMenu.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const CanvasContextMenu = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasContextMenu({
+  x = 0,
+  y = 0,
+  groups = [],
+  onSelect,
+  className = '',
+  style,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: 'lamp-cmenu ' + className,
+    style: {
+      position: 'absolute',
+      left: x,
+      top: y,
+      ...style
+    },
+    role: "menu"
+  }, rest), groups.map((g, gi) => /*#__PURE__*/React.createElement("div", {
+    key: gi
+  }, gi > 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cmenu__sep"
+  }) : null, g.label ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-cmenu__label"
+  }, g.label) : null, g.items.map(it => /*#__PURE__*/React.createElement("button", {
+    key: it.id,
+    type: "button",
+    role: "menuitem",
+    disabled: it.disabled,
+    className: 'lamp-cmenu__item' + (it.danger ? ' lamp-cmenu__item--danger' : ''),
+    onClick: () => onSelect && onSelect(it)
+  }, it.icon ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: it.icon,
+    size: 14
+  }) : null, /*#__PURE__*/React.createElement("span", null, it.label), it.shortcut ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-cmenu__kbd"
+  }, it.shortcut) : null)))));
+}), {
+  displayName: 'CanvasContextMenu'
+});
+Object.assign(__ds_scope, { CanvasContextMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasContextMenu.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/CanvasSurface.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The canvas surface: grid, environment tint, guides, marquee, empty state, and
+   — when `pannable` — space-and-drag panning on GSAP Draggable.
+
+   Pan and zoom live on two different nodes on purpose. GSAP owns the transform
+   of `__world` (the pan) and React owns the transform of `__scale` (the zoom),
+   so neither clobbers the other on re-render. */
+
+const CanvasSurface = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasSurface({
+  grid = 'dots',
+  zoom = 1,
+  environment = 'draft',
+  state = 'idle',
+  locked = false,
+  readOnly = false,
+  empty,
+  marquee,
+  guides = [],
+  pannable = false,
+  panMode = false,
+  onPanChange,
+  children,
+  className = '',
+  style,
+  ...rest
+}, ref) {
+  const gridClass = zoom < 0.3 ? 'plain' : zoom < 0.5 ? 'dots-major' : grid;
+  const api = __ds_scope.useGsap();
+  const hostRef = React.useRef(null);
+  /* Draggable needs this node as its trigger, so the forwarded ref is merged
+     rather than replaced. */
+  const setHost = __ds_scope.useMergedRefs(ref, hostRef);
+  const worldRef = React.useRef(null);
+
+  /* Space is held, or the caller has put the canvas in an explicit pan mode.
+     Held-key state rather than a toggle, so releasing space returns you to
+     selection without a second keystroke. */
+  const [spaceHeld, setSpaceHeld] = React.useState(false);
+  const panning = pannable && !locked && (panMode || spaceHeld);
+  const report = React.useRef(onPanChange);
+  report.current = onPanChange;
+  React.useEffect(() => {
+    if (!pannable || locked) return undefined;
+    const down = e => {
+      if (e.code !== 'Space' || e.repeat) return;
+      const el = e.target;
+      /* Space belongs to the focused control if there is one. */
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName))) return;
+      e.preventDefault();
+      setSpaceHeld(true);
+    };
+    const up = e => {
+      if (e.code === 'Space') setSpaceHeld(false);
+    };
+    const blur = () => setSpaceHeld(false);
+    window.addEventListener('keydown', down);
+    window.addEventListener('keyup', up);
+    window.addEventListener('blur', blur);
+    return () => {
+      window.removeEventListener('keydown', down);
+      window.removeEventListener('keyup', up);
+      window.removeEventListener('blur', blur);
+    };
+  }, [pannable, locked]);
+  const dragRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!api || !pannable || !worldRef.current) return undefined;
+    const [drag] = api.Draggable.create(worldRef.current, {
+      type: 'x,y',
+      trigger: hostRef.current,
+      cursor: 'grab',
+      activeCursor: 'grabbing',
+      allowContextMenu: true,
+      onDrag() {
+        const fn = report.current;
+        if (fn) fn({
+          x: this.x,
+          y: this.y
+        });
+      }
+    });
+    dragRef.current = drag || null;
+    return () => {
+      if (drag) drag.kill();
+      dragRef.current = null;
+    };
+  }, [api, pannable]);
+
+  /* Enabled only while panning, so a drag on the canvas is a marquee selection by
+     default and a pan only when the operator asks for one. */
+  React.useEffect(() => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    if (panning) drag.enable();else drag.disable();
+  }, [api, pannable, panning]);
+  const cls = ['lamp-canvas', 'lamp-canvas--' + gridClass, environment !== 'draft' && 'lamp-canvas--' + environment, (state === 'panning' || panning) && 'lamp-canvas--panning', locked && 'lamp-canvas--locked', readOnly && 'lamp-canvas--readonly', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: setHost,
+    className: cls,
+    style: style,
+    role: "application",
+    "aria-label": "LAMP canvas"
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    ref: worldRef,
+    className: "lamp-canvas__world"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-canvas__scale",
+    style: {
+      transform: 'scale(' + zoom + ')'
+    }
+  }, children)), guides.map((g, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: 'lamp-canvas__guide lamp-canvas__guide--' + (g.axis === 'x' ? 'v' : 'h'),
+    style: g.axis === 'x' ? {
+      left: g.at
+    } : {
+      top: g.at
+    }
+  })), marquee ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-canvas__marquee",
+    style: marquee
+  }) : null, empty ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-canvas__empty"
+  }, empty) : null);
+}), {
+  displayName: 'CanvasSurface'
+});
+
+/* The slot an object will land on.
+
+   `shape="hex"` draws a real hexagon outline as SVG rather than a bordered box
+   behind a clip-path. Clipping a border to a hexagon keeps only the fragments
+   of the border that fall inside the clip — which renders as a few disconnected
+   dashes floating near the object, reading as leftover debris rather than as a
+   target. A stroked polygon is the whole outline. */
+
+const HEX_POINTS = '25,0 75,0 100,50 75,100 25,100 0,50';
+const SnapGuide = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SnapGuide({
+  rect,
+  invalid = false,
+  kind = 'snap',
+  shape = 'rect'
+}, ref) {
+  if (shape === 'hex') {
+    return /*#__PURE__*/React.createElement("svg", {
+      ref: ref,
+      className: 'lamp-canvas__snapguide-hex' + (invalid ? ' lamp-canvas__snapguide-hex--invalid' : ''),
+      viewBox: "0 0 100 100",
+      preserveAspectRatio: "none",
+      "aria-hidden": "true",
+      style: rect
+    }, /*#__PURE__*/React.createElement("polygon", {
+      points: HEX_POINTS,
+      vectorEffect: "non-scaling-stroke"
+    }));
+  }
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: kind === 'drop' ? 'lamp-canvas__drop' + (invalid ? ' lamp-canvas__drop--invalid' : '') : 'lamp-canvas__snapguide',
+    style: rect
+  });
+}), {
+  displayName: 'SnapGuide'
+});
+Object.assign(__ds_scope, { CanvasSurface, SnapGuide });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasSurface.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/IconButton.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const IconButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function IconButton({
+  icon,
+  label,
+  size = 'md',
+  bordered = false,
+  active = false,
+  tone = 'default',
+  className = '',
+  ...rest
+}, ref) {
+  const cls = ['lamp-iconbtn', 'lamp-iconbtn--' + size, bordered && 'lamp-iconbtn--bordered', active && 'lamp-iconbtn--active', tone === 'danger' && 'lamp-iconbtn--danger', className].filter(Boolean).join(' ');
+  const glyph = size === 'xs' ? 12 : size === 'sm' ? 14 : 16;
+  return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
+    type: "button",
+    className: cls,
+    "aria-label": label,
+    "aria-pressed": active || undefined,
+    title: label
+  }, rest), typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: glyph
+  }) : icon);
+}), {
+  displayName: 'IconButton'
+});
+Object.assign(__ds_scope, { IconButton });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/IconButton.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Divider.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Divider = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Divider({
+  orientation = 'horizontal',
+  label,
+  className = '',
+  ...rest
+}, ref) {
+  if (label) return /*#__PURE__*/React.createElement("div", _extends({
+    className: 'lamp-divider lamp-divider--label ' + className
+  }, rest), label);
+  return /*#__PURE__*/React.createElement("hr", _extends({
+    ref: ref,
+    className: ['lamp-divider', orientation === 'vertical' && 'lamp-divider--v', className].filter(Boolean).join(' ')
+  }, rest));
+}), {
+  displayName: 'Divider'
+});
+Object.assign(__ds_scope, { Divider });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Divider.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/CanvasToolbar.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const CanvasToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasToolbar({
+  position = 'floating',
+  children,
+  className = '',
+  style,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: ['lamp-ctoolbar', 'lamp-ctoolbar--' + position, className].filter(Boolean).join(' '),
+    style: style,
+    role: "toolbar"
+  }, rest), children);
+}), {
+  displayName: 'CanvasToolbar'
+});
+const CanvasZoomControls = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasZoomControls({
+  zoom = 1,
+  onZoomIn,
+  onZoomOut,
+  onFit,
+  onReset,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement(CanvasToolbar, _extends({
+    ref: ref,
+    position: "topright"
+  }, rest), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "remove",
+    label: "Zoom out",
+    size: "sm",
+    onClick: onZoomOut
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-ctoolbar__zoom",
+    onClick: onReset,
+    title: "Reset zoom"
+  }, Math.round(zoom * 100), "%"), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "add",
+    label: "Zoom in",
+    size: "sm",
+    onClick: onZoomIn
+  }), /*#__PURE__*/React.createElement(__ds_scope.Divider, {
+    orientation: "vertical"
+  }), /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "fit_screen",
+    label: "Fit selection",
+    size: "sm",
+    onClick: onFit
+  }));
+}), {
+  displayName: 'CanvasZoomControls'
+});
+const CanvasObjectToolbar = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasObjectToolbar({
+  x,
+  y,
+  children,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: "lamp-ctoolbar lamp-ctoolbar--object",
+    style: {
+      left: x,
+      top: y
+    },
+    role: "toolbar"
+  }, rest), children);
+}), {
+  displayName: 'CanvasObjectToolbar'
+});
+const CanvasMinimap = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CanvasMinimap({
+  blips = [],
+  viewport,
+  onJump,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: "lamp-minimap",
+    onClick: onJump,
+    "aria-label": "Canvas overview"
+  }, rest), blips.map((b, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: 'lamp-minimap__blip' + (b.tone ? ' lamp-minimap__blip--' + b.tone : ''),
+    style: {
+      left: b.x,
+      top: b.y,
+      width: b.w || 4,
+      height: b.h || 4
+    }
+  })), viewport ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-minimap__viewport",
+    style: viewport
+  }) : null);
+}), {
+  displayName: 'CanvasMinimap'
+});
+Object.assign(__ds_scope, { CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/CanvasToolbar.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Button.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Button = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Button({
+  variant = 'secondary',
+  size = 'md',
+  icon,
+  iconRight,
+  loading = false,
+  disabled = false,
+  block = false,
+  shortcut,
+  children,
+  className = '',
+  ...rest
+}, ref) {
+  const cls = ['lamp-btn', 'lamp-btn--' + variant, 'lamp-btn--' + size, block && 'lamp-btn--block', loading && 'lamp-btn--loading', className].filter(Boolean).join(' ');
+  const glyph = size === 'lg' ? 16 : 14;
+  return /*#__PURE__*/React.createElement("button", _extends({
+    ref: ref,
+    type: "button",
+    className: cls,
+    disabled: disabled || loading,
+    "aria-busy": loading || undefined
+  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: glyph
+  }) : icon : null, children, iconRight ? typeof iconRight === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: iconRight,
+    size: glyph
+  }) : iconRight : null, shortcut ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-btn__kbd"
+  }, shortcut) : null, loading ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-btn__spin"
+  }, /*#__PURE__*/React.createElement("i", null)) : null);
+}), {
+  displayName: 'Button'
+});
+const SplitButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SplitButton({
+  variant = 'secondary',
+  size = 'md',
+  icon,
+  children,
+  onMenu,
+  menuLabel = 'More actions',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: "lamp-split"
+  }, /*#__PURE__*/React.createElement(Button, _extends({
+    variant: variant,
+    size: size,
+    icon: icon
+  }, rest), children), /*#__PURE__*/React.createElement(Button, {
+    variant: variant,
+    size: size,
+    onClick: onMenu,
+    "aria-label": menuLabel,
+    icon: "keyboard_arrow_down"
+  }));
+}), {
+  displayName: 'SplitButton'
+});
+Object.assign(__ds_scope, { Button, SplitButton });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
+
+// components/feedback/Modal.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Modal = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Modal({
+  open = true,
+  title,
+  subtitle,
+  glyph,
+  size = 'md',
+  critical = false,
+  footer,
+  onClose,
+  children,
+  className = '',
+  ...rest
+}, ref) {
+  if (!open) return null;
+  const width = size === 'sm' ? 'var(--modal-width-sm)' : size === 'lg' ? 'var(--modal-width-lg)' : 'var(--modal-width-md)';
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: "lamp-scrim",
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-modal', critical && 'lamp-modal--critical', className].filter(Boolean).join(' '),
+    style: {
+      width
+    },
+    role: critical ? 'alertdialog' : 'dialog',
+    "aria-modal": "true",
+    "aria-label": title,
+    onClick: e => e.stopPropagation()
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-modal__head"
+  }, glyph ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: glyph,
+    size: 18,
+    style: {
+      marginTop: 2,
+      color: critical ? 'var(--status-danger)' : 'var(--text-secondary)'
+    }
+  }) : null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "lamp-modal__title"
+  }, title), subtitle ? /*#__PURE__*/React.createElement("p", {
+    className: "lamp-modal__sub"
+  }, subtitle) : null), onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "close",
+    label: "Close",
+    size: "sm",
+    onClick: onClose
+  }) : null), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-modal__body"
+  }, children), footer ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-modal__foot"
+  }, footer) : null));
+}), {
+  displayName: 'Modal'
+});
+const CriticalConfirmation = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CriticalConfirmation({
+  open = true,
+  title,
+  consequences = [],
+  scope,
+  confirmLabel = 'Confirm',
+  cancelLabel = 'Cancel',
+  onCancel,
+  onConfirm,
+  children,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement(Modal, _extends({
+    ref: ref,
+    open: open,
+    critical: true,
+    glyph: "dangerous",
+    size: "sm",
+    title: title,
+    onClose: onCancel,
+    footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      size: "md",
+      variant: "secondary",
+      onClick: onCancel
+    }, cancelLabel), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      size: "md",
+      variant: "danger",
+      onClick: onConfirm
+    }, confirmLabel))
+  }, rest), scope ? /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: '0 0 8px',
+      color: 'var(--text-primary)'
+    }
+  }, scope) : null, consequences.length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: '0 0 4px'
+    }
+  }, "Immediately:"), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      margin: 0,
+      paddingLeft: 18,
+      lineHeight: '19px'
+    }
+  }, consequences.map(c => /*#__PURE__*/React.createElement("li", {
+    key: c
+  }, c)))) : null, children);
+}), {
+  displayName: 'CriticalConfirmation'
+});
+const Drawer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Drawer({
+  open = true,
+  title,
+  side = 'right',
+  width,
+  actions,
+  footer,
+  onClose,
+  children,
+  className = '',
+  ...rest
+}, ref) {
+  if (!open) return null;
+  return /*#__PURE__*/React.createElement("aside", _extends({
+    ref: ref,
+    className: ['lamp-drawer', side === 'left' && 'lamp-drawer--left', className].filter(Boolean).join(' '),
+    style: width ? {
+      width
+    } : undefined,
+    role: "dialog",
+    "aria-label": title
+  }, rest), /*#__PURE__*/React.createElement("header", {
+    className: "lamp-drawer__head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-drawer__title"
+  }, title), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto',
+      display: 'flex',
+      gap: 2
+    }
+  }, actions, onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
+    icon: "close",
+    label: "Close",
+    size: "sm",
+    onClick: onClose
+  }) : null)), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-drawer__body"
+  }, children), footer ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-modal__foot"
+  }, footer) : null);
+}), {
+  displayName: 'Drawer'
+});
+const Popover = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Popover({
+  title,
+  children,
+  x,
+  y,
+  className = '',
+  style,
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: 'lamp-popover ' + className,
+    style: {
+      position: x != null ? 'absolute' : undefined,
+      left: x,
+      top: y,
+      ...style
+    },
+    role: "dialog"
+  }, rest), title ? /*#__PURE__*/React.createElement("div", {
+    className: "lamp-popover__head"
+  }, title) : null, children);
+}), {
+  displayName: 'Popover'
+});
+Object.assign(__ds_scope, { Modal, CriticalConfirmation, Drawer, Popover });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Modal.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Textarea.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Textarea = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Textarea({
+  mono = false,
+  state = 'default',
+  rows = 4,
+  className = '',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("textarea", _extends({
+    ref: ref,
+    rows: rows,
+    className: ['lamp-textarea', mono && 'lamp-textarea--mono', state === 'error' && 'lamp-textarea--error', className].filter(Boolean).join(' '),
+    "aria-invalid": state === 'error' || undefined
+  }, rest));
+}), {
+  displayName: 'Textarea'
+});
+Object.assign(__ds_scope, { Textarea });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Select.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Select = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Select({
+  options = [],
+  size = 'md',
+  placeholder,
+  className = '',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: ['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("select", _extends({
+    ref: ref
+  }, rest), placeholder ? /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, placeholder) : null, options.map(o => {
+    const v = typeof o === 'string' ? o : o.value;
+    const l = typeof o === 'string' ? o : o.label;
+    return /*#__PURE__*/React.createElement("option", {
+      key: v,
+      value: v,
+      disabled: typeof o === 'object' && o.disabled
+    }, l);
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-select__chev"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "keyboard_arrow_down",
+    size: 14
+  })));
+}), {
+  displayName: 'Select'
+});
+Object.assign(__ds_scope, { Select });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Tag.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Tag = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Tag({
+  icon,
+  mono = false,
+  onRemove,
+  children,
+  className = '',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
+    className: ['lamp-tag', mono && 'lamp-tag--mono', className].filter(Boolean).join(' ')
+  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: icon,
+    size: 12
+  }) : icon : null, children, onRemove ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "lamp-tag__x",
+    "aria-label": "Remove",
+    onClick: onRemove
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "close",
+    size: 10
+  })) : null);
+}), {
+  displayName: 'Tag'
+});
+Object.assign(__ds_scope, { Tag });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Tag.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/TagInput.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const TagInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TagInput({
+  values = [],
+  onChange,
+  placeholder = 'Add…',
+  mono = false,
+  ...rest
+}, ref) {
+  const [focus, setFocus] = React.useState(false);
+  const [draft, setDraft] = React.useState('');
+  const commit = () => {
+    const t = draft.trim();
+    if (!t) return;
+    onChange && onChange([...values, t]);
+    setDraft('');
+  };
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: ['lamp-taginput', focus && 'lamp-taginput--focus'].filter(Boolean).join(' ')
+  }, rest), values.map((v, i) => /*#__PURE__*/React.createElement(__ds_scope.Tag, {
+    key: v + i,
+    mono: mono,
+    onRemove: () => onChange && onChange(values.filter((_, j) => j !== i))
+  }, v)), /*#__PURE__*/React.createElement("input", {
+    ref: ref,
+    value: draft,
+    placeholder: placeholder,
+    onFocus: () => setFocus(true),
+    onBlur: () => {
+      setFocus(false);
+      commit();
+    },
+    onChange: e => setDraft(e.target.value),
+    onKeyDown: e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        commit();
+      }
+      if (e.key === 'Backspace' && !draft && values.length) onChange && onChange(values.slice(0, -1));
+    }
+  }));
+}), {
+  displayName: 'TagInput'
+});
+Object.assign(__ds_scope, { TagInput });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Checkbox.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const Checkbox = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Checkbox({
+  label,
+  description,
+  indeterminate = false,
+  disabled = false,
+  className = '',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("label", {
+    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends({
+    ref: ref,
+    type: "checkbox",
+    disabled: disabled
+  }, rest)), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__box"
+  }, indeterminate ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "remove",
+    size: 12
+  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "check",
+    size: 12
+  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-check__desc"
+  }, description) : null) : null);
+}), {
+  displayName: 'Checkbox'
+});
+Object.assign(__ds_scope, { Checkbox });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
+
+// components/objects/ToolTile.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+const TOOL_SIZES = {
+  sm: 24,
+  md: 32,
+  lg: 40,
+  xl: 48
+};
+const STATE_STATUS = {
+  available: null,
+  connected: 'success',
+  authorizationRequired: 'attention',
+  expired: 'attention',
+  healthy: 'success',
+  degraded: 'attention',
+  error: 'error',
+  readOnly: null,
+  writeEnabled: null,
+  blocked: 'blocked',
+  disabled: 'disabled'
+};
+const ToolTile = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolTile({
+  size = 'md',
+  state = 'connected',
+  provider,
+  glyph = 'extension',
+  name,
+  brandColor,
+  onClick,
+  className = '',
+  style,
+  ...rest
+}, ref) {
+  const px = TOOL_SIZES[size] || TOOL_SIZES.md;
+  const dot = STATE_STATUS[state];
+  return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
+    className: ['lamp-tool', 'lamp-tool--' + state, onClick && 'lamp-tool--interactive', className].filter(Boolean).join(' '),
+    style: {
+      width: px,
+      height: px,
+      ...style
+    },
+    onClick: onClick,
+    role: onClick ? 'button' : 'img',
+    "aria-label": (name || provider || 'Tool') + ' Tool',
+    tabIndex: onClick ? 0 : undefined,
+    title: name || provider
+  }, rest), provider ? /*#__PURE__*/React.createElement(__ds_scope.BrandIcon, {
+    slug: provider,
+    size: px <= 24 ? 14 : px <= 32 ? 18 : 22,
+    color: brandColor
+  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: glyph,
+    size: px <= 24 ? 14 : px <= 32 ? 18 : 22
+  }), dot ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-tool__dot"
+  }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
+    status: dot
+  })) : null);
+}), {
+  displayName: 'ToolTile'
+});
+const ToolRow = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolRow({
+  provider,
+  glyph,
+  name,
+  account,
+  state = 'connected',
+  permission,
+  usedBy,
+  lastActivity,
+  health,
+  risk,
+  actions,
+  onClick,
+  className = '',
+  ...rest
+}, ref) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
+    className: 'lamp-toolrow ' + className,
+    onClick: onClick
+  }, rest), /*#__PURE__*/React.createElement(ToolTile, {
+    provider: provider,
+    glyph: glyph,
+    name: name,
+    state: state
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__name"
+  }, name), account ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__sub"
+  }, account) : null), /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__right"
+  }, permission ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true
+  }, permission) : null, risk ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    tone: risk === 'High' ? 'danger' : risk === 'Medium' ? 'warning' : 'neutral'
+  }, risk, " risk") : null, usedBy != null ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__sub"
+  }, "Used by ", usedBy) : null, health ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__sub",
+    style: {
+      fontFamily: 'var(--font-mono)'
+    }
+  }, health) : null, lastActivity ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-toolrow__sub",
+    style: {
+      fontFamily: 'var(--font-mono)'
+    }
+  }, lastActivity) : null, /*#__PURE__*/React.createElement(__ds_scope.StatusBadge, {
+    status: state === 'connected' || state === 'healthy' ? 'success' : state === 'error' ? 'error' : state === 'blocked' ? 'blocked' : 'attention',
+    label: state === 'authorizationRequired' ? 'Auth required' : state === 'expired' ? 'Expired' : state === 'degraded' ? 'Degraded' : state === 'connected' ? 'Connected' : undefined
+  }), actions));
+}), {
+  displayName: 'ToolRow'
+});
+Object.assign(__ds_scope, { TOOL_SIZES, ToolTile, ToolRow });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/ToolTile.jsx", error: String((e && e.message) || e) }); }
+
+// components/canvas/NewAgentDialog.jsx
+try { (() => {
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+/* The dialog that opens when an Agent is dropped on the canvas.
+
+   An Agent created by a pointer release alone is an Agent nobody named, and the
+   whole ontology rests on Agents being named for the work they do — Invoice
+   Matcher, Vendor Verifier, Payment Approver. So the drop opens this instead of
+   creating anything, and the archetype arrives pre-filled: a role, a purpose,
+   the Skills it needs and the Tools it usually touches. The operator confirms
+   or corrects, which is a job people can do, rather than authoring from blank,
+   which they cannot.
+
+   Two rules it enforces:
+
+   1. A NAME IS REQUIRED. Everything else has a workable default; a name does
+      not, because "Agent 4" on a canvas of thirty tells a reader nothing.
+   2. AUTHORITY STARTS AT ITS LOWEST. A new Agent proposes; it does not act.
+      Raising that is a deliberate, separate decision in the Inspector, never a
+      default carried in from a template.
+
+   Where the Agent lands is already decided — the drop resolved it to a free
+   lattice cell — so the dialog shows that cell rather than asking again. */
+
+const ROLES = [{
+  value: 'standard',
+  label: 'Standard — works on its own'
+}, {
+  value: 'coordinator',
+  label: 'Coordinator — routes and hands off'
+}, {
+  value: 'specialist',
+  label: 'Specialist — does one thing well'
+}, {
+  value: 'humanSupervised',
+  label: 'Human-supervised — a person decides'
+}, {
+  value: 'system',
+  label: 'System — internal plumbing'
+}, {
+  value: 'external',
+  label: 'External — someone else operates it'
+}];
+const NewAgentDialog = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NewAgentDialog({
+  open = true,
+  archetype,
+  cell,
+  availableTools = [],
+  onCreate,
+  onCancel,
+  className = '',
+  ...rest
+}, ref) {
+  const base = archetype || {};
+  const [name, setName] = React.useState(base.name || '');
+  const [role, setRole] = React.useState(base.role || 'standard');
+  const [purpose, setPurpose] = React.useState(base.purpose || '');
+  const [skills, setSkills] = React.useState(base.skills || []);
+  const [tools, setTools] = React.useState(base.tools || []);
+  const [checkpoint, setCheckpoint] = React.useState(!!base.checkpoint);
+
+  /* Re-seed when a different archetype is dropped without the dialog closing. */
+  const seed = base.id;
+  React.useEffect(() => {
+    setName(base.name || '');
+    setRole(base.role || 'standard');
+    setPurpose(base.purpose || '');
+    setSkills(base.skills || []);
+    setTools(base.tools || []);
+    setCheckpoint(!!base.checkpoint);
+  }, [seed]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const named = name.trim().length > 0;
+  const toggleTool = provider => setTools(t => t.includes(provider) ? t.filter(x => x !== provider) : t.concat([provider]));
+  const build = () => ({
+    name: name.trim(),
+    role,
+    purpose: purpose.trim(),
+    skills,
+    tools,
+    checkpoint,
+    /* A new Agent proposes. Acting is a decision taken deliberately, later. */
+    authority: 'propose',
+    state: 'unconfigured',
+    col: cell ? cell.col : 0,
+    row: cell ? cell.row : 0
+  });
+  return /*#__PURE__*/React.createElement(__ds_scope.Modal, _extends({
+    ref: ref,
+    open: open,
+    size: "md",
+    glyph: "hexagon",
+    title: "New Agent",
+    subtitle: archetype ? 'From the ' + archetype.name + ' template. Correct anything that is wrong.' : 'Name it for the work it does.',
+    onClose: onCancel,
+    className: 'lamp-newagent ' + className,
+    footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+      className: "lamp-newagent__footnote"
+    }, named ? 'Created as a draft. It proposes until you raise its authority.' : /*#__PURE__*/React.createElement("span", {
+      className: "lamp-newagent__blocker"
+    }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+      name: "warning",
+      size: 13
+    }), "Give it a name \u2014 Agents are named for the work they do.")), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      variant: "quiet",
+      onClick: onCancel
+    }, "Cancel"), /*#__PURE__*/React.createElement(__ds_scope.Button, {
+      variant: "primary",
+      icon: "check",
+      disabled: !named,
+      onClick: () => onCreate && onCreate(build())
+    }, "Add Agent"))
+  }, rest), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-newagent__preview"
+  }, /*#__PURE__*/React.createElement(__ds_scope.AgentHex, {
+    size: "lg",
+    detail: "glyph",
+    glyph: base.glyph,
+    role: role,
+    state: "unconfigured"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-newagent__previewmeta"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-newagent__previewname"
+  }, name.trim() || 'Unnamed Agent'), cell ? /*#__PURE__*/React.createElement("span", {
+    className: "lamp-newagent__cell"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "near_me",
+    size: 12
+  }), "Lands at column ", cell.col, ", row ", cell.row) : null, /*#__PURE__*/React.createElement(__ds_scope.Badge, {
+    outline: true,
+    micro: true
+  }, "Proposes only"))), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-newagent__label",
+    htmlFor: "na-name"
+  }, "Name"), /*#__PURE__*/React.createElement(__ds_scope.TextInput, {
+    id: "na-name",
+    value: name,
+    autoFocus: true,
+    placeholder: "Invoice Matcher",
+    onChange: e => setName(e.target.value)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-newagent__label",
+    htmlFor: "na-role"
+  }, "Role"), /*#__PURE__*/React.createElement(__ds_scope.Select, {
+    id: "na-role",
+    value: role,
+    options: ROLES,
+    onChange: e => setRole(e.target.value)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-newagent__label",
+    htmlFor: "na-purpose"
+  }, "Purpose"), /*#__PURE__*/React.createElement(__ds_scope.Textarea, {
+    id: "na-purpose",
+    rows: 2,
+    value: purpose,
+    placeholder: "What this Agent is for, in one sentence.",
+    onChange: e => setPurpose(e.target.value)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "lamp-newagent__label",
+    htmlFor: "na-skills"
+  }, "Skills"), /*#__PURE__*/React.createElement(__ds_scope.TagInput, {
+    id: "na-skills",
+    values: skills,
+    onChange: setSkills,
+    placeholder: "Add a Skill"
+  }), availableTools.length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    className: "lamp-newagent__label"
+  }, "Tools it may use"), /*#__PURE__*/React.createElement("div", {
+    className: "lamp-newagent__tools"
+  }, availableTools.map(t => {
+    const provider = t.provider || t.id;
+    const on = tools.includes(provider);
+    return /*#__PURE__*/React.createElement("button", {
+      key: provider,
+      type: "button",
+      className: 'lamp-newagent__tool' + (on ? ' lamp-newagent__tool--on' : ''),
+      "aria-pressed": on,
+      onClick: () => toggleTool(provider)
+    }, /*#__PURE__*/React.createElement(__ds_scope.ToolTile, {
+      size: "sm",
+      provider: provider,
+      name: t.name,
+      state: t.state || 'connected'
+    }), t.name || provider);
+  }))) : null, /*#__PURE__*/React.createElement("div", {
+    className: "lamp-newagent__checkpoint"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Checkbox, {
+    checked: checkpoint,
+    onChange: () => setCheckpoint(!checkpoint),
+    label: "A person decides before this Agent acts",
+    description: "Adds a human checkpoint. Required for anything that spends money or writes to a system of record."
+  })));
+}), {
+  displayName: 'NewAgentDialog'
+});
+Object.assign(__ds_scope, { NewAgentDialog });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/NewAgentDialog.jsx", error: String((e && e.message) || e) }); }
+
 // components/objects/HexLattice.jsx
 try { (() => {
 function _extends() {
@@ -1540,17 +2832,22 @@ function _extends() {
    cell by any sequence of drags, and because cells are a lattice they cannot
    partially overlap either.
 
-   TWO RANGES
-   ----------
-   proximityRange (72px)  the nearest free slot lights up, the Agent does not
-                          move — "there is something here"
-   snapTolerance  (34px)  the slot is armed and the Agent drifts toward it —
-                          "release and it lands here"
+   A DRAG ALWAYS LANDS
+   -------------------
+   The target cell is shown from the first frame of a drag and release always
+   commits to it. The ranges below style that target and decide whether the
+   Agent is pulled toward it; they never veto the drop.
 
-   That is the brief's bond lifecycle — proximity, then compatible proximity,
-   then snap threshold — made literal. Without the outer range the operator gets
-   no warning before the object starts moving on its own, which is what makes
-   magnetic snapping feel like a glitch rather than an affordance.
+   They used to. A release outside the tolerance returned the Agent home, which
+   meant dropping into open canvas — where the nearest lattice centre can be
+   half a step away, further than the tolerance — silently undid the drag. An
+   operator cannot tell that from the object being stuck.
+
+   THREE STATES OF THE TARGET
+   --------------------------
+   beyond proximityRange   the slot is drawn faintly: "this is where it lands"
+   within proximityRange   the slot brightens: "you are near a real position"
+   within snapTolerance    the slot is armed and the Agent drifts toward it
 
    SELECTION
    ---------
@@ -1566,12 +2863,90 @@ function _extends() {
    occupied and out-of-bounds cells. This path never touches GSAP and works even
    if GSAP never loads. Composition in LAMP is not pointer-only. */
 
-const HEX_CLIP = 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)';
-
 /* How far toward the armed slot the Agent drifts. At the 34px default tolerance
    this keeps the visible shift inside the specified 2–6px band for most of the
    approach — a hint that it is about to land, not a decision made for you. */
 const PULL = 0.35;
+const FIELD_DEFAULTS = {
+  size: 'md',
+  gap: 2,
+  width: 720,
+  height: 380,
+  origin: {
+    x: 40,
+    y: 40
+  }
+};
+
+/**
+ * Every free lattice cell of a field, as pixel points in the field's own
+ * coordinates. Cells holding an Agent are left out entirely, which is the
+ * guarantee that nothing placed by this math can overlap.
+ *
+ * Exported because two callers need the same answer and must not each carry
+ * their own copy of the lattice arithmetic: SnapField, deciding where a drag
+ * lands, and whatever hands a dropped point from AgentLibrary to the dialog,
+ * deciding where a new Agent goes.
+ */
+function freeCells(opts) {
+  const o = Object.assign({}, FIELD_DEFAULTS, opts);
+  const [hexW, hexH] = __ds_scope.AGENT_SIZES[o.size] || __ds_scope.AGENT_SIZES.md;
+  const stepX = hexW * 0.75 + o.gap;
+  const stepY = hexH + o.gap;
+  const taken = {};
+  (o.agents || []).forEach(a => {
+    if (o.exclude != null && a.id === o.exclude) return;
+    taken[a.col + ':' + a.row] = true;
+  });
+
+  /* Legal cells are derived from the field's own box — a cell counts only when
+     the whole hexagon fits inside it, which is what stops anything landing half
+     off the edge without a single magic number. */
+  const minCol = Math.ceil(-o.origin.x / stepX);
+  const maxCol = Math.floor((o.width - hexW - o.origin.x) / stepX);
+  const minRow = Math.ceil(-o.origin.y / stepY);
+  const maxRow = Math.floor((o.height - hexH - o.origin.y) / stepY);
+  const points = [];
+  for (let col = minCol; col <= maxCol; col++) {
+    /* Odd columns sit half a row lower, so they lose the last row. */
+    const last = Math.abs(col % 2) ? maxRow - 1 : maxRow;
+    for (let row = minRow; row <= last; row++) {
+      if (taken[col + ':' + row]) continue;
+      const c = __ds_scope.HexCenter(col, row, o.size, o.gap);
+      points.push({
+        col,
+        row,
+        x: o.origin.x + c.x,
+        y: o.origin.y + c.y
+      });
+    }
+  }
+  return points;
+}
+
+/** The free cell nearest a point, with `d` set to the distance. Null only when
+ *  the field is completely full. */
+function freeCellAt(point, opts) {
+  const points = freeCells(opts);
+  let best = null;
+  for (let i = 0; i < points.length; i++) {
+    const d = Math.hypot(points[i].x - point.x, points[i].y - point.y);
+    if (!best || d < best.d) best = Object.assign({
+      d
+    }, points[i]);
+  }
+  return best;
+}
+
+/* Capitalized aliases so the helpers are reachable on the design-system
+   namespace, which exposes capitalized exports only — the same pair HexCenter
+   forms with hexCenter. */
+function FreeCells(opts) {
+  return freeCells(opts);
+}
+function FreeCellAt(point, opts) {
+  return freeCellAt(point, opts);
+}
 const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SnapField({
   agents = [],
   size = 'md',
@@ -1605,6 +2980,9 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
   const [dragId, setDragId] = React.useState(null);
   const [snapState, setSnapState] = React.useState('idle');
   const [marquee, setMarquee] = React.useState(null);
+  /* Where the dragged Agent is right now, in lattice space. Only set while a
+     drag is in flight, and only read by the bonds render prop. */
+  const [dragAt, setDragAt] = React.useState(null);
   const nodes = React.useRef({});
   const guideRef = React.useRef(null);
   const fieldRef = React.useRef(null);
@@ -1621,6 +2999,8 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
     origin,
     size,
     gap,
+    width,
+    height,
     snapTolerance,
     proximityRange,
     onChange,
@@ -1669,29 +3049,20 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
    * Every free lattice cell as a pixel point. Cells holding another Agent are
    * left out entirely, which is the guarantee that a snap can never overlap.
    * The Agent's own cell stays in — releasing where you started is a no-op, not
-   * a rejection.
+   * a rejection — which is what `exclude` does.
    */
   const freePoints = React.useCallback(selfId => {
-    const taken = {};
-    live.current.agents.forEach(a => {
-      if (a.id !== selfId) taken[a.col + ':' + a.row] = true;
+    const l = live.current;
+    return freeCells({
+      agents: l.agents,
+      size: l.size,
+      gap: l.gap,
+      origin: l.origin,
+      width: l.width,
+      height: l.height,
+      exclude: selfId
     });
-    const points = [];
-    for (let col = bounds.minCol; col <= bounds.maxCol; col++) {
-      const last = Math.abs(col % 2) ? bounds.maxRow - 1 : bounds.maxRow;
-      for (let row = bounds.minRow; row <= last; row++) {
-        if (taken[col + ':' + row]) continue;
-        const p = at(col, row);
-        points.push({
-          col,
-          row,
-          x: p.x,
-          y: p.y
-        });
-      }
-    }
-    return points;
-  }, [bounds, at]);
+  }, []);
   const nearest = (points, px, py) => {
     let best = null;
     for (let i = 0; i < points.length; i++) {
@@ -1740,8 +3111,16 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
       if (!el) return;
       const home = at(agent.col, agent.row);
       let points = [];
-      let armed = null;
-      const showGuide = (cell, ready) => {
+      let target = null;
+
+      /* Opacity is the whole language of the guide: it is always on-screen
+         during a drag, because it is always where the Agent will land. */
+      const GUIDE_ALPHA = {
+        armed: 1,
+        near: 0.7,
+        far: 0.35
+      };
+      const showGuide = (cell, level) => {
         if (!guide) return;
         if (!cell) {
           gsap.set(guide, {
@@ -1752,7 +3131,7 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
         gsap.set(guide, {
           x: cell.x - hexW / 2,
           y: cell.y - hexH / 2,
-          autoAlpha: ready ? 1 : 0.45
+          autoAlpha: GUIDE_ALPHA[level]
         });
       };
       const created = Draggable.create(el, {
@@ -1765,8 +3144,10 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
             const cx = home.x + point.x;
             const cy = home.y + point.y;
             const cell = nearest(points, cx, cy);
+            /* Tracked whether or not it is in range: this is where a release
+               lands, so it is what the guide has to show. */
+            target = cell;
             if (!cell) {
-              armed = null;
               showGuide(null);
               emit('dragging');
               return point;
@@ -1776,23 +3157,17 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
               proximityRange: near
             } = live.current;
             if (cell.d <= tol) {
-              armed = cell;
-              showGuide(cell, true);
+              showGuide(cell, 'armed');
               emit('snapReady');
-              /* Drift toward the slot — a hint, not a commitment. */
+              /* Drift toward the slot. A hint that it is about to land there,
+                 not the decision — the operator still chooses by releasing. */
               return {
                 x: point.x + (cell.x - cx) * PULL,
                 y: point.y + (cell.y - cy) * PULL
               };
             }
-            armed = null;
-            if (cell.d <= near) {
-              showGuide(cell, false);
-              emit('proximity');
-            } else {
-              showGuide(null);
-              emit('dragging');
-            }
+            showGuide(cell, cell.d <= near ? 'near' : 'far');
+            emit(cell.d <= near ? 'proximity' : 'dragging');
             return point;
           }
         },
@@ -1804,15 +3179,34 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
           /* Recomputed per drag: which cells are free depends on where every
              other Agent is right now. */
           points = freePoints(agent.id);
-          armed = null;
+          target = null;
           setDragId(agent.id);
+          setDragAt({
+            id: agent.id,
+            x: home.x,
+            y: home.y
+          });
           emit('dragging');
         },
+        onDrag() {
+          /* A bond anchored to the Agent's committed cell stays behind while the
+             Agent moves, leaving a gold stub pointing at where it used to be.
+             Publishing the live position lets the caller draw the bond to where
+             the Agent actually is. */
+          setDragAt({
+            id: agent.id,
+            x: home.x + this.x,
+            y: home.y + this.y
+          });
+        },
         onRelease() {
-          const cell = armed;
-          armed = null;
+          /* Fall back to a fresh lookup: liveSnap is not guaranteed to have run
+             on the final frame of a very short drag. */
+          const cell = target || nearest(points, home.x + this.x, home.y + this.y);
+          target = null;
           showGuide(null);
           setDragId(null);
+          setDragAt(null);
           emit('idle');
           const commit = live.current.onChange;
           if (!cell || !commit || cell.col === agent.col && cell.row === agent.row) {
@@ -1897,6 +3291,33 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
     onSelectionChange(hits);
   };
 
+  /* Every Agent's position in lattice space — the space HexCenter returns and
+     the bonds layer is offset into. The Agent being dragged reports where it is
+     now, not where it was committed. */
+  const positions = React.useMemo(() => {
+    const map = {};
+    agents.forEach(a => {
+      const p = at(a.col, a.row);
+      map[a.id] = {
+        x: p.x - origin.x,
+        y: p.y - origin.y
+      };
+    });
+    if (dragAt && map[dragAt.id]) {
+      map[dragAt.id] = {
+        x: dragAt.x - origin.x,
+        y: dragAt.y - origin.y
+      };
+    }
+    return map;
+  }, [agents, dragAt, at, origin.x, origin.y]);
+
+  /* `bonds` may be a node (fixed) or a function of the live positions. The
+     function form is what keeps a bond attached to a moving Agent. */
+  const bondNodes = typeof bonds === 'function' ? bonds(positions, {
+    draggingId: dragId
+  }) : bonds;
+
   /* Centroid of the selection, for placing the floating group action. */
   const groupAnchor = React.useMemo(() => {
     if (multi.length < 2) return null;
@@ -1966,7 +3387,7 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
     onPointerMove: onFieldPointerMove,
     onPointerUp: onFieldPointerUp,
     onPointerCancel: onFieldPointerUp
-  }, rest), bonds ? /*#__PURE__*/React.createElement("div", {
+  }, rest), bondNodes ? /*#__PURE__*/React.createElement("div", {
     className: "lamp-snapfield__bonds",
     style: {
       position: 'absolute',
@@ -1974,7 +3395,7 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
       top: origin.y,
       pointerEvents: 'none'
     }
-  }, bonds) : null, groupOutline ? /*#__PURE__*/React.createElement("span", {
+  }, bondNodes) : null, groupOutline ? /*#__PURE__*/React.createElement("span", {
     className: "lamp-snapfield__outline",
     style: groupOutline
   }) : null, /*#__PURE__*/React.createElement("div", {
@@ -1992,10 +3413,12 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
       zIndex: 2
     }
   }, /*#__PURE__*/React.createElement(__ds_scope.SnapGuide, {
+    shape: "hex",
     rect: {
       position: 'absolute',
       inset: 0,
-      clipPath: HEX_CLIP
+      width: '100%',
+      height: '100%'
     }
   })), agents.map(a => {
     const isDrag = dragId === a.id;
@@ -2049,83 +3472,8 @@ const SnapField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(f
 }), {
   displayName: 'SnapField'
 });
-Object.assign(__ds_scope, { SnapField });
+Object.assign(__ds_scope, { freeCells, freeCellAt, FreeCells, FreeCellAt, SnapField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/canvas/SnapField.jsx", error: String((e && e.message) || e) }); }
-
-// components/core/Button.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Button = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Button({
-  variant = 'secondary',
-  size = 'md',
-  icon,
-  iconRight,
-  loading = false,
-  disabled = false,
-  block = false,
-  shortcut,
-  children,
-  className = '',
-  ...rest
-}, ref) {
-  const cls = ['lamp-btn', 'lamp-btn--' + variant, 'lamp-btn--' + size, block && 'lamp-btn--block', loading && 'lamp-btn--loading', className].filter(Boolean).join(' ');
-  const glyph = size === 'lg' ? 16 : 14;
-  return /*#__PURE__*/React.createElement("button", _extends({
-    ref: ref,
-    type: "button",
-    className: cls,
-    disabled: disabled || loading,
-    "aria-busy": loading || undefined
-  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: glyph
-  }) : icon : null, children, iconRight ? typeof iconRight === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: iconRight,
-    size: glyph
-  }) : iconRight : null, shortcut ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-btn__kbd"
-  }, shortcut) : null, loading ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-btn__spin"
-  }, /*#__PURE__*/React.createElement("i", null)) : null);
-}), {
-  displayName: 'Button'
-});
-const SplitButton = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SplitButton({
-  variant = 'secondary',
-  size = 'md',
-  icon,
-  children,
-  onMenu,
-  menuLabel = 'More actions',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: "lamp-split"
-  }, /*#__PURE__*/React.createElement(Button, _extends({
-    variant: variant,
-    size: size,
-    icon: icon
-  }, rest), children), /*#__PURE__*/React.createElement(Button, {
-    variant: variant,
-    size: size,
-    onClick: onMenu,
-    "aria-label": menuLabel,
-    icon: "keyboard_arrow_down"
-  }));
-}), {
-  displayName: 'SplitButton'
-});
-Object.assign(__ds_scope, { Button, SplitButton });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
 
 // components/chat/ChatMessage.jsx
 try { (() => {
@@ -2821,46 +4169,6 @@ const Panel = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(funct
 Object.assign(__ds_scope, { Panel });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Panel.jsx", error: String((e && e.message) || e) }); }
 
-// components/core/Tag.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Tag = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Tag({
-  icon,
-  mono = false,
-  onRemove,
-  children,
-  className = '',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("span", _extends({
-    ref: ref,
-    className: ['lamp-tag', mono && 'lamp-tag--mono', className].filter(Boolean).join(' ')
-  }, rest), icon ? typeof icon === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: 12
-  }) : icon : null, children, onRemove ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-tag__x",
-    "aria-label": "Remove",
-    onClick: onRemove
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "close",
-    size: 10
-  })) : null);
-}), {
-  displayName: 'Tag'
-});
-Object.assign(__ds_scope, { Tag });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Tag.jsx", error: String((e && e.message) || e) }); }
-
 // components/core/Tooltip.jsx
 try { (() => {
 function _extends() {
@@ -3555,48 +4863,6 @@ const ContextBreakdown = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwa
 });
 Object.assign(__ds_scope, { ContextBreakdown });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/ContextBreakdown.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Checkbox.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Checkbox = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Checkbox({
-  label,
-  description,
-  indeterminate = false,
-  disabled = false,
-  className = '',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: ['lamp-check', disabled && 'lamp-check--disabled', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    ref: ref,
-    type: "checkbox",
-    disabled: disabled
-  }, rest)), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__box"
-  }, indeterminate ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "remove",
-    size: 12
-  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "check",
-    size: 12
-  })), label ? /*#__PURE__*/React.createElement("span", null, label, description ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-check__desc"
-  }, description) : null) : null);
-}), {
-  displayName: 'Checkbox'
-});
-Object.assign(__ds_scope, { Checkbox });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/DataTable.jsx
 try { (() => {
@@ -4771,198 +6037,6 @@ const ToastStack = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(
 Object.assign(__ds_scope, { InlineNotification, Toast, ToastStack });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/InlineNotification.jsx", error: String((e && e.message) || e) }); }
 
-// components/feedback/Modal.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Modal = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Modal({
-  open = true,
-  title,
-  subtitle,
-  glyph,
-  size = 'md',
-  critical = false,
-  footer,
-  onClose,
-  children,
-  className = '',
-  ...rest
-}, ref) {
-  if (!open) return null;
-  const width = size === 'sm' ? 'var(--modal-width-sm)' : size === 'lg' ? 'var(--modal-width-lg)' : 'var(--modal-width-md)';
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: "lamp-scrim",
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-modal', critical && 'lamp-modal--critical', className].filter(Boolean).join(' '),
-    style: {
-      width
-    },
-    role: critical ? 'alertdialog' : 'dialog',
-    "aria-modal": "true",
-    "aria-label": title,
-    onClick: e => e.stopPropagation()
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-modal__head"
-  }, glyph ? /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: glyph,
-    size: 18,
-    style: {
-      marginTop: 2,
-      color: critical ? 'var(--status-danger)' : 'var(--text-secondary)'
-    }
-  }) : null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "lamp-modal__title"
-  }, title), subtitle ? /*#__PURE__*/React.createElement("p", {
-    className: "lamp-modal__sub"
-  }, subtitle) : null), onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "close",
-    label: "Close",
-    size: "sm",
-    onClick: onClose
-  }) : null), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-modal__body"
-  }, children), footer ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-modal__foot"
-  }, footer) : null));
-}), {
-  displayName: 'Modal'
-});
-const CriticalConfirmation = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function CriticalConfirmation({
-  open = true,
-  title,
-  consequences = [],
-  scope,
-  confirmLabel = 'Confirm',
-  cancelLabel = 'Cancel',
-  onCancel,
-  onConfirm,
-  children,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement(Modal, _extends({
-    ref: ref,
-    open: open,
-    critical: true,
-    glyph: "dangerous",
-    size: "sm",
-    title: title,
-    onClose: onCancel,
-    footer: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(__ds_scope.Button, {
-      size: "md",
-      variant: "secondary",
-      onClick: onCancel
-    }, cancelLabel), /*#__PURE__*/React.createElement(__ds_scope.Button, {
-      size: "md",
-      variant: "danger",
-      onClick: onConfirm
-    }, confirmLabel))
-  }, rest), scope ? /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: '0 0 8px',
-      color: 'var(--text-primary)'
-    }
-  }, scope) : null, consequences.length ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: '0 0 4px'
-    }
-  }, "Immediately:"), /*#__PURE__*/React.createElement("ul", {
-    style: {
-      margin: 0,
-      paddingLeft: 18,
-      lineHeight: '19px'
-    }
-  }, consequences.map(c => /*#__PURE__*/React.createElement("li", {
-    key: c
-  }, c)))) : null, children);
-}), {
-  displayName: 'CriticalConfirmation'
-});
-const Drawer = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Drawer({
-  open = true,
-  title,
-  side = 'right',
-  width,
-  actions,
-  footer,
-  onClose,
-  children,
-  className = '',
-  ...rest
-}, ref) {
-  if (!open) return null;
-  return /*#__PURE__*/React.createElement("aside", _extends({
-    ref: ref,
-    className: ['lamp-drawer', side === 'left' && 'lamp-drawer--left', className].filter(Boolean).join(' '),
-    style: width ? {
-      width
-    } : undefined,
-    role: "dialog",
-    "aria-label": title
-  }, rest), /*#__PURE__*/React.createElement("header", {
-    className: "lamp-drawer__head"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-drawer__title"
-  }, title), /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 'auto',
-      display: 'flex',
-      gap: 2
-    }
-  }, actions, onClose ? /*#__PURE__*/React.createElement(__ds_scope.IconButton, {
-    icon: "close",
-    label: "Close",
-    size: "sm",
-    onClick: onClose
-  }) : null)), /*#__PURE__*/React.createElement("div", {
-    className: "lamp-drawer__body"
-  }, children), footer ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-modal__foot"
-  }, footer) : null);
-}), {
-  displayName: 'Drawer'
-});
-const Popover = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Popover({
-  title,
-  children,
-  x,
-  y,
-  className = '',
-  style,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: 'lamp-popover ' + className,
-    style: {
-      position: x != null ? 'absolute' : undefined,
-      left: x,
-      top: y,
-      ...style
-    },
-    role: "dialog"
-  }, rest), title ? /*#__PURE__*/React.createElement("div", {
-    className: "lamp-popover__head"
-  }, title) : null, children);
-}), {
-  displayName: 'Popover'
-});
-Object.assign(__ds_scope, { Modal, CriticalConfirmation, Drawer, Popover });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Modal.jsx", error: String((e && e.message) || e) }); }
-
 // components/feedback/Skeleton.jsx
 try { (() => {
 function _extends() {
@@ -5151,129 +6225,6 @@ const Field = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(funct
 });
 Object.assign(__ds_scope, { Field });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Field.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/TextInput.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const TextInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TextInput({
-  size = 'md',
-  icon,
-  suffix,
-  trailing,
-  mono = false,
-  state = 'default',
-  disabled = false,
-  readOnly = false,
-  loading = false,
-  className = '',
-  ...rest
-}, ref) {
-  const [focus, setFocus] = React.useState(false);
-  const cls = ['lamp-inputwrap', 'lamp-inputwrap--' + size, focus && 'lamp-inputwrap--focus', state !== 'default' && 'lamp-inputwrap--' + state, disabled && 'lamp-inputwrap--disabled', readOnly && 'lamp-inputwrap--readonly', mono && 'lamp-inputwrap--mono', className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React.createElement("div", {
-    className: cls
-  }, icon ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-inputwrap__icon"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: icon,
-    size: 14
-  })) : null, /*#__PURE__*/React.createElement("input", _extends({
-    ref: ref,
-    className: "lamp-input",
-    disabled: disabled,
-    readOnly: readOnly,
-    onFocus: () => setFocus(true),
-    onBlur: () => setFocus(false),
-    "aria-invalid": state === 'error' || undefined
-  }, rest)), loading ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-inputwrap__icon"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "progress_activity",
-    size: 14
-  })) : null, suffix ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-inputwrap__suffix"
-  }, suffix) : null, trailing);
-}), {
-  displayName: 'TextInput'
-});
-const SearchInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SearchInput({
-  placeholder = 'Search',
-  shortcut,
-  size = 'md',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement(TextInput, _extends({
-    ref: ref,
-    icon: "search",
-    placeholder: placeholder,
-    size: size,
-    trailing: shortcut ? /*#__PURE__*/React.createElement("span", {
-      className: "lamp-inputwrap__suffix",
-      style: {
-        fontFamily: 'var(--font-mono)',
-        fontSize: 11
-      }
-    }, shortcut) : null
-  }, rest));
-}), {
-  displayName: 'SearchInput'
-});
-const NumberInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function NumberInput({
-  suffix,
-  step = 1,
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement(TextInput, _extends({
-    ref: ref,
-    type: "number",
-    step: step,
-    suffix: suffix,
-    mono: true
-  }, rest));
-}), {
-  displayName: 'NumberInput'
-});
-const SecretField = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function SecretField({
-  value = '',
-  revealed: revealedProp,
-  onReveal,
-  expiring = false,
-  ...rest
-}, ref) {
-  const [revealed, setRevealed] = React.useState(!!revealedProp);
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: "lamp-secret"
-  }, rest), /*#__PURE__*/React.createElement(TextInput, {
-    mono: true,
-    readOnly: true,
-    value: revealed ? value : '••••••••••••••••',
-    state: expiring ? 'warning' : 'default'
-  }), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "lamp-iconbtn lamp-iconbtn--md lamp-iconbtn--bordered",
-    "aria-label": revealed ? 'Hide value' : 'Reveal value',
-    onClick: () => {
-      setRevealed(!revealed);
-      onReveal && onReveal(!revealed);
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: revealed ? 'visibility_off' : 'visibility',
-    size: 14
-  })));
-}), {
-  displayName: 'SecretField'
-});
-Object.assign(__ds_scope, { TextInput, SearchInput, NumberInput, SecretField });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TextInput.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/KeyValueInput.jsx
 try { (() => {
@@ -5479,50 +6430,6 @@ const RadioGroup = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(
 Object.assign(__ds_scope, { Radio, RadioGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Radio.jsx", error: String((e && e.message) || e) }); }
 
-// components/forms/Select.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Select = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Select({
-  options = [],
-  size = 'md',
-  placeholder,
-  className = '',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: ['lamp-select', size === 'sm' && 'lamp-select--sm', className].filter(Boolean).join(' ')
-  }, /*#__PURE__*/React.createElement("select", _extends({
-    ref: ref
-  }, rest), placeholder ? /*#__PURE__*/React.createElement("option", {
-    value: ""
-  }, placeholder) : null, options.map(o => {
-    const v = typeof o === 'string' ? o : o.value;
-    const l = typeof o === 'string' ? o : o.label;
-    return /*#__PURE__*/React.createElement("option", {
-      key: v,
-      value: v,
-      disabled: typeof o === 'object' && o.disabled
-    }, l);
-  })), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-select__chev"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "keyboard_arrow_down",
-    size: 14
-  })));
-}), {
-  displayName: 'Select'
-});
-Object.assign(__ds_scope, { Select });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
-
 // components/forms/Slider.jsx
 try { (() => {
 function _extends() {
@@ -5597,92 +6504,6 @@ const Switch = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(func
 });
 Object.assign(__ds_scope, { Switch });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/TagInput.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const TagInput = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function TagInput({
-  values = [],
-  onChange,
-  placeholder = 'Add…',
-  mono = false,
-  ...rest
-}, ref) {
-  const [focus, setFocus] = React.useState(false);
-  const [draft, setDraft] = React.useState('');
-  const commit = () => {
-    const t = draft.trim();
-    if (!t) return;
-    onChange && onChange([...values, t]);
-    setDraft('');
-  };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: ['lamp-taginput', focus && 'lamp-taginput--focus'].filter(Boolean).join(' ')
-  }, rest), values.map((v, i) => /*#__PURE__*/React.createElement(__ds_scope.Tag, {
-    key: v + i,
-    mono: mono,
-    onRemove: () => onChange && onChange(values.filter((_, j) => j !== i))
-  }, v)), /*#__PURE__*/React.createElement("input", {
-    ref: ref,
-    value: draft,
-    placeholder: placeholder,
-    onFocus: () => setFocus(true),
-    onBlur: () => {
-      setFocus(false);
-      commit();
-    },
-    onChange: e => setDraft(e.target.value),
-    onKeyDown: e => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        commit();
-      }
-      if (e.key === 'Backspace' && !draft && values.length) onChange && onChange(values.slice(0, -1));
-    }
-  }));
-}), {
-  displayName: 'TagInput'
-});
-Object.assign(__ds_scope, { TagInput });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
-
-// components/forms/Textarea.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const Textarea = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function Textarea({
-  mono = false,
-  state = 'default',
-  rows = 4,
-  className = '',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("textarea", _extends({
-    ref: ref,
-    rows: rows,
-    className: ['lamp-textarea', mono && 'lamp-textarea--mono', state === 'error' && 'lamp-textarea--error', className].filter(Boolean).join(' '),
-    "aria-invalid": state === 'error' || undefined
-  }, rest));
-}), {
-  displayName: 'Textarea'
-});
-Object.assign(__ds_scope, { Textarea });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
 
 // components/inspector/InspectorField.jsx
 try { (() => {
@@ -7566,6 +8387,22 @@ function _extends() {
     return n;
   }, _extends.apply(null, arguments);
 }
+/* Distance from a flat-top hexagon's centre to its boundary along `angle`.
+   A hexagon is not a circle: that distance runs from the apothem (h/2, toward a
+   flat side) out to the circumradius (w/2, toward a point), and a bond trimmed
+   by a single radius is visibly short in one direction and visibly buried in the
+   other. Edge normals sit at 30° + k·60° for a flat-top hexagon, so the reach in
+   any direction is the apothem over the cosine of the angle to the nearest one. */
+function hexReach(w, h, angle) {
+  const sixty = Math.PI / 3;
+  const thirty = Math.PI / 6;
+  let rel = ((angle - thirty) % sixty + sixty) % sixty;
+  if (rel > thirty) rel -= sixty;
+  const apothem = h / 2;
+  /* Clamped to the circumradius: floating-point angles near a vertex can push
+     the cosine far enough toward zero to send the reach to infinity. */
+  return Math.min(apothem / Math.cos(rel), w / 2);
+}
 const BOND_STROKE = {
   valid: 'var(--bond-edge-confirmed)',
   incomplete: 'var(--bond-edge)',
@@ -7583,6 +8420,7 @@ const BOND_STROKE = {
 const BondEdge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function BondEdge({
   from,
   to,
+  size = 'md',
   state = 'valid',
   energy = false,
   environment = 'draft',
@@ -7596,17 +8434,46 @@ const BondEdge = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(fu
     x: (from.x + to.x) / 2,
     y: (from.y + to.y) / 2
   };
-  // Agents touch edge-to-edge, so a centre-to-centre line would sit under their fills.
-  // The bond is drawn as a short seam marker straddling the shared edge instead.
-  const t = 0.34;
-  const a = {
-    x: from.x + (to.x - from.x) * t,
-    y: from.y + (to.y - from.y) * t
-  };
-  const b = {
-    x: to.x + (from.x - to.x) * t,
-    y: to.y + (from.y - to.y) * t
-  };
+
+  /* Where the line starts and ends, which depends entirely on whether the two
+     Agents are touching.
+      Touching (gap 0–2), a centre-to-centre line would run under both fills, so
+     the bond is a short seam marker straddling the shared edge. Spaced apart, it
+     is a real connector and has to reach from one hexagon's boundary to the
+     other's — trimmed by each hexagon's reach along the line, plus a small gap
+     so the stroke does not touch the outline.
+      Drawing the seam marker at every gap is what leaves a bond hanging in open
+     space between two distant Agents, attached to neither. */
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const span = Math.hypot(dx, dy) || 1;
+  const angle = Math.atan2(dy, dx);
+  const [hw, hh] = __ds_scope.AGENT_SIZES[size] || __ds_scope.AGENT_SIZES.md;
+  const PAD = 3;
+  const reachFrom = hexReach(hw, hh, angle) + PAD;
+  const reachTo = hexReach(hw, hh, angle + Math.PI) + PAD;
+  let a;
+  let b;
+  if (span - reachFrom - reachTo < 6) {
+    const t = 0.34;
+    a = {
+      x: from.x + dx * t,
+      y: from.y + dy * t
+    };
+    b = {
+      x: to.x - dx * t,
+      y: to.y - dy * t
+    };
+  } else {
+    a = {
+      x: from.x + dx / span * reachFrom,
+      y: from.y + dy / span * reachFrom
+    };
+    b = {
+      x: to.x - dx / span * reachTo,
+      y: to.y - dy / span * reachTo
+    };
+  }
   const spark = environment === 'simulation' ? 'var(--simulation-energy)' : 'var(--energy-bright)';
   return /*#__PURE__*/React.createElement("g", _extends({
     ref: ref,
@@ -8071,142 +8938,6 @@ const SkillOrb = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(fu
 });
 Object.assign(__ds_scope, { SKILL_SIZES, SkillOrb });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/SkillOrb.jsx", error: String((e && e.message) || e) }); }
-
-// components/objects/ToolTile.jsx
-try { (() => {
-function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function (n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-    }
-    return n;
-  }, _extends.apply(null, arguments);
-}
-const TOOL_SIZES = {
-  sm: 24,
-  md: 32,
-  lg: 40,
-  xl: 48
-};
-const STATE_STATUS = {
-  available: null,
-  connected: 'success',
-  authorizationRequired: 'attention',
-  expired: 'attention',
-  healthy: 'success',
-  degraded: 'attention',
-  error: 'error',
-  readOnly: null,
-  writeEnabled: null,
-  blocked: 'blocked',
-  disabled: 'disabled'
-};
-const ToolTile = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolTile({
-  size = 'md',
-  state = 'connected',
-  provider,
-  glyph = 'extension',
-  name,
-  brandColor,
-  onClick,
-  className = '',
-  style,
-  ...rest
-}, ref) {
-  const px = TOOL_SIZES[size] || TOOL_SIZES.md;
-  const dot = STATE_STATUS[state];
-  return /*#__PURE__*/React.createElement("span", _extends({
-    ref: ref,
-    className: ['lamp-tool', 'lamp-tool--' + state, onClick && 'lamp-tool--interactive', className].filter(Boolean).join(' '),
-    style: {
-      width: px,
-      height: px,
-      ...style
-    },
-    onClick: onClick,
-    role: onClick ? 'button' : 'img',
-    "aria-label": (name || provider || 'Tool') + ' Tool',
-    tabIndex: onClick ? 0 : undefined,
-    title: name || provider
-  }, rest), provider ? /*#__PURE__*/React.createElement(__ds_scope.BrandIcon, {
-    slug: provider,
-    size: px <= 24 ? 14 : px <= 32 ? 18 : 22,
-    color: brandColor
-  }) : /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: glyph,
-    size: px <= 24 ? 14 : px <= 32 ? 18 : 22
-  }), dot ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-tool__dot"
-  }, /*#__PURE__*/React.createElement(__ds_scope.StatusDot, {
-    status: dot
-  })) : null);
-}), {
-  displayName: 'ToolTile'
-});
-const ToolRow = /* @__PURE__ */Object.assign(/* @__PURE__ */React.forwardRef(function ToolRow({
-  provider,
-  glyph,
-  name,
-  account,
-  state = 'connected',
-  permission,
-  usedBy,
-  lastActivity,
-  health,
-  risk,
-  actions,
-  onClick,
-  className = '',
-  ...rest
-}, ref) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: 'lamp-toolrow ' + className,
-    onClick: onClick
-  }, rest), /*#__PURE__*/React.createElement(ToolTile, {
-    provider: provider,
-    glyph: glyph,
-    name: name,
-    state: state
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 1,
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__name"
-  }, name), account ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__sub"
-  }, account) : null), /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__right"
-  }, permission ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
-    outline: true
-  }, permission) : null, risk ? /*#__PURE__*/React.createElement(__ds_scope.Badge, {
-    tone: risk === 'High' ? 'danger' : risk === 'Medium' ? 'warning' : 'neutral'
-  }, risk, " risk") : null, usedBy != null ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__sub"
-  }, "Used by ", usedBy) : null, health ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__sub",
-    style: {
-      fontFamily: 'var(--font-mono)'
-    }
-  }, health) : null, lastActivity ? /*#__PURE__*/React.createElement("span", {
-    className: "lamp-toolrow__sub",
-    style: {
-      fontFamily: 'var(--font-mono)'
-    }
-  }, lastActivity) : null, /*#__PURE__*/React.createElement(__ds_scope.StatusBadge, {
-    status: state === 'connected' || state === 'healthy' ? 'success' : state === 'error' ? 'error' : state === 'blocked' ? 'blocked' : 'attention',
-    label: state === 'authorizationRequired' ? 'Auth required' : state === 'expired' ? 'Expired' : state === 'degraded' ? 'Degraded' : state === 'connected' ? 'Connected' : undefined
-  }), actions));
-}), {
-  displayName: 'ToolRow'
-});
-Object.assign(__ds_scope, { TOOL_SIZES, ToolTile, ToolRow });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/objects/ToolTile.jsx", error: String((e && e.message) || e) }); }
 
 // components/patterns/BusinessProcess.jsx
 try { (() => {
@@ -11137,13 +11868,37 @@ __ds_ns.Icon = __ds_scope.Icon;
 
 __ds_ns.BrandIcon = __ds_scope.BrandIcon;
 
-__ds_ns.CanvasContextMenu = __ds_scope.CanvasContextMenu;
+__ds_ns.Badge = __ds_scope.Badge;
+
+__ds_ns.TextInput = __ds_scope.TextInput;
+
+__ds_ns.SearchInput = __ds_scope.SearchInput;
+
+__ds_ns.NumberInput = __ds_scope.NumberInput;
+
+__ds_ns.SecretField = __ds_scope.SecretField;
+
+__ds_ns.STATUS = __ds_scope.STATUS;
+
+__ds_ns.StatusDot = __ds_scope.StatusDot;
+
+__ds_ns.StatusBadge = __ds_scope.StatusBadge;
+
+__ds_ns.AGENT_SIZES = __ds_scope.AGENT_SIZES;
+
+__ds_ns.AgentHex = __ds_scope.AgentHex;
 
 __ds_ns.GSAP_CDN = __ds_scope.GSAP_CDN;
 
 __ds_ns.GSAP_EASE = __ds_scope.GSAP_EASE;
 
 __ds_ns.GSAP_DURATION = __ds_scope.GSAP_DURATION;
+
+__ds_ns.AGENT_ARCHETYPES = __ds_scope.AGENT_ARCHETYPES;
+
+__ds_ns.AgentLibrary = __ds_scope.AgentLibrary;
+
+__ds_ns.CanvasContextMenu = __ds_scope.CanvasContextMenu;
 
 __ds_ns.CanvasSurface = __ds_scope.CanvasSurface;
 
@@ -11161,27 +11916,45 @@ __ds_ns.CanvasObjectToolbar = __ds_scope.CanvasObjectToolbar;
 
 __ds_ns.CanvasMinimap = __ds_scope.CanvasMinimap;
 
-__ds_ns.STATUS = __ds_scope.STATUS;
+__ds_ns.Button = __ds_scope.Button;
 
-__ds_ns.StatusDot = __ds_scope.StatusDot;
+__ds_ns.SplitButton = __ds_scope.SplitButton;
 
-__ds_ns.StatusBadge = __ds_scope.StatusBadge;
+__ds_ns.Modal = __ds_scope.Modal;
 
-__ds_ns.Badge = __ds_scope.Badge;
+__ds_ns.CriticalConfirmation = __ds_scope.CriticalConfirmation;
 
-__ds_ns.AGENT_SIZES = __ds_scope.AGENT_SIZES;
+__ds_ns.Drawer = __ds_scope.Drawer;
 
-__ds_ns.AgentHex = __ds_scope.AgentHex;
+__ds_ns.Popover = __ds_scope.Popover;
+
+__ds_ns.Textarea = __ds_scope.Textarea;
+
+__ds_ns.Select = __ds_scope.Select;
+
+__ds_ns.Tag = __ds_scope.Tag;
+
+__ds_ns.TagInput = __ds_scope.TagInput;
+
+__ds_ns.Checkbox = __ds_scope.Checkbox;
+
+__ds_ns.TOOL_SIZES = __ds_scope.TOOL_SIZES;
+
+__ds_ns.ToolTile = __ds_scope.ToolTile;
+
+__ds_ns.ToolRow = __ds_scope.ToolRow;
+
+__ds_ns.NewAgentDialog = __ds_scope.NewAgentDialog;
 
 __ds_ns.HexLattice = __ds_scope.HexLattice;
 
 __ds_ns.HexCenter = __ds_scope.HexCenter;
 
+__ds_ns.FreeCells = __ds_scope.FreeCells;
+
+__ds_ns.FreeCellAt = __ds_scope.FreeCellAt;
+
 __ds_ns.SnapField = __ds_scope.SnapField;
-
-__ds_ns.Button = __ds_scope.Button;
-
-__ds_ns.SplitButton = __ds_scope.SplitButton;
 
 __ds_ns.ChatAvatar = __ds_scope.ChatAvatar;
 
@@ -11208,8 +11981,6 @@ __ds_ns.Card = __ds_scope.Card;
 __ds_ns.EnvironmentPill = __ds_scope.EnvironmentPill;
 
 __ds_ns.Panel = __ds_scope.Panel;
-
-__ds_ns.Tag = __ds_scope.Tag;
 
 __ds_ns.Tooltip = __ds_scope.Tooltip;
 
@@ -11238,8 +12009,6 @@ __ds_ns.BarChart = __ds_scope.BarChart;
 __ds_ns.StackedBar = __ds_scope.StackedBar;
 
 __ds_ns.ContextBreakdown = __ds_scope.ContextBreakdown;
-
-__ds_ns.Checkbox = __ds_scope.Checkbox;
 
 __ds_ns.DataTable = __ds_scope.DataTable;
 
@@ -11275,14 +12044,6 @@ __ds_ns.Toast = __ds_scope.Toast;
 
 __ds_ns.ToastStack = __ds_scope.ToastStack;
 
-__ds_ns.Modal = __ds_scope.Modal;
-
-__ds_ns.CriticalConfirmation = __ds_scope.CriticalConfirmation;
-
-__ds_ns.Drawer = __ds_scope.Drawer;
-
-__ds_ns.Popover = __ds_scope.Popover;
-
 __ds_ns.Skeleton = __ds_scope.Skeleton;
 
 __ds_ns.Spinner = __ds_scope.Spinner;
@@ -11290,14 +12051,6 @@ __ds_ns.Spinner = __ds_scope.Spinner;
 __ds_ns.CodeFrame = __ds_scope.CodeFrame;
 
 __ds_ns.Field = __ds_scope.Field;
-
-__ds_ns.TextInput = __ds_scope.TextInput;
-
-__ds_ns.SearchInput = __ds_scope.SearchInput;
-
-__ds_ns.NumberInput = __ds_scope.NumberInput;
-
-__ds_ns.SecretField = __ds_scope.SecretField;
 
 __ds_ns.KeyValueInput = __ds_scope.KeyValueInput;
 
@@ -11309,15 +12062,9 @@ __ds_ns.Radio = __ds_scope.Radio;
 
 __ds_ns.RadioGroup = __ds_scope.RadioGroup;
 
-__ds_ns.Select = __ds_scope.Select;
-
 __ds_ns.Slider = __ds_scope.Slider;
 
 __ds_ns.Switch = __ds_scope.Switch;
-
-__ds_ns.TagInput = __ds_scope.TagInput;
-
-__ds_ns.Textarea = __ds_scope.Textarea;
 
 __ds_ns.InspectorField = __ds_scope.InspectorField;
 
@@ -11402,12 +12149,6 @@ __ds_ns.PlaybookCluster = __ds_scope.PlaybookCluster;
 __ds_ns.SKILL_SIZES = __ds_scope.SKILL_SIZES;
 
 __ds_ns.SkillOrb = __ds_scope.SkillOrb;
-
-__ds_ns.TOOL_SIZES = __ds_scope.TOOL_SIZES;
-
-__ds_ns.ToolTile = __ds_scope.ToolTile;
-
-__ds_ns.ToolRow = __ds_scope.ToolRow;
 
 __ds_ns.BUSINESS_PROCESSES = __ds_scope.BUSINESS_PROCESSES;
 

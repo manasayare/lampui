@@ -10,6 +10,55 @@
 
 import * as React from 'react';
 
+/* canvas/AgentLibrary.d.ts */
+export interface AgentArchetype {
+  id: string;
+  /** Pre-fills the dialog's name. The operator is expected to correct it —
+   *  "Specialist" is a template, "Invoice Matcher" is an Agent. */
+  name: string;
+  role?: AgentRole;
+  /** Material Symbols name shown in the list and on the drag ghost. */
+  glyph?: string;
+  purpose?: string;
+  skills?: string[];
+  /** Tool providers this archetype usually touches, as Simple Icons slugs. */
+  tools?: string[];
+  /** Pre-ticks the human checkpoint in the dialog. */
+  checkpoint?: boolean;
+  /** Heading it is filed under. Groups appear in first-seen order. */
+  group?: string;
+}
+
+/** The nine starting archetypes: four roles, four finance Agents, one for
+ *  customer operations. Replace wholesale via `archetypes`. */
+export declare const AGENT_ARCHETYPES: AgentArchetype[];
+
+/**
+ * @startingPoint section="Canvas" subtitle="Drag an Agent out of the library onto the canvas" viewport="320x520"
+ */
+export interface AgentLibraryProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onDrop'> {
+  archetypes?: AgentArchetype[];
+  /** Size of the drag ghost. Match the SnapField it is dropped onto, so the
+   *  operator is aiming the object at its real size against the real spacing. */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  title?: string;
+  searchable?: boolean;
+  /** Ref to the drop surface — normally the SnapField. A release outside its
+   *  box is ignored, so dragging an item back into the panel cancels. */
+  dropTarget?: React.RefObject<HTMLElement | null>;
+  /** The click and Enter path. Every creation route in LAMP has a non-drag one;
+   *  this should open the same dialog, at a cell you pick. */
+  onAdd?: (archetype: AgentArchetype) => void;
+  /** Released inside the drop target. `point` is in the target's own
+   *  coordinates — resolve it with `freeCellAt` and open `NewAgentDialog`.
+   *
+   *  It deliberately does not create an Agent: an Agent that appears the instant
+   *  a pointer is released is an Agent nobody named. */
+  onDrop?: (archetype: AgentArchetype, point: { x: number; y: number }) => void;
+  disabled?: boolean;
+}
+export declare const AgentLibrary: React.ForwardRefExoticComponent<AgentLibraryProps & React.RefAttributes<HTMLDivElement>>;
+
 /* canvas/CanvasContextMenu.d.ts */
 export interface MenuItemDef { id: string; label: string; icon?: string; shortcut?: string; danger?: boolean; disabled?: boolean }
 export interface CanvasContextMenuProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
@@ -112,6 +161,10 @@ export interface SnapGuideProps {
   invalid?: boolean;
   /** snap = dashed gold outline at the snap slot · drop = filled drop preview */
   kind?: 'snap' | 'drop';
+  /** hex draws a real hexagon outline as SVG — use it for a lattice slot. A
+   *  bordered box behind a hexagonal clip-path keeps only fragments of its
+   *  border and reads as debris rather than a target. */
+  shape?: 'rect' | 'hex';
 }
 export declare const SnapGuide: React.ForwardRefExoticComponent<SnapGuideProps & React.RefAttributes<HTMLSpanElement>>;
 
@@ -144,6 +197,44 @@ export interface CanvasMinimapProps extends React.HTMLAttributes<HTMLDivElement>
 }
 export declare const CanvasMinimap: React.ForwardRefExoticComponent<CanvasMinimapProps & React.RefAttributes<HTMLDivElement>>;
 
+/* canvas/NewAgentDialog.d.ts */
+export interface NewAgentDraft {
+  name: string;
+  role: AgentRole;
+  purpose: string;
+  skills: string[];
+  /** Tool providers, as Simple Icons slugs. */
+  tools: string[];
+  /** A person decides before this Agent acts. */
+  checkpoint: boolean;
+  /** Always 'propose' — a new Agent never arrives able to act. Raising it is a
+   *  separate, deliberate decision in the Inspector. */
+  authority: 'propose';
+  /** Always 'unconfigured' — it has a name and a purpose, not yet a prompt. */
+  state: 'unconfigured';
+  col: number;
+  row: number;
+}
+
+/**
+ * @startingPoint section="Canvas" subtitle="Name a dropped Agent before it exists" viewport="640x640"
+ */
+export interface NewAgentDialogProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCreate'> {
+  open?: boolean;
+  /** The dropped archetype. Everything is pre-filled from it, so the operator
+   *  confirms and corrects rather than authoring from blank. */
+  archetype?: AgentArchetype | null;
+  /** Where it will land — already resolved by `freeCellAt` at the drop. Shown,
+   *  not asked. */
+  cell?: { col: number; row: number } | null;
+  /** Tools offered as toggles. Provider slugs plus display names. */
+  availableTools?: Array<{ id?: string; provider?: string; name?: string; state?: string }>;
+  /** Confirmed. The draft is ready to append to a SnapField's agents array. */
+  onCreate?: (draft: NewAgentDraft) => void;
+  onCancel?: () => void;
+}
+export declare const NewAgentDialog: React.ForwardRefExoticComponent<NewAgentDialogProps & React.RefAttributes<HTMLDivElement>>;
+
 /* canvas/SnapField.d.ts */
 export interface SnapFieldAgent {
   id: string;
@@ -162,6 +253,37 @@ export interface SnapFieldAgent {
   tools?: string[];
   [key: string]: any;
 }
+
+export interface FieldGeometry {
+  agents?: Array<{ id?: string; col: number; row: number }>;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  gap?: number;
+  width?: number;
+  height?: number;
+  origin?: { x: number; y: number };
+  /** Agent id whose own cell stays a candidate — used while dragging it. */
+  exclude?: string | null;
+}
+
+export interface FreeCell {
+  col: number;
+  row: number;
+  /** Centre, in the field's own coordinates. */
+  x: number;
+  y: number;
+}
+
+/** Every free lattice cell of a field, as pixel points. Cells holding an Agent
+ *  are omitted, which is why nothing placed by this math can overlap. */
+export declare function freeCells(opts: FieldGeometry): FreeCell[];
+
+/** The free cell nearest a point in field coordinates — the other half of
+ *  AgentLibrary's `onDrop`, which reports exactly that point. Null only when the
+ *  field is completely full. */
+export declare function freeCellAt(
+  point: { x: number; y: number },
+  opts: FieldGeometry,
+): (FreeCell & { d: number }) | null;
 
 export interface SnapFieldFlags {
   dragging: boolean;
@@ -200,8 +322,23 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   proximityRange?: number;
   /** (agent, flags) => node. Return an AgentHex. */
   renderAgent: (agent: SnapFieldAgent, flags: SnapFieldFlags) => React.ReactNode;
-  /** BondLayer positioned at the lattice origin. */
-  bonds?: React.ReactNode;
+  /** BondLayer positioned at the lattice origin.
+   *
+   *  As a node it is fixed, so a bond drawn from an Agent's committed cell stays
+   *  behind while that Agent is dragged — a gold stub pointing at where it used
+   *  to be. Pass a function instead and it is called with every Agent's live
+   *  position (in the same space HexCenter returns), so bonds follow the drag:
+   *
+   *    bonds={(pos) => (
+   *      <BondLayer>
+   *        <BondEdge from={pos.intake} to={pos.matcher} state="valid" />
+   *      </BondLayer>
+   *    )}
+   */
+  bonds?: React.ReactNode | ((
+    positions: Record<string, { x: number; y: number }>,
+    info: { draggingId: string | null },
+  ) => React.ReactNode);
   /** Single selection — the Inspector's subject. */
   selectedId?: string;
   onSelect?: (agent: SnapFieldAgent) => void;
@@ -223,6 +360,13 @@ export interface SnapFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement
   readOnly?: boolean;
 }
 export declare const SnapField: React.ForwardRefExoticComponent<SnapFieldProps & React.RefAttributes<HTMLDivElement>>;
+
+/** Capitalized aliases, reachable on the design-system namespace. */
+export declare function FreeCells(opts: FieldGeometry): FreeCell[];
+export declare function FreeCellAt(
+  point: { x: number; y: number },
+  opts: FieldGeometry,
+): (FreeCell & { d: number }) | null;
 
 /* chat/AgentChat.d.ts */
 /**
@@ -1812,6 +1956,10 @@ export interface BondEdgeProps {
   /** Lattice-space point — from hexCenter(col,row). */
   from: { x: number; y: number };
   to: { x: number; y: number };
+  /** The size of the two Agents, so the line can be trimmed to their boundaries.
+   *  Must match the lattice, or a bond either stops short of its Agents or runs
+   *  under their fills. Default md. */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /** Confirmed bonds are solid gold; suggested and learned bonds are dashed violet. */
   state?: BondState;
   /** Travelling spark — only while that bond is actually carrying execution. */

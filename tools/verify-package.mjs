@@ -262,6 +262,58 @@ if (existsSync(DIST)) {
         + '" for ' + composer.outcomes + ' Agents');
     }
 
+    /* Library -> dialog -> canvas. Dropping must open a dialog rather than
+       creating anything, the dialog must refuse an unnamed Agent, and
+       confirming must put a real Agent on the lattice without overlapping. */
+    await page.keyboard.press('Escape');
+    await page.click('.lamp-scrim', { position: { x: 5, y: 5 } }).catch(() => {});
+    await page.waitForTimeout(400);
+
+    const item = await page.$('.lamp-agentlib__item');
+    const field = await page.$('.lamp-snapfield');
+    if (!item || !field) {
+      failures.push('AgentLibrary or SnapField missing from the example app');
+    } else {
+      const countBefore = await page.$$eval('.lamp-snapfield__slot', (els) => els.length);
+      const ib = await item.boundingBox();
+      const fb = await field.boundingBox();
+      await page.mouse.move(ib.x + ib.width / 2, ib.y + ib.height / 2);
+      await page.mouse.down();
+      await page.mouse.move(fb.x + 300, fb.y + 260, { steps: 20 });
+      await page.mouse.up();
+      await page.waitForTimeout(500);
+
+      const dialog = await page.$('.lamp-newagent');
+      const countAfterDrop = await page.$$eval('.lamp-snapfield__slot', (els) => els.length);
+      if (!dialog) {
+        failures.push('dropping from AgentLibrary did not open NewAgentDialog');
+      } else if (countAfterDrop !== countBefore) {
+        failures.push('dropping created an Agent before it was named');
+      } else {
+        const nameInput = await page.$('.lamp-newagent input#na-name');
+        const cellShown = await page.$('.lamp-newagent__cell');
+        await nameInput.fill('');
+        await page.waitForTimeout(150);
+        const blocked = await page.$eval('.lamp-newagent__foot button:last-child, .lamp-modal__foot button:last-child',
+          (b) => b.disabled);
+        await nameInput.fill('Duplicate Checker');
+        await page.waitForTimeout(150);
+        await page.click('.lamp-modal__foot button:last-child');
+        await page.waitForTimeout(900);
+
+        const slots = await page.$$eval('.lamp-snapfield__slot', (els) =>
+          els.map((e) => e.style.left + ',' + e.style.top));
+        const named = await page.$$eval('.lamp-snapfield__slot', (els) =>
+          els.some((e) => (e.innerText || '').includes('Duplicate Checker')));
+        if (!cellShown) failures.push('NewAgentDialog did not show the cell the drop resolved to');
+        else if (!blocked) failures.push('NewAgentDialog allowed an Agent with no name');
+        else if (slots.length !== countBefore + 1 || !named) failures.push('confirming NewAgentDialog did not add the Agent');
+        else if (slots.length !== new Set(slots).size) failures.push('a new Agent was placed on top of an existing one');
+        else console.log('ok    library -> dialog -> canvas: unnamed refused, named Agent landed on a free cell ('
+          + countBefore + ' -> ' + slots.length + ')');
+      }
+    }
+
     const real = errors.filter((e) => !/favicon/i.test(e));
     if (real.length) failures.push('console errors: ' + real.slice(0, 2).join(' | '));
   } catch (e) {

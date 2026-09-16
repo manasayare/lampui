@@ -5,11 +5,13 @@
  * design-system bundle. */
 
 /* canvas */
+export { AGENT_ARCHETYPES, AgentLibrary } from '../../../project/components/canvas/AgentLibrary.jsx';
 export { CanvasContextMenu } from '../../../project/components/canvas/CanvasContextMenu.jsx';
 export { GSAP_CDN, GSAP_EASE, GSAP_DURATION, setGsap, loadGsap, useGsap, prefersReducedMotion } from '../../../project/components/canvas/CanvasMotion.jsx';
 export { CanvasSurface, SnapGuide } from '../../../project/components/canvas/CanvasSurface.jsx';
 export { CanvasToolbar, CanvasZoomControls, CanvasObjectToolbar, CanvasMinimap } from '../../../project/components/canvas/CanvasToolbar.jsx';
-export { SnapField } from '../../../project/components/canvas/SnapField.jsx';
+export { NewAgentDialog } from '../../../project/components/canvas/NewAgentDialog.jsx';
+export { FreeCells, FreeCellAt, SnapField, freeCells, freeCellAt } from '../../../project/components/canvas/SnapField.jsx';
 
 /* chat */
 export { ChatStatus, AgentChat } from '../../../project/components/chat/AgentChat.jsx';

@@ -149,7 +149,22 @@ try {
   const boxes = await page.$$eval('.lamp-snapfield__slot .lamp-agent__hex', (els) =>
     els.map((e) => { const r = e.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; }));
 
-  /* 1. Refusal: drag Agent 0 directly on top of Agent 1. It must not land there. */
+  /* The lattice is a honeycomb, so one column left is also half a row up for an
+     odd column. Both steps are read off the rendered Agents rather than assumed:
+     Agents 0 and 1 are in adjacent columns of the same row, so their x gap is
+     one column and their y gap is half a row. */
+  const stepX = Math.abs(boxes[1].x - boxes[0].x);
+  const halfRow = Math.abs(boxes[1].y - boxes[0].y);
+  const onLattice = (slot, origin) => {
+    const dx = (parseFloat(slot.left) - parseFloat(origin.left)) / stepX;
+    const dy = (parseFloat(slot.top) - parseFloat(origin.top)) / halfRow;
+    const near = (v) => Math.abs(v - Math.round(v)) < 0.02;
+    return near(dx) && near(dy);
+  };
+
+  /* 1. No overlap: drag Agent 0 directly on top of Agent 1. Agent 1's cell is
+        not a candidate at all, so Agent 0 has to land on a free one — it is
+        never left on top, and it is never refused outright either. */
   await page.mouse.move(boxes[0].x, boxes[0].y);
   await page.mouse.down();
   await page.mouse.move(boxes[1].x, boxes[1].y, { steps: 24 });
@@ -160,28 +175,19 @@ try {
   const cells = afterRefuse.map((s) => s.left + ',' + s.top);
   if (cells.length !== new Set(cells).size) {
     failures.push({ card: 'snapfield drag', errors: ['two Agents ended in the same cell: ' + cells.join(' | ')] });
-  } else if (JSON.stringify(afterRefuse) !== JSON.stringify(before)) {
-    failures.push({ card: 'snapfield drag', errors: ['drag onto an occupied cell moved the Agent instead of returning it'] });
+  } else if (!onLattice(afterRefuse[0], before[1])) {
+    failures.push({
+      card: 'snapfield drag',
+      errors: ['drag onto an occupied cell settled off-lattice at ' + afterRefuse[0].left + ',' + afterRefuse[0].top],
+    });
   } else {
-    console.log('ok    snapfield — drag onto an occupied cell is refused, Agent returns home');
+    console.log('ok    snapfield — drag onto an occupied cell lands on a free one, never on top ('
+      + before[0].left + ' -> ' + afterRefuse[0].left + ')');
   }
 
   /* 2. Acceptance: drag the last Agent to the adjacent free cell, releasing
         deliberately off-centre. It must move, and must land exactly on a lattice
-        cell rather than where the pointer was.
-
-        The lattice is a honeycomb, so one column left is also half a row up for
-        an odd column. Both steps are read off the rendered Agents rather than
-        assumed: Agents 0 and 1 are in adjacent columns of the same row, so their
-        x gap is one column and their y gap is half a row. */
-  const stepX = Math.abs(boxes[1].x - boxes[0].x);
-  const halfRow = Math.abs(boxes[1].y - boxes[0].y);
-  const onLattice = (slot, origin) => {
-    const dx = (parseFloat(slot.left) - parseFloat(origin.left)) / stepX;
-    const dy = (parseFloat(slot.top) - parseFloat(origin.top)) / halfRow;
-    const near = (v) => Math.abs(v - Math.round(v)) < 0.02;
-    return near(dx) && near(dy);
-  };
+        cell rather than where the pointer was. */
 
   const last = boxes.length - 1;
   await page.mouse.move(boxes[last].x, boxes[last].y);
@@ -208,6 +214,39 @@ try {
   } else {
     console.log('ok    snapfield — released 11px off, snapped onto the lattice ('
       + afterRefuse[last].left + ' -> ' + afterSnap[last].left + ')');
+  }
+
+  /* 3. A drag always lands. Release into open canvas, deliberately in the dead
+        zone between lattice centres — further from every centre than both
+        snapTolenance and proximityRange. This used to return the Agent home,
+        which from the operator's side is indistinguishable from the object
+        being stuck. It must commit, on-lattice. */
+  const afterSnapBoxes = await page.$$eval('.lamp-snapfield__slot .lamp-agent__hex', (els) =>
+    els.map((e) => { const r = e.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; }));
+  await page.mouse.move(afterSnapBoxes[0].x, afterSnapBoxes[0].y);
+  await page.mouse.down();
+  await page.mouse.move(afterSnapBoxes[0].x + stepX * 2.5, afterSnapBoxes[0].y + halfRow * 3, { steps: 24 });
+  await page.mouse.up();
+  await page.waitForTimeout(900);
+
+  const afterFar = await slots();
+  const cells3 = afterFar.map((s) => s.left + ',' + s.top);
+  if (cells3.length !== new Set(cells3).size) {
+    failures.push({ card: 'snapfield drag', errors: ['far drop produced overlapping Agents'] });
+  } else if (afterFar[0].left === afterSnap[0].left && afterFar[0].top === afterSnap[0].top) {
+    failures.push({
+      card: 'snapfield drag',
+      errors: ['release into open canvas was silently undone — the Agent snapped back to '
+        + afterFar[0].left + ',' + afterFar[0].top],
+    });
+  } else if (!onLattice(afterFar[0], afterFar[1])) {
+    failures.push({
+      card: 'snapfield drag',
+      errors: ['far drop settled off-lattice at ' + afterFar[0].left + ',' + afterFar[0].top],
+    });
+  } else {
+    console.log('ok    snapfield — released in open canvas between cells, still landed ('
+      + afterSnap[0].left + ' -> ' + afterFar[0].left + ')');
   }
 
   if (dragErrors.length) failures.push({ card: 'snapfield drag', errors: dragErrors.slice(0, 3) });

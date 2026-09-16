@@ -31,5 +31,9 @@ export interface SnapGuideProps {
   invalid?: boolean;
   /** snap = dashed gold outline at the snap slot · drop = filled drop preview */
   kind?: 'snap' | 'drop';
+  /** hex draws a real hexagon outline as SVG — use it for a lattice slot. A
+   *  bordered box behind a hexagonal clip-path keeps only fragments of its
+   *  border and reads as debris rather than a target. */
+  shape?: 'rect' | 'hex';
 }
 export declare const SnapGuide: React.ForwardRefExoticComponent<SnapGuideProps & React.RefAttributes<HTMLSpanElement>>;

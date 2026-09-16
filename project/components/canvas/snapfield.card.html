@@ -33,8 +33,8 @@ const TOOLS = [
 
 const STATUS = {
   idle:       'Drag any Agent, or focus one and use the arrow keys',
-  dragging:   'Dragging — no free slot in range',
-  proximity:  'Slot nearby',
+  dragging:   'Release anywhere — it lands on the outlined slot',
+  proximity:  'Near a free slot',
   snapReady:  'Release to snap',
 };
 
@@ -70,10 +70,14 @@ function Demo(){
         selectable selectedIds={picked} onSelectionChange={setPicked}
         onGroup={(ids)=>setComposing(ids)}
         onSnapStateChange={setSnap}
-        bonds={<BondLayer width={460} height={220}>{BONDS.filter(b=>by[b[0]]&&by[b[1]]).map(b=>{
+        /* bonds in its function form. As a fixed node a bond stays anchored to
+           the cell the Agent was committed to, leaving a gold stub behind while
+           it is dragged away; given the live positions it follows the drag. */
+        bonds={(pos, { draggingId }) => <BondLayer width={660} height={380}>{BONDS.filter(b=>pos[b[0]]&&pos[b[1]]).map(b=>{
           const A = by[b[0]], B = by[b[1]];
           const near = Math.abs(A.col-B.col) <= 1 && Math.abs(A.row-B.row) <= 1;
-          return near ? <BondEdge key={b.join()} from={HexCenter(A.col,A.row,size,gap)} to={HexCenter(B.col,B.row,size,gap)} state="valid" /> : null;
+          const moving = draggingId === b[0] || draggingId === b[1];
+          return near || moving ? <BondEdge key={b.join()} size={size} from={pos[b[0]]} to={pos[b[1]]} state={moving ? 'preview' : 'valid'} /> : null;
         })}</BondLayer>}
         renderAgent={(a,f)=>(
           <AgentHex size={size} detail={f.dragging?'glyph':'name'} name={a.name} role={a.role}

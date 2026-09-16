@@ -3,14 +3,15 @@ import {
   AppShell, GlobalHeader, WorkspaceSwitcher, Breadcrumb, EnvironmentPill, StatusBar,
   SideNav, NavSection, NavItem,
   Button, Kbd,
-  CanvasSurface, SnapField,
-  AgentHex, BondLayer, BondEdge, HexCenter,
+  CanvasSurface, SnapField, AgentLibrary, NewAgentDialog, freeCellAt,
+  AgentHex, BondLayer, BondEdge,
   InspectorPanel, InspectorSection, InspectorField, InspectorFooter, PropertyRow,
   TextInput, Select,
   MemoryScopeBar, ContextBreakdown,
   PlaybookComposer, GenieBlueprint, BuildGenie, BUSINESS_PROCESSES,
   Modal, InlineNotification, StatusBadge,
   type SnapFieldAgent, type ComposedPlaybook, type GenieBlueprintModel,
+  type AgentArchetype, type FreeCell,
 } from '@lamp/design-system';
 
 /* A small but real builder screen, assembled only from package exports.
@@ -35,9 +36,9 @@ const TOOLS = [
 ];
 
 const HINT: Record<string, string> = {
-  idle: 'Drag an Agent, or drag on empty canvas to select',
-  dragging: 'No free slot in range',
-  proximity: 'Slot nearby',
+  idle: 'Drag an Agent from the library, or drag on empty canvas to select',
+  dragging: 'Release anywhere — it lands on the outlined slot',
+  proximity: 'Near a free slot',
   snapReady: 'Release to snap',
 };
 
@@ -49,9 +50,17 @@ export function App() {
   const [composing, setComposing] = React.useState<string[] | null>(null);
   const [blueprint, setBlueprint] = React.useState<GenieBlueprintModel | null>(null);
   const [created, setCreated] = React.useState<{ name: string; connectors: unknown[] } | null>(null);
+  /* An Agent dropped but not yet named. Nothing exists until the dialog is
+     confirmed — the cell is already resolved, so the dialog only names it. */
+  const [pending, setPending] = React.useState<{ archetype: AgentArchetype; cell: FreeCell | null } | null>(null);
+  const fieldRef = React.useRef<HTMLDivElement>(null);
 
   const size = 'md' as const;
   const gap = 40;
+  const origin = { x: 90, y: 80 };
+  const geometry = { agents, size, gap, width: 900, height: 520, origin };
+  const openNew = (archetype: AgentArchetype, point: { x: number; y: number }) =>
+    setPending({ archetype, cell: freeCellAt(point, geometry) });
   const by: Record<string, SnapFieldAgent> = {};
   agents.forEach((a) => { by[a.id] = a; });
   const agent = by[selected];
@@ -73,14 +82,28 @@ export function App() {
         />
       }
       rail={
-        <SideNav>
-          <NavSection label="Genie">
-            <NavItem icon="hive" label="Finance" active />
-            <NavItem icon="layers" label="Vendor payment" />
-            <NavItem icon="database" label="Memory" meta="612" />
-            <NavItem icon="handyman" label="Tools" meta="9" />
-          </NavSection>
-        </SideNav>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0, height: '100%', width: 264 }}>
+          {/* flex:none, or SideNav's own flex:1 takes the whole rail and leaves
+              the library squeezed against the status bar. */}
+          <SideNav style={{ flex: 'none' }}>
+            <NavSection label="Genie">
+              <NavItem icon="hive" label="Finance" active />
+              <NavItem icon="layers" label="Vendor payment" />
+              <NavItem icon="database" label="Memory" meta="612" />
+              <NavItem icon="handyman" label="Tools" meta="9" />
+            </NavSection>
+          </SideNav>
+          <div style={{ flex: 1, minHeight: 0, padding: '4px 8px 8px' }}>
+            <AgentLibrary
+              size={size}
+              dropTarget={fieldRef}
+              onDrop={openNew}
+              /* The non-drag path. Every creation route in LAMP has one. */
+              onAdd={(a) => openNew(a, { x: geometry.width / 2, y: geometry.height / 2 })}
+              style={{ height: '100%' }}
+            />
+          </div>
+        </div>
       }
       dock={
         <InspectorPanel
@@ -130,12 +153,13 @@ export function App() {
     >
       <CanvasSurface pannable grid="dots" environment="draft" style={{ minHeight: 0 }}>
         <SnapField
+          ref={fieldRef}
           agents={agents}
           size={size}
           gap={gap}
           width={900}
           height={520}
-          origin={{ x: 90, y: 80 }}
+          origin={origin}
           onChange={setAgents}
           selectedId={selected}
           onSelect={(a) => setSelected(a.id)}
@@ -144,23 +168,27 @@ export function App() {
           onSelectionChange={setPicked}
           onGroup={(ids) => setComposing(ids)}
           onSnapStateChange={setSnap}
-          bonds={
-            <BondLayer width={520} height={260}>
+          /* The function form, so a bond follows the Agent it is attached to
+             instead of staying anchored to the cell it was committed at. */
+          bonds={(pos, { draggingId }) => (
+            <BondLayer width={900} height={520}>
               {BONDS.map((b) => {
                 const A = by[b[0]];
                 const B = by[b[1]];
                 const adjacent = Math.abs(A.col - B.col) <= 1 && Math.abs(A.row - B.row) <= 1;
-                return adjacent ? (
+                const moving = draggingId === b[0] || draggingId === b[1];
+                return adjacent || moving ? (
                   <BondEdge
                     key={b.join()}
-                    from={HexCenter(A.col, A.row, size, gap)}
-                    to={HexCenter(B.col, B.row, size, gap)}
-                    state="valid"
+                    size={size}
+                    from={pos[b[0]]}
+                    to={pos[b[1]]}
+                    state={moving ? 'preview' : 'valid'}
                   />
                 ) : null;
               })}
             </BondLayer>
-          }
+          )}
           renderAgent={(a, flags) => (
             <AgentHex
               size={size}
@@ -177,6 +205,21 @@ export function App() {
           )}
         />
       </CanvasSurface>
+
+      {pending ? (
+        <NewAgentDialog
+          archetype={pending.archetype}
+          cell={pending.cell}
+          availableTools={TOOLS}
+          onCancel={() => setPending(null)}
+          onCreate={(draft) => {
+            const id = draft.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + agents.length;
+            setAgents(agents.concat([{ id, ...draft }]));
+            setSelected(id);
+            setPending(null);
+          }}
+        />
+      ) : null}
 
       {composing ? (
         <PlaybookComposer
