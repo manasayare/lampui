@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAMP Architecture</title>
+  <style>
+    :root {
+      --data: #2b6cb0; --proc: #c05621; --ai: #6b46c1; --ok: #276749;
+      --ink: #1a202c; --muted: #4a5568; --line: #e2e8f0; --soft: #f7fafc;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; color: var(--ink); line-height: 1.55; background: #fff; }
+    h1 { background: linear-gradient(135deg, #4c51bf 0%, #6b46c1 100%); color: white; padding: 30px; border-radius: 10px; margin: 0 0 8px; font-size: 30px; }
+    h1 small { display: block; font-size: 15px; font-weight: 400; opacity: .9; margin-top: 8px; }
+    h2 { border-bottom: 3px solid #4c51bf; padding-bottom: 6px; margin-top: 0; }
+    h3 { margin: 22px 0 8px; }
+    .meta { color: var(--muted); font-size: 13px; margin: 0 0 24px 4px; }
+    .section { margin: 40px 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+    nav a { font-size: 13px; text-decoration: none; color: #553c9a; background: #faf5ff; border: 1px solid #e9d8fd; padding: 5px 12px; border-radius: 999px; }
+    svg { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: var(--soft); }
+    .card .ct { margin: 0 0 6px; font-size: 15px; }
+    .card p, .card ul { margin: 0; font-size: 14px; color: var(--muted); }
+    .card ul { padding-left: 18px; }
+    .card.data { border-color: var(--data); } .card.data .ct { color: var(--data); }
+    .card.proc { border-color: var(--proc); } .card.proc .ct { color: var(--proc); }
+    .card.ai { border-color: var(--ai); } .card.ai .ct { color: var(--ai); }
+    .card.ok { border-color: var(--ok); } .card.ok .ct { color: var(--ok); }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 10px 0; }
+    th, td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
+    th { background: #edf2f7; }
+    code { background: #edf2f7; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+    .layer { border-radius: 8px; padding: 12px 16px; margin: 8px 0; color: #fff; }
+    .layer b { display: block; font-size: 15px; margin-bottom: 6px; }
+    .layer span { display: inline-block; background: rgba(0,0,0,.18); border-radius: 5px; padding: 3px 9px; margin: 3px 4px 3px 0; font-size: 13px; }
+    .l-out { background: var(--ok); } .l-svc { background: #4c51bf; } .l-ker { background: var(--proc); }
+    .l-mod { background: #9c4221; } .l-ai { background: var(--ai); } .l-data { background: var(--data); } .l-ops { background: #4a5568; }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+    .note { background: #fffaf0; border: 1px solid #fbd38d; border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+    .wrap { overflow-x: auto; }
+    @media (max-width: 600px) { body { padding: 16px; } h1 { padding: 20px; font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <h1>LAMP - Architecture Overview
+    <small>An agent-run operating system for Indian MSMEs: one Business Tree, deterministic Runs, agents inside Tasks, its own System of Record.</small>
+  </h1>
+  <p class="meta">Agentic Genie LLP · Source: <code>CONTEXT.md</code>, <code>docs/adr/0001</code> to <code>0029</code>, <code>infra/compose</code>, <code>packs/</code> · State of <code>main</code> at 739cec6, 2026-10-04</p>
+
+  <nav>
+    <a href="#context">1 Business context</a>
+    <a href="#flow">2 Data flow</a>
+    <a href="#pipeline">3 Processing pipeline</a>
+    <a href="#system">4 System architecture</a>
+    <a href="#features">5 Features</a>
+    <a href="#deploy">6 Deployment</a>
+  </nav>
+
+  <!-- 1. Business Context -->
+  <div class="section" id="context">
+    <h2>1. Business context</h2>
+    <p>LAMP runs a small manufacturer's whole business as one system. The business is described as a <b>Business Tree</b> (Functions, Processes, Activities, Tasks). <b>Value Streams</b> cut across the tree and execute as <b>Runs</b>. Agents do the work inside Tasks; people confirm what matters through chat, Telegram or the Cockpit. The first vertical is make-to-order (MTO) manufacturing in India.</p>
+    <div class="grid">
+      <div class="card data">
+        <h3 class="ct">Objectives</h3>
+        <ul>
+          <li>Give an Owner a deterministic yardstick for how the business runs (ADR-0005).</li>
+          <li>Replace the ERP: own System of Record, Ledgers and statutory Documents (ADR-0007).</li>
+          <li>Keep model cost at or under about 15% of the subscription (ADR-0009).</li>
+          <li>Ship the same Cell as SaaS and as licensed on-prem (ADR-0008).</li>
+        </ul>
+      </div>
+      <div class="card proc">
+        <h3 class="ct">Users</h3>
+        <ul>
+          <li><b>Owner</b>: approves, sets Roles and Approval Rules, accepts Tree Changes.</li>
+          <li><b>Staff</b>: work from Telegram, web chat and the Floor view.</li>
+          <li><b>Counterparties</b>: customers and suppliers who receive Documents and messages.</li>
+          <li><b>The CA</b>: receives GSTR-1, ITC-04, GSTR-3B and TDS files.</li>
+          <li><b>External Assistants</b>: MCP clients acting for a signed-in person.</li>
+        </ul>
+      </div>
+      <div class="card ai">
+        <h3 class="ct">Value</h3>
+        <ul>
+          <li>Order to cash, procurement, production, quality, maintenance, HR, payroll, accounts and compliance in one flow.</li>
+          <li>GST, e-way bill, PF, ESI, PT and TDS rules as dated pack data kept current by Rule Watch (ADR-0015).</li>
+          <li>Every agent action explainable and in the append-only Audit Log.</li>
+          <li>English and Hindi throughout.</li>
+        </ul>
+      </div>
+      <div class="card ok">
+        <h3 class="ct">Metrics and thresholds</h3>
+        <ul>
+          <li>Critical Case pass rate: 100% (money, stock, statutory data, Counterparty messages).</li>
+          <li>Non-critical first-try eval pass rate: 90% or more.</li>
+          <li>Earned Autonomy: 8 passes and Wilson lower bound 0.97 for Auto.</li>
+          <li>RPO 5 minutes or less, RTO 4 hours or less per Cell (ADR-0018).</li>
+          <li>Plans: Starter ₹2,999, Growth ₹9,999, Pro ₹12,499 a month plus GST (ADR-0016).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Data Flow -->
+  <div class="section" id="flow">
+    <h2>2. Data flow</h2>
+    <p>Everything enters through one door: the <b>Application API</b>. Every call is authorised as a person or the System Actor. The Run interpreter decides the route; agents only turn fuzzy input into structured data. State lands in the System of Record and the Ledgers, and leaves as Documents, messages and export files.</p>
+    <div class="legend">
+      <span><i style="background:#2b6cb0"></i>Data sources and stores</span>
+      <span><i style="background:#c05621"></i>Processing</span>
+      <span><i style="background:#6b46c1"></i>AI</span>
+      <span><i style="background:#276749"></i>Outputs</span>
+    </div>
+    <div class="wrap">
+    <svg viewBox="0 0 1120 520" role="img" aria-label="Data flow from channels through the Application API, Run interpreter and agents to records, ledgers and outputs">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+        </marker>
+      </defs>
+      <text x="100" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d3748">Sources</text>
+      <text x="560" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d3748">Processing in the Cell</text>
+      <text x="1010" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#2d3748">Outputs</text>
+
+      <!-- sources -->
+      <g font-size="13" fill="#fff" text-anchor="middle">
+        <rect x="20" y="40" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="62">Cockpit and web chat</text><text x="100" y="79" font-size="11">apps/web, same origin</text>
+        <rect x="20" y="104" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="126">Telegram</text><text x="100" y="143" font-size="11">1:1 and Channel Groups</text>
+        <rect x="20" y="168" width="160" height="52" rx="8" fill="#2b6cb0" stroke="#1a365d" stroke-dasharray="5 4" stroke-width="2"/><text x="100" y="190">WhatsApp Cloud API</text><text x="100" y="207" font-size="11">pending Meta (#124)</text>
+        <rect x="20" y="232" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="254">External Assistants</text><text x="100" y="271" font-size="11">MCP, in-Cell OAuth</text>
+        <rect x="20" y="296" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="318">Photos, PDFs, imports</text><text x="100" y="335" font-size="11">POs, bills, registers</text>
+        <rect x="20" y="360" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="382">Schedules and timers</text><text x="100" y="399" font-size="11">pg-boss, Clock port</text>
+        <rect x="20" y="424" width="160" height="52" rx="8" fill="#2b6cb0"/><text x="100" y="446">Razorpay webhooks</text><text x="100" y="463" font-size="11">subscriptions, Credits</text>
+      </g>
+
+      <!-- application api -->
+      <rect x="250" y="40" width="130" height="436" rx="10" fill="#c05621"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="315" y="225" font-size="15" font-weight="700">Application</text>
+        <text x="315" y="244" font-size="15" font-weight="700">API</text>
+        <text x="315" y="268" font-size="11">Hono + zod-openapi</text>
+        <text x="315" y="284" font-size="11">authorize() on</text>
+        <text x="315" y="298" font-size="11">every command</text>
+        <text x="315" y="322" font-size="11">Tenant routing</text>
+        <text x="315" y="336" font-size="11">(ADR-0025)</text>
+      </g>
+
+      <!-- runs -->
+      <rect x="440" y="60" width="240" height="120" rx="10" fill="#c05621"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="560" y="86" font-size="15" font-weight="700">Run interpreter (kernel)</text>
+        <text x="560" y="108" font-size="12">Value Stream graph + route rules</text>
+        <text x="560" y="126" font-size="12">Work Items, Deviations, Escalations</text>
+        <text x="560" y="144" font-size="12">pinned to the Run's tree version</text>
+        <text x="560" y="164" font-size="11">T0: no model chooses the route</text>
+      </g>
+
+      <!-- agents -->
+      <rect x="440" y="220" width="240" height="110" rx="10" fill="#6b46c1"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="560" y="246" font-size="15" font-weight="700">Agents inside Tasks</text>
+        <text x="560" y="268" font-size="12">Playbooks, smallest tool set per Task</text>
+        <text x="560" y="286" font-size="12">Output Contract must pass</text>
+        <text x="560" y="310" font-size="11">ModelGateway port</text>
+      </g>
+
+      <!-- litellm -->
+      <rect x="440" y="372" width="240" height="84" rx="10" fill="#6b46c1"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="560" y="398" font-size="15" font-weight="700">LiteLLM gateway</text>
+        <text x="560" y="418" font-size="12">tiers t1 / t2 / t3, mTLS only</text>
+        <text x="560" y="436" font-size="12">Model Budget and Credits per Tenant</text>
+      </g>
+
+      <!-- stores -->
+      <rect x="740" y="60" width="150" height="120" rx="10" fill="#2b6cb0"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="815" y="92" font-size="14" font-weight="700">System of Record</text>
+        <text x="815" y="114" font-size="12">Business Objects</text>
+        <text x="815" y="132" font-size="12">typed commands</text>
+        <text x="815" y="150" font-size="12">Postgres + RLS</text>
+      </g>
+      <rect x="740" y="220" width="150" height="110" rx="10" fill="#2b6cb0"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="815" y="252" font-size="14" font-weight="700">Ledgers</text>
+        <text x="815" y="274" font-size="12">money and stock</text>
+        <text x="815" y="292" font-size="12">Posting Rules</text>
+        <text x="815" y="310" font-size="12">Invariants</text>
+      </g>
+      <rect x="740" y="372" width="150" height="84" rx="10" fill="#2b6cb0"/>
+      <g fill="#fff" text-anchor="middle">
+        <text x="815" y="402" font-size="14" font-weight="700">Outbox events</text>
+        <text x="815" y="424" font-size="12">same transaction</text>
+        <text x="815" y="442" font-size="12">as the change</text>
+      </g>
+
+      <!-- outputs -->
+      <g font-size="13" fill="#fff" text-anchor="middle">
+        <rect x="940" y="40" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="63">Issued Documents</text><text x="1020" y="80" font-size="11">GST invoice PDF, challans</text>
+        <rect x="940" y="112" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="135">Channel messages</text><text x="1020" y="152" font-size="11">Message Templates, Ask first</text>
+        <rect x="940" y="184" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="207">Files for the CA</text><text x="1020" y="224" font-size="11">GSTR-1, ITC-04, TDS, ECR</text>
+        <rect x="940" y="256" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="279">Today and Insights</text><text x="1020" y="296" font-size="11">Decision Queue, KPIs</text>
+        <rect x="940" y="328" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="351">Audit Log</text><text x="1020" y="368" font-size="11">append-only</text>
+        <rect x="940" y="400" width="160" height="56" rx="8" fill="#276749"/><text x="1020" y="423">Accounting sync</text><text x="1020" y="440" font-size="11">Tally, tax providers</text>
+      </g>
+
+      <!-- arrows -->
+      <g stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)">
+        <path d="M180,66 L248,66"/><path d="M180,130 L248,130"/><path d="M180,194 L248,194" stroke-dasharray="5 4"/>
+        <path d="M180,258 L248,258"/><path d="M180,322 L248,322"/><path d="M180,386 L248,386"/><path d="M180,450 L248,450"/>
+        <path d="M380,120 L438,120"/>
+        <path d="M530,180 L530,218"/><path d="M590,220 L590,182"/>
+        <path d="M560,330 L560,370"/>
+        <path d="M680,120 L738,120"/>
+        <path d="M680,275 L738,275"/>
+        <path d="M815,180 L815,218"/>
+        <path d="M815,330 L815,370"/>
+        <path d="M890,90 L938,72"/><path d="M890,120 L938,140"/>
+        <path d="M890,260 L938,216"/><path d="M890,290 L938,286"/>
+        <path d="M890,400 L938,360"/><path d="M890,430 L938,430"/>
+      </g>
+      <g font-size="11" fill="#4a5568">
+        <text x="456" y="204">Task</text><text x="598" y="204">structured data</text>
+        <text x="568" y="355">model call</text>
+        <text x="690" y="112">commands</text>
+        <text x="822" y="204">post</text>
+      </g>
+    </svg>
+    </div>
+  </div>
+
+  <!-- 3. Processing Pipeline -->
+  <div class="section" id="pipeline">
+    <h2>3. Processing pipeline: one step of a Run</h2>
+    <p>Example: a customer order typed in chat becomes a sales order, a pick, a GST invoice PDF and Ledger postings. The same nine stages apply to every Value Stream.</p>
+    <div class="wrap">
+    <svg viewBox="0 0 1120 330" role="img" aria-label="Nine-stage pipeline of a Run step">
+      <defs>
+        <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+        </marker>
+      </defs>
+      <g font-size="12" text-anchor="middle" fill="#fff">
+        <!-- row 1 -->
+        <rect x="20" y="20" width="190" height="110" rx="10" fill="#2b6cb0"/>
+        <text x="115" y="46" font-size="14" font-weight="700">1. Message in</text>
+        <text x="115" y="68">Channel adapter receives</text><text x="115" y="84">text, photo or form</text><text x="115" y="106" font-size="11">content marked as data</text>
+
+        <rect x="245" y="20" width="190" height="110" rx="10" fill="#c05621"/>
+        <text x="340" y="46" font-size="14" font-weight="700">2. Identify and authorise</text>
+        <text x="340" y="68">one active Tenant per message</text><text x="340" y="84">Roles on tree nodes</text><text x="340" y="106" font-size="11">authorize(person, node, verb)</text>
+
+        <rect x="470" y="20" width="190" height="110" rx="10" fill="#6b46c1"/>
+        <text x="565" y="46" font-size="14" font-weight="700">3. Agent Task</text>
+        <text x="565" y="68">T1 intent and extraction</text><text x="565" y="84">T2 documents and drafting</text><text x="565" y="106" font-size="11">Playbook + allowed tools only</text>
+
+        <rect x="695" y="20" width="190" height="110" rx="10" fill="#6b46c1"/>
+        <text x="790" y="46" font-size="14" font-weight="700">4. Output Contract</text>
+        <text x="790" y="68">checked by registered text</text><text x="790" y="84">fail: one T3 retry,</text><text x="790" y="100">then Escalation</text>
+
+        <rect x="920" y="20" width="180" height="110" rx="10" fill="#c05621"/>
+        <text x="1010" y="46" font-size="14" font-weight="700">5. Route rules (T0)</text>
+        <text x="1010" y="68">conditions on object data</text><text x="1010" y="84">0 or 2+ matches: Run blocks</text><text x="1010" y="106" font-size="11">decided outside the lock</text>
+
+        <!-- row 2 -->
+        <rect x="920" y="190" width="180" height="110" rx="10" fill="#c05621"/>
+        <text x="1010" y="216" font-size="14" font-weight="700">6. Work Item</text>
+        <text x="1010" y="238">Autonomy Level: Ask or Auto</text><text x="1010" y="254">Approval Rules, Deviations</text><text x="1010" y="276" font-size="11">overdue items climb a ladder</text>
+
+        <rect x="695" y="190" width="190" height="110" rx="10" fill="#2b6cb0"/>
+        <text x="790" y="216" font-size="14" font-weight="700">7. Typed command</text>
+        <text x="790" y="238">records write + Posting Rules</text><text x="790" y="254">Ledger entry + outbox event</text><text x="790" y="276" font-size="11">one transaction, RLS on</text>
+
+        <rect x="470" y="190" width="190" height="110" rx="10" fill="#276749"/>
+        <text x="565" y="216" font-size="14" font-weight="700">8. Render and send</text>
+        <text x="565" y="238">worker prints PDF (Chromium,</text><text x="565" y="254">no JS, no network)</text><text x="565" y="276" font-size="11">Print Check, Channel send</text>
+
+        <rect x="245" y="190" width="190" height="110" rx="10" fill="#276749"/>
+        <text x="340" y="216" font-size="14" font-weight="700">9. Audit and learn</text>
+        <text x="340" y="238">Audit Log, traces, Credits</text><text x="340" y="254">track record feeds</text><text x="340" y="270">Earned Autonomy</text>
+      </g>
+      <g stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow2)">
+        <path d="M210,75 L243,75"/><path d="M435,75 L468,75"/><path d="M660,75 L693,75"/><path d="M885,75 L918,75"/>
+        <path d="M1010,130 L1010,188"/>
+        <path d="M920,245 L887,245"/><path d="M695,245 L662,245"/><path d="M470,245 L437,245"/>
+      </g>
+      <text x="115" y="230" font-size="12" fill="#4a5568" text-anchor="middle">Next Activity:</text>
+      <text x="115" y="248" font-size="12" fill="#4a5568" text-anchor="middle">back to stage 3 or 5</text>
+      <text x="115" y="266" font-size="12" fill="#4a5568" text-anchor="middle">until the Run ends</text>
+      <path d="M245,245 L190,245" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrow2)"/>
+    </svg>
+    </div>
+
+    <h3>Model tiers (ADR-0017)</h3>
+    <table>
+      <tr><th>Tier</th><th>Used for</th><th>Notes</th></tr>
+      <tr><td><b>T0</b> no model</td><td>Routes, rules, postings, rendering, templated sends</td><td>0.1 Credit per step</td></tr>
+      <tr><td><b>T1</b> small</td><td>Intent, Tenant selection, field extraction, chat replies, Hindi and Hinglish</td><td>Open-weight candidate qualified by the Eval Harness</td></tr>
+      <tr><td><b>T2</b> mid</td><td>Document photos and PDFs, quotation drafting, HSN suggestion, Deviation write-ups, tone judge</td><td>BOM and routing draft from a drawing</td></tr>
+      <tr><td><b>T3</b> frontier</td><td>New Value Streams, complex Tree Changes, one retry of a failed T2 contract</td><td>By exception only</td></tr>
+    </table>
+    <p class="note">When a Tenant's Credits run out, its Runs pause until refilled. All tiers route through OpenRouter zero-retention endpoints behind LiteLLM; LiteLLM publishes no host port.</p>
+  </div>
+
+  <!-- 4. System Architecture -->
+  <div class="section" id="system">
+    <h2>4. System architecture</h2>
+    <p>Three styles combined (ADR-0012): a <b>modular monolith</b> of bounded-context packages, <b>hexagonal</b> edges with one Application API and driven ports, and a <b>microkernel</b> (<code>tree</code> and <code>runs</code>) that executes content shipped as packs. A pnpm and Turborepo monorepo in strict TypeScript on Node 22.</p>
+
+    <h3>Layers</h3>
+    <div class="layer l-out"><b>Clients and Channels</b><span>Cockpit and web chat (React, apps/web)</span><span>Telegram (grammY)</span><span>WhatsApp Cloud API (pending)</span><span>MCP clients</span><span>Email (sign-in codes)</span></div>
+    <div class="layer l-svc"><b>Process roles (one image)</b><span>apps/api: Application API, auth, OAuth, MCP, signup, billing, web files</span><span>apps/worker: Run steps, agent Tasks, rendering, Channel sends</span></div>
+    <div class="layer l-ker"><b>Kernel</b><span>packages/tree: layered Business Tree, object model, packs, Tree Changes</span><span>packages/runs: Run interpreter, Work Items, Deviations, Escalations</span></div>
+    <div class="layer l-mod"><b>Modules</b><span>tenancy</span><span>access</span><span>records</span><span>ledgers</span><span>artifacts</span><span>conversations</span><span>audit</span><span>integrations</span><span>evals</span></div>
+    <div class="layer l-ai"><b>AI</b><span>packages/agents: agent loop, Playbooks</span><span>ModelGateway port</span><span>LiteLLM t1 / t2 / t3</span><span>Ollama (optional profile)</span></div>
+    <div class="layer l-data"><b>Data</b><span>Postgres, pooled Tenants, row-level security</span><span>PgBouncer (transaction pooling)</span><span>pg-boss queue (direct connection)</span><span>MinIO or S3 FileStore</span><span>per-Tenant field keys</span></div>
+    <div class="layer l-ops"><b>Operations</b><span>Cell CA and mutual TLS</span><span>pgBackRest + backup-store</span><span>OpenTelemetry collector</span><span>Prometheus</span><span>Loki</span><span>Grafana</span><span>Mailpit (dev)</span></div>
+
+    <h3>Module map and allowed dependencies</h3>
+    <p>Enforced by dependency-cruiser (<code>.dependency-cruiser.cjs</code>, a guardrail path). Each package is <code>@lamp/&lt;name&gt;</code> with one public <code>src/index.ts</code>. No module reads another module's tables.</p>
+    <div class="wrap">
+    <table>
+      <tr><th>Path</th><th>Role</th><th>May import</th></tr>
+      <tr><td><code>packages/tenancy</code></td><td>Tenant, Cell identity, licence state, Model Budget, Plans</td><td>nothing</td></tr>
+      <tr><td><code>packages/access</code></td><td>People, Roles, Approval Rules, System Actor, <code>authorize()</code></td><td>tenancy, tree</td></tr>
+      <tr><td><code>packages/tree</code> (kernel)</td><td>Layered Business Tree, Business Object model, packs, Tree Changes</td><td>tenancy, access</td></tr>
+      <tr><td><code>packages/runs</code> (kernel)</td><td>Run interpreter, Work Items, Deviations, Escalations</td><td>tree, access, records, agents</td></tr>
+      <tr><td><code>packages/agents</code></td><td>Agent loop, Playbooks, <code>ModelGateway</code> port</td><td>access</td></tr>
+      <tr><td><code>packages/records</code></td><td>Business Objects in the System of Record, typed commands and queries</td><td>tree, access</td></tr>
+      <tr><td><code>packages/ledgers</code></td><td>Money and stock Ledgers, Posting Rules</td><td>records</td></tr>
+      <tr><td><code>packages/artifacts</code></td><td>Artifacts and issued Documents, <code>FileStore</code> port</td><td>tree, records</td></tr>
+      <tr><td><code>packages/conversations</code></td><td>Channel-agnostic threads, Forms as conversations, approvals</td><td>access, runs</td></tr>
+      <tr><td><code>packages/audit</code></td><td>Append-only Audit Log fed by outbox events</td><td>nothing</td></tr>
+      <tr><td><code>packages/integrations</code></td><td><code>TaxProvider</code>, <code>AccountingSync</code> anticorruption layers</td><td>records, ledgers</td></tr>
+      <tr><td><code>apps/api</code>, <code>apps/worker</code></td><td>Process roles</td><td>any module's <code>index.ts</code></td></tr>
+      <tr><td><code>apps/web</code></td><td>Cockpit and web chat</td><td>no module; HTTP to the Application API only</td></tr>
+    </table>
+    </div>
+
+    <h3>The Business Tree: four patch layers (ADR-0003)</h3>
+    <div class="wrap">
+    <svg viewBox="0 0 1000 250" role="img" aria-label="Four patch layers that compose a Tenant's effective Business Tree">
+      <defs>
+        <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+        </marker>
+      </defs>
+      <g font-size="12" text-anchor="middle" fill="#fff">
+        <rect x="20" y="170" width="620" height="54" rx="8" fill="#2b6cb0"/>
+        <text x="330" y="192" font-size="14" font-weight="700">Generic Layer: packs/generic</text><text x="330" y="210">seeded from APQC PCF to Process level; Value Drivers; 7 base Value Streams</text>
+        <rect x="60" y="116" width="540" height="48" rx="8" fill="#c05621"/>
+        <text x="330" y="136" font-size="14" font-weight="700">Jurisdiction Layer: packs/jurisdiction/in</text><text x="330" y="153">GST, e-way bill, PF, ESI, PT, TDS as dated Statutory Parameters</text>
+        <rect x="100" y="62" width="460" height="48" rx="8" fill="#6b46c1"/>
+        <text x="330" y="82" font-size="14" font-weight="700">Vertical Layer: packs/vertical/mto</text><text x="330" y="99">make-to-order manufacturing template</text>
+        <rect x="140" y="14" width="380" height="42" rx="8" fill="#276749"/>
+        <text x="330" y="33" font-size="14" font-weight="700">Custom Layer: the Tenant's own patches</text><text x="330" y="48" font-size="11">Tree Changes confirmed by the Owner</text>
+
+        <rect x="740" y="74" width="240" height="96" rx="10" fill="#4c51bf"/>
+        <text x="860" y="102" font-size="14" font-weight="700">Effective tree</text>
+        <text x="860" y="122">Runs pin the version they started on</text>
+        <text x="860" y="140">nothing deleted, only hidden</text>
+        <text x="860" y="158">signed packs, history only grows</text>
+      </g>
+      <path d="M640,122 L738,122" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+      <text x="689" y="112" font-size="11" fill="#4a5568" text-anchor="middle">patches by</text>
+      <text x="689" y="140" font-size="11" fill="#4a5568" text-anchor="middle">stable node id</text>
+    </svg>
+    </div>
+
+    <h3>Cell topology (<code>infra/compose/compose.yaml</code>)</h3>
+    <div class="wrap">
+    <svg viewBox="0 0 1100 430" role="img" aria-label="Services inside one Cell and their connections">
+      <defs>
+        <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+        </marker>
+      </defs>
+      <rect x="150" y="14" width="930" height="402" rx="14" fill="#f7fafc" stroke="#a0aec0" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="170" y="38" font-size="13" font-weight="700" fill="#4a5568">Cell network: mutual TLS from the Cell's own CA (cell-certs)</text>
+
+      <g font-size="12" text-anchor="middle" fill="#fff">
+        <rect x="10" y="90" width="110" height="50" rx="8" fill="#276749"/><text x="65" y="112">Browser, MCP</text><text x="65" y="128" font-size="11">:3000</text>
+        <rect x="10" y="170" width="110" height="50" rx="8" fill="#276749"/><text x="65" y="192">Telegram,</text><text x="65" y="208">Razorpay</text>
+        <rect x="10" y="330" width="110" height="50" rx="8" fill="#6b46c1"/><text x="65" y="352">OpenRouter</text><text x="65" y="368" font-size="11">model providers</text>
+
+        <rect x="190" y="70" width="150" height="70" rx="10" fill="#c05621"/><text x="265" y="98" font-size="14" font-weight="700">api</text><text x="265" y="118">Application API + web</text>
+        <rect x="190" y="170" width="150" height="70" rx="10" fill="#c05621"/><text x="265" y="198" font-size="14" font-weight="700">worker</text><text x="265" y="218">pg-boss consumer</text>
+        <rect x="190" y="320" width="150" height="70" rx="10" fill="#6b46c1"/><text x="265" y="348" font-size="14" font-weight="700">litellm-tls</text><text x="265" y="368">:4443 sidecar to litellm</text>
+
+        <rect x="410" y="70" width="150" height="70" rx="10" fill="#2b6cb0"/><text x="485" y="98" font-size="14" font-weight="700">pgbouncer</text><text x="485" y="118">transaction pooling</text>
+        <rect x="630" y="110" width="170" height="90" rx="10" fill="#2b6cb0"/><text x="715" y="142" font-size="14" font-weight="700">postgres</text><text x="715" y="162">RLS, app role cannot bypass</text><text x="715" y="180">db-migrate: own role</text>
+        <rect x="410" y="170" width="150" height="70" rx="10" fill="#2b6cb0"/><text x="485" y="198" font-size="14" font-weight="700">minio</text><text x="485" y="218">Documents, uploads</text>
+
+        <rect x="870" y="70" width="180" height="60" rx="10" fill="#4a5568"/><text x="960" y="95" font-size="14" font-weight="700">backup (pgBackRest)</text><text x="960" y="114">WAL + daily base backup</text>
+        <rect x="870" y="150" width="180" height="60" rx="10" fill="#4a5568"/><text x="960" y="175" font-size="14" font-weight="700">backup-store</text><text x="960" y="194">separate MinIO, TLS, 35 days</text>
+        <rect x="870" y="230" width="180" height="60" rx="10" fill="#4a5568"/><text x="960" y="255" font-size="14" font-weight="700">scratch-cell</text><text x="960" y="274">restore-drill + Invariants</text>
+
+        <rect x="410" y="320" width="150" height="70" rx="10" fill="#4a5568"/><text x="485" y="348" font-size="14" font-weight="700">otel-collector</text><text x="485" y="368">traces, metrics, logs</text>
+        <rect x="630" y="320" width="120" height="70" rx="10" fill="#4a5568"/><text x="690" y="348" font-size="14" font-weight="700">prometheus</text><text x="690" y="368">+ loki</text>
+        <rect x="800" y="320" width="120" height="70" rx="10" fill="#4a5568"/><text x="860" y="348" font-size="14" font-weight="700">grafana</text><text x="860" y="368">Runs, errors, Credits</text>
+        <rect x="950" y="320" width="110" height="70" rx="10" fill="#4a5568"/><text x="1005" y="348" font-size="14" font-weight="700">mailpit</text><text x="1005" y="368">dev email</text>
+      </g>
+      <g stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow4)">
+        <path d="M120,112 L188,108"/>
+        <path d="M120,195 L188,200" marker-start="url(#arrow4)"/>
+        <path d="M340,105 L408,105"/>
+        <path d="M560,105 L628,135"/>
+        <path d="M340,195 L408,125"/>
+        <path d="M340,212 L408,212"/>
+        <path d="M340,228 C480,280 600,250 660,202" stroke-dasharray="5 4"/>
+        <path d="M265,240 L265,318"/>
+        <path d="M188,355 L122,355"/>
+        <path d="M800,140 L868,104"/>
+        <path d="M960,130 L960,148"/>
+        <path d="M960,210 L960,228"/>
+        <path d="M340,355 L408,355" stroke-dasharray="2 4"/>
+        <path d="M560,355 L628,355"/>
+        <path d="M750,355 L798,355"/>
+      </g>
+      <text x="470" y="282" font-size="11" fill="#4a5568">pg-boss: direct session connection</text>
+      <text x="345" y="345" font-size="11" fill="#4a5568">telemetry</text>
+    </svg>
+    </div>
+
+    <h3>Driven ports</h3>
+    <p>Interfaces live in the owning module; adapters implement them. <code>domain/</code> never imports <code>adapters/</code>.</p>
+    <div class="grid">
+      <div class="card ai"><h4 class="ct">ModelGateway</h4><p>agents. Adapter: LiteLLM over mTLS, tier names only.</p></div>
+      <div class="card data"><h4 class="ct">FileStore</h4><p>artifacts. Adapters: local volume, MinIO, S3.</p></div>
+      <div class="card proc"><h4 class="ct">TaxProvider, AccountingSync</h4><p>integrations. Anticorruption layers for GST services and Tally.</p></div>
+      <div class="card ok"><h4 class="ct">ChannelSender, DocumentRenderer</h4><p>Telegram, WhatsApp, web chat; Chromium PDF printing.</p></div>
+      <div class="card proc"><h4 class="ct">Clock</h4><p>Schedules, Freeze Horizon, timers and Statutory Parameter dates.</p></div>
+      <div class="card data"><h4 class="ct">Licence</h4><p>tenancy. File signed by LAMP, optional daily online check.</p></div>
+    </div>
+  </div>
+
+  <!-- 5. Features -->
+  <div class="section" id="features">
+    <h2>5. Features</h2>
+    <h3>Functional: Value Streams</h3>
+    <div class="wrap">
+    <table>
+      <tr><th>#</th><th>Value Stream</th><th>Covers</th></tr>
+      <tr><td>VS0</td><td>Onboarding</td><td>Self-serve signup, Business Profile, vertical choice, Data Import, Opening Balances</td></tr>
+      <tr><td>VS1</td><td>Enquiry-to-Order</td><td>Enquiries, estimates, quotations, margin rule, PO intake</td></tr>
+      <tr><td>VS2</td><td>Order-to-Dispatch</td><td>Sales order, pick, Delivery Challan, e-way bill, GST tax invoice</td></tr>
+      <tr><td>VS3</td><td>Invoice-to-Cash</td><td>Receivables, Reminder Ladder, Promise to Pay, Credit Hold, Payment Receipts</td></tr>
+      <tr><td>VS4</td><td>Procure-to-Pay</td><td>Purchase orders, receipts, supplier bills, job work, Bank-detail Change with Cooling-off</td></tr>
+      <tr><td>VS5</td><td>Plan-to-Produce</td><td>Work Orders, Job Cards, QC Inspection, Rework, Freeze Horizon</td></tr>
+      <tr><td>VS6</td><td>Account-to-Reorder</td><td>Order Cadence, Reorder Prompts, Quiet Key Account suggestions</td></tr>
+      <tr><td>VS7</td><td>Lost-Account Recovery</td><td>Win-back offers through the quotation path</td></tr>
+      <tr><td>VS8</td><td>Complaint-to-CAPA</td><td>Complaint intake, Containment, NCR, 8D CAPA, returns and Credit Notes</td></tr>
+      <tr><td>VS9</td><td>Breakdown-to-Restore</td><td>Asset register, Maintenance Tickets, Preventive Maintenance, Critical Spares, statutory inspections</td></tr>
+      <tr><td>VS10</td><td>Incident-to-Closure</td><td>Safety Incidents, Near Misses, Statutory Accident Reports, Corrective Actions</td></tr>
+      <tr><td>VS11</td><td>Hire-to-Retire</td><td>Employees, attendance and leave, contract labour, payroll with PF, ESI, PT, LWF and TDS</td></tr>
+      <tr><td>VS12</td><td>Record-to-Report</td><td>Chart of Accounts, Trial Balance, P&amp;L, balance sheet, Month-End Close, Cash Forecast</td></tr>
+      <tr><td>VS13</td><td>Compliance Cycle</td><td>Compliance calendar, GSTR-1, ITC-04, GSTR-3B draft, GSTR-2B reconciliation, TDS return data</td></tr>
+      <tr><td>VS14</td><td>Kaizen Loop</td><td>Improvement Ideas, Trials, Standardisation into the tree</td></tr>
+      <tr><td>VS15</td><td>NPD / APQP</td><td>Drawing Revisions, Design Review, Phase Gates, PPAP, gauges and Calibration, Tools, Engineering Changes</td></tr>
+    </table>
+    </div>
+
+    <h3>Functional: platform</h3>
+    <div class="grid">
+      <div class="card proc"><h4 class="ct">Tree Changes and Releases</h4><p>Tree Change replay against the Tenant's own Runs, signed Releases, rollout Rings, shadow replay, automatic rollback on Invariant breaches.</p></div>
+      <div class="card ai"><h4 class="ct">Earned Autonomy</h4><p>Each Work Item's Autonomy Level is capped by eval results and the live track record. Kill Switch per Tenant.</p></div>
+      <div class="card data"><h4 class="ct">Identity and access</h4><p>Mobile number verified through Telegram, email codes, Trusted Devices, Step-up, Roles on tree nodes, Break-glass Access.</p></div>
+      <div class="card ok"><h4 class="ct">Documents</h4><p>Document Templates, Own Formats as branding only, Statutory Block printed by LAMP, Print Check on every PDF.</p></div>
+      <div class="card proc"><h4 class="ct">Commercial</h4><p>Plans and limits, Trial lifecycle, Razorpay subscriptions and Credit packs, read-only mode, LAMP's own Tenant invoices customers.</p></div>
+      <div class="card ai"><h4 class="ct">External Assistants</h4><p>MCP server with in-Cell OAuth, core and command tools, Connections page.</p></div>
+      <div class="card data"><h4 class="ct">Memory</h4><p>Derived, noted or suggested, never hidden (ADR-0021). Notes, Suggestions, Playbooks the Owner can edit.</p></div>
+      <div class="card ok"><h4 class="ct">Insights and trust</h4><p>Value Driver KPIs, Insights page, Transparency Report, public trust page, in-Channel support with why-explanations.</p></div>
+    </div>
+
+    <h3>Non-functional</h3>
+    <div class="wrap">
+    <table>
+      <tr><th>Quality</th><th>How it is met</th></tr>
+      <tr><td>Determinism</td><td>LLMs never choose the route. Route rules over data; ambiguous matches block the Run (ADR-0005, ADR-0024).</td></tr>
+      <tr><td>Tenant isolation</td><td>Row-level security with tenant context per transaction, an app role that cannot bypass RLS, a separate migration role, <code>check:rls</code> and a cross-tenant leak test on every change.</td></tr>
+      <tr><td>Prompt-injection safety</td><td>Untrusted content never gains authority: typed commands only, smallest tool set per Task, outbound Counterparty messages default to Ask (ADR-0019).</td></tr>
+      <tr><td>Confidentiality</td><td>Mutual TLS between all Cell services with certificate rotation under load; per-Tenant keys for Sensitive Data Classes; cookies HttpOnly, Secure, SameSite=Strict.</td></tr>
+      <tr><td>Quality gates</td><td>Eval Harness on Vitest graded by resulting state. Critical Cases 100%. Red-team case per threat in <code>docs/security/threat-model.md</code>.</td></tr>
+      <tr><td>Recoverability</td><td>pgBackRest WAL plus daily base backups, 35 days point-in-time, monthly restore drill that runs Ledger Invariants and Document numbering checks.</td></tr>
+      <tr><td>Auditability</td><td>Append-only Audit Log from outbox events; Version Fingerprint on Runs; Statutory Parameters only gain history (<code>check:packs</code>).</td></tr>
+      <tr><td>Cost</td><td>Task classes on fixed tiers with fixed Credit prices; Model Budget metered per Tenant in LiteLLM.</td></tr>
+      <tr><td>Observability</td><td>OpenTelemetry traces from both process roles; Grafana dashboards for Runs, errors, Credits and backups.</td></tr>
+      <tr><td>Portability</td><td>No AWS-specific services in the core. The same Cell runs as SaaS, in a customer VPC, on-prem or air-gapped.</td></tr>
+      <tr><td>Language</td><td>English and Hindi labels, Message Templates and Help Content in every shipped pack; a language per person.</td></tr>
+    </table>
+    </div>
+  </div>
+
+  <!-- 6. Deployment -->
+  <div class="section" id="deploy">
+    <h2>6. Deployment</h2>
+    <h3>Model: Cells</h3>
+    <p>A Cell is the unit of deployment: app, Postgres, file storage and LiteLLM gateway, packaged as containers. <code>LAMP_CELL_KIND</code> picks the kind.</p>
+    <div class="grid">
+      <div class="card data"><h4 class="ct">dev</h4><p>Docker Compose on a laptop. Mailpit for email, MinIO for files, local default passwords. <code>pnpm dev</code>.</p></div>
+      <div class="card proc"><h4 class="ct">saas</h4><p>One pooled Cell on AWS Mumbai, backups to S3 with a copy in Hyderabad. Staging then production with blue/green. <b>Not built yet</b>: blocked on the AWS account (#133).</p></div>
+      <div class="card ok"><h4 class="ct">onprem</h4><p>Single-Tenant bundle from <code>infra/onprem</code> with installer and hardening guide. Licence file signed by LAMP; 14 days of grace, then read-only. Cloud or Ollama models; POSIX or S3 backups.</p></div>
+      <div class="card ai"><h4 class="ct">air-gapped</h4><p>On-prem without <code>LICENCE_URL</code>. Content updates with production pack signatures are in progress (#215).</p></div>
+    </div>
+
+    <h3>Prerequisites</h3>
+    <ul>
+      <li>Docker with Compose v2.24 or later, Node 22 LTS, pnpm (never npm or yarn).</li>
+      <li><code>.env</code> from <code>.env.example</code> with <code>LITELLM_MASTER_KEY</code> (required, starts with <code>sk-</code>) and <code>OPENROUTER_API_KEY</code> for real models.</li>
+      <li><code>LAMP_OWN_TENANT</code> and <code>LAMP_BUSINESS_PROFILES</code> for signup, the waitlist and invoicing.</li>
+      <li>On-prem only: <code>LAMP_CELL_ID</code>, <code>LICENCE_FILE</code>, optional <code>LICENCE_URL</code>.</li>
+    </ul>
+
+    <h3>Operating workflows</h3>
+    <div class="wrap">
+    <table>
+      <tr><th>Task</th><th>Command</th></tr>
+      <tr><td>Start, logs, stop the Cell</td><td><code>pnpm dev</code>, <code>pnpm dev:logs</code>, <code>pnpm dev:down</code></td></tr>
+      <tr><td>Create a Tenant and Owner; seed demo data</td><td><code>pnpm owner:add</code>, <code>pnpm demo:seed</code></td></tr>
+      <tr><td>Backups</td><td><code>pnpm backup:now</code>, <code>pnpm backup:status</code>, <code>pnpm backup:drill</code></td></tr>
+      <tr><td>Rotate Cell certificates without a restart</td><td><code>pnpm cell:rotate-certs</code></td></tr>
+      <tr><td>Licence</td><td><code>pnpm licence:install</code>, <code>pnpm licence:status</code></td></tr>
+      <tr><td>Smoke and end-to-end</td><td><code>pnpm smoke:compose</code>, <code>pnpm smoke:backup</code>, <code>pnpm e2e</code></td></tr>
+    </table>
+    </div>
+
+    <h3>Build workflow: agents behind a merge gate (ADR-0022)</h3>
+    <p>No human in the loop. Principle: no agent can change the rules it is judged by.</p>
+    <div class="wrap">
+    <svg viewBox="0 0 1100 170" role="img" aria-label="Autonomous build pipeline from issue to merge">
+      <defs>
+        <marker id="arrow5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+        </marker>
+      </defs>
+      <g font-size="12" text-anchor="middle" fill="#fff">
+        <rect x="10" y="30" width="160" height="100" rx="10" fill="#2b6cb0"/>
+        <text x="90" y="58" font-size="14" font-weight="700">GitHub issue</text><text x="90" y="80">ready-for-agent</text><text x="90" y="96">+ Sandcastle label</text><text x="90" y="114" font-size="11">claimed with on:machine</text>
+        <rect x="200" y="30" width="170" height="100" rx="10" fill="#6b46c1"/>
+        <text x="285" y="58" font-size="14" font-weight="700">Sandcastle agent</text><text x="285" y="80">Docker sandbox</text><text x="285" y="96">branch sandcastle/issue-N</text><text x="285" y="114" font-size="11">implements, never merges</text>
+        <rect x="400" y="30" width="170" height="100" rx="10" fill="#6b46c1"/>
+        <text x="485" y="58" font-size="14" font-weight="700">Review agents</text><text x="485" y="80">standards and spec</text><text x="485" y="96">verdicts required</text>
+        <rect x="600" y="30" width="190" height="100" rx="10" fill="#c05621"/>
+        <text x="695" y="58" font-size="14" font-weight="700">Merge gate (host)</text><text x="695" y="80">checks.json from main,</text><text x="695" y="96">fresh container</text><text x="695" y="114" font-size="11">guardrail paths, threshold ratchet</text>
+        <rect x="820" y="30" width="120" height="100" rx="10" fill="#276749"/>
+        <text x="880" y="58" font-size="14" font-weight="700">Squash merge</text><text x="880" y="80">to main</text><text x="880" y="96">[gate] commit</text>
+        <rect x="970" y="30" width="120" height="100" rx="10" fill="#4a5568"/>
+        <text x="1030" y="58" font-size="14" font-weight="700">Watchdog</text><text x="1030" y="80">reverts merges</text><text x="1030" y="96">that turn main red</text>
+      </g>
+      <g stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow5)">
+        <path d="M170,80 L198,80"/><path d="M370,80 L398,80"/><path d="M570,80 L598,80"/><path d="M790,80 L818,80"/><path d="M940,80 L968,80"/>
+        <path d="M695,130 C695,162 285,162 285,132" stroke-dasharray="5 4"/>
+      </g>
+      <text x="490" y="166" font-size="11" fill="#4a5568" text-anchor="middle">fail: up to 4 retries, then parked as needs-triage</text>
+    </svg>
+    </div>
+    <p>Gate checks, always read from <code>main</code>: install, typecheck, lint, boundaries, test, evals, rls, migrations, licenses, api-contract, coverage-and-mutation, packs-history, audit. Stop everything with the repository variable <code>AGENTS_PAUSED=true</code>.</p>
+
+    <h3>Build status (2026-10-04)</h3>
+    <div class="wrap">
+    <table>
+      <tr><th>Milestone</th><th>State</th></tr>
+      <tr><td>M1, M2</td><td>Complete</td></tr>
+      <tr><td>M3 (epic #49)</td><td>66 of 79 tickets closed</td></tr>
+      <tr><td>Agent-buildable now</td><td>#215 air-gapped content updates; #221 Hindi help content and legal notices</td></tr>
+      <tr><td>Blocked on AWS account (#133)</td><td>#132 staging Cell, #216 Tenant Keys in KMS, #217 observability and status page, #218 production Cell</td></tr>
+      <tr><td>Blocked on Meta Tech Provider (#124)</td><td>#122, #123, #202, #203 WhatsApp Channel, Verification Method, Embedded Signup, webhook relay</td></tr>
+      <tr><td>Owner tasks</td><td>#124 Meta, #133 AWS, #134 external penetration test</td></tr>
+    </table>
+    </div>
+  </div>
+
+  <p class="meta">Terms follow <code>CONTEXT.md</code>. Decisions cite <code>docs/adr/</code>. Dashed shapes mark parts not yet live.</p>
+</body>
+</html>
